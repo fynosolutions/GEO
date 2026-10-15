@@ -2,6 +2,7 @@ import { spawn } from "node:child_process";
 import { existsSync } from "node:fs";
 import path from "node:path";
 import { type Scope, snapshotSchema } from "./contracts";
+import { assertHtmlSource } from "./platform-contracts";
 
 export function geoRoot() {
 	if (process.env.GEO_PROJECT_ROOT) return path.resolve(process.env.GEO_PROJECT_ROOT);
@@ -18,6 +19,7 @@ export const p0RunsRoot = () => process.env.GEO_P0_RUNS_DIR ?? path.resolve(geoR
 export async function runCollector(
 	input: Scope & { url: string; channel: string; listingId: string; snapshotId: string },
 ) {
+	assertHtmlSource(input.channel, input.url);
 	const root = geoRoot();
 	const python = process.env.GEO_PYTHON ?? "python";
 	const extraPythonPath = [

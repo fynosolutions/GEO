@@ -23,6 +23,7 @@ import {
 import easyjoyBank from "./easyjoy-bank.json";
 import { type Judgment, summarizeBatch, validateJudgment } from "./judgment";
 import { type PilotBatch, readPilotBatch } from "./p0-import";
+import { assertHtmlSource, isPlatformChannel } from "./platform-contracts";
 import { p0RunsRoot } from "./runtime";
 
 type RecordRow = typeof restaurantGeoRecords.$inferSelect;
@@ -92,6 +93,7 @@ export async function installPilotBank(actor: string, scope: Scope) {
 	});
 }
 export async function importManualSnapshot(actor: string, input: z.infer<typeof importSnapshotInput>) {
+	assertHtmlSource(input.snapshot.channel, input.snapshot.url);
 	return db.transaction(async (tx) => {
 		await authorizeRestaurantScope(tx, actor, input, true);
 		const snapshot = snapshotSchema.parse(input.snapshot);
@@ -102,6 +104,7 @@ export async function importManualSnapshot(actor: string, input: z.infer<typeof 
 	});
 }
 export async function requestCollection(actor: string, input: z.infer<typeof collectInput>) {
+	assertHtmlSource(input.channel, input.url);
 	return db.transaction(async (tx) => {
 		await authorizeRestaurantScope(tx, actor, input, true);
 		return append(tx, actor, input.storeId, "job_request", crypto.randomUUID(), {
@@ -116,6 +119,7 @@ export async function auditChannel(actor: string, input: z.infer<typeof auditInp
 		await authorizeRestaurantScope(tx, actor, input, true);
 		const source = await record(tx, input.storeId, input.recordId, "snapshot");
 		const snapshot = snapshotSchema.parse(source.payload);
+		if (isPlatformChannel(snapshot.channel)) throw new Error("平台快照暂不用于自动诊断");
 		const [version] = await tx
 			.select()
 			.from(restaurantFactVersions)
@@ -240,6 +244,7 @@ export async function saveCollectorResult(
 			);
 		if (done) return done;
 		const parsed = snapshotSchema.parse(snapshot);
+		assertHtmlSource(parsed.channel, parsed.url);
 		if (
 			parsed.storeId !== scope.storeId ||
 			parsed.method !== "automatic" ||
@@ -309,6 +314,7 @@ export async function pilotReport(actor: string, input: z.infer<typeof recordInp
 	};
 }
 export async function saveGeoSchedule(actor: string, input: z.infer<typeof scheduleInput>) {
+	if (input.enabled) assertHtmlSource(input.channel, input.url);
 	return db.transaction(async (tx) => {
 		await authorizeRestaurantScope(tx, actor, input, true);
 		return append(tx, actor, input.storeId, "schedule", crypto.randomUUID(), {
@@ -331,6 +337,7 @@ export async function queueDueGeoChecks(now = new Date()) {
 	const seen = new Set<string>();
 	for (const { record: schedule, organizationId } of rows) {
 		const config = schedule.payload;
+		if (isPlatformChannel(String(config.channel))) continue;
 		const key = stableJson([schedule.storeId, config.channel, config.listingId]);
 		if (seen.has(key)) continue;
 		seen.add(key);

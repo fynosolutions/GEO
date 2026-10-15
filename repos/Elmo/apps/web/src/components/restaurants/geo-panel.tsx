@@ -1,6 +1,7 @@
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { snapshotSchema } from "@workspace/lib/restaurants/geo/contracts";
 import type { Judgment } from "@workspace/lib/restaurants/geo/judgment";
+import { isPlatformChannel } from "@workspace/lib/restaurants/geo/platform-contracts";
 import type { pilotReport } from "@workspace/lib/restaurants/geo/service";
 import { Button } from "@workspace/ui/components/button";
 import { Textarea } from "@workspace/ui/components/textarea";
@@ -22,6 +23,7 @@ import {
 	verifyGeoFn,
 } from "@/server/restaurant-geo";
 import { Choice, TextField } from "./fact-editor";
+import { PlatformPanel } from "./platform-panel";
 
 type Scope = { organizationId: string; storeId: string };
 type RecordData = Omit<Awaited<ReturnType<typeof getGeoFn>>, "payloadJson"> & { payload: Record<string, unknown> };
@@ -40,6 +42,9 @@ const kinds: Record<string, string> = {
 	schedule: "周检测设置",
 	job_request: "采集任务",
 	job_result: "任务结果",
+	platform_binding: "平台门店绑定",
+	platform_budget: "平台费用预留",
+	platform_query: "平台查询状态",
 };
 const pretty = (value: unknown) => JSON.stringify(value, null, 2);
 function download(name: string, value: unknown) {
@@ -108,6 +113,27 @@ export function GeoPanel({
 				</p>
 			)}
 			{!canConfirm && <p>当前账号可查看记录；配置、导入、复核和发布登记由组织管理员操作。</p>}
+			<div className="rounded-lg border p-4 space-y-3">
+				<Choice
+					label="来源"
+					value={channel}
+					onChange={(value) => setChannel(value as typeof channel)}
+					options={[
+						{ value: "official", label: "官网" },
+						{ value: "google_maps", label: "Google Maps（实时查询）" },
+						{ value: "yelp", label: "Yelp（实时查询）" },
+						{ value: "other", label: "其他公开页面" },
+					]}
+				/>
+				{isPlatformChannel(channel) && (
+					<PlatformPanel
+						key={`${scope.organizationId}:${scope.storeId}:${channel}`}
+						scope={scope}
+						provider={channel}
+						canConfirm={canConfirm}
+					/>
+				)}
+			</div>
 			<fieldset disabled={busy || !canConfirm || !!query.error} className="grid gap-5 lg:grid-cols-2 print:hidden">
 				<div className="rounded-lg border p-4 space-y-3">
 					<h3 className="font-semibold">问题库与回答</h3>
@@ -131,61 +157,52 @@ export function GeoPanel({
 						导入会检查冻结计划和原始证据指纹。不会自动提交 AI 查询或覆盖已有结果。
 					</p>
 				</div>
-				<div className="rounded-lg border p-4 space-y-3">
-					<h3 className="font-semibold">官网与渠道</h3>
-					<Choice
-						label="来源"
-						value={channel}
-						onChange={(value) => setChannel(value as typeof channel)}
-						options={[
-							{ value: "official", label: "官网" },
-							{ value: "google_maps", label: "Google Maps（优先）" },
-							{ value: "yelp", label: "Yelp（备选）" },
-							{ value: "other", label: "其他公开页面" },
-						]}
-					/>
-					<TextField label="门店页面链接" value={url} onChange={setUrl} />
-					<TextField
-						label="此渠道的门店标识（同一条记录持续复用）"
-						value={listingId}
-						onChange={setListingId}
-						placeholder="例如 easyjoy-mulberry-official"
-					/>
-					<div className="flex flex-wrap gap-2">
-						<Button
-							onClick={() =>
-								void run(
-									() => collectGeoFn({ data: { ...scope, url, channel, listingId } }),
-									"采集任务已排队；结果将自动出现",
-								)
-							}
-						>
-							发起采集
-						</Button>
-						<Button
-							variant="outline"
-							onClick={() =>
-								void run(
-									() => scheduleGeoFn({ data: { ...scope, url, channel, listingId, enabled: true } }),
-									"已启用每七天的官网/渠道检查",
-								)
-							}
-						>
-							启用周检测
-						</Button>
-						<Button
-							variant="outline"
-							onClick={() =>
-								void run(
-									() => scheduleGeoFn({ data: { ...scope, url, channel, listingId, enabled: false } }),
-									"此渠道记录的周检测已关闭",
-								)
-							}
-						>
-							关闭周检测
-						</Button>
+				{!isPlatformChannel(channel) && (
+					<div className="rounded-lg border p-4 space-y-3">
+						<h3 className="font-semibold">官网与渠道</h3>
+						<TextField label="门店页面链接" value={url} onChange={setUrl} />
+						<TextField
+							label="此渠道的门店标识（同一条记录持续复用）"
+							value={listingId}
+							onChange={setListingId}
+							placeholder="例如 easyjoy-mulberry-official"
+						/>
+						<div className="flex flex-wrap gap-2">
+							<Button
+								onClick={() =>
+									void run(
+										() => collectGeoFn({ data: { ...scope, url, channel, listingId } }),
+										"采集任务已排队；结果将自动出现",
+									)
+								}
+							>
+								发起采集
+							</Button>
+							<Button
+								variant="outline"
+								onClick={() =>
+									void run(
+										() => scheduleGeoFn({ data: { ...scope, url, channel, listingId, enabled: true } }),
+										"已启用每七天的官网/渠道检查",
+									)
+								}
+							>
+								启用周检测
+							</Button>
+							<Button
+								variant="outline"
+								onClick={() =>
+									void run(
+										() => scheduleGeoFn({ data: { ...scope, url, channel, listingId, enabled: false } }),
+										"此渠道记录的周检测已关闭",
+									)
+								}
+							>
+								关闭周检测
+							</Button>
+						</div>
 					</div>
-				</div>
+				)}
 				<details className="lg:col-span-2 rounded-lg border p-4">
 					<summary>人工渠道快照导入</summary>
 					<label htmlFor={manualId} className="block my-2 text-sm">

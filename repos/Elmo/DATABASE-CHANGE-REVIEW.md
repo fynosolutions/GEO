@@ -1,6 +1,15 @@
-# GEO 扩展表变更待审
+# GEO 扩展表变更与执行记录
 
-本轮尚未生成或执行迁移。自动审批拒绝了 `drizzle-kit generate`，认为目前的实施授权未明确覆盖具体 schema migration。本文件及 `packages/lib/src/db/schema.ts` 的 `restaurantGeoRecords` 定义是本次待批准变更范围。
+2026-10-15，用户明确要求“带我数据库初始化和接口开通和密钥配置”。已按下列范围完成备份、隔离测试及本机工作台初始化。执行迁移为 `packages/lib/src/db/migrations/0025_restaurant_geo_records.sql`，含不可变触发器；其他环境未执行。
+
+## 本机执行结果
+
+- 完整备份：`.restaurant-backups/geo-init-20261015T145059Z/`，两个 custom 格式备份均通过 `pg_restore --list` 读取验证，SHA-256 记录在该目录 `manifest.json`。
+- `restaurant_p1_test` 先执行迁移，基础 P1、GEO 修正闭环及平台并发预算/权限集成脚本均通过，全部外部平台请求为合成响应。
+- WSL 与 Windows 存在数秒时钟差；已尝试同步，验收脚本实际等待保存的草稿时间之后再登记合成发布，没有放宽业务时间规则。正式连续运行仍需监控时钟同步。
+- `restaurant_p1` 后执行同一迁移，迁移记录由 25 条增至 26 条。原有账号 1 个、门店 1 家、确认版本 0 条、证据 0 条，迁移前后数量一致。
+- 新表 RLS、外键、两个索引及 `restaurant_geo_records_immutable` 触发器已安装。GEO 记录列表与平台绑定列表通过实际组织管理员权限只读检查。
+- 专用 GEO worker 已启动，两条 `restaurant-geo-*` 队列可读；不启动其他 AI 模型队列。Google/Yelp 密钥尚未配置，尚未进行真实外部 API 查询。
 
 ## 目标
 
@@ -9,6 +18,8 @@
 ## 新增业务表
 
 `restaurant_geo_records` 只追加保存问题库、渠道快照、诊断、批次导入、人工判断、修改稿、发布登记、验证、调度设置及任务请求/结果。
+
+平台实时查询另使用 `platform_binding`、`platform_budget`、`platform_query` 三种记录：仅保存平台 ID 绑定、费用预留及状态码，不保存平台返回的名称、地址、电话、营业时间、原文、衍生诊断或内容指纹。没有新增临时内容表。预算锁覆盖整个项目，两平台共用 US$20 上限；超时与不确定计费保留预留额度。
 
 | 字段 | 内容 |
 | --- | --- |

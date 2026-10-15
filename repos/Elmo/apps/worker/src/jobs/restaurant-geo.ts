@@ -1,5 +1,6 @@
 import { db } from "@workspace/lib/db/db";
 import { collectInput } from "@workspace/lib/restaurants/geo/contracts";
+import { isPlatformChannel } from "@workspace/lib/restaurants/geo/platform-contracts";
 import { runCollector } from "@workspace/lib/restaurants/geo/runtime";
 import { queueDueGeoChecks, saveCollectorResult } from "@workspace/lib/restaurants/geo/service";
 import { sql } from "drizzle-orm";
@@ -16,7 +17,8 @@ export async function registerRestaurantGeo(boss: PgBoss) {
 			select r.id, r.store_id, r.created_by, r.payload from restaurant_geo_records r
 			join restaurant_stores s on s.id = r.store_id join brands b on b.id = s.brand_id
 			join member m on m.user_id = r.created_by and m.organization_id = b.organization_id
-			where r.kind = 'job_request' and m.role in ('owner', 'admin') and not exists (
+			where r.kind = 'job_request' and m.role in ('owner', 'admin')
+			and coalesce(r.payload->>'channel', '') not in ('google_maps', 'yelp') and not exists (
 			select 1 from restaurant_geo_records done where done.store_id = r.store_id and done.kind = 'job_result' and done.key = r.id::text)
 			order by r.created_at limit 25`);
 		for (const row of pending.rows as Request[])
@@ -25,6 +27,7 @@ export async function registerRestaurantGeo(boss: PgBoss) {
 	await boss.work<Request>("restaurant-geo-collect", { localConcurrency: 1 }, async (jobs) => {
 		for (const job of jobs) {
 			const request = job.data;
+			if (isPlatformChannel(String(request.payload.channel))) continue;
 			const input = collectInput.parse(request.payload);
 			let result: Awaited<ReturnType<typeof runCollector>>;
 			try {

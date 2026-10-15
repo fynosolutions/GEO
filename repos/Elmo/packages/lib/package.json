@@ -12,6 +12,8 @@
 		"verify:membership-dedupe": "tsx scripts/verify-membership-dedupe.ts"
 	},
 	"exports": {
+		"./restaurants/geo/platform-contracts": "./src/restaurants/geo/platform-contracts.ts",
+		"./restaurants/geo/platform-service": "./src/restaurants/geo/platform-service.ts",
 		"./restaurants/geo/contracts": "./src/restaurants/geo/contracts.ts",
 		"./restaurants/geo/service": "./src/restaurants/geo/service.ts",
 		"./restaurants/geo/runtime": "./src/restaurants/geo/runtime.ts",

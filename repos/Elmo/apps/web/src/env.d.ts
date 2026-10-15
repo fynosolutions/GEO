@@ -40,6 +40,13 @@ declare global {
 	const __APP_VERSION__: string;
 	namespace NodeJS {
 		interface ProcessEnv {
+			readonly GEO_GOOGLE_PLACES_API_KEY?: string;
+			readonly GEO_GOOGLE_PLACES_ENABLED?: string;
+			readonly GEO_GOOGLE_MAX_REQUEST_USD?: string;
+			readonly GEO_YELP_API_KEY?: string;
+			readonly GEO_YELP_PURPOSE?: string;
+			readonly GEO_YELP_MAX_REQUEST_USD?: string;
+			readonly GEO_PLATFORM_PRIOR_SPEND_USD?: string;
 			readonly DEPLOYMENT_MODE: string;
 			readonly DATABASE_URL: string;
 			readonly APP_URL?: string;

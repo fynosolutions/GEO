@@ -28,6 +28,7 @@ pnpm --filter @workspace/lib check-types
 pnpm --filter @workspace/worker check-types
 pnpm --filter @workspace/lib exec vitest run src/audits src/providers/registry/openai-api.test.ts src/providers/registry/openrouter.test.ts src/website-excerpt.test.ts
 pnpm --filter @workspace/web exec vitest run --project unit src/server/public-audit-http.test.ts src/server/public-audits.test.ts
+node scripts/verify-legacy-node-compat.mjs
 $env:PYTHONPATH = (Resolve-Path ../geo-optimizer-skill/src).Path
 python -m unittest discover -s integrations/geo -p 'test*.py' -v
 pnpm lint
@@ -35,7 +36,7 @@ pnpm lint
 
 开发环境仍需原仓库要求的数据库、鉴权密钥与加密密钥；`SCRAPE_TARGETS=stub:stub`及`ONBOARDING_LLM_TARGET=stub:stub`仅阻止旧功能调用真实研究模型，并不会使新体检伪装成真实检测。新运行时不含自动合成回退；真实调用默认关闭。集成测试通过依赖注入执行合成回答，并要求独立测试数据库及显式测试模式。不得在公网设置 `NODE_ENV=test` 或 `AUDIT_TEST_MODE=1`。
 
-网站采集通过 `integrations/geo/audit_website.py` 调用已有DNS绑定、私网校验、跳转重新校验及流式大小限制。最多读取5个同源HTML页面，另检查robots.txt和llms.txt。技术分采用明确命名的有界GEO Optimizer profile；CDN探针、插件及其他AI discovery端点不在该profile中。无地址或电话、多门店、正文抽取不完整不会阻止独立技术检查。Node摘要入口也使用这条安全抓取链路。
+新体检的网站采集通过 `integrations/geo/audit_website.py` 调用已有DNS绑定、私网校验、跳转重新校验及流式大小限制。最多读取5个同源HTML页面，另检查robots.txt和llms.txt。技术分采用明确命名的有界GEO Optimizer profile；CDN探针、插件及其他AI discovery端点不在该profile中。无地址或电话、多门店、正文抽取不完整不会阻止独立技术检查。原品牌建档的官网摘要使用Node.js安全抓取及Readability，不依赖此Python采集器。
 
 复现本轮合成集成验收时，使用已初始化的独立`auditv1test_<timestamp>`数据库及忽略的私密环境文件，确保`NODE_ENV=test`、`AUDIT_TEST_MODE=1`、`PUBLIC_AUDIT_LIVE_CALLS_ENABLED=0`，然后执行：
 
@@ -46,9 +47,47 @@ pnpm exec tsx --env-file=deploy/audits/.state/test.env scripts/public-audits-ren
 
 该文件只在本机保留，不随仓库分发；新机器需先准备全新的隔离库及测试加密密钥。不要将这些命令指向原P1数据库。质量样本的真实采集应在暂停体检worker的维护窗口单独运行，以免与报告检测争抢provider并发。
 
+## 保留原有部署和功能
+
+原有 `docker/Dockerfile` 和CLI生成的Compose继续用于现有Elmo网页及worker。品牌建档的官网摘要仅使用Node.js和已有的Readability／linkedom依赖，保留可选Jina Reader和直接读取官网的回退；两条网络路径均校验公网地址、限制响应大小与超时。无需为原镜像增加Python、GEO Optimizer源码或Chromium，也无需配置新体检的OpenRouter／Resend凭据才能继续原有建档流程。
+
+原worker在未设置 `PUBLIC_AUDIT_WORKER_ONLY=1` 时，继续注册原模型监测、报告、建档及维护队列；`GEO_PIPELINE_ENABLED`仍控制原餐厅GEO队列。保持现有 `SCRAPE_TARGETS`、模型凭据、数据库、鉴权密钥和原Compose文件。新体检的公开入口及付费调用开关默认关闭，不会启用新体检任务。新数据库迁移仍须按仓库要求单独审核和授权，合并代码不会自动对原数据库执行迁移。
+
+下述 `deploy/audits/compose.yaml` 的专用worker显式设置 `PUBLIC_AUDIT_WORKER_ONLY=1`，不会处理原周期队列。保留原Compose及worker，另外部署体检专用镜像，使用独立域名、私密配置和报告文件卷。不要把其中的 `stub:stub` 和worker专用设置复制到原环境。同一项目的原Google／Yelp与新体检必须连接同一个数据库，使用同一份累计20美元账本；两个数据库的账本不能自动合并。接入已有项目须使用下节的共享库override，不能直接以默认新数据库代替。原数据库迁移、密钥及账本均须单独核对。
+
+若同机部署，先核对现有80／443端口占用及反向代理路由，安排体检域名的入口，避免新Caddy与现有代理争用端口。
+
+本次兼容修复的回归范围及尚未执行的容器验收见 `deploy/audits/ACCEPTANCE.md`。
+
+`node scripts/verify-legacy-node-compat.mjs` 使用现有锁定依赖打包实际官网摘要入口，然后在源码目录之外、空PATH、无Python／优化器路径及无node_modules的独立Node进程中检查Reader成功、Reader被拒后读取HTML及私网输入拒绝。DNS和HTTP全部为内存fixture，不访问官网、不调用模型、不发邮件；结果保存在忽略的 `deploy/audits/.state/legacy-node-proof/result.json`。该检查可证明摘要入口的Node-only运行边界，不能替代完整Docker镜像构建和现有部署的升级验收。
+
+### 接入已有项目的共享数据库
+
+`compose.existing-db.yaml` 为web、体检worker和维护服务覆盖 `DATABASE_URL`，并清除对默认新PostgreSQL容器的启动依赖；默认新数据库也被移到不会自动启用的 `standalone` profile。需要支持 `!reset` 的Docker Compose，本次使用5.5.1完成静态验证。保持原web／worker运行配置，原worker不设置 `PUBLIC_AUDIT_WORKER_ONLY=1`，且设置 `PUBLIC_AUDIT_ENABLED=0`，防止Node-only镜像处理新体检任务；原队列仍按原开关运行。新体检web／worker使用带Python和Chromium的完整体检镜像。
+
+在私密 `.env` 中设置 `AUDIT_EXISTING_DATABASE_URL` 为原项目同一个数据库的连接地址，使用原项目的 `BETTER_AUTH_SECRET` 和 `ELMO_ENCRYPTION_KEY`，保留其他已有凭据。数据库地址须能从体检容器经已授权的私有网络访问；原Compose的服务名不一定能跨Compose网络解析。需要共享Docker网络时，由操作员显式配置现有数据库网络，禁止为解决连通性而把数据库端口开放到公网。
+
+先备份原数据库及原私有文件，在隔离恢复库审核新增迁移与新旧流程。获得目标数据库迁移的明确授权后，暂停原、新web／worker等全部写入服务，按已有部署维护流程迁移。以下命令仅展示审核后操作路径，不会由容器启动自动执行迁移：
+
+```bash
+docker compose --env-file deploy/audits/.env -f deploy/audits/compose.yaml -f deploy/audits/compose.existing-db.yaml config --quiet
+# Run only after explicit authorization for this existing database:
+docker compose --env-file deploy/audits/.env -f deploy/audits/compose.yaml -f deploy/audits/compose.existing-db.yaml --profile maintenance run --rm --no-deps migrate
+```
+
+迁移后通过现有管理员账号核对历史支出、Google／Yelp预留及新体检账本，完成预算对账。在恢复任何付费服务前，将原web／worker和体检web／worker的 `AUDIT_SHARED_BUDGET_ENABLED` 全部设为1，并重新创建相应服务，使各进程共用同一账本和锁；不能只给体检服务设置。新体检的公开／付费开关继续保持关闭，直至真实验收恢复并通过上线门槛。
+
+按原Compose恢复原web／worker；体检Compose只显式启动所需服务，不启动默认 `postgres`。以下保留代理服务供独立域名部署使用；如果复用现有反向代理，先完成对应路由配置，再省略 `proxy`：
+
+```bash
+docker compose --env-file deploy/audits/.env -f deploy/audits/compose.yaml -f deploy/audits/compose.existing-db.yaml up -d web audit-worker proxy
+```
+
+共享数据库的备份／恢复继续使用原项目维护流程，并同时覆盖新体检私有文件卷；备份时暂停全部旧、新写入者。下文 `backup.sh` 和 `restore-drill.sh` 操作默认新PostgreSQL容器，只适用于独立新部署；检测到环境变量或配置文件中的有效 `AUDIT_EXISTING_DATABASE_URL` 赋值时会拒绝执行，避免误备份另一个数据库。配置文件中的空赋值也会保守拒绝。本节共享模式下后续每条体检Compose命令都须带上 `-f deploy/audits/compose.existing-db.yaml`，避免连接到另一个数据库。
+
 ## Linux单机部署
 
-使用 `deploy/audits/compose.yaml`，独立的新PostgreSQL 16数据库、web、仅体检worker及Caddy。公网只开放Caddy的80／443端口；数据库、web、原始证据及PDF卷没有直接公开端口。不要将此Compose直接指向原P1生产数据库。
+以下默认 `deploy/audits/compose.yaml` 流程仅适用于没有既有项目费用账本的新部署或隔离验收，包含新的PostgreSQL 16数据库、web、仅体检worker及Caddy。它不会显示或接管旧数据库的门店、报告与预算记录。已有项目应先按上一节配置共享数据库override。公网只开放Caddy的80／443端口；数据库、web、原始证据及PDF卷没有直接公开端口。
 
 部署目录结构必须保留：
 

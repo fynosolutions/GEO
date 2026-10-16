@@ -51,6 +51,28 @@
 - Docker daemon未启动，未构建、启动Linux容器，未申请真实HTTPS证书，未运行容器版备份脚本。WSL隔离库恢复演练不能被称为服务器部署验收。
 - 本轮为软件验证，未完成营业门店资料的人工事实核验，也不作AI排名提升承诺。
 
+## 原有部署兼容修复 — 2026-10-16
+
+原品牌建档的官网摘要恢复为Node.js独立执行，保留Jina Reader及Readability回退，使用带公网地址检查、DNS绑定、逐次跳转检查、大小与时间上限的抓取层。原Node-only Docker镜像不需要新体检的Python采集器、相邻优化器目录或Chromium。新体检的完整官网审计继续使用专用镜像中的Python采集器。
+
+已检查原Dockerfile、CLI Compose生成器及worker入口：原镜像和CLI部署路径保留；只有显式设置 `PUBLIC_AUDIT_WORKER_ONLY=1` 才跳过原队列；未设置时仍注册原队列。导入体检运行时不会启动Python／PDF子进程，也不会初始化Resend客户端；这些依赖只在相应体检任务执行时使用。
+
+`node scripts/verify-legacy-node-compat.mjs` 已在Node.js 24.16.0／Windows x64通过：将实际摘要入口和依赖打包为独立ESM，唯一外部依赖为Node内置模块；可选canvas使用linkedom自带的无原生依赖回退。将产物复制到系统临时目录后，在与源码无关的工作目录运行，PATH为空，Python及GEO源码路径不存在，运行时不读取node_modules。Jina成功、Jina返回401后Readability读取HTML、恶意脚本不进入摘要和5种私网／非法协议输入均通过；真实网络请求、模型调用、邮件及子进程尝试均为0。证据为 `.state/legacy-node-proof/result.json`；其DNS与HTTP为内存fixture。
+
+| 兼容回归 | 结果 |
+| --- | --- |
+| 官网摘要 | 9项测试通过，包含Reader成功、失败回退、授权头隔离及无Python依赖 |
+| Node安全抓取 | 53项测试通过，包含DNS绑定、私网与跳转、超时和正文限制 |
+| worker启动 | 6项测试通过，覆盖旧队列保留、新旧并存、体检专用模式及原功能开关 |
+| 原品牌建档 | 12项既有测试通过 |
+| 完整相关检查 | 共享库810项、网页554项测试通过；lib／web／worker类型检查、网页生产构建及仓库lint通过 |
+| 已有数据库Compose | 使用Docker Compose5.5.1、合成连接地址完成默认及maintenance profile静态验证；五个新服务连接同一个共享库，均不依赖默认新PostgreSQL服务，该服务默认不启用 |
+| 备份／恢复保护 | 两个脚本通过 `bash -n`；配置文件非空赋值、空赋值及外部环境变量三种情形共6项检查均在Docker及数据库操作前拒绝共享库模式 |
+
+已有项目通过 `compose.existing-db.yaml` 接入原数据库，原、新服务的Google／Yelp与体检调用才会共用同一项目账本；需在迁移授权、备份及对账后同时启用各进程的共享预算开关。本轮仅用合成地址验证Compose，没有连接原数据库，也没有执行迁移。
+
+此修复没有执行数据库迁移、真实模型调用或邮件发送。Linux容器构建和旧部署升级仍需Docker环境实际验收，不能用源码检查或Node回归测试代替。
+
 ## 测试基础设施及清理边界
 
 测试新建了一个专用数据库角色、一个源测试库及一个恢复演练库。为Windows连接新增的`pg_hba.conf`规则仅允许该新数据库／新角色及当前Windows地址`/32`，使用SCRAM；既有规则不变。旧配置副本、确切名称及隐藏WSL保活PID保存在忽略的`.state/`。

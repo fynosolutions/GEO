@@ -3,6 +3,11 @@ set -euo pipefail
 umask 077
 task_dir="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
 if [[ $# -ne 1 ]]; then printf 'Usage: bash restore-drill.sh /absolute/path/to/backup\n' >&2; exit 2; fi
+env_file="$(realpath -- "${AUDIT_ENV_FILE:-$task_dir/.env}")"
+if [[ -n "${AUDIT_EXISTING_DATABASE_URL:-}" ]] || grep -Eq '^[[:space:]]*(export[[:space:]]+)?AUDIT_EXISTING_DATABASE_URL[[:space:]]*=' "$env_file"; then
+    printf 'Shared existing databases require the existing restore procedure and an isolated drill target. This script only handles the standalone PostgreSQL container.\n' >&2
+    exit 2
+fi
 backup_dir="$(realpath -- "$1")"
 if [[ ! -f "$backup_dir/SHA256SUMS" || ! -f "$backup_dir/database.dump" || ! -f "$backup_dir/artifacts.tar.gz" ]]; then
     printf 'A complete backup and checksum manifest are required\n' >&2; exit 2
@@ -11,7 +16,6 @@ fi
     cd -- "$backup_dir"
     sha256sum --check SHA256SUMS
 )
-env_file="$(realpath -- "${AUDIT_ENV_FILE:-$task_dir/.env}")"
 export AUDIT_ENV_FILE="$env_file"
 compose=(docker compose --env-file "$env_file" -f "$task_dir/compose.yaml")
 drill_suffix="$(date -u +%Y%m%d%H%M%S)_audit_restore_drill"

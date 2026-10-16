@@ -4,6 +4,10 @@ umask 077
 task_dir="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
 env_file="${AUDIT_ENV_FILE:-$task_dir/.env}"
 env_file="$(realpath -- "$env_file")"
+if [[ -n "${AUDIT_EXISTING_DATABASE_URL:-}" ]] || grep -Eq '^[[:space:]]*(export[[:space:]]+)?AUDIT_EXISTING_DATABASE_URL[[:space:]]*=' "$env_file"; then
+    printf 'Shared existing databases require the existing backup procedure, pausing ALL old and new writers. This script only handles the standalone PostgreSQL container.\n' >&2
+    exit 2
+fi
 export AUDIT_ENV_FILE="$env_file"
 compose=(docker compose --env-file "$env_file" -f "$task_dir/compose.yaml")
 backup_dir="$task_dir/backups/$(date -u +%Y%m%dT%H%M%SZ)"

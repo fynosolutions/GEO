@@ -42,6 +42,25 @@ export interface EnvVarSpec {
 const VALIDATED_MODES: DeploymentMode[] = ["local", "demo", "whitelabel", "cloud"];
 
 export const ENV_REGISTRY: EnvVarSpec[] = [
+	...[
+		["PUBLIC_AUDIT_ENABLED", "Enable public restaurant audit routes after acceptance."],
+		["PUBLIC_AUDIT_LIVE_CALLS_ENABLED", "Enable explicitly budgeted audit model calls."],
+		["PUBLIC_AUDIT_WORKER_ONLY", "Run only the isolated audit queue, without legacy periodic jobs."],
+		["AUDIT_SHARED_BUDGET_ENABLED", "Require Google, Yelp and audit calls to share the reconciled project budget."],
+		["AUDIT_TEST_MODE", "Enable injected synthetic dependencies only when NODE_ENV is test."],
+		["AUDIT_STORAGE_DIR", "Private persistent restaurant evidence and PDF directory."],
+		["AUDIT_PRICE_REVIEWED_AT", "ISO timestamp of the latest provider price review; valid for seven days."],
+		["AUDIT_TARGETS", "Optional JSON array of two audit API targets, separate from periodic runs."],
+		["AUDIT_TRUST_PROXY", "Trust X-Real-IP only behind the documented private reverse proxy."],
+		[
+			"AUDIT_EVALUATION_LIVE_ENABLED",
+			"Explicit operator opt-in for the budgeted quality collection CLI; default disabled.",
+		],
+		[
+			"AUDIT_QUALITY_EVIDENCE_FILE",
+			"Private human-reviewed judge evaluation evidence required before public admission.",
+		],
+	].map(([name, description]): EnvVarSpec => ({ name, description, scope: "server", requiredBy: "optional" })),
 	{
 		name: "GEO_GOOGLE_PLACES_API_KEY",
 		scope: "server",

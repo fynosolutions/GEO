@@ -1,0 +1,123 @@
+name: restaurant-audits
+
+x-app: &app
+  image: ${GEO_AUDIT_IMAGE:-geo-restaurant-audit:v1}
+  build:
+    context: ../../..
+    dockerfile: Elmo/deploy/audits/Dockerfile
+    args:
+      VITE_APP_URL: ${APP_URL:-https://reports.example.com}
+  env_file:
+    - path: ${AUDIT_ENV_FILE:-.env}
+      required: true
+  environment: &app-env
+    DATABASE_URL: postgresql://${POSTGRES_USER:-elmo}:${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB:-restaurant_audits}
+    NODE_ENV: production
+    DEPLOYMENT_MODE: local
+    GEO_PROJECT_ROOT: /app/repos/Elmo
+    GEO_PYTHON: /usr/bin/python3
+    AUDIT_STORAGE_DIR: /var/lib/elmo-audits
+    PLAYWRIGHT_BROWSERS_PATH: /ms-playwright
+    AUDIT_TRUST_PROXY: "1"
+    PUBLIC_AUDIT_WORKER_ONLY: "1"
+    AUDIT_SHARED_BUDGET_ENABLED: ${AUDIT_SHARED_BUDGET_ENABLED:-0}
+    AUDIT_QUALITY_EVIDENCE_FILE: /run/audit-quality/quality-evidence.json
+    GEO_PIPELINE_ENABLED: "0"
+    SCRAPE_TARGETS: stub:stub
+    ONBOARDING_LLM_TARGET: stub:stub
+    DISABLE_TELEMETRY: "1"
+  init: true
+  restart: unless-stopped
+  security_opt:
+    - no-new-privileges:true
+  cap_drop:
+    - ALL
+  volumes:
+    - audit-private:/var/lib/elmo-audits
+    - type: bind
+      source: ./.state/quality
+      target: /run/audit-quality
+      read_only: true
+  depends_on:
+    postgres:
+      condition: service_healthy
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-elmo}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB:-restaurant_audits}
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    healthcheck:
+      test: [CMD-SHELL, 'pg_isready -U "$$POSTGRES_USER" -d "$$POSTGRES_DB"']
+      interval: 10s
+      timeout: 5s
+      retries: 10
+
+  web:
+    <<: *app
+    command: [node, apps/web/.output/server/index.mjs]
+    expose:
+      - "3000"
+    healthcheck:
+      test: [CMD, node, -e, "fetch('http://127.0.0.1:3000/api/public-audits/availability').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"]
+      interval: 30s
+      timeout: 10s
+      start_period: 60s
+      retries: 5
+
+  audit-worker:
+    <<: *app
+    command: [pnpm, --filter, "@workspace/worker", start]
+    shm_size: 512mb
+    stop_grace_period: 45s
+
+  proxy:
+    image: caddy:2-alpine
+    restart: unless-stopped
+    environment:
+      AUDIT_DOMAIN: ${AUDIT_DOMAIN:?Set AUDIT_DOMAIN}
+      ACME_EMAIL: ${ACME_EMAIL:?Set ACME_EMAIL}
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy-data:/data
+      - caddy-config:/config
+    depends_on:
+      web:
+        condition: service_healthy
+
+  migrate:
+    <<: *app
+    profiles: [maintenance]
+    restart: "no"
+    command: [pnpm, --filter, "@workspace/lib", exec, drizzle-kit, migrate]
+
+  artifact-reader:
+    <<: *app
+    profiles: [maintenance]
+    restart: "no"
+    volumes:
+      - audit-private:/var/lib/elmo-audits:ro
+    command: [node, -e, "console.log('Private artifact maintenance image')"]
+
+  artifact-drill:
+    <<: *app
+    profiles: [maintenance]
+    restart: "no"
+    volumes:
+      - audit-drill:/var/lib/elmo-audit-drill
+    command: [node, -e, "console.log('Isolated restore drill volume')"]
+
+volumes:
+  postgres-data:
+  audit-private:
+  audit-drill:
+  caddy-data:
+  caddy-config:

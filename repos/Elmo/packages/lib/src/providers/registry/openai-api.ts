@@ -61,6 +61,21 @@ function rebuildRawOutput(result: { text: string; sources: readonly { sourceType
 	};
 }
 
+function answerQuality(text: string, finishReason: string): "empty" | "truncated" | "complete" | "unknown" {
+	if (!text.trim()) return "empty";
+	if (finishReason === "length") return "truncated";
+	return finishReason === "stop" ? "complete" : "unknown";
+}
+
+function searchExecution(
+	searchCalls: number,
+	webSearch: boolean,
+	hasPayload: boolean,
+): "executed" | "not_executed" | "unknown" {
+	if (searchCalls > 0) return "executed";
+	return !webSearch || hasPayload ? "not_executed" : "unknown";
+}
+
 async function runOpenAI(prompt: string, model: string, options?: ProviderOptions): Promise<ScrapeResult> {
 	const webSearch = options?.webSearch === true;
 
@@ -69,12 +84,14 @@ async function runOpenAI(prompt: string, model: string, options?: ProviderOption
 		// which reads process.env internally) so overlay credentials apply here.
 		model: getOpenAIResponsesModel(model),
 		prompt,
-		maxOutputTokens: API_PROVIDER_MAX_OUTPUT_TOKENS["openai-api"],
+		maxOutputTokens: options?.maxOutputTokens ?? API_PROVIDER_MAX_OUTPUT_TOKENS["openai-api"],
+		...(options?.signal ? { abortSignal: options.signal } : {}),
+		...(options?.maxRetries === undefined ? {} : { maxRetries: options.maxRetries }),
 		toolChoice: webSearch ? "auto" : "none",
 		...(webSearch
 			? {
 					tools: { web_search: openai.tools.webSearch({ searchContextSize: OPENAI_WEB_SEARCH_CONTEXT_SIZE }) },
-					providerOptions: { openai: { maxToolCalls: OPENAI_WEB_SEARCH_MAX_TOOL_CALLS } },
+					providerOptions: { openai: { maxToolCalls: options?.maxToolCalls ?? OPENAI_WEB_SEARCH_MAX_TOOL_CALLS } },
 				}
 			: {}),
 	});
@@ -89,13 +106,25 @@ async function runOpenAI(prompt: string, model: string, options?: ProviderOption
 	const webQueries = result.content.flatMap((part) =>
 		part.type === "tool-result" && part.toolName === "web_search" ? webSearchQueries(part.output) : [],
 	);
+	const searchCalls = isResponsesPayload(body)
+		? body.output.filter((part) => (part as { type?: string }).type === "web_search_call").length
+		: result.content.filter((part) => part.type === "tool-result" && part.toolName === "web_search").length;
+	const textContent = extractTextFromOpenAI(rawOutput);
+	const citations = extractCitationsFromOpenAI(rawOutput);
 
 	return {
 		rawOutput,
 		webQueries: reportedWebQueries(webQueries, { webSearch: options?.webSearch ?? false }),
-		textContent: extractTextFromOpenAI(rawOutput),
-		citations: extractCitationsFromOpenAI(rawOutput),
-		modelVersion: model,
+		textContent,
+		citations,
+		modelVersion: result.response?.modelId ?? model,
+		auditMetadata: {
+			searchExecution: searchExecution(searchCalls, webSearch, isResponsesPayload(body)),
+			citationAvailability: citations.length ? "returned" : "none_returned",
+			quality: answerQuality(textContent, result.finishReason),
+			usage: { inputTokens: result.usage?.inputTokens, outputTokens: result.usage?.outputTokens, searchCalls },
+			providerRequestId: result.response?.id,
+		},
 	};
 }
 
@@ -107,7 +136,7 @@ export const openaiApi: Provider = {
 
 	isConfigured: configuredWhen("OPENAI_API_KEY"),
 
-	async run(model: string, prompt: string, options?: ProviderOptions): Promise<ScrapeResult> {
+	async run(_model: string, prompt: string, options?: ProviderOptions): Promise<ScrapeResult> {
 		const version = options?.version ?? DEFAULT_RESEARCH_MODEL;
 		return runOpenAI(prompt, version, options);
 	},
@@ -116,10 +145,17 @@ export const openaiApi: Provider = {
 		prompt,
 		schema,
 		webSearch = true,
+		version = DEFAULT_RESEARCH_MODEL,
+		signal,
+		maxOutputTokens,
+		maxRetries,
 	}: StructuredResearchOptions<T>): Promise<StructuredResearchResult<T>> {
-		const object = await structuredResearch(getOpenAIResponsesModel(DEFAULT_RESEARCH_MODEL), {
+		const object = await structuredResearch(getOpenAIResponsesModel(version), {
 			prompt,
 			schema,
+			signal,
+			maxOutputTokens,
+			maxRetries,
 			...(webSearch
 				? {
 						tools: {
@@ -129,6 +165,6 @@ export const openaiApi: Provider = {
 					}
 				: {}),
 		});
-		return { object, modelVersion: DEFAULT_RESEARCH_MODEL };
+		return { object, modelVersion: version };
 	},
 };

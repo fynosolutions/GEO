@@ -1,171 +1,100 @@
-import { afterEach, describe, expect, it, vi } from "vitest";
-import { getWebsiteExcerpt } from "./website-excerpt";
+import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
-type FakeResponse = {
-	ok: boolean;
-	status: number;
-	headers: { get: (key: string) => string | null };
-	text: () => Promise<string>;
-};
-
-function response(opts: { ok?: boolean; status?: number; contentType?: string; body?: string }): FakeResponse {
-	const { ok = true, status = 200, contentType = "text/plain", body = "" } = opts;
-	return {
-		ok,
-		status,
-		headers: { get: (key) => (key.toLowerCase() === "content-type" ? contentType : null) },
-		text: async () => body,
-	};
-}
-
-/**
- * Route a stubbed fetch to a per-tier response based on the request URL.
- * `direct` covers the tier-2 backend fetch (any non-Jina URL).
- */
-function stubFetch(tiers: { jina?: FakeResponse; direct?: FakeResponse }) {
-	const fetchMock = vi.fn(async (input: unknown) => {
-		const url = String(input);
-		if (url.startsWith("https://r.jina.ai/")) {
-			if (!tiers.jina) throw new Error("unexpected jina call");
-			return tiers.jina;
-		}
-		if (!tiers.direct) throw new Error("unexpected direct call");
-		return tiers.direct;
-	});
-	vi.stubGlobal("fetch", fetchMock);
-	return fetchMock;
-}
-
-function headersOf(call: unknown[]): Record<string, string> {
-	return (call[1] as { headers: Record<string, string> }).headers;
-}
-
-// A real article so tier 2 exercises linkedom + Readability for real.
-const ARTICLE_HTML = `<!DOCTYPE html>
-<html><head><title>Acme Robotics</title></head>
-<body>
-	<nav>Home About Careers Contact</nav>
-	<article>
-		<h1>Acme Robotics builds warehouse automation</h1>
-		<p>Acme Robotics designs autonomous mobile robots that move inventory through
-		fulfillment centers, replacing fixed conveyor systems with fleets that route
-		themselves around obstacles. The company sells to mid-market retailers who need
-		to scale peak-season throughput without rebuilding their warehouses, and its
-		software coordinates hundreds of robots from a single control plane.</p>
-		<p>Founded in 2019, Acme now operates in twelve distribution centers across
-		North America and reports that its robots cut order-picking time roughly in half.</p>
-	</article>
-	<footer>Copyright Acme Robotics</footer>
-</body></html>`;
-
-afterEach(() => {
-	vi.unstubAllGlobals();
-	vi.unstubAllEnvs();
-	vi.clearAllMocks();
+const network = vi.hoisted(() => ({ fetchPublicWebsite: vi.fn(), validatePublicWebsiteUrl: vi.fn() }));
+vi.mock("./safe-website-fetch", () => network);
+vi.mock("./audits/website", () => {
+	throw new Error("Legacy onboarding cannot require the Python audit collector");
 });
 
-describe("getWebsiteExcerpt", () => {
-	it("returns Jina content and skips the fallback when Jina succeeds", async () => {
-		const fetchMock = stubFetch({
-			jina: response({ contentType: "text/plain", body: "# Acme\nFrom Jina reader" }),
-		});
+import { getWebsiteExcerpt } from "./website-excerpt";
 
-		const excerpt = await getWebsiteExcerpt("acme.com");
+const article = `<!DOCTYPE html><html><head><title>Acme Robotics</title></head><body><nav>Careers Login</nav><article><h1>Acme Robotics</h1><p>Acme Robotics designs autonomous mobile robots for restaurant kitchens. The robots move inventory between storage areas and preparation stations while staff focus on serving guests. Operators can adjust the restaurant floor plan and review inventory from one control panel.</p><p>The restaurant automation service operates in twelve locations and supports staff with accurate, accessible information.</p></article></body></html>`;
+const response = (body: string, status = 200) => ({ url: "https://restaurant.example/", status, body });
 
-		expect(excerpt).toContain("From Jina reader");
-		expect(fetchMock).toHaveBeenCalledTimes(1);
-		expect(String(fetchMock.mock.calls[0][0])).toBe("https://r.jina.ai/https://acme.com");
+beforeEach(() => {
+	vi.resetAllMocks();
+	network.validatePublicWebsiteUrl.mockImplementation(async (value: string) => {
+		const parsed = new URL(value);
+		parsed.hash = "";
+		return parsed;
 	});
+	network.fetchPublicWebsite.mockRejectedValue(new Error("Source unavailable"));
+});
+afterEach(() => vi.unstubAllEnvs());
 
-	it("prepends a scheme to a bare domain that carries a path", async () => {
-		const fetchMock = stubFetch({ jina: response({ body: "content" }) });
-
-		await getWebsiteExcerpt("nike.com/golf");
-
-		expect(String(fetchMock.mock.calls[0][0])).toBe("https://r.jina.ai/https://nike.com/golf");
+describe("Node-only legacy website context", () => {
+	it("retains Jina context without loading Python or requiring a project checkout", async () => {
+		vi.stubEnv("GEO_PYTHON", "missing-python");
+		vi.stubEnv("GEO_PROJECT_ROOT", "/missing/project");
+		network.fetchPublicWebsite.mockResolvedValueOnce(response("# Acme\nRendered restaurant website"));
+		expect(await getWebsiteExcerpt("restaurant.example/menu?view=lunch#menu")).toContain("Rendered restaurant website");
+		expect(network.validatePublicWebsiteUrl).toHaveBeenCalledWith("https://restaurant.example/menu?view=lunch#menu");
+		expect(network.fetchPublicWebsite).toHaveBeenCalledTimes(1);
+		expect(network.fetchPublicWebsite.mock.calls[0]?.[0]).toBe(
+			"https://r.jina.ai/https://restaurant.example/menu?view=lunch",
+		);
 	});
-
-	it("preserves an absolute page URL through both excerpt sources", async () => {
-		const pageUrl = "https://www.nike.com/golf?category=clubs#featured";
-		const fetchMock = stubFetch({
-			jina: response({ ok: false, status: 401 }),
-			direct: response({ contentType: "text/html; charset=utf-8", body: ARTICLE_HTML }),
-		});
-
-		await getWebsiteExcerpt(pageUrl);
-
-		expect(String(fetchMock.mock.calls[0][0])).toBe(`https://r.jina.ai/${pageUrl}`);
-		expect(String(fetchMock.mock.calls[1][0])).toBe(pageUrl);
-	});
-
-	it("sends an Authorization header to Jina when JINA_API_KEY is set", async () => {
-		vi.stubEnv("JINA_API_KEY", "jina_test_key");
-		const fetchMock = stubFetch({ jina: response({ body: "content" }) });
-
-		await getWebsiteExcerpt("acme.com");
-
-		expect(headersOf(fetchMock.mock.calls[0]).Authorization).toBe("Bearer jina_test_key");
-	});
-
-	it("sends no Authorization header when JINA_API_KEY is unset", async () => {
-		vi.stubEnv("JINA_API_KEY", "");
-		const fetchMock = stubFetch({ jina: response({ body: "content" }) });
-
-		await getWebsiteExcerpt("acme.com");
-
-		expect(headersOf(fetchMock.mock.calls[0]).Authorization).toBeUndefined();
-	});
-
-	it("falls back to backend fetch + Readability when Jina is blocked (401)", async () => {
-		const fetchMock = stubFetch({
-			jina: response({ ok: false, status: 401 }),
-			direct: response({ contentType: "text/html; charset=utf-8", body: ARTICLE_HTML }),
-		});
-
-		const excerpt = await getWebsiteExcerpt("acme.com");
-
+	it("falls back to safe HTML and Readability when the reader is unavailable", async () => {
+		network.fetchPublicWebsite.mockResolvedValueOnce(response("", 401)).mockResolvedValueOnce(response(article));
+		const excerpt = await getWebsiteExcerpt("https://restaurant.example/menu?view=dinner");
 		expect(excerpt).toContain("autonomous mobile robots");
-		// Readability strips chrome like the nav and returns clean text (no HTML tags).
-		expect(excerpt).not.toContain("Careers");
+		expect(excerpt).not.toContain("Careers Login");
 		expect(excerpt).not.toContain("<p>");
-		expect(fetchMock).toHaveBeenCalledTimes(2);
+		expect(network.fetchPublicWebsite.mock.calls[1]?.[0]).toBe("https://restaurant.example/menu?view=dinner");
 	});
-
-	it("continues past Jina when it throws (network error)", async () => {
-		const fetchMock = vi.fn(async (input: unknown) => {
-			const url = String(input);
-			if (url.startsWith("https://r.jina.ai/")) throw new Error("network down");
-			return response({ contentType: "text/html", body: ARTICLE_HTML }) as unknown;
+	it("passes the optional Jina key only to the fixed reader and forbids its redirects", async () => {
+		vi.stubEnv("JINA_API_KEY", "synthetic_reader_key");
+		network.fetchPublicWebsite
+			.mockRejectedValueOnce(new Error("Reader redirect refused"))
+			.mockResolvedValueOnce(response(article));
+		expect(await getWebsiteExcerpt("restaurant.example")).toContain("Acme Robotics");
+		expect(network.fetchPublicWebsite.mock.calls[0]?.[1]).toMatchObject({
+			headers: { Authorization: "Bearer synthetic_reader_key" },
+			maxRedirects: 0,
 		});
-		vi.stubGlobal("fetch", fetchMock);
-
-		expect(await getWebsiteExcerpt("acme.com")).toContain("autonomous mobile robots");
-		expect(fetchMock).toHaveBeenCalledTimes(2);
+		expect(network.fetchPublicWebsite.mock.calls[1]?.[1].headers.Authorization).toBeUndefined();
 	});
-
-	it("returns an empty string when both tiers fail", async () => {
-		stubFetch({
-			jina: response({ ok: false, status: 401 }),
-			direct: response({ ok: false, status: 500 }),
-		});
-
-		expect(await getWebsiteExcerpt("acme.com")).toBe("");
+	it("does not send credentials when no reader key is configured", async () => {
+		vi.stubEnv("JINA_API_KEY", "");
+		network.fetchPublicWebsite.mockResolvedValueOnce(response("Public reader content"));
+		await getWebsiteExcerpt("restaurant.example");
+		expect(network.fetchPublicWebsite.mock.calls[0]?.[1].headers.Authorization).toBeUndefined();
 	});
-
-	it("caps the excerpt at 200 lines", async () => {
-		const body = Array.from({ length: 300 }, (_, i) => `line ${i}`).join("\n");
-		stubFetch({ jina: response({ body }) });
-
-		const excerpt = await getWebsiteExcerpt("acme.com");
-
+	it("rejects private or unsupported target URLs before sharing them with a reader", async () => {
+		network.validatePublicWebsiteUrl.mockRejectedValue(new Error("Destination is not public HTTP(S)"));
+		expect(await getWebsiteExcerpt("http://127.0.0.1/metadata")).toBe("");
+		expect(await getWebsiteExcerpt("ftp://restaurant.example/menu")).toBe("");
+		expect(network.fetchPublicWebsite).not.toHaveBeenCalled();
+	});
+	it("returns a best-effort empty excerpt when both sources fail", async () => {
+		expect(await getWebsiteExcerpt("restaurant.example")).toBe("");
+		expect(network.fetchPublicWebsite).toHaveBeenCalledTimes(2);
+	});
+	it("removes non-visible scripts and styles in the plain-body fallback", async () => {
+		network.fetchPublicWebsite
+			.mockResolvedValueOnce(response("", 503))
+			.mockResolvedValueOnce(
+				response(
+					"<html><body><div>Open for lunch</div><script>secret script</script><style>hidden style</style><noscript>hidden fallback</noscript></body></html>",
+				),
+			);
+		const excerpt = await getWebsiteExcerpt("restaurant.example");
+		expect(excerpt).toContain("Open for lunch");
+		expect(excerpt).not.toMatch(/secret script|hidden style|hidden fallback/);
+	});
+	it("bounds reader excerpts to 200 lines and 20,000 characters", async () => {
+		network.fetchPublicWebsite.mockResolvedValueOnce(
+			response(Array.from({ length: 300 }, (_, index) => `line ${index}`).join("\n")),
+		);
+		const excerpt = await getWebsiteExcerpt("restaurant.example");
 		expect(excerpt.split("\n")).toHaveLength(200);
-		expect(excerpt).toContain("line 199");
 		expect(excerpt).not.toContain("line 200");
+		network.fetchPublicWebsite.mockResolvedValueOnce(response("x".repeat(40_000)));
+		expect((await getWebsiteExcerpt("restaurant.example")).length).toBe(20_000);
 	});
-
-	it("returns an empty string for an empty URL without fetching", async () => {
-		const fetchMock = stubFetch({});
-		expect(await getWebsiteExcerpt("")).toBe("");
-		expect(fetchMock).not.toHaveBeenCalled();
+	it("skips empty URLs", async () => {
+		expect(await getWebsiteExcerpt("  ")).toBe("");
+		expect(network.validatePublicWebsiteUrl).not.toHaveBeenCalled();
+		expect(network.fetchPublicWebsite).not.toHaveBeenCalled();
 	});
 });

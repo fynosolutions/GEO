@@ -183,6 +183,13 @@
       "when": 1792072384985,
       "tag": "0025_restaurant_geo_records",
       "breakpoints": true
+    },
+    {
+      "idx": 26,
+      "version": "7",
+      "when": 1792157276412,
+      "tag": "0026_public_restaurant_audits",
+      "breakpoints": true
     }
   ]
 }

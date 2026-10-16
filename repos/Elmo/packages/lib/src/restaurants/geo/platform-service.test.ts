@@ -1,3 +1,4 @@
+import { PgDialect } from "drizzle-orm/pg-core";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import { sha256, stableJson } from "./compare";
 
@@ -83,6 +84,7 @@ beforeEach(() => {
 	vi.stubEnv("GEO_PLATFORM_PRIOR_SPEND_USD", "0");
 	vi.stubEnv("BETTER_AUTH_SECRET", secret);
 	mocks.rows.length = 0;
+	mocks.db.execute.mockReset().mockResolvedValue([]);
 	mocks.selected.value = undefined;
 	mocks.authorize.mockReset().mockResolvedValue({});
 	mocks.fetcher.mockReset().mockResolvedValue({
@@ -139,6 +141,62 @@ describe("authorized queries and conservative accounting", () => {
 		expect(budgetAllows(0, -1, 1)).toBe(false);
 		expect(budgetAllows(0, 19_999_999, 1)).toBe(true);
 		expect(budgetAllows(0, 19_999_999, 2)).toBe(false);
+	});
+});
+
+function enableSharedBudget(options: { historical?: number; tracked?: number; reconciled?: boolean } = {}) {
+	vi.stubEnv("AUDIT_SHARED_BUDGET_ENABLED", "1");
+	mocks.db.execute.mockImplementation(async (query) => {
+		const statement = new PgDialect().sqlToQuery(query).sql;
+		if (statement.includes("audit_budget_accounts"))
+			return {
+				rows: [{ reconciled: options.reconciled ?? true, historical_micros: options.historical ?? 0, accepting: true }],
+			};
+		if (statement.includes("restaurant_geo_records"))
+			return { rows: mocks.rows.filter((row) => row.kind === "platform_budget") };
+		if (statement.includes("audit_cost_reservations")) return { rows: [{ total: String(options.tracked ?? 0) }] };
+		return { rows: [] };
+	});
+}
+
+describe("legacy queries sharing the restaurant audit ledger", () => {
+	it("includes new AI reservations before making a Google request", async () => {
+		enableSharedBudget({ tracked: 19_990_000 });
+		expect(await queryPlatform(actor, input)).toEqual({ code: "budget_exceeded" });
+		expect(mocks.fetcher).not.toHaveBeenCalled();
+		expect(mocks.rows).toHaveLength(0);
+	});
+
+	it("counts legacy reservations once without inserting a duplicate new-ledger reservation", async () => {
+		enableSharedBudget({ historical: 1_000_000, tracked: 18_900_000 });
+		const result = await queryPlatform(actor, input);
+		expect(result.code).toBe("ok");
+		expect(mocks.rows.filter((row) => row.kind === "platform_budget")).toHaveLength(1);
+		const statements = mocks.db.execute.mock.calls.map(([query]) => new PgDialect().sqlToQuery(query).sql);
+		expect(statements.some((statement) => statement.startsWith("insert into audit_cost_reservations"))).toBe(false);
+	});
+
+	it("serializes concurrent platform requests against already committed AI reservations", async () => {
+		enableSharedBudget({ tracked: 19_925_000 });
+		const replies = await Promise.all([
+			queryPlatform(actor, input),
+			queryPlatform(actor, {
+				...input,
+				storeId: "00000000-0000-4000-8000-000000000003",
+				requestId: "00000000-0000-4000-8000-000000000004",
+			}),
+		]);
+		expect(replies.map((reply) => reply.code).sort()).toEqual(["budget_exceeded", "ok"]);
+		expect(mocks.fetcher).toHaveBeenCalledOnce();
+	});
+
+	it("fails closed until reconciliation and never reduces acknowledged legacy history", async () => {
+		enableSharedBudget({ reconciled: false });
+		expect(await queryPlatform(actor, input)).toEqual({ code: "budget_exceeded" });
+		enableSharedBudget({ historical: 1_000_000 });
+		vi.stubEnv("GEO_PLATFORM_PRIOR_SPEND_USD", "2");
+		expect(await queryPlatform(actor, input)).toEqual({ code: "budget_exceeded" });
+		expect(mocks.fetcher).not.toHaveBeenCalled();
 	});
 });
 describe("preview-bound identity confirmation", () => {

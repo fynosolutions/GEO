@@ -18,6 +18,7 @@ import type { Facts } from "../restaurants/facts";
 // (and the rest of the auth schema) visible to `import * as schema` consumers.
 import { organization } from "./schema-auth";
 
+export * from "./schema-audits";
 // Better-auth tables & relations — re-exported so `import * as schema` sees everything.
 // Source file is auto-generated; run `pnpm run generate:auth-schema` to refresh.
 export * from "./schema-auth";

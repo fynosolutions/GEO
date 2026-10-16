@@ -2,10 +2,12 @@ import * as Sentry from "@sentry/node";
 import { assertRequiredEnv } from "@workspace/config/env";
 import { parseScrapeTargets } from "@workspace/config/scrape-targets";
 import { getDeploymentFeatures } from "@workspace/deployment";
+import { sendEmail } from "@workspace/deployment/email";
 import { getProvider, validateScrapeTargets } from "@workspace/lib/providers";
 import { startCredentialRefresh } from "@workspace/lib/secrets";
 import { getBoss } from "./boss";
 import { registerHandlers } from "./handlers";
+import { registerPublicAudits } from "./jobs/public-audits";
 import { registerRestaurantGeo } from "./jobs/restaurant-geo";
 import { shutdownTelemetry } from "./telemetry";
 
@@ -19,6 +21,16 @@ if (process.env.SENTRY_DSN) {
 
 async function main() {
 	console.log("Starting pg-boss worker...");
+	if (process.env.PUBLIC_AUDIT_WORKER_ONLY === "1") {
+		if (!process.env.DATABASE_URL) throw new Error("DATABASE_URL is required for the audit worker");
+		const auditBoss = getBoss();
+		auditBoss.on("error", (error) => Sentry.captureException(error));
+		await auditBoss.start();
+		await startCredentialRefresh();
+		await registerPublicAudits(auditBoss, sendEmail);
+		console.log("Public audit worker ready; legacy paid model queues are not registered");
+		return;
+	}
 	assertRequiredEnv();
 	const boss = getBoss();
 
@@ -89,6 +101,7 @@ async function main() {
 
 	// Register job handlers
 	await registerHandlers(boss);
+	if (process.env.PUBLIC_AUDIT_ENABLED === "1") await registerPublicAudits(boss, sendEmail);
 	if (process.env.GEO_PIPELINE_ENABLED === "1") await registerRestaurantGeo(boss);
 	console.log("All handlers registered, worker is ready");
 }

@@ -1,0 +1,25 @@
+# Add alongside compose.yaml only after reviewing the existing database migration.
+# Explicitly start web/audit-worker/proxy; do not start the base postgres service.
+services:
+  postgres:
+    profiles: [standalone]
+  web:
+    depends_on: !reset {}
+    environment:
+      DATABASE_URL: ${AUDIT_EXISTING_DATABASE_URL:?Set AUDIT_EXISTING_DATABASE_URL for the shared project database}
+  audit-worker:
+    depends_on: !reset {}
+    environment:
+      DATABASE_URL: ${AUDIT_EXISTING_DATABASE_URL:?Set AUDIT_EXISTING_DATABASE_URL for the shared project database}
+  migrate:
+    depends_on: !reset {}
+    environment:
+      DATABASE_URL: ${AUDIT_EXISTING_DATABASE_URL:?Set AUDIT_EXISTING_DATABASE_URL for the shared project database}
+  artifact-reader:
+    depends_on: !reset {}
+    environment:
+      DATABASE_URL: ${AUDIT_EXISTING_DATABASE_URL:?Set AUDIT_EXISTING_DATABASE_URL for the shared project database}
+  artifact-drill:
+    depends_on: !reset {}
+    environment:
+      DATABASE_URL: ${AUDIT_EXISTING_DATABASE_URL:?Set AUDIT_EXISTING_DATABASE_URL for the shared project database}

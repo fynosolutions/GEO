@@ -43,9 +43,24 @@ const SECURITY_HEADERS: Record<string, string> = {
 	"Permissions-Policy": "camera=(), microphone=(), geolocation=(), payment=(), usb=(), browsing-topics=()",
 };
 
-function addSecurityHeaders(response: Response): Response {
+function addSecurityHeaders(request: Request, response: Response): Response {
 	for (const [key, value] of Object.entries(SECURITY_HEADERS)) {
 		response.headers.set(key, value);
+	}
+	const pathname = new URL(request.url).pathname;
+	if (
+		pathname.startsWith("/audit/") ||
+		pathname.startsWith("/api/public-audits") ||
+		pathname.startsWith("/api/admin/audits")
+	) {
+		response.headers.set("Cache-Control", "private, no-store");
+		response.headers.set("Referrer-Policy", "no-referrer");
+	}
+	if (pathname.startsWith("/audit/")) {
+		response.headers.set(
+			"Content-Security-Policy",
+			"default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self' data:; connect-src 'self'; object-src 'none'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+		);
 	}
 	return response;
 }
@@ -54,7 +69,7 @@ export default createServerEntry(
 	wrapFetchWithSentry({
 		async fetch(request: Request) {
 			const response = await handler.fetch(request);
-			return addSecurityHeaders(response);
+			return addSecurityHeaders(request, response);
 		},
 	}),
 );

@@ -8,11 +8,14 @@ export interface StructuredResearchCall<T> {
 	schema: z.ZodType<T>;
 	tools?: ToolSet;
 	providerOptions?: GenerateTextArgs["providerOptions"];
+	signal?: AbortSignal;
+	maxOutputTokens?: number;
+	maxRetries?: number;
 }
 
 export async function structuredResearch<T>(
 	model: LanguageModel,
-	{ prompt, schema, tools, providerOptions }: StructuredResearchCall<T>,
+	{ prompt, schema, tools, providerOptions, signal, maxOutputTokens, maxRetries }: StructuredResearchCall<T>,
 ): Promise<T> {
 	const result = await generateText({
 		model,
@@ -20,6 +23,9 @@ export async function structuredResearch<T>(
 		output: Output.object({ schema }),
 		...(tools ? { tools } : {}),
 		...(providerOptions ? { providerOptions } : {}),
+		...(signal ? { abortSignal: signal } : {}),
+		...(maxOutputTokens === undefined ? {} : { maxOutputTokens }),
+		...(maxRetries === undefined ? {} : { maxRetries }),
 	});
 	return result.output as T;
 }

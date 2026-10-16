@@ -1,6 +1,7 @@
 import { createHmac, timingSafeEqual } from "node:crypto";
 import { and, desc, eq, sql } from "drizzle-orm";
 import { z } from "zod";
+import { assertProjectBudget, PROJECT_BUDGET_LOCK } from "../../audits/budget";
 import { db } from "../../db/db";
 import type { DbConnection } from "../../db/db-connection";
 import { restaurantGeoRecords } from "../../db/schema";
@@ -109,6 +110,17 @@ export function budgetAllows(prior: number, reserved: number, next: number) {
 		prior + reserved + next <= BUDGET_MICROS
 	);
 }
+
+async function platformCallFitsBudget(connection: DbConnection, prior: number, reserved: number, next: number) {
+	if (process.env.AUDIT_SHARED_BUDGET_ENABLED !== "1") return budgetAllows(prior, reserved, next);
+	try {
+		const budget = await assertProjectBudget(connection, next);
+		// A reconciled account must not erase spending already acknowledged by the legacy integration.
+		return budget.historicalMicros >= prior;
+	} catch {
+		return false;
+	}
+}
 export async function queryPlatform(actor: string, input: z.infer<typeof platformQueryInput>): Promise<PlatformReply> {
 	try {
 		await authorizeRestaurantScope(db, actor, input, true);
@@ -130,7 +142,7 @@ export async function queryPlatform(actor: string, input: z.infer<typeof platfor
 			async (tx) => {
 				await authorizeRestaurantScope(tx, actor, input, true);
 				// One lock covers all organizations and both providers sharing this project budget.
-				await tx.execute(sql`select pg_advisory_xact_lock(716304882)`);
+				await tx.execute(sql`select pg_advisory_xact_lock(${PROJECT_BUDGET_LOCK})`);
 				const rows = await tx
 					.select()
 					.from(restaurantGeoRecords)
@@ -155,7 +167,8 @@ export async function queryPlatform(actor: string, input: z.infer<typeof platfor
 						return "budget_exceeded";
 					total += Number(row.payload.reservedMicros);
 				}
-				if (!budgetAllows(config.priorMicros as number, total, config.maxMicros as number)) return "budget_exceeded";
+				if (!(await platformCallFitsBudget(tx, config.priorMicros as number, total, config.maxMicros as number)))
+					return "budget_exceeded";
 				await event(tx, actor, input.storeId, "platform_budget", input.requestId, {
 					provider: input.provider,
 					reservedMicros: config.maxMicros,

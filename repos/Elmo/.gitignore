@@ -93,3 +93,7 @@ apps/web/storybook-static/
 __pycache__/
 .restaurant-backups/
 !.env.platforms.example
+.audit-private/
+.audit-test/
+deploy/audits/.state/
+deploy/audits/backups/

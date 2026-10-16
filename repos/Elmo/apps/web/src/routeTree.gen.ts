@@ -11,10 +11,14 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AuthedRouteImport } from './routes/_authed'
+import { Route as FreeReportRouteImport } from './routes/free-report'
 import { Route as AuthedAdminRouteImport } from './routes/_authed/admin'
 import { Route as AuthedAppRouteImport } from './routes/_authed/app'
 import { Route as AuthedChoosePlanRouteImport } from './routes/_authed/choose-plan'
 import { Route as AuthedReportsRouteImport } from './routes/_authed/reports'
+import { Route as AuditIdRouteImport } from './routes/audit/$id'
+import { Route as AuditAccessRouteImport } from './routes/audit/access'
+import { Route as AuditVerifyRouteImport } from './routes/audit/verify'
 import { Route as AuthAuthorizeRouteImport } from './routes/auth/authorize'
 import { Route as AuthForgotPasswordRouteImport } from './routes/auth/forgot-password'
 import { Route as AuthLoginRouteImport } from './routes/auth/login'
@@ -27,6 +31,7 @@ import { Route as DotwellKnownOauthProtectedResourceIndexRouteImport } from './r
 import { Route as DotwellKnownOauthProtectedResourceSplatRouteImport } from './routes/[.]well-known/oauth-protected-resource/$'
 import { Route as AuthedAcceptInvitationInvitationIdRouteImport } from './routes/_authed/accept-invitation/$invitationId'
 import { Route as AuthedAdminIndexRouteImport } from './routes/_authed/admin/index'
+import { Route as AuthedAdminAuditsRouteImport } from './routes/_authed/admin/audits'
 import { Route as AuthedAdminToolsRouteImport } from './routes/_authed/admin/tools'
 import { Route as AuthedAdminWorkflowsRouteImport } from './routes/_authed/admin/workflows'
 import { Route as AuthedAppIndexRouteImport } from './routes/_authed/app/index'
@@ -36,12 +41,16 @@ import { Route as ApiAuthSplatRouteImport } from './routes/api/auth/$'
 import { Route as ApiManifestIndexRouteImport } from './routes/api/manifest/index'
 import { Route as ApiMcpSplatRouteImport } from './routes/api/mcp/$'
 import { Route as ApiOgIndexRouteImport } from './routes/api/og/index'
+import { Route as ApiPublicAuditsIndexRouteImport } from './routes/api/public-audits/index'
+import { Route as ApiPublicAuditsSplatRouteImport } from './routes/api/public-audits/$'
 import { Route as ApiSetupStatusIndexRouteImport } from './routes/api/setup-status/index'
 import { Route as ApiV1SplatRouteImport } from './routes/api/v1/$'
 import { Route as ApiV1MeRouteImport } from './routes/api/v1/me'
 import { Route as ApiV1ModelsRouteImport } from './routes/api/v1/models'
 import { Route as AuthedAppOrgOrgRouteImport } from './routes/_authed/app/org/$org'
 import { Route as AuthedReportsRenderReportIdRouteImport } from './routes/_authed/reports/render/$reportId'
+import { Route as ApiAdminAuditsIndexRouteImport } from './routes/api/admin/audits/index'
+import { Route as ApiAdminAuditsSplatRouteImport } from './routes/api/admin/audits/$'
 import { Route as ApiPlausibleEventIndexRouteImport } from './routes/api/plausible/event/index'
 import { Route as ApiV1BrandsIndexRouteImport } from './routes/api/v1/brands/index'
 import { Route as ApiV1BrandsBrandIdRouteImport } from './routes/api/v1/brands/$brandId'
@@ -105,6 +114,11 @@ const AuthedRoute = AuthedRouteImport.update({
   id: '/_authed',
   getParentRoute: () => rootRouteImport,
 } as any)
+const FreeReportRoute = FreeReportRouteImport.update({
+  id: '/free-report',
+  path: '/free-report',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AuthedAdminRoute = AuthedAdminRouteImport.update({
   id: '/admin',
   path: '/admin',
@@ -124,6 +138,21 @@ const AuthedReportsRoute = AuthedReportsRouteImport.update({
   id: '/reports',
   path: '/reports',
   getParentRoute: () => AuthedRoute,
+} as any)
+const AuditIdRoute = AuditIdRouteImport.update({
+  id: '/audit/$id',
+  path: '/audit/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuditAccessRoute = AuditAccessRouteImport.update({
+  id: '/audit/access',
+  path: '/audit/access',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuditVerifyRoute = AuditVerifyRouteImport.update({
+  id: '/audit/verify',
+  path: '/audit/verify',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const AuthAuthorizeRoute = AuthAuthorizeRouteImport.update({
   id: '/auth/authorize',
@@ -190,6 +219,11 @@ const AuthedAdminIndexRoute = AuthedAdminIndexRouteImport.update({
   path: '/',
   getParentRoute: () => AuthedAdminRoute,
 } as any)
+const AuthedAdminAuditsRoute = AuthedAdminAuditsRouteImport.update({
+  id: '/audits',
+  path: '/audits',
+  getParentRoute: () => AuthedAdminRoute,
+} as any)
 const AuthedAdminToolsRoute = AuthedAdminToolsRouteImport.update({
   id: '/tools',
   path: '/tools',
@@ -235,6 +269,16 @@ const ApiOgIndexRoute = ApiOgIndexRouteImport.update({
   path: '/api/og/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiPublicAuditsIndexRoute = ApiPublicAuditsIndexRouteImport.update({
+  id: '/api/public-audits/',
+  path: '/api/public-audits/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiPublicAuditsSplatRoute = ApiPublicAuditsSplatRouteImport.update({
+  id: '/api/public-audits/$',
+  path: '/api/public-audits/$',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiSetupStatusIndexRoute = ApiSetupStatusIndexRouteImport.update({
   id: '/api/setup-status/',
   path: '/api/setup-status/',
@@ -266,6 +310,16 @@ const AuthedReportsRenderReportIdRoute =
     path: '/render/$reportId',
     getParentRoute: () => AuthedReportsRoute,
   } as any)
+const ApiAdminAuditsIndexRoute = ApiAdminAuditsIndexRouteImport.update({
+  id: '/api/admin/audits/',
+  path: '/api/admin/audits/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiAdminAuditsSplatRoute = ApiAdminAuditsSplatRouteImport.update({
+  id: '/api/admin/audits/$',
+  path: '/api/admin/audits/$',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiPlausibleEventIndexRoute = ApiPlausibleEventIndexRouteImport.update({
   id: '/api/plausible/event/',
   path: '/api/plausible/event/',
@@ -573,10 +627,14 @@ const AuthedAppOrgOrgBrandBrandSettingsPromptsRoute =
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/free-report': typeof FreeReportRoute
   '/admin': typeof AuthedAdminRouteWithChildren
   '/app': typeof AuthedAppRouteWithChildren
   '/choose-plan': typeof AuthedChoosePlanRoute
   '/reports': typeof AuthedReportsRouteWithChildren
+  '/audit/$id': typeof AuditIdRoute
+  '/audit/access': typeof AuditAccessRoute
+  '/audit/verify': typeof AuditVerifyRoute
   '/auth/authorize': typeof AuthAuthorizeRoute
   '/auth/forgot-password': typeof AuthForgotPasswordRoute
   '/auth/login': typeof AuthLoginRoute
@@ -586,11 +644,13 @@ export interface FileRoutesByFullPath {
   '/.well-known/oauth-authorization-server/$': typeof DotwellKnownOauthAuthorizationServerSplatRoute
   '/.well-known/oauth-protected-resource/$': typeof DotwellKnownOauthProtectedResourceSplatRoute
   '/accept-invitation/$invitationId': typeof AuthedAcceptInvitationInvitationIdRoute
+  '/admin/audits': typeof AuthedAdminAuditsRoute
   '/admin/tools': typeof AuthedAdminToolsRoute
   '/admin/workflows': typeof AuthedAdminWorkflowsRoute
   '/app/new': typeof AuthedAppNewRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
   '/api/mcp/$': typeof ApiMcpSplatRoute
+  '/api/public-audits/$': typeof ApiPublicAuditsSplatRoute
   '/api/v1/$': typeof ApiV1SplatRoute
   '/api/v1/me': typeof ApiV1MeRoute
   '/api/v1/models': typeof ApiV1ModelsRoute
@@ -601,15 +661,18 @@ export interface FileRoutesByFullPath {
   '/reports/': typeof AuthedReportsIndexRoute
   '/api/manifest/': typeof ApiManifestIndexRoute
   '/api/og/': typeof ApiOgIndexRoute
+  '/api/public-audits/': typeof ApiPublicAuditsIndexRoute
   '/api/setup-status/': typeof ApiSetupStatusIndexRoute
   '/app/org/$org': typeof AuthedAppOrgOrgRouteWithChildren
   '/reports/render/$reportId': typeof AuthedReportsRenderReportIdRoute
+  '/api/admin/audits/$': typeof ApiAdminAuditsSplatRoute
   '/api/v1/brands/$brandId': typeof ApiV1BrandsBrandIdRouteWithChildren
   '/api/v1/competitors/$competitorId': typeof ApiV1CompetitorsCompetitorIdRoute
   '/api/v1/organizations/$organizationId': typeof ApiV1OrganizationsOrganizationIdRouteWithChildren
   '/api/v1/prompts/$promptId': typeof ApiV1PromptsPromptIdRouteWithChildren
   '/api/v1/reports/$reportId': typeof ApiV1ReportsReportIdRoute
   '/api/v1/tools/analyze': typeof ApiV1ToolsAnalyzeRoute
+  '/api/admin/audits/': typeof ApiAdminAuditsIndexRoute
   '/api/plausible/event/': typeof ApiPlausibleEventIndexRoute
   '/api/v1/brands/': typeof ApiV1BrandsIndexRoute
   '/api/v1/competitors/': typeof ApiV1CompetitorsIndexRoute
@@ -660,7 +723,11 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/free-report': typeof FreeReportRoute
   '/choose-plan': typeof AuthedChoosePlanRoute
+  '/audit/$id': typeof AuditIdRoute
+  '/audit/access': typeof AuditAccessRoute
+  '/audit/verify': typeof AuditVerifyRoute
   '/auth/authorize': typeof AuthAuthorizeRoute
   '/auth/forgot-password': typeof AuthForgotPasswordRoute
   '/auth/login': typeof AuthLoginRoute
@@ -670,11 +737,13 @@ export interface FileRoutesByTo {
   '/.well-known/oauth-authorization-server/$': typeof DotwellKnownOauthAuthorizationServerSplatRoute
   '/.well-known/oauth-protected-resource/$': typeof DotwellKnownOauthProtectedResourceSplatRoute
   '/accept-invitation/$invitationId': typeof AuthedAcceptInvitationInvitationIdRoute
+  '/admin/audits': typeof AuthedAdminAuditsRoute
   '/admin/tools': typeof AuthedAdminToolsRoute
   '/admin/workflows': typeof AuthedAdminWorkflowsRoute
   '/app/new': typeof AuthedAppNewRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
   '/api/mcp/$': typeof ApiMcpSplatRoute
+  '/api/public-audits/$': typeof ApiPublicAuditsSplatRoute
   '/api/v1/$': typeof ApiV1SplatRoute
   '/api/v1/me': typeof ApiV1MeRoute
   '/api/v1/models': typeof ApiV1ModelsRoute
@@ -685,14 +754,17 @@ export interface FileRoutesByTo {
   '/reports': typeof AuthedReportsIndexRoute
   '/api/manifest': typeof ApiManifestIndexRoute
   '/api/og': typeof ApiOgIndexRoute
+  '/api/public-audits': typeof ApiPublicAuditsIndexRoute
   '/api/setup-status': typeof ApiSetupStatusIndexRoute
   '/reports/render/$reportId': typeof AuthedReportsRenderReportIdRoute
+  '/api/admin/audits/$': typeof ApiAdminAuditsSplatRoute
   '/api/v1/brands/$brandId': typeof ApiV1BrandsBrandIdRouteWithChildren
   '/api/v1/competitors/$competitorId': typeof ApiV1CompetitorsCompetitorIdRoute
   '/api/v1/organizations/$organizationId': typeof ApiV1OrganizationsOrganizationIdRouteWithChildren
   '/api/v1/prompts/$promptId': typeof ApiV1PromptsPromptIdRouteWithChildren
   '/api/v1/reports/$reportId': typeof ApiV1ReportsReportIdRoute
   '/api/v1/tools/analyze': typeof ApiV1ToolsAnalyzeRoute
+  '/api/admin/audits': typeof ApiAdminAuditsIndexRoute
   '/api/plausible/event': typeof ApiPlausibleEventIndexRoute
   '/api/v1/brands': typeof ApiV1BrandsIndexRoute
   '/api/v1/competitors': typeof ApiV1CompetitorsIndexRoute
@@ -743,10 +815,14 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/_authed': typeof AuthedRouteWithChildren
+  '/free-report': typeof FreeReportRoute
   '/_authed/admin': typeof AuthedAdminRouteWithChildren
   '/_authed/app': typeof AuthedAppRouteWithChildren
   '/_authed/choose-plan': typeof AuthedChoosePlanRoute
   '/_authed/reports': typeof AuthedReportsRouteWithChildren
+  '/audit/$id': typeof AuditIdRoute
+  '/audit/access': typeof AuditAccessRoute
+  '/audit/verify': typeof AuditVerifyRoute
   '/auth/authorize': typeof AuthAuthorizeRoute
   '/auth/forgot-password': typeof AuthForgotPasswordRoute
   '/auth/login': typeof AuthLoginRoute
@@ -756,11 +832,13 @@ export interface FileRoutesById {
   '/.well-known/oauth-authorization-server/$': typeof DotwellKnownOauthAuthorizationServerSplatRoute
   '/.well-known/oauth-protected-resource/$': typeof DotwellKnownOauthProtectedResourceSplatRoute
   '/_authed/accept-invitation/$invitationId': typeof AuthedAcceptInvitationInvitationIdRoute
+  '/_authed/admin/audits': typeof AuthedAdminAuditsRoute
   '/_authed/admin/tools': typeof AuthedAdminToolsRoute
   '/_authed/admin/workflows': typeof AuthedAdminWorkflowsRoute
   '/_authed/app/new': typeof AuthedAppNewRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
   '/api/mcp/$': typeof ApiMcpSplatRoute
+  '/api/public-audits/$': typeof ApiPublicAuditsSplatRoute
   '/api/v1/$': typeof ApiV1SplatRoute
   '/api/v1/me': typeof ApiV1MeRoute
   '/api/v1/models': typeof ApiV1ModelsRoute
@@ -771,15 +849,18 @@ export interface FileRoutesById {
   '/_authed/reports/': typeof AuthedReportsIndexRoute
   '/api/manifest/': typeof ApiManifestIndexRoute
   '/api/og/': typeof ApiOgIndexRoute
+  '/api/public-audits/': typeof ApiPublicAuditsIndexRoute
   '/api/setup-status/': typeof ApiSetupStatusIndexRoute
   '/_authed/app/org/$org': typeof AuthedAppOrgOrgRouteWithChildren
   '/_authed/reports/render/$reportId': typeof AuthedReportsRenderReportIdRoute
+  '/api/admin/audits/$': typeof ApiAdminAuditsSplatRoute
   '/api/v1/brands/$brandId': typeof ApiV1BrandsBrandIdRouteWithChildren
   '/api/v1/competitors/$competitorId': typeof ApiV1CompetitorsCompetitorIdRoute
   '/api/v1/organizations/$organizationId': typeof ApiV1OrganizationsOrganizationIdRouteWithChildren
   '/api/v1/prompts/$promptId': typeof ApiV1PromptsPromptIdRouteWithChildren
   '/api/v1/reports/$reportId': typeof ApiV1ReportsReportIdRoute
   '/api/v1/tools/analyze': typeof ApiV1ToolsAnalyzeRoute
+  '/api/admin/audits/': typeof ApiAdminAuditsIndexRoute
   '/api/plausible/event/': typeof ApiPlausibleEventIndexRoute
   '/api/v1/brands/': typeof ApiV1BrandsIndexRoute
   '/api/v1/competitors/': typeof ApiV1CompetitorsIndexRoute
@@ -832,10 +913,14 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/free-report'
     | '/admin'
     | '/app'
     | '/choose-plan'
     | '/reports'
+    | '/audit/$id'
+    | '/audit/access'
+    | '/audit/verify'
     | '/auth/authorize'
     | '/auth/forgot-password'
     | '/auth/login'
@@ -845,11 +930,13 @@ export interface FileRouteTypes {
     | '/.well-known/oauth-authorization-server/$'
     | '/.well-known/oauth-protected-resource/$'
     | '/accept-invitation/$invitationId'
+    | '/admin/audits'
     | '/admin/tools'
     | '/admin/workflows'
     | '/app/new'
     | '/api/auth/$'
     | '/api/mcp/$'
+    | '/api/public-audits/$'
     | '/api/v1/$'
     | '/api/v1/me'
     | '/api/v1/models'
@@ -860,15 +947,18 @@ export interface FileRouteTypes {
     | '/reports/'
     | '/api/manifest/'
     | '/api/og/'
+    | '/api/public-audits/'
     | '/api/setup-status/'
     | '/app/org/$org'
     | '/reports/render/$reportId'
+    | '/api/admin/audits/$'
     | '/api/v1/brands/$brandId'
     | '/api/v1/competitors/$competitorId'
     | '/api/v1/organizations/$organizationId'
     | '/api/v1/prompts/$promptId'
     | '/api/v1/reports/$reportId'
     | '/api/v1/tools/analyze'
+    | '/api/admin/audits/'
     | '/api/plausible/event/'
     | '/api/v1/brands/'
     | '/api/v1/competitors/'
@@ -919,7 +1009,11 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/free-report'
     | '/choose-plan'
+    | '/audit/$id'
+    | '/audit/access'
+    | '/audit/verify'
     | '/auth/authorize'
     | '/auth/forgot-password'
     | '/auth/login'
@@ -929,11 +1023,13 @@ export interface FileRouteTypes {
     | '/.well-known/oauth-authorization-server/$'
     | '/.well-known/oauth-protected-resource/$'
     | '/accept-invitation/$invitationId'
+    | '/admin/audits'
     | '/admin/tools'
     | '/admin/workflows'
     | '/app/new'
     | '/api/auth/$'
     | '/api/mcp/$'
+    | '/api/public-audits/$'
     | '/api/v1/$'
     | '/api/v1/me'
     | '/api/v1/models'
@@ -944,14 +1040,17 @@ export interface FileRouteTypes {
     | '/reports'
     | '/api/manifest'
     | '/api/og'
+    | '/api/public-audits'
     | '/api/setup-status'
     | '/reports/render/$reportId'
+    | '/api/admin/audits/$'
     | '/api/v1/brands/$brandId'
     | '/api/v1/competitors/$competitorId'
     | '/api/v1/organizations/$organizationId'
     | '/api/v1/prompts/$promptId'
     | '/api/v1/reports/$reportId'
     | '/api/v1/tools/analyze'
+    | '/api/admin/audits'
     | '/api/plausible/event'
     | '/api/v1/brands'
     | '/api/v1/competitors'
@@ -1001,10 +1100,14 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/_authed'
+    | '/free-report'
     | '/_authed/admin'
     | '/_authed/app'
     | '/_authed/choose-plan'
     | '/_authed/reports'
+    | '/audit/$id'
+    | '/audit/access'
+    | '/audit/verify'
     | '/auth/authorize'
     | '/auth/forgot-password'
     | '/auth/login'
@@ -1014,11 +1117,13 @@ export interface FileRouteTypes {
     | '/.well-known/oauth-authorization-server/$'
     | '/.well-known/oauth-protected-resource/$'
     | '/_authed/accept-invitation/$invitationId'
+    | '/_authed/admin/audits'
     | '/_authed/admin/tools'
     | '/_authed/admin/workflows'
     | '/_authed/app/new'
     | '/api/auth/$'
     | '/api/mcp/$'
+    | '/api/public-audits/$'
     | '/api/v1/$'
     | '/api/v1/me'
     | '/api/v1/models'
@@ -1029,15 +1134,18 @@ export interface FileRouteTypes {
     | '/_authed/reports/'
     | '/api/manifest/'
     | '/api/og/'
+    | '/api/public-audits/'
     | '/api/setup-status/'
     | '/_authed/app/org/$org'
     | '/_authed/reports/render/$reportId'
+    | '/api/admin/audits/$'
     | '/api/v1/brands/$brandId'
     | '/api/v1/competitors/$competitorId'
     | '/api/v1/organizations/$organizationId'
     | '/api/v1/prompts/$promptId'
     | '/api/v1/reports/$reportId'
     | '/api/v1/tools/analyze'
+    | '/api/admin/audits/'
     | '/api/plausible/event/'
     | '/api/v1/brands/'
     | '/api/v1/competitors/'
@@ -1090,6 +1198,10 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AuthedRoute: typeof AuthedRouteWithChildren
+  FreeReportRoute: typeof FreeReportRoute
+  AuditIdRoute: typeof AuditIdRoute
+  AuditAccessRoute: typeof AuditAccessRoute
+  AuditVerifyRoute: typeof AuditVerifyRoute
   AuthAuthorizeRoute: typeof AuthAuthorizeRoute
   AuthForgotPasswordRoute: typeof AuthForgotPasswordRoute
   AuthLoginRoute: typeof AuthLoginRoute
@@ -1100,6 +1212,7 @@ export interface RootRouteChildren {
   DotwellKnownOauthProtectedResourceSplatRoute: typeof DotwellKnownOauthProtectedResourceSplatRoute
   ApiAuthSplatRoute: typeof ApiAuthSplatRoute
   ApiMcpSplatRoute: typeof ApiMcpSplatRoute
+  ApiPublicAuditsSplatRoute: typeof ApiPublicAuditsSplatRoute
   ApiV1SplatRoute: typeof ApiV1SplatRoute
   ApiV1MeRoute: typeof ApiV1MeRoute
   ApiV1ModelsRoute: typeof ApiV1ModelsRoute
@@ -1107,13 +1220,16 @@ export interface RootRouteChildren {
   DotwellKnownOauthProtectedResourceIndexRoute: typeof DotwellKnownOauthProtectedResourceIndexRoute
   ApiManifestIndexRoute: typeof ApiManifestIndexRoute
   ApiOgIndexRoute: typeof ApiOgIndexRoute
+  ApiPublicAuditsIndexRoute: typeof ApiPublicAuditsIndexRoute
   ApiSetupStatusIndexRoute: typeof ApiSetupStatusIndexRoute
+  ApiAdminAuditsSplatRoute: typeof ApiAdminAuditsSplatRoute
   ApiV1BrandsBrandIdRoute: typeof ApiV1BrandsBrandIdRouteWithChildren
   ApiV1CompetitorsCompetitorIdRoute: typeof ApiV1CompetitorsCompetitorIdRoute
   ApiV1OrganizationsOrganizationIdRoute: typeof ApiV1OrganizationsOrganizationIdRouteWithChildren
   ApiV1PromptsPromptIdRoute: typeof ApiV1PromptsPromptIdRouteWithChildren
   ApiV1ReportsReportIdRoute: typeof ApiV1ReportsReportIdRoute
   ApiV1ToolsAnalyzeRoute: typeof ApiV1ToolsAnalyzeRoute
+  ApiAdminAuditsIndexRoute: typeof ApiAdminAuditsIndexRoute
   ApiPlausibleEventIndexRoute: typeof ApiPlausibleEventIndexRoute
   ApiV1BrandsIndexRoute: typeof ApiV1BrandsIndexRoute
   ApiV1CompetitorsIndexRoute: typeof ApiV1CompetitorsIndexRoute
@@ -1138,6 +1254,13 @@ declare module '@tanstack/react-router' {
       path: ''
       fullPath: '/'
       preLoaderRoute: typeof AuthedRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/free-report': {
+      id: '/free-report'
+      path: '/free-report'
+      fullPath: '/free-report'
+      preLoaderRoute: typeof FreeReportRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/_authed/admin': {
@@ -1167,6 +1290,27 @@ declare module '@tanstack/react-router' {
       fullPath: '/reports'
       preLoaderRoute: typeof AuthedReportsRouteImport
       parentRoute: typeof AuthedRoute
+    }
+    '/audit/$id': {
+      id: '/audit/$id'
+      path: '/audit/$id'
+      fullPath: '/audit/$id'
+      preLoaderRoute: typeof AuditIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/audit/access': {
+      id: '/audit/access'
+      path: '/audit/access'
+      fullPath: '/audit/access'
+      preLoaderRoute: typeof AuditAccessRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/audit/verify': {
+      id: '/audit/verify'
+      path: '/audit/verify'
+      fullPath: '/audit/verify'
+      preLoaderRoute: typeof AuditVerifyRouteImport
+      parentRoute: typeof rootRouteImport
     }
     '/auth/authorize': {
       id: '/auth/authorize'
@@ -1252,6 +1396,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthedAdminIndexRouteImport
       parentRoute: typeof AuthedAdminRoute
     }
+    '/_authed/admin/audits': {
+      id: '/_authed/admin/audits'
+      path: '/audits'
+      fullPath: '/admin/audits'
+      preLoaderRoute: typeof AuthedAdminAuditsRouteImport
+      parentRoute: typeof AuthedAdminRoute
+    }
     '/_authed/admin/tools': {
       id: '/_authed/admin/tools'
       path: '/tools'
@@ -1315,6 +1466,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiOgIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/public-audits/': {
+      id: '/api/public-audits/'
+      path: '/api/public-audits'
+      fullPath: '/api/public-audits/'
+      preLoaderRoute: typeof ApiPublicAuditsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/public-audits/$': {
+      id: '/api/public-audits/$'
+      path: '/api/public-audits/$'
+      fullPath: '/api/public-audits/$'
+      preLoaderRoute: typeof ApiPublicAuditsSplatRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/setup-status/': {
       id: '/api/setup-status/'
       path: '/api/setup-status'
@@ -1356,6 +1521,20 @@ declare module '@tanstack/react-router' {
       fullPath: '/reports/render/$reportId'
       preLoaderRoute: typeof AuthedReportsRenderReportIdRouteImport
       parentRoute: typeof AuthedReportsRoute
+    }
+    '/api/admin/audits/': {
+      id: '/api/admin/audits/'
+      path: '/api/admin/audits'
+      fullPath: '/api/admin/audits/'
+      preLoaderRoute: typeof ApiAdminAuditsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/admin/audits/$': {
+      id: '/api/admin/audits/$'
+      path: '/api/admin/audits/$'
+      fullPath: '/api/admin/audits/$'
+      preLoaderRoute: typeof ApiAdminAuditsSplatRouteImport
+      parentRoute: typeof rootRouteImport
     }
     '/api/plausible/event/': {
       id: '/api/plausible/event/'
@@ -1732,12 +1911,14 @@ declare module '@tanstack/react-router' {
 }
 
 interface AuthedAdminRouteChildren {
+  AuthedAdminAuditsRoute: typeof AuthedAdminAuditsRoute
   AuthedAdminToolsRoute: typeof AuthedAdminToolsRoute
   AuthedAdminWorkflowsRoute: typeof AuthedAdminWorkflowsRoute
   AuthedAdminIndexRoute: typeof AuthedAdminIndexRoute
 }
 
 const AuthedAdminRouteChildren: AuthedAdminRouteChildren = {
+  AuthedAdminAuditsRoute: AuthedAdminAuditsRoute,
   AuthedAdminToolsRoute: AuthedAdminToolsRoute,
   AuthedAdminWorkflowsRoute: AuthedAdminWorkflowsRoute,
   AuthedAdminIndexRoute: AuthedAdminIndexRoute,
@@ -1959,6 +2140,10 @@ const ApiV1PromptsPromptIdRouteWithChildren =
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AuthedRoute: AuthedRouteWithChildren,
+  FreeReportRoute: FreeReportRoute,
+  AuditIdRoute: AuditIdRoute,
+  AuditAccessRoute: AuditAccessRoute,
+  AuditVerifyRoute: AuditVerifyRoute,
   AuthAuthorizeRoute: AuthAuthorizeRoute,
   AuthForgotPasswordRoute: AuthForgotPasswordRoute,
   AuthLoginRoute: AuthLoginRoute,
@@ -1971,6 +2156,7 @@ const rootRouteChildren: RootRouteChildren = {
     DotwellKnownOauthProtectedResourceSplatRoute,
   ApiAuthSplatRoute: ApiAuthSplatRoute,
   ApiMcpSplatRoute: ApiMcpSplatRoute,
+  ApiPublicAuditsSplatRoute: ApiPublicAuditsSplatRoute,
   ApiV1SplatRoute: ApiV1SplatRoute,
   ApiV1MeRoute: ApiV1MeRoute,
   ApiV1ModelsRoute: ApiV1ModelsRoute,
@@ -1980,7 +2166,9 @@ const rootRouteChildren: RootRouteChildren = {
     DotwellKnownOauthProtectedResourceIndexRoute,
   ApiManifestIndexRoute: ApiManifestIndexRoute,
   ApiOgIndexRoute: ApiOgIndexRoute,
+  ApiPublicAuditsIndexRoute: ApiPublicAuditsIndexRoute,
   ApiSetupStatusIndexRoute: ApiSetupStatusIndexRoute,
+  ApiAdminAuditsSplatRoute: ApiAdminAuditsSplatRoute,
   ApiV1BrandsBrandIdRoute: ApiV1BrandsBrandIdRouteWithChildren,
   ApiV1CompetitorsCompetitorIdRoute: ApiV1CompetitorsCompetitorIdRoute,
   ApiV1OrganizationsOrganizationIdRoute:
@@ -1988,6 +2176,7 @@ const rootRouteChildren: RootRouteChildren = {
   ApiV1PromptsPromptIdRoute: ApiV1PromptsPromptIdRouteWithChildren,
   ApiV1ReportsReportIdRoute: ApiV1ReportsReportIdRoute,
   ApiV1ToolsAnalyzeRoute: ApiV1ToolsAnalyzeRoute,
+  ApiAdminAuditsIndexRoute: ApiAdminAuditsIndexRoute,
   ApiPlausibleEventIndexRoute: ApiPlausibleEventIndexRoute,
   ApiV1BrandsIndexRoute: ApiV1BrandsIndexRoute,
   ApiV1CompetitorsIndexRoute: ApiV1CompetitorsIndexRoute,

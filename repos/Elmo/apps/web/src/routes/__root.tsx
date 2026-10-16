@@ -46,11 +46,12 @@ const CLOUD_AD_PAGE_VIEW_PATHS = new Set(["/auth/register", "/choose-plan"]);
 export const Route = createRootRouteWithContext<RouterContext>()({
 	notFoundComponent: NotFoundPage,
 	beforeLoad: ({ context }) => context.queryClient.ensureQueryData(rootConfigQuery),
-	head: ({ match }) => {
+	head: ({ match, matches }) => {
 		const branding = match.context?.clientConfig?.branding;
 		const analytics = match.context?.clientConfig?.analytics;
 		const scripts = [];
-		if (analytics?.plausibleDomain) {
+		const privateAudit = matches.some((item) => item.pathname.startsWith("/audit/"));
+		if (analytics?.plausibleDomain && !privateAudit) {
 			scripts.push({
 				src: "/api/plausible/js/script",
 				defer: true,
@@ -147,6 +148,8 @@ export const Route = createRootRouteWithContext<RouterContext>()({
 
 function RootComponent() {
 	const { envValidation, clientConfig, consentRegion } = Route.useRouteContext();
+	const pathname = useLocation({ select: (location) => location.pathname });
+	const privateAudit = pathname.startsWith("/audit/");
 	const clarityProjectId = clientConfig?.analytics?.clarityProjectId;
 	const posthogKey = clientConfig?.analytics?.posthogKey;
 	const mode = clientConfig?.mode;
@@ -156,6 +159,7 @@ function RootComponent() {
 	const [consentRequired, setConsentRequired] = useState<boolean | null>(null);
 
 	useEffect(() => {
+		if (privateAudit) return;
 		const required = asksForConsent ? isConsentRequired(consentRegion ?? null) : false;
 		if (asksForConsent) setConsentRequired(required);
 
@@ -167,17 +171,17 @@ function RootComponent() {
 		return () => {
 			for (const stop of stops) stop?.();
 		};
-	}, [posthogKey, clarityProjectId, asksForConsent, consentRegion]);
+	}, [posthogKey, clarityProjectId, asksForConsent, consentRegion, privateAudit]);
 
-	const pathname = useLocation({ select: (location) => location.pathname });
 	useEffect(() => {
+		if (privateAudit) return;
 		if (mode === "demo" || (mode === "cloud" && CLOUD_AD_PAGE_VIEW_PATHS.has(pathname))) trackAdPageView(pathname);
-	}, [mode, pathname]);
+	}, [mode, pathname, privateAudit]);
 
 	useEffect(() => {
-		if (!clientConfig) return;
+		if (!clientConfig || privateAudit) return;
 		initCrisp(clientConfig.analytics?.crispWebsiteId, clientConfig.mode);
-	}, [clientConfig]);
+	}, [clientConfig, privateAudit]);
 
 	// Only swap in the missing-env page once we actually know env is invalid —
 	// envValidation is absent while a navigation's root beforeLoad is in flight.

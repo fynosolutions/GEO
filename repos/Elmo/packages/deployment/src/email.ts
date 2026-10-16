@@ -15,9 +15,17 @@ function getResendClient(): Resend {
 	return client;
 }
 
-export async function sendEmail(to: string, content: EmailContent): Promise<void> {
+export async function sendEmail(
+	to: string,
+	content: EmailContent,
+	idempotencyKey?: string,
+): Promise<{ providerMessageId?: string }> {
 	const from = process.env.RESEND_FROM_EMAIL;
 	if (!from) throw new Error("RESEND_FROM_EMAIL is not set");
-	const { error } = await getResendClient().emails.send({ from, to, ...content });
+	const { error, data } = await getResendClient().emails.send(
+		{ from, to, ...content },
+		idempotencyKey ? { idempotencyKey } : undefined,
+	);
 	if (error) throw new Error(`Resend send failed: ${error.message}`);
+	return { providerMessageId: data?.id };
 }

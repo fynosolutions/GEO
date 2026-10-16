@@ -16,6 +16,7 @@ export function adminNavItems({
 
 	return [
 		{ title: "Brands", link: { to: "/admin" }, icon: IconTable },
+		{ title: "餐厅免费体检", link: { to: "/admin/audits" }, icon: IconReport },
 		...(reportsEnabled ? [reports] : []),
 		{ title: "Workflows", link: { to: "/admin/workflows" }, icon: IconTimeline },
 		{ title: "Tools", link: { to: "/admin/tools" }, icon: IconTool },

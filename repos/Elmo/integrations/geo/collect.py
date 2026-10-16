@@ -156,9 +156,9 @@ def collect(request):
     if extraction_error or not any(key in fields for key in ["phone", "address", "hours.1"]):
         snapshot["status"] = "blocked"
         snapshot["error"] = extraction_error or "no_business_fields_extracted_dynamic_or_blocked_page"
-        return {"snapshot": snapshot, "page": content}
-    snapshot["fields"] = fields
-    snapshot["status"] = "succeeded"
+    else:
+        snapshot["fields"] = fields
+        snapshot["status"] = "succeeded"
     result = {"snapshot": snapshot, "page": content}
     if channel == "official":
         from geo_optimizer.core.audit import run_full_audit

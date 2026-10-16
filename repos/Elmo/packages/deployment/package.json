@@ -11,6 +11,7 @@
 	},
 	"main": "./src/index.ts",
 	"exports": {
+		"./email": "./src/email.ts",
 		".": "./src/index.ts",
 		"./client": "./src/client.ts",
 		"./optimize-button": "./src/optimize-button.tsx",

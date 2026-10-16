@@ -372,7 +372,9 @@ def _fetch_with_manual_redirects(
             return r, None
 
         # Try with r.content (attribute set in legacy mocks: content=b"...")
-        mock_content = getattr(r, "content", None)
+        # Accessing requests.Response.content consumes the complete stream before
+        # our bound. Only inspect a literal attribute used by legacy test doubles.
+        mock_content = vars(r).get("content")
         if isinstance(mock_content, bytes):
             if len(mock_content) > max_size:
                 return None, f"Response too large: {len(mock_content)} bytes (max: {max_size})"

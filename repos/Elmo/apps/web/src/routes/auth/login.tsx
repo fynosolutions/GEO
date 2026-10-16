@@ -8,7 +8,7 @@
  */
 
 import { IconBrandGoogle, IconInfoCircle } from "@tabler/icons-react";
-import { createFileRoute, Link, useNavigate, useRouteContext } from "@tanstack/react-router";
+import { createFileRoute, Link, redirect, useNavigate, useRouteContext } from "@tanstack/react-router";
 import { MCP_AUTHORIZE_ENDPOINT } from "@workspace/config/constants";
 import type { ClientConfig } from "@workspace/config/types";
 import { authClient } from "@workspace/lib/auth/client";
@@ -51,6 +51,10 @@ interface LoginSearch {
 
 export const Route = createFileRoute("/auth/login")({
 	validateSearch: (search: Record<string, unknown>): LoginSearch => search,
+	beforeLoad: ({ context, search }) => {
+		if (context.clientConfig?.mode === "local" && !context.clientConfig.hasUsers)
+			throw redirect({ to: "/auth/register", search: { returnTo: search.returnTo, ref: search.ref } });
+	},
 	head: ({ match }) => {
 		const appName = getAppName(match);
 		return {
@@ -70,7 +74,6 @@ function LoginPage() {
 	const context = useRouteContext({ strict: false }) as { clientConfig?: ClientConfig };
 	const mode = context.clientConfig?.mode;
 	const canRegister = context.clientConfig?.canRegister ?? false;
-	const hasUsers = context.clientConfig?.hasUsers ?? false;
 
 	if (mode === "whitelabel") {
 		return <SSOLogin destination={destination} />;
@@ -78,11 +81,6 @@ function LoginPage() {
 
 	if (mode === "demo") {
 		return <DemoLogin destination={destination} />;
-	}
-
-	if (mode === "local" && !hasUsers) {
-		window.location.href = "/auth/register";
-		return null;
 	}
 
 	return (

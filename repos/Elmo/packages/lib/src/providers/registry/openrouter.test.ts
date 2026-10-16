@@ -26,6 +26,69 @@ afterEach(() => {
 });
 
 describe("openrouter run", () => {
+	it("keeps returned citations separate from independently confirmed search execution", async () => {
+		stubFetch({
+			choices: [
+				{
+					message: {
+						content: "A sourced answer",
+						annotations: [
+							{ type: "url_citation", url_citation: { url: "https://restaurant.example/menu", title: "Menu" } },
+						],
+					},
+					finish_reason: "stop",
+				},
+			],
+		});
+		const result = await openrouter.run("gemini", "prompt", {
+			version: "google/gemini-2.5-flash",
+			webSearch: true,
+			searchEngine: "exa",
+			requestKey: "audit",
+		});
+		expect(result.citations).toHaveLength(1);
+		expect(result.auditMetadata).toMatchObject({ searchExecution: "unknown", citationAvailability: "returned" });
+	});
+	it("preserves provider authentication status without leaking response bodies", async () => {
+		vi.stubGlobal(
+			"fetch",
+			vi.fn().mockResolvedValue({ ok: false, status: 401, text: async () => "private provider diagnostic" }),
+		);
+		await expect(
+			openrouter.run("gemini", "prompt", { version: "google/gemini-2.5-flash", requestKey: "audit" }),
+		).rejects.toMatchObject({ status: 401, message: "OpenRouter API error (401)" });
+	});
+	it("pins Exa for audits, disables fallback and reports unproven searches as unknown", async () => {
+		const fetchMock = stubFetch({
+			id: "request-a",
+			model: "google/gemini-2.5-flash",
+			choices: [{ message: { content: "answer" }, finish_reason: "stop" }],
+			usage: { prompt_tokens: 10, completion_tokens: 20, cost: 0.0002 },
+		});
+		const signal = AbortSignal.timeout(1000);
+		const result = await openrouter.run("gemini", "prompt", {
+			version: "google/gemini-2.5-flash",
+			webSearch: true,
+			searchEngine: "exa",
+			maxResults: 3,
+			maxOutputTokens: 4096,
+			signal,
+			requestKey: "a",
+		});
+		expect(sentBody(fetchMock)).toMatchObject({
+			model: "google/gemini-2.5-flash",
+			max_tokens: 4096,
+			plugins: [{ id: "web", engine: "exa", max_results: 3 }],
+			provider: { allow_fallbacks: false },
+		});
+		expect(fetchMock.mock.calls[0]?.[1]).toMatchObject({ signal });
+		expect(result.auditMetadata).toMatchObject({
+			searchExecution: "unknown",
+			quality: "complete",
+			providerRequestId: "request-a",
+			usage: { inputTokens: 10, outputTokens: 20, costUsd: 0.0002 },
+		});
+	});
 	it("caps output tokens and requests web search via the :online alias", async () => {
 		const fetchMock = stubFetch();
 

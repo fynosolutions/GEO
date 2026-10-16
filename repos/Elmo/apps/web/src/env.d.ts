@@ -40,6 +40,17 @@ declare global {
 	const __APP_VERSION__: string;
 	namespace NodeJS {
 		interface ProcessEnv {
+			readonly PUBLIC_AUDIT_ENABLED?: string;
+			readonly PUBLIC_AUDIT_LIVE_CALLS_ENABLED?: string;
+			readonly PUBLIC_AUDIT_WORKER_ONLY?: string;
+			readonly AUDIT_SHARED_BUDGET_ENABLED?: string;
+			readonly AUDIT_TEST_MODE?: string;
+			readonly AUDIT_STORAGE_DIR?: string;
+			readonly AUDIT_PRICE_REVIEWED_AT?: string;
+			readonly AUDIT_TARGETS?: string;
+			readonly AUDIT_TRUST_PROXY?: string;
+			readonly AUDIT_QUALITY_EVIDENCE_FILE?: string;
+			readonly AUDIT_EVALUATION_LIVE_ENABLED?: string;
 			readonly GEO_GOOGLE_PLACES_API_KEY?: string;
 			readonly GEO_GOOGLE_PLACES_ENABLED?: string;
 			readonly GEO_GOOGLE_MAX_REQUEST_USD?: string;

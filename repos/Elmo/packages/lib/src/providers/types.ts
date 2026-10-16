@@ -13,11 +13,25 @@ export interface ScrapeResult {
 	webQueries: string[];
 	citations: Citation[];
 	modelVersion?: string;
+	auditMetadata?: {
+		searchExecution: "executed" | "not_executed" | "unknown";
+		citationAvailability: "returned" | "none_returned" | "unavailable" | "parse_error";
+		quality: "complete" | "truncated" | "empty" | "unknown";
+		usage?: { inputTokens?: number; outputTokens?: number; searchCalls?: number; costUsd?: number };
+		providerRequestId?: string;
+	};
 }
 
 export interface ProviderOptions {
 	webSearch?: boolean;
 	version?: string;
+	signal?: AbortSignal;
+	maxOutputTokens?: number;
+	maxToolCalls?: number;
+	maxRetries?: number;
+	searchEngine?: "native" | "exa";
+	maxResults?: number;
+	requestKey?: string;
 }
 
 export interface StructuredResearchOptions<T> {
@@ -29,6 +43,10 @@ export interface StructuredResearchOptions<T> {
 	 * supplied entirely in the prompt — no tools, no agent loop.
 	 */
 	webSearch?: boolean;
+	version?: string;
+	signal?: AbortSignal;
+	maxOutputTokens?: number;
+	maxRetries?: number;
 }
 
 export interface StructuredResearchResult<T> {

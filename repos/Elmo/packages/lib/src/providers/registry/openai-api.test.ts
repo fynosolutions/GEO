@@ -31,6 +31,23 @@ function sentArgs(): Record<string, any> {
 }
 
 describe("openai-api run", () => {
+	it("honors audit cancellation, zero retries and output bounds without altering defaults", async () => {
+		const signal = AbortSignal.timeout(1000);
+		await openaiApi.run("chatgpt", "audit prompt", {
+			webSearch: true,
+			version: "gpt-5.4-mini-2026-03-17",
+			signal,
+			maxOutputTokens: 4096,
+			maxToolCalls: 1,
+			maxRetries: 0,
+		});
+		expect(sentArgs()).toMatchObject({
+			abortSignal: signal,
+			maxRetries: 0,
+			maxOutputTokens: 4096,
+			providerOptions: { openai: { maxToolCalls: 1 } },
+		});
+	});
 	it("caps output tokens and bounds web-search tool calls when webSearch is on", async () => {
 		await openaiApi.run("chatgpt", "prompt", { webSearch: true, version: "gpt-5-mini" });
 
@@ -114,6 +131,8 @@ describe("openai-api stored payload", () => {
 		expect(res.rawOutput).toBe(body);
 		expect(res.textContent).toBe("answer");
 		expect(res.citations.map((c) => c.url)).toEqual(["https://example.com/a"]);
+		expect(res.auditMetadata?.searchExecution).toBe("executed");
+		expect(res.auditMetadata?.usage?.searchCalls).toBe(1);
 	});
 
 	it("rebuilds an answer-and-citations payload when the SDK reports no body", async () => {

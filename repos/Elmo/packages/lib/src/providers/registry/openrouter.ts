@@ -18,6 +18,25 @@ const OPENROUTER_API_URL = `${OPENROUTER_BASE_URL}/chat/completions`;
 // support native search per the docs: Anthropic, Perplexity, xAI.
 const DEFAULT_RESEARCH_MODEL = "openai/gpt-5-mini";
 
+function answerQuality(text: string, finishReason?: string): "empty" | "truncated" | "complete" | "unknown" {
+	if (!text.trim()) return "empty";
+	if (finishReason === "length") return "truncated";
+	return finishReason === "stop" ? "complete" : "unknown";
+}
+
+function searchExecution(webSearch?: boolean): "not_executed" | "unknown" {
+	// Citation annotations expose sources, not an independently recorded Exa call.
+	return webSearch ? "unknown" : "not_executed";
+}
+
+function auditRunBodyOptions(options?: ProviderOptions): Record<string, unknown> {
+	const extras: Record<string, unknown> = {};
+	if (options?.searchEngine && options.webSearch)
+		extras.plugins = [{ id: "web", engine: options.searchEngine, max_results: options.maxResults ?? 3 }];
+	if (options?.requestKey) extras.provider = { allow_fallbacks: false, max_price: { prompt: 0.3, completion: 2.5 } };
+	return extras;
+}
+
 function openrouterHeaders(): Record<string, string> {
 	return {
 		Authorization: `Bearer ${getCredential("OPENROUTER_API_KEY")}`,
@@ -85,13 +104,17 @@ export const openrouter: Provider = {
 		prompt,
 		schema,
 		webSearch = true,
+		version = DEFAULT_RESEARCH_MODEL,
+		signal,
+		maxOutputTokens,
 	}: StructuredResearchOptions<T>): Promise<StructuredResearchResult<T>> {
 		// Raw fetch (no AI SDK) so we can attach the OpenRouter `plugins` field
 		// — the AI SDK's OpenAI-compat path doesn't pass it through.
 		const body: Record<string, unknown> = {
-			model: DEFAULT_RESEARCH_MODEL,
+			model: version,
 			messages: [{ role: "user", content: prompt }],
 			response_format: jsonSchemaResponseFormat(schema),
+			...(maxOutputTokens === undefined ? {} : { max_tokens: maxOutputTokens }),
 		};
 		// `engine: "native"` runs the underlying provider's real web-search tool
 		// (e.g. Anthropic's web_search_20250305) instead of the Exa fallback.
@@ -100,9 +123,10 @@ export const openrouter: Provider = {
 			method: "POST",
 			headers: openrouterHeaders(),
 			body: JSON.stringify(body),
+			...(signal ? { signal } : {}),
 		});
 		if (!res.ok) {
-			throw new Error(`OpenRouter API error (${res.status}): ${await res.text()}`);
+			throw Object.assign(new Error(`OpenRouter API error (${res.status})`), { status: res.status });
 		}
 		const data: any = await res.json();
 		const content = data?.choices?.[0]?.message?.content;
@@ -114,7 +138,7 @@ export const openrouter: Provider = {
 			// Report the alias we sent, not OpenRouter's resolved version
 			// (e.g. "openai/gpt-5-mini" vs "openai/gpt-5-mini-2025-08-07") —
 			// matches what openai-api and anthropic-api do.
-			modelVersion: DEFAULT_RESEARCH_MODEL,
+			modelVersion: version,
 		};
 	},
 
@@ -130,14 +154,15 @@ export const openrouter: Provider = {
 		// ":online" is exactly equivalent to plugins: [{ id: "web" }], and with the
 		// engine unset OpenRouter routes to the model provider's native web search
 		// (Exa only as a fallback) — which is the consumer surface Elmo tracks.
-		if (options?.webSearch && !modelSlug.includes(":online")) {
+		if (options?.webSearch && !options.searchEngine && !modelSlug.includes(":online")) {
 			modelSlug = `${modelSlug}:online`;
 		}
 
 		const body: Record<string, unknown> = {
 			model: modelSlug,
 			messages: [{ role: "user", content: prompt }],
-			max_tokens: API_PROVIDER_MAX_OUTPUT_TOKENS.openrouter,
+			max_tokens: options?.maxOutputTokens ?? API_PROVIDER_MAX_OUTPUT_TOKENS.openrouter,
+			...auditRunBodyOptions(options),
 		};
 
 		// Use raw fetch instead of SDK — the SDK's ChatAssistantMessage Zod schema
@@ -149,10 +174,11 @@ export const openrouter: Provider = {
 			method: "POST",
 			headers: openrouterHeaders(),
 			body: JSON.stringify(body),
+			...(options?.signal ? { signal: options.signal } : {}),
 		});
 
 		if (!res.ok) {
-			throw new Error(`OpenRouter API error (${res.status}): ${await res.text()}`);
+			throw Object.assign(new Error(`OpenRouter API error (${res.status})`), { status: res.status });
 		}
 
 		const data: any = await res.json();
@@ -160,14 +186,28 @@ export const openrouter: Provider = {
 		warnIfOutputCapped("openrouter", modelSlug, data?.choices?.[0]?.finish_reason);
 
 		const citations = extractCitationsFromOpenRouterResponse(data);
+		const actualText = data?.choices?.[0]?.message?.content;
+		const textContent = typeof actualText === "string" ? actualText : responsesApiTexts(data?.output).join("\n");
+		const finishReason = data?.choices?.[0]?.finish_reason;
 
 		return {
 			rawOutput: data,
-			textContent: extractTextFromOpenRouterResponse(data),
+			textContent: options?.requestKey ? textContent : extractTextFromOpenRouterResponse(data),
 			// OpenRouter doesn't expose the search queries the model made internally.
 			webQueries: reportedWebQueries([], { searchProven: citations.length > 0 }),
 			citations,
 			modelVersion: data?.model ?? modelSlug.replace(":online", ""),
+			auditMetadata: {
+				searchExecution: searchExecution(options?.webSearch),
+				citationAvailability: citations.length ? "returned" : "none_returned",
+				quality: answerQuality(textContent, finishReason),
+				usage: {
+					inputTokens: data?.usage?.prompt_tokens,
+					outputTokens: data?.usage?.completion_tokens,
+					costUsd: data?.usage?.cost,
+				},
+				providerRequestId: typeof data?.id === "string" ? data.id : undefined,
+			},
 		};
 	},
 };

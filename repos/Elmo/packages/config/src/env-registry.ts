@@ -43,6 +43,48 @@ const VALIDATED_MODES: DeploymentMode[] = ["local", "demo", "whitelabel", "cloud
 
 export const ENV_REGISTRY: EnvVarSpec[] = [
 	{
+		name: "GEO_GOOGLE_PLACES_API_KEY",
+		scope: "server",
+		requiredBy: "optional",
+		description: "Server-only Google Places key for restaurant live queries.",
+	},
+	{
+		name: "GEO_GOOGLE_PLACES_ENABLED",
+		scope: "server",
+		requiredBy: "optional",
+		description: "Enable authorized Google live queries only when true.",
+	},
+	{
+		name: "GEO_GOOGLE_MAX_REQUEST_USD",
+		scope: "server",
+		requiredBy: "optional",
+		description: "Conservative Google request cost ceiling in USD.",
+	},
+	{
+		name: "GEO_YELP_API_KEY",
+		scope: "server",
+		requiredBy: "optional",
+		description: "Server-only Yelp Business Details key.",
+	},
+	{
+		name: "GEO_YELP_PURPOSE",
+		scope: "server",
+		requiredBy: "optional",
+		description: "Authorized Yelp purpose: evaluation or display_authorized; unset disables queries.",
+	},
+	{
+		name: "GEO_YELP_MAX_REQUEST_USD",
+		scope: "server",
+		requiredBy: "optional",
+		description: "Conservative Yelp request cost ceiling in USD.",
+	},
+	{
+		name: "GEO_PLATFORM_PRIOR_SPEND_USD",
+		scope: "server",
+		requiredBy: "optional",
+		description: "Confirmed external spend outside the platform reservation ledger; required for live queries.",
+	},
+	{
 		name: "DATABASE_URL",
 		scope: "server",
 		requiredBy: VALIDATED_MODES,

@@ -92,3 +92,4 @@ apps/web/storybook-static/
 .restaurant-test/
 __pycache__/
 .restaurant-backups/
+!.env.platforms.example

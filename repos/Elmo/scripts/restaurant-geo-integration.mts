@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 import { after, test } from "node:test";
+import { setTimeout as wait } from "node:timers/promises";
 import { eq } from "../packages/lib/node_modules/drizzle-orm/index.js";
 import { db } from "../packages/lib/src/db/db.ts";
 import { restaurantGeoRecords } from "../packages/lib/src/db/schema.ts";
@@ -47,6 +48,10 @@ test("GEO evidence, tenancy, immutable records and correction workflow", async s
 		const finding = (audit.payload.findings as { id: string; field: string }[]).find(f => f.field === "priceRange");
 		assert.ok(finding);
 		const draft = await draftCorrection(owner, { ...scope, recordId: audit.id, findingId: finding.id });
+		// WSL's database clock can lead Windows; publication must actually follow the saved draft.
+		const waitMs = draft.createdAt.getTime() - Date.now() + 10;
+		if (waitMs > 10000) throw new Error("Database clock is over ten seconds ahead; synchronize clocks before acceptance");
+		if (waitMs > 0) await wait(waitMs);
 		const published = await recordPublication(owner, { ...scope, recordId: draft.id, publishedUrl: snapshot.url, publishedAt: new Date().toISOString(), note: "SYNTHETIC TEST PUBLICATION; no external write" });
 		await assert.rejects(verifyPublication(owner, { ...scope, recordId: published.id, snapshotId: observed.id }), /发布之后/);
 		const corrected = structuredClone(snapshot); corrected.id = crypto.randomUUID(); corrected.collectedAt = new Date().toISOString(); corrected.fields.priceRange.value = "$$";

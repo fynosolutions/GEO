@@ -2,6 +2,13 @@
   "$schema": "https://turborepo.dev/schema.json",
   "agentGuidance": false,
   "globalEnv": [
+    "GEO_GOOGLE_PLACES_API_KEY",
+    "GEO_GOOGLE_PLACES_ENABLED",
+    "GEO_GOOGLE_MAX_REQUEST_USD",
+    "GEO_YELP_API_KEY",
+    "GEO_YELP_PURPOSE",
+    "GEO_YELP_MAX_REQUEST_USD",
+    "GEO_PLATFORM_PRIOR_SPEND_USD",
     "DATABASE_URL",
     "APP_URL",
     "BETTER_AUTH_SECRET",

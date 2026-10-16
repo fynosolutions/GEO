@@ -123,8 +123,12 @@ def extract_fields(html, url, evidence_id):
 
 def collect(request):
     channel = request["channel"]
+    if channel in ["google_maps", "yelp"]:
+        raise ValueError("Platform data requires the dedicated real-time API adapter; HTML collection is disabled")
     url = request["url"]
     host = (urlparse(url).hostname or "").lower()
+    if host == "yelp.com" or host.endswith(".yelp.com") or host in ["maps.app.goo.gl", "maps.google.com"] or (host in ["google.com", "www.google.com"] and urlparse(url).path.startswith("/maps")):
+        raise ValueError("Platform pages require the dedicated real-time API adapter")
     if channel == "google_maps" and not (host in ["google.com", "www.google.com", "maps.google.com", "maps.app.goo.gl"]):
         raise ValueError("Google collection requires a Google Maps URL")
     if channel == "yelp" and not (host == "yelp.com" or host.endswith(".yelp.com")):

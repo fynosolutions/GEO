@@ -176,6 +176,13 @@
       "when": 1791898374418,
       "tag": "0024_restaurant_foundation",
       "breakpoints": true
+    },
+    {
+      "idx": 25,
+      "version": "7",
+      "when": 1792072384985,
+      "tag": "0025_restaurant_geo_records",
+      "breakpoints": true
     }
   ]
 }

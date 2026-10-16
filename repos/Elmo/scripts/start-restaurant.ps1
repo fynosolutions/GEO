@@ -14,7 +14,8 @@ try {
     Write-Host 'Open http://localhost:3010/app/org/default/restaurants after startup.'
     Write-Host 'Press Ctrl+C to stop. Only the web app starts; no AI query worker is running.'
     Set-Location (Join-Path $restaurantRepo 'apps/web')
-    & node "--env-file=../../$restaurantEnv" node_modules/vite/bin/vite.js dev --host 127.0.0.1 --port 3010 --strictPort
+    $env:PORT = '3010'
+    & node --use-env-proxy "--env-file=../../$restaurantEnv" node_modules/vite/bin/vite.js dev --host 127.0.0.1 --port 3010 --strictPort
 } finally {
     Pop-Location
     if ($restaurantKeepAlive -and -not $restaurantKeepAlive.HasExited) { Stop-Process -Id $restaurantKeepAlive.Id -ErrorAction SilentlyContinue }

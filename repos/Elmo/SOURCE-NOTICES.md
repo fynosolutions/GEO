@@ -1,5 +1,7 @@
 # GEO integration provenance
 
+- Google Maps attribution image: unmodified DarkGray 2x PNG from Google's official [attribution assets](https://developers.google.com/static/maps/documentation/images/Google_Maps_Attribution_Assets.zip), used solely to identify Google Maps API content in the live preview. Google Maps branding remains Google's trademark; it is not covered by this repository's MIT license. Display guidance: https://developers.google.com/maps/documentation/places/web-service/policies.
+
 - Elmo: MIT, repository license retained.
 - Store-fact comparison: port/adaptation of the user-supplied `GEO.rar`, SHA-256 `f54e05ae7b390f485eaca07a0c1040c5d77a98d5934a721c1444039124c538aa`, `restaurant-geo-audit/src/audit_restaurant_profiles.py`. The original remains in `../../sources/colleague_geo_20261013/`. Text/address/phone/URL normalization and field-by-field comparison structure were adapted to TypeScript in `packages/lib/src/restaurants/geo/compare.ts`. This private source is used for the requested internal project; no independent open-source license is asserted for it.
 - Repairs: preserve price symbols, explicit unknown versus absent versus failed fields, evidence hash validation and freshness, store/listing/version-scoped IDs, no last-listing overwrite, structured overnight hours, explicit unsupported/semantic coverage. URL schemes are retained because HTTP and HTTPS can behave differently. Merchant facts are never inferred from snapshots.

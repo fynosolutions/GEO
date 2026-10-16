@@ -20,6 +20,7 @@ function VerifyAudit() {
 	const [busy, setBusy] = useState(false);
 	const [error, setError] = useState<string | null>(null);
 	useEffect(() => {
+		if (credentials.current) return;
 		const search = new URLSearchParams(window.location.search);
 		const fragment = new URLSearchParams(window.location.hash.slice(1));
 		credentials.current = {

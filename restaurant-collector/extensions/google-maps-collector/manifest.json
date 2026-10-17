@@ -1,0 +1,9 @@
+{
+  "manifest_version": 3,
+  "name": "GEO Google Maps 资料采集",
+  "version": "0.2.2",
+  "description": "在已有 Chrome 中手动采集当前门店，合并概览、简介和特色菜观察，导出 JSON。",
+  "permissions": ["activeTab", "scripting", "storage"],
+  "action": {"default_title": "采集当前 Google Maps 门店", "default_popup": "popup.html"},
+  "content_security_policy": {"extension_pages": "script-src 'self'; object-src 'none'; connect-src 'none'"}
+}

@@ -1,0 +1,19 @@
+{
+  "name": "geo-restaurant-collector",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "collect": "node restaurant_collector/cli.mjs",
+    "collect:google": "node restaurant_collector/google-maps.mjs",
+    "build:extension": "node scripts/build-extension.mjs",
+    "test": "node --test tests/*.test.mjs",
+    "test:browser": "node scripts/test-browser.mjs"
+  },
+  "dependencies": {
+    "playwright": "1.63.0"
+  }
+}

@@ -12,6 +12,7 @@ P1 门店、证据、事实确认版本和导出已在原开发机验证。GEO �
 | --- | --- |
 | `repos/Elmo` | Elmo 主工作台及餐厅 P1/GEO 试点改造，含已有迁移和锁文件 |
 | `repos/geo-optimizer-skill` | 官网检查组件 |
+| `restaurant-collector` | Google Maps 半自动 Chrome 扩展、独立餐厅采集脚本、JSON 导入和测试 |
 | `p0-browser` | 独立浏览器采集器、测试和锁文件 |
 | `windows` | Windows 本机配置、启动和交接说明 |
 | `mac` | macOS 本机配置、启动和交接说明 |
@@ -25,6 +26,7 @@ P1 门店、证据、事实确认版本和导出已在原开发机验证。GEO �
 - 当前功能与待办：[GEO 试点说明](repos/Elmo/README-GEO-PILOT.md)、[P1 说明](repos/Elmo/README-P1.md)。
 - Google／Yelp 开通、配置与验收：[平台实时查询说明](repos/Elmo/README-PLATFORM-QUERIES.md)。
 - 浏览器采集：[P0 说明](p0-browser/README.md)。
+- 餐厅资料采集：[组件入口](restaurant-collector/README.md)、[Chrome 扩展使用说明](restaurant-collector/extensions/google-maps-collector/README.md)、[脚本检索限制与方案选择](restaurant-collector/SCRIPT_LIMITATIONS.md)。
 
 需要 Node.js 24、各项目锁定版本的 pnpm、PostgreSQL；官网检查另需 Python。克隆后自行安装依赖、配置本机数据库与密钥。Windows/macOS 的全新机器安装验收尚未完成。数据库变更须遵循仓库内的审核说明。
 

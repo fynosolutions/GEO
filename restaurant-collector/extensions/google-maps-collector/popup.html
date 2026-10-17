@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><title>Google Maps 资料采集</title><link rel="stylesheet" href="popup.css"></head>
+<body><header><span class="eyebrow">GEO · 本地采集</span><h1>Google Maps 门店资料</h1><p>正常浏览、展开栏目，再点击采集。</p></header>
+<main><label>当前栏目<select id="pane"><option value="auto">自动识别当前栏目</option><option value="overview">概览</option><option value="about">About / 设施与服务</option><option value="menu">Menu / 分类菜单</option><option value="reviews">评价</option></select></label>
+<p id="detected" class="note"></p>
+<label id="menu-category-field" hidden>菜单子分类（自动识别，可补充）<input id="menu-category" list="category-options" placeholder="如 Lunch menu、Drink、Soup、Sauce"><datalist id="category-options"><option value="Overview"><option value="Lunch menu"><option value="Drink"><option value="Soup"><option value="Sauce"></datalist></label>
+<button id="capture" class="primary">采集当前页</button>
+<details><summary>页面显示了内容，但未自动识别？</summary><p>先关闭弹窗，在页面选中简介或菜名，再打开扩展。</p>
+<label>选中文字的用途<select id="selection-kind"><option value="auto">按当前栏目保存（推荐）</option><option value="menu">分类菜单（名称、说明、价格）</option><option value="about">About 设施与服务</option><option value="description">仅餐厅简介原文</option><option value="dishes">仅特色/热门菜名</option></select></label>
+<button id="selection">保存选中文字</button></details>
+<p id="status" role="status">正在读取本地采集记录…</p>
+<section id="preview" aria-label="已采集资料"></section>
+<div class="actions"><button id="download">导出 JSON</button><button id="reset">新建采集</button></div>
+<p class="note">仅在点击时读取当前 Google Maps 页。记录保存在本机浏览器中；导出后可交给项目脚本处理。</p>
+</main><script type="module" src="popup.mjs"></script></body></html>

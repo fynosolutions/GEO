@@ -1,0 +1,27 @@
+{
+  "version": "7",
+  "dialect": "sqlite",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "6",
+      "when": 1792403216070,
+      "tag": "0000_blushing_meltdown",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "6",
+      "when": 1792404566669,
+      "tag": "0001_sturdy_squadron_sinister",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "6",
+      "when": 1792404748577,
+      "tag": "0002_productive_mandrill",
+      "breakpoints": true
+    }
+  ]
+}

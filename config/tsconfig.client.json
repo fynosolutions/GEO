@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "ES2022",
+    "moduleResolution": "Bundler",
+    "strict": true,
+    "rootDir": "../frontend/ts",
+    "outDir": "../dist/public/js",
+    "lib": ["ES2022", "DOM"],
+    "types": []
+  },
+  "include": ["../frontend/ts/**/*.ts"]
+}

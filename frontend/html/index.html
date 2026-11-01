@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Compare restaurant information across its official website and eight third-party platforms, preserving original wording and source evidence." />
+    <meta name="theme-color" content="#f7f8fa" />
+    <title>GEO Check · Website AI Visibility</title>
+    <link rel="icon" href="data:," />
+    <link rel="stylesheet" href="/css/style.css" />
+    <script type="module" src="/js/main.js"></script>
+  </head>
+  <body>
+    <header class="header">
+      <a class="brand" href="/" aria-label="GEO Check home"><span class="brand-mark" aria-hidden="true">g<span></span></span>GEO<span class="brand-light">Check</span></a>
+      <span class="header-note">Website AI Visibility</span>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="page-title">
+        <p class="eyebrow"><span aria-hidden="true"></span>GENERATIVE ENGINE OPTIMIZATION</p>
+        <h1 id="page-title">One restaurant.<br /><span>Eight platform perspectives.</span></h1>
+        <p class="intro">Compare your official website with Google Maps, Yelp, Tripadvisor, OpenTable, Uber Eats, DoorDash, Toast and Grubhub.</p>
+
+        <div class="entry">
+          <form id="check-form" novalidate>
+            <label for="website">Website URL</label>
+            <div class="input-row">
+              <svg class="globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c5 5 5 13 0 18-5-5-5-13 0-18Z"/></svg>
+              <input id="website" name="website" type="text" inputmode="url" autocomplete="url" autocapitalize="none" spellcheck="false" placeholder="Enter your website, e.g. example.com" aria-describedby="form-note result" required maxlength="2048" />
+              <button type="submit" id="submit-button"><span id="button-label">Check website</span><span aria-hidden="true">↗</span></button>
+            </div>
+            <label for="target-address" class="form-note">Location address (optional, recommended for multi-location restaurants)</label>
+            <input id="target-address" class="address-input" maxlength="500" placeholder="Street address of the specific restaurant" />
+            <p id="form-note" class="form-note">Eight platforms, plus your official website. Text, browser and screenshot collection paths.</p>
+          </form>
+          <div id="result" class="result" role="status" aria-live="polite" aria-atomic="true" hidden></div>
+          <noscript><p class="result">Please enable JavaScript to submit your website.</p></noscript>
+        </div>
+
+        <p class="preview-note"><span class="status-dot" aria-hidden="true"></span>Original platform wording, with evidence and collection status.</p>
+      </section>
+
+      <section class="overview" aria-label="GEO analysis areas">
+        <div class="overview-heading"><span>What your comparison includes</span></div>
+        <div class="features">
+          <article><span class="feature-number">01</span><h2>Original wording</h2><p>Compare hours, pricing, ratings and more as each platform expresses them.</p></article>
+          <article><span class="feature-number">02</span><h2>Review themes</h2><p>See evidence-based summaries of accessible reviews, with sample information.</p></article>
+          <article><span class="feature-number">03</span><h2>Traceable results</h2><p>Inspect sources, identify unavailable information and download platform JSON files.</p></article>
+        </div>
+      </section>
+    </main>
+    <footer><span>GEO Check</span><span>Make your website easier to discover.</span></footer>
+  </body>
+</html>

@@ -1,0 +1,10 @@
+{
+  "yelp": {"actor":"epctex/yelp-business-api","input":{"startUrls":["{{listing_url}}"],"maxItems":1}},
+  "google_maps": {"actor":"compass/crawler-google-places","input":{"searchStringsArray":["{{name}} {{address}}"],"maxCrawledPlacesPerSearch":1,"language":"en"}},
+  "tripadvisor": {"actor":"maxcopell/tripadvisor","input":{"startUrls":[{"url":"{{listing_url}}"}],"maxItemsPerQuery":1,"language":"en"}},
+  "uber_eats":{"actor":"memo23/uber-eats-scraper","input":{"startUrls":[{"url":"{{listing_url}}"}],"maxItems":1,"maxReviews":10,"locale":"en-US","maxConcurrency":1,"maxRequestRetries":1}},
+  "doordash":{"actor":"memo23/doordash-reviews-cheerio","input":{"startUrls":[{"url":"{{listing_url}}"}],"region":"US","maxItems":1,"maxConcurrency":1,"maxRequestRetries":1}},
+  "opentable":{"actor":"s-r/opentable-scraper","input":{"search_term":"{{name}}","city":"{{city}}","domain":"com","limit":1,"include_reviews":false}},
+  "grubhub":{"actor":"natanielsantos/grubhub-scraper","input":{"urls":["{{listing_url}}"],"maxItems":1,"scrapeAvailableHours":true}},
+  "toast":{"actor":null,"reason":"No verified Toast-compatible business Actor configured. A matching Toast branch URL and tested Actor are required."}
+}

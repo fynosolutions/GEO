@@ -283,16 +283,13 @@ async function run(job: Job) {
     const identity = await research(job, 'identity', `Open the restaurant's official website: ${JSON.stringify(job.website_url)}. Target address if supplied: ${JSON.stringify(job.target_address)}. Identify the specific branch name and complete address; report confirmed, needs_location or unverified. Also extract all available official-site fields ${Object.keys(fields).join(', ')} with exact original quotes and official-site URLs, and list outbound Google Maps/Yelp links. Do not treat embedded testimonials as aggregate platform ratings. If multiple branches cannot be disambiguated, stop.`);
     job.merchant = await structure<Job['merchant']>(identity, identitySchema);
     checkCancelled();
-    if (official.status === 'readable') {
-      const raw = filterSnapshotEvidence(await structure<PlatformResult>(snapshotResearch(official,job.merchant),resultSchema),official);
-      job.platforms.official = {...verifyResult('official',raw,new Set([official.url])),collection_method:'browser',browser_attempts:[{...official,text:'',links:[]}]};
-    } else {
-      const raw = await structure<PlatformResult>(identity,resultSchema);
-      const officialUrls=toolUrls(identity);
-      for(const e of raw.evidence) {try {if(new URL(e.url).hostname.replace(/^www\./,'')!==new URL(job.website_url).hostname.replace(/^www\./,''))officialUrls.delete(e.url);}catch{officialUrls.delete(e.url);}}
-      job.platforms.official=verifyResult('official',raw,officialUrls);
-      job.platforms.official.status_note=`${job.platforms.official.status_note||''} Official-site browser read was unavailable; this column uses only evidenced official-site search information.`;
-    }
+    // This stage reads official-site research only; browser collection is a later platform fallback.
+    // The former readable branch was unreachable: official was initialized as error and never read.
+    const raw = await structure<PlatformResult>(identity,resultSchema);
+    const officialUrls=toolUrls(identity);
+    for(const e of raw.evidence) {try {if(new URL(e.url).hostname.replace(/^www\./,'')!==new URL(job.website_url).hostname.replace(/^www\./,''))officialUrls.delete(e.url);}catch{officialUrls.delete(e.url);}}
+    job.platforms.official=verifyResult('official',raw,officialUrls);
+    job.platforms.official.status_note=`${job.platforms.official.status_note||''} Official-site browser collection was not attempted; this column uses only evidenced official-site research.`;
     await atomic(join(root,job.id,'official.json'),job.platforms.official);
     if (job.merchant?.status !== 'confirmed' || !job.merchant.name || !job.merchant.address) {
       job.status = job.merchant?.status || 'unverified'; await saveJob(job); return;

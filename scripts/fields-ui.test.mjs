@@ -1,10 +1,11 @@
 import test from 'node:test';import assert from 'node:assert/strict';import{readFile,mkdir}from'node:fs/promises';import{chromium}from'playwright';
 test('main-field view hides empty/secondary rows, counts raw fields and toggles all fields',async()=>{
- const browser=await chromium.launch({channel:'msedge',headless:true});
+ const browser=await chromium.launch({channel:process.env.BROWSER_CHANNEL || (process.platform==='win32'?'msedge':'chromium'),headless:true});
  try{
  const page=await browser.newPage();const errors=[];page.on('pageerror',e=>errors.push(e.message));const id='11111111-1111-4111-8111-111111111111';
  await page.route('http://geo.test/**',async route=>{
   const path=new URL(route.request().url()).pathname;
+  if(path==='/api/session')return route.fulfill({json:{authenticated:true}});
   if(path==='/api/health')return route.fulfill({json:{fields:{name:'Name',address:'Address',average_spend:'Average spend',rating_max:'Rating max'}}});
   if(path.startsWith('/api/audits/'))return route.fulfill({json:{id,website_url:'https://example.com',status:'partial',merchant:{name:'Easy Joy',address:'145 Mulberry St'},platforms:{yelp:{platform:'Yelp',status:'blocked',values:{name:'Easy Joy',address:null,average_spend:null,rating_max:'5'},evidence:[],review_metadata:{},apify:{status:'unverified',actor:'fixture',note:'Fixture data',items:[{name:'Easy Joy',address:'145 Mulberry St, New York, NY 10013',phone:null,aggregatedRating:4.5,reviews:[{text:'Original text'}],extra:'<script>bad()</script>',flag:false}]}},toast:{platform:'Toast',status:'error',values:{},evidence:[],review_metadata:{},apify:{status:'skipped',actor:null,note:'No Actor configured',items:[]}}}}});
   const file=path.startsWith('/js/')||path.startsWith('/css/')?'dist/public'+path:'dist/public/results.html';

@@ -11,11 +11,16 @@ export function branchMismatch(items:unknown[],target:{name:string;address:strin
  const name=record.name||record.title||record.restaurant?.name;
  const address=record.addressText||record.address||record.location?.address||record.restaurant?.location?.address;
  if(typeof name!=='string'||!address)return false;
- const words=target.name.toLowerCase().match(/[a-z0-9]+/g)?.slice(0,2)||[];
- const street=target.address.match(/^\s*(\d+\w*)\s+([a-z-]+)/i);
- if(!words.length||!street)return false;
- const observedName=name.toLowerCase(),observedAddress=(typeof address==='string'?address:JSON.stringify(address)).toLowerCase();
- return !words.every(w=>observedName.includes(w))||!new RegExp(`\\b${street[1]}\\b`,'i').test(observedAddress)||!observedAddress.includes(street[2].toLowerCase());
+ // NFKC folds full-width forms; keep Han and other Unicode letters instead of deleting them.
+ const normalize=(value:string)=>value.normalize('NFKC').toLowerCase().replace(/[^\p{L}\p{N}]/gu,'');
+ const tokens=target.name.normalize('NFKC').toLowerCase().match(/\p{Script=Han}+|[\p{L}\p{N}]+/gu)||[];
+ const words=/\p{Script=Han}/u.test(target.name)?tokens:tokens.slice(0,2);
+ const street=target.address.normalize('NFKC').match(/^\s*(\d+\w*)\s+([a-z-]+)/i);
+ const observedName=normalize(name),observedAddress=(typeof address==='string'?address:JSON.stringify(address)).normalize('NFKC').toLowerCase();
+ const nameConflict=words.length>0&&!words.every(w=>observedName.includes(normalize(w)));
+ // Name parsing failure must not disable the independent address conflict check.
+ const addressConflict=!!street&&(!new RegExp(`\\b${street[1]}\\b`,'i').test(observedAddress)||!observedAddress.includes(street[2].toLowerCase()));
+ return nameConflict||addressConflict;
 }
 export function expandInput(input:unknown,context:Context):unknown {
  if(typeof input==='string')return input.replace(/\{\{(name|address|website_url|listing_url|city)\}\}/g,(_,key:keyof Context)=>context[key]||'');

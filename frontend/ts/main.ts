@@ -1,3 +1,4 @@
+import { ensureAuthenticated } from './auth.js';
 const form = document.querySelector<HTMLFormElement>('#check-form')!;
 const input = document.querySelector<HTMLInputElement>('#website')!;
 const button = document.querySelector<HTMLButtonElement>('#submit-button')!;
@@ -44,6 +45,7 @@ form.addEventListener('submit', async (event) => {
   form.setAttribute('aria-busy', 'true');
   result.hidden = true;
   try {
+    await ensureAuthenticated();
     const response = await fetch('/api/check', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },

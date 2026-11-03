@@ -1,3 +1,4 @@
+import { ensureAuthenticated } from './auth.js';
 import {comparisonFields,versionCandidates,hasCoreData} from './comparison.js';
 type Platform = { platform: string; status: string; collection_method?: string; browser_attempts?: {status:string;url:string;note:string|null;screenshot:string|null}[]; source_url: string | null; collected_at: string | null; status_note: string | null;
  apify?:{status:string;actor:string|null;note:string;items:unknown[];truncated:boolean;run_id:string|null;review_themes?:{value:string|null;sample_size:number;quotes:string[]}};
@@ -72,6 +73,7 @@ async function load() {
  if (pending) return; clearTimeout(timer); pending = true; refresh.disabled = true;
  try {
   if (!id || !/^[a-f0-9-]{36}$/.test(id)) throw new Error('Missing or invalid audit ID. Start a new audit.');
+  await ensureAuthenticated();
   const [response, configResponse] = await Promise.all([fetch(`/api/audits/${id}`, { signal: AbortSignal.timeout(15000) }), fetch('/api/health')]);
   if (!response.ok || !configResponse.ok) throw new Error('Could not load audit. Check the server and refresh.');
   const job: Audit = await response.json(); const config = await configResponse.json() as { fields: Record<string, string> };

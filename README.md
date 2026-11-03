@@ -8,10 +8,10 @@
 
 | 项目 | 要求 |
 | --- | --- |
-| 系统 | 优先使用 Windows 10/11 + PowerShell，当前启动器及测试以 Windows/Edge 为基线 |
-| Node.js | **24.14.0 或更高的 24.x 版本**，已测试 24.21.0。当前配置模块使用 node:http 的 setGlobalProxyFromEnv；旧 Node 22 和较早 24.x 不适用 |
+| 系统 | macOS、Linux 或 Windows；Windows 可使用附带启动器 |
+| Node.js | **>=24.14.0**；本轮在 macOS Node 24.14.0 验证。当前配置模块使用 node:http 的 setGlobalProxyFromEnv；旧 Node 22 和较早 24.x 不适用 |
 | npm | 随 Node.js 安装，用于 npm ci、编译与测试 |
-| 浏览器 | 已安装 Microsoft Edge，Windows 默认使用 Playwright 的 msedge channel |
+| 浏览器 | Windows 默认 Edge；Mac/Linux 默认 Playwright Chromium，也可设置 BROWSER_CHANNEL=chrome |
 | OpenAI | 网页审计必须配置 OPENAI_API_KEY，并有可用额度；模型须支持 Responses、web_search、结构化输出；开启视觉时还须支持图片输入 |
 | Apify | 可选；启用第二版真实采集需要 APIFY_TOKEN、可用额度及对应 Actor 的访问权限 |
 | 网络 | 能访问 npm、OpenAI、Apify 和目标站点；必要时配置可用 HTTP/HTTPS 代理 |
@@ -20,7 +20,7 @@
 
 Python、Conda 均不是 npm 启动的必需依赖。Python 启动脚本仅为可选入口；requirements.txt 没有额外 Python 包。浏览器和并发任务会占用额外内存，建议在普通桌面环境运行，保留足够磁盘空间保存截图和会话。
 
-注意：package.json 的 engines 与启动器仍只检查 Node 主版本 >=22，这是旧的宽松检查；**实际运行以本 README 的 24.14+ 要求为准**。[Node 官方 API 版本说明](https://nodejs.org/api/http.html#httpsetglobalproxyfromenvproxyenv)
+package.json、npm 生命周期及 Windows 启动器统一要求 **Node >=24.14.0**。[Node 官方 API 版本说明](https://nodejs.org/api/http.html#httpsetglobalproxyfromenvproxyenv)
 
 ## 2. 获取当前分支并安装依赖
 
@@ -271,10 +271,34 @@ NO_PROXY=localhost,127.0.0.1,::1
 
 当前系统是资料采集与对比工具，不是完整 GEO 评分或 AI 推荐率监测系统。验证码、登录墙、网站规则、供应商限制、索引滞后及模型误读均可能导致缺失或不准确；不能保证完整评论、最新评论排序或八个平台全量采集。
 
-默认仅监听本机，当前没有身份验证，不应直接向公网开放可产生 API 费用的接口。远程使用需配置认证、持久磁盘和单实例运行。保留供应商、证据及数据使用限制，商用前核实数据展示和存储权限。
+默认仅监听本机，当前 API 使用 GEO_API_TOKEN 和短期浏览器会话，不应直接向公网开放收费接口。远程使用需配置认证、持久磁盘和单实例运行。保留供应商、证据及数据使用限制，商用前核实数据展示和存储权限。
 
 - [2026-11-01 今日更新与待办](update-2026-11-01.md)
 - [双版本采集和实测报告](docs/TWO_VERSION_COLLECTION.md)
 - [Apify 配置与阶段记录](docs/APIFY_SETUP.md)
 - [API 接入说明](docs/API_SETUP.md)
 - [更新历史](update.md)
+
+## Issue #2：运行环境与访问控制
+
+需要 **Node.js >=24.14.0**（使用 `node:http` 的 `setGlobalProxyFromEnv`），不是 Node 22。首次安装与验证：
+
+```sh
+node --version
+npm ci
+cp .env.example .env  # 仅首次配置，不覆盖已有 .env
+# 编辑 .env：配置 GEO_API_TOKEN（随机访问令牌），需要真实采集时再配置 OPENAI_API_KEY
+npm run check
+npm run build
+npx playwright install chromium
+npm test
+npm start
+```
+
+Mac/Linux 默认使用 Playwright Chromium；Windows 默认 Edge。已有 Chrome 可设置 `BROWSER_CHANNEL=chrome`，例如 `BROWSER_CHANNEL=chrome npm test`。普通模拟测试不需要真实 OpenAI 或 Apify 密钥。
+
+`GEO_API_TOKEN` 与 OpenAI/Apify 密钥独立。可用 `node -e "console.log(require('node:crypto').randomBytes(32).toString('hex'))"` 在自己的终端生成，粘贴到本地 .env。不要提交或分享令牌。修改后重启服务。
+
+网页首次提交或打开结果时输入 Access token。服务校验后发出 8 小时 HttpOnly、SameSite=Strict 会话，页面不把 token 保存到 URL、localStorage 或 sessionStorage；同源 JSON 和截图下载自动携带会话。HTTPS 部署设置 COOKIE_SECURE=true。令牌轮换后旧会话失效。所有 `/api/*`（含 health、取消和下载）均受保护；缺少服务端配置返回 503。脚本调用使用 `Authorization: Bearer <GEO_API_TOKEN>`，不支持 URL token。
+
+官网采集阶段明确使用官网研究结果，不执行浏览器读取；删除了默认 error 占位对象上永远不成立的 readable 分支，不再谎称浏览器尝试失败。第三方平台的现有浏览器回退保持不变。Apify 中文身份比较保留 Unicode 并兼容全角字符；false 仅表示未发现冲突，仍不把供应商数据升级为已核验。

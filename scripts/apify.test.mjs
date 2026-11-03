@@ -33,3 +33,16 @@ test('cancellation aborts an already-started remote Actor',async()=>{
   });assert.equal(r.status,'cancelled');assert.equal(aborted,true);
  }finally{if(old===undefined)delete process.env.APIFY_TOKEN;else process.env.APIFY_TOKEN=old;}
 });
+
+test('Chinese names reject a different restaurant even at the same address',()=>{
+ const target={name:'喜悦火锅',address:'145 Mulberry St, New York, NY 10013'};
+ assert.equal(branchMismatch([{name:'喜悦火锅',address:'145 Mulberry Street, New York, NY 10013'}],target),false);
+ assert.equal(branchMismatch([{name:'另一家火锅',address:target.address}],target),true);
+ assert.equal(branchMismatch([{name:target.name,address:'146 Mulberry St, New York, NY 10013'}],target),true);
+});
+test('mixed Chinese/English names retain Unicode and fold full-width characters',()=>{
+ const target={name:'喜悦 Ｅａｓｙ Joy',address:'145 Mulberry St, New York, NY 10013'};
+ assert.equal(branchMismatch([{name:'喜悦 Easy Joy',address:target.address}],target),false);
+ assert.equal(branchMismatch([{name:'喜悦 Other Restaurant',address:target.address}],target),true);
+ assert.equal(branchMismatch([{name:'喜悦 Easy Different',address:target.address}],target),true);
+});

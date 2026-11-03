@@ -8,10 +8,14 @@
     "build": "tsc -p config/tsconfig.server.json && tsc -p config/tsconfig.client.json && node scripts/copy-assets.mjs",
     "check": "tsc -p config/tsconfig.server.json --noEmit && tsc -p config/tsconfig.client.json --noEmit",
     "start": "node dist/backend/server.js",
-    "test": "node --test scripts/audit.test.mjs scripts/apify.test.mjs scripts/fields-ui.test.mjs scripts/comparison.test.mjs scripts/review-themes.test.mjs"
+    "test": "node --test scripts/audit.test.mjs scripts/apify.test.mjs scripts/fields-ui.test.mjs scripts/comparison.test.mjs scripts/review-themes.test.mjs scripts/auth.test.mjs",
+    "prebuild": "node scripts/check-runtime.mjs",
+    "precheck": "node scripts/check-runtime.mjs",
+    "prestart": "node scripts/check-runtime.mjs",
+    "pretest": "node scripts/check-runtime.mjs"
   },
   "engines": {
-    "node": ">=22"
+    "node": ">=24.14.0"
   },
   "devDependencies": {
     "@types/node": "^24.0.0",

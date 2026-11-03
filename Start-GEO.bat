@@ -11,7 +11,7 @@ set "PATH=%GEO_NODE_DIR%;%PATH%"
 
 echo [GEO Check] Using Node.js:
 echo %GEO_NODE%
-"%GEO_NODE%" -e "if(Number(process.versions.node.split('.')[0]) < 22) process.exit(1)"
+"%GEO_NODE%" scripts/check-runtime.mjs
 if errorlevel 1 goto old_node
 
 if not exist "node_modules\typescript\bin\tsc" goto install
@@ -52,11 +52,11 @@ exit /b 0
 
 :missing_node
 echo ERROR: Node.js was not found at "%GEO_NODE%".
-echo Install Node.js 22+ or set GEO_NODE to its full executable path.
+echo Install Node.js 24.14+ or set GEO_NODE to its full executable path.
 goto failed
 
 :old_node
-echo ERROR: Node.js 22 or newer is required.
+echo ERROR: Node.js 24.14 or newer is required.
 goto failed
 
 :missing_npm

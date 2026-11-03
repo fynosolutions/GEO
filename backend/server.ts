@@ -1,4 +1,5 @@
 import { createServer, type ServerResponse } from 'node:http';
+import { authenticated, sessionCookie } from './auth.js';
 import { readFile } from 'node:fs/promises';
 import { fields, platforms, getJob, getScreenshot, isBusy, startJob, cancelJob } from './audit.js';
 
@@ -9,6 +10,7 @@ const assets = new Map([
   ['/', ['index.html', 'text/html; charset=utf-8']],
   ['/results', ['results.html', 'text/html; charset=utf-8']],
   ['/css/style.css', ['css/style.css', 'text/css; charset=utf-8']],
+  ['/js/auth.js', ['js/auth.js', 'text/javascript; charset=utf-8']],
   ['/js/main.js', ['js/main.js', 'text/javascript; charset=utf-8']],
   ['/js/results.js', ['js/results.js', 'text/javascript; charset=utf-8']],
   ['/js/comparison.js', ['js/comparison.js', 'text/javascript; charset=utf-8']],
@@ -24,6 +26,19 @@ const server = createServer(async (request, response) => {
   const pathname = new URL(request.url ?? '/', 'http://localhost').pathname;
 
   try {
+    if (pathname.startsWith('/api/')) {
+      const token = process.env.GEO_API_TOKEN?.trim();
+      if (!token) { json(response, 503, {message:'Configure GEO_API_TOKEN in the server environment and restart.'}); return; }
+      if (!authenticated(request, token)) { response.setHeader('WWW-Authenticate', 'Bearer'); json(response,401,{message:'Authentication required. Enter the access token.'}); return; }
+      if (!['GET','HEAD'].includes(request.method || '')) {
+        const origin = request.headers.origin;
+        if (origin && origin !== `http://${request.headers.host}` && origin !== `https://${request.headers.host}`) { json(response,403,{message:'Cross-origin request rejected.'}); return; }
+      }
+      if (pathname === '/api/session' && ['GET','POST'].includes(request.method || '')) {
+        if (request.method === 'POST') response.setHeader('Set-Cookie', sessionCookie(token, process.env.COOKIE_SECURE === 'true'));
+        json(response,200,{authenticated:true}); return;
+      }
+    }
     if (pathname === '/api/health' && request.method === 'GET') {
       json(response, 200, { status: 'ok', detectionEnabled: Boolean(process.env.OPENAI_API_KEY), apifyEnabled:Boolean(process.env.APIFY_TOKEN)&&process.env.APIFY_ENABLED!=='false', fields, platforms });
       return;

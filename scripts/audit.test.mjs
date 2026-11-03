@@ -1,4 +1,6 @@
 import test from 'node:test';
+const nativeFetch = globalThis.fetch;
+const fetch = (url, options = {}) => nativeFetch(url, { ...options, headers: { ...options.headers, Authorization: 'Bearer test-access-token' } });
 import assert from 'node:assert/strict';
 import { spawn } from 'node:child_process';
 import { mkdtemp, mkdir, readFile, rm } from 'node:fs/promises';
@@ -89,7 +91,7 @@ test('Maps retains working standard search fallback and English language request
 
 test('stop cancels server work and persists stopped sources',async()=>{
  const dir=await mkdtemp(join(tmpdir(),'geo-stop-test-'));
- const child=spawn(process.execPath,['--import','./scripts/mock-openai.mjs','dist/backend/server.js'],{env:{...process.env,OPENAI_API_KEY:'test-only',APIFY_ENABLED:'false',MOCK_SLOW:'true',AUDIT_DATA_DIR:dir,BROWSER_PROFILE_DIR:join(dir,'profiles'),BROWSER_SETTLE_TIMEOUT_MS:'0',PORT:'0',HOST:'127.0.0.1'},stdio:['ignore','pipe','pipe']});
+ const child=spawn(process.execPath,['--import','./scripts/mock-openai.mjs','dist/backend/server.js'],{env:{...process.env,OPENAI_API_KEY:'test-only',GEO_API_TOKEN:'test-access-token',APIFY_ENABLED:'false',MOCK_SLOW:'true',AUDIT_DATA_DIR:dir,BROWSER_PROFILE_DIR:join(dir,'profiles'),BROWSER_SETTLE_TIMEOUT_MS:'0',PORT:'0',HOST:'127.0.0.1'},stdio:['ignore','pipe','pipe']});
  try {
   const base=await new Promise((resolve,reject)=>{child.stdout.on('data',chunk=>{const m=chunk.toString().match(/http:\/\/127\.0\.0\.1:(\d+)/);if(m)resolve(`http://127.0.0.1:${m[1]}`)});child.once('error',reject)});
   const accepted=await (await fetch(`${base}/api/check`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({url:'https://fixture.example'})})).json();
@@ -124,7 +126,7 @@ test('visual acceptance rejects walls and unverified branches; merging preserves
 });
 for(const browserFixture of [false,true,'vision']) test(`submission, JSON persistence and browser fallback=${browserFixture} (mock API)`, async () => {
  const dir=await mkdtemp(join(tmpdir(),'geo-audit-test-'));
- const child=spawn(process.execPath,['--import','./scripts/mock-openai.mjs','dist/backend/server.js'],{env:{...process.env,OPENAI_API_KEY:'test-only',APIFY_ENABLED:'false',BROWSER_FIXTURE:String(Boolean(browserFixture)),VISION_FIXTURE:String(browserFixture==='vision'),VISION_FALLBACK:String(browserFixture==='vision'),BROWSER_FALLBACK:'true',AUDIT_DATA_DIR:dir,BROWSER_PROFILE_DIR:join(dir,'profiles'),BROWSER_SETTLE_TIMEOUT_MS:'0',PORT:'0',HOST:'127.0.0.1'},stdio:['ignore','pipe','pipe']});
+ const child=spawn(process.execPath,['--import','./scripts/mock-openai.mjs','dist/backend/server.js'],{env:{...process.env,OPENAI_API_KEY:'test-only',GEO_API_TOKEN:'test-access-token',APIFY_ENABLED:'false',BROWSER_FIXTURE:String(Boolean(browserFixture)),VISION_FIXTURE:String(browserFixture==='vision'),VISION_FALLBACK:String(browserFixture==='vision'),BROWSER_FALLBACK:'true',AUDIT_DATA_DIR:dir,BROWSER_PROFILE_DIR:join(dir,'profiles'),BROWSER_SETTLE_TIMEOUT_MS:'0',PORT:'0',HOST:'127.0.0.1'},stdio:['ignore','pipe','pipe']});
  try {
   const address=await new Promise((resolve,reject)=>{child.stdout.on('data',chunk=>{const match=chunk.toString().match(/http:\/\/127\.0\.0\.1:(\d+)/);if(match)resolve(`http://127.0.0.1:${match[1]}`)});child.once('error',reject);child.once('exit',()=>reject(new Error('Server exited')));});
   let response=await fetch(`${address}/api/check`,{method:'POST',headers:{'Content-Type':'application/json',Origin:'https://other.example'},body:JSON.stringify({url:'https://fixture.example'})});assert.equal(response.status,403);
@@ -134,7 +136,7 @@ for(const browserFixture of [false,true,'vision']) test(`submission, JSON persis
   let job;
   for(let i=0;i<1500;i++){job=await (await fetch(`${address}/api/audits/${accepted.id}`)).json();if(job.status!=='running')break;await new Promise(r=>setTimeout(r,30));}
   assert.equal(job.status,'partial',JSON.stringify(job));assert.deepEqual(Object.keys(job.platforms),['official','google_maps','yelp','tripadvisor','opentable','uber_eats','doordash','toast','grubhub']);
-  assert.ok(job.platforms.official);assert.equal(job.platforms.toast.platform,'Toast');assert.equal(job.platforms.resy,undefined);
+  assert.ok(job.platforms.official);assert.equal(job.platforms.official.collection_method,'web_search');assert.match(job.platforms.official.status_note,/browser collection was not attempted/);assert.equal(job.platforms.toast.platform,'Toast');assert.equal(job.platforms.resy,undefined);
   for(const key of Object.keys(job.platforms)) {const saved=JSON.parse(await readFile(join(dir,job.id,`${key}.json`),'utf8'));
    if((browserFixture && key==='yelp') || (browserFixture==='vision' && key==='google_maps')) {
     assert.equal(saved.collection_method,browserFixture==='vision'?'vision':'browser');assert.equal(saved.values.name,'Fixture Restaurant');assert.equal(saved.values.review_count,'1.2K reviews');

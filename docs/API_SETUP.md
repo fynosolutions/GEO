@@ -119,9 +119,9 @@ Test one known single-location restaurant first. Check branch identity, source U
 
 ## Hosting later
 
-For local use, no cloud deployment is necessary. For a private remote deployment use a persistent Node.js 22+ host, run `npm ci` and `npm run build`, inject the API key as a server secret, mount a writable persistent `AUDIT_DATA_DIR`, and run `npm start` under a process manager. A nonpersistent/serverless deployment is unsuitable for these in-process background jobs and local files. Use one instance; do not share this data directory across multiple workers.
+For local use, no cloud deployment is necessary. For a private remote deployment use a persistent Node.js 24.14+ host, run `npm ci` and `npm run build`, inject the API key as a server secret, mount a writable persistent `AUDIT_DATA_DIR`, and run `npm start` under a process manager. A nonpersistent/serverless deployment is unsuitable for these in-process background jobs and local files. Use one instance; do not share this data directory across multiple workers.
 
-The current app has no authentication and can create billable requests. Keep it bound to localhost or behind an authenticated private reverse proxy/VPN. Do not expose it directly to the public internet; a public deployment needs access control and per-user spending/rate limits first. Set `HOST=0.0.0.0` only behind that access layer. Use HTTPS at the proxy, preserve the Host header and allow outbound HTTPS to `api.openai.com`.
+The app requires a configured GEO_API_TOKEN for API access and can create billable requests. Keep it bound to localhost or behind an authenticated private reverse proxy/VPN. Do not expose it directly to the public internet; a public deployment needs access control and per-user spending/rate limits first. Set `HOST=0.0.0.0` only behind that access layer. Use HTTPS at the proxy, preserve the Host header and allow outbound HTTPS to `api.openai.com`.
 
 ## Errors
 
@@ -134,3 +134,9 @@ On Windows, the server uses the enabled system HTTP/HTTPS proxy when no explicit
 - Connection errors: server stopped, network restriction, or request timeout.
 
 Official references: https://developers.openai.com/api/docs/guides/tools-web-search and https://developers.openai.com/api/docs/guides/structured-outputs
+
+## Access token (Issue #2)
+
+Node.js >=24.14.0 is required. Configure `GEO_API_TOKEN` separately from provider keys. Every `/api/*` route requires a Bearer token or valid signed session cookie; absent/incorrect authentication returns 401. If the server token is unset, API requests return 503 and no audit starts. Static UI files remain available.
+
+The UI prompts for the access token; `POST /api/session` exchanges valid authorization for an 8-hour HttpOnly SameSite=Strict session. Download links, screenshots, polling and cancellation use the same-origin cookie. No token is stored in URLs or browser storage. Set `COOKIE_SECURE=true` behind HTTPS; rotate the token and restart to invalidate old sessions. Keep TLS enabled and use a private authenticated deployment. Existing cross-origin mutation checks remain enforced.

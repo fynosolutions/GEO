@@ -1,2 +1,0 @@
-# Python 启动脚本仅使用标准库，无需 pip 安装依赖。
-# TypeScript 依赖见 package.json，安装至 node_modules/。

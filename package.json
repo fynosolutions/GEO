@@ -3,16 +3,18 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
-  "description": "A minimal GEO website checker with a placeholder analysis endpoint",
+  "description": "Restaurant listing collector producing out/<restaurant-name>.json",
   "scripts": {
     "build": "tsc -p config/tsconfig.server.json && tsc -p config/tsconfig.client.json && node scripts/copy-assets.mjs",
     "check": "tsc -p config/tsconfig.server.json --noEmit && tsc -p config/tsconfig.client.json --noEmit",
     "start": "node dist/backend/server.js",
-    "test": "node --test scripts/audit.test.mjs scripts/apify.test.mjs scripts/fields-ui.test.mjs scripts/comparison.test.mjs scripts/review-themes.test.mjs scripts/auth.test.mjs",
-    "prebuild": "node scripts/check-runtime.mjs",
+    "test": "node --test scripts/*.test.mjs",
+    "prebuild": "node scripts/check-runtime.mjs && node scripts/clean-dist.mjs",
     "precheck": "node scripts/check-runtime.mjs",
     "prestart": "node scripts/check-runtime.mjs",
-    "pretest": "node scripts/check-runtime.mjs"
+    "pretest": "node scripts/check-runtime.mjs",
+    "collect": "node dist/backend/cli.js",
+    "precollect": "node scripts/check-runtime.mjs"
   },
   "engines": {
     "node": ">=24.14.0"

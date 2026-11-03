@@ -1,7 +1,0 @@
-import '../dist/backend/config.js';import{collectApify}from'../dist/backend/apify.js';import{mkdir,readFile,writeFile}from'node:fs/promises';import{resolve,join}from'node:path';
-if(!process.env.APIFY_TOKEN)throw Error('Configure APIFY_TOKEN in local .env first.');
-const old=JSON.parse(await readFile('.local/audits/698c9628-e2d6-4c23-8b58-95f73d15356b/job.json'));
-const directory=resolve('.local','apify-platform-retest-'+Date.now());await mkdir(directory,{recursive:true});
-const queue=(process.argv.slice(2).length?process.argv.slice(2):['yelp','uber_eats','doordash','opentable','grubhub','toast']);const report=[];
-await Promise.all([0,1].map(async()=>{while(queue.length){const key=queue.shift();const target={name:'Easy Joy Dim Sum & AYCE Hot Pot',address:'145 Mulberry St, New York, NY 10013',website_url:'https://www.easyjoybuffet.com/',listing_url:key==='yelp'?'https://www.yelp.com/biz/easy-joy-dim-sum-and-ayce-hot-pot-new-york':old.platforms[key]?.source_url||''};console.log('Starting '+key);const result=await collectApify(key,target);await writeFile(join(directory,key+'.apify.json'),JSON.stringify(result,null,2));const summary={platform:key,status:result.status,actor:result.actor,records:result.items.length,note:result.note,keys:result.items.map(item=>item&&typeof item==='object'?Object.keys(item):[])};report.push(summary);console.log(JSON.stringify(summary));}}));
-await writeFile(join(directory,'report.json'),JSON.stringify(report,null,2));console.log('Saved '+directory);

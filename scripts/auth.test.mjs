@@ -15,11 +15,11 @@ test('sessions reject wrong, expired, tampered and rotated tokens',()=>{
  assert.equal(authenticated({headers:{authorization:'Bearer '+token}},''),false);
 });
 test('all API routes require authentication and browser sessions support downloads',async()=>{
- const child=spawn(process.execPath,['dist/backend/server.js'],{env:{...process.env,PORT:'0',HOST:'127.0.0.1',GEO_API_TOKEN:token,OPENAI_API_KEY:''},stdio:['ignore','pipe','pipe']});
+ const child=spawn(process.execPath,['dist/backend/server.js'],{env:{...process.env,PORT:'0',HOST:'127.0.0.1',GEO_API_TOKEN:token,APIFY_TOKEN:''},stdio:['ignore','pipe','pipe']});
  try{
  const base=await new Promise((resolve,reject)=>{child.stdout.on('data',chunk=>{const match=String(chunk).match(/http:\/\/127\.0\.0\.1:\d+/);if(match)resolve(match[0]);});child.once('error',reject);child.once('exit',()=>reject(new Error('Server exited')));});
  const id='11111111-1111-4111-8111-111111111111';
- for(const [path,method]of [['/api/check','POST'],['/api/health','GET'],[`/api/audits/${id}`,'GET'],[`/api/audits/${id}/yelp.json`,'GET'],[`/api/audits/${id}/screenshots/yelp.png`,'GET'],[`/api/audits/${id}/cancel`,'POST']]) {
+ for(const [path,method]of [['/api/check','POST'],['/api/health','GET'],[`/api/audits/${id}`,'GET'],[`/api/audits/${id}/output.json`,'GET'],[`/api/audits/${id}/screenshots/yelp.png`,'GET'],[`/api/audits/${id}/cancel`,'POST']]) {
    assert.equal((await fetch(base+path,{method})).status,401);
    assert.equal((await fetch(base+path,{method,headers:{Authorization:'Bearer incorrect'}})).status,401);
  }
@@ -28,9 +28,9 @@ test('all API routes require authentication and browser sessions support downloa
  const login=await fetch(base+'/api/session',{method:'POST',headers:{Authorization:'Bearer '+token}});assert.equal(login.status,200);
  const cookie=login.headers.get('set-cookie');assert.match(cookie,/HttpOnly/);assert.match(cookie,/SameSite=Strict/);assert.ok(!cookie.includes(token));
  const headers={Cookie:cookie.split(';')[0]};assert.equal((await fetch(base+'/api/health',{headers})).status,200);
- assert.equal((await fetch(`${base}/api/audits/${id}/yelp.json`,{headers})).status,404);
+ assert.equal((await fetch(`${base}/api/audits/${id}/output.json`,{headers})).status,404);
  assert.equal((await fetch(base+'/api/health?token='+token)).status,401);
- const {chromium}=await import('playwright');const browser=await chromium.launch({channel:process.env.BROWSER_CHANNEL||(process.platform==='win32'?'msedge':'chromium'),headless:true});
+ const {chromium}=await import('playwright');const browser=await chromium.launch({channel:process.env.BROWSER_CHANNEL||'chromium',headless:true});
  try {
    const page=await browser.newPage();await page.goto(base);
    await page.locator('#website').fill('https://fixture.example');await page.locator('#submit-button').click();

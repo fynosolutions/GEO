@@ -6,3 +6,6 @@ __pycache__/
 .env.*
 !.env.example
 .local/
+
+out/
+crawl-records/

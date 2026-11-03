@@ -1,7 +1,7 @@
 import { createServer, type ServerResponse } from 'node:http';
 import { authenticated, sessionCookie } from './auth.js';
 import { readFile } from 'node:fs/promises';
-import { fields, platforms, getJob, getScreenshot, isBusy, startJob, cancelJob } from './audit.js';
+import { outputFields as fields, platforms, getJob, isBusy, startJob, cancelJob } from './public.js';
 
 const port = Number(process.env.PORT ?? 3001);
 const host = process.env.HOST ?? '127.0.0.1';
@@ -13,7 +13,6 @@ const assets = new Map([
   ['/js/auth.js', ['js/auth.js', 'text/javascript; charset=utf-8']],
   ['/js/main.js', ['js/main.js', 'text/javascript; charset=utf-8']],
   ['/js/results.js', ['js/results.js', 'text/javascript; charset=utf-8']],
-  ['/js/comparison.js', ['js/comparison.js', 'text/javascript; charset=utf-8']],
 ]);
 
 function json(response: ServerResponse, status: number, data: object): void {
@@ -28,19 +27,24 @@ const server = createServer(async (request, response) => {
   try {
     if (pathname.startsWith('/api/')) {
       const token = process.env.GEO_API_TOKEN?.trim();
-      if (!token) { json(response, 503, {message:'Configure GEO_API_TOKEN in the server environment and restart.'}); return; }
-      if (!authenticated(request, token)) { response.setHeader('WWW-Authenticate', 'Bearer'); json(response,401,{message:'Authentication required. Enter the access token.'}); return; }
+      if(!token&&!['127.0.0.1','::1','localhost'].includes(host)){json(response,503,{message:'Bind the local test UI to loopback or configure GEO_API_TOKEN for remote access.'});return;}
+      if(!token){
+        let localHost=false;
+        try{localHost=['127.0.0.1','[::1]','localhost'].includes(new URL(`http://${request.headers.host}`).hostname);}catch{}
+        if(!localHost){json(response,403,{message:'Local test access requires a loopback host.'});return;}
+      }
+      if (token && !authenticated(request, token)) { response.setHeader('WWW-Authenticate', 'Bearer'); json(response,401,{message:'Authentication required. Enter the access token.'}); return; }
       if (!['GET','HEAD'].includes(request.method || '')) {
         const origin = request.headers.origin;
         if (origin && origin !== `http://${request.headers.host}` && origin !== `https://${request.headers.host}`) { json(response,403,{message:'Cross-origin request rejected.'}); return; }
       }
       if (pathname === '/api/session' && ['GET','POST'].includes(request.method || '')) {
-        if (request.method === 'POST') response.setHeader('Set-Cookie', sessionCookie(token, process.env.COOKIE_SECURE === 'true'));
+        if (token && request.method === 'POST') response.setHeader('Set-Cookie', sessionCookie(token, process.env.COOKIE_SECURE === 'true'));
         json(response,200,{authenticated:true}); return;
       }
     }
     if (pathname === '/api/health' && request.method === 'GET') {
-      json(response, 200, { status: 'ok', detectionEnabled: Boolean(process.env.OPENAI_API_KEY), apifyEnabled:Boolean(process.env.APIFY_TOKEN)&&process.env.APIFY_ENABLED!=='false', fields, platforms });
+      json(response, 200, { status: 'ok', apifyEnabled:Boolean(process.env.APIFY_TOKEN)&&process.env.APIFY_ENABLED!=='false', fields, platforms });
       return;
     }
 
@@ -50,35 +54,31 @@ const server = createServer(async (request, response) => {
       if(origin && origin!==`http://${request.headers.host}` && origin!==`https://${request.headers.host}`) {json(response,403,{message:'Cross-origin request rejected.'});return;}
       try {json(response,202,await cancelJob(cancel[1]));}catch{json(response,404,{message:'Audit not found.'});} return;
     }
-    const screenshot = pathname.match(/^\/api\/audits\/([a-f0-9-]{36})\/screenshots\/([^/]+)$/);
-    if (screenshot && request.method === 'GET') {
-      try { const image = await getScreenshot(screenshot[1],screenshot[2]); response.writeHead(200,{'Content-Type':'image/png','Cache-Control':'no-store'}); response.end(image); }
-      catch { json(response,404,{message:'Screenshot not found.'}); } return;
-    }
-    const match = pathname.match(/^\/api\/audits\/([a-f0-9-]{36})(?:\/(official|google_maps|yelp|tripadvisor|opentable|uber_eats|doordash|toast|grubhub)\.json)?$/);
-    if (match && request.method === 'GET') {
-      try {
-        const job = await getJob(match[1]);
-        if (match[2]) {
-          response.setHeader('Content-Disposition', `attachment; filename="${match[2]}.json"`);
-          json(response, 200, job.platforms[match[2] as keyof typeof platforms]);
-        } else json(response, 200, job);
-      } catch { json(response, 404, { message: 'Audit not found.' }); }
-      return;
+    const match=pathname.match(/^\/api\/audits\/([a-f0-9-]{36})(\/output\.json)?$/);
+    if(match&&request.method==='GET'){
+     try{
+      const job=await getJob(match[1]);
+      if(match[2]){
+       if(!job.output_file){json(response,409,{message:'Output file is not ready.'});return;}
+       const content=await readFile(job.output_file);
+       const encoded=encodeURIComponent(job.filename!).replace(/[!'()*]/g,c=>`%${c.charCodeAt(0).toString(16).toUpperCase()}`);
+       response.writeHead(200,{'Content-Type':'application/json; charset=utf-8','Cache-Control':'no-store','Content-Disposition':`attachment; filename="restaurant.json"; filename*=UTF-8''${encoded}`});response.end(content);
+      }else json(response,200,job);
+     }catch{json(response,404,{message:'Audit not found.'});}return;
     }
 
     if (pathname === '/api/check') {
       if (request.method !== 'POST') {
         response.setHeader('Allow', 'POST');
-        json(response, 405, { message: 'Please use POST to submit a URL.' });
+        json(response, 405, { message: 'Please use POST to start collection.' });
         return;
       }
       const origin = request.headers.origin;
       if (origin && origin !== `http://${request.headers.host}` && origin !== `https://${request.headers.host}`) {
         json(response, 403, { message: 'Cross-origin submissions are not allowed.' }); return;
       }
-      if (!process.env.OPENAI_API_KEY) {
-        json(response, 503, { message: 'Configure OPENAI_API_KEY in the server .env file and restart.' }); return;
+      if (!process.env.APIFY_TOKEN) {
+        json(response, 503, { message: 'Configure APIFY_TOKEN in the server .env file and restart.' }); return;
       }
       if (isBusy()) { json(response, 429, { message: 'An audit is running. Please wait for it to finish.' }); return; }
       if (!request.headers['content-type']?.startsWith('application/json')) {
@@ -93,22 +93,22 @@ const server = createServer(async (request, response) => {
           return;
         }
       }
-      let url: URL;
+      let collectionInput: import('./public.js').CollectionInput = {};
       let address: string | null = null;
       try {
         const input: unknown = JSON.parse(body);
-        if (typeof input !== 'object' || input === null || !('url' in input) || typeof input.url !== 'string') throw new Error();
-        url = new URL(input.url);
-        if ('target_address' in input && typeof input.target_address === 'string') address = input.target_address.trim().slice(0, 500) || null;
-        if (!['http:', 'https:'].includes(url.protocol) || !url.hostname || url.username || url.password) throw new Error();
-        if (url.href.length > 2048 || url.hostname === 'localhost' || !url.hostname.includes('.') || /^[\d.]+$/.test(url.hostname) || url.hostname.includes(':') || /\.(local|internal|localhost)$/.test(url.hostname)) throw new Error();
+        if (!input || typeof input!=='object')throw new Error();
+        const data=input as Record<string,unknown>;
+        address=typeof data.target_address==='string'?data.target_address.trim().slice(0,500)||null:null;
+        collectionInput={name:typeof data.name==='string'?data.name.trim().slice(0,500):undefined,place_id:typeof data.place_id==='string'?data.place_id.trim().slice(0,500):undefined,address:address||undefined};
+        if((!!collectionInput.name)===(!!collectionInput.place_id)||'url' in data)throw new Error();
       } catch {
-        json(response, 400, { message: 'Please enter a valid HTTP or HTTPS URL.' });
+        json(response, 400, { message: 'Provide either a restaurant name or Google place ID, with an optional branch address.' });
         return;
       }
       // Re-check after reading the body, so simultaneous submissions cannot bypass the job cap.
       if (isBusy()) { json(response, 429, { message: 'An audit is running.' }); return; }
-      const job = await startJob(url.href, address);
+      const job = await startJob(collectionInput);
       json(response, 202, { id: job.id, result_url: `/results?id=${job.id}` });
       return;
     }

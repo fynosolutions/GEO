@@ -38,3 +38,7 @@ This version has breaking changes — APIs, conventions, and file structure may 
 This block is written and re-added by `next dev` — verify at `node_modules/next/dist/server/lib/generate-agent-files.js`. Removing it from a diff only re-creates the uncommitted change; committing it with your work keeps the tree clean.
 
 <!-- END:nextjs-agent-rules -->
+
+## 协作
+
+和毛协作、提 PR 前，先读 [COLLABORATION.md](COLLABORATION.md)：任务流程、分支规则、数据输出规则和红线都在里面。

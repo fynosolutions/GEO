@@ -1,12 +1,30 @@
+import {matchesIdentity,mapItem} from '../dist/backend/collection.js';
+const identityConflict=(items,target)=>!matchesIdentity(mapItem('google_maps',items[0]),target);
 import test from 'node:test';import assert from 'node:assert/strict';
-import {collectApify,expandInput,branchMismatch} from '../dist/backend/apify.js';
+import {collectApify,expandInput} from '../dist/backend/apify.js';
 test('wrong-branch provider results are rejected rather than treated as successful extraction',()=>{
  const target={name:'Easy Joy Dim Sum & AYCE Hot Pot',address:'145 Mulberry St, New York, NY 10013'};
- assert.equal(branchMismatch([{name:'Canyon Lake Country Club Bar & Grill',address:'32001 Railroad Canyon Rd, Canyon Lake, CA 92587'}],target),true);
- assert.equal(branchMismatch([{title:'Easy Joy Dim Sum Hot Pot',address:{streetAddress:'145 Mulberry Street',postalCode:'10013'}}],target),false);
+ assert.equal(identityConflict([{name:'Canyon Lake Country Club Bar & Grill',address:'32001 Railroad Canyon Rd, Canyon Lake, CA 92587'}],target),true);
+ assert.equal(identityConflict([{title:'Easy Joy Dim Sum Hot Pot',address:{streetAddress:'145 Mulberry Street',postalCode:'10013'}}],target),false);
 });
 test('input expansion preserves types and exact text',()=>{
  assert.deepEqual(expandInput({urls:['{{listing_url}}'],count:1,all:true},{listing_url:'https://example.com/a?x="raw"'}),{urls:['https://example.com/a?x="raw"'],count:1,all:true});
+});
+test('Facebook name and direct-page adapters use the documented schemas',async()=>{
+ const previous=process.env.APIFY_TOKEN;process.env.APIFY_TOKEN='fixture';const requests=[];
+ try{
+  const transport=async(url,options)=>{
+   if(options.method==='POST'){requests.push({url,input:JSON.parse(options.body)});return Response.json({data:{id:'fixture',status:'SUCCEEDED',defaultDatasetId:'fixture'}});}
+   return Response.json([]);
+  };
+  const target={name:'Fixture Cafe',address:'123 Main St',website_url:'',listing_url:''};
+  await collectApify('facebook',target,undefined,transport);
+  await collectApify('facebook',{...target,listing_url:'https://www.facebook.com/fixturecafe'},undefined,transport);
+  assert.ok(requests[0].url.includes('apify~facebook-search-scraper'));
+  assert.deepEqual(requests[0].input,{categories:['Fixture Cafe'],locations:[''],searchType:'pages-google',resultsLimit:5});
+  assert.ok(requests[1].url.includes('apify~facebook-pages-scraper'));
+  assert.deepEqual(requests[1].input,{startUrls:[{url:'https://www.facebook.com/fixturecafe'}]});
+ }finally{if(previous===undefined)delete process.env.APIFY_TOKEN;else process.env.APIFY_TOKEN=previous;}
 });
 test('missing token skips without a network request',async()=>{
  const previous=process.env.APIFY_TOKEN;delete process.env.APIFY_TOKEN;
@@ -36,13 +54,13 @@ test('cancellation aborts an already-started remote Actor',async()=>{
 
 test('Chinese names reject a different restaurant even at the same address',()=>{
  const target={name:'喜悦火锅',address:'145 Mulberry St, New York, NY 10013'};
- assert.equal(branchMismatch([{name:'喜悦火锅',address:'145 Mulberry Street, New York, NY 10013'}],target),false);
- assert.equal(branchMismatch([{name:'另一家火锅',address:target.address}],target),true);
- assert.equal(branchMismatch([{name:target.name,address:'146 Mulberry St, New York, NY 10013'}],target),true);
+ assert.equal(identityConflict([{name:'喜悦火锅',address:'145 Mulberry Street, New York, NY 10013'}],target),false);
+ assert.equal(identityConflict([{name:'另一家火锅',address:target.address}],target),true);
+ assert.equal(identityConflict([{name:target.name,address:'146 Mulberry St, New York, NY 10013'}],target),true);
 });
 test('mixed Chinese/English names retain Unicode and fold full-width characters',()=>{
  const target={name:'喜悦 Ｅａｓｙ Joy',address:'145 Mulberry St, New York, NY 10013'};
- assert.equal(branchMismatch([{name:'喜悦 Easy Joy',address:target.address}],target),false);
- assert.equal(branchMismatch([{name:'喜悦 Other Restaurant',address:target.address}],target),true);
- assert.equal(branchMismatch([{name:'喜悦 Easy Different',address:target.address}],target),true);
+ assert.equal(identityConflict([{name:'喜悦 Easy Joy',address:target.address}],target),false);
+ assert.equal(identityConflict([{name:'喜悦 Other Restaurant',address:target.address}],target),true);
+ assert.equal(identityConflict([{name:'喜悦 Easy Different',address:target.address}],target),true);
 });

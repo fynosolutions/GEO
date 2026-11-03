@@ -5,16 +5,11 @@ const button = document.querySelector<HTMLButtonElement>('#submit-button')!;
 const buttonLabel = document.querySelector<HTMLSpanElement>('#button-label')!;
 const result = document.querySelector<HTMLDivElement>('#result')!;
 
-function showResult(message: string, kind: 'info' | 'error', url?: string): void {
+function showResult(message: string, kind: 'info' | 'error'): void {
   result.replaceChildren();
   const title = document.createElement('strong');
   title.textContent = message;
   result.append(title);
-  if (url) {
-    const detail = document.createElement('p');
-    detail.textContent = `Submitted URL: ${url}`;
-    result.append(detail);
-  }
   result.dataset.kind = kind;
   result.hidden = false;
 }
@@ -28,17 +23,9 @@ form.addEventListener('submit', async (event) => {
   event.preventDefault();
   if (button.disabled) return;
   const value = input.value.trim();
-  let url: URL;
-  try {
-    if (!value || /\s/.test(value)) throw new Error();
-    url = new URL(/^[a-z][a-z\d+.-]*:/i.test(value) ? value : `https://${value}`);
-    if (!['http:', 'https:'].includes(url.protocol) || !url.hostname || url.username || url.password) throw new Error();
-  } catch {
-    input.setAttribute('aria-invalid', 'true');
-    showResult('Please enter a valid website URL, e.g. example.com.', 'error');
-    input.focus();
-    return;
-  }
+  if(!value){showResult('Enter a restaurant name or Google place ID.','error');return;}
+  const kind=document.querySelector<HTMLSelectElement>('#input-kind')!.value;
+  const target=kind==='place_id'?{place_id:value}:{name:value};
   button.disabled = true;
   button.classList.add('is-loading');
   buttonLabel.textContent = 'Submitting...';
@@ -49,7 +36,7 @@ form.addEventListener('submit', async (event) => {
     const response = await fetch('/api/check', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ url: url.href, target_address: document.querySelector<HTMLInputElement>('#target-address')?.value.trim() || null }),
+      body: JSON.stringify({ ...target, target_address: document.querySelector<HTMLInputElement>('#target-address')?.value.trim() || null }),
       signal: AbortSignal.timeout(10000),
     });
     const data = await response.json() as { message?: string; result_url?: string };
@@ -62,7 +49,7 @@ form.addEventListener('submit', async (event) => {
   } finally {
     button.disabled = false;
     button.classList.remove('is-loading');
-    buttonLabel.textContent = 'Check website';
+    buttonLabel.textContent = 'Collect JSON';
     form.removeAttribute('aria-busy');
   }
 });

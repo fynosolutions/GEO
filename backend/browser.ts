@@ -9,6 +9,7 @@ export type BrowserSnapshot = {
   url: string; status: 'readable' | 'blocked' | 'error'; http_status: number | null;
   text: string; links: { text: string; url: string }[]; screenshot: string | null; note: string | null;
   screenshots?: string[];
+  structured_data?: unknown[];
   requested_locale?:string;page_language?:string;
   wait_ms?:number; challenge_detected?:boolean; challenge_frames?:string[]; initial_http_status?:number|null;
   navigation_error?:string; session_persistent?:boolean;
@@ -38,6 +39,7 @@ export function isListingCandidate(url: string, platform: string): boolean {
     if(platform==='grubhub')return /(^|\.)grubhub\.com$/.test(u.hostname)&&/^\/restaurant\//.test(u.pathname);
     if(platform==='tripadvisor')return /(^|\.)tripadvisor\.com$/.test(u.hostname)&&/^\/Restaurant_Review-/.test(u.pathname);
     if(platform==='google_maps')return /^(www\.|maps\.)?google\.com$/i.test(u.hostname) && (/^\/maps(?:\/|$)/.test(u.pathname) || (u.hostname==='maps.google.com' && u.pathname==='/' && ['cid','q','ftid','place_id'].some(k=>u.searchParams.has(k))));
+    if(platform==='facebook')return /(^|\.)facebook\.com$/.test(u.hostname) && (u.pathname==='/profile.php'?!!u.searchParams.get('id'):(/^\/(?:p|people)\/[^/]+\/\d+\/?$/.test(u.pathname)||/^\/p\/[^/]+-\d+\/?$/.test(u.pathname))||/^\/(?!search(?:\/|$)|login(?:\/|$)|watch(?:\/|$)|share(?:\/|$)|groups(?:\/|$)|photo|reel|posts|events|marketplace|help|policies|privacy)[a-zA-Z0-9._-]+\/?$/.test(u.pathname));
     return true;
   }catch{return false;}
 }
@@ -76,7 +78,7 @@ async function readPage(url: string, domains: readonly string[], directory: stri
     const profile=resolve(process.env.BROWSER_PROFILE_DIR || '.local/browser-profiles',domains[0].replace(/[^a-z0-9.-]/gi,'_'));
     await mkdir(profile,{recursive:true});
     context = await chromium.launchPersistentContext(profile,{
-      channel: process.env.BROWSER_CHANNEL || (process.platform === 'win32' ? 'msedge' : 'chromium'),
+      channel: process.env.BROWSER_CHANNEL || 'chromium',
       headless: process.env.BROWSER_HEADLESS !== 'false', env,
       args:['--lang=en-US'],
       locale:'en-US',extraHTTPHeaders:{'Accept-Language':'en-US,en;q=0.9'},viewport:{width:1365,height:900},serviceWorkers:'block',acceptDownloads:false,
@@ -145,6 +147,7 @@ async function readPage(url: string, domains: readonly string[], directory: stri
     snapshot.url = page.url();
     snapshot.page_language=await page.locator('html').getAttribute('lang')||'unknown';
     if (!matchesDomains(snapshot.url, domains)) throw new Error('Unexpected redirect');
+    snapshot.structured_data = await page.locator('script[type="application/ld+json"]').evaluateAll(nodes => nodes.flatMap(node => { try { return [JSON.parse(node.textContent || '')]; } catch { return []; } }));
     snapshot.text = (await page.locator('body').innerText({ timeout: 5000 })).slice(0, 45000);
     await capture(`${key}.browser.png`);
     if (!classifyPage(snapshot.http_status, snapshot.text) && !snapshot.challenge_frames?.length) {
@@ -158,7 +161,7 @@ async function readPage(url: string, domains: readonly string[], directory: stri
       const frames=await page.locator('iframe[src]').evaluateAll(frames=>frames.map(f=>({text:'Embedded map',url:(f as HTMLIFrameElement).src})).filter(f=>/google\.com\/maps/.test(f.url)));
       snapshot.links.push(...frames);
     }
-    // A canvas-only listing has no innerText; let the vision verifier judge its pixels.
+    // A canvas-only listing has no extractable text; retain diagnostics only.
     snapshot.status = classifyPage(snapshot.http_status,snapshot.text) || snapshot.challenge_frames?.length ? 'blocked' : (snapshot.http_status && snapshot.http_status >= 400 || !snapshot.http_status && snapshot.navigation_error ? 'error' : 'readable');
     snapshot.note = snapshot.status === 'blocked' ? `Access challenge or login wall remains after ${Math.round(snapshot.wait_ms/1000)}s of passive waiting. Dedicated session saved; no challenge solving attempted.` : 'Persistent read-only browser snapshot; only visible text and links were inspected. No newest-review sorting was performed.';
     snapshot.screenshot = snapshot.screenshots[0] || null;

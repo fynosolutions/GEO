@@ -1,7 +1,7 @@
 import { createServer, type ServerResponse } from 'node:http';
 import { authenticated, sessionCookie } from './auth.js';
 import { readFile } from 'node:fs/promises';
-import { outputFields as fields, platforms, getJob, isBusy, startJob, cancelJob } from './public.js';
+import { outputFields as fields, platforms, getJob, isBusy, selectedPlatforms, startJob, cancelJob } from './public.js';
 
 const port = Number(process.env.PORT ?? 3001);
 const host = process.env.HOST ?? '127.0.0.1';
@@ -100,10 +100,10 @@ const server = createServer(async (request, response) => {
         if (!input || typeof input!=='object')throw new Error();
         const data=input as Record<string,unknown>;
         address=typeof data.target_address==='string'?data.target_address.trim().slice(0,500)||null:null;
-        collectionInput={name:typeof data.name==='string'?data.name.trim().slice(0,500):undefined,place_id:typeof data.place_id==='string'?data.place_id.trim().slice(0,500):undefined,address:address||undefined};
+        collectionInput={name:typeof data.name==='string'?data.name.trim().slice(0,500):undefined,place_id:typeof data.place_id==='string'?data.place_id.trim().slice(0,500):undefined,address:address||undefined,platforms:selectedPlatforms(data.platforms)};
         if((!!collectionInput.name)===(!!collectionInput.place_id)||'url' in data)throw new Error();
       } catch {
-        json(response, 400, { message: 'Provide either a restaurant name or Google place ID, with an optional branch address.' });
+        json(response, 400, { message: 'Provide either a restaurant name or Google place ID, with an optional branch address and at least one valid selected platform.' });
         return;
       }
       // Re-check after reading the body, so simultaneous submissions cannot bypass the job cap.

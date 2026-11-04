@@ -2,16 +2,6 @@
   "yelp": {
     "actor": "tri_angle/yelp-scraper",
     "input": {
-      "searchTerms": [
-        "{{name}}"
-      ],
-      "locations": [
-        "{{address}}"
-      ],
-      "searchLimit": 5,
-      "maxImages": 0
-    },
-    "listing_input": {
       "directUrls": [
         "{{listing_url}}"
       ],

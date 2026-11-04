@@ -9,7 +9,7 @@ test('mapping preserves original types, strings, nested addresses and hours',()=
  const hours=[{day:'Monday',hours:'09:00-17:00'}],address={addressLine1:'145 Mulberry St',city:'New York',regionCode:'NY',postalCode:'10013'};
  const raw={title:' Easy Joy ',address,phoneNumber:'(347) 913-0454',operationHours:hours,rating:'4.5',reviewCount:'84',priceRange:'$$$'};
  const r=mapItem('yelp',raw);
- assert.deepEqual(Object.keys(r),['platform','found','url','name','address','phone','hours','rating','review_count','price_level','fetched_at','error']);
+ assert.deepEqual(Object.keys(r),['platform','found','matched','url','name','address','phone','hours','rating','review_count','price_level','fetched_at','error']);
  assert.equal(r.name,raw.title);assert.deepEqual(r.address,address);assert.deepEqual(r.hours,hours);assert.equal(r.phone,raw.phoneNumber);assert.equal(r.rating,'4.5');assert.equal(r.review_count,'84');assert.equal(r.price_level,'$$$');
  assert.equal(mapItem('google_maps',{title:'Cafe',totalScore:0,reviewsCount:0,priceLevel:2}).rating,0);assert.equal(mapItem('google_maps',{priceLevel:2}).price_level,2);
 });

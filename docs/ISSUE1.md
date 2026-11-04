@@ -25,3 +25,7 @@ npm run collect -- --name "店名" --address "门店地址"
 **没做或没把握**：Mac 实机安装、三平台完整人工核对仍待补充。OpenTable 空结果及各平台缺失字段按实际结果保留，Actor 权限、额度、源站变化会影响覆盖率，不能保证八个平台均有全部资料。当前不宣称 issue #1 全部验收完成。
 
 **交付位置**：推送完成后，在 GitHub issue #1 评论区发布本说明并补上最终提交 SHA/分支链接及可访问的验证证据，供 Mao 验收。仓库中的本文件不能代替 Issue 下的交付评论。无需单独创建 PR，除非仓库保护规则要求。
+
+## Issue #3 修订：门店核验与单平台调试
+
+用户本轮明确要求在原字段上增加 matched。店名和可选地址先用于 Google Maps 门店解析，再以其名称、地址、电话核验勾选的平台，至少两项匹配才返回资料；否则 matched:false、found:false，门店字段为 null。网页可勾选八个平台，JSON 只包含选中项；未选 Google 时仍内部解析 Google 身份。CLI 支持 --platforms yelp,facebook。未选平台不发起搜索/抓取；无法唯一确认 Google 身份时不调用后续平台。该修订随 issue #3 修复交付，见 docs/ISSUE3.md。

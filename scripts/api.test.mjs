@@ -18,6 +18,7 @@ test('local UI needs no login and downloads the actual single output file; old i
   const post=input=>fetch(base+'/api/check',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(input)});
   assert.equal((await post({url:'https://example.com'})).status,400);
   assert.equal((await post({name:'Cafe',place_id:'some-id'})).status,400);
+  for(const platforms of [[],['unknown'],'yelp'])assert.equal((await post({name:'Cafe',platforms})).status,400);
   const denied=await fetch(base+'/api/check',{method:'POST',headers:{'Content-Type':'application/json',Origin:'https://other.example'},body:JSON.stringify({name:'Cafe'})});assert.equal(denied.status,403);
   const submitted=await post({name:"Fixture's Café"});assert.equal(submitted.status,202);const {id}=await submitted.json();
   let job;

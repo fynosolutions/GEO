@@ -19,6 +19,12 @@ input.addEventListener('input', () => {
   result.hidden = true;
 });
 
+function updateSearchPreview(){
+ const address=document.querySelector<HTMLInputElement>('#target-address')!.value.trim();
+ document.querySelector('#search-preview')!.textContent=input.value.trim()?`Google Maps search: ${input.value.trim()}${address?' — '+address:''}`:'';
+}
+input.addEventListener('input',updateSearchPreview);
+document.querySelector('#target-address')!.addEventListener('input',updateSearchPreview);
 form.addEventListener('submit', async (event) => {
   event.preventDefault();
   if (button.disabled) return;
@@ -26,6 +32,8 @@ form.addEventListener('submit', async (event) => {
   if(!value){showResult('Enter a restaurant name or Google place ID.','error');return;}
   const kind=document.querySelector<HTMLSelectElement>('#input-kind')!.value;
   const target=kind==='place_id'?{place_id:value}:{name:value};
+  const platforms=Array.from(document.querySelectorAll<HTMLInputElement>('input[name="platforms"]:checked')).map(el=>el.value);
+  if(!platforms.length){showResult('Select at least one platform.','error');return;}
   button.disabled = true;
   button.classList.add('is-loading');
   buttonLabel.textContent = 'Submitting...';
@@ -36,7 +44,7 @@ form.addEventListener('submit', async (event) => {
     const response = await fetch('/api/check', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ ...target, target_address: document.querySelector<HTMLInputElement>('#target-address')?.value.trim() || null }),
+      body: JSON.stringify({ ...target, platforms, target_address: document.querySelector<HTMLInputElement>('#target-address')?.value.trim() || null }),
       signal: AbortSignal.timeout(10000),
     });
     const data = await response.json() as { message?: string; result_url?: string };

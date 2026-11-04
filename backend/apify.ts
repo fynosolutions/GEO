@@ -53,6 +53,7 @@ export async function collectApify(platform:string,target:Context,signal?:AbortS
    result.items.push(...items);if(items.length<100)break;
    if(offset+100===max)result.truncated=true;
   }
+  if(!result.items.length&&/0 succeeded,\s*[1-9]\d* failed/i.test(run.statusMessage||''))throw new Error('Actor ended with all requests failed; inspect Actor logs for blocked requests or timeouts.');
   result.status=result.items.length?'unverified':'empty';
   result.note='Dataset collected; identity and field validation are performed before export.';
  }catch(error){result.status=signal?.aborted?'cancelled':'error';result.note=error instanceof Error&&error.message.startsWith('Apify HTTP')||error instanceof Error&&error.message.startsWith('Actor ended')?error.message:'Apify collection failed or timed out. Check configuration, network, credit and Actor logs.';}

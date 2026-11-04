@@ -4,7 +4,7 @@
 
 本分支是独立采集器，实际技术栈为 Node.js HTTP + TypeScript + Playwright；没有 Next.js、SQLite、Drizzle、Vitest 或 `src/` 目录。下文 F1 约定属于接收方系统背景，不要求本任务迁移技术栈或创建商家主数据。不存在的 F1 文档不作为本分支已实现能力。
 
-当前入口为根 README.md、backend/README.md、docs/API_CONTRACTS.md、docs/DEVELOPMENT_RULES.md 和 COLLABORATION.md。主要交付是输入店名或 Google place ID，生成 `out/<店名>.json` 供另一系统读取；网站仅用于本地可视化测试。字段以 issue #1 为准，不增加 matched 等字段，不实现检测、优化或报告。提交、合并及发布范围以用户最新明确指令为准；正式交付说明遵循 COLLABORATION.md。
+当前入口为根 README.md、backend/README.md、docs/API_CONTRACTS.md、docs/DEVELOPMENT_RULES.md 和 COLLABORATION.md。主要交付是输入店名或 Google place ID，生成 `out/<店名>.json` 供另一系统读取；网站仅用于本地可视化测试。原字段以 issue #1 为基础；用户本轮明确新增 matched 字段及可选平台列表，按 docs/API_CONTRACTS.md 的当前修订执行，不实现检测、优化或报告。提交、合并及发布范围以用户最新明确指令为准；正式交付说明遵循 COLLABORATION.md。
 
 ## 项目背景
 

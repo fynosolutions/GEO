@@ -2,7 +2,7 @@ import { ensureAuthenticated } from './auth.js';
 const id=new URLSearchParams(location.search).get('id');
 let timer:ReturnType<typeof setTimeout>;
 const platformNames:Record<string,string>={google_maps:'Google Maps',yelp:'Yelp',tripadvisor:'Tripadvisor',opentable:'OpenTable',doordash:'DoorDash',uber_eats:'Uber Eats',grubhub:'Grubhub',facebook:'Facebook'};
-const labels:Record<string,string>={found:'Listing found',url:'Source page',name:'Restaurant name',address:'Address',phone:'Phone',hours:'Hours (as returned)',rating:'Rating',review_count:'Review count',price_level:'Price level',fetched_at:'Collected at',error:'Collection notes'};
+const labels:Record<string,string>={found:'Listing found',matched:'Identity matched',url:'Source page',name:'Restaurant name',address:'Address',phone:'Phone',hours:'Hours (as returned)',rating:'Rating',review_count:'Review count',price_level:'Price level',fetched_at:'Collected at',error:'Collection notes'};
 function renderRaw(parent:HTMLElement,value:unknown,depth=0){
  if(value===null||value===undefined){parent.textContent='Not available';parent.classList.add('missing');return;}
  if(Array.isArray(value)){
@@ -28,7 +28,7 @@ function renderRaw(parent:HTMLElement,value:unknown,depth=0){
 }
 function renderValue(td:HTMLTableCellElement,key:string,value:unknown){
  if(value===null||value===undefined){td.textContent=key==='error'?'No errors':'Not available';td.className='missing';return;}
- if(key==='found'){td.textContent=value?'Found':'Not found';td.className=value?'listing-found':'listing-missing';return;}
+ if(key==='found'||key==='matched'){td.textContent=key==='matched'?(value?'Matched':'Not matched'):(value?'Found':'Not found');td.className=value?'listing-found':'listing-missing';return;}
  if(key==='url'&&typeof value==='string'){
   try{const u=new URL(value);if(u.protocol==='https:'){const a=document.createElement('a');a.href=u.href;a.textContent='Open listing';a.target='_blank';a.rel='noopener noreferrer';td.append(a);return;}}catch{}
  }
@@ -44,7 +44,7 @@ async function load(){
   const table=document.querySelector('#comparison')!;table.replaceChildren();
   const records=job.records||[];
   const head=document.createElement('tr');for(const key of ['Field',...records.map((r:any)=>platformNames[r.platform]||r.platform)]){const th=document.createElement('th');th.textContent=key;head.append(th);}table.append(head);
-  for(const key of ['found','url','name','address','phone','hours','rating','review_count','price_level','fetched_at','error']){
+  for(const key of ['found','matched','url','name','address','phone','hours','rating','review_count','price_level','fetched_at','error']){
    const row=document.createElement('tr');const label=document.createElement('th');label.textContent=labels[key]||key;row.append(label);
    for(const r of records){const td=document.createElement('td');renderValue(td,key,r[key]);row.append(td);}table.append(row);
   }

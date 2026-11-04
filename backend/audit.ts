@@ -3,7 +3,7 @@ import { randomUUID } from 'node:crypto';
 import { mkdir, readFile, writeFile, rename } from 'node:fs/promises';
 import { resolve, join } from 'node:path';
 import { collectRestaurant, type Listing, type CollectionInput, domains } from './collection.js';
-export const outputFields=['platform','found','url','name','address','phone','hours','rating','review_count','price_level','fetched_at','error'];
+export const outputFields=['platform','found','matched','url','name','address','phone','hours','rating','review_count','price_level','fetched_at','error'];
 export const platforms=Object.fromEntries(Object.entries(domains).map(([key,value])=>[key,[key,value]]));
 export type Job={id:string;created_at:string;status:string;input:CollectionInput;records:Listing[];output_file?:string;filename?:string;merchant:{name:string;address:string}|null;error:string|null};
 const root=resolve(process.env.AUDIT_DATA_DIR||'.local/audits');

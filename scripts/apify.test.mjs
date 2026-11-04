@@ -31,6 +31,27 @@ test('missing token skips without a network request',async()=>{
  try{const r=await collectApify('yelp',{},undefined,()=>{throw Error('unexpected network');});assert.equal(r.status,'skipped');}
  finally{if(previous!==undefined)process.env.APIFY_TOKEN=previous;}
 });
+
+test('Yelp only scrapes observed US listing URLs and never starts its broken native search',async()=>{
+ const old=process.env.APIFY_TOKEN;process.env.APIFY_TOKEN='fixture';
+ try{
+  const target={name:'KFC',address:'242 E 14th St, New York, NY 10003',listing_url:'',website_url:''};let input;
+  const skipped=await collectApify('yelp',target,undefined,()=>{throw Error('Native search must not start');});assert.equal(skipped.status,'skipped');
+  await collectApify('yelp',{...target,listing_url:'https://www.yelp.com/biz/fixture'},undefined,async(url,options)=>{
+   if(options.method==='POST'){input=JSON.parse(options.body);return Response.json({data:{id:'run',status:'SUCCEEDED',defaultDatasetId:'data'}});}
+   return Response.json([]);
+  });
+  assert.deepEqual(input.directUrls,['https://www.yelp.com/biz/fixture']);assert.equal(input.searchTerms,undefined);
+ }finally{if(old===undefined)delete process.env.APIFY_TOKEN;else process.env.APIFY_TOKEN=old;}
+});
+
+test('Actor SUCCEEDED with all requests failed is an error rather than an empty search',async()=>{
+ const old=process.env.APIFY_TOKEN;process.env.APIFY_TOKEN='fixture';
+ try{
+  const r=await collectApify('yelp',{name:'KFC',address:'New York',listing_url:'https://www.yelp.com/biz/fixture',website_url:''},undefined,async(url,options)=>options.method==='POST'?Response.json({data:{id:'run',status:'SUCCEEDED',defaultDatasetId:'data',statusMessage:'Finished! Total 1 requests: 0 succeeded, 1 failed.'}}):Response.json([]));
+  assert.equal(r.status,'error');assert.match(r.note,/all requests failed/);
+ }finally{if(old===undefined)delete process.env.APIFY_TOKEN;else process.env.APIFY_TOKEN=old;}
+});
 test('dataset pagination preserves all arbitrary fields and original JSON types',async()=>{
  const old=process.env.APIFY_TOKEN;process.env.APIFY_TOKEN='fixture';
  const data=Array.from({length:100},(_,i)=>({id:i,unexpected:{a:[false,null,{'raw key':'1.2K reviews'}]},rating:4.5}));const calls=[];

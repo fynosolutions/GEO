@@ -45,6 +45,7 @@ test('name and place-ID inputs produce the same eight-record file contract; plat
  const calls=[];const apify=async(platform,target)=>{
   calls.push({platform,target:{...target}});
   if(platform==='google_maps')return result([item]);
+  if(platform==='_discovery')return result([{organicResults:[{url:'https://www.yelp.com/biz/fixturecafe'}]}]);
   if(platform==='yelp')throw Error('Fixture provider failure.');
   if(platform==='facebook')return result([{title:item.title,address:item.address,pageUrl:'https://www.facebook.com/fixturecafe',rating:'4.5 (12 Reviews)',ratingCount:12}]);
   return {...result([]),status:'empty'};
@@ -56,8 +57,8 @@ test('name and place-ID inputs produce the same eight-record file contract; plat
    assert.equal(r.filename,'Fixture Cafe.json');assert.equal(r.output_file,join(dir,'out','Fixture Cafe.json'));
    const json=JSON.parse(await readFile(r.output_file,'utf8'));assert.equal(json.length,8);assert.equal(json.find(v=>v.platform==='facebook').found,true);assert.match(json.find(v=>v.platform==='yelp').error,/Fixture provider failure/);
    assert.deepEqual(json.map(v=>v.platform),['google_maps','yelp','tripadvisor','opentable','doordash','uber_eats','grubhub','facebook']);
-   assert.deepEqual(Object.keys(json[0]),['platform','found','url','name','address','phone','hours','rating','review_count','price_level','fetched_at','error']);
-   assert.equal(json.find(v=>v.platform==='opentable').error,null);assert.ok(!('matched' in json[0]));
+   assert.deepEqual(Object.keys(json[0]),['platform','found','matched','url','name','address','phone','hours','rating','review_count','price_level','fetched_at','error']);
+   assert.equal(json.find(v=>v.platform==='opentable').error,null);assert.equal(json[0].matched,true);
   }
   assert.deepEqual(await readdir(join(dir,'out')),['Fixture Cafe.json']);assert.equal(calls.filter(v=>v.platform==='google_maps').length,2);assert.equal(calls.filter(v=>v.platform==='google_maps')[1].target.place_id,'fixture-place-id');
   const controller=new AbortController();

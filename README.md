@@ -57,3 +57,11 @@ Read [AGENTS.md](AGENTS.md), [COLLABORATION.md](COLLABORATION.md), [development 
 Directory responsibilities: [backend](backend/README.md), [frontend](frontend/README.md), [scripts](scripts/README.md), [config](config/README.md), [docs](docs/README.md). The pre-existing `docs/ISSUE_2_HANDOFF.md` is historical, not current collector instructions.
 
 For single-platform debugging: `npm run collect -- --name "Restaurant" --address "123 Main St, City" --platforms yelp`. Google Maps always resolves identity internally, but appears in the JSON only if selected. An explicit empty selection is rejected. Failed identity matching emits matched:false and no other business data. See docs/ISSUE3.md for delivery notes and test evidence.
+
+## Weekly history (issue #5)
+
+Batch collection, immutable snapshots and week-over-week reports are available via `npm run collect:weekly`. Configure `stores.json` first; its empty default prevents accidental paid collection. See [weekly module and deployment instructions](backend/weekly/README.md). The GitHub Actions workflow is prepared but disabled until `GEO_WEEKLY_ENABLED=true` is configured after integration. Menu-date comparison accepts a documented sidecar; the #4 producer adapter and cloud/two-week acceptance remain pending.
+
+## Menus, prices and hours (issue #4)
+
+`npm run collect:details -- --stores stores.json --store STORE_ID` produces independent channel/menu/price/hours files. See [menu audit](backend/menu-audit/README.md) for source verification, OCR configuration, output and current acceptance limits. Live runs use Apify discovery; offline tests do not establish real seven-channel coverage.

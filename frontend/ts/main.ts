@@ -25,6 +25,7 @@ function updateSearchPreview(){
 }
 input.addEventListener('input',updateSearchPreview);
 document.querySelector('#target-address')!.addEventListener('input',updateSearchPreview);
+document.querySelector<HTMLInputElement>('#collect-menus')!.addEventListener('change',event=>{document.querySelector<HTMLElement>('#menu-options')!.hidden=!(event.target as HTMLInputElement).checked;});
 form.addEventListener('submit', async (event) => {
   event.preventDefault();
   if (button.disabled) return;
@@ -44,7 +45,7 @@ form.addEventListener('submit', async (event) => {
     const response = await fetch('/api/check', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ ...target, platforms, target_address: document.querySelector<HTMLInputElement>('#target-address')?.value.trim() || null }),
+      body: JSON.stringify({ ...target, platforms, ...(document.querySelector<HTMLInputElement>('#collect-menus')!.checked?{menu_mode:document.querySelector<HTMLSelectElement>('#menu-mode')!.value}:{}), target_address: document.querySelector<HTMLInputElement>('#target-address')?.value.trim() || null }),
       signal: AbortSignal.timeout(10000),
     });
     const data = await response.json() as { message?: string; result_url?: string };

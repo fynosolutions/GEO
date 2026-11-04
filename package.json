@@ -14,7 +14,10 @@
     "prestart": "node scripts/check-runtime.mjs",
     "pretest": "node scripts/check-runtime.mjs",
     "collect": "node dist/backend/cli.js",
-    "precollect": "node scripts/check-runtime.mjs"
+    "precollect": "node scripts/check-runtime.mjs",
+    "collect:weekly": "node dist/backend/weekly/cli.js",
+    "precollect:weekly": "node scripts/check-runtime.mjs",
+    "collect:details": "node dist/backend/menu-audit/cli.js"
   },
   "engines": {
     "node": ">=24.14.0"
@@ -24,6 +27,10 @@
     "typescript": "^5.9.0"
   },
   "dependencies": {
-    "playwright": "^1.64.1"
+    "@napi-rs/canvas": "^1.1.0",
+    "cheerio": "^1.2.0",
+    "pdfjs-dist": "^6.5.438",
+    "playwright": "^1.64.1",
+    "tesseract.js": "^7.0.0"
   }
 }

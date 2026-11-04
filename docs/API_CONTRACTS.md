@@ -52,3 +52,13 @@ Old per-platform downloads, screenshot API, comparison.js and website input path
 ## Current collection mode
 
 Browser is temporarily disabled in code, regardless of BROWSER_FALLBACK. Google Maps resolves identity; Apify Google Search discovers listing URLs, and platform Actors other than Yelp also have native search inputs. Search snippets supply URLs only, never business field values. Mapped values preserve the exact source JSON types, whitespace, spelling, missingness and structure. Private comparison text is separate and never exported.
+
+## Weekly consumer (#5)
+
+The weekly module consumes the default eight-entry, thirteen-field array (including matched) without altering the collector contract. Historical snapshots retain that array; run metadata and optional menu-date observations are separate files. See [weekly storage, CLI and menu-sidecar contract](../backend/weekly/README.md). Stable store IDs identify snapshot directories. Manual and scheduled histories are isolated.
+
+## Menu details (#4)
+
+The independent menu-audit output preserves the Issue's menu and daily-hours field names. Supplemental evidence, freshness uncertainty and channel coverage statuses are documented in [menu-audit/README.md](../backend/menu-audit/README.md). No menu rows are inserted into the thirteen-field listing array. Year/month/season dates retain their precision; unknown dates are null. Weekly menu observations now accept these precisions and optional stable menu_id values for URL replacements.
+
+POST /api/check optionally accepts menu_mode: links | full. Omission skips menu collection. Menus run after basic listing collection with the same platform selection; failure retains basic results. Job state includes menu_mode/menu_status/menu_result/menu_error when requested. GET /api/audits/<id>/menu.json returns collected menu details or 409 while unavailable. Links mode omits extracted dish prices; full mode retains price extraction for Issue #4 acceptance.

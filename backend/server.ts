@@ -13,6 +13,7 @@ const assets = new Map([
   ['/js/auth.js', ['js/auth.js', 'text/javascript; charset=utf-8']],
   ['/js/main.js', ['js/main.js', 'text/javascript; charset=utf-8']],
   ['/js/results.js', ['js/results.js', 'text/javascript; charset=utf-8']],
+  ['/js/menu-results.js', ['js/menu-results.js', 'text/javascript; charset=utf-8']],
 ]);
 
 function json(response: ServerResponse, status: number, data: object): void {
@@ -54,10 +55,14 @@ const server = createServer(async (request, response) => {
       if(origin && origin!==`http://${request.headers.host}` && origin!==`https://${request.headers.host}`) {json(response,403,{message:'Cross-origin request rejected.'});return;}
       try {json(response,202,await cancelJob(cancel[1]));}catch{json(response,404,{message:'Audit not found.'});} return;
     }
-    const match=pathname.match(/^\/api\/audits\/([a-f0-9-]{36})(\/output\.json)?$/);
+    const match=pathname.match(/^\/api\/audits\/([a-f0-9-]{36})(\/(?:output|menu)\.json)?$/);
     if(match&&request.method==='GET'){
      try{
       const job=await getJob(match[1]);
+      if(match[2]==='/menu.json'){
+       if(!job.menu_result){json(response,409,{message:'Menu result is not ready.'});return;}
+       json(response,200,job.menu_result);return;
+      }
       if(match[2]){
        if(!job.output_file){json(response,409,{message:'Output file is not ready.'});return;}
        const content=await readFile(job.output_file);
@@ -95,10 +100,13 @@ const server = createServer(async (request, response) => {
       }
       let collectionInput: import('./public.js').CollectionInput = {};
       let address: string | null = null;
+      let menuMode:'links'|'full'|undefined;
       try {
         const input: unknown = JSON.parse(body);
         if (!input || typeof input!=='object')throw new Error();
         const data=input as Record<string,unknown>;
+        if(data.menu_mode!==undefined&&!['links','full'].includes(String(data.menu_mode)))throw Error();
+        menuMode=data.menu_mode as 'links'|'full'|undefined;
         address=typeof data.target_address==='string'?data.target_address.trim().slice(0,500)||null:null;
         collectionInput={name:typeof data.name==='string'?data.name.trim().slice(0,500):undefined,place_id:typeof data.place_id==='string'?data.place_id.trim().slice(0,500):undefined,address:address||undefined,platforms:selectedPlatforms(data.platforms)};
         if((!!collectionInput.name)===(!!collectionInput.place_id)||'url' in data)throw new Error();
@@ -108,7 +116,7 @@ const server = createServer(async (request, response) => {
       }
       // Re-check after reading the body, so simultaneous submissions cannot bypass the job cap.
       if (isBusy()) { json(response, 429, { message: 'An audit is running.' }); return; }
-      const job = await startJob(collectionInput);
+      const job = await startJob(collectionInput,menuMode);
       json(response, 202, { id: job.id, result_url: `/results?id=${job.id}` });
       return;
     }

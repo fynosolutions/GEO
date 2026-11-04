@@ -1,3 +1,4 @@
+import {renderMenuResults} from './menu-results.js';
 import { ensureAuthenticated } from './auth.js';
 const id=new URLSearchParams(location.search).get('id');
 let timer:ReturnType<typeof setTimeout>;
@@ -38,7 +39,7 @@ async function load(){
  try{
   await ensureAuthenticated();const response=await fetch(`/api/audits/${id}`);if(!response.ok)throw Error('Audit unavailable');
   const job=await response.json();document.querySelector('#audit-title')!.textContent=job.merchant?.name||job.records?.find((r:any)=>r.found&&r.name)?.name||job.input?.name||job.input?.place_id;
-  document.querySelector('#audit-status')!.textContent=(job.status==='running'?'Collecting with Apify':job.status==='partial'?'Collection finished with unavailable data':job.status==='completed'?'Collection complete':job.status)+(job.error?`: ${job.error}`:'');
+  document.querySelector('#audit-status')!.textContent=(job.status==='running'?(job.menu_status==='running'?'Collecting menus from selected platforms':'Collecting with Apify'):job.status==='partial'?'Collection finished with unavailable data':job.status==='completed'?'Collection complete':job.status)+(job.error?`: ${job.error}`:'');
   const running=['running','cancelling'].includes(job.status);(document.querySelector('#audit-loader') as HTMLElement).hidden=!running;
   document.querySelector('#audit-detail')!.textContent=job.output_file||'';
   const table=document.querySelector('#comparison')!;table.replaceChildren();
@@ -50,6 +51,7 @@ async function load(){
   }
   const list=document.querySelector('#evidence-list')!;list.replaceChildren();
   if(job.output_file){const a=document.createElement('a');a.textContent=`Download ${job.filename}`;a.href=`/api/audits/${id}/output.json`;list.append(a);}
+  renderMenuResults(job,id);
   clearTimeout(timer);if(running)timer=setTimeout(()=>void load(),2000);
  }catch(e){document.querySelector('#audit-status')!.textContent=e instanceof Error?e.message:'Load failed';}
 }

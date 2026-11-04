@@ -13,6 +13,7 @@ test('local UI needs no login and downloads the actual single output file; old i
  try{
   const base=await new Promise((resolve,reject)=>{child.stdout.on('data',chunk=>{const match=String(chunk).match(/http:\/\/127\.0\.0\.1:\d+/);if(match)resolve(match[0]);});child.once('error',reject);child.once('exit',()=>reject(Error('Server exited')));});
   assert.equal((await fetch(base+'/api/session')).status,200);
+  assert.equal((await fetch(base+'/js/menu-results.js')).status,200);
   const foreignHostStatus=await new Promise((resolve,reject)=>{const req=httpRequest(base+'/api/health',{headers:{Host:'other.example'}},response=>{response.resume();resolve(response.statusCode);});req.on('error',reject);req.end();});
   assert.equal(foreignHostStatus,403);
   const post=input=>fetch(base+'/api/check',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(input)});

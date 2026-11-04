@@ -121,3 +121,20 @@ test('embedded menu items preserve price objects and explicit unknown prices for
  const menu=structuredMenu('grubhub',raw,record,true).menu;
  assert.deepEqual(menu.items[0].price,price);assert.equal(menu.items[1].price,null);assert.equal(menu.items.length,2);
 });
+
+
+test('DoorDash group categories survive deduplication and stay separate from variants',async()=>{
+ const {structuredMenu}=await import('../dist/backend/menu-audit/providers.js');
+ const record={platform:'doordash',found:true,matched:true,url:'https://www.doordash.com/store/demo-123',name:'Demo Cafe',address:'1 Main St, New York, NY 10001',phone:'2125550101'};
+ const dish={id:'soup',name:'Soup',variant:'Large',price:{display:'$12.50',amount:12.5,currency:'USD'}};
+ const raw={status:'success',actor:'fixture/menu',run_id:'fixture',collected_at:'2026-11-04T00:00:00Z',items:[{name:record.name,url:record.url,address:record.address,phone:record.phone,item_list:{name:'Popular',items:[dish]},item_list_2:{name:'Soups',items:[dish,null,{id:'tea',name:'Tea',category:'Drinks',price:0}]}}]};
+ const result=structuredMenu('doordash',raw,record,true);
+ assert.equal(result.menu.items.length,2);assert.equal(result.menu.items[0].category,'Soups');assert.equal(result.menu.items[0].variant,'Large');assert.deepEqual(result.menu.items[0].price,dish.price);
+ assert.equal(result.menu.items[1].category,'Drinks');assert.equal(result.menu.items[1].price,0);assert.equal(result.prices[0].category,'Soups');
+});
+
+test('HTML menu sections propagate categories without interpreting offer variants as categories',()=>{
+ const data={'@type':'Menu',hasMenuSection:[{'@type':'MenuSection',name:'Dim sum',hasMenuItem:[{'@type':'MenuItem',name:'Dumplings',offers:{name:'Six pieces',price:13.2,priceCurrency:'USD'}}]},{'@type':'MenuItem',name:'Tea',offers:{name:'Large',price:4}}]};
+ const result=htmlDocument('<script type="application/ld+json">'+JSON.stringify(data)+'</script>','https://example.com/menu');
+ assert.equal(result.prices[0].category,'Dim sum');assert.equal(result.prices[0].variant,'Six pieces');assert.equal(result.prices[1].category,null);assert.equal(result.prices[1].variant,'Large');
+});

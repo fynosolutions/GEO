@@ -8,6 +8,8 @@ function safeLink(url:unknown,label:string,className='menu-source-link'):HTMLAnc
 }
 function platform(value:string){return domains[value]||value;}
 function reason(attempt:any){
+ if(attempt.status==='found')return 'A menu was retrieved from this verified source.';
+ if(attempt.status==='not_checked')return attempt.error||'This source was not checked.';
  const text=String(attempt.error||'');
  if(/403|access restricted|captcha/i.test(text))return 'The source website denied this request. No menu content was confirmed.';
  if(/identity|branch/i.test(text)||attempt.status==='unverified')return 'A candidate page was found, but its connection to this branch is not verified.';
@@ -19,6 +21,7 @@ export function renderMenuResults(job:any,id:string|null){
  const panel=document.querySelector<HTMLElement>('#menu-panel');if(!panel)return;
  const menusSection=document.querySelector<HTMLElement>('#menus-section'),hoursSection=document.querySelector<HTMLElement>('#hours-section'),hoursPanel=document.querySelector<HTMLElement>('#hours-panel');
  const previousFilter=hoursPanel?.querySelector<HTMLSelectElement>('select')?.value;
+ const foldStates=new Map(Array.from(panel.querySelectorAll<HTMLDetailsElement>('details[data-state-key]')).map(details=>[details.dataset.stateKey!,details.open]));
  panel.replaceChildren();hoursPanel?.replaceChildren();panel.hidden=!job.menu_mode;
  if(menusSection)menusSection.hidden=!job.menu_mode;
  if(hoursSection)hoursSection.hidden=true;
@@ -48,18 +51,19 @@ export function renderMenuResults(job:any,id:string|null){
    const date=element('p',menu.menu_date?`Menu date: ${menu.menu_date} · ${menu.date_source}`:'Menu date unknown','menu-meta');card.append(date);
    if(menu.fetched_at)card.append(element('p',`Collected ${new Date(menu.fetched_at).toLocaleString()}`,'menu-meta'));
    const items=Array.isArray(menu.items)&&menu.items.length?menu.items:(result?.prices||[]).filter((price:any)=>menu.menu_id&&price.menu_id===menu.menu_id&&price.channel===menu.channel&&price.url===menu.url);
-   if(items.length)renderItems(card,items);
+   if(items.length)renderItems(card,items,JSON.stringify(['dishes',p,menu.menu_id??null,menu.url]));
    else card.append(element('p',job.menu_mode==='links'?'Dish names and prices were not saved in this links-only run. Start a new audit with “Full menu details and prices” to collect them.':'This source did not return dish-level details. Open the original menu to check dishes and prices.','menu-card-description'));
   }
   if(!verified.length)card.append(element('p',unsupported.includes(p)?'A menu adapter is not available for this platform yet.':running?'Waiting for collection to finish.':candidates.length?'A possible menu link needs branch verification before it can count as a result.':serviceFailed?'Menu collection stopped because a service request failed. See source checks below.':denied?'The website rejected the page request. Basic listing data can still be available.':observed.length?'No confirmed menu was extracted from the visited sources.':'No menu source was checked in this run.','menu-card-description'));
   for(const candidate of candidates){const link=safeLink(candidate.url,'Review candidate · unverified');if(link)card.append(link);}
   if(observed.length){
-   const details=element('details',undefined,'menu-attempts');details.append(element('summary',`Source checks (${observed.length})`));
+   const details=element('details',undefined,'menu-attempts');details.dataset.stateKey=JSON.stringify(['checks',p]);details.append(element('summary',`Source checks (${observed.length})`));
    for(const attempt of observed){const row=element('div',undefined,'menu-attempt');row.append(element('p',reason(attempt)));if(attempt.url){const a=safeLink(attempt.url,'Open checked source');if(a)row.append(a);}row.append(element('span',attempt.status||'unknown','menu-meta'));details.append(row);}card.append(details);
   }
   grid.append(card);
  }
  panel.append(grid);
+ for(const details of Array.from(panel.querySelectorAll<HTMLDetailsElement>('details[data-state-key]'))){const open=foldStates.get(details.dataset.stateKey!);if(open!==undefined)details.open=open;}
  if(result?.hours?.length&&hoursPanel){if(hoursSection)hoursSection.hidden=false;renderHours(hoursPanel,result.hours,previousFilter);}
  const outside=coverage.filter(c=>c.status==='not_checked'&&!(c.attempts||[]).length);
  if(outside.length)panel.append(element('p',`Outside this run’s checked sources: ${outside.map(c=>channelNames[c.channel]||c.channel).join(', ')}.`,'menu-scope-note'));
@@ -93,14 +97,14 @@ function renderHours(parent:HTMLElement,rows:any[],previousFilter?:string){
  filter.addEventListener('change',paint);paint();parent.append(section);
 }
 
-function renderItems(parent:HTMLElement,items:any[]){
- const details=element('details',undefined,'menu-dish-details');details.open=true;details.append(element('summary',`Dishes & prices (${items.length})`));
+function renderItems(parent:HTMLElement,items:any[],stateKey:string){
+ const details=element('details',undefined,'menu-dish-details');details.open=true;details.dataset.stateKey=stateKey;details.append(element('summary',`Dishes & prices (${items.length})`));
  const scroll=element('div',undefined,'menu-dishes-scroll'),table=element('table');
  const head=element('thead'),heading=element('tr');for(const title of ['Dish name','Category','Price'])heading.append(element('th',title));head.append(heading);table.append(head);
  const body=element('tbody');
  for(const item of items){const row=element('tr');
   const price=item.price===null||item.price===undefined?'Not available':typeof item.price==='object'?(item.price.display??item.price.amount??'Not available'):String(item.price);
-  row.append(element('td',item.name),element('td',item.category||item.variant||'—'),element('td',price+(price!=='Not available'&&item.currency?` (${item.currency})`:'')));body.append(row);
+  row.append(element('td',item.name),element('td',item.category||'—'),element('td',price+(price!=='Not available'&&item.currency?` (${item.currency})`:'')));body.append(row);
  }
  table.append(body);scroll.append(table);details.append(scroll);parent.append(details);
 }

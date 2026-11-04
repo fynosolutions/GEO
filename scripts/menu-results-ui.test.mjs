@@ -38,12 +38,21 @@ test('menu dashboard separates verified menus, blocked sources and unverified ca
   await page.setViewportSize({width:390,height:844});
   const metrics=await page.locator('.menu-panel').boundingBox();assert.ok(metrics.width<=390);
   await page.locator('.menu-attempts summary').first().click();await page.getByText('A candidate page was found, but its connection to this branch is not verified.').waitFor();
-  job.menu_mode='full';job.menu_result.menus=[{platform:'doordash',url:'https://www.doordash.com/store/fixture',format:'html',menu_date:null,date_source:'unknown',items:[{name:'Soup Dumplings(6pc)',price:{display:'$13.20',amount:13.2,currency:'USD'},currency:'USD',category:'Dim sum',variant:null},{name:'Tea',price:null,currency:null,variant:null}]}];
+  job.menu_mode='full';job.menu_result.menus=[{platform:'doordash',url:'https://www.doordash.com/store/fixture',format:'html',menu_date:null,date_source:'unknown',items:[{name:'Soup Dumplings(6pc)',price:{display:'$13.20',amount:13.2,currency:'USD'},currency:'USD',category:'Dim sum',variant:null},{name:'Tea',price:null,currency:null,variant:'Large'}]}];
   await page.reload();await page.getByText('Dishes & prices (2)',{exact:true}).waitFor();await page.getByText('Soup Dumplings(6pc)',{exact:true}).waitFor();assert.equal(await page.getByText('$13.20 (USD)',{exact:true}).count(),1);
   assert.deepEqual(await page.locator('.menu-dishes-scroll th').allTextContents(),['Dish name','Category','Price']);
   assert.equal(await page.getByRole('cell',{name:'Dim sum',exact:true}).isVisible(),true);
+  assert.equal(await page.getByRole('cell',{name:'Large',exact:true}).count(),0);
   assert.equal(await page.getByRole('cell',{name:'Not available',exact:true}).isVisible(),true);
   await page.getByText('Dishes & prices (2)',{exact:true}).click();assert.equal(await page.getByText('Soup Dumplings(6pc)',{exact:true}).isVisible(),false);
+  job.menu_result.coverage[1].attempts[0].status='found';job.menu_result.coverage[1].attempts[0].error=null;
+  const door=page.locator('.menu-platform-card').filter({has:page.getByRole('heading',{name:'DoorDash',exact:true})});
+  await door.locator('.menu-attempts summary').click();
+  const rerender=page.waitForResponse('http://geo.test/api/audits/fixture');await page.getByRole('button',{name:'Refresh results',exact:true}).click();await rerender;
+  await page.getByText('A menu was retrieved from this verified source.',{exact:true}).waitFor();
+  assert.equal(await door.locator('.menu-dish-details').getAttribute('open'),null);
+  assert.notEqual(await door.locator('.menu-attempts').getAttribute('open'),null);
+  assert.equal(await door.getByText('This source has not returned a verified menu.',{exact:true}).count(),0);
   job.menu_mode='links';job.menu_result.menus[0].items=[];
   await page.reload();await page.getByText('Dish names and prices were not saved in this links-only run.',{exact:false}).waitFor();
  }finally{await browser.close();}

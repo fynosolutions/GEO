@@ -69,7 +69,7 @@ export async function collectMenuAudit(input:MenuAuditInput,options:{root?:strin
    attempts.push({...source,url:doc.url,status:menuLike?'found':'not_found',fetched_at:doc.fetched_at,error:null});
    if(menuLike){
     const menu_id=source.menu_id??`${source.platform}:${new URL(doc.url).pathname}`;
-    menus.push({channel:source.channel,url:doc.url,format:doc.format,menu_date:doc.date.menu_date,date_source:doc.date.date_source,fetched_at:doc.fetched_at,menu_id,platform:source.platform,date_text:doc.date.date_text,...freshness(doc.date.menu_date,doc.fetched_at),sha256:doc.sha256,extraction:doc.extraction,item_count:mode==='full'?doc.prices.length:null,items_collected:mode==='full',items:mode==='full'?doc.prices.map(p=>({name:p.name,variant:p.variant,price:p.price,currency:p.currency,url:doc.url,fetched_at:doc.fetched_at})):[]});
+    menus.push({channel:source.channel,url:doc.url,format:doc.format,menu_date:doc.date.menu_date,date_source:doc.date.date_source,fetched_at:doc.fetched_at,menu_id,platform:source.platform,date_text:doc.date.date_text,...freshness(doc.date.menu_date,doc.fetched_at),sha256:doc.sha256,extraction:doc.extraction,item_count:mode==='full'?doc.prices.length:null,items_collected:mode==='full',items:mode==='full'?doc.prices.map(p=>({name:p.name,category:p.category??null,variant:p.variant,price:p.price,currency:p.currency,url:doc.url,fetched_at:doc.fetched_at})):[]});
     if(mode==='full')prices.push(...doc.prices.map(p=>({...p,channel:source.channel,menu_id,url:doc.url,fetched_at:doc.fetched_at})));
    }
    for(const url of doc.links.slice(0,10)){

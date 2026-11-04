@@ -3,7 +3,7 @@ import {lookup} from 'node:dns/promises';
 import {isIP} from 'node:net';
 import {createHash} from 'node:crypto';
 import {extractDate} from './dates.js';
-export type Price={name:string;variant:string|null;price:string;currency:string|null;evidence:string};
+export type Price={name:string;category?:string|null;variant:string|null;price:string;currency:string|null;evidence:string};
 export type Document={url:string;format:'html'|'pdf'|'image';text:string;prices:Price[];links:string[];date:ReturnType<typeof extractDate>;fetched_at:string;sha256:string;extraction:string;menuEvidence?:boolean};
 export function pricesFromText(text:string):Price[]{
  return text.split(/\r?\n/).flatMap(line=>{
@@ -18,12 +18,14 @@ export function htmlDocument(html:string,url:string,includePrices=true){
   const label=$(el).text()+' '+($(el).attr('alt')||'')+' '+path;
   if(/\bmenus?\b|dinner|lunch|brunch|breakfast/i.test(label)){try{const u=new URL(link,url);if(['http:','https:'].includes(u.protocol))links.push(u.href);}catch{}}
  });
- function visit(v:any){
+ function visit(v:any,category:string|null=null){
   if(!v||typeof v!=='object')return;
-  if((Array.isArray(v['@type'])?v['@type']:[v['@type']]).includes('MenuItem')&&typeof v.name==='string'){
-   for(const offer of Array.isArray(v.offers)?v.offers:[v.offers])if(offer&&['string','number'].includes(typeof offer.price))prices.push({name:v.name,variant:typeof offer.name==='string'?offer.name:null,price:String(offer.price),currency:typeof offer.priceCurrency==='string'?offer.priceCurrency:null,evidence:JSON.stringify(v)});
+  const types=Array.isArray(v['@type'])?v['@type']:[v['@type']];
+  if(types.includes('MenuSection')&&typeof v.name==='string')category=v.name;
+  if(types.includes('MenuItem')&&typeof v.name==='string'){
+   for(const offer of Array.isArray(v.offers)?v.offers:[v.offers])if(offer&&['string','number'].includes(typeof offer.price))prices.push({name:v.name,category:typeof v.category==='string'?v.category:category,variant:typeof offer.name==='string'?offer.name:null,price:String(offer.price),currency:typeof offer.priceCurrency==='string'?offer.priceCurrency:null,evidence:JSON.stringify(v)});
   }
-  for(const child of Object.values(v))if(Array.isArray(child))child.forEach(visit);else if(child&&typeof child==='object')visit(child);
+  for(const child of Object.values(v))if(Array.isArray(child))child.forEach(entry=>visit(entry,category));else if(child&&typeof child==='object')visit(child,category);
  }
  if(includePrices)$('script[type="application/ld+json"]').each((_,el)=>{try{visit(JSON.parse($(el).text()));}catch{}});
  if(includePrices&&!prices.length)$('article.menu-item, .menu-item').each((_,el)=>{

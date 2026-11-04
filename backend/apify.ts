@@ -26,9 +26,32 @@ export async function collectApify(platform:string,target:Context,signal?:AbortS
  if(JSON.stringify(entry.input||{}).includes('{{listing_url}}')&&!target.listing_url){result.note='No branch listing URL discovered; Actor not started.';return result;}
  const timeout=AbortSignal.timeout(240000),combined=signal?AbortSignal.any([signal,timeout]):timeout;
  const api=async(path:string,method='GET',body?:unknown,cleanup=false)=>{
-  const response=await transport(`https://api.apify.com/v2/${path}`,{method,headers:{Authorization:`Bearer ${process.env.APIFY_TOKEN}`,'Content-Type':'application/json'},body:body===undefined?undefined:JSON.stringify(body),signal:cleanup?AbortSignal.timeout(10000):combined});
-  if(!response.ok)throw new Error(`Apify HTTP ${response.status}; check token, Actor access, credit and input schema.`);
-  return response.json();
+  const requestSignal=cleanup?AbortSignal.timeout(10000):combined;
+  const attempts=method==='GET'?3:1;
+  for(let attempt=0;attempt<attempts;attempt++){
+   requestSignal.throwIfAborted();
+   let response:Response;
+   try{
+    response=await transport(`https://api.apify.com/v2/${path}`,{method,headers:{Authorization:`Bearer ${process.env.APIFY_TOKEN}`,'Content-Type':'application/json'},body:body===undefined?undefined:JSON.stringify(body),signal:requestSignal});
+   }catch{
+    if(requestSignal.aborted)requestSignal.throwIfAborted();
+    if(attempt+1<attempts){await delay(500*2**attempt,undefined,{signal:requestSignal});continue;}
+    throw Error(`Apify API network failure during ${method==='POST'?'Actor start/abort':'status or dataset read'}; ${method==='POST'?'request was not replayed to avoid duplicate runs.':'read retries exhausted.'}`);
+   }
+   if(!response.ok){
+    const transient=[429,500,502,503,504].includes(response.status);
+    await response.body?.cancel();
+    if(transient&&attempt+1<attempts){await delay(500*2**attempt,undefined,{signal:requestSignal});continue;}
+    const reason=response.status===401?'invalid or expired Token':response.status===402?'account credit or billing restriction':response.status===403?'Actor or resource permission denied':transient?(method==='GET'?'temporary Apify API failure; read retries exhausted':'temporary Apify API failure; Actor start was not replayed'):'request or Actor input rejected';
+    throw Error(`Apify HTTP ${response.status}; ${reason}. Stage: ${path.startsWith('acts/')?'start':path.startsWith('datasets/')?'dataset read':'run status/abort'}.`);
+   }
+   try{return await response.json();}catch{
+    if(requestSignal.aborted)requestSignal.throwIfAborted();
+    if(attempt+1<attempts){await delay(500*2**attempt,undefined,{signal:requestSignal});continue;}
+    throw Error(`Apify API unreadable response during ${method==='GET'?'status or dataset read':'Actor start/abort'}; request retries exhausted.`);
+   }
+  }
+  throw Error('Apify API read failed.');
  };
  let completed=false;
  try{
@@ -56,7 +79,7 @@ export async function collectApify(platform:string,target:Context,signal?:AbortS
   if(!result.items.length&&/0 succeeded,\s*[1-9]\d* failed/i.test(run.statusMessage||''))throw new Error('Actor ended with all requests failed; inspect Actor logs for blocked requests or timeouts.');
   result.status=result.items.length?'unverified':'empty';
   result.note='Dataset collected; identity and field validation are performed before export.';
- }catch(error){result.status=signal?.aborted?'cancelled':'error';result.note=error instanceof Error&&error.message.startsWith('Apify HTTP')||error instanceof Error&&error.message.startsWith('Actor ended')?error.message:'Apify collection failed or timed out. Check configuration, network, credit and Actor logs.';}
+ }catch(error){result.status=signal?.aborted?'cancelled':'error';result.note=error instanceof Error&&error.message.startsWith('Apify ')||error instanceof Error&&error.message.startsWith('Actor ended')?error.message:'Apify collection failed or timed out. Check configuration, network, credit and Actor logs.';}
  finally{if(result.run_id&&!completed)await api(`actor-runs/${encodeURIComponent(result.run_id)}/abort`,'POST',undefined,true).catch(()=>{result.note+=' Remote abort could not be confirmed; inspect Apify Console.';});}
  result.collected_at=new Date().toISOString();return result;
 }

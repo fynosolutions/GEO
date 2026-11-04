@@ -22,3 +22,24 @@ Browser collection is paused. `_discovery` runs apify/google-search-scraper with
 2026-11-04: discovery retains the full Google address, and Yelp adds a query using Google's phone when available. The tri_angle native search run RkvSEqvFqvW63dZA3 actually requested yelp.co.uk, exhausted blocked/timed-out requests and returned an empty dataset with SUCCEEDED status. A direct www.yelp.com/search input was also internally rewritten to yelp.co.uk (run o2YotzcitLWn1H69c). Consequently Yelp native/search-URL mode is disabled: this Actor only receives observed /biz/ URLs. When initial candidates run out, one supplemental Apify SERP run uses quoted street and phone-format variants alongside the full address. It never bypasses platform restrictions. Empty runs reporting zero succeeded requests and nonzero failures are errors, rather than proof of no listing. Three distinct candidate checks remain the limit; search queries supply candidates only and do not weaken identity checks.
 
 Yelp address/operationHours, DoorDash nested restaurant/address/rating and observed URL IDs, Facebook p/ page URLs, Grubhub priceRating and Uber Eats nested data are mapped without normalizing their values. Different phone numbers and different hours structures remain visible. Complete provider responses remain in ignored diagnostic files.
+
+## Local API token and menu Actors (2026-11-04)
+
+Apify Tokens are created at https://console.apify.com/settings/integrations (Settings > API & Integrations > Personal API tokens). A locally generated random key cannot authenticate Apify. Put the Token in .env as APIFY_TOKEN; do not put it in the frontend. GEO_API_TOKEN is the optional access gate for this app and is unrelated to Apify billing/access. Existing local APIFY_TOKEN was checked successfully through GET users/me; no replacement token was generated.
+
+After build, `npm run apify:check` verifies Token authentication and reads configured Actor builds without launching runs. Scoped Tokens must permit whichever metadata checks and Actor/dataset operations you need; an account-read failure can also indicate missing scope.
+
+Menu mode now first reuses verified Actor datasets from basic collection. Uber Eats menuItems and DoorDash item_list* were already present in previous responses; they had not been connected to the menu output. No extra Actor run is needed when those datasets contain a menu. Their source format remains html (the platform menu page), extraction is apify-structured, and menu_date remains null without date evidence. item_count is a returned item count, not a manual completeness claim.
+
+If no structured menu is available, APIFY_MENU_ACTORS_ENABLED=true enables at most one direct menu Actor call for each matched Uber Eats/DoorDash/Grubhub listing. The local configuration enables it; .env.example leaves it false so new checkouts opt in deliberately. Per-run budget remains APIFY_MAX_CHARGE_USD, not a whole-job cap.
+
+Verified current input schemas from public builds/default:
+- memo23/uber-eats-scraper 1.0.52: startUrls, maxItems, maxReviews, includeItemCustomizations, maxConcurrency, maxRequestRetries; menuItems/menuSections are returned by the Actor. Menu profile uses one store, no reviews/customizations/email enrichment.
+- memo23/doordash-reviews-cheerio 1.0.64: store page returns store/menu data. Menu profile uses one store; includeAllReviews, includeAllMenuVariants, includeDoubleDashItems, scrapeAllMenus, enrichEmails, detectTech are false. Partner-store add-on items must not be treated as this restaurant's menu.
+- natanielsantos/grubhub-scraper 0.0.8: scrapeMenu defaults false. Dedicated _menu_grubhub sets scrapeMenu:true, urls:[verified listing URL], maxItems:1 and scrapeAvailableHours:true.
+
+All structured rows pass branch identity checks before becoming menu evidence. Original structured prices are preserved, including pickup/delivery objects. Links mode omits prices. Unknown dates are not set to the fetch date. Yelp and Google photo/PDF menu coverage is not guaranteed by the basic listing Actors; this setup does not claim menu support for all eight platforms.
+
+Sources: https://apify.com/memo23/uber-eats-scraper ; https://apify.com/memo23/doordash-reviews-cheerio ; https://apify.com/natanielsantos/grubhub-scraper . Schema availability alone does not establish subscription, balance or real collection success.
+
+Read reliability: GET status/dataset calls retry network errors, unreadable JSON and HTTP 429/500/502/503/504 up to three attempts with bounded backoff and the existing total timeout/cancellation signal. POST start/abort calls are not replayed. HTTP 401/402/403 do not trigger automatic read retries; notes distinguish authentication, billing, permission and temporary service failures. Remote cleanup still occurs if run monitoring fails after retries are exhausted.

@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {spawn} from 'node:child_process';
 import {once} from 'node:events';
-import {mkdtemp,readFile,rm} from 'node:fs/promises';
+import {mkdtemp,readFile,writeFile,rm} from 'node:fs/promises';
 import {tmpdir} from 'node:os';
 import {join} from 'node:path';
 import {request as httpRequest} from 'node:http';
@@ -28,6 +28,9 @@ test('local UI needs no login and downloads the actual single output file; old i
   const response=await fetch(`${base}/api/audits/${id}/output.json`);assert.equal(response.status,200);
   assert.match(response.headers.get('content-disposition'),/Fixture%27s%20Caf%C3%A9\.json/);
   assert.equal(await response.text(),await readFile(job.output_file,'utf8'));
+  await writeFile(job.output_file,JSON.stringify([{name:'A different subsequent run'}]));
+  assert.deepEqual(await (await fetch(`${base}/api/audits/${id}/output.json`)).json(),job.records);
+  const report=await (await fetch(`${base}/api/audits/${id}/report.json`)).json();assert.equal(report.schema_version,'geo-report.v1');assert.deepEqual(report.platforms,job.records);assert.equal(report.menu,null);
   for(const path of ['official.json','toast.json','yelp.json','restaurant.json','screenshots/yelp.browser.png'])assert.equal((await fetch(`${base}/api/audits/${id}/${path}`)).status,404);
   assert.equal((await fetch(base+'/js/comparison.js')).status,404);
  }finally{child.kill();await once(child,'exit');await rm(directory,{recursive:true,force:true});}

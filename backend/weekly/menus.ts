@@ -15,10 +15,15 @@ export function menuObservations(value:unknown):MenuObservation[]{
   return {store_id:v.store_id,channel:v.channel,source_url:v.source_url,menu_date:v.menu_date,date_source:v.date_source,...(v.menu_id?{menu_id:v.menu_id}:{})};
  });
 }
+export function comparableMenuUrl(value:string):string{
+ const u=new URL(value);u.hash='';
+ for(const key of [...u.searchParams.keys()])if(/^utm_/i.test(key)||['srsltid','gclid','fbclid','msclkid'].includes(key.toLowerCase()))u.searchParams.delete(key);
+ u.searchParams.sort();return u.href;
+}
 export function menuChanges(current:MenuObservation[],previous:MenuObservation[]){
  return current.flatMap(v=>{
-  const old=previous.find(p=>p.store_id===v.store_id&&p.channel===v.channel&&(v.menu_id?p.menu_id===v.menu_id:p.source_url===v.source_url));
-  if(!old||old.menu_date===v.menu_date&&old.source_url===v.source_url)return [];
-  return [{...v,old_date:old.menu_date,old_url:old.source_url,note:old.source_url!==v.source_url?'IMPORTANT: menu source replaced':old.menu_date&&v.menu_date?'IMPORTANT: menu date changed':'Menu date availability changed'}];
+  const old=previous.find(p=>p.store_id===v.store_id&&p.channel===v.channel&&(v.menu_id?p.menu_id===v.menu_id:comparableMenuUrl(p.source_url)===comparableMenuUrl(v.source_url)));
+  if(!old||old.menu_date===v.menu_date&&comparableMenuUrl(old.source_url)===comparableMenuUrl(v.source_url))return [];
+  return [{...v,old_date:old.menu_date,old_url:old.source_url,note:comparableMenuUrl(old.source_url)!==comparableMenuUrl(v.source_url)?'IMPORTANT: menu source replaced':old.menu_date&&v.menu_date?'IMPORTANT: menu date changed':'Menu date availability changed'}];
  });
 }

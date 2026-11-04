@@ -95,3 +95,10 @@ test('current matched schema is strict while legacy snapshots remain readable wi
  assert.throws(()=>validateRecords(current.map(r=>({...r,matched:false}))));
  assert.deepEqual(compare(stores[0],current,validateRecords(legacy,true)).rows,[]);
 });
+
+test('menu tracking parameters do not create false replacement reports',async()=>{
+ const {menuChanges}=await import('../dist/backend/weekly/menus.js');
+ const old={store_id:'sample-a',channel:'delivery_menu',menu_id:'uber:main',source_url:'https://example.com/store/a?utm_source=x&srsltid=old',menu_date:null,date_source:'unknown'};
+ assert.deepEqual(menuChanges([{...old,source_url:'https://example.com/store/a?srsltid=new&utm_source=y'}],[old]),[]);
+ assert.equal(menuChanges([{...old,source_url:'https://example.com/store/b'}],[old]).length,1);
+});

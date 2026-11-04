@@ -144,5 +144,54 @@
       "countryCode": "us",
       "languageCode": "en"
     }
+  },
+  "_menu_grubhub": {
+    "actor": "natanielsantos/grubhub-scraper",
+    "input": {
+      "urls": [
+        "{{listing_url}}"
+      ],
+      "maxItems": 1,
+      "scrapeMenu": true,
+      "scrapeAvailableHours": true
+    }
+  },
+  "_menu_uber_eats": {
+    "actor": "memo23/uber-eats-scraper",
+    "input": {
+      "startUrls": [
+        {
+          "url": "{{listing_url}}"
+        }
+      ],
+      "maxItems": 1,
+      "maxReviews": 0,
+      "includeItemCustomizations": false,
+      "enrichEmails": false,
+      "detectTech": false,
+      "maxConcurrency": 1,
+      "maxRequestRetries": 1,
+      "locale": "en-US"
+    }
+  },
+  "_menu_doordash": {
+    "actor": "memo23/doordash-reviews-cheerio",
+    "input": {
+      "startUrls": [
+        {
+          "url": "{{listing_url}}"
+        }
+      ],
+      "maxItems": 1,
+      "region": "US",
+      "includeAllReviews": false,
+      "includeAllMenuVariants": false,
+      "includeDoubleDashItems": false,
+      "scrapeAllMenus": false,
+      "enrichEmails": false,
+      "detectTech": false,
+      "maxConcurrency": 1,
+      "maxRequestRetries": 1
+    }
   }
 }

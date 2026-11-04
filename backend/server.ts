@@ -55,17 +55,23 @@ const server = createServer(async (request, response) => {
       if(origin && origin!==`http://${request.headers.host}` && origin!==`https://${request.headers.host}`) {json(response,403,{message:'Cross-origin request rejected.'});return;}
       try {json(response,202,await cancelJob(cancel[1]));}catch{json(response,404,{message:'Audit not found.'});} return;
     }
-    const match=pathname.match(/^\/api\/audits\/([a-f0-9-]{36})(\/(?:output|menu)\.json)?$/);
+    const match=pathname.match(/^\/api\/audits\/([a-f0-9-]{36})(\/(?:output|menu|report)\.json)?$/);
     if(match&&request.method==='GET'){
      try{
       const job=await getJob(match[1]);
+      if(match[2]==='/report.json'){
+       if(['running','cancelling'].includes(job.status)){json(response,409,{message:'Collection is still running.'});return;}
+       const {directory,...menu}=job.menu_result||{};
+       response.setHeader('Content-Disposition','attachment; filename="restaurant-report.json"');
+       json(response,200,{schema_version:'geo-report.v1',job_id:job.id,input:job.input,status:job.status,merchant:job.merchant,started_at:job.created_at,platforms:job.records,menu:job.menu_result?menu:null,menu_status:job.menu_status??'not_requested',errors:{collection:job.error,menu:job.menu_error??null}});return;
+      }
       if(match[2]==='/menu.json'){
        if(!job.menu_result){json(response,409,{message:'Menu result is not ready.'});return;}
        json(response,200,job.menu_result);return;
       }
       if(match[2]){
        if(!job.output_file){json(response,409,{message:'Output file is not ready.'});return;}
-       const content=await readFile(job.output_file);
+       const content=JSON.stringify(job.records,null,2); // Historical jobs must not download another run's overwritten output file.
        const encoded=encodeURIComponent(job.filename!).replace(/[!'()*]/g,c=>`%${c.charCodeAt(0).toString(16).toUpperCase()}`);
        response.writeHead(200,{'Content-Type':'application/json; charset=utf-8','Cache-Control':'no-store','Content-Disposition':`attachment; filename="restaurant.json"; filename*=UTF-8''${encoded}`});response.end(content);
       }else json(response,200,job);

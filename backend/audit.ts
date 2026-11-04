@@ -3,7 +3,7 @@ import { randomUUID } from 'node:crypto';
 import { mkdir, readFile, writeFile, rename } from 'node:fs/promises';
 import { resolve, join } from 'node:path';
 import {collectMenuAudit} from './menu-audit/public.js';
-import { collectRestaurant, type Listing, type CollectionInput, domains } from './collection.js';
+import { collectRestaurant, readVerifiedMenuProviders, type Listing, type CollectionInput, domains } from './collection.js';
 export const outputFields=['platform','found','matched','url','name','address','phone','hours','rating','review_count','price_level','fetched_at','error'];
 export const platforms=Object.fromEntries(Object.entries(domains).map(([key,value])=>[key,[key,value]]));
 export type Job={id:string;created_at:string;status:string;input:CollectionInput;records:Listing[];output_file?:string;filename?:string;merchant:{name:string;address:string}|null;error:string|null;menu_mode?:'links'|'full';menu_status?:string;menu_result?:Awaited<ReturnType<typeof collectMenuAudit>>;menu_error?:string};
@@ -33,7 +33,7 @@ export async function startJob(input:CollectionInput,menuMode?:'links'|'full'):P
   if(menuMode&&!controller.signal.aborted){
    job.status='running';job.menu_status='running';await saveJob(job);
    try{
-    job.menu_result=await collectMenuAudit({store_id:job.id,name:result.name,address:result.address,records:result.records},{signal:controller.signal,discover:true,platforms:input.platforms,mode:menuMode});
+    job.menu_result=await collectMenuAudit({store_id:job.id,name:result.name,address:result.address,records:result.records,provider_results:await readVerifiedMenuProviders(result.directory,result.records)},{signal:controller.signal,discover:true,platforms:input.platforms,mode:menuMode});
     job.menu_status=controller.signal.aborted?'cancelled':job.menu_result.summary.coverage_complete?'completed':'partial';
    }catch{job.menu_status=controller.signal.aborted?'cancelled':'failed';job.menu_error='Menu collection could not complete; basic listing data was retained.';}
    job.status=controller.signal.aborted?'cancelled':job.menu_status==='completed'&&!result.records.some(r=>r.error)?'completed':'partial';

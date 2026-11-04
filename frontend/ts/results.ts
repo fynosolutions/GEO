@@ -51,8 +51,15 @@ async function load(){
   }
   const list=document.querySelector('#evidence-list')!;list.replaceChildren();
   if(job.output_file){const a=document.createElement('a');a.textContent=`Download ${job.filename}`;a.href=`/api/audits/${id}/output.json`;list.append(a);}
+  if(!running){const report=document.createElement('a');report.textContent='Download complete report (listings + menus + hours)';report.href=`/api/audits/${id}/report.json`;report.className='complete-report-link';list.append(report);}
   renderMenuResults(job,id);
   clearTimeout(timer);if(running)timer=setTimeout(()=>void load(),2000);
  }catch(e){document.querySelector('#audit-status')!.textContent=e instanceof Error?e.message:'Load failed';}
 }
 document.querySelector('#refresh')!.addEventListener('click',()=>void load());void load();
+
+for(const [button,open] of [['#expand-sections',true],['#collapse-sections',false]] as const){
+ document.querySelector(button)?.addEventListener('click',()=>{
+  for(const section of Array.from(document.querySelectorAll<HTMLDetailsElement>('.result-section:not([hidden])')))section.open=open;
+ });
+}

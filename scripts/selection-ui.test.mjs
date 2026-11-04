@@ -17,7 +17,7 @@ test('form combines name/address and submits only checked platforms',async()=>{
   assert.deepEqual(submissions,[{name:'Fixture Cafe',platforms:['yelp'],target_address:'123 Main St'}]);
   await page.locator('#collect-menus').check();assert.equal(await page.locator('#menu-options').isVisible(),true);
   await Promise.all([page.waitForRequest(r=>r.url().endsWith('/api/check')),page.locator('#submit-button').click()]);await page.getByText('Fixture received.',{exact:true}).waitFor();
-  assert.equal(submissions.at(-1).menu_mode,'links');
-  await page.locator('#menu-mode').selectOption('full');await Promise.all([page.waitForRequest(r=>r.url().endsWith('/api/check')),page.locator('#submit-button').click()]);await page.getByText('Fixture received.',{exact:true}).waitFor();assert.equal(submissions.at(-1).menu_mode,'full');
+  assert.equal(submissions.at(-1).menu_mode,'full');
+  await page.locator('#menu-mode').selectOption('links');await Promise.all([page.waitForRequest(r=>r.url().endsWith('/api/check')),page.locator('#submit-button').click()]);await page.getByText('Fixture received.',{exact:true}).waitFor();assert.equal(submissions.at(-1).menu_mode,'links');
  }finally{await browser.close();}
 });

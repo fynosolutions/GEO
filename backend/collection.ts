@@ -1,5 +1,5 @@
 import './config.js';
-import { mkdir, writeFile, rename } from 'node:fs/promises';
+import { mkdir, writeFile, rename, readFile } from 'node:fs/promises';
 import { join, resolve } from 'node:path';
 import { randomUUID } from 'node:crypto';
 import { collectApify, type ApifyResult } from './apify.js';
@@ -221,4 +221,17 @@ export async function collectRestaurant(input:CollectionInput,signal?:AbortSigna
  }
  await json(join(directory,'providers.json'),providerData);
  return {directory,records,name:target.name||label,address:target.address,output_file,filename};
+}
+
+// Expose only provider items that still match the already verified platform listing.
+export async function readVerifiedMenuProviders(directory:string,records:Listing[]):Promise<Record<string,ApifyResult>> {
+ const providers=JSON.parse(await readFile(join(directory,'providers.json'),'utf8'));
+ const result:Record<string,ApifyResult>={};
+ for(const record of records){
+  if(!record.matched||!record.found||!record.name||!record.address)continue;
+  const raw=providers[record.platform] as ApifyResult|undefined;if(!raw||!Array.isArray(raw.items))continue;
+  const items=raw.items.filter(item=>mapApify(record.platform,{...raw,items:[item]},{name:record.name!,address:record.address,phone:record.phone}).matched);
+  if(items.length)result[record.platform]={...raw,items};
+ }
+ return result;
 }

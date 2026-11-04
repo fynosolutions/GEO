@@ -42,7 +42,7 @@ test('seven channel coverage distinguishes collection failures and captures sour
  const result=await collectMenuAudit({store_id:'demo',name:'Demo',address:'1 Main St',records:[],sources:[{channel:'official_html',platform:'official',url:'https://example.com/menu',identity_verified:true},{channel:'yelp_menu',platform:'yelp',url:'https://yelp.com/menu',identity_verified:true}]},{root,read:async url=>{
   if(url.includes('yelp'))throw Error('HTTP 403');return {url,format:'html',text:'Menu 2024',links:[],prices:[{name:'Noodles',variant:null,price:'$12.50',currency:null,evidence:'Noodles $12.50'}],date:extractDate('Menu 2024'),fetched_at:'2026-11-04T00:00:00Z',sha256:'fixture',extraction:'html'};
  }});
- assert.equal(result.coverage.length,7);assert.equal(result.coverage.find(c=>c.channel==='yelp_menu').status,'incomplete');assert.equal(result.menus[0].freshness,'stale');assert.equal(result.prices[0].url,'https://example.com/menu');
+ assert.equal(result.coverage.length,7);assert.equal(result.coverage.find(c=>c.channel==='yelp_menu').status,'incomplete');assert.equal(result.menus[0].freshness,'stale');assert.equal(result.prices[0].url,'https://example.com/menu');assert.equal(result.menus[0].items[0].name,'Noodles');assert.equal(result.menus[0].items[0].price,'$12.50');
  }finally{await rm(root,{recursive:true,force:true});}
 });
 test('weekly menu adapter accepts years and detects stable-ID URL replacement',()=>{
@@ -66,10 +66,10 @@ test('web menu scope visits only selected platforms and links mode omits dish pr
  const root=await mkdtemp(join(tmpdir(),'menu-scope-'));const visited=[];
  try{
   const record=(platform,url)=>({platform,url,matched:true,found:true,name:'Demo',address:'1 Main St',hours:null,fetched_at:'2026-11-04T00:00:00Z'});
-  const result=await collectMenuAudit({store_id:'demo',name:'Demo',address:'1 Main St',records:[record('yelp','https://yelp.com/menu'),record('doordash','https://doordash.com/menu')]},{root,platforms:['yelp'],mode:'links',read:async url=>{
+  const result=await collectMenuAudit({store_id:'demo',name:'Demo',address:'1 Main St',records:[record('yelp','https://yelp.com/menu/demo'),record('doordash','https://doordash.com/menu')]},{root,platforms:['yelp'],mode:'links',read:async url=>{
    visited.push(url);return {url,format:'html',text:'Menu',links:[],prices:[{name:'Soup',price:'$5',currency:null,variant:null,evidence:'Soup $5'}],date:extractDate('Menu 2024'),fetched_at:'2026-11-04T00:00:00Z',sha256:'fixture',extraction:'html'};
   }});
-  assert.deepEqual(visited,['https://yelp.com/menu']);assert.equal(result.menus.length,1);assert.deepEqual(result.prices,[]);assert.equal(result.summary.mode,'links');
+  assert.deepEqual(visited,['https://yelp.com/menu/demo']);assert.equal(result.menus.length,1);assert.deepEqual(result.prices,[]);assert.equal(result.summary.mode,'links');
  }finally{await rm(root,{recursive:true,force:true});}
 });
 
@@ -92,4 +92,32 @@ test('verified Yelp business slug establishes menu association without exact bil
   const result=await collectMenuAudit({store_id:'linked',name:'Long bilingual restaurant name',address:'145 Mulberry St, New York, NY 10013',records:[{platform:'yelp',found:true,matched:true,url:'https://www.yelp.com/biz/easy-joy-new-york',name:'Easy Joy',hours:null}],sources:[{channel:'yelp_menu',platform:'yelp',url:'https://www.yelp.com/menu/easy-joy-new-york',identity_verified:false}]},{root,read:async url=>({url,format:'html',text:'Menu: Appetizers',prices:[],links:[],date:extractDate(''),fetched_at:'2026-11-04T00:00:00Z',sha256:'fixture',extraction:'html'})});
   assert.equal(result.menus.length,1);assert.equal(result.menus[0].url,'https://www.yelp.com/menu/easy-joy-new-york');
  }finally{await rm(root,{recursive:true,force:true});}
+});
+
+test('Apify menus are reused only for a matched branch and links mode excludes prices',async()=>{
+ const {structuredMenu}=await import('../dist/backend/menu-audit/providers.js');
+ const record={platform:'uber_eats',found:true,matched:true,url:'https://www.ubereats.com/store/demo/123',name:'Demo Cafe',address:'1 Main St, New York, NY 10001',phone:'2125550101'};
+ const raw={status:'unverified',actor:'fixture/menu',run_id:'fixture',collected_at:'2026-11-04T00:00:00Z',items:[{name:record.name,url:record.url,address:record.address,phone:record.phone,menuItems:[{name:'Noodles',price:'12.50',currency:'USD'}]}]};
+ const menu=structuredMenu('uber_eats',raw,record,false);assert.equal(menu.menu.item_count,1);assert.deepEqual(menu.prices,[]);assert.deepEqual(menu.menu.items,[]);assert.equal(menu.menu.items_collected,false);
+ assert.equal(structuredMenu('uber_eats',raw,{...record,matched:false},true),null);
+ assert.equal(structuredMenu('uber_eats',{...raw,items:[{...raw.items[0],name:'Other Cafe',address:'9 Other St'}]},record,true),null);
+ const full=structuredMenu('uber_eats',raw,record,true);assert.equal(full.prices[0].price,'12.50');assert.equal(full.menu.items[0].name,'Noodles');assert.equal(full.menu.items[0].price,'12.50');assert.equal(full.menu.items[0].url,record.url);assert.equal(full.menu.items_collected,true);
+});
+
+test('partial delivery success cannot hide another selected platform failure',async()=>{
+ const {summarizePlatforms,validMenuCandidate}=await import('../dist/backend/menu-audit/sources.js');
+ const states=summarizePlatforms(['doordash','uber_eats','grubhub'],[{platform:'doordash',status:'found'},{platform:'uber_eats',status:'found'},{platform:'grubhub',status:'error'}],[{platform:'doordash'},{platform:'uber_eats'}],()=>true);
+ assert.deepEqual(states.map(v=>v.status),['found','found','incomplete']);
+ assert.equal(validMenuCandidate('https://www.yelp.com/reservations/fixture','yelp'),false);
+ assert.equal(validMenuCandidate('https://www.facebook.com/groups/fixture/posts/1','facebook'),false);
+ assert.equal(validMenuCandidate('https://www.yelp.com/menu/fixture','yelp'),true);
+});
+
+test('embedded menu items preserve price objects and explicit unknown prices for auditing',async()=>{
+ const {structuredMenu}=await import('../dist/backend/menu-audit/providers.js');
+ const record={platform:'grubhub',found:true,matched:true,url:'https://www.grubhub.com/restaurant/demo/123',name:'Demo Cafe',address:'1 Main St, New York, NY 10001',phone:'2125550101'};
+ const price={pickup:12,delivery:13.5};
+ const raw={status:'unverified',actor:'fixture/menu',run_id:'fixture',collected_at:'2026-11-04T00:00:00Z',items:[{name:record.name,url:record.url,address:record.address,phone:record.phone,menuItems:[{name:'Soup',price},{name:'Market special'}]}]};
+ const menu=structuredMenu('grubhub',raw,record,true).menu;
+ assert.deepEqual(menu.items[0].price,price);assert.equal(menu.items[1].price,null);assert.equal(menu.items.length,2);
 });

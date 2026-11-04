@@ -56,3 +56,5 @@ Supported provenance: on_page, metadata, upload_date; unknown requires menu_date
 ## Upstream synchronization 2026-11-04
 
 Synced remote commit 96e0110 (#3). New collection snapshots require matched:boolean and retain all thirteen fields. Legacy twelve-field history remains readable without adding an inferred matched value. Weekly runs still request the default eight platforms; the new UI platform selector does not narrow scheduled collection. Issue #4 code was not present in the remote branches at synchronization time; menu producer integration remains pending.
+
+Menu source comparison ignores common tracking parameters (utm_*, srsltid, gclid, fbclid, msclkid) and URL fragments, while preserving the original source URLs in snapshots. Meaningful query parameters remain significant. Content/price diffing is still outside the current weekly comparison implementation.

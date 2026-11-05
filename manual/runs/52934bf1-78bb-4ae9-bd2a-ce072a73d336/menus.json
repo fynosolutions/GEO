@@ -1,0 +1,34 @@
+[
+  {
+    "store_id": "020",
+    "channel": "delivery_menu",
+    "source_url": "https://www.doordash.com/store/easy-joy-ayce-dim-sum-hot-pot---145-mulberry-st-new-york-35886623/?srsltid=AYCX9vIcuVbB_7_mF1flC9ZKinA9-1hX3H17Nfn4Xp69IC4AGPajo1Bt",
+    "menu_date": null,
+    "date_source": "unknown",
+    "menu_id": "doordash:main"
+  },
+  {
+    "store_id": "020",
+    "channel": "delivery_menu",
+    "source_url": "https://www.ubereats.com/en-US/store/easy-joy-dim-sum-hot-pot-buffet-%E6%84%8F%E4%B8%AD%E4%BA%BA%E7%82%B9%E5%BF%83%E7%81%AB%E9%94%85%E8%87%AA%E5%8A%A9-145-mulberry-street/7ObUBkSuUKCK1aTC7nHx_g?srsltid=AYCX9vLVpmDIqmzGkRrYGFw-9i0bjQbG17J3OBTOUHLcn7LlEgYqgOnW",
+    "menu_date": null,
+    "date_source": "unknown",
+    "menu_id": "uber_eats:main"
+  },
+  {
+    "store_id": "020",
+    "channel": "delivery_menu",
+    "source_url": "https://www.grubhub.com/restaurant/easy-joy-ayce-dim-sum-hot-pot-145-mulberry-st-new-york/12387504",
+    "menu_date": null,
+    "date_source": "unknown",
+    "menu_id": "grubhub:main"
+  },
+  {
+    "store_id": "001",
+    "channel": "delivery_menu",
+    "source_url": "https://www.ubereats.com/en-US/store/frydom-express-fried-chicken-%E9%A3%9E%E4%B9%90%E7%82%B8%E9%B8%A1-781-61st-street/OLdZQvsVXzWCMBpsf9uctg?srsltid=AYCX9vKX2upqMn8fchHmXL4b5tSGOZavkR1ruT3pp232pOniA-YQf7nx",
+    "menu_date": null,
+    "date_source": "unknown",
+    "menu_id": "uber_eats:main"
+  }
+]

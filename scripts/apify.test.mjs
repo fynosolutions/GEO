@@ -85,3 +85,15 @@ test('mixed Chinese/English names retain Unicode and fold full-width characters'
  assert.equal(identityConflict([{name:'喜悦 Other Restaurant',address:target.address}],target),true);
  assert.equal(identityConflict([{name:'喜悦 Easy Different',address:target.address}],target),true);
 });
+
+test('Google Place ID uses native Actor input without generic Maps search URL or name search',async()=>{
+ const old=process.env.APIFY_TOKEN;process.env.APIFY_TOKEN='fixture';let input;
+ try{
+  await collectApify('google_maps',{name:'',address:'145 Mulberry St',website_url:'',place_id:'ChIJhRc3tYlZwokRbR4dwpc-0qI',listing_url:'https://www.google.com/maps/search/?api=1&query_place_id=ChIJhRc3tYlZwokRbR4dwpc-0qI&query=restaurant'},undefined,async(url,options)=>{
+   if(options.method==='POST'){input=JSON.parse(options.body);return Response.json({data:{id:'fixture',status:'SUCCEEDED',defaultDatasetId:'fixture'}});}
+   return Response.json([]);
+  });
+  assert.deepEqual(input.placeIds,['ChIJhRc3tYlZwokRbR4dwpc-0qI']);
+  assert.equal(input.startUrls,undefined);assert.equal(input.searchStringsArray,undefined);
+ }finally{if(old===undefined)delete process.env.APIFY_TOKEN;else process.env.APIFY_TOKEN=old;}
+});

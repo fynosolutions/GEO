@@ -60,7 +60,13 @@ export async function collectApify(platform:string,target:Context,signal?:AbortS
   if(!Number.isFinite(budget)||budget<=0)throw new Error('Invalid APIFY_MAX_CHARGE_USD.');
   const parts=target.address?.split(',')||[];
   const context={...target,city:target.city||(parts.length>=3?parts[parts.length-2].trim():'')};
-  const started=await api(`acts/${actor}/runs?timeout=180&maxTotalChargeUsd=${budget}`,'POST',expandInput(platform==='google_maps'&&target.listing_url?{...entry.input as object,startUrls:[{url:target.listing_url}],searchStringsArray:undefined}:entry.input,context));
+  // Use the Actor's native Place ID field; Maps API search URLs can silently return an empty dataset.
+  const actorInput=platform==='google_maps'&&target.place_id
+   ? {...entry.input as object,placeIds:[target.place_id],startUrls:undefined,searchStringsArray:undefined}
+   : platform==='google_maps'&&target.listing_url
+    ? {...entry.input as object,startUrls:[{url:target.listing_url}],searchStringsArray:undefined}
+    : entry.input;
+  const started=await api(`acts/${actor}/runs?timeout=180&maxTotalChargeUsd=${budget}`,'POST',expandInput(actorInput,context));
   result.run_id=started.data.id;let run=started.data;
   while(['READY','RUNNING','TIMING-OUT','ABORTING'].includes(run.status)){
    await delay(2000,undefined,{signal:combined});run=(await api(`actor-runs/${encodeURIComponent(result.run_id!)}`)).data;

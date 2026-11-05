@@ -9,14 +9,14 @@ No separate GitHub Actions account or cloud-server registration is required.
 
 1. Open https://github.com/fynosolutions/GEO/settings/actions . Ensure repository/organization policy permits the GitHub-owned actions used in weekly-collection.yml: checkout, setup-node, upload-artifact, download-artifact. The workflow requests contents:write only for persistence; it does not need permission to create or approve pull requests. Retain restrictive defaults where the explicit job permission is sufficient.
 2. Open https://github.com/fynosolutions/GEO/settings/secrets/actions . Add repository Secret APIFY_TOKEN from your existing Apify account/local configuration. Do not paste it into chat, commits or ordinary Variables. If a Secret already exists, verify with its owner rather than blindly replacing it.
-3. Open https://github.com/fynosolutions/GEO/settings/variables/actions . Prepare GEO_WEEKLY_ENABLED=false. This gates both scheduled and manual jobs. Optional APIFY_MAX_CHARGE_USD controls each Actor's cap; the current workflow defaults to 1. It is not a batch-wide budget.
+3. Open https://github.com/fynosolutions/GEO/settings/variables/actions . Prepare GEO_WEEKLY_ENABLED=false. This gates scheduled jobs; an explicitly dispatched manual run is allowed while scheduling remains disabled. Optional APIFY_MAX_CHARGE_USD controls each Actor's cap; the current workflow defaults to 1. It is not a batch-wide budget.
 4. Fill stores.json with the verified acceptance stores (id, name, address, place_id, optional website). The two acceptance stores are configured with string IDs and verified Google Place IDs.
 5. After merging #3/#4/#5 and validation, deploy the workflow/code to main, set GEO_WEEKLY_ENABLED=true, and manually dispatch from https://github.com/fynosolutions/GEO/actions . Confirm manual history snapshots, report, artifact and geo-history commit.
 6. Leave scheduling enabled for two Monday 06:00 America/New_York runs and retain acceptance evidence. Until then, do not claim two-week acceptance.
 
 GITHUB_TOKEN is supplied by GitHub to workflows; no manually created PAT or server key is needed for the same-repository history design. geo-history is initialized by the persistence job; no manual branch setup is necessary. Public repository history is also public, so persist only public merchant observations.
 
-The current setup gates scheduled and manual execution together. Keep false until ready for the first live test. No Apify charges occur merely from saving these configuration values. Actual collection consumes Apify usage; GitHub Actions usage/billing is separate.
+Scheduled execution is gated separately from explicit manual dispatch. Keep false during manual acceptance until recurring collection is authorized. No Apify charges occur merely from saving these configuration values. Actual collection consumes Apify usage; GitHub Actions usage/billing is separate.
 
 Official reference: https://docs.github.com/en/actions/how-tos/write-workflows/choose-what-workflows-do/use-secrets
 
@@ -31,3 +31,5 @@ The production acceptance list is Easy Joy (`"020"`, 145 Mulberry St) and Frydom
 ## Cloud activation procedure — 2026-11-05
 
 Publish the verified code through PR #11 to main. Repository Actions use GitHub-owned actions, read-only default workflow permissions and a job-specific contents:write permission for geo-history. Store APIFY_TOKEN only as an encrypted repository Secret. Set APIFY_MAX_CHARGE_USD=0.50 for initial acceptance (per Actor run, not a total budget). Enable GEO_WEEKLY_ENABLED=true only when ready to collect. Dispatch the workflow from main and retain its actual run URL, artifact and history commit; a configured workflow alone does not establish a successful collection. Schedule: Monday 06:00 America/New_York. Local website hosting is separate and is not provided by this workflow.
+
+Manual acceptance is explicitly authorized independently of recurring runs. With GEO_WEEKLY_ENABLED=false, Run workflow starts one manual collection; future cron events skip collection. Enabling recurring collection requires a separate decision.

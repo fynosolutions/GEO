@@ -11,7 +11,7 @@ concurrency:
   cancel-in-progress: false
 jobs:
   collect:
-    if: vars.GEO_WEEKLY_ENABLED == 'true'
+    if: github.event_name == 'workflow_dispatch' || vars.GEO_WEEKLY_ENABLED == 'true'
     runs-on: ubuntu-latest
     timeout-minutes: 150
     steps:

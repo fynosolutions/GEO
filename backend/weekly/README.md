@@ -58,3 +58,9 @@ Supported provenance: on_page, metadata, upload_date; unknown requires menu_date
 Synced remote commit 96e0110 (#3). New collection snapshots require matched:boolean and retain all thirteen fields. Legacy twelve-field history remains readable without adding an inferred matched value. Weekly runs still request the default eight platforms; the new UI platform selector does not narrow scheduled collection. Issue #4 code was not present in the remote branches at synchronization time; menu producer integration remains pending.
 
 Menu source comparison ignores common tracking parameters (utm_*, srsltid, gclid, fbclid, msclkid) and URL fragments, while preserving the original source URLs in snapshots. Meaningful query parameters remain significant. Content/price diffing is still outside the current weekly comparison implementation.
+
+## Integrated deployment candidate (2026-11-05)
+
+The workflow enables MENU_AUDIT_ENABLED, APIFY_MENU_ACTORS_ENABLED and MENU_OCR_ENABLED. It remains gated by GEO_WEEKLY_ENABLED; no remote activation has been performed. The worker uses the resolved branch identity and website, produces menu date sidecars, and returns full menu details. The CLI deletes scratch outputs after the orchestrator archives public details under runs/<run-id>/details/<store-id>.json. Files are persisted with the existing runs tree to the history branch/artifact. Partial menu coverage appears in the manifest and Markdown report. Earlier notes describing the adapter as pending are historical; this section supersedes them.
+
+stores.json now contains the two verified acceptance targets, Easy Joy Mulberry and Katz Houston. Place IDs are null; existing website/address resolution is used. Stable IDs remain snapshot directory identifiers; names and addresses appear in manifests/reports. Scheduled production acceptance still requires deployment and two actual weekly runs.

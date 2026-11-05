@@ -102,3 +102,12 @@ test('menu tracking parameters do not create false replacement reports',async()=
  assert.deepEqual(menuChanges([{...old,source_url:'https://example.com/store/a?srsltid=new&utm_source=y'}],[old]),[]);
  assert.equal(menuChanges([{...old,source_url:'https://example.com/store/b'}],[old]).length,1);
 });
+
+
+test('weekly collection preserves full menu details and reports menu date changes and partial coverage',async()=>fixture(async root=>{
+ let date='2024';
+ const collect=async store=>({records:records(),menu_error:'Some channels blocked',menus:[{store_id:store.id,channel:'official_html',menu_id:'official:main',source_url:'https://example.com/menu',menu_date:date,date_source:'on_page'}],menu_details:{directory:'/private/tmp/not-for-history',menus:[{menu_date:date}],prices:[{name:'Soup',price:'$5'}],hours:[],coverage:[],summary:{}}});
+ const first=await runWeekly({stores,root,mode:'scheduled',now:new Date('2026-11-02T12:00:00Z'),collect});
+ const details=JSON.parse(await readFile(join(first.runDir,'details',stores[0].id+'.json'),'utf8'));assert.equal(details.directory,undefined);assert.equal(details.prices[0].price,'$5');assert.equal(first.manifest.stores[0].status,'partial');assert.match(first.report,/Some channels blocked/);
+ date='2026';const next=await runWeekly({stores,root,mode:'scheduled',now:new Date('2026-11-09T12:00:00Z'),collect});assert.match(next.report,/menu date changed/);assert.match(next.report,/2024/);assert.match(next.report,/2026/);
+}));

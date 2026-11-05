@@ -1,1 +1,4 @@
-[]
+[
+  {"id":"easy-joy-mulberry","name":"Easy Joy","address":"145 Mulberry St, New York, NY 10013","place_id":null,"website":"https://www.easyjoybuffet.com/"},
+  {"id":"katz-houston","name":"Katz's Delicatessen","address":"205 E Houston St, New York, NY 10002","place_id":null,"website":"https://katzsdelicatessen.com/"}
+]

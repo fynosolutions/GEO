@@ -138,3 +138,99 @@ test('HTML menu sections propagate categories without interpreting offer variant
  const result=htmlDocument('<script type="application/ld+json">'+JSON.stringify(data)+'</script>','https://example.com/menu');
  assert.equal(result.prices[0].category,'Dim sum');assert.equal(result.prices[0].variant,'Six pieces');assert.equal(result.prices[1].category,null);assert.equal(result.prices[1].variant,'Large');
 });
+
+
+test('Grubhub menu currency uses explicit restaurant currencyCode without inventing categories',async()=>{
+ const {structuredMenu}=await import('../dist/backend/menu-audit/providers.js');
+ const record={platform:'grubhub',found:true,matched:true,url:'https://www.grubhub.com/restaurant/demo/123',name:'Demo Cafe',address:'1 Main St, New York, NY 10001',phone:'2125550101'};
+ const raw={status:'success',actor:'fixture/menu',run_id:'fixture',collected_at:'2026-11-05T00:00:00Z',items:[{name:record.name,url:record.url,address:record.address,phone:record.phone,currencyCode:'USD',menuItems:[{name:'Soup',price:{pickup:12,delivery:13}},{name:'Imported tea',price:4,currency:'CAD'}]}]};
+ const result=structuredMenu('grubhub',raw,record,true);
+ assert.equal(result.menu.items[0].currency,'USD');assert.equal(result.prices[0].currency,'USD');assert.equal(result.menu.items[0].category,null);assert.equal(result.menu.items[1].currency,'CAD');
+ const missing=structuredMenu('grubhub',{...raw,items:[{...raw.items[0],currencyCode:undefined}]},record,true);assert.equal(missing.menu.items[0].currency,null);
+});
+
+
+test('all-channel audit follows dated public menu images and compares verified website hours',async()=>{
+ const root=await mkdtemp(join(tmpdir(),'all-channels-'));const queries=[];
+ const record={platform:'google_maps',found:true,matched:true,name:'Demo Cafe',address:'1 Main St',phone:null,hours:{Monday:'10:00-22:00'},url:'https://google.com/maps/demo',fetched_at:'2026-11-05T00:00:00Z'};
+ const before=JSON.stringify(record);
+ const doc=url=>({url,format:'html',text:'Demo Cafe 1 Main St Menu',menuEvidence:true,links:[],prices:[],date:extractDate(''),fetched_at:'2026-11-05T00:00:00Z',sha256:'fixture',extraction:'html'});
+ try{
+  const result=await collectMenuAudit({store_id:'demo',name:'Demo Cafe',address:'1 Main St',website:'https://demo.example/',website_verified:true,records:[record]},{root,discover:true,runProvider:async(_platform,target)=>{
+   queries.push(target.queries);const domain=target.queries.match(/site:([^ ]+)/)?.[1];
+   return {status:'success',items:[{organicResults:['resy.com','instagram.com'].includes(domain)?[{url:'https://'+domain+'/demo-menu'}]:[]}],collected_at:'2026-11-05T00:00:00Z'};
+  },read:async url=>url==='https://demo.example/'?{...doc(url),hours:[{day:'Monday',opens:'10:00',closes:'21:00'}],menuMedia:[{url:'https://cdn.example/menu.png',upload_date:'2024-03-01'}]}:url.includes('menu.png')?{...doc(url),format:'image',text:'Demo Cafe menu',date:extractDate(''),prices:[{name:'Soup',category:'Soups',variant:null,price:'$5',currency:null,evidence:'Soup $5'}]}:doc(url)});
+  assert.equal(result.coverage.length,7);assert.ok(result.coverage.every(c=>c.status!=='not_checked'));
+  const image=result.menus.find(m=>m.format==='image');assert.equal(image.date_source,'upload_date');assert.equal(image.menu_date,'2024-03-01');assert.equal(image.freshness,'stale');assert.equal(image.items[0].category,'Soups');
+  assert.ok(queries.some(q=>q.includes('resy.com')));assert.ok(queries.some(q=>q.includes('instagram.com')));
+  const hours=result.hours.find(r=>r.platform==='official'&&r.day==='Monday');assert.equal(hours.verdict,'不一致');assert.equal(hours.diff_minutes,-60);assert.equal(hours.url,'https://demo.example/');assert.equal(JSON.stringify(record),before);
+ }finally{await rm(root,{recursive:true,force:true});}
+});
+
+test('public HTML metadata discovers menu media dates and branch-specific structured hours',()=>{
+ const schema={'@type':'Restaurant',name:'Demo Cafe',address:{streetAddress:'1 Main St'},openingHoursSpecification:[{dayOfWeek:['Monday','Tuesday'],opens:'10:00',closes:'22:00'}],image:{'@type':'ImageObject',name:'Menu photo',contentUrl:'https://cdn.example/menu.jpg',uploadDate:'2024-04-01'}};
+ const html='<script type="application/ld+json">'+JSON.stringify(schema)+'</script><figure><img src="/menu2.png" alt="Dinner menu"><time datetime="2024-05-01"></time></figure><img src="/logo.png" alt="Logo">';
+ const parsed=htmlDocument(html,'https://demo.example',false);
+ assert.equal(parsed.identities[0].name,'Demo Cafe');assert.equal(parsed.hours.length,2);assert.equal(parsed.menuMedia.length,2);assert.equal(parsed.menuMedia.find(m=>m.url.endsWith('menu2.png')).upload_date,'2024-05-01');assert.deepEqual(parsed.prices,[]);
+});
+
+
+test('official structured hours remain associated with the matched branch',async()=>{
+ const root=await mkdtemp(join(tmpdir(),'branch-hours-'));
+ try{
+  const identities=[{name:'Demo Cafe',address:'9 Other St',phone:null,hours:[{day:'Monday',opens:'08:00',closes:'18:00'}]},{name:'Demo Cafe',address:'1 Main St',phone:null,hours:[{day:'Monday',opens:'10:00',closes:'22:00'}]}];
+  const google={platform:'google_maps',found:true,matched:true,name:'Demo Cafe',address:'1 Main St',hours:{Monday:'10:00-22:00'},url:'https://google.com/maps/demo',fetched_at:'2026-11-05T00:00:00Z'};
+  const result=await collectMenuAudit({store_id:'branch',name:'Demo Cafe',address:'1 Main St',website:'https://example.com',website_verified:true,records:[google]},{root,read:async url=>({url,format:'html',text:'Menu',menuEvidence:true,links:[],prices:[],identities,hours:null,date:extractDate(''),sha256:'fixture',extraction:'html',fetched_at:'2026-11-05T00:00:00Z'})});
+  assert.equal(result.hours.find(r=>r.platform==='official'&&r.day==='Monday').verdict,'一致');
+ }finally{await rm(root,{recursive:true,force:true});}
+});
+
+
+test('verified Yelp photo pages can queue labelled CDN menu images with upload dates',async()=>{
+ const root=await mkdtemp(join(tmpdir(),'yelp-photo-'));const visited=[];
+ try{
+  const record={platform:'yelp',found:true,matched:true,name:'Demo',address:'1 Main St',url:'https://www.yelp.com/biz/demo',fetched_at:'2026-11-05T00:00:00Z'};
+  const result=await collectMenuAudit({store_id:'demo',name:'Demo',address:'1 Main St',records:[record],sources:[{platform:'yelp',channel:'yelp_menu',url:'https://www.yelp.com/biz_photos/demo',identity_verified:false}]},{root,platforms:['yelp'],read:async url=>{
+   visited.push(url);const image=url.includes('cdn.example');return {url,format:image?'image':'html',text:'Menu',links:[],prices:[],date:extractDate(''),menuMedia:image?[]:[{url:'https://cdn.example/opaque-photo',upload_date:'2024-06-01'}],fetched_at:'2026-11-05T00:00:00Z',sha256:'fixture',extraction:image?'ocr':'html'};
+  }});
+  const image=result.menus.find(m=>m.format==='image');assert.ok(image);assert.equal(image.menu_date,'2024-06-01');assert.equal(image.date_source,'upload_date');assert.ok(visited.includes('https://cdn.example/opaque-photo'));
+ }finally{await rm(root,{recursive:true,force:true});}
+});
+
+
+test('menu URL fragments do not duplicate outputs or consume the document read limit',async()=>{
+ const root=await mkdtemp(join(tmpdir(),'menu-fragments-'));const visited=[];
+ try{
+  const source=url=>({channel:'official_html',platform:'official',url,identity_verified:true});
+  const sources=Array.from({length:65},(_,i)=>source('https://demo.example/store-menu#section-'+i));sources.push(source('https://demo.example/dinner-package.html'),source('https://demo.example/lunch-menu?lang=en'));
+  const result=await collectMenuAudit({store_id:'demo',name:'Demo',address:'1 Main St',records:[],sources},{root,platforms:['official'],read:async url=>{
+   visited.push(url);return {url,format:'html',text:'Menu Dinner Demo',menuEvidence:!url.includes('package'),links:[url+'#contentarea'],prices:[],date:extractDate(''),fetched_at:'2026-11-05T00:00:00Z',sha256:'fixture',extraction:'html'};
+  }});
+  assert.equal(visited.length,3);assert.equal(result.menus.length,2);assert.ok(visited.every(url=>!url.includes('#')));assert.ok(visited.includes('https://demo.example/lunch-menu?lang=en'));assert.ok(!result.coverage.flatMap(c=>c.attempts).some(a=>a.status==='not_checked'));assert.ok(!result.menus.some(m=>m.url.includes('package')));
+ }finally{await rm(root,{recursive:true,force:true});}
+});
+
+test('menu comparison URLs retain meaningful parameters and deduplicate redirect aliases',async()=>{
+ const {menuUrlKey}=await import('../dist/backend/menu-audit/sources.js');
+ assert.equal(menuUrlKey('https://demo.example/menu?lang=en&utm_source=test#content'),'https://demo.example/menu?lang=en');
+ assert.notEqual(menuUrlKey('https://demo.example/menu?lang=en'),menuUrlKey('https://demo.example/menu?lang=es'));
+ const root=await mkdtemp(join(tmpdir(),'menu-redirect-'));
+ try{
+  const result=await collectMenuAudit({store_id:'demo',name:'Demo',address:'1 Main St',records:[],sources:['https://demo.example/old-menu','https://demo.example/menu'].map(url=>({channel:'official_html',platform:'official',url,identity_verified:true}))},{root,platforms:['official'],read:async()=>({url:'https://demo.example/menu',format:'html',text:'Menu',menuEvidence:true,links:[],prices:[],date:extractDate(''),fetched_at:'2026-11-05T00:00:00Z',sha256:'fixture',extraction:'html'})});
+  assert.equal(result.menus.length,1);
+ }finally{await rm(root,{recursive:true,force:true});}
+});
+
+test('DOM menu categories are extracted while product navigation and menusifu logos are excluded',()=>{
+ const html='<nav class="menu-item">Menu</nav><section class="menu-section"><header><h2>Hot Sandwiches</h2></header><article class="menu-item"><h3>Pastrami</h3><span class="price">$30.95</span></article></section><img src="https://website-cdn.menusifu.com/public/images/Transparent+Logo.png"><img src="https://cdn.example/dinner-menu.png" alt="Dinner menu">';
+ const doc=htmlDocument(html,'https://demo.example/store-menu');assert.equal(doc.prices[0].category,'Hot Sandwiches');assert.equal(doc.menuEvidence,true);assert.equal(doc.menuMedia.length,1);assert.ok(doc.menuMedia[0].url.endsWith('dinner-menu.png'));
+ const product=htmlDocument('<nav><a href="/store-menu">Menu</a></nav><h1>Dinner Package</h1><p>Soup to dessert dinner $99</p>','https://demo.example/dinner-package');assert.equal(product.menuEvidence,false);
+});
+
+test('Uber Eats weekday ranges, split hours and explicit end-of-day minutes remain comparable',async()=>{
+ const {week}=await import('../dist/backend/menu-audit/hours.js');
+ const raw=[{dayRange:'Monday - Thursday',sectionHours:[{startTime:480,endTime:1290}]},{dayRange:'Friday',sectionHours:[{startTime:480,endTime:1439}]},{dayRange:'Saturday',sectionHours:[{startTime:0,endTime:1440}]},{dayRange:'Sunday',sectionHours:[{startTime:0,endTime:165},{startTime:720,endTime:1290}]}];
+ const before=JSON.stringify(raw),parsed=week(raw);assert.ok(parsed.every(Boolean));assert.equal(parsed[0][0].close,'21:30');assert.equal(parsed[3][0].open,'08:00');assert.equal(parsed[4][0].close,'23:59');assert.equal(parsed[5][0].close,'24:00');assert.equal(parsed[6].length,2);assert.equal(JSON.stringify(raw),before);
+ const wrapped=week([{dayRange:'Friday - Monday',sectionHours:[{startTime:600,endTime:1200}]}]);assert.ok(wrapped[0]);assert.equal(wrapped[1],null);assert.ok(wrapped[4]);
+ assert.equal(week([{dayRange:'Unknown',sectionHours:[{startTime:1,endTime:2}]}])[0],null);
+});

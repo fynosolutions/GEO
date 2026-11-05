@@ -9,7 +9,7 @@ export const platforms = ['google_maps','yelp','tripadvisor','opentable','doorda
 const fields = ['platform','found','url','name','address','phone','hours','rating','review_count','price_level','fetched_at','error'];
 export type Store = { id:string; name:string; address:string; place_id:string|null; website?:string|null };
 export type SnapshotListing = Omit<Listing,'matched'> & {matched?:boolean};
-export type Collector = (store:Store)=>Promise<Listing[]|{records:Listing[];menus?:MenuObservation[];menu_error?:string}>;
+export type Collector = (store:Store)=>Promise<Listing[]|{records:Listing[];menus?:MenuObservation[];menu_error?:string;menu_details?:unknown}>;
 export function storesFrom(value:unknown):Store[] {
  if(!Array.isArray(value)||!value.length||value.length>20)throw Error('Configure 1–20 stores.');
  const ids=new Set<string>();
@@ -112,6 +112,7 @@ export async function runWeekly(options:{stores:Store[];root:string;collect:Coll
     const collected=await collect(s);
     records=validateRecords(Array.isArray(collected)?collected:collected.records);
     if(!Array.isArray(collected))menu_error=collected.menu_error??null;
+    if(!Array.isArray(collected)&&collected.menu_details){const {directory,...details}=collected.menu_details as Record<string,unknown>;await atomic(join(runDir,'details',s.id+'.json'),details);}
     if(!Array.isArray(collected)&&collected.menus){
      try{
      const incoming=menuObservations(collected.menus);if(incoming.some(m=>m.store_id!==s.id))throw Error('Menu store identity mismatch.');
@@ -125,7 +126,8 @@ export async function runWeekly(options:{stores:Store[];root:string;collect:Coll
    const secret=process.env.APIFY_TOKEN;if(secret)records=JSON.parse(JSON.stringify(records).split(secret).join('[REDACTED]'));
    snapshots.set(s.id,records);await atomic(join(runDir,'snapshots',s.id+'.json'),records);
    const diff=compare(s,records,baselines.get(s.id)??null);rows.push(...diff.rows);failures.push(...diff.failures);
-   outcomes.push({...s,menu_error,status:records.every(failed)?'failed':records.some(r=>failed(r)||r.error)?'partial':'completed'});
+   if(menu_error)rows.push(`| ${cell(s.name)} | menus | collection | — | — | ${cell(menu_error)} |`);
+   outcomes.push({...s,menu_error,status:records.every(failed)?'failed':menu_error||records.some(r=>failed(r)||r.error)?'partial':'completed'});
   }
   if(menus)for(const change of menuChanges(menus,oldMenus)){
    rows.push(`| ${cell(change.store_id)} | ${cell(change.channel)} | menu_date | ${cell(change.old_date)} | ${cell(change.menu_date)} | ${change.note}; previous source: ${cell(change.old_url)}; source: ${cell(change.source_url)}; provenance: ${change.date_source} |`);

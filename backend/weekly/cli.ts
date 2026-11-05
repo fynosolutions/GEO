@@ -21,7 +21,7 @@ try{
   try{
    const output=join(dir,'result.json');
    await new Promise<void>((done,reject)=>{
-    const child=spawn(process.execPath,[fileURLToPath(new URL('./worker.js',import.meta.url)),JSON.stringify(store),output],{env:{...process.env,OUTPUT_DIR:join(dir,'out'),COLLECTION_DATA_DIR:join(dir,'diagnostics')},stdio:'ignore'});
+    const child=spawn(process.execPath,[fileURLToPath(new URL('./worker.js',import.meta.url)),JSON.stringify(store),output],{env:{...process.env,OUTPUT_DIR:join(dir,'out'),COLLECTION_DATA_DIR:join(dir,'diagnostics'),MENU_OUTPUT_DIR:join(dir,'details')},stdio:'ignore'});
     let kill:ReturnType<typeof setTimeout>|undefined;
     const timer=setTimeout(()=>{child.kill('SIGTERM');kill=setTimeout(()=>child.kill('SIGKILL'),15000);},Math.min(timeout,remaining));
     child.on('error',()=>{clearTimeout(timer);reject(Error('Worker failed.'));});

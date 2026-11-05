@@ -1,0 +1,12 @@
+import {readFile} from 'node:fs/promises';
+import assert from 'node:assert/strict';
+import {storesFrom} from '../dist/backend/weekly/public.js';
+const stores=storesFrom(JSON.parse(await readFile('stores.json','utf8')));
+const config=JSON.parse(await readFile('config/apify.json','utf8'));
+for(const key of ['google_maps','_discovery','_menu_doordash','_menu_uber_eats','_menu_grubhub'])assert.equal(typeof config[key]?.actor,'string',`Missing actor config: ${key}`);
+const workflow=await readFile('.github/workflows/weekly-collection.yml','utf8');
+for(const flag of ['MENU_AUDIT_ENABLED','APIFY_MENU_ACTORS_ENABLED','MENU_OCR_ENABLED'])assert.ok(workflow.includes(`${flag}: 'true'`),`Missing workflow flag: ${flag}`);
+assert.ok(workflow.includes('GEO_WEEKLY_ENABLED'));assert.ok(workflow.includes('timezone: America/New_York'));
+console.log(`Deployment preflight passed: ${stores.length} configured stores; menu flags and required Actor configs present.`);
+for(const store of stores)console.log(`${store.id}: ${store.name} — ${store.address}`);
+console.log('No external collection or remote settings changed. Publish the reviewed code/workflow to the default branch, configure APIFY_TOKEN, then enable GEO_WEEKLY_ENABLED for cloud acceptance.');

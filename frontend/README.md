@@ -9,3 +9,5 @@ The results page has independently collapsible sections for menus, opening-hours
 Restaurant information appears first. When menu collection is enabled, the form defaults to full details and prices. Available dishes are shown in expanded, scrollable price tables inside each platform card; missing prices remain unavailable. Legacy menu price records can be displayed when menu ID, channel, and source URL match. Links-only reports explain that dish details were not saved and require a new full-details audit.
 
 Menu categories use the explicit category field; variants are not shown as categories. Refreshes preserve dish-table and source-check disclosure states for the same platform/menu source. Successful source checks display a success explanation.
+
+Price cells support Grubhub pickup/delivery objects alongside scalar and display/amount prices. Both service prices remain in the same Price column, zero is valid, missing values stay unavailable, and no currency is inferred. Saved audit JSON is not rewritten for presentation.

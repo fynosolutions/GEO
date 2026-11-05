@@ -4,7 +4,7 @@ import {isIP} from 'node:net';
 import {createHash} from 'node:crypto';
 import {extractDate} from './dates.js';
 export type Price={name:string;category?:string|null;variant:string|null;price:string;currency:string|null;evidence:string};
-export type Document={url:string;format:'html'|'pdf'|'image';text:string;prices:Price[];links:string[];date:ReturnType<typeof extractDate>;fetched_at:string;sha256:string;extraction:string;menuEvidence?:boolean};
+export type Document={url:string;format:'html'|'pdf'|'image';text:string;prices:Price[];links:string[];date:ReturnType<typeof extractDate>;fetched_at:string;sha256:string;extraction:string;menuEvidence?:boolean;menuMedia?:Array<{url:string;upload_date:string|null}>;hours?:any;identities?:Array<{name:string;address:any;phone:any;hours?:any}>};
 export function pricesFromText(text:string):Price[]{
  return text.split(/\r?\n/).flatMap(line=>{
   const m=line.trim().match(/^(.{2,120}?)\s+(\$\s*\d+(?:\.\d{1,2})?(?:\s*[-–]\s*\$?\d+(?:\.\d{1,2})?)?)\s*$/);
@@ -12,30 +12,44 @@ export function pricesFromText(text:string):Price[]{
  });
 }
 export function htmlDocument(html:string,url:string,includePrices=true){
- const $=load(html),links:string[]=[],prices:Price[]=[];
+ const $=load(html),links:string[]=[],prices:Price[]=[],menuMedia:Array<{url:string;upload_date:string|null}>=[],identities:Array<{name:string;address:any;phone:any;hours?:any}>=[];let hours:any=null,schemaMenu=false;
+ const addMedia=(value:unknown,date:unknown)=>{try{if(typeof value!=='string')return;const u=new URL(value,url);if(/logo|icon|sprite|favicon/i.test(u.pathname))return;if(['http:','https:'].includes(u.protocol)&&!u.username&&!u.password)menuMedia.push({url:u.href,upload_date:typeof date==='string'?date:null});}catch{}};
  $('a[href],img[src]').each((_,el)=>{
   const link=$(el).attr('href')||$(el).attr('src')||'';let path='';try{path=new URL(link,url).pathname;}catch{}
   const label=$(el).text()+' '+($(el).attr('alt')||'')+' '+path;
-  if(/\bmenus?\b|dinner|lunch|brunch|breakfast/i.test(label)){try{const u=new URL(link,url);if(['http:','https:'].includes(u.protocol))links.push(u.href);}catch{}}
+  if(/\bmenus?\b|菜单/i.test(label)||/^(?:dinner|lunch|brunch|breakfast)$/i.test($(el).text().trim())){try{const u=new URL(link,url);if(['http:','https:'].includes(u.protocol))links.push(u.href);}catch{}}
+ });
+ $('img[src]').each((_,el)=>{const node=$(el);let path='';try{path=decodeURIComponent(new URL(node.attr('src')||'',url).pathname);}catch{}
+  const label=(node.attr('alt')||'')+' '+(node.attr('class')||'')+' '+path;
+  if(!/logo|icon|sprite|favicon/i.test(label)&&/\bmenus?(?:\d+)?\b|菜单/i.test(label))addMedia(node.attr('src'),node.attr('data-upload-date')||node.closest('figure').find('time[datetime]').first().attr('datetime'));
  });
  function visit(v:any,category:string|null=null){
   if(!v||typeof v!=='object')return;
   const types=Array.isArray(v['@type'])?v['@type']:[v['@type']];
+  if(types.includes('Menu')||types.includes('MenuItem'))schemaMenu=true;
+  if(types.some((t:any)=>['Restaurant','FoodEstablishment','LocalBusiness'].includes(t))&&typeof v.name==='string'){
+   const ownHours=Array.isArray(v.openingHoursSpecification)?v.openingHoursSpecification.flatMap((entry:any)=>{const days=Array.isArray(entry.dayOfWeek)?entry.dayOfWeek:[entry.dayOfWeek];return days.filter((day:any)=>typeof day==='string').map((day:string)=>({day,opens:entry.opens,closes:entry.closes}));}):null;
+   identities.push({name:v.name,address:v.address??null,phone:v.telephone??null,hours:ownHours});
+   hours=identities.length===1?ownHours:null;
+  }
+  if(types.includes('ImageObject')&&/menu|菜单/i.test(String(v.name||'')+' '+String(v.caption||'')))addMedia(v.contentUrl||v.url,v.uploadDate||v.datePublished);
   if(types.includes('MenuSection')&&typeof v.name==='string')category=v.name;
-  if(types.includes('MenuItem')&&typeof v.name==='string'){
+  if(includePrices&&types.includes('MenuItem')&&typeof v.name==='string'){
    for(const offer of Array.isArray(v.offers)?v.offers:[v.offers])if(offer&&['string','number'].includes(typeof offer.price))prices.push({name:v.name,category:typeof v.category==='string'?v.category:category,variant:typeof offer.name==='string'?offer.name:null,price:String(offer.price),currency:typeof offer.priceCurrency==='string'?offer.priceCurrency:null,evidence:JSON.stringify(v)});
   }
   for(const child of Object.values(v))if(Array.isArray(child))child.forEach(entry=>visit(entry,category));else if(child&&typeof child==='object')visit(child,category);
  }
- if(includePrices)$('script[type="application/ld+json"]').each((_,el)=>{try{visit(JSON.parse($(el).text()));}catch{}});
+ $('script[type="application/ld+json"]').each((_,el)=>{try{visit(JSON.parse($(el).text()));}catch{}});
  if(includePrices&&!prices.length)$('article.menu-item, .menu-item').each((_,el)=>{
   const node=$(el),name=node.find('h3,h4,.menu-item-name').first().text().trim(),price=node.find('.price,.menu-item-price').first().text().trim();
-  if(name&&price&&/\d/.test(price))prices.push({name,variant:null,price,currency:null,evidence:node.html()||''});
+  const section=node.closest('[data-category],.menu-section,section');
+  const category=node.attr('data-category')||section.attr('data-category')||section.find('h2,.menu-section-title').first().text().trim()||null;
+  if(name&&price&&/\d/.test(price))prices.push({name,category,variant:null,price,currency:null,evidence:node.html()||''});
  });
  $('script,style,noscript,nav,footer').remove();$('br').replaceWith('\n');$('p,li,tr,div,h1,h2,h3').each((_,el)=>{$(el).append('\n');});
- const menuEvidence=$('article.menu-item,.menu-item,[itemtype="https://schema.org/MenuItem"]').length>0;
+ const menuEvidence=schemaMenu||$('article.menu-item,.menu-item,[itemtype="https://schema.org/MenuItem"]').toArray().some(el=>!!$(el).find('h3,h4,.menu-item-name').first().text().trim());
  const text=$('body').text().replace(/[ \t]+/g,' ').replace(/\n\s*\n/g,'\n').trim();
- return {text,menuEvidence,links:[...new Set(links)],prices:includePrices?(prices.length?prices:pricesFromText(text)):[]};
+ return {text,menuEvidence,menuMedia:[...new Map(menuMedia.map(m=>[m.url,m])).values()],hours,identities,links:[...new Set(links)],prices:includePrices?(prices.length?prices:pricesFromText(text)):[]};
 }
 function publicAddress(address:string){
  if(isIP(address)===6)return !/^(::|fc|fd|fe[89ab]|ff)/i.test(address);
@@ -57,7 +71,7 @@ async function resource(url:string,signal?:AbortSignal){
  throw Error('Too many redirects.');
 }
 export async function readDocument(url:string,signal?:AbortSignal,includePrices=true):Promise<Document>{
- const r=await resource(url,signal),fetched_at=new Date().toISOString();let text='',prices:Price[]=[],links:string[]=[],format:Document['format']='html',metadata=r.modified,extraction='html',menuEvidence=false;
+ const r=await resource(url,signal),fetched_at=new Date().toISOString();let text='',prices:Price[]=[],links:string[]=[],format:Document['format']='html',metadata=r.modified,extraction='html',menuEvidence=false,menuMedia:Document['menuMedia']=[],hours:any=null,identities:Document['identities']=[];
  if(r.type.includes('pdf')||r.buffer.subarray(0,5).toString()==='%PDF-'){
   format='pdf';extraction='pdf-text';const {getDocument}=await import('pdfjs-dist/legacy/build/pdf.mjs');
   const task=getDocument({data:new Uint8Array(r.buffer),useSystemFonts:true});const pdf=await task.promise;
@@ -84,8 +98,8 @@ export async function readDocument(url:string,signal?:AbortSignal,includePrices=
   try{text=(await worker.recognize(r.buffer)).data.text;}finally{await worker.terminate();}
   prices=includePrices?pricesFromText(text):[];
  }else if(r.type.includes('html')){
-  const parsed=htmlDocument(r.buffer.toString('utf8'),r.url,includePrices);({text,prices,links,menuEvidence}=parsed);
+  const parsed=htmlDocument(r.buffer.toString('utf8'),r.url,includePrices);({text,prices,links,menuEvidence,menuMedia,hours,identities}=parsed);
   if(text.length<3000&&/verify you are human|access denied|enable javascript|captcha|just a moment/i.test(text))throw Error('Page access restricted or requires interactive rendering.');
  }else throw Error('Unsupported menu resource format.');
- return {url:r.url,format,text,prices,links,date:extractDate(text,metadata),fetched_at,menuEvidence,sha256:createHash('sha256').update(r.buffer).digest('hex'),extraction};
+ return {url:r.url,format,text,prices,links,date:extractDate(text,metadata),fetched_at,menuEvidence,menuMedia,hours,identities,sha256:createHash('sha256').update(r.buffer).digest('hex'),extraction};
 }

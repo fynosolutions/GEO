@@ -176,7 +176,7 @@ export async function collectRestaurant(input:CollectionInput,signal?:AbortSigna
  if(selected.includes('google_maps'))await accept(signal?.aborted?emptyListing('google_maps','Cancelled.'):g);
  if(!g.matched){
   for(const platform of platforms)await accept(emptyListing(platform,'Google Maps identity could not be confirmed; platform collection was not started.'));
-  await json(join(directory,'providers.json'),providerData);return {directory,records,name:target.name||label,address:target.address,output_file,filename};
+  await json(join(directory,'providers.json'),providerData);return {directory,records,name:target.name||label,address:target.address,website:target.website_url||null,google_record:g,output_file,filename};
  }
  if(platforms.length&&!signal?.aborted&&g.found)try{
    const queries=platforms.flatMap(k=>[
@@ -220,7 +220,7 @@ export async function collectRestaurant(input:CollectionInput,signal?:AbortSigna
   await accept(r);await json(join(directory,'providers.json'),providerData);
  }
  await json(join(directory,'providers.json'),providerData);
- return {directory,records,name:target.name||label,address:target.address,output_file,filename};
+ return {directory,records,name:target.name||label,address:target.address,website:target.website_url||null,google_record:g,output_file,filename};
 }
 
 // Expose only provider items that still match the already verified platform listing.

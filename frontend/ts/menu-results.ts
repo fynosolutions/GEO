@@ -1,5 +1,6 @@
-const names:Record<string,string>={google_maps:'Google Maps',yelp:'Yelp',tripadvisor:'Tripadvisor',opentable:'OpenTable',doordash:'DoorDash',uber_eats:'Uber Eats',grubhub:'Grubhub',facebook:'Facebook'};
-const domains:Record<string,string>={'google.com':'google_maps','yelp.com':'yelp','opentable.com':'opentable','doordash.com':'doordash','ubereats.com':'uber_eats','grubhub.com':'grubhub','facebook.com':'facebook'};
+import {displayMenuPrice} from './menu-price.js';
+const names:Record<string,string>={official:'Official website',resy:'Resy',instagram:'Instagram',google_maps:'Google Maps',yelp:'Yelp',tripadvisor:'Tripadvisor',opentable:'OpenTable',doordash:'DoorDash',uber_eats:'Uber Eats',grubhub:'Grubhub',facebook:'Facebook'};
+const domains:Record<string,string>={'resy.com':'resy','instagram.com':'instagram','google.com':'google_maps','yelp.com':'yelp','opentable.com':'opentable','doordash.com':'doordash','ubereats.com':'uber_eats','grubhub.com':'grubhub','facebook.com':'facebook'};
 const channelNames:Record<string,string>={official_html:'Website menu pages',official_file:'Website PDFs and images',google_menu:'Google menus',yelp_menu:'Yelp menus',delivery_menu:'Delivery menus',reservation_menu:'Reservation menus',social_menu:'Social menus'};
 function element<K extends keyof HTMLElementTagNameMap>(tag:K,text?:string,className?:string){const el=document.createElement(tag);if(text!==undefined)el.textContent=text;if(className)el.className=className;return el;}
 function safeLink(url:unknown,label:string,className='menu-source-link'):HTMLAnchorElement|null{
@@ -63,6 +64,12 @@ export function renderMenuResults(job:any,id:string|null){
   grid.append(card);
  }
  panel.append(grid);
+ if(job.menu_scope==='all_channels'){
+  const overview=element('details',undefined,'menu-channel-coverage');overview.append(element('summary','All seven menu channels'));
+  for(const channel of coverage)overview.append(element('p',`${channelNames[channel.channel]||channel.channel}: ${channel.status}`,'menu-meta'));
+  panel.append(overview);
+ }
+
  for(const details of Array.from(panel.querySelectorAll<HTMLDetailsElement>('details[data-state-key]'))){const open=foldStates.get(details.dataset.stateKey!);if(open!==undefined)details.open=open;}
  if(result?.hours?.length&&hoursPanel){if(hoursSection)hoursSection.hidden=false;renderHours(hoursPanel,result.hours,previousFilter);}
  const outside=coverage.filter(c=>c.status==='not_checked'&&!(c.attempts||[]).length);
@@ -103,8 +110,8 @@ function renderItems(parent:HTMLElement,items:any[],stateKey:string){
  const head=element('thead'),heading=element('tr');for(const title of ['Dish name','Category','Price'])heading.append(element('th',title));head.append(heading);table.append(head);
  const body=element('tbody');
  for(const item of items){const row=element('tr');
-  const price=item.price===null||item.price===undefined?'Not available':typeof item.price==='object'?(item.price.display??item.price.amount??'Not available'):String(item.price);
-  row.append(element('td',item.name),element('td',item.category||'—'),element('td',price+(price!=='Not available'&&item.currency?` (${item.currency})`:'')));body.append(row);
+  const price=displayMenuPrice(item.price,item.currency);
+  row.append(element('td',item.name),element('td',item.category||'—'),element('td',price));body.append(row);
  }
  table.append(body);scroll.append(table);details.append(scroll);parent.append(details);
 }

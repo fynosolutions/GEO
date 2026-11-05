@@ -6,7 +6,7 @@ import {collectMenuAudit} from './menu-audit/public.js';
 import { collectRestaurant, readVerifiedMenuProviders, type Listing, type CollectionInput, domains } from './collection.js';
 export const outputFields=['platform','found','matched','url','name','address','phone','hours','rating','review_count','price_level','fetched_at','error'];
 export const platforms=Object.fromEntries(Object.entries(domains).map(([key,value])=>[key,[key,value]]));
-export type Job={id:string;created_at:string;status:string;input:CollectionInput;records:Listing[];output_file?:string;filename?:string;merchant:{name:string;address:string}|null;error:string|null;menu_mode?:'links'|'full';menu_status?:string;menu_result?:Awaited<ReturnType<typeof collectMenuAudit>>;menu_error?:string};
+export type Job={id:string;created_at:string;status:string;input:CollectionInput;records:Listing[];output_file?:string;filename?:string;merchant:{name:string;address:string}|null;error:string|null;menu_mode?:'links'|'full';menu_scope?:'selected'|'all_channels';menu_status?:string;menu_result?:Awaited<ReturnType<typeof collectMenuAudit>>;menu_error?:string};
 const root=resolve(process.env.AUDIT_DATA_DIR||'.local/audits');
 const controls=new Map<string,{controller:AbortController;job:Job}>();
 const writes=new Map<string,Promise<void>>();
@@ -23,8 +23,8 @@ export async function getJob(id:string):Promise<Job>{
 }
 export const isBusy=()=>controls.size>0;
 export async function cancelJob(id:string){const control=controls.get(id);if(!control)return getJob(id);control.job.status='cancelling';control.controller.abort();await saveJob(control.job);return control.job;}
-export async function startJob(input:CollectionInput,menuMode?:'links'|'full'):Promise<Job>{
- const job:Job={id:randomUUID(),input,records:[],created_at:new Date().toISOString(),status:'running',merchant:null,error:null,...(menuMode?{menu_mode:menuMode,menu_status:'pending'}:{})};
+export async function startJob(input:CollectionInput,menuMode?:'links'|'full',menuScope:'selected'|'all_channels'='selected'):Promise<Job>{
+ const job:Job={id:randomUUID(),input,records:[],created_at:new Date().toISOString(),status:'running',merchant:null,error:null,...(menuMode?{menu_mode:menuMode,menu_scope:menuScope,menu_status:'pending'}:{})};
  const controller=new AbortController();controls.set(job.id,{controller,job});
  try{await saveJob(job);}catch(e){controls.delete(job.id);throw e;}
  void (async()=>{try{
@@ -33,7 +33,7 @@ export async function startJob(input:CollectionInput,menuMode?:'links'|'full'):P
   if(menuMode&&!controller.signal.aborted){
    job.status='running';job.menu_status='running';await saveJob(job);
    try{
-    job.menu_result=await collectMenuAudit({store_id:job.id,name:result.name,address:result.address,records:result.records,provider_results:await readVerifiedMenuProviders(result.directory,result.records)},{signal:controller.signal,discover:true,platforms:input.platforms,mode:menuMode});
+    job.menu_result=await collectMenuAudit({store_id:job.id,name:result.name,address:result.address,website:result.website,website_verified:!!result.website,records:menuScope==='all_channels'&&!result.records.some(r=>r.platform==='google_maps')?[result.google_record,...result.records]:result.records,provider_results:await readVerifiedMenuProviders(result.directory,result.records)},{signal:controller.signal,discover:true,platforms:menuScope==='all_channels'?undefined:input.platforms,mode:menuMode});
     job.menu_status=controller.signal.aborted?'cancelled':job.menu_result.summary.coverage_complete?'completed':'partial';
    }catch{job.menu_status=controller.signal.aborted?'cancelled':'failed';job.menu_error='Menu collection could not complete; basic listing data was retained.';}
    job.status=controller.signal.aborted?'cancelled':job.menu_status==='completed'&&!result.records.some(r=>r.error)?'completed':'partial';

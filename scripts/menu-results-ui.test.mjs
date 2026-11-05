@@ -53,6 +53,9 @@ test('menu dashboard separates verified menus, blocked sources and unverified ca
   assert.equal(await door.locator('.menu-dish-details').getAttribute('open'),null);
   assert.notEqual(await door.locator('.menu-attempts').getAttribute('open'),null);
   assert.equal(await door.getByText('This source has not returned a verified menu.',{exact:true}).count(),0);
+  job.menu_result.menus[0].items[0].price={pickup:22,delivery:23.5};
+  await page.reload();await page.getByRole('cell',{name:'Pickup: 22 / Delivery: 23.5 (USD)',exact:true}).waitFor();
+  assert.deepEqual(await page.locator('.menu-dishes-scroll th').allTextContents(),['Dish name','Category','Price']);
   job.menu_mode='links';job.menu_result.menus[0].items=[];
   await page.reload();await page.getByText('Dish names and prices were not saved in this links-only run.',{exact:false}).waitFor();
  }finally{await browser.close();}

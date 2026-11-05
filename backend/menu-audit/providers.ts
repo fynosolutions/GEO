@@ -7,7 +7,7 @@ export function structuredMenu(platform:string,raw:ApifyResult,record:Listing,fu
  const text=(value:unknown)=>typeof value==='string'&&value.trim()?value:null;
  const entries:any[]=[];
  for(const item of accepted as any[]){
-  if(['uber_eats','grubhub'].includes(platform)&&Array.isArray(item.menuItems))entries.push(...item.menuItems.filter((v:any)=>v&&typeof v==='object').map((v:any)=>({...v,category:text(v.category)||text(v.section)})));
+  if(['uber_eats','grubhub'].includes(platform)&&Array.isArray(item.menuItems))entries.push(...item.menuItems.filter((v:any)=>v&&typeof v==='object').map((v:any)=>({...v,category:text(v.category)||text(v.section),currency:text(v.currency)||text(v.price?.currency)||text(item.currencyCode)})));
   if(platform==='doordash')for(const [key,value] of Object.entries(item))if(key.startsWith('item_list')&&value&&typeof value==='object'&&Array.isArray((value as any).items))entries.push(...(value as any).items.filter((v:any)=>v&&typeof v==='object').map((v:any)=>({...v,category:text(v.category)||text(v.section)||text((value as any).name)})));
  }
  const unique=[...new Map(entries.filter(v=>v&&typeof v.name==='string').map(v=>[String(v.id??JSON.stringify([v.name,v.section,v.price])),v])).values()];

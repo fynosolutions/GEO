@@ -18,7 +18,8 @@
     "collect:weekly": "node dist/backend/weekly/cli.js",
     "precollect:weekly": "node scripts/check-runtime.mjs",
     "collect:details": "node dist/backend/menu-audit/cli.js",
-    "apify:check": "node scripts/apify-check.mjs"
+    "apify:check": "node scripts/apify-check.mjs",
+    "deploy:check": "node scripts/deploy-preflight.mjs"
   },
   "engines": {
     "node": ">=24.14.0"

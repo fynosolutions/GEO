@@ -14,6 +14,7 @@ const assets = new Map([
   ['/js/main.js', ['js/main.js', 'text/javascript; charset=utf-8']],
   ['/js/results.js', ['js/results.js', 'text/javascript; charset=utf-8']],
   ['/js/menu-results.js', ['js/menu-results.js', 'text/javascript; charset=utf-8']],
+  ['/js/menu-price.js', ['js/menu-price.js', 'text/javascript; charset=utf-8']],
 ]);
 
 function json(response: ServerResponse, status: number, data: object): void {
@@ -107,12 +108,15 @@ const server = createServer(async (request, response) => {
       let collectionInput: import('./public.js').CollectionInput = {};
       let address: string | null = null;
       let menuMode:'links'|'full'|undefined;
+      let menuScope:'selected'|'all_channels'='selected';
       try {
         const input: unknown = JSON.parse(body);
         if (!input || typeof input!=='object')throw new Error();
         const data=input as Record<string,unknown>;
         if(data.menu_mode!==undefined&&!['links','full'].includes(String(data.menu_mode)))throw Error();
         menuMode=data.menu_mode as 'links'|'full'|undefined;
+        if(data.menu_scope!==undefined&&!['selected','all_channels'].includes(String(data.menu_scope)))throw Error();
+        menuScope=(data.menu_scope as typeof menuScope)||'selected';
         address=typeof data.target_address==='string'?data.target_address.trim().slice(0,500)||null:null;
         collectionInput={name:typeof data.name==='string'?data.name.trim().slice(0,500):undefined,place_id:typeof data.place_id==='string'?data.place_id.trim().slice(0,500):undefined,address:address||undefined,platforms:selectedPlatforms(data.platforms)};
         if((!!collectionInput.name)===(!!collectionInput.place_id)||'url' in data)throw new Error();
@@ -122,7 +126,7 @@ const server = createServer(async (request, response) => {
       }
       // Re-check after reading the body, so simultaneous submissions cannot bypass the job cap.
       if (isBusy()) { json(response, 429, { message: 'An audit is running.' }); return; }
-      const job = await startJob(collectionInput,menuMode);
+      const job = await startJob(collectionInput,menuMode,menuScope);
       json(response, 202, { id: job.id, result_url: `/results?id=${job.id}` });
       return;
     }

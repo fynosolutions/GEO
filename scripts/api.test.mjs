@@ -14,11 +14,13 @@ test('local UI needs no login and downloads the actual single output file; old i
   const base=await new Promise((resolve,reject)=>{child.stdout.on('data',chunk=>{const match=String(chunk).match(/http:\/\/127\.0\.0\.1:\d+/);if(match)resolve(match[0]);});child.once('error',reject);child.once('exit',()=>reject(Error('Server exited')));});
   assert.equal((await fetch(base+'/api/session')).status,200);
   assert.equal((await fetch(base+'/js/menu-results.js')).status,200);
+  const priceAsset=await fetch(base+'/js/menu-price.js');assert.equal(priceAsset.status,200);assert.match(priceAsset.headers.get('content-type'),/javascript/);assert.match(await priceAsset.text(),/displayMenuPrice/);
   const foreignHostStatus=await new Promise((resolve,reject)=>{const req=httpRequest(base+'/api/health',{headers:{Host:'other.example'}},response=>{response.resume();resolve(response.statusCode);});req.on('error',reject);req.end();});
   assert.equal(foreignHostStatus,403);
   const post=input=>fetch(base+'/api/check',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(input)});
   assert.equal((await post({url:'https://example.com'})).status,400);
   assert.equal((await post({name:'Cafe',place_id:'some-id'})).status,400);
+  assert.equal((await post({name:'Cafe',menu_scope:'unknown'})).status,400);
   for(const platforms of [[],['unknown'],'yelp'])assert.equal((await post({name:'Cafe',platforms})).status,400);
   const denied=await fetch(base+'/api/check',{method:'POST',headers:{'Content-Type':'application/json',Origin:'https://other.example'},body:JSON.stringify({name:'Cafe'})});assert.equal(denied.status,403);
   const submitted=await post({name:"Fixture's Café"});assert.equal(submitted.status,202);const {id}=await submitted.json();

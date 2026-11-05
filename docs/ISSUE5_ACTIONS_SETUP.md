@@ -19,3 +19,7 @@ GITHUB_TOKEN is supplied by GitHub to workflows; no manually created PAT or serv
 The current setup gates scheduled and manual execution together. Keep false until ready for the first live test. No Apify charges occur merely from saving these configuration values. Actual collection consumes Apify usage; GitHub Actions usage/billing is separate.
 
 Official reference: https://docs.github.com/en/actions/how-tos/write-workflows/choose-what-workflows-do/use-secrets
+
+## Ready-to-test configuration — 2026-11-05
+
+Run `npm run build` then `npm run deploy:check` locally before publishing. stores.json contains two real acceptance stores. Weekly full menu collection/OCR flags are set in the workflow. Complete public menu details are included in run archives, alongside the basic snapshots and menu-date sidecars. Cloud initialization, Secrets, GEO_WEEKLY_ENABLED activation and real scheduled runs still require the deployment step; none is implied by these code changes. The workflow and merged collector must both be present on the default branch before enabling the gate.

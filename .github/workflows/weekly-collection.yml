@@ -43,6 +43,9 @@ jobs:
         env:
           APIFY_TOKEN: ${{ secrets.APIFY_TOKEN }}
           APIFY_ENABLED: 'true'
+          MENU_AUDIT_ENABLED: 'true'
+          APIFY_MENU_ACTORS_ENABLED: 'true'
+          MENU_OCR_ENABLED: 'true'
           APIFY_MAX_CHARGE_USD: ${{ vars.APIFY_MAX_CHARGE_USD || '1' }}
           WEEKLY_STORE_TIMEOUT_MS: '1200000'
           WEEKLY_BATCH_TIMEOUT_MS: '7200000'

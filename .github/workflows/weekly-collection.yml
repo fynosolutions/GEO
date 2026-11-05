@@ -1,0 +1,122 @@
+name: Weekly restaurant collection
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 6 * * 1'
+      timezone: America/New_York
+permissions:
+  contents: read
+concurrency:
+  group: geo-weekly-history
+  cancel-in-progress: false
+jobs:
+  collect:
+    if: vars.GEO_WEEKLY_ENABLED == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 150
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24.14.0'
+          cache: npm
+      - name: Load history branch if initialized
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          if git ls-remote --exit-code --heads origin geo-history > /tmp/history-ref; then
+            git fetch origin geo-history
+            mkdir -p .local/history
+            git archive FETCH_HEAD | tar -x -C .local/history
+            git rev-parse FETCH_HEAD > .local/history/base-revision.txt
+          else
+            code=$?
+            if [ "$code" != 2 ]; then exit "$code"; fi
+            mkdir -p .local/history
+            echo absent > .local/history/base-revision.txt
+          fi
+      - run: npm ci
+      - run: npm run build
+      - name: Collect stores
+        id: batch
+        env:
+          APIFY_TOKEN: ${{ secrets.APIFY_TOKEN }}
+          APIFY_ENABLED: 'true'
+          MENU_AUDIT_ENABLED: 'true'
+          APIFY_MENU_ACTORS_ENABLED: 'true'
+          MENU_OCR_ENABLED: 'true'
+          APIFY_MAX_CHARGE_USD: ${{ vars.APIFY_MAX_CHARGE_USD || '1' }}
+          WEEKLY_STORE_TIMEOUT_MS: '1200000'
+          WEEKLY_BATCH_TIMEOUT_MS: '7200000'
+          EVENT_NAME: ${{ github.event_name }}
+        run: |
+          set -euo pipefail
+          test -n "$APIFY_TOKEN"
+          mode=manual
+          if [ "$EVENT_NAME" = schedule ]; then mode=scheduled; fi
+          code=0
+          npm run collect:weekly -- --history .local/history --mode "$mode" || code=$?
+          echo "exit_code=$code" >> "$GITHUB_OUTPUT"
+          if [ "$code" = 1 ]; then exit 1; fi
+      - name: Save history recovery artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: weekly-history
+          path: .local/history/
+          include-hidden-files: false
+          if-no-files-found: error
+      - name: Summarize
+        if: always()
+        env:
+          BATCH_EXIT: ${{ steps.batch.outputs.exit_code }}
+        run: |
+          echo "Collection exit: ${BATCH_EXIT:-not started}. Partial results are preserved; review the history artifact and persistence job." >> "$GITHUB_STEP_SUMMARY"
+      - name: Signal store failures after preserving output
+        if: steps.batch.outputs.exit_code == '2'
+        run: exit 1
+  persist:
+    needs: collect
+    if: always() && needs.collect.result != 'skipped' && needs.collect.result != 'cancelled'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/download-artifact@v4
+        with:
+          name: weekly-history
+          path: /tmp/geo-history-payload
+      - name: Commit public history only
+        run: |
+          set -euo pipefail
+          if git ls-remote --exit-code --heads origin geo-history > /tmp/history-ref; then
+            git fetch origin geo-history
+            test "$(git rev-parse FETCH_HEAD)" = "$(cat /tmp/geo-history-payload/base-revision.txt)"
+            git worktree add /tmp/geo-history-write FETCH_HEAD
+          else
+            code=$?
+            if [ "$code" != 2 ]; then exit "$code"; fi
+            test "$(cat /tmp/geo-history-payload/base-revision.txt)" = absent
+            git worktree add --detach /tmp/geo-history-write HEAD
+            cd /tmp/geo-history-write
+            git checkout --orphan geo-history
+            git rm -rf .
+          fi
+          cd /tmp/geo-history-write
+          # Restrict publication to generated public data trees; never copy .env or diagnostics.
+          for directory in snapshots diffs runs weeks menus manual; do
+            if [ -d "/tmp/geo-history-payload/$directory" ]; then
+              cp -R "/tmp/geo-history-payload/$directory" .
+              git add -- "$directory"
+            fi
+          done
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          if ! git diff --cached --quiet; then
+            git commit -m 'Save weekly collection history'
+            git push origin HEAD:refs/heads/geo-history
+          fi

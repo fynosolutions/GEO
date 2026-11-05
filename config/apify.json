@@ -1,0 +1,197 @@
+{
+  "yelp": {
+    "actor": "tri_angle/yelp-scraper",
+    "input": {
+      "directUrls": [
+        "{{listing_url}}"
+      ],
+      "maxImages": 0
+    }
+  },
+  "google_maps": {
+    "actor": "compass/crawler-google-places",
+    "input": {
+      "searchStringsArray": [
+        "{{name}} {{address}}"
+      ],
+      "maxCrawledPlacesPerSearch": 5,
+      "language": "en"
+    }
+  },
+  "tripadvisor": {
+    "actor": "maxcopell/tripadvisor",
+    "input": {
+      "query": "{{name}} {{city}}",
+      "maxItemsPerQuery": 5,
+      "includeHotels": false,
+      "includeAttractions": false,
+      "includeRestaurants": true,
+      "language": "en"
+    },
+    "listing_input": {
+      "startUrls": [
+        {
+          "url": "{{listing_url}}"
+        }
+      ],
+      "maxItemsPerQuery": 1,
+      "language": "en"
+    }
+  },
+  "uber_eats": {
+    "actor": "memo23/uber-eats-scraper",
+    "input": {
+      "address": "{{address}}",
+      "searchQuery": "{{name}}",
+      "matchStoreName": true,
+      "addressCountry": "US",
+      "maxItems": 3,
+      "maxReviews": 0,
+      "locale": "en-US",
+      "maxConcurrency": 1,
+      "maxRequestRetries": 1
+    },
+    "listing_input": {
+      "startUrls": [
+        {
+          "url": "{{listing_url}}"
+        }
+      ],
+      "maxItems": 1,
+      "maxReviews": 10,
+      "locale": "en-US",
+      "maxConcurrency": 1,
+      "maxRequestRetries": 1
+    }
+  },
+  "doordash": {
+    "actor": "memo23/doordash-reviews-cheerio",
+    "input": {
+      "startUrls": [
+        {
+          "url": "{{search_url}}"
+        }
+      ],
+      "region": "US",
+      "maxItems": 5,
+      "maxConcurrency": 1,
+      "maxRequestRetries": 1
+    },
+    "listing_input": {
+      "startUrls": [
+        {
+          "url": "{{listing_url}}"
+        }
+      ],
+      "region": "US",
+      "maxItems": 1,
+      "maxConcurrency": 1,
+      "maxRequestRetries": 1
+    }
+  },
+  "opentable": {
+    "actor": "s-r/opentable-scraper",
+    "input": {
+      "search_term": "{{name}}",
+      "city": "{{city}}",
+      "domain": "com",
+      "limit": 5,
+      "include_reviews": false
+    }
+  },
+  "grubhub": {
+    "actor": "natanielsantos/grubhub-scraper",
+    "input": {
+      "searchTerm": "{{name}}",
+      "location": "{{address}}",
+      "maxItems": 5,
+      "scrapeAvailableHours": true
+    },
+    "listing_input": {
+      "urls": [
+        "{{listing_url}}"
+      ],
+      "maxItems": 1,
+      "scrapeAvailableHours": true
+    }
+  },
+  "facebook": {
+    "actor": "apify/facebook-search-scraper",
+    "input": {
+      "categories": [
+        "{{name}}"
+      ],
+      "locations": [
+        "{{city}}"
+      ],
+      "searchType": "pages-google",
+      "resultsLimit": 5
+    },
+    "listing_actor": "apify/facebook-pages-scraper",
+    "listing_input": {
+      "startUrls": [
+        {
+          "url": "{{listing_url}}"
+        }
+      ]
+    }
+  },
+  "_discovery": {
+    "actor": "apify/google-search-scraper",
+    "input": {
+      "queries": "{{queries}}",
+      "maxPagesPerQuery": 1,
+      "countryCode": "us",
+      "languageCode": "en"
+    }
+  },
+  "_menu_grubhub": {
+    "actor": "natanielsantos/grubhub-scraper",
+    "input": {
+      "urls": [
+        "{{listing_url}}"
+      ],
+      "maxItems": 1,
+      "scrapeMenu": true,
+      "scrapeAvailableHours": true
+    }
+  },
+  "_menu_uber_eats": {
+    "actor": "memo23/uber-eats-scraper",
+    "input": {
+      "startUrls": [
+        {
+          "url": "{{listing_url}}"
+        }
+      ],
+      "maxItems": 1,
+      "maxReviews": 0,
+      "includeItemCustomizations": false,
+      "enrichEmails": false,
+      "detectTech": false,
+      "maxConcurrency": 1,
+      "maxRequestRetries": 1,
+      "locale": "en-US"
+    }
+  },
+  "_menu_doordash": {
+    "actor": "memo23/doordash-reviews-cheerio",
+    "input": {
+      "startUrls": [
+        {
+          "url": "{{listing_url}}"
+        }
+      ],
+      "maxItems": 1,
+      "region": "US",
+      "includeAllReviews": false,
+      "includeAllMenuVariants": false,
+      "includeDoubleDashItems": false,
+      "scrapeAllMenus": false,
+      "enrichEmails": false,
+      "detectTech": false,
+      "maxConcurrency": 1,
+      "maxRequestRetries": 1
+    }
+  }
+}

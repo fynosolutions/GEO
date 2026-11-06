@@ -77,3 +77,6 @@ Explicit same-day comparison: `npm run collect:weekly -- --history .local/histor
 Offline controlled phone test: `node scripts/acceptance-phone-change.mjs RAW_RUN_DIRECTORY samples/issue5/phone-change`. It replays real output, deliberately changes ONE phone digit in a labelled synthetic copy, verifies IMPORTANT in the diff, and leaves source observations/baseline intact. It makes no paid requests and is not cloud/two-week acceptance.
 
 Workers now log each listing result, menu stage and a 30-second heartbeat. Messages contain progress only; provider tokens and raw exceptions are not logged. Configured websites and Google ordering URLs are both checked; an independently configured site must still establish branch identity.
+
+
+Confirmed `menu_sources` in stores.json are passed to #4 by the worker, with optional referring URL evidence. Dynamic ordering/Yelp menus require Chromium; the prepared workflow now installs it. The recurring gate remains separate and unchanged. Operator source assertions do not replace Google store identity resolution or allow cross-store reuse.

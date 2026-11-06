@@ -1,146 +1,55 @@
 {
-  "context": "Delivery prices on public page; no address entered, no cart changes",
-  "selection": "First ten exact-name matches in observed menu order; truncated names excluded",
+  "selection": "First five exact-name matches in independent visible page order; no cart/login actions",
   "checks": [
     {
       "name": "Coconut Chicken Mini Hot Pot",
-      "channel": "grubhub",
-      "json_price": {
-        "pickup": 22,
-        "delivery": 22
-      },
-      "json_delivery_price": 22,
+      "channel": "yelp",
+      "json_price": "22.00",
       "page_price": "$22.00",
       "pass": true,
-      "source_url": "https://www.grubhub.com/restaurant/easy-joy-ayce-dim-sum-hot-pot-145-mulberry-st-new-york/12387504",
-      "json_fetched_at": "2026-11-06T03:27:46.252Z",
-      "page_checked_at": "2026-11-06T03:42:00.422Z"
+      "url": "https://www.yelp.com/menu/easy-joy-dim-sum-and-ayce-hot-pot-new-york",
+      "fetched_at": "2026-11-06T09:24:40.100Z",
+      "page_checked_at": "2026-11-06T09:23:08.041Z"
     },
     {
       "name": "Tomato Mini Hot Pot",
-      "channel": "grubhub",
-      "json_price": {
-        "pickup": 17.6,
-        "delivery": 17.6
-      },
-      "json_delivery_price": 17.6,
+      "channel": "yelp",
+      "json_price": "17.60",
       "page_price": "$17.60",
       "pass": true,
-      "source_url": "https://www.grubhub.com/restaurant/easy-joy-ayce-dim-sum-hot-pot-145-mulberry-st-new-york/12387504",
-      "json_fetched_at": "2026-11-06T03:27:46.252Z",
-      "page_checked_at": "2026-11-06T03:42:00.422Z"
+      "url": "https://www.yelp.com/menu/easy-joy-dim-sum-and-ayce-hot-pot-new-york",
+      "fetched_at": "2026-11-06T09:24:40.100Z",
+      "page_checked_at": "2026-11-06T09:23:08.041Z"
     },
     {
       "name": "Pork Bone Broth Mini Hot Pot",
-      "channel": "grubhub",
-      "json_price": {
-        "pickup": 17.6,
-        "delivery": 17.6
-      },
-      "json_delivery_price": 17.6,
+      "channel": "yelp",
+      "json_price": "17.60",
       "page_price": "$17.60",
       "pass": true,
-      "source_url": "https://www.grubhub.com/restaurant/easy-joy-ayce-dim-sum-hot-pot-145-mulberry-st-new-york/12387504",
-      "json_fetched_at": "2026-11-06T03:27:46.252Z",
-      "page_checked_at": "2026-11-06T03:42:00.422Z"
+      "url": "https://www.yelp.com/menu/easy-joy-dim-sum-and-ayce-hot-pot-new-york",
+      "fetched_at": "2026-11-06T09:24:40.100Z",
+      "page_checked_at": "2026-11-06T09:23:08.041Z"
     },
     {
       "name": "Vegetarian Mushroom Mini Hot Pot",
-      "channel": "grubhub",
-      "json_price": {
-        "pickup": 17.6,
-        "delivery": 17.6
-      },
-      "json_delivery_price": 17.6,
+      "channel": "yelp",
+      "json_price": "17.60",
       "page_price": "$17.60",
       "pass": true,
-      "source_url": "https://www.grubhub.com/restaurant/easy-joy-ayce-dim-sum-hot-pot-145-mulberry-st-new-york/12387504",
-      "json_fetched_at": "2026-11-06T03:27:46.252Z",
-      "page_checked_at": "2026-11-06T03:42:00.422Z"
+      "url": "https://www.yelp.com/menu/easy-joy-dim-sum-and-ayce-hot-pot-new-york",
+      "fetched_at": "2026-11-06T09:24:40.100Z",
+      "page_checked_at": "2026-11-06T09:23:08.041Z"
     },
     {
       "name": "Tom Yum Mini Hot Pot",
-      "channel": "grubhub",
-      "json_price": {
-        "pickup": 22,
-        "delivery": 22
-      },
-      "json_delivery_price": 22,
+      "channel": "yelp",
+      "json_price": "22.00",
       "page_price": "$22.00",
       "pass": true,
-      "source_url": "https://www.grubhub.com/restaurant/easy-joy-ayce-dim-sum-hot-pot-145-mulberry-st-new-york/12387504",
-      "json_fetched_at": "2026-11-06T03:27:46.252Z",
-      "page_checked_at": "2026-11-06T03:42:00.422Z"
-    },
-    {
-      "name": "Fish Maw Chicken Mini Hot Pot",
-      "channel": "grubhub",
-      "json_price": {
-        "pickup": 22,
-        "delivery": 22
-      },
-      "json_delivery_price": 22,
-      "page_price": "$22.00",
-      "pass": true,
-      "source_url": "https://www.grubhub.com/restaurant/easy-joy-ayce-dim-sum-hot-pot-145-mulberry-st-new-york/12387504",
-      "json_fetched_at": "2026-11-06T03:27:46.252Z",
-      "page_checked_at": "2026-11-06T03:42:00.422Z"
-    },
-    {
-      "name": "Fried Noodle/Fried Rice Set(Fried Noodles/Fried Ri",
-      "channel": "grubhub",
-      "json_price": {
-        "pickup": 19.79,
-        "delivery": 19.79
-      },
-      "json_delivery_price": 19.79,
-      "page_price": "$19.79",
-      "pass": true,
-      "source_url": "https://www.grubhub.com/restaurant/easy-joy-ayce-dim-sum-hot-pot-145-mulberry-st-new-york/12387504",
-      "json_fetched_at": "2026-11-06T03:27:46.252Z",
-      "page_checked_at": "2026-11-06T03:42:00.422Z"
-    },
-    {
-      "name": "Beef Malatang Combo",
-      "channel": "grubhub",
-      "json_price": {
-        "pickup": 19.79,
-        "delivery": 19.79
-      },
-      "json_delivery_price": 19.79,
-      "page_price": "$19.79",
-      "pass": true,
-      "source_url": "https://www.grubhub.com/restaurant/easy-joy-ayce-dim-sum-hot-pot-145-mulberry-st-new-york/12387504",
-      "json_fetched_at": "2026-11-06T03:27:46.252Z",
-      "page_checked_at": "2026-11-06T03:42:00.422Z"
-    },
-    {
-      "name": "Lamb Malatang Combo",
-      "channel": "grubhub",
-      "json_price": {
-        "pickup": 19.79,
-        "delivery": 19.79
-      },
-      "json_delivery_price": 19.79,
-      "page_price": "$19.79",
-      "pass": true,
-      "source_url": "https://www.grubhub.com/restaurant/easy-joy-ayce-dim-sum-hot-pot-145-mulberry-st-new-york/12387504",
-      "json_fetched_at": "2026-11-06T03:27:46.252Z",
-      "page_checked_at": "2026-11-06T03:42:00.422Z"
-    },
-    {
-      "name": "Thousand Layer Tripe Malatang Combo",
-      "channel": "grubhub",
-      "json_price": {
-        "pickup": 19.79,
-        "delivery": 19.79
-      },
-      "json_delivery_price": 19.79,
-      "page_price": "$19.79",
-      "pass": true,
-      "source_url": "https://www.grubhub.com/restaurant/easy-joy-ayce-dim-sum-hot-pot-145-mulberry-st-new-york/12387504",
-      "json_fetched_at": "2026-11-06T03:27:46.252Z",
-      "page_checked_at": "2026-11-06T03:42:00.422Z"
+      "url": "https://www.yelp.com/menu/easy-joy-dim-sum-and-ayce-hot-pot-new-york",
+      "fetched_at": "2026-11-06T09:24:40.100Z",
+      "page_checked_at": "2026-11-06T09:23:08.041Z"
     }
   ]
 }

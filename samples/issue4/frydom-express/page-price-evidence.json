@@ -1,0 +1,47 @@
+{
+  "url": "https://www.yelp.com/menu/frydom-express-brooklyn",
+  "captured_at": "2026-11-06T09:25:41.812Z",
+  "title": "Frydom Express - Menu - Brooklyn",
+  "items": [
+    {
+      "name": "Crispy Chicken Burger",
+      "price": "$6.88"
+    },
+    {
+      "name": "Angus Beef Cheeseburger",
+      "price": "$9.08"
+    },
+    {
+      "name": "Chicken Wrap",
+      "price": "$6.55"
+    },
+    {
+      "name": "Chicken Wing(6 Pics)",
+      "price": "$8.75"
+    },
+    {
+      "name": "Crispy Fish Fillet Burger",
+      "price": "$7.65"
+    },
+    {
+      "name": "Crispy Chicken Burger Combo",
+      "price": "$10.95"
+    },
+    {
+      "name": "Angus Beef Cheeseburger Combo",
+      "price": "$15.99"
+    },
+    {
+      "name": "Chicken Wrap Combo",
+      "price": "$10.18"
+    },
+    {
+      "name": "Chicken Wings Combo",
+      "price": "$12.38"
+    },
+    {
+      "name": "Crispy Fish Fillet Burger Combo",
+      "price": "$11.82"
+    }
+  ]
+}

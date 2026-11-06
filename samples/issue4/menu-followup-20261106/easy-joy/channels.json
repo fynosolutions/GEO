@@ -1,0 +1,101 @@
+[
+  {
+    "channel": "official_html",
+    "found": true,
+    "status": "found",
+    "attempts": [
+      {
+        "channel": "official_html",
+        "platform": "official",
+        "url": "https://order.mealkeyway.com/customer/release/index?mid=35554f7339436751782f466c5152626a423569654a773d3d#/main",
+        "identity_verified": true,
+        "discovered_from": "https://www.easyjoybuffet.com/",
+        "status": "found",
+        "fetched_at": "2026-11-06T08:51:30.686Z",
+        "error": null
+      }
+    ],
+    "fetched_at": "2026-11-06T08:48:57.934Z"
+  },
+  {
+    "channel": "official_file",
+    "found": false,
+    "status": "incomplete",
+    "attempts": [
+      {
+        "channel": "official_file",
+        "platform": "official",
+        "url": null,
+        "status": "unverified",
+        "error": "No menu file link discovered; absence is unverified.",
+        "fetched_at": "2026-11-06T08:48:57.934Z"
+      }
+    ],
+    "fetched_at": "2026-11-06T08:48:57.934Z"
+  },
+  {
+    "channel": "google_menu",
+    "found": false,
+    "status": "incomplete",
+    "attempts": [
+      {
+        "channel": "google_menu",
+        "url": "https://www.google.com/maps/search/?api=1&query=Easy+Joy+%28Hot+Pot%2C+BBQ+Skewers%2C+Dim+Sum%29+%E6%84%8F%E4%B8%AD%E4%BA%BA%E7%81%AB%E9%94%85%E7%83%A7%E7%83%A4%E7%82%B9%E5%BF%83&query_place_id=ChIJhRc3tYlZwokRbR4dwpc-0qI",
+        "platform": "google_maps",
+        "identity_verified": true,
+        "status": "unverified",
+        "fetched_at": "2026-11-06T08:51:33.096Z",
+        "error": "No menu extracted from this resource; dynamic content or other menu sources may exist."
+      }
+    ],
+    "fetched_at": "2026-11-06T08:48:57.934Z"
+  },
+  {
+    "channel": "yelp_menu",
+    "found": true,
+    "status": "incomplete",
+    "attempts": [
+      {
+        "channel": "yelp_menu",
+        "url": "https://www.yelp.com/menu/easy-joy-dim-sum-and-ayce-hot-pot-new-york",
+        "platform": "yelp",
+        "identity_verified": true,
+        "discovered_from": "https://www.yelp.com/biz/easy-joy-dim-sum-and-ayce-hot-pot-new-york",
+        "status": "found",
+        "fetched_at": "2026-11-06T08:49:10.335Z",
+        "error": null
+      },
+      {
+        "channel": "yelp_menu",
+        "url": "https://www.yelp.com/biz/easy-joy-dim-sum-and-ayce-hot-pot-new-york",
+        "platform": "yelp",
+        "identity_verified": true,
+        "status": "error",
+        "error": "Resource HTTP 403.",
+        "fetched_at": "2026-11-06T08:51:34.415Z"
+      }
+    ],
+    "fetched_at": "2026-11-06T08:48:57.934Z"
+  },
+  {
+    "channel": "delivery_menu",
+    "found": false,
+    "status": "not_checked",
+    "attempts": [],
+    "fetched_at": "2026-11-06T08:48:57.934Z"
+  },
+  {
+    "channel": "reservation_menu",
+    "found": false,
+    "status": "not_checked",
+    "attempts": [],
+    "fetched_at": "2026-11-06T08:48:57.934Z"
+  },
+  {
+    "channel": "social_menu",
+    "found": false,
+    "status": "not_checked",
+    "attempts": [],
+    "fetched_at": "2026-11-06T08:48:57.934Z"
+  }
+]

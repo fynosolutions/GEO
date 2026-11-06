@@ -1,0 +1,40 @@
+{
+  "platform_results": [
+    {
+      "platform": "official",
+      "found": true,
+      "status": "found",
+      "attempts": 2
+    },
+    {
+      "platform": "yelp",
+      "found": true,
+      "status": "found",
+      "attempts": 2
+    },
+    {
+      "platform": "google_maps",
+      "found": true,
+      "status": "found",
+      "attempts": 2
+    }
+  ],
+  "store_id": "001",
+  "name": "Frydom Express",
+  "address": "781 61st St, Brooklyn, NY 11220",
+  "run_id": "776f2fe1-0f01-4d73-a5a6-b31273cfa519",
+  "fetched_at": "2026-11-06T08:51:34.482Z",
+  "mode": "full",
+  "selected_platforms": [
+    "official",
+    "yelp",
+    "google_maps"
+  ],
+  "unsupported_platforms": [],
+  "coverage_complete": true,
+  "channels_out_of_sync": [],
+  "notes": [
+    "Price extraction requires source verification; OCR is not a claim of human validation.",
+    "Cross-channel date differences describe source dates, not price validity or identical menu contents."
+  ]
+}

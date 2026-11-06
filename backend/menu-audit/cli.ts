@@ -10,7 +10,7 @@ try{
  const collected=opts['--records']?null:await collectRestaurant(collectionInputForStore(store));
  const records=collected?collected.records:JSON.parse(await readFile(opts['--records'],'utf8'));
  const provider_results=collected?await readVerifiedMenuProviders(collected.directory,collected.records):undefined;
- const sources=opts['--sources']?JSON.parse(await readFile(opts['--sources'],'utf8')):undefined;
+ const sources=[...(store.menu_sources??[]),...(opts['--sources']?JSON.parse(await readFile(opts['--sources'],'utf8')):[])];
  const result=await collectMenuAudit({store_id:store.id,name:store.name,address:store.address,website:store.website||collected?.website,website_verified:!!collected?.website&&store.website===collected.website,websites:[...(store.website?[{url:store.website,verified:store.website===collected?.website}]:[]),...(collected?.website?[{url:collected.website,verified:true}]:[])],records,sources,provider_results},{discover:true});console.log(result.directory);
  if(!result.summary.coverage_complete)process.exitCode=2;
 }catch(e){console.error(e instanceof Error?e.message:'Menu audit failed.');process.exitCode=1;}

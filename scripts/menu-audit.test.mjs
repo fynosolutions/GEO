@@ -271,3 +271,61 @@ test('unverified configured HTTPS source cannot suppress a verified HTTP redirec
   assert.equal(result.coverage[0].attempts[0].status,'unverified');assert.equal(result.coverage[0].attempts[1].status,'found');
  }finally{await rm(root,{recursive:true,force:true});}
 });
+
+test('ordering menus preserve dish category, original name and displayed starting price',()=>{
+ const chow=htmlDocument('<div class="MealWithCategorySection_main__fixture"><div class="MealWithCategorySection_categoryHeader__fixture">A La Carte 单点</div><div class="MealCard_main__fixture"><span class="MealCard_mealName__fixture">crispy chicken burger</span><span class="MealCard_mealForeignName__fixture">香脆鸡堡</span><span class="MealCard_mealPrice__fixture">$6.25⁺</span></div></div>','https://pos.chowbus.com/online-ordering/store/demo/123');
+ assert.deepEqual(chow.prices.map(({name,category,price})=>({name,category,price})),[{name:'crispy chicken burger',category:'A La Carte 单点',price:'$6.25⁺'}]);
+ const meal=htmlDocument('<div role="region"><div role="button"><span>外卖套餐 </span><span>(8)</span></div><div><h2><button data-menu-item-id="1">椰子鸡套餐</button></h2><div><span class="sr-only">价格：$20.00</span><div><div aria-hidden="true">$20.00</div><span aria-hidden="true">+</span></div></div></div></div><footer>©2026</footer>','https://order.mealkeyway.com/customer/release/index?mid=demo#/main');
+ assert.deepEqual(meal.prices.map(({name,category,price})=>({name,category,price})),[{name:'椰子鸡套餐',category:'外卖套餐',price:'$20.00'}]);assert.equal(meal.menuEvidence,true);
+ const yelp=htmlDocument('<section class="menu-section"><h2>Take Out Menu</h2><div class="menu-item"><h4>Soup</h4><ul class="menu-item-prices"><li>$12.00</li></ul></div></section>','https://www.yelp.com/menu/demo');
+ assert.equal(yelp.prices[0].category,'Take Out Menu');assert.equal(yelp.prices[0].price,'$12.00');
+});
+
+test('official ordering link follows cross-domain only with independent branch evidence and keeps SPA route',async()=>{
+ const root=await mkdtemp(join(tmpdir(),'ordering-link-')),visited=[];
+ try{
+  const url='https://order.mealkeyway.com/customer/release/index?mid=demo#/main';
+  const google={platform:'google_maps',matched:true,found:true,name:'Demo Restaurant',address:'1 Main St, New York, NY 10001',phone:'2125550100',hours:null,url:'https://www.google.com/maps/demo',fetched_at:'2026-11-06T00:00:00Z'};
+  const result=await collectMenuAudit({store_id:'demo',name:google.name,address:google.address,website:'https://example.com',website_verified:true,records:[google]},{root,platforms:['official'],read:async value=>{
+   visited.push(value);return {url:value,format:'html',text:value.includes('mealkeyway')?'1 Main Street, New York, NY 10001 212-555-0100':'Official site',links:value.includes('mealkeyway')?[]:[url,'https://other.example/menu'],prices:value.includes('mealkeyway')?[{name:'Soup',category:'Lunch',price:'$12',variant:null,currency:null,evidence:'Soup $12'}]:[],menuEvidence:value.includes('mealkeyway'),date:extractDate(''),fetched_at:google.fetched_at,sha256:'fixture',extraction:'html'};
+  }});
+  assert.ok(visited.includes(url));assert.ok(!visited.includes('https://other.example/menu'));assert.equal(result.menus.length,1);assert.equal(result.menus[0].discovered_from,'https://example.com/');assert.equal(result.menus[0].items[0].price,'$12');
+ }finally{await rm(root,{recursive:true,force:true});}
+});
+
+test('Yelp dedicated menu is attempted even if business page is blocked',async()=>{
+ const root=await mkdtemp(join(tmpdir(),'yelp-menu-route-'));
+ try{
+ const result=await collectMenuAudit({store_id:'demo',name:'Demo',address:'1 Main St',records:[{platform:'yelp',matched:true,found:true,name:'Demo',address:'1 Main St',hours:null,url:'https://www.yelp.com/biz/demo'}]},{root,platforms:['yelp'],read:async url=>{
+  if(url.includes('/biz/'))throw Error('Resource HTTP 403.');return {url,format:'html',text:'Take Out Menu',prices:[{name:'Soup',category:'Lunch',price:'$12',variant:null,currency:null,evidence:'Soup $12'}],links:[],menuEvidence:true,date:extractDate(''),fetched_at:'2026-11-06T00:00:00Z',sha256:'fixture',extraction:'html'};
+ }});
+ assert.equal(result.menus.length,1);assert.equal(result.menus[0].url,'https://www.yelp.com/menu/demo');assert.ok(result.coverage.find(c=>c.channel==='yelp_menu').attempts.some(a=>a.status==='error'));
+ }finally{await rm(root,{recursive:true,force:true});}
+});
+
+test('ordering source keys retain routing and merchant identity but reject malformed Yelp hosts',async()=>{
+ const {menuUrlKey,validMenuCandidate}=await import('../dist/backend/menu-audit/sources.js');
+ assert.equal(menuUrlKey('https://order.mealkeyway.com/customer/release/index?mid=demo&utm_source=test#/main'),'https://order.mealkeyway.com/customer/release/index?mid=demo#/main');
+ assert.notEqual(menuUrlKey('https://order.mealkeyway.com/customer/release/index?mid=a#/main'),menuUrlKey('https://order.mealkeyway.com/customer/release/index?mid=b#/main'));
+ assert.equal(validMenuCandidate('https://www.www.yelp.com/biz_photos/demo','yelp'),false);
+});
+
+test('shared menu destinations are read once but source date evidence stays channel-specific',async()=>{
+ const root=await mkdtemp(join(tmpdir(),'menu-shared-'));let reads=0;
+ try{
+ const url='https://example.com/menu.png';
+ const result=await collectMenuAudit({store_id:'demo',name:'Demo',address:'1 Main St',records:[],sources:[{channel:'official_file',platform:'official',url,identity_verified:true,upload_date:'2024-01-01',discovered_from:'https://example.com'},{channel:'google_menu',platform:'google_maps',url,identity_verified:true,upload_date:'2026-01-01',discovered_from:'https://www.google.com/maps/demo'}]},{root,read:async()=>{reads++;return {url,format:'image',text:'Menu',prices:[],links:[],date:extractDate(''),fetched_at:'2026-11-06T00:00:00Z',sha256:'fixture',extraction:'ocr'};}});
+ assert.equal(reads,1);assert.equal(result.menus.length,2);assert.equal(result.menus[0].menu_date,'2024-01-01');assert.equal(result.menus[1].menu_date,'2026-01-01');assert.notEqual(result.menus[0].discovered_from,result.menus[1].discovered_from);
+ }finally{await rm(root,{recursive:true,force:true});}
+});
+
+test('public menu initialization permits observed reads but rejects ordering and account mutations',async()=>{
+ const {allowMenuRequest}=await import('../dist/backend/menu-audit/render.js');
+ const host='order.mealkeyway.com';
+ assert.equal(allowMenuRequest('POST','https://order.mealkeyway.com/member/getAllBusinessInfo',host),true);
+ assert.equal(allowMenuRequest('POST','https://order.mealkeyway.com/member/getMerchantConfig',host),true);
+ assert.equal(allowMenuRequest('POST','https://play.google.com/log',host),true);
+ for(const path of ['/merchant/demo/order','/member/login','/member/register','/checkout','/payment'])assert.equal(allowMenuRequest('POST','https://order.mealkeyway.com'+path,host),false);
+ assert.equal(allowMenuRequest('POST','https://order.mealkeyway.com/member/getMerchantConfig','www.yelp.com'),false);
+ assert.equal(allowMenuRequest('DELETE','https://order.mealkeyway.com/merchant/demo/menu',host),false);
+});

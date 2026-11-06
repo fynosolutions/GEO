@@ -1,0 +1,47 @@
+{
+  "url": "https://www.yelp.com/menu/easy-joy-dim-sum-and-ayce-hot-pot-new-york",
+  "captured_at": "2026-11-06T09:23:08.041Z",
+  "title": "Easy Joy Dim Sum & AYCE Hot Pot - Menu - New York",
+  "items": [
+    {
+      "name": "Coconut Chicken Mini Hot Pot",
+      "price": "$22.00"
+    },
+    {
+      "name": "Tomato Mini Hot Pot",
+      "price": "$17.60"
+    },
+    {
+      "name": "Pork Bone Broth Mini Hot Pot",
+      "price": "$17.60"
+    },
+    {
+      "name": "Vegetarian Mushroom Mini Hot Pot",
+      "price": "$17.60"
+    },
+    {
+      "name": "Tom Yum Mini Hot Pot",
+      "price": "$22.00"
+    },
+    {
+      "name": "Fish Maw Chicken Mini Hot Pot",
+      "price": "$22.00"
+    },
+    {
+      "name": "Fried Noodle/Fried Rice Set(Fried Noodles/Fried Ri",
+      "price": "$19.79"
+    },
+    {
+      "name": "Beef Malatang Combo",
+      "price": "$19.79"
+    },
+    {
+      "name": "Lamb Malatang Combo",
+      "price": "$19.79"
+    },
+    {
+      "name": "Thousand Layer Tripe Malatang Combo",
+      "price": "$19.79"
+    }
+  ]
+}

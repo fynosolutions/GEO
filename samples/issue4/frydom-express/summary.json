@@ -7,13 +7,19 @@
       "attempts": 1
     },
     {
-      "platform": "google_maps",
-      "found": false,
-      "status": "incomplete",
-      "attempts": 2
+      "platform": "yelp",
+      "found": true,
+      "status": "found",
+      "attempts": 3
     },
     {
       "platform": "doordash",
+      "found": false,
+      "status": "incomplete",
+      "attempts": 1
+    },
+    {
+      "platform": "grubhub",
       "found": false,
       "status": "incomplete",
       "attempts": 1
@@ -37,35 +43,29 @@
       "attempts": 1
     },
     {
+      "platform": "instagram",
+      "found": false,
+      "status": "incomplete",
+      "attempts": 1
+    },
+    {
       "platform": "official",
       "found": true,
       "status": "found",
       "attempts": 7
     },
     {
-      "platform": "yelp",
-      "found": false,
-      "status": "incomplete",
-      "attempts": 2
-    },
-    {
-      "platform": "grubhub",
-      "found": false,
-      "status": "incomplete",
-      "attempts": 2
-    },
-    {
-      "platform": "instagram",
-      "found": false,
-      "status": "incomplete",
-      "attempts": 2
+      "platform": "google_maps",
+      "found": true,
+      "status": "found",
+      "attempts": 4
     }
   ],
   "store_id": "001",
   "name": "Frydom Express",
   "address": "781 61st St, Brooklyn, NY 11220",
-  "run_id": "d1f83964-c33b-42b9-a549-06921f70fa28",
-  "fetched_at": "2026-11-06T03:34:11.616Z",
+  "run_id": "c03ed15e-78c2-4986-8ad3-ac9952f20bdf",
+  "fetched_at": "2026-11-06T09:29:41.531Z",
   "mode": "full",
   "selected_platforms": [
     "official",

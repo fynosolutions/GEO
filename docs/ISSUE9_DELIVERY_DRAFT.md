@@ -1,7 +1,3 @@
-# Issue #9 delivery draft — not posted
+# Superseded delivery draft
 
-本地已完成两家指定真实商户的最新菜单检查，原始输出位于 samples/issue4/easy-joy/ 和 frydom-express/。原始文件未经手改，14行渠道表、营业时间表、真实2024旧菜单、真实无日期菜单图、PDF读取证据、30/45分钟边界测试及十道菜页面价格核对均已整理。十道菜核对来自本次独立打开的 Easy Joy Grubhub delivery 页面，10/10一致；不代表其他平台或全部菜品已验收。
-
-完整实测运行 597d254e-e15a-4b02-99d5-9260ab7e2bf0。输出结构检查通过；两店均为 partial，平台受阻/未确认情况见渠道表。官网示例价格与门店实际价格的区别、Grubhub未知时区及未采到的菜单分类均有记录。后续发现的HTTPS跳转去重问题已单独修复和测试，不回写旧原始输出。89项自动测试通过。
-
-代码及样例仍在本地，尚未发布本稿或关闭#9/#4；正式交付需填入最终提交链接，并由reviewer核对未知状态的四标签映射和受限渠道情况。
+The final, fresh-run delivery is [ISSUE9_DELIVERY.md](ISSUE9_DELIVERY.md). Earlier evidence is retained in samples/issue4/previous-20261106-before-final/.

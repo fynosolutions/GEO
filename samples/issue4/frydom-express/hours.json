@@ -10,9 +10,9 @@
     "verdict": "一致",
     "reason": null,
     "url": "https://www.google.com/maps/search/?api=1&query=Frydom%20Express&query_place_id=ChIJQ0XcUgBFwokRe90ZIiGy_G8",
-    "fetched_at": "2026-11-06T03:29:41.184Z",
+    "fetched_at": "2026-11-06T09:25:03.083Z",
     "google_url": "https://www.google.com/maps/search/?api=1&query=Frydom%20Express&query_place_id=ChIJQ0XcUgBFwokRe90ZIiGy_G8",
-    "google_fetched_at": "2026-11-06T03:29:41.184Z"
+    "google_fetched_at": "2026-11-06T09:25:03.083Z"
   },
   {
     "platform": "google_maps",
@@ -25,9 +25,9 @@
     "verdict": "一致",
     "reason": null,
     "url": "https://www.google.com/maps/search/?api=1&query=Frydom%20Express&query_place_id=ChIJQ0XcUgBFwokRe90ZIiGy_G8",
-    "fetched_at": "2026-11-06T03:29:41.184Z",
+    "fetched_at": "2026-11-06T09:25:03.083Z",
     "google_url": "https://www.google.com/maps/search/?api=1&query=Frydom%20Express&query_place_id=ChIJQ0XcUgBFwokRe90ZIiGy_G8",
-    "google_fetched_at": "2026-11-06T03:29:41.184Z"
+    "google_fetched_at": "2026-11-06T09:25:03.083Z"
   },
   {
     "platform": "google_maps",
@@ -40,9 +40,9 @@
     "verdict": "一致",
     "reason": null,
     "url": "https://www.google.com/maps/search/?api=1&query=Frydom%20Express&query_place_id=ChIJQ0XcUgBFwokRe90ZIiGy_G8",
-    "fetched_at": "2026-11-06T03:29:41.184Z",
+    "fetched_at": "2026-11-06T09:25:03.083Z",
     "google_url": "https://www.google.com/maps/search/?api=1&query=Frydom%20Express&query_place_id=ChIJQ0XcUgBFwokRe90ZIiGy_G8",
-    "google_fetched_at": "2026-11-06T03:29:41.184Z"
+    "google_fetched_at": "2026-11-06T09:25:03.083Z"
   },
   {
     "platform": "google_maps",
@@ -55,9 +55,9 @@
     "verdict": "一致",
     "reason": null,
     "url": "https://www.google.com/maps/search/?api=1&query=Frydom%20Express&query_place_id=ChIJQ0XcUgBFwokRe90ZIiGy_G8",
-    "fetched_at": "2026-11-06T03:29:41.184Z",
+    "fetched_at": "2026-11-06T09:25:03.083Z",
     "google_url": "https://www.google.com/maps/search/?api=1&query=Frydom%20Express&query_place_id=ChIJQ0XcUgBFwokRe90ZIiGy_G8",
-    "google_fetched_at": "2026-11-06T03:29:41.184Z"
+    "google_fetched_at": "2026-11-06T09:25:03.083Z"
   },
   {
     "platform": "google_maps",
@@ -70,9 +70,9 @@
     "verdict": "一致",
     "reason": null,
     "url": "https://www.google.com/maps/search/?api=1&query=Frydom%20Express&query_place_id=ChIJQ0XcUgBFwokRe90ZIiGy_G8",
-    "fetched_at": "2026-11-06T03:29:41.184Z",
+    "fetched_at": "2026-11-06T09:25:03.083Z",
     "google_url": "https://www.google.com/maps/search/?api=1&query=Frydom%20Express&query_place_id=ChIJQ0XcUgBFwokRe90ZIiGy_G8",
-    "google_fetched_at": "2026-11-06T03:29:41.184Z"
+    "google_fetched_at": "2026-11-06T09:25:03.083Z"
   },
   {
     "platform": "google_maps",
@@ -85,9 +85,9 @@
     "verdict": "一致",
     "reason": null,
     "url": "https://www.google.com/maps/search/?api=1&query=Frydom%20Express&query_place_id=ChIJQ0XcUgBFwokRe90ZIiGy_G8",
-    "fetched_at": "2026-11-06T03:29:41.184Z",
+    "fetched_at": "2026-11-06T09:25:03.083Z",
     "google_url": "https://www.google.com/maps/search/?api=1&query=Frydom%20Express&query_place_id=ChIJQ0XcUgBFwokRe90ZIiGy_G8",
-    "google_fetched_at": "2026-11-06T03:29:41.184Z"
+    "google_fetched_at": "2026-11-06T09:25:03.083Z"
   },
   {
     "platform": "google_maps",
@@ -100,9 +100,9 @@
     "verdict": "一致",
     "reason": null,
     "url": "https://www.google.com/maps/search/?api=1&query=Frydom%20Express&query_place_id=ChIJQ0XcUgBFwokRe90ZIiGy_G8",
-    "fetched_at": "2026-11-06T03:29:41.184Z",
+    "fetched_at": "2026-11-06T09:25:03.083Z",
     "google_url": "https://www.google.com/maps/search/?api=1&query=Frydom%20Express&query_place_id=ChIJQ0XcUgBFwokRe90ZIiGy_G8",
-    "google_fetched_at": "2026-11-06T03:29:41.184Z"
+    "google_fetched_at": "2026-11-06T09:25:03.083Z"
   },
   {
     "platform": "yelp",
@@ -115,9 +115,9 @@
     "verdict": "一致",
     "reason": null,
     "url": "https://www.yelp.com/biz/frydom-express-brooklyn",
-    "fetched_at": "2026-11-06T03:30:31.156Z",
+    "fetched_at": "2026-11-06T09:26:01.254Z",
     "google_url": "https://www.google.com/maps/search/?api=1&query=Frydom%20Express&query_place_id=ChIJQ0XcUgBFwokRe90ZIiGy_G8",
-    "google_fetched_at": "2026-11-06T03:29:41.184Z"
+    "google_fetched_at": "2026-11-06T09:25:03.083Z"
   },
   {
     "platform": "yelp",
@@ -130,9 +130,9 @@
     "verdict": "一致",
     "reason": null,
     "url": "https://www.yelp.com/biz/frydom-express-brooklyn",
-    "fetched_at": "2026-11-06T03:30:31.156Z",
+    "fetched_at": "2026-11-06T09:26:01.254Z",
     "google_url": "https://www.google.com/maps/search/?api=1&query=Frydom%20Express&query_place_id=ChIJQ0XcUgBFwokRe90ZIiGy_G8",
-    "google_fetched_at": "2026-11-06T03:29:41.184Z"
+    "google_fetched_at": "2026-11-06T09:25:03.083Z"
   },
   {
     "platform": "yelp",
@@ -145,9 +145,9 @@
     "verdict": "一致",
     "reason": null,
     "url": "https://www.yelp.com/biz/frydom-express-brooklyn",
-    "fetched_at": "2026-11-06T03:30:31.156Z",
+    "fetched_at": "2026-11-06T09:26:01.254Z",
     "google_url": "https://www.google.com/maps/search/?api=1&query=Frydom%20Express&query_place_id=ChIJQ0XcUgBFwokRe90ZIiGy_G8",
-    "google_fetched_at": "2026-11-06T03:29:41.184Z"
+    "google_fetched_at": "2026-11-06T09:25:03.083Z"
   },
   {
     "platform": "yelp",
@@ -160,9 +160,9 @@
     "verdict": "一致",
     "reason": null,
     "url": "https://www.yelp.com/biz/frydom-express-brooklyn",
-    "fetched_at": "2026-11-06T03:30:31.156Z",
+    "fetched_at": "2026-11-06T09:26:01.254Z",
     "google_url": "https://www.google.com/maps/search/?api=1&query=Frydom%20Express&query_place_id=ChIJQ0XcUgBFwokRe90ZIiGy_G8",
-    "google_fetched_at": "2026-11-06T03:29:41.184Z"
+    "google_fetched_at": "2026-11-06T09:25:03.083Z"
   },
   {
     "platform": "yelp",
@@ -175,9 +175,9 @@
     "verdict": "一致",
     "reason": null,
     "url": "https://www.yelp.com/biz/frydom-express-brooklyn",
-    "fetched_at": "2026-11-06T03:30:31.156Z",
+    "fetched_at": "2026-11-06T09:26:01.254Z",
     "google_url": "https://www.google.com/maps/search/?api=1&query=Frydom%20Express&query_place_id=ChIJQ0XcUgBFwokRe90ZIiGy_G8",
-    "google_fetched_at": "2026-11-06T03:29:41.184Z"
+    "google_fetched_at": "2026-11-06T09:25:03.083Z"
   },
   {
     "platform": "yelp",
@@ -190,9 +190,9 @@
     "verdict": "一致",
     "reason": null,
     "url": "https://www.yelp.com/biz/frydom-express-brooklyn",
-    "fetched_at": "2026-11-06T03:30:31.156Z",
+    "fetched_at": "2026-11-06T09:26:01.254Z",
     "google_url": "https://www.google.com/maps/search/?api=1&query=Frydom%20Express&query_place_id=ChIJQ0XcUgBFwokRe90ZIiGy_G8",
-    "google_fetched_at": "2026-11-06T03:29:41.184Z"
+    "google_fetched_at": "2026-11-06T09:25:03.083Z"
   },
   {
     "platform": "yelp",
@@ -205,9 +205,9 @@
     "verdict": "一致",
     "reason": null,
     "url": "https://www.yelp.com/biz/frydom-express-brooklyn",
-    "fetched_at": "2026-11-06T03:30:31.156Z",
+    "fetched_at": "2026-11-06T09:26:01.254Z",
     "google_url": "https://www.google.com/maps/search/?api=1&query=Frydom%20Express&query_place_id=ChIJQ0XcUgBFwokRe90ZIiGy_G8",
-    "google_fetched_at": "2026-11-06T03:29:41.184Z"
+    "google_fetched_at": "2026-11-06T09:25:03.083Z"
   },
   {
     "platform": "tripadvisor",
@@ -220,9 +220,9 @@
     "verdict": null,
     "reason": "Missing or unsupported regular weekly hours; no comparison made.",
     "url": null,
-    "fetched_at": "2026-11-06T03:30:38.948Z",
+    "fetched_at": "2026-11-06T09:26:15.440Z",
     "google_url": "https://www.google.com/maps/search/?api=1&query=Frydom%20Express&query_place_id=ChIJQ0XcUgBFwokRe90ZIiGy_G8",
-    "google_fetched_at": "2026-11-06T03:29:41.184Z"
+    "google_fetched_at": "2026-11-06T09:25:03.083Z"
   },
   {
     "platform": "tripadvisor",
@@ -235,9 +235,9 @@
     "verdict": null,
     "reason": "Missing or unsupported regular weekly hours; no comparison made.",
     "url": null,
-    "fetched_at": "2026-11-06T03:30:38.948Z",
+    "fetched_at": "2026-11-06T09:26:15.440Z",
     "google_url": "https://www.google.com/maps/search/?api=1&query=Frydom%20Express&query_place_id=ChIJQ0XcUgBFwokRe90ZIiGy_G8",
-    "google_fetched_at": "2026-11-06T03:29:41.184Z"
+    "google_fetched_at": "2026-11-06T09:25:03.083Z"
   },
   {
     "platform": "tripadvisor",
@@ -250,9 +250,9 @@
     "verdict": null,
     "reason": "Missing or unsupported regular weekly hours; no comparison made.",
     "url": null,
-    "fetched_at": "2026-11-06T03:30:38.948Z",
+    "fetched_at": "2026-11-06T09:26:15.440Z",
     "google_url": "https://www.google.com/maps/search/?api=1&query=Frydom%20Express&query_place_id=ChIJQ0XcUgBFwokRe90ZIiGy_G8",
-    "google_fetched_at": "2026-11-06T03:29:41.184Z"
+    "google_fetched_at": "2026-11-06T09:25:03.083Z"
   },
   {
     "platform": "tripadvisor",
@@ -265,9 +265,9 @@
     "verdict": null,
     "reason": "Missing or unsupported regular weekly hours; no comparison made.",
     "url": null,
-    "fetched_at": "2026-11-06T03:30:38.948Z",
+    "fetched_at": "2026-11-06T09:26:15.440Z",
     "google_url": "https://www.google.com/maps/search/?api=1&query=Frydom%20Express&query_place_id=ChIJQ0XcUgBFwokRe90ZIiGy_G8",
-    "google_fetched_at": "2026-11-06T03:29:41.184Z"
+    "google_fetched_at": "2026-11-06T09:25:03.083Z"
   },
   {
     "platform": "tripadvisor",
@@ -280,9 +280,9 @@
     "verdict": null,
     "reason": "Missing or unsupported regular weekly hours; no comparison made.",
     "url": null,
-    "fetched_at": "2026-11-06T03:30:38.948Z",
+    "fetched_at": "2026-11-06T09:26:15.440Z",
     "google_url": "https://www.google.com/maps/search/?api=1&query=Frydom%20Express&query_place_id=ChIJQ0XcUgBFwokRe90ZIiGy_G8",
-    "google_fetched_at": "2026-11-06T03:29:41.184Z"
+    "google_fetched_at": "2026-11-06T09:25:03.083Z"
   },
   {
     "platform": "tripadvisor",
@@ -295,9 +295,9 @@
     "verdict": null,
     "reason": "Missing or unsupported regular weekly hours; no comparison made.",
     "url": null,
-    "fetched_at": "2026-11-06T03:30:38.948Z",
+    "fetched_at": "2026-11-06T09:26:15.440Z",
     "google_url": "https://www.google.com/maps/search/?api=1&query=Frydom%20Express&query_place_id=ChIJQ0XcUgBFwokRe90ZIiGy_G8",
-    "google_fetched_at": "2026-11-06T03:29:41.184Z"
+    "google_fetched_at": "2026-11-06T09:25:03.083Z"
   },
   {
     "platform": "tripadvisor",
@@ -310,9 +310,9 @@
     "verdict": null,
     "reason": "Missing or unsupported regular weekly hours; no comparison made.",
     "url": null,
-    "fetched_at": "2026-11-06T03:30:38.948Z",
+    "fetched_at": "2026-11-06T09:26:15.440Z",
     "google_url": "https://www.google.com/maps/search/?api=1&query=Frydom%20Express&query_place_id=ChIJQ0XcUgBFwokRe90ZIiGy_G8",
-    "google_fetched_at": "2026-11-06T03:29:41.184Z"
+    "google_fetched_at": "2026-11-06T09:25:03.083Z"
   },
   {
     "platform": "opentable",
@@ -325,9 +325,9 @@
     "verdict": null,
     "reason": "Missing or unsupported regular weekly hours; no comparison made.",
     "url": null,
-    "fetched_at": "2026-11-06T03:31:02.834Z",
+    "fetched_at": "2026-11-06T09:26:22.872Z",
     "google_url": "https://www.google.com/maps/search/?api=1&query=Frydom%20Express&query_place_id=ChIJQ0XcUgBFwokRe90ZIiGy_G8",
-    "google_fetched_at": "2026-11-06T03:29:41.184Z"
+    "google_fetched_at": "2026-11-06T09:25:03.083Z"
   },
   {
     "platform": "opentable",
@@ -340,9 +340,9 @@
     "verdict": null,
     "reason": "Missing or unsupported regular weekly hours; no comparison made.",
     "url": null,
-    "fetched_at": "2026-11-06T03:31:02.834Z",
+    "fetched_at": "2026-11-06T09:26:22.872Z",
     "google_url": "https://www.google.com/maps/search/?api=1&query=Frydom%20Express&query_place_id=ChIJQ0XcUgBFwokRe90ZIiGy_G8",
-    "google_fetched_at": "2026-11-06T03:29:41.184Z"
+    "google_fetched_at": "2026-11-06T09:25:03.083Z"
   },
   {
     "platform": "opentable",
@@ -355,9 +355,9 @@
     "verdict": null,
     "reason": "Missing or unsupported regular weekly hours; no comparison made.",
     "url": null,
-    "fetched_at": "2026-11-06T03:31:02.834Z",
+    "fetched_at": "2026-11-06T09:26:22.872Z",
     "google_url": "https://www.google.com/maps/search/?api=1&query=Frydom%20Express&query_place_id=ChIJQ0XcUgBFwokRe90ZIiGy_G8",
-    "google_fetched_at": "2026-11-06T03:29:41.184Z"
+    "google_fetched_at": "2026-11-06T09:25:03.083Z"
   },
   {
     "platform": "opentable",
@@ -370,9 +370,9 @@
     "verdict": null,
     "reason": "Missing or unsupported regular weekly hours; no comparison made.",
     "url": null,
-    "fetched_at": "2026-11-06T03:31:02.834Z",
+    "fetched_at": "2026-11-06T09:26:22.872Z",
     "google_url": "https://www.google.com/maps/search/?api=1&query=Frydom%20Express&query_place_id=ChIJQ0XcUgBFwokRe90ZIiGy_G8",
-    "google_fetched_at": "2026-11-06T03:29:41.184Z"
+    "google_fetched_at": "2026-11-06T09:25:03.083Z"
   },
   {
     "platform": "opentable",
@@ -385,9 +385,9 @@
     "verdict": null,
     "reason": "Missing or unsupported regular weekly hours; no comparison made.",
     "url": null,
-    "fetched_at": "2026-11-06T03:31:02.834Z",
+    "fetched_at": "2026-11-06T09:26:22.872Z",
     "google_url": "https://www.google.com/maps/search/?api=1&query=Frydom%20Express&query_place_id=ChIJQ0XcUgBFwokRe90ZIiGy_G8",
-    "google_fetched_at": "2026-11-06T03:29:41.184Z"
+    "google_fetched_at": "2026-11-06T09:25:03.083Z"
   },
   {
     "platform": "opentable",
@@ -400,9 +400,9 @@
     "verdict": null,
     "reason": "Missing or unsupported regular weekly hours; no comparison made.",
     "url": null,
-    "fetched_at": "2026-11-06T03:31:02.834Z",
+    "fetched_at": "2026-11-06T09:26:22.872Z",
     "google_url": "https://www.google.com/maps/search/?api=1&query=Frydom%20Express&query_place_id=ChIJQ0XcUgBFwokRe90ZIiGy_G8",
-    "google_fetched_at": "2026-11-06T03:29:41.184Z"
+    "google_fetched_at": "2026-11-06T09:25:03.083Z"
   },
   {
     "platform": "opentable",
@@ -415,9 +415,9 @@
     "verdict": null,
     "reason": "Missing or unsupported regular weekly hours; no comparison made.",
     "url": null,
-    "fetched_at": "2026-11-06T03:31:02.834Z",
+    "fetched_at": "2026-11-06T09:26:22.872Z",
     "google_url": "https://www.google.com/maps/search/?api=1&query=Frydom%20Express&query_place_id=ChIJQ0XcUgBFwokRe90ZIiGy_G8",
-    "google_fetched_at": "2026-11-06T03:29:41.184Z"
+    "google_fetched_at": "2026-11-06T09:25:03.083Z"
   },
   {
     "platform": "doordash",
@@ -430,9 +430,9 @@
     "verdict": null,
     "reason": "Missing or unsupported regular weekly hours; no comparison made.",
     "url": null,
-    "fetched_at": "2026-11-06T03:31:13.112Z",
+    "fetched_at": "2026-11-06T09:27:38.557Z",
     "google_url": "https://www.google.com/maps/search/?api=1&query=Frydom%20Express&query_place_id=ChIJQ0XcUgBFwokRe90ZIiGy_G8",
-    "google_fetched_at": "2026-11-06T03:29:41.184Z"
+    "google_fetched_at": "2026-11-06T09:25:03.083Z"
   },
   {
     "platform": "doordash",
@@ -445,9 +445,9 @@
     "verdict": null,
     "reason": "Missing or unsupported regular weekly hours; no comparison made.",
     "url": null,
-    "fetched_at": "2026-11-06T03:31:13.112Z",
+    "fetched_at": "2026-11-06T09:27:38.557Z",
     "google_url": "https://www.google.com/maps/search/?api=1&query=Frydom%20Express&query_place_id=ChIJQ0XcUgBFwokRe90ZIiGy_G8",
-    "google_fetched_at": "2026-11-06T03:29:41.184Z"
+    "google_fetched_at": "2026-11-06T09:25:03.083Z"
   },
   {
     "platform": "doordash",
@@ -460,9 +460,9 @@
     "verdict": null,
     "reason": "Missing or unsupported regular weekly hours; no comparison made.",
     "url": null,
-    "fetched_at": "2026-11-06T03:31:13.112Z",
+    "fetched_at": "2026-11-06T09:27:38.557Z",
     "google_url": "https://www.google.com/maps/search/?api=1&query=Frydom%20Express&query_place_id=ChIJQ0XcUgBFwokRe90ZIiGy_G8",
-    "google_fetched_at": "2026-11-06T03:29:41.184Z"
+    "google_fetched_at": "2026-11-06T09:25:03.083Z"
   },
   {
     "platform": "doordash",
@@ -475,9 +475,9 @@
     "verdict": null,
     "reason": "Missing or unsupported regular weekly hours; no comparison made.",
     "url": null,
-    "fetched_at": "2026-11-06T03:31:13.112Z",
+    "fetched_at": "2026-11-06T09:27:38.557Z",
     "google_url": "https://www.google.com/maps/search/?api=1&query=Frydom%20Express&query_place_id=ChIJQ0XcUgBFwokRe90ZIiGy_G8",
-    "google_fetched_at": "2026-11-06T03:29:41.184Z"
+    "google_fetched_at": "2026-11-06T09:25:03.083Z"
   },
   {
     "platform": "doordash",
@@ -490,9 +490,9 @@
     "verdict": null,
     "reason": "Missing or unsupported regular weekly hours; no comparison made.",
     "url": null,
-    "fetched_at": "2026-11-06T03:31:13.112Z",
+    "fetched_at": "2026-11-06T09:27:38.557Z",
     "google_url": "https://www.google.com/maps/search/?api=1&query=Frydom%20Express&query_place_id=ChIJQ0XcUgBFwokRe90ZIiGy_G8",
-    "google_fetched_at": "2026-11-06T03:29:41.184Z"
+    "google_fetched_at": "2026-11-06T09:25:03.083Z"
   },
   {
     "platform": "doordash",
@@ -505,9 +505,9 @@
     "verdict": null,
     "reason": "Missing or unsupported regular weekly hours; no comparison made.",
     "url": null,
-    "fetched_at": "2026-11-06T03:31:13.112Z",
+    "fetched_at": "2026-11-06T09:27:38.557Z",
     "google_url": "https://www.google.com/maps/search/?api=1&query=Frydom%20Express&query_place_id=ChIJQ0XcUgBFwokRe90ZIiGy_G8",
-    "google_fetched_at": "2026-11-06T03:29:41.184Z"
+    "google_fetched_at": "2026-11-06T09:25:03.083Z"
   },
   {
     "platform": "doordash",
@@ -520,9 +520,9 @@
     "verdict": null,
     "reason": "Missing or unsupported regular weekly hours; no comparison made.",
     "url": null,
-    "fetched_at": "2026-11-06T03:31:13.112Z",
+    "fetched_at": "2026-11-06T09:27:38.557Z",
     "google_url": "https://www.google.com/maps/search/?api=1&query=Frydom%20Express&query_place_id=ChIJQ0XcUgBFwokRe90ZIiGy_G8",
-    "google_fetched_at": "2026-11-06T03:29:41.184Z"
+    "google_fetched_at": "2026-11-06T09:25:03.083Z"
   },
   {
     "platform": "uber_eats",
@@ -534,10 +534,10 @@
     "diff_minutes": -30,
     "verdict": "外卖常规提前",
     "reason": null,
-    "url": "https://www.ubereats.com/en-US/store/frydom-express-fried-chicken-%E9%A3%9E%E4%B9%90%E7%82%B8%E9%B8%A1-781-61st-street/OLdZQvsVXzWCMBpsf9uctg?srsltid=AYCX9vICJg1w1ReYLMHpjSjI-hkogrlW-aQgRkQ2sSJOZ2_8ONd6e1tq",
-    "fetched_at": "2026-11-06T03:31:30.102Z",
+    "url": "https://www.ubereats.com/en-US/store/frydom-express-fried-chicken-%E9%A3%9E%E4%B9%90%E7%82%B8%E9%B8%A1-781-61st-street/OLdZQvsVXzWCMBpsf9uctg?srsltid=AYCX9vKEgK4ULpLnBYsXdneMB83wyp_lsNGIzvNRl4Q2nZnSONfdRJDQ",
+    "fetched_at": "2026-11-06T09:27:55.436Z",
     "google_url": "https://www.google.com/maps/search/?api=1&query=Frydom%20Express&query_place_id=ChIJQ0XcUgBFwokRe90ZIiGy_G8",
-    "google_fetched_at": "2026-11-06T03:29:41.184Z"
+    "google_fetched_at": "2026-11-06T09:25:03.083Z"
   },
   {
     "platform": "uber_eats",
@@ -549,10 +549,10 @@
     "diff_minutes": -30,
     "verdict": "外卖常规提前",
     "reason": null,
-    "url": "https://www.ubereats.com/en-US/store/frydom-express-fried-chicken-%E9%A3%9E%E4%B9%90%E7%82%B8%E9%B8%A1-781-61st-street/OLdZQvsVXzWCMBpsf9uctg?srsltid=AYCX9vICJg1w1ReYLMHpjSjI-hkogrlW-aQgRkQ2sSJOZ2_8ONd6e1tq",
-    "fetched_at": "2026-11-06T03:31:30.102Z",
+    "url": "https://www.ubereats.com/en-US/store/frydom-express-fried-chicken-%E9%A3%9E%E4%B9%90%E7%82%B8%E9%B8%A1-781-61st-street/OLdZQvsVXzWCMBpsf9uctg?srsltid=AYCX9vKEgK4ULpLnBYsXdneMB83wyp_lsNGIzvNRl4Q2nZnSONfdRJDQ",
+    "fetched_at": "2026-11-06T09:27:55.436Z",
     "google_url": "https://www.google.com/maps/search/?api=1&query=Frydom%20Express&query_place_id=ChIJQ0XcUgBFwokRe90ZIiGy_G8",
-    "google_fetched_at": "2026-11-06T03:29:41.184Z"
+    "google_fetched_at": "2026-11-06T09:25:03.083Z"
   },
   {
     "platform": "uber_eats",
@@ -564,10 +564,10 @@
     "diff_minutes": -30,
     "verdict": "外卖常规提前",
     "reason": null,
-    "url": "https://www.ubereats.com/en-US/store/frydom-express-fried-chicken-%E9%A3%9E%E4%B9%90%E7%82%B8%E9%B8%A1-781-61st-street/OLdZQvsVXzWCMBpsf9uctg?srsltid=AYCX9vICJg1w1ReYLMHpjSjI-hkogrlW-aQgRkQ2sSJOZ2_8ONd6e1tq",
-    "fetched_at": "2026-11-06T03:31:30.102Z",
+    "url": "https://www.ubereats.com/en-US/store/frydom-express-fried-chicken-%E9%A3%9E%E4%B9%90%E7%82%B8%E9%B8%A1-781-61st-street/OLdZQvsVXzWCMBpsf9uctg?srsltid=AYCX9vKEgK4ULpLnBYsXdneMB83wyp_lsNGIzvNRl4Q2nZnSONfdRJDQ",
+    "fetched_at": "2026-11-06T09:27:55.436Z",
     "google_url": "https://www.google.com/maps/search/?api=1&query=Frydom%20Express&query_place_id=ChIJQ0XcUgBFwokRe90ZIiGy_G8",
-    "google_fetched_at": "2026-11-06T03:29:41.184Z"
+    "google_fetched_at": "2026-11-06T09:25:03.083Z"
   },
   {
     "platform": "uber_eats",
@@ -579,10 +579,10 @@
     "diff_minutes": -30,
     "verdict": "外卖常规提前",
     "reason": null,
-    "url": "https://www.ubereats.com/en-US/store/frydom-express-fried-chicken-%E9%A3%9E%E4%B9%90%E7%82%B8%E9%B8%A1-781-61st-street/OLdZQvsVXzWCMBpsf9uctg?srsltid=AYCX9vICJg1w1ReYLMHpjSjI-hkogrlW-aQgRkQ2sSJOZ2_8ONd6e1tq",
-    "fetched_at": "2026-11-06T03:31:30.102Z",
+    "url": "https://www.ubereats.com/en-US/store/frydom-express-fried-chicken-%E9%A3%9E%E4%B9%90%E7%82%B8%E9%B8%A1-781-61st-street/OLdZQvsVXzWCMBpsf9uctg?srsltid=AYCX9vKEgK4ULpLnBYsXdneMB83wyp_lsNGIzvNRl4Q2nZnSONfdRJDQ",
+    "fetched_at": "2026-11-06T09:27:55.436Z",
     "google_url": "https://www.google.com/maps/search/?api=1&query=Frydom%20Express&query_place_id=ChIJQ0XcUgBFwokRe90ZIiGy_G8",
-    "google_fetched_at": "2026-11-06T03:29:41.184Z"
+    "google_fetched_at": "2026-11-06T09:25:03.083Z"
   },
   {
     "platform": "uber_eats",
@@ -594,10 +594,10 @@
     "diff_minutes": -30,
     "verdict": "外卖常规提前",
     "reason": null,
-    "url": "https://www.ubereats.com/en-US/store/frydom-express-fried-chicken-%E9%A3%9E%E4%B9%90%E7%82%B8%E9%B8%A1-781-61st-street/OLdZQvsVXzWCMBpsf9uctg?srsltid=AYCX9vICJg1w1ReYLMHpjSjI-hkogrlW-aQgRkQ2sSJOZ2_8ONd6e1tq",
-    "fetched_at": "2026-11-06T03:31:30.102Z",
+    "url": "https://www.ubereats.com/en-US/store/frydom-express-fried-chicken-%E9%A3%9E%E4%B9%90%E7%82%B8%E9%B8%A1-781-61st-street/OLdZQvsVXzWCMBpsf9uctg?srsltid=AYCX9vKEgK4ULpLnBYsXdneMB83wyp_lsNGIzvNRl4Q2nZnSONfdRJDQ",
+    "fetched_at": "2026-11-06T09:27:55.436Z",
     "google_url": "https://www.google.com/maps/search/?api=1&query=Frydom%20Express&query_place_id=ChIJQ0XcUgBFwokRe90ZIiGy_G8",
-    "google_fetched_at": "2026-11-06T03:29:41.184Z"
+    "google_fetched_at": "2026-11-06T09:25:03.083Z"
   },
   {
     "platform": "uber_eats",
@@ -609,10 +609,10 @@
     "diff_minutes": -30,
     "verdict": "外卖常规提前",
     "reason": null,
-    "url": "https://www.ubereats.com/en-US/store/frydom-express-fried-chicken-%E9%A3%9E%E4%B9%90%E7%82%B8%E9%B8%A1-781-61st-street/OLdZQvsVXzWCMBpsf9uctg?srsltid=AYCX9vICJg1w1ReYLMHpjSjI-hkogrlW-aQgRkQ2sSJOZ2_8ONd6e1tq",
-    "fetched_at": "2026-11-06T03:31:30.102Z",
+    "url": "https://www.ubereats.com/en-US/store/frydom-express-fried-chicken-%E9%A3%9E%E4%B9%90%E7%82%B8%E9%B8%A1-781-61st-street/OLdZQvsVXzWCMBpsf9uctg?srsltid=AYCX9vKEgK4ULpLnBYsXdneMB83wyp_lsNGIzvNRl4Q2nZnSONfdRJDQ",
+    "fetched_at": "2026-11-06T09:27:55.436Z",
     "google_url": "https://www.google.com/maps/search/?api=1&query=Frydom%20Express&query_place_id=ChIJQ0XcUgBFwokRe90ZIiGy_G8",
-    "google_fetched_at": "2026-11-06T03:29:41.184Z"
+    "google_fetched_at": "2026-11-06T09:25:03.083Z"
   },
   {
     "platform": "uber_eats",
@@ -624,10 +624,10 @@
     "diff_minutes": -30,
     "verdict": "外卖常规提前",
     "reason": null,
-    "url": "https://www.ubereats.com/en-US/store/frydom-express-fried-chicken-%E9%A3%9E%E4%B9%90%E7%82%B8%E9%B8%A1-781-61st-street/OLdZQvsVXzWCMBpsf9uctg?srsltid=AYCX9vICJg1w1ReYLMHpjSjI-hkogrlW-aQgRkQ2sSJOZ2_8ONd6e1tq",
-    "fetched_at": "2026-11-06T03:31:30.102Z",
+    "url": "https://www.ubereats.com/en-US/store/frydom-express-fried-chicken-%E9%A3%9E%E4%B9%90%E7%82%B8%E9%B8%A1-781-61st-street/OLdZQvsVXzWCMBpsf9uctg?srsltid=AYCX9vKEgK4ULpLnBYsXdneMB83wyp_lsNGIzvNRl4Q2nZnSONfdRJDQ",
+    "fetched_at": "2026-11-06T09:27:55.436Z",
     "google_url": "https://www.google.com/maps/search/?api=1&query=Frydom%20Express&query_place_id=ChIJQ0XcUgBFwokRe90ZIiGy_G8",
-    "google_fetched_at": "2026-11-06T03:29:41.184Z"
+    "google_fetched_at": "2026-11-06T09:25:03.083Z"
   },
   {
     "platform": "grubhub",
@@ -640,9 +640,9 @@
     "verdict": null,
     "reason": "Missing or unsupported regular weekly hours; no comparison made.",
     "url": null,
-    "fetched_at": "2026-11-06T03:32:56.926Z",
+    "fetched_at": "2026-11-06T09:29:31.818Z",
     "google_url": "https://www.google.com/maps/search/?api=1&query=Frydom%20Express&query_place_id=ChIJQ0XcUgBFwokRe90ZIiGy_G8",
-    "google_fetched_at": "2026-11-06T03:29:41.184Z"
+    "google_fetched_at": "2026-11-06T09:25:03.083Z"
   },
   {
     "platform": "grubhub",
@@ -655,9 +655,9 @@
     "verdict": null,
     "reason": "Missing or unsupported regular weekly hours; no comparison made.",
     "url": null,
-    "fetched_at": "2026-11-06T03:32:56.926Z",
+    "fetched_at": "2026-11-06T09:29:31.818Z",
     "google_url": "https://www.google.com/maps/search/?api=1&query=Frydom%20Express&query_place_id=ChIJQ0XcUgBFwokRe90ZIiGy_G8",
-    "google_fetched_at": "2026-11-06T03:29:41.184Z"
+    "google_fetched_at": "2026-11-06T09:25:03.083Z"
   },
   {
     "platform": "grubhub",
@@ -670,9 +670,9 @@
     "verdict": null,
     "reason": "Missing or unsupported regular weekly hours; no comparison made.",
     "url": null,
-    "fetched_at": "2026-11-06T03:32:56.926Z",
+    "fetched_at": "2026-11-06T09:29:31.818Z",
     "google_url": "https://www.google.com/maps/search/?api=1&query=Frydom%20Express&query_place_id=ChIJQ0XcUgBFwokRe90ZIiGy_G8",
-    "google_fetched_at": "2026-11-06T03:29:41.184Z"
+    "google_fetched_at": "2026-11-06T09:25:03.083Z"
   },
   {
     "platform": "grubhub",
@@ -685,9 +685,9 @@
     "verdict": null,
     "reason": "Missing or unsupported regular weekly hours; no comparison made.",
     "url": null,
-    "fetched_at": "2026-11-06T03:32:56.926Z",
+    "fetched_at": "2026-11-06T09:29:31.818Z",
     "google_url": "https://www.google.com/maps/search/?api=1&query=Frydom%20Express&query_place_id=ChIJQ0XcUgBFwokRe90ZIiGy_G8",
-    "google_fetched_at": "2026-11-06T03:29:41.184Z"
+    "google_fetched_at": "2026-11-06T09:25:03.083Z"
   },
   {
     "platform": "grubhub",
@@ -700,9 +700,9 @@
     "verdict": null,
     "reason": "Missing or unsupported regular weekly hours; no comparison made.",
     "url": null,
-    "fetched_at": "2026-11-06T03:32:56.926Z",
+    "fetched_at": "2026-11-06T09:29:31.818Z",
     "google_url": "https://www.google.com/maps/search/?api=1&query=Frydom%20Express&query_place_id=ChIJQ0XcUgBFwokRe90ZIiGy_G8",
-    "google_fetched_at": "2026-11-06T03:29:41.184Z"
+    "google_fetched_at": "2026-11-06T09:25:03.083Z"
   },
   {
     "platform": "grubhub",
@@ -715,9 +715,9 @@
     "verdict": null,
     "reason": "Missing or unsupported regular weekly hours; no comparison made.",
     "url": null,
-    "fetched_at": "2026-11-06T03:32:56.926Z",
+    "fetched_at": "2026-11-06T09:29:31.818Z",
     "google_url": "https://www.google.com/maps/search/?api=1&query=Frydom%20Express&query_place_id=ChIJQ0XcUgBFwokRe90ZIiGy_G8",
-    "google_fetched_at": "2026-11-06T03:29:41.184Z"
+    "google_fetched_at": "2026-11-06T09:25:03.083Z"
   },
   {
     "platform": "grubhub",
@@ -730,9 +730,9 @@
     "verdict": null,
     "reason": "Missing or unsupported regular weekly hours; no comparison made.",
     "url": null,
-    "fetched_at": "2026-11-06T03:32:56.926Z",
+    "fetched_at": "2026-11-06T09:29:31.818Z",
     "google_url": "https://www.google.com/maps/search/?api=1&query=Frydom%20Express&query_place_id=ChIJQ0XcUgBFwokRe90ZIiGy_G8",
-    "google_fetched_at": "2026-11-06T03:29:41.184Z"
+    "google_fetched_at": "2026-11-06T09:25:03.083Z"
   },
   {
     "platform": "facebook",
@@ -745,9 +745,9 @@
     "verdict": null,
     "reason": "Missing or unsupported regular weekly hours; no comparison made.",
     "url": null,
-    "fetched_at": "2026-11-06T03:34:11.593Z",
+    "fetched_at": "2026-11-06T09:29:41.510Z",
     "google_url": "https://www.google.com/maps/search/?api=1&query=Frydom%20Express&query_place_id=ChIJQ0XcUgBFwokRe90ZIiGy_G8",
-    "google_fetched_at": "2026-11-06T03:29:41.184Z"
+    "google_fetched_at": "2026-11-06T09:25:03.083Z"
   },
   {
     "platform": "facebook",
@@ -760,9 +760,9 @@
     "verdict": null,
     "reason": "Missing or unsupported regular weekly hours; no comparison made.",
     "url": null,
-    "fetched_at": "2026-11-06T03:34:11.593Z",
+    "fetched_at": "2026-11-06T09:29:41.510Z",
     "google_url": "https://www.google.com/maps/search/?api=1&query=Frydom%20Express&query_place_id=ChIJQ0XcUgBFwokRe90ZIiGy_G8",
-    "google_fetched_at": "2026-11-06T03:29:41.184Z"
+    "google_fetched_at": "2026-11-06T09:25:03.083Z"
   },
   {
     "platform": "facebook",
@@ -775,9 +775,9 @@
     "verdict": null,
     "reason": "Missing or unsupported regular weekly hours; no comparison made.",
     "url": null,
-    "fetched_at": "2026-11-06T03:34:11.593Z",
+    "fetched_at": "2026-11-06T09:29:41.510Z",
     "google_url": "https://www.google.com/maps/search/?api=1&query=Frydom%20Express&query_place_id=ChIJQ0XcUgBFwokRe90ZIiGy_G8",
-    "google_fetched_at": "2026-11-06T03:29:41.184Z"
+    "google_fetched_at": "2026-11-06T09:25:03.083Z"
   },
   {
     "platform": "facebook",
@@ -790,9 +790,9 @@
     "verdict": null,
     "reason": "Missing or unsupported regular weekly hours; no comparison made.",
     "url": null,
-    "fetched_at": "2026-11-06T03:34:11.593Z",
+    "fetched_at": "2026-11-06T09:29:41.510Z",
     "google_url": "https://www.google.com/maps/search/?api=1&query=Frydom%20Express&query_place_id=ChIJQ0XcUgBFwokRe90ZIiGy_G8",
-    "google_fetched_at": "2026-11-06T03:29:41.184Z"
+    "google_fetched_at": "2026-11-06T09:25:03.083Z"
   },
   {
     "platform": "facebook",
@@ -805,9 +805,9 @@
     "verdict": null,
     "reason": "Missing or unsupported regular weekly hours; no comparison made.",
     "url": null,
-    "fetched_at": "2026-11-06T03:34:11.593Z",
+    "fetched_at": "2026-11-06T09:29:41.510Z",
     "google_url": "https://www.google.com/maps/search/?api=1&query=Frydom%20Express&query_place_id=ChIJQ0XcUgBFwokRe90ZIiGy_G8",
-    "google_fetched_at": "2026-11-06T03:29:41.184Z"
+    "google_fetched_at": "2026-11-06T09:25:03.083Z"
   },
   {
     "platform": "facebook",
@@ -820,9 +820,9 @@
     "verdict": null,
     "reason": "Missing or unsupported regular weekly hours; no comparison made.",
     "url": null,
-    "fetched_at": "2026-11-06T03:34:11.593Z",
+    "fetched_at": "2026-11-06T09:29:41.510Z",
     "google_url": "https://www.google.com/maps/search/?api=1&query=Frydom%20Express&query_place_id=ChIJQ0XcUgBFwokRe90ZIiGy_G8",
-    "google_fetched_at": "2026-11-06T03:29:41.184Z"
+    "google_fetched_at": "2026-11-06T09:25:03.083Z"
   },
   {
     "platform": "facebook",
@@ -835,8 +835,8 @@
     "verdict": null,
     "reason": "Missing or unsupported regular weekly hours; no comparison made.",
     "url": null,
-    "fetched_at": "2026-11-06T03:34:11.593Z",
+    "fetched_at": "2026-11-06T09:29:41.510Z",
     "google_url": "https://www.google.com/maps/search/?api=1&query=Frydom%20Express&query_place_id=ChIJQ0XcUgBFwokRe90ZIiGy_G8",
-    "google_fetched_at": "2026-11-06T03:29:41.184Z"
+    "google_fetched_at": "2026-11-06T09:25:03.083Z"
   }
 ]

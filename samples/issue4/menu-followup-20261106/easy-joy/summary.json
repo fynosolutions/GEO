@@ -1,0 +1,40 @@
+{
+  "platform_results": [
+    {
+      "platform": "official",
+      "found": true,
+      "status": "found",
+      "attempts": 2
+    },
+    {
+      "platform": "yelp",
+      "found": true,
+      "status": "found",
+      "attempts": 2
+    },
+    {
+      "platform": "google_maps",
+      "found": false,
+      "status": "incomplete",
+      "attempts": 1
+    }
+  ],
+  "store_id": "020",
+  "name": "Easy Joy Dim Sum & AYCE Hot Pot",
+  "address": "145 Mulberry St, New York, NY 10013",
+  "run_id": "9bfe8e5e-6ccf-45ea-8147-71dfafeff58c",
+  "fetched_at": "2026-11-06T08:48:57.934Z",
+  "mode": "full",
+  "selected_platforms": [
+    "official",
+    "yelp",
+    "google_maps"
+  ],
+  "unsupported_platforms": [],
+  "coverage_complete": false,
+  "channels_out_of_sync": [],
+  "notes": [
+    "Price extraction requires source verification; OCR is not a claim of human validation.",
+    "Cross-channel date differences describe source dates, not price validity or identical menu contents."
+  ]
+}

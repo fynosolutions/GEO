@@ -1,3 +1,5 @@
+> Historical handoff snapshot. Current #4/#9 acceptance is documented in [ISSUE9_DELIVERY.md](ISSUE9_DELIVERY.md); replaced primary menu samples are archived under samples/issue4/previous-20261106-before-final/.
+
 # Remaining-issue handoff — 2026-11-06
 
 ## Scope and provenance

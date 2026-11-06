@@ -3,11 +3,12 @@ export {menuObservations,menuChanges} from './menus.js';
 import { mkdir, readFile, writeFile, rename } from 'node:fs/promises';
 import { join } from 'node:path';
 import { createHash, randomUUID } from 'node:crypto';
-import type { Listing, CollectionInput } from '../public.js';
+import {matchesIdentity,type Listing,type CollectionInput} from '../public.js';
+import type {MenuSource} from '../menu-audit/public.js';
 
 export const platforms = ['google_maps','yelp','tripadvisor','opentable','doordash','uber_eats','grubhub','facebook'];
 const fields = ['platform','found','url','name','address','phone','hours','rating','review_count','price_level','fetched_at','error'];
-export type Store = { id:string; name:string; address:string; place_id:string|null; website?:string|null };
+export type Store = { id:string; name:string; address:string; place_id:string|null; website?:string|null; menu_sources?:MenuSource[] };
 export type SnapshotListing = Omit<Listing,'matched'> & {matched?:boolean};
 export type Collector = (store:Store)=>Promise<Listing[]|{records:Listing[];menus?:MenuObservation[];menu_error?:string;menu_details?:unknown}>;
 export function storesFrom(value:unknown):Store[] {
@@ -21,7 +22,14 @@ export function storesFrom(value:unknown):Store[] {
    let url:URL;try{url=new URL(s.website);}catch{throw Error('Website must be an HTTP(S) URL or null.');}
    if(!['http:','https:'].includes(url.protocol)||url.username||url.password)throw Error('Website must be an HTTP(S) URL without credentials.');
   }
-  ids.add(s.id);return {id:s.id,name:s.name,address:s.address,place_id:s.place_id,...(s.website!==undefined?{website:s.website}: {})};
+  if(s.menu_sources!==undefined){
+   if(!Array.isArray(s.menu_sources)||s.menu_sources.length>12)throw Error('Configure at most 12 menu sources per store.');
+   for(const source of s.menu_sources){
+    if(!source||!['official_html','official_file','google_menu','yelp_menu','delivery_menu','reservation_menu','social_menu'].includes(source.channel)||!['official','google_maps','yelp','doordash','uber_eats','grubhub','opentable','resy','facebook','instagram'].includes(source.platform)||typeof source.identity_verified!=='boolean')throw Error('Invalid configured menu source.');
+    for(const value of [source.url,...(source.discovered_from!==undefined?[source.discovered_from]:[])]){let url:URL;try{url=new URL(value);}catch{throw Error('Invalid menu source URL.');}if(!['https:','http:'].includes(url.protocol)||url.username||url.password||url.port&&!['80','443'].includes(url.port))throw Error('Invalid menu source URL.');}
+   }
+  }
+  ids.add(s.id);return {id:s.id,name:s.name,address:s.address,place_id:s.place_id,...(s.website!==undefined?{website:s.website}: {}),...(s.menu_sources!==undefined?{menu_sources:s.menu_sources}: {})};
  });
 }
 // Adapt website to the existing collector's website-in-name input contract.
@@ -153,4 +161,11 @@ export async function runWeekly(options:{stores:Store[];root:string;collect:Coll
   await atomic(join(base,'indexes','latest.json'),pointer);
   return {runDir,manifest,report};
  }finally{const {rm}=await import('node:fs/promises');await rm(lock,{recursive:true,force:true});}
+}
+
+export async function configuredMenuSources(identity:Listing,path='stores.json'):Promise<MenuSource[]>{
+ let data:string;try{data=await readFile(path,'utf8');}catch(e){if((e as NodeJS.ErrnoException).code==='ENOENT')return [];throw e;}
+ const configured=JSON.parse(data);if(Array.isArray(configured)&&!configured.length)return [];
+ const matches=storesFrom(configured).filter(s=>matchesIdentity(identity,{name:s.name,address:s.address}));
+ return matches.length===1?matches[0].menu_sources??[]:[];
 }

@@ -40,7 +40,7 @@
     "rating": 4.6,
     "review_count": 119,
     "price_level": "$10–20",
-    "fetched_at": "2026-11-06T03:29:41.184Z",
+    "fetched_at": "2026-11-06T09:25:03.083Z",
     "error": null
   },
   {
@@ -176,7 +176,7 @@
     "rating": 5,
     "review_count": 3,
     "price_level": null,
-    "fetched_at": "2026-11-06T03:30:31.156Z",
+    "fetched_at": "2026-11-06T09:26:01.254Z",
     "error": "Unavailable public fields: price_level."
   },
   {
@@ -191,7 +191,7 @@
     "rating": null,
     "review_count": null,
     "price_level": null,
-    "fetched_at": "2026-11-06T03:30:38.948Z",
+    "fetched_at": "2026-11-06T09:26:15.440Z",
     "error": null
   },
   {
@@ -206,7 +206,7 @@
     "rating": null,
     "review_count": null,
     "price_level": null,
-    "fetched_at": "2026-11-06T03:31:02.834Z",
+    "fetched_at": "2026-11-06T09:26:22.872Z",
     "error": null
   },
   {
@@ -221,14 +221,14 @@
     "rating": null,
     "review_count": null,
     "price_level": null,
-    "fetched_at": "2026-11-06T03:31:13.112Z",
+    "fetched_at": "2026-11-06T09:27:38.557Z",
     "error": "No branch matched at least two identity fields (name, address, phone) with a platform source URL."
   },
   {
     "platform": "uber_eats",
     "found": true,
     "matched": true,
-    "url": "https://www.ubereats.com/en-US/store/frydom-express-fried-chicken-%E9%A3%9E%E4%B9%90%E7%82%B8%E9%B8%A1-781-61st-street/OLdZQvsVXzWCMBpsf9uctg?srsltid=AYCX9vICJg1w1ReYLMHpjSjI-hkogrlW-aQgRkQ2sSJOZ2_8ONd6e1tq",
+    "url": "https://www.ubereats.com/en-US/store/frydom-express-fried-chicken-%E9%A3%9E%E4%B9%90%E7%82%B8%E9%B8%A1-781-61st-street/OLdZQvsVXzWCMBpsf9uctg?srsltid=AYCX9vKEgK4ULpLnBYsXdneMB83wyp_lsNGIzvNRl4Q2nZnSONfdRJDQ",
     "name": "Frydom Express Fried Chicken 飞乐炸鸡 (781 61st Street)",
     "address": "781 61st Street, Brooklyn, NY, 11220, US",
     "phone": "+19298050792",
@@ -257,7 +257,7 @@
     "rating": null,
     "review_count": 43,
     "price_level": null,
-    "fetched_at": "2026-11-06T03:31:30.102Z",
+    "fetched_at": "2026-11-06T09:27:55.436Z",
     "error": "Unavailable public fields: rating; price_level."
   },
   {
@@ -272,7 +272,7 @@
     "rating": null,
     "review_count": null,
     "price_level": null,
-    "fetched_at": "2026-11-06T03:32:56.926Z",
+    "fetched_at": "2026-11-06T09:29:31.818Z",
     "error": "No branch matched at least two identity fields (name, address, phone) with a platform source URL."
   },
   {
@@ -287,7 +287,7 @@
     "rating": null,
     "review_count": null,
     "price_level": null,
-    "fetched_at": "2026-11-06T03:34:11.593Z",
+    "fetched_at": "2026-11-06T09:29:41.510Z",
     "error": "Empty or private data for provided input"
   }
 ]

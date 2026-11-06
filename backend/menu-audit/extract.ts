@@ -2,6 +2,7 @@ import {load} from 'cheerio';
 import {mkdir} from 'node:fs/promises';
 import {lookup} from 'node:dns/promises';
 import {isIP} from 'node:net';
+import {orderingProvider} from './sources.js';
 import {createHash} from 'node:crypto';
 import {extractDate} from './dates.js';
 export type Price={name:string;category?:string|null;variant:string|null;price:string;currency:string|null;evidence:string};
@@ -18,7 +19,7 @@ export function htmlDocument(html:string,url:string,includePrices=true){
  $('a[href],img[src]').each((_,el)=>{
   const link=$(el).attr('href')||$(el).attr('src')||'';let path='';try{path=new URL(link,url).pathname;}catch{}
   const label=$(el).text()+' '+($(el).attr('alt')||'')+' '+path;
-  if($(el).is('a')&&(/\bmenus?\b|菜单/i.test(label)||/^(?:dinner|lunch|brunch|breakfast)$/i.test($(el).text().trim()))){try{const u=new URL(link,url);if(['http:','https:'].includes(u.protocol))links.push(u.href);}catch{}}
+  if($(el).is('a')&&(/\bmenus?\b|菜单|点餐|外卖|order\s*(?:online|now)|online\s*order/i.test(label)||/^(?:dinner|lunch|brunch|breakfast)$/i.test($(el).text().trim()))){try{const u=new URL(link,url);if(['http:','https:'].includes(u.protocol))links.push(u.href);}catch{}}
  });
  $('img[src]').each((_,el)=>{const node=$(el);let path='';try{path=decodeURIComponent(new URL(node.attr('src')||'',url).pathname);}catch{}
   const label=(node.attr('alt')||'')+' '+(node.attr('class')||'')+' '+path;
@@ -49,8 +50,28 @@ export function htmlDocument(html:string,url:string,includePrices=true){
   const category=node.attr('data-category')||node.attr('data-cat')||section.attr('data-category')||section.find('h2,.menu-section-title').first().text().trim()||null;
   if(name&&price&&/\d/.test(price))prices.push({name,category,variant:null,price,currency:null,evidence:node.html()||''});
  });
+ const host=new URL(url).hostname;
+ if(includePrices&&!prices.length&&host==='pos.chowbus.com')$('[class*="MealCard_main__"]').each((_,el)=>{
+  const node=$(el),name=node.find('[class*="MealCard_mealName__"]').first().text().trim(),price=node.find('[class*="MealCard_mealPrice__"]').first().text().trim();
+  const section=node.closest('[class*="MealWithCategorySection_main__"], [class*="MealWithCategorySection_section__"]');
+  const category=section.find('[class*="MealWithCategorySection_categoryHeader__"], [class*="categoryName"], [class*="categoryTitle"], [class*="CategoryName"], h2').first().text().trim()||null;
+  if(name&&price&&/\d/.test(price))prices.push({name,category,variant:null,price,currency:null,evidence:node.html()||''});
+ });
+ if(includePrices&&!prices.length&&host==='order.mealkeyway.com')$('h2').each((_,el)=>{
+  const heading=$(el),node=heading.parent(),name=heading.text().trim();
+  const labels=node.find('*').toArray().filter(e=>$(e).children().length===0).map(e=>$(e).text().trim());
+  const priceText=labels.find(t=>/^(?:价格[：:]|Price[: ]+)\s*\$\s*\d/.test(t));
+  const visible=node.find('[aria-hidden="true"]').toArray().map(e=>$(e).text().trim()).find(t=>/^\$\s*\d+(?:\.\d+)?(?:[+⁺])?$/.test(t));
+  const price=(priceText?.replace(/^(?:价格[：:]|Price[: ]+)\s*/, '')||visible||'').trim();
+  const section=heading.closest('[role="region"]'),category=section.children('button,[role="button"]').first().text().replace(/\s*\(\d+\).*$/, '').replace(/[\uE000-\uF8FF]/g,'').trim()||null;
+  if(name&&price)prices.push({name,category,variant:null,price,currency:null,evidence:node.html()||''});
+ });
+ if(includePrices&&!prices.length&&/^(www\.|m\.)?yelp\.com$/.test(host))$('.menu-item').each((_,el)=>{
+  const node=$(el),name=node.find('h4').first().text().trim(),price=node.find('.menu-item-price-amount,.menu-item-prices li').text().trim(),category=node.closest('.menu-section').find('h2').first().text().trim()||null;
+  if(name&&price&&/\d/.test(price))prices.push({name,category,variant:null,price,currency:null,evidence:node.html()||''});
+ });
  $('script,style,noscript,nav,footer').remove();$('br').replaceWith('\n');$('p,li,tr,div,h1,h2,h3').each((_,el)=>{$(el).append('\n');});
- const menuEvidence=schemaMenu||$('article.menu-item,.menu-item,article.menu-card,[itemtype="https://schema.org/MenuItem"]').toArray().some(el=>!!$(el).find('h3,h4,.menu-item-name,.menu-card-title').first().text().trim());
+ const menuEvidence=schemaMenu||prices.length>0||$('article.menu-item,.menu-item,article.menu-card,[itemtype="https://schema.org/MenuItem"]').toArray().some(el=>!!$(el).find('h3,h4,.menu-item-name,.menu-card-title').first().text().trim());
  const text=$('body').text().replace(/[ \t]+/g,' ').replace(/\n\s*\n/g,'\n').trim();
  return {text,menuEvidence,menuMedia:[...new Map(menuMedia.map(m=>[m.url,m])).values()],hours,identities,links:[...new Set(links)],prices:includePrices?(prices.length?prices:pricesFromText(text)):[]};
 }
@@ -73,7 +94,7 @@ async function resource(url:string,signal?:AbortSignal){
  }
  throw Error('Too many redirects.');
 }
-export async function readDocument(url:string,signal?:AbortSignal,includePrices=true):Promise<Document>{
+async function readStaticDocument(url:string,signal?:AbortSignal,includePrices=true):Promise<Document>{
  const r=await resource(url,signal),fetched_at=new Date().toISOString();let text='',prices:Price[]=[],links:string[]=[],format:Document['format']='html',metadata=r.modified,extraction='html',menuEvidence=false,menuMedia:Document['menuMedia']=[],hours:any=null,identities:Document['identities']=[];
  if(r.type.includes('pdf')||r.buffer.subarray(0,5).toString()==='%PDF-'){
   format='pdf';extraction='pdf-text';const {getDocument}=await import('pdfjs-dist/legacy/build/pdf.mjs');
@@ -106,4 +127,13 @@ export async function readDocument(url:string,signal?:AbortSignal,includePrices=
   if(text.length<3000&&/verify you are human|access denied|enable javascript|captcha|just a moment/i.test(text))throw Error('Page access restricted or requires interactive rendering.');
  }else throw Error('Unsupported menu resource format.');
  return {url:r.url,format,text,prices,links,date:extractDate(text,metadata),fetched_at,menuEvidence,menuMedia,hours,identities,sha256:createHash('sha256').update(r.buffer).digest('hex'),extraction};
+}
+
+export async function readDocument(url:string,signal?:AbortSignal,includePrices=true):Promise<Document>{
+ const host=new URL(url).hostname,renderable=!!orderingProvider(url)||/^(www\.|m\.)?yelp\.com$/.test(host)&&/^\/menu\//.test(new URL(url).pathname);
+ // Rendering cannot repair a CAPTCHA/login wall; the browser reader detects and reports it.
+ if(renderable&&process.env.MENU_BROWSER_ENABLED!=='false'){
+  const {readRenderedMenu}=await import('./render.js');return readRenderedMenu(url,signal,includePrices);
+ }
+ return readStaticDocument(url,signal,includePrices);
 }

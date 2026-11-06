@@ -1,0 +1,16 @@
+{
+  "base_commit": "f57bf48628e77129620fbe84ac65f94a10c083c9",
+  "dirty": true,
+  "scope": "Local selected-source menu follow-up, not full basic listing/cloud acceptance",
+  "sha256": {
+    "stores.json": "f688a08329623964ccc08aa4ad46c195e1421bfb90333d2bdbe767563c952fbc",
+    "backend/menu-audit/render.ts": "4005a88aabebd4e4a1b3066282862de538f6775074cb22816c5195799427feb2",
+    "backend/menu-audit/extract.ts": "6cd6855351d548f73f9c612857d76165dc13f0f751e8938e3b19a2fa4122bec2",
+    "backend/menu-audit/public.ts": "a39a8e3ae87d5e854dacda45caed88658284f320a575f09a5ddc4694a4c55c1d",
+    "backend/menu-audit/sources.ts": "c398402bfb4301f48f7d127c387501232eeef8f744b1bfa4f82ce49d48712bc7",
+    "backend/menu-audit/cli.ts": "c03b87086b4d147a80212b402c10e85916d4494c4ee8ae2de6f26cfcf424f05b",
+    "backend/weekly/public.ts": "e9c71d6fe34cea4ad527a66e82cfe9d02c8f774d7c933b7d5fc94426b6ac32a4",
+    "backend/weekly/worker.ts": "f217638f1d4c5d852eeba5dfa31ef7fb546556760c8209b15f646b0282b3a543",
+    "backend/audit.ts": "41d7f6bd47a8f5b71013c7dcfc7d308d77967702e0204626f38bf0be47aaf856"
+  }
+}

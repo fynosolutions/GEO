@@ -1,12 +1,6 @@
 {
   "platform_results": [
     {
-      "platform": "doordash",
-      "found": true,
-      "status": "found",
-      "attempts": 1
-    },
-    {
       "platform": "uber_eats",
       "found": true,
       "status": "found",
@@ -19,10 +13,16 @@
       "attempts": 1
     },
     {
-      "platform": "google_maps",
+      "platform": "yelp",
+      "found": true,
+      "status": "found",
+      "attempts": 2
+    },
+    {
+      "platform": "doordash",
       "found": false,
       "status": "incomplete",
-      "attempts": 2
+      "attempts": 1
     },
     {
       "platform": "opentable",
@@ -40,16 +40,16 @@
       "platform": "facebook",
       "found": false,
       "status": "incomplete",
-      "attempts": 2
+      "attempts": 1
     },
     {
       "platform": "official",
-      "found": false,
-      "status": "incomplete",
-      "attempts": 2
+      "found": true,
+      "status": "found",
+      "attempts": 4
     },
     {
-      "platform": "yelp",
+      "platform": "google_maps",
       "found": false,
       "status": "incomplete",
       "attempts": 3
@@ -64,8 +64,8 @@
   "store_id": "020",
   "name": "Easy Joy (Hot Pot, BBQ Skewers, Dim Sum) 意中人火锅烧烤点心",
   "address": "145 Mulberry St, New York, NY 10013",
-  "run_id": "7cee7ef1-b6dc-4152-89c9-229ac6db53cc",
-  "fetched_at": "2026-11-06T03:26:02.233Z",
+  "run_id": "4502cce3-eda6-4b60-893c-c95e2d51a1d6",
+  "fetched_at": "2026-11-06T09:19:42.742Z",
   "mode": "full",
   "selected_platforms": [
     "official",

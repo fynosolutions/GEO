@@ -44,6 +44,8 @@ jobs:
           fi
       - run: npm ci
       - run: npm run build
+      - name: Install menu browser
+        run: npx playwright install --with-deps chromium
       - name: Collect stores
         id: batch
         env:

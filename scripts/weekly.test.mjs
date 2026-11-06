@@ -134,3 +134,15 @@ test('explicit same-day manual comparison detects phone change and leaves origin
  assert.equal(calls,0);
  await assert.rejects(runWeekly({root,stores,compareRun:'baseline',mode:'scheduled',now:new Date('2026-11-09T11:00:00Z'),collect:async()=>records()}),/manual mode/);
 }));
+
+test('configured menu sources reach only the verified branch and validate before collection',()=>fixture(async root=>{
+ const {configuredMenuSources}=await import('../dist/backend/weekly/public.js');
+ const source={channel:'official_html',platform:'official',url:'https://pos.chowbus.com/online-ordering/store/demo/123',identity_verified:true};
+ const configured=[{id:'demo',name:'Demo',address:'1 Main St, New York, NY 10001',place_id:null,menu_sources:[source]}];
+ assert.deepEqual(storesFrom(configured)[0].menu_sources,[source]);
+ assert.throws(()=>storesFrom([{...configured[0],menu_sources:[{...source,url:'https://user:password@example.com/menu'}]}]));
+ assert.throws(()=>storesFrom([{...configured[0],menu_sources:[{...source,identity_verified:'true'}]}]));
+ const path=join(root,'stores.json');await writeFile(path,JSON.stringify(configured));
+ assert.deepEqual(await configuredMenuSources({name:'Demo',address:'1 Main St, New York, NY 10001'},path),[source]);
+ assert.deepEqual(await configuredMenuSources({name:'Demo',address:'2 Main St, New York, NY 10001'},path),[]);
+}));

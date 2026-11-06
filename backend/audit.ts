@@ -2,6 +2,7 @@ import './config.js';
 import { randomUUID } from 'node:crypto';
 import { mkdir, readFile, writeFile, rename } from 'node:fs/promises';
 import { resolve, join } from 'node:path';
+import {configuredMenuSources} from './weekly/public.js';
 import {collectMenuAudit} from './menu-audit/public.js';
 import { collectRestaurant, readVerifiedMenuProviders, type Listing, type CollectionInput, domains } from './collection.js';
 export const outputFields=['platform','found','matched','url','name','address','phone','hours','rating','review_count','price_level','fetched_at','error'];
@@ -33,7 +34,7 @@ export async function startJob(input:CollectionInput,menuMode?:'links'|'full',me
   if(menuMode&&!controller.signal.aborted){
    job.status='running';job.menu_status='running';await saveJob(job);
    try{
-    job.menu_result=await collectMenuAudit({store_id:job.id,name:result.name,address:result.address,website:result.website,website_verified:!!result.website,records:menuScope==='all_channels'&&!result.records.some(r=>r.platform==='google_maps')?[result.google_record,...result.records]:result.records,provider_results:await readVerifiedMenuProviders(result.directory,result.records)},{signal:controller.signal,discover:true,platforms:menuScope==='all_channels'?undefined:input.platforms,mode:menuMode});
+    job.menu_result=await collectMenuAudit({store_id:job.id,name:result.name,address:result.address,website:result.website,website_verified:!!result.website,sources:await configuredMenuSources(result.google_record),records:menuScope==='all_channels'&&!result.records.some(r=>r.platform==='google_maps')?[result.google_record,...result.records]:result.records,provider_results:await readVerifiedMenuProviders(result.directory,result.records)},{signal:controller.signal,discover:true,platforms:menuScope==='all_channels'?undefined:input.platforms,mode:menuMode});
     job.menu_status=controller.signal.aborted?'cancelled':job.menu_result.summary.coverage_complete?'completed':'partial';
    }catch{job.menu_status=controller.signal.aborted?'cancelled':'failed';job.menu_error='Menu collection could not complete; basic listing data was retained.';}
    job.status=controller.signal.aborted?'cancelled':job.menu_status==='completed'&&!result.records.some(r=>r.error)?'completed':'partial';

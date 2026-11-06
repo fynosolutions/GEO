@@ -1,0 +1,55 @@
+{
+  "selection": "First five exact-name matches in independent visible page order; no cart/login actions",
+  "checks": [
+    {
+      "name": "Crispy Chicken Burger",
+      "channel": "yelp",
+      "json_price": "6.88",
+      "page_price": "$6.88",
+      "pass": true,
+      "url": "https://www.yelp.com/menu/frydom-express-brooklyn",
+      "fetched_at": "2026-11-06T09:32:08.981Z",
+      "page_checked_at": "2026-11-06T09:25:41.812Z"
+    },
+    {
+      "name": "Angus Beef Cheeseburger",
+      "channel": "yelp",
+      "json_price": "9.08",
+      "page_price": "$9.08",
+      "pass": true,
+      "url": "https://www.yelp.com/menu/frydom-express-brooklyn",
+      "fetched_at": "2026-11-06T09:32:08.981Z",
+      "page_checked_at": "2026-11-06T09:25:41.812Z"
+    },
+    {
+      "name": "Chicken Wrap",
+      "channel": "yelp",
+      "json_price": "6.55",
+      "page_price": "$6.55",
+      "pass": true,
+      "url": "https://www.yelp.com/menu/frydom-express-brooklyn",
+      "fetched_at": "2026-11-06T09:32:08.981Z",
+      "page_checked_at": "2026-11-06T09:25:41.812Z"
+    },
+    {
+      "name": "Chicken Wing(6 Pics)",
+      "channel": "yelp",
+      "json_price": "8.75",
+      "page_price": "$8.75",
+      "pass": true,
+      "url": "https://www.yelp.com/menu/frydom-express-brooklyn",
+      "fetched_at": "2026-11-06T09:32:08.981Z",
+      "page_checked_at": "2026-11-06T09:25:41.812Z"
+    },
+    {
+      "name": "Crispy Fish Fillet Burger",
+      "channel": "yelp",
+      "json_price": "7.65",
+      "page_price": "$7.65",
+      "pass": true,
+      "url": "https://www.yelp.com/menu/frydom-express-brooklyn",
+      "fetched_at": "2026-11-06T09:32:08.981Z",
+      "page_checked_at": "2026-11-06T09:25:41.812Z"
+    }
+  ]
+}

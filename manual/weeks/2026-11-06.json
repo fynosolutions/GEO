@@ -1,0 +1,33 @@
+{
+  "run_id": "3563fd9d-97cc-4a95-9a6d-9354ac27189f",
+  "date": "2026-11-06",
+  "previous_week": "2026-10-30",
+  "mode": "manual",
+  "started_at": "2026-11-06T05:59:59.598Z",
+  "finished_at": "2026-11-06T06:12:20.530Z",
+  "code_sha": "f57bf48628e77129620fbe84ac65f94a10c083c9",
+  "config_hash": "8ceb384d8a4b12e24cd1dfd6ede53599438fc3abbd1e61d70fed192fe4d4f761",
+  "stores": [
+    {
+      "id": "020",
+      "name": "Easy Joy Dim Sum & AYCE Hot Pot",
+      "address": "145 Mulberry St, New York, NY 10013",
+      "place_id": "ChIJhRc3tYlZwokRbR4dwpc-0qI",
+      "website": "https://www.easyjoybuffet.com/",
+      "menu_error": "Menu channels incomplete; inspect stored menu details.",
+      "status": "partial"
+    },
+    {
+      "id": "001",
+      "name": "Frydom Express",
+      "address": "781 61st St, Brooklyn, NY 11220",
+      "place_id": "ChIJQ0XcUgBFwokRe90ZIiGy_G8",
+      "website": "https://www.frydomexpress.com/",
+      "menu_error": "Menu channels incomplete; inspect stored menu details.",
+      "status": "partial"
+    }
+  ],
+  "menu_comparison": "provided",
+  "canonical": true,
+  "comparison_run": null
+}

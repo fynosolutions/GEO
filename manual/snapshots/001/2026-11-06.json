@@ -1,0 +1,172 @@
+[
+  {
+    "platform": "google_maps",
+    "found": true,
+    "matched": true,
+    "url": "https://www.google.com/maps/search/?api=1&query=Frydom%20Express&query_place_id=ChIJQ0XcUgBFwokRe90ZIiGy_G8",
+    "name": "Frydom Express",
+    "address": "781 61st St, Brooklyn, NY 11220",
+    "phone": "(929) 805-0718",
+    "hours": [
+      {
+        "day": "Monday",
+        "hours": "11 AM to 9 PM"
+      },
+      {
+        "day": "Tuesday",
+        "hours": "11 AM to 9 PM"
+      },
+      {
+        "day": "Wednesday",
+        "hours": "11 AM to 9 PM"
+      },
+      {
+        "day": "Thursday",
+        "hours": "11 AM to 9 PM"
+      },
+      {
+        "day": "Friday",
+        "hours": "11 AM to 10 PM"
+      },
+      {
+        "day": "Saturday",
+        "hours": "11 AM to 10 PM"
+      },
+      {
+        "day": "Sunday",
+        "hours": "11 AM to 9 PM"
+      }
+    ],
+    "rating": 4.6,
+    "review_count": 119,
+    "price_level": "$10–20",
+    "fetched_at": "2026-11-06T06:07:30.446Z",
+    "error": null
+  },
+  {
+    "platform": "yelp",
+    "found": false,
+    "matched": false,
+    "url": null,
+    "name": null,
+    "address": null,
+    "phone": null,
+    "hours": null,
+    "rating": null,
+    "review_count": null,
+    "price_level": null,
+    "fetched_at": "2026-11-06T06:08:48.330Z",
+    "error": "No Yelp branch verified after 0 distinct candidate attempt(s) (maximum 3). No untried Yelp branch candidates were found."
+  },
+  {
+    "platform": "tripadvisor",
+    "found": false,
+    "matched": false,
+    "url": null,
+    "name": null,
+    "address": null,
+    "phone": null,
+    "hours": null,
+    "rating": null,
+    "review_count": null,
+    "price_level": null,
+    "fetched_at": "2026-11-06T06:09:11.706Z",
+    "error": null
+  },
+  {
+    "platform": "opentable",
+    "found": false,
+    "matched": false,
+    "url": null,
+    "name": null,
+    "address": null,
+    "phone": null,
+    "hours": null,
+    "rating": null,
+    "review_count": null,
+    "price_level": null,
+    "fetched_at": "2026-11-06T06:09:28.311Z",
+    "error": null
+  },
+  {
+    "platform": "doordash",
+    "found": false,
+    "matched": false,
+    "url": null,
+    "name": null,
+    "address": null,
+    "phone": null,
+    "hours": null,
+    "rating": null,
+    "review_count": null,
+    "price_level": null,
+    "fetched_at": "2026-11-06T06:09:42.872Z",
+    "error": "No branch matched at least two identity fields (name, address, phone) with a platform source URL."
+  },
+  {
+    "platform": "uber_eats",
+    "found": true,
+    "matched": true,
+    "url": "https://www.ubereats.com/en-US/store/frydom-express-fried-chicken-%E9%A3%9E%E4%B9%90%E7%82%B8%E9%B8%A1-781-61st-street/OLdZQvsVXzWCMBpsf9uctg",
+    "name": "Frydom Express Fried Chicken 飞乐炸鸡 (781 61st Street)",
+    "address": "781 61st Street, Brooklyn, NY, 11220, US",
+    "phone": "+19298050792",
+    "hours": [
+      {
+        "dayRange": "Sunday - Thursday",
+        "sectionHours": [
+          {
+            "startTime": 660,
+            "endTime": 1230,
+            "sectionTitle": ""
+          }
+        ]
+      },
+      {
+        "dayRange": "Friday - Saturday",
+        "sectionHours": [
+          {
+            "startTime": 660,
+            "endTime": 1290,
+            "sectionTitle": ""
+          }
+        ]
+      }
+    ],
+    "rating": null,
+    "review_count": 43,
+    "price_level": null,
+    "fetched_at": "2026-11-06T06:09:55.471Z",
+    "error": "Unavailable public fields: rating; price_level."
+  },
+  {
+    "platform": "grubhub",
+    "found": false,
+    "matched": false,
+    "url": null,
+    "name": null,
+    "address": null,
+    "phone": null,
+    "hours": null,
+    "rating": null,
+    "review_count": null,
+    "price_level": null,
+    "fetched_at": "2026-11-06T06:10:36.619Z",
+    "error": "No branch matched at least two identity fields (name, address, phone) with a platform source URL."
+  },
+  {
+    "platform": "facebook",
+    "found": false,
+    "matched": false,
+    "url": null,
+    "name": null,
+    "address": null,
+    "phone": null,
+    "hours": null,
+    "rating": null,
+    "review_count": null,
+    "price_level": null,
+    "fetched_at": "2026-11-06T06:10:43.052Z",
+    "error": "Empty or private data for provided input"
+  }
+]

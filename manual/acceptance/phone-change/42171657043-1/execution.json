@@ -1,0 +1,9 @@
+{
+  "environment": "github-actions",
+  "github_run_id": "42171657043",
+  "source_run": "3563fd9d-97cc-4a95-9a6d-9354ac27189f",
+  "baseline_run": "baseline-1793945540580",
+  "comparison_run": "changed-1793945540580",
+  "synthetic": true,
+  "extra_actor_calls": 0
+}

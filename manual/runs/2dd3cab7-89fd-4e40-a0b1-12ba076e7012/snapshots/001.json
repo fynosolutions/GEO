@@ -1,0 +1,293 @@
+[
+  {
+    "platform": "google_maps",
+    "found": true,
+    "matched": true,
+    "url": "https://www.google.com/maps/search/?api=1&query=Frydom%20Express&query_place_id=ChIJQ0XcUgBFwokRe90ZIiGy_G8",
+    "name": "Frydom Express",
+    "address": "781 61st St, Brooklyn, NY 11220",
+    "phone": "(929) 805-0718",
+    "hours": [
+      {
+        "day": "Monday",
+        "hours": "11 AM to 9 PM"
+      },
+      {
+        "day": "Tuesday",
+        "hours": "11 AM to 9 PM"
+      },
+      {
+        "day": "Wednesday",
+        "hours": "11 AM to 9 PM"
+      },
+      {
+        "day": "Thursday",
+        "hours": "11 AM to 9 PM"
+      },
+      {
+        "day": "Friday",
+        "hours": "11 AM to 10 PM"
+      },
+      {
+        "day": "Saturday",
+        "hours": "11 AM to 10 PM"
+      },
+      {
+        "day": "Sunday",
+        "hours": "11 AM to 9 PM"
+      }
+    ],
+    "rating": 4.6,
+    "review_count": 119,
+    "price_level": "$10–20",
+    "fetched_at": "2026-11-06T10:28:06.570Z",
+    "error": null
+  },
+  {
+    "platform": "yelp",
+    "found": true,
+    "matched": true,
+    "url": "https://www.yelp.com/biz/frydom-express-brooklyn",
+    "name": "Frydom Express",
+    "address": {
+      "city": "Brooklyn",
+      "regionCode": "NY",
+      "addressLine1": "781 61st St",
+      "addressLine2": "",
+      "addressLine3": null,
+      "postalCode": "11220",
+      "country": "US"
+    },
+    "phone": "(929) 805-0718",
+    "hours": [
+      {
+        "hours": [
+          "11:00 AM - 9:00 PM"
+        ],
+        "regularHours": [
+          "11:00 AM - 9:00 PM"
+        ],
+        "regularHoursRaw": [
+          [
+            660,
+            1260
+          ]
+        ],
+        "hasSpecialHours": false,
+        "dayOfWeekShort": "Mon"
+      },
+      {
+        "hours": [
+          "11:00 AM - 9:00 PM"
+        ],
+        "regularHours": [
+          "11:00 AM - 9:00 PM"
+        ],
+        "regularHoursRaw": [
+          [
+            2100,
+            2700
+          ]
+        ],
+        "hasSpecialHours": false,
+        "dayOfWeekShort": "Tue"
+      },
+      {
+        "hours": [
+          "11:00 AM - 9:00 PM"
+        ],
+        "regularHours": [
+          "11:00 AM - 9:00 PM"
+        ],
+        "regularHoursRaw": [
+          [
+            3540,
+            4140
+          ]
+        ],
+        "hasSpecialHours": false,
+        "dayOfWeekShort": "Wed"
+      },
+      {
+        "hours": [
+          "11:00 AM - 9:00 PM"
+        ],
+        "regularHours": [
+          "11:00 AM - 9:00 PM"
+        ],
+        "regularHoursRaw": [
+          [
+            4980,
+            5580
+          ]
+        ],
+        "hasSpecialHours": false,
+        "dayOfWeekShort": "Thu"
+      },
+      {
+        "hours": [
+          "11:00 AM - 10:00 PM"
+        ],
+        "regularHours": [
+          "11:00 AM - 10:00 PM"
+        ],
+        "regularHoursRaw": [
+          [
+            6420,
+            7080
+          ]
+        ],
+        "hasSpecialHours": false,
+        "dayOfWeekShort": "Fri"
+      },
+      {
+        "hours": [
+          "11:00 AM - 10:00 PM"
+        ],
+        "regularHours": [
+          "11:00 AM - 10:00 PM"
+        ],
+        "regularHoursRaw": [
+          [
+            7860,
+            8520
+          ]
+        ],
+        "hasSpecialHours": false,
+        "dayOfWeekShort": "Sat"
+      },
+      {
+        "hours": [
+          "11:00 AM - 9:00 PM"
+        ],
+        "regularHours": [
+          "11:00 AM - 9:00 PM"
+        ],
+        "regularHoursRaw": [
+          [
+            9300,
+            9900
+          ]
+        ],
+        "hasSpecialHours": false,
+        "dayOfWeekShort": "Sun"
+      }
+    ],
+    "rating": 5,
+    "review_count": 3,
+    "price_level": null,
+    "fetched_at": "2026-11-06T10:29:02.615Z",
+    "error": "Unavailable public fields: price_level."
+  },
+  {
+    "platform": "tripadvisor",
+    "found": false,
+    "matched": false,
+    "url": null,
+    "name": null,
+    "address": null,
+    "phone": null,
+    "hours": null,
+    "rating": null,
+    "review_count": null,
+    "price_level": null,
+    "fetched_at": "2026-11-06T10:29:11.174Z",
+    "error": null
+  },
+  {
+    "platform": "opentable",
+    "found": false,
+    "matched": false,
+    "url": null,
+    "name": null,
+    "address": null,
+    "phone": null,
+    "hours": null,
+    "rating": null,
+    "review_count": null,
+    "price_level": null,
+    "fetched_at": "2026-11-06T10:29:17.651Z",
+    "error": null
+  },
+  {
+    "platform": "doordash",
+    "found": false,
+    "matched": false,
+    "url": null,
+    "name": null,
+    "address": null,
+    "phone": null,
+    "hours": null,
+    "rating": null,
+    "review_count": null,
+    "price_level": null,
+    "fetched_at": "2026-11-06T10:29:30.638Z",
+    "error": "No branch matched at least two identity fields (name, address, phone) with a platform source URL."
+  },
+  {
+    "platform": "uber_eats",
+    "found": true,
+    "matched": true,
+    "url": "https://www.ubereats.com/en-US/store/frydom-express-fried-chicken-%E9%A3%9E%E4%B9%90%E7%82%B8%E9%B8%A1-781-61st-street/OLdZQvsVXzWCMBpsf9uctg",
+    "name": "Frydom Express Fried Chicken 飞乐炸鸡 (781 61st Street)",
+    "address": "781 61st Street, Brooklyn, NY, 11220, US",
+    "phone": "+19298050792",
+    "hours": [
+      {
+        "dayRange": "Sunday - Thursday",
+        "sectionHours": [
+          {
+            "startTime": 660,
+            "endTime": 1230,
+            "sectionTitle": ""
+          }
+        ]
+      },
+      {
+        "dayRange": "Friday - Saturday",
+        "sectionHours": [
+          {
+            "startTime": 660,
+            "endTime": 1290,
+            "sectionTitle": ""
+          }
+        ]
+      }
+    ],
+    "rating": null,
+    "review_count": 43,
+    "price_level": null,
+    "fetched_at": "2026-11-06T10:29:59.645Z",
+    "error": "Unavailable public fields: rating; price_level."
+  },
+  {
+    "platform": "grubhub",
+    "found": false,
+    "matched": false,
+    "url": null,
+    "name": null,
+    "address": null,
+    "phone": null,
+    "hours": null,
+    "rating": null,
+    "review_count": null,
+    "price_level": null,
+    "fetched_at": "2026-11-06T10:30:45.436Z",
+    "error": "No branch matched at least two identity fields (name, address, phone) with a platform source URL."
+  },
+  {
+    "platform": "facebook",
+    "found": false,
+    "matched": false,
+    "url": null,
+    "name": null,
+    "address": null,
+    "phone": null,
+    "hours": null,
+    "rating": null,
+    "review_count": null,
+    "price_level": null,
+    "fetched_at": "2026-11-06T10:30:54.094Z",
+    "error": "Empty or private data for provided input"
+  }
+]

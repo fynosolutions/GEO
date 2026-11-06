@@ -1,0 +1,138 @@
+[
+  {
+    "platform": "yelp",
+    "found": true,
+    "matched": true,
+    "url": "https://www.yelp.com/biz/frydom-express-brooklyn",
+    "name": "Frydom Express",
+    "address": {
+      "city": "Brooklyn",
+      "regionCode": "NY",
+      "addressLine1": "781 61st St",
+      "addressLine2": "",
+      "addressLine3": null,
+      "postalCode": "11220",
+      "country": "US"
+    },
+    "phone": "(929) 805-0718",
+    "hours": [
+      {
+        "hours": [
+          "11:00 AM - 9:00 PM"
+        ],
+        "regularHours": [
+          "11:00 AM - 9:00 PM"
+        ],
+        "regularHoursRaw": [
+          [
+            660,
+            1260
+          ]
+        ],
+        "hasSpecialHours": false,
+        "dayOfWeekShort": "Mon"
+      },
+      {
+        "hours": [
+          "11:00 AM - 9:00 PM"
+        ],
+        "regularHours": [
+          "11:00 AM - 9:00 PM"
+        ],
+        "regularHoursRaw": [
+          [
+            2100,
+            2700
+          ]
+        ],
+        "hasSpecialHours": false,
+        "dayOfWeekShort": "Tue"
+      },
+      {
+        "hours": [
+          "11:00 AM - 9:00 PM"
+        ],
+        "regularHours": [
+          "11:00 AM - 9:00 PM"
+        ],
+        "regularHoursRaw": [
+          [
+            3540,
+            4140
+          ]
+        ],
+        "hasSpecialHours": false,
+        "dayOfWeekShort": "Wed"
+      },
+      {
+        "hours": [
+          "11:00 AM - 9:00 PM"
+        ],
+        "regularHours": [
+          "11:00 AM - 9:00 PM"
+        ],
+        "regularHoursRaw": [
+          [
+            4980,
+            5580
+          ]
+        ],
+        "hasSpecialHours": false,
+        "dayOfWeekShort": "Thu"
+      },
+      {
+        "hours": [
+          "11:00 AM - 10:00 PM"
+        ],
+        "regularHours": [
+          "11:00 AM - 10:00 PM"
+        ],
+        "regularHoursRaw": [
+          [
+            6420,
+            7080
+          ]
+        ],
+        "hasSpecialHours": false,
+        "dayOfWeekShort": "Fri"
+      },
+      {
+        "hours": [
+          "11:00 AM - 10:00 PM"
+        ],
+        "regularHours": [
+          "11:00 AM - 10:00 PM"
+        ],
+        "regularHoursRaw": [
+          [
+            7860,
+            8520
+          ]
+        ],
+        "hasSpecialHours": false,
+        "dayOfWeekShort": "Sat"
+      },
+      {
+        "hours": [
+          "11:00 AM - 9:00 PM"
+        ],
+        "regularHours": [
+          "11:00 AM - 9:00 PM"
+        ],
+        "regularHoursRaw": [
+          [
+            9300,
+            9900
+          ]
+        ],
+        "hasSpecialHours": false,
+        "dayOfWeekShort": "Sun"
+      }
+    ],
+    "rating": 5,
+    "review_count": 3,
+    "price_level": null,
+    "fetched_at": "2026-11-06T12:14:50.894Z",
+    "error": "Unavailable public fields: price_level."
+  }
+]

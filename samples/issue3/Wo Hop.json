@@ -1,0 +1,138 @@
+[
+  {
+    "platform": "yelp",
+    "found": true,
+    "matched": true,
+    "url": "https://www.yelp.com/biz/wo-hop-new-york?start=5",
+    "name": "Wo Hop",
+    "address": {
+      "city": "New York",
+      "regionCode": "NY",
+      "addressLine1": "17 Mott St",
+      "addressLine2": "",
+      "addressLine3": "",
+      "postalCode": "10013",
+      "country": "US"
+    },
+    "phone": "(212) 962-8617",
+    "hours": [
+      {
+        "hours": [
+          "10:30 AM - 10:00 PM"
+        ],
+        "regularHours": [
+          "10:30 AM - 10:00 PM"
+        ],
+        "regularHoursRaw": [
+          [
+            630,
+            1320
+          ]
+        ],
+        "hasSpecialHours": false,
+        "dayOfWeekShort": "Mon"
+      },
+      {
+        "hours": [
+          "10:30 AM - 10:00 PM"
+        ],
+        "regularHours": [
+          "10:30 AM - 10:00 PM"
+        ],
+        "regularHoursRaw": [
+          [
+            2070,
+            2760
+          ]
+        ],
+        "hasSpecialHours": false,
+        "dayOfWeekShort": "Tue"
+      },
+      {
+        "hours": [
+          "10:30 AM - 10:00 PM"
+        ],
+        "regularHours": [
+          "10:30 AM - 10:00 PM"
+        ],
+        "regularHoursRaw": [
+          [
+            3510,
+            4200
+          ]
+        ],
+        "hasSpecialHours": false,
+        "dayOfWeekShort": "Wed"
+      },
+      {
+        "hours": [
+          "10:30 AM - 10:00 PM"
+        ],
+        "regularHours": [
+          "10:30 AM - 10:00 PM"
+        ],
+        "regularHoursRaw": [
+          [
+            4950,
+            5640
+          ]
+        ],
+        "hasSpecialHours": false,
+        "dayOfWeekShort": "Thu"
+      },
+      {
+        "hours": [
+          "10:30 AM - 10:00 PM"
+        ],
+        "regularHours": [
+          "10:30 AM - 10:00 PM"
+        ],
+        "regularHoursRaw": [
+          [
+            6390,
+            7080
+          ]
+        ],
+        "hasSpecialHours": false,
+        "dayOfWeekShort": "Fri"
+      },
+      {
+        "hours": [
+          "10:30 AM - 10:00 PM"
+        ],
+        "regularHours": [
+          "10:30 AM - 10:00 PM"
+        ],
+        "regularHoursRaw": [
+          [
+            7830,
+            8520
+          ]
+        ],
+        "hasSpecialHours": false,
+        "dayOfWeekShort": "Sat"
+      },
+      {
+        "hours": [
+          "10:30 AM - 9:00 PM"
+        ],
+        "regularHours": [
+          "10:30 AM - 9:00 PM"
+        ],
+        "regularHoursRaw": [
+          [
+            9270,
+            9900
+          ]
+        ],
+        "hasSpecialHours": false,
+        "dayOfWeekShort": "Sun"
+      }
+    ],
+    "rating": 3.8,
+    "review_count": 2033,
+    "price_level": "$11-30",
+    "fetched_at": "2026-11-06T12:07:45.990Z",
+    "error": null
+  }
+]

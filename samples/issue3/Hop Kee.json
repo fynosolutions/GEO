@@ -1,0 +1,138 @@
+[
+  {
+    "platform": "yelp",
+    "found": true,
+    "matched": true,
+    "url": "https://www.yelp.com/biz/hop-kee-new-york?start=280",
+    "name": "Hop Kee",
+    "address": {
+      "addressLine1": "21 Mott St",
+      "addressLine2": "",
+      "addressLine3": "",
+      "city": "New York",
+      "regionCode": "NY",
+      "postalCode": "10013",
+      "country": "US"
+    },
+    "phone": "(212) 964-8365",
+    "hours": [
+      {
+        "hours": [
+          "11:00 AM - 9:00 PM"
+        ],
+        "regularHours": [
+          "11:00 AM - 9:00 PM"
+        ],
+        "regularHoursRaw": [
+          [
+            660,
+            1260
+          ]
+        ],
+        "hasSpecialHours": false,
+        "dayOfWeekShort": "Mon"
+      },
+      {
+        "hours": [
+          "11:00 AM - 9:00 PM"
+        ],
+        "regularHours": [
+          "11:00 AM - 9:00 PM"
+        ],
+        "regularHoursRaw": [
+          [
+            2100,
+            2700
+          ]
+        ],
+        "hasSpecialHours": false,
+        "dayOfWeekShort": "Tue"
+      },
+      {
+        "hours": [
+          "11:00 AM - 9:00 PM"
+        ],
+        "regularHours": [
+          "11:00 AM - 9:00 PM"
+        ],
+        "regularHoursRaw": [
+          [
+            3540,
+            4140
+          ]
+        ],
+        "hasSpecialHours": false,
+        "dayOfWeekShort": "Wed"
+      },
+      {
+        "hours": [
+          "11:00 AM - 9:00 PM"
+        ],
+        "regularHours": [
+          "11:00 AM - 9:00 PM"
+        ],
+        "regularHoursRaw": [
+          [
+            4980,
+            5580
+          ]
+        ],
+        "hasSpecialHours": false,
+        "dayOfWeekShort": "Thu"
+      },
+      {
+        "hours": [
+          "11:00 AM - 9:00 PM"
+        ],
+        "regularHours": [
+          "11:00 AM - 9:00 PM"
+        ],
+        "regularHoursRaw": [
+          [
+            6420,
+            7020
+          ]
+        ],
+        "hasSpecialHours": false,
+        "dayOfWeekShort": "Fri"
+      },
+      {
+        "hours": [
+          "11:00 AM - 9:00 PM"
+        ],
+        "regularHours": [
+          "11:00 AM - 9:00 PM"
+        ],
+        "regularHoursRaw": [
+          [
+            7860,
+            8460
+          ]
+        ],
+        "hasSpecialHours": false,
+        "dayOfWeekShort": "Sat"
+      },
+      {
+        "hours": [
+          "11:00 AM - 9:00 PM"
+        ],
+        "regularHours": [
+          "11:00 AM - 9:00 PM"
+        ],
+        "regularHoursRaw": [
+          [
+            9300,
+            9900
+          ]
+        ],
+        "hasSpecialHours": false,
+        "dayOfWeekShort": "Sun"
+      }
+    ],
+    "rating": 3.7,
+    "review_count": 1019,
+    "price_level": "$11-30",
+    "fetched_at": "2026-11-06T11:59:43.466Z",
+    "error": null
+  }
+]

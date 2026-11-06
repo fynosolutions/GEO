@@ -1,7 +1,5 @@
-# Wrong-address acceptance
+# 错误地址反例
 
-Real command: `npm run collect -- --name "Hop Lee" --address "21 Mott St, New York, NY 10013" --platforms yelp`.
+人工测试输入 Hop Kee 店名与 Wo Hop 的地址（17 Mott St, New York, NY 10013），详见核对表最后一行。
 
-Hop Lee's observed address is 16 Mott St; 21 Mott St belongs to similarly named Hop Kee. References: https://www.tripadvisor.com/Restaurant_Review-g60763-d1063572-Reviews-Hop_Lee-New_York_City_New_York.html and https://onepagerapp.com/hopkee .
-
-The real collector exited 2 (no found listing, expected for this negative test). Its original JSON is copied unchanged. Assertions passed: found:false, matched:false, and all merchant fields null. Google identity rejection prevented scraping the wrong Yelp merchant. This completes the wrong-match example only, not the five successful Yelp samples or the three independent Yelp page checks.
+对应 `wrong-match.json` 的采集时间为 `2026-11-06T12:53:07.846Z`。结果为 `found:false`、`matched:false`，店名、地址、电话、营业时间、评分、评论数和价格档位均为 null。Google Maps 未确认输入的门店身份，后续 Yelp 采集未启动，没有返回其他门店的资料。JSON 保留原始采集结果。

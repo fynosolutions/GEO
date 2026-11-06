@@ -1,0 +1,133 @@
+[
+  {
+    "platform": "yelp",
+    "found": true,
+    "matched": true,
+    "url": "https://www.yelp.com/biz/sun-hop-lee-new-york",
+    "name": "Sun Hop Lee",
+    "address": {
+      "addressLine1": "16 Mott St",
+      "addressLine2": "",
+      "addressLine3": null,
+      "city": "New York",
+      "regionCode": "NY",
+      "postalCode": "10013",
+      "country": "US"
+    },
+    "phone": "(212) 962-6475",
+    "hours": [
+      {
+        "hours": [
+          "11:00 AM - 9:00 PM"
+        ],
+        "regularHours": [
+          "11:00 AM - 9:00 PM"
+        ],
+        "regularHoursRaw": [
+          [
+            660,
+            1260
+          ]
+        ],
+        "hasSpecialHours": false,
+        "dayOfWeekShort": "Mon"
+      },
+      {
+        "hours": [
+          "11:00 AM - 9:00 PM"
+        ],
+        "regularHours": [
+          "11:00 AM - 9:00 PM"
+        ],
+        "regularHoursRaw": [
+          [
+            2100,
+            2700
+          ]
+        ],
+        "hasSpecialHours": false,
+        "dayOfWeekShort": "Tue"
+      },
+      {
+        "hours": [
+          "11:00 AM - 9:00 PM"
+        ],
+        "regularHours": [
+          "11:00 AM - 9:00 PM"
+        ],
+        "regularHoursRaw": [
+          [
+            3540,
+            4140
+          ]
+        ],
+        "hasSpecialHours": false,
+        "dayOfWeekShort": "Wed"
+      },
+      {
+        "hours": [
+          "11:00 AM - 9:00 PM"
+        ],
+        "regularHours": [
+          "11:00 AM - 9:00 PM"
+        ],
+        "regularHoursRaw": [
+          [
+            4980,
+            5580
+          ]
+        ],
+        "hasSpecialHours": false,
+        "dayOfWeekShort": "Thu"
+      },
+      {
+        "hours": [
+          "11:00 AM - 9:00 PM"
+        ],
+        "regularHours": [
+          "11:00 AM - 9:00 PM"
+        ],
+        "regularHoursRaw": [
+          [
+            6420,
+            7020
+          ]
+        ],
+        "hasSpecialHours": false,
+        "dayOfWeekShort": "Fri"
+      },
+      {
+        "hours": [
+          "11:00 AM - 9:00 PM"
+        ],
+        "regularHours": [
+          "11:00 AM - 9:00 PM"
+        ],
+        "regularHoursRaw": [
+          [
+            7860,
+            8460
+          ]
+        ],
+        "hasSpecialHours": false,
+        "dayOfWeekShort": "Sat"
+      },
+      {
+        "hours": [
+          "Closed"
+        ],
+        "regularHours": [
+          "Closed"
+        ],
+        "regularHoursRaw": [],
+        "hasSpecialHours": false,
+        "dayOfWeekShort": "Sun"
+      }
+    ],
+    "rating": 5,
+    "review_count": 3,
+    "price_level": null,
+    "fetched_at": "2026-11-06T12:03:29.283Z",
+    "error": "Unavailable public fields: price_level."
+  }
+]

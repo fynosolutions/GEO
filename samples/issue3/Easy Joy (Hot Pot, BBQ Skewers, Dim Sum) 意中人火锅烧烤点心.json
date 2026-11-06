@@ -1,0 +1,138 @@
+[
+  {
+    "platform": "yelp",
+    "found": true,
+    "matched": true,
+    "url": "https://www.yelp.com/biz/easy-joy-dim-sum-and-ayce-hot-pot-new-york",
+    "name": "Easy Joy Dim Sum & AYCE Hot Pot",
+    "address": {
+      "city": "New York",
+      "regionCode": "NY",
+      "addressLine1": "145 Mulberry St",
+      "addressLine2": "",
+      "addressLine3": null,
+      "postalCode": "10013",
+      "country": "US"
+    },
+    "phone": "(929) 243-6130",
+    "hours": [
+      {
+        "hours": [
+          "10:00 AM - 10:30 PM"
+        ],
+        "regularHours": [
+          "10:00 AM - 10:30 PM"
+        ],
+        "regularHoursRaw": [
+          [
+            600,
+            1350
+          ]
+        ],
+        "hasSpecialHours": false,
+        "dayOfWeekShort": "Mon"
+      },
+      {
+        "hours": [
+          "10:00 AM - 10:30 PM"
+        ],
+        "regularHours": [
+          "10:00 AM - 10:30 PM"
+        ],
+        "regularHoursRaw": [
+          [
+            2040,
+            2790
+          ]
+        ],
+        "hasSpecialHours": false,
+        "dayOfWeekShort": "Tue"
+      },
+      {
+        "hours": [
+          "10:00 AM - 10:30 PM"
+        ],
+        "regularHours": [
+          "10:00 AM - 10:30 PM"
+        ],
+        "regularHoursRaw": [
+          [
+            3480,
+            4230
+          ]
+        ],
+        "hasSpecialHours": false,
+        "dayOfWeekShort": "Wed"
+      },
+      {
+        "hours": [
+          "10:00 AM - 10:30 PM"
+        ],
+        "regularHours": [
+          "10:00 AM - 10:30 PM"
+        ],
+        "regularHoursRaw": [
+          [
+            4920,
+            5670
+          ]
+        ],
+        "hasSpecialHours": false,
+        "dayOfWeekShort": "Thu"
+      },
+      {
+        "hours": [
+          "10:00 AM - 10:30 PM"
+        ],
+        "regularHours": [
+          "10:00 AM - 10:30 PM"
+        ],
+        "regularHoursRaw": [
+          [
+            6360,
+            7110
+          ]
+        ],
+        "hasSpecialHours": false,
+        "dayOfWeekShort": "Fri"
+      },
+      {
+        "hours": [
+          "10:00 AM - 10:30 PM"
+        ],
+        "regularHours": [
+          "10:00 AM - 10:30 PM"
+        ],
+        "regularHoursRaw": [
+          [
+            7800,
+            8550
+          ]
+        ],
+        "hasSpecialHours": false,
+        "dayOfWeekShort": "Sat"
+      },
+      {
+        "hours": [
+          "10:00 AM - 10:30 PM"
+        ],
+        "regularHours": [
+          "10:00 AM - 10:30 PM"
+        ],
+        "regularHoursRaw": [
+          [
+            9240,
+            9990
+          ]
+        ],
+        "hasSpecialHours": false,
+        "dayOfWeekShort": "Sun"
+      }
+    ],
+    "rating": 4.5,
+    "review_count": 84,
+    "price_level": "$31-60",
+    "fetched_at": "2026-11-06T12:12:47.641Z",
+    "error": null
+  }
+]

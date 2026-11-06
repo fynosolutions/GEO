@@ -76,7 +76,7 @@ export function compare(store:Store,current:SnapshotListing[],previous:SnapshotL
 }
 async function readOptional(path:string):Promise<any|null>{try{return JSON.parse(await readFile(path,'utf8'));}catch(e){if((e as NodeJS.ErrnoException).code==='ENOENT')return null;throw e;}}
 async function atomic(path:string,value:unknown,text=false){await mkdir(join(path,'..'),{recursive:true});const tmp=path+'.'+randomUUID()+'.tmp';await writeFile(tmp,text?String(value):JSON.stringify(value,null,2)+'\n');await rename(tmp,path);}
-export async function runWeekly(options:{stores:Store[];root:string;collect:Collector;now?:Date;runId?:string;mode?:'manual'|'scheduled';codeSha?:string;menus?:MenuObservation[]}) {
+export async function runWeekly(options:{stores:Store[];root:string;collect:Collector;now?:Date;runId?:string;mode?:'manual'|'scheduled';codeSha?:string;menus?:MenuObservation[];compareRun?:string;onProgress?:(message:string)=>void}) {
  const {stores,root,collect}=options;storesFrom(stores);
  let menus=options.menus===undefined?null:menuObservations(options.menus);
  if(menus?.some(m=>!stores.some(s=>s.id===m.store_id)))throw Error('Menu observation refers to an unconfigured store.');
@@ -90,25 +90,30 @@ export async function runWeekly(options:{stores:Store[];root:string;collect:Coll
   await mkdir(join(base,'runs'),{recursive:true});
   const runDir=join(base,'runs',runId);await mkdir(runDir); // Never reuse an attempt.
   const existing=await readOptional(join(base,'weeks',date+'.json'));
-  const previous=await readOptional(join(base,'weeks',prior+'.json'));
+  if(options.compareRun&&(mode!=='manual'||!/^[a-zA-Z0-9_-]+$/.test(options.compareRun)))throw Error('Explicit run comparison requires manual mode and a safe run ID.');
+  const comparisonRoot=options.compareRun?join(base,'runs',options.compareRun):base;
+  const previous=await readOptional(options.compareRun?join(comparisonRoot,'manifest.json'):join(base,'weeks',prior+'.json'));
+  if(options.compareRun&&!previous)throw Error('Comparison run not found.');
   for(const [m,d] of [[existing,date],[previous,prior]] as const){
-   if(m&&(m.date!==d||m.mode!==mode||!Array.isArray(m.stores)))throw Error('Invalid weekly history manifest.');
+   const explicitBaseline=m===previous&&Boolean(options.compareRun);
+   if(m&&((!explicitBaseline&&m.date!==d)||m.mode!==mode||!Array.isArray(m.stores)))throw Error('Invalid weekly history manifest.');
   }
   const baselines=new Map<string,SnapshotListing[]|null>();
   // Validate all existing baselines before spending on external collection.
   for(const s of stores){
    const entry=previous?.stores?.find((v:any)=>v.id===s.id);
    if(entry&&(entry.address!==s.address||entry.place_id!==s.place_id))throw Error(`Store ${s.id} identity changed; allocate a new stable ID.`);
-   const data=entry?await readOptional(join(base,'snapshots',s.id,prior+'.json')):null;
+   const data=entry?await readOptional(options.compareRun?join(comparisonRoot,'snapshots',s.id+'.json'):join(base,'snapshots',s.id,prior+'.json')):null;
    if(entry&&!data)throw Error('History manifest refers to a missing snapshot.');
    baselines.set(s.id,data?validateRecords(data,true):null);
   }
-  const oldMenus=previous?.menu_comparison==='provided'?menuObservations(await readOptional(join(base,'menus',prior+'.json'))):[];
+  const oldMenus=previous?.menu_comparison==='provided'?menuObservations(await readOptional(options.compareRun?join(comparisonRoot,'menus.json'):join(base,'menus',prior+'.json'))):[];
   const rows:string[]=[],failures:string[]=[],outcomes:any[]=[];
   const snapshots=new Map<string,SnapshotListing[]>();
   for(const s of stores){
    let records:SnapshotListing[];let menu_error:string|null=null;
    try{
+    options.onProgress?.(`Store ${s.id}: collection started`);
     const collected=await collect(s);
     records=validateRecords(Array.isArray(collected)?collected:collected.records);
     if(!Array.isArray(collected))menu_error=collected.menu_error??null;
@@ -125,15 +130,16 @@ export async function runWeekly(options:{stores:Store[];root:string;collect:Coll
    }
    const secret=process.env.APIFY_TOKEN;if(secret)records=JSON.parse(JSON.stringify(records).split(secret).join('[REDACTED]'));
    snapshots.set(s.id,records);await atomic(join(runDir,'snapshots',s.id+'.json'),records);
-   const diff=compare(s,records,baselines.get(s.id)??null);rows.push(...diff.rows);failures.push(...diff.failures);
+   const diff=compare(s,records,baselines.get(s.id)??null);rows.push(...diff.rows);if(!options.compareRun)failures.push(...diff.failures);
    if(menu_error)rows.push(`| ${cell(s.name)} | menus | collection | — | — | ${cell(menu_error)} |`);
+   options.onProgress?.(`Store ${s.id}: ${records.filter(r=>r.found).length}/8 listings found${menu_error?'; menu coverage incomplete':''}`);
    outcomes.push({...s,menu_error,status:records.every(failed)?'failed':menu_error||records.some(r=>failed(r)||r.error)?'partial':'completed'});
   }
   if(menus)for(const change of menuChanges(menus,oldMenus)){
    rows.push(`| ${cell(change.store_id)} | ${cell(change.channel)} | menu_date | ${cell(change.old_date)} | ${cell(change.menu_date)} | ${change.note}; previous source: ${cell(change.old_url)}; source: ${cell(change.source_url)}; provenance: ${change.date_source} |`);
   }
-  const report=`# Weekly restaurant changes — ${date}\n\nMode: ${mode}. Previous calendar week: ${prior}.\nMenu-date comparison: ${menus?'provided sidecar; absent observations remain unknown':'unavailable pending issue #4 adapter'}.\n\n| Store | Platform | Field | Old | New | Note |\n| --- | --- | --- | --- | --- | --- |\n${rows.join('\n')||'No comparable field changes.'}\n\n## Consecutive weekly failures\n${failures.length?failures.map(v=>'- '+v).join('\n'):'None observed in adjacent weeks.'}\n`;
-  const manifest={run_id:runId,date,previous_week:prior,mode,started_at:now.toISOString(),finished_at:new Date().toISOString(),code_sha:options.codeSha??null,config_hash:createHash('sha256').update(JSON.stringify(stores)).digest('hex'),stores:outcomes,menu_comparison:menus?'provided':'pending_issue_4',canonical:!existing};
+  const report=`# Weekly restaurant changes — ${date}\n\nMode: ${mode}. ${options.compareRun?'Explicit comparison run: '+options.compareRun:'Previous calendar week: '+prior}.\nMenu-date comparison: ${menus?'provided sidecar; absent observations remain unknown':'unavailable pending issue #4 adapter'}.\n\n| Store | Platform | Field | Old | New | Note |\n| --- | --- | --- | --- | --- | --- |\n${rows.join('\n')||'No comparable field changes.'}\n\n## Consecutive weekly failures\n${failures.length?failures.map(v=>'- '+v).join('\n'):'None observed in adjacent weeks.'}\n`;
+  const manifest={run_id:runId,date,previous_week:prior,mode,started_at:now.toISOString(),finished_at:new Date().toISOString(),code_sha:options.codeSha??null,config_hash:createHash('sha256').update(JSON.stringify(stores)).digest('hex'),stores:outcomes,menu_comparison:menus?'provided':'pending_issue_4',canonical:!existing,comparison_run:options.compareRun??null};
   if(menus)await atomic(join(runDir,'menus.json'),menus);
   await atomic(join(runDir,'diff.md'),report,true);await atomic(join(runDir,'manifest.json'),manifest);
   if(!existing){
@@ -142,6 +148,9 @@ export async function runWeekly(options:{stores:Store[];root:string;collect:Coll
    await atomic(join(base,'diffs',date+'.md'),report,true);
    await atomic(join(base,'weeks',date+'.json'),manifest); // Completion marker written last.
   }
+  const pointer={run_id:runId,date,mode,path:`runs/${runId}`,canonical:!existing,stores:outcomes.map(s=>({id:s.id,status:s.status})),finished_at:manifest.finished_at};
+  await atomic(join(base,'indexes','dates',date+'.json'),pointer);
+  await atomic(join(base,'indexes','latest.json'),pointer);
   return {runDir,manifest,report};
  }finally{const {rm}=await import('node:fs/promises');await rm(lock,{recursive:true,force:true});}
 }

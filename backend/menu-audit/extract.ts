@@ -1,4 +1,5 @@
 import {load} from 'cheerio';
+import {mkdir} from 'node:fs/promises';
 import {lookup} from 'node:dns/promises';
 import {isIP} from 'node:net';
 import {createHash} from 'node:crypto';
@@ -17,11 +18,13 @@ export function htmlDocument(html:string,url:string,includePrices=true){
  $('a[href],img[src]').each((_,el)=>{
   const link=$(el).attr('href')||$(el).attr('src')||'';let path='';try{path=new URL(link,url).pathname;}catch{}
   const label=$(el).text()+' '+($(el).attr('alt')||'')+' '+path;
-  if(/\bmenus?\b|菜单/i.test(label)||/^(?:dinner|lunch|brunch|breakfast)$/i.test($(el).text().trim())){try{const u=new URL(link,url);if(['http:','https:'].includes(u.protocol))links.push(u.href);}catch{}}
+  if($(el).is('a')&&(/\bmenus?\b|菜单/i.test(label)||/^(?:dinner|lunch|brunch|breakfast)$/i.test($(el).text().trim()))){try{const u=new URL(link,url);if(['http:','https:'].includes(u.protocol))links.push(u.href);}catch{}}
  });
  $('img[src]').each((_,el)=>{const node=$(el);let path='';try{path=decodeURIComponent(new URL(node.attr('src')||'',url).pathname);}catch{}
   const label=(node.attr('alt')||'')+' '+(node.attr('class')||'')+' '+path;
-  if(!/logo|icon|sprite|favicon/i.test(label)&&/\bmenus?(?:\d+)?\b|菜单/i.test(label))addMedia(node.attr('src'),node.attr('data-upload-date')||node.closest('figure').find('time[datetime]').first().attr('datetime'));
+  const explicit=/\bmenu\b|菜单/i.test((node.attr('alt')||'')+' '+(node.attr('class')||''));
+  const menuFile=/(?:^|\/)(?:(?:dinner|lunch|brunch|breakfast)[-_ ])?menus?(?:[-_ ]?(?:page[-_ ]?)?\d+)?\.(?:png|jpe?g|webp)$/i.test(path);
+  if(!/logo|icon|sprite|favicon/i.test(label)&&(explicit||menuFile))addMedia(node.attr('src'),node.attr('data-upload-date')||node.closest('figure').find('time[datetime]').first().attr('datetime'));
  });
  function visit(v:any,category:string|null=null){
   if(!v||typeof v!=='object')return;
@@ -40,14 +43,14 @@ export function htmlDocument(html:string,url:string,includePrices=true){
   for(const child of Object.values(v))if(Array.isArray(child))child.forEach(entry=>visit(entry,category));else if(child&&typeof child==='object')visit(child,category);
  }
  $('script[type="application/ld+json"]').each((_,el)=>{try{visit(JSON.parse($(el).text()));}catch{}});
- if(includePrices&&!prices.length)$('article.menu-item, .menu-item').each((_,el)=>{
-  const node=$(el),name=node.find('h3,h4,.menu-item-name').first().text().trim(),price=node.find('.price,.menu-item-price').first().text().trim();
+ if(includePrices&&!prices.length)$('article.menu-item, .menu-item, article.menu-card').each((_,el)=>{
+  const node=$(el),name=node.find('h3,h4,.menu-item-name,.menu-card-title').first().text().trim(),price=node.find('.price,.menu-item-price,.menu-card-price').first().text().trim();
   const section=node.closest('[data-category],.menu-section,section');
-  const category=node.attr('data-category')||section.attr('data-category')||section.find('h2,.menu-section-title').first().text().trim()||null;
+  const category=node.attr('data-category')||node.attr('data-cat')||section.attr('data-category')||section.find('h2,.menu-section-title').first().text().trim()||null;
   if(name&&price&&/\d/.test(price))prices.push({name,category,variant:null,price,currency:null,evidence:node.html()||''});
  });
  $('script,style,noscript,nav,footer').remove();$('br').replaceWith('\n');$('p,li,tr,div,h1,h2,h3').each((_,el)=>{$(el).append('\n');});
- const menuEvidence=schemaMenu||$('article.menu-item,.menu-item,[itemtype="https://schema.org/MenuItem"]').toArray().some(el=>!!$(el).find('h3,h4,.menu-item-name').first().text().trim());
+ const menuEvidence=schemaMenu||$('article.menu-item,.menu-item,article.menu-card,[itemtype="https://schema.org/MenuItem"]').toArray().some(el=>!!$(el).find('h3,h4,.menu-item-name,.menu-card-title').first().text().trim());
  const text=$('body').text().replace(/[ \t]+/g,' ').replace(/\n\s*\n/g,'\n').trim();
  return {text,menuEvidence,menuMedia:[...new Map(menuMedia.map(m=>[m.url,m])).values()],hours,identities,links:[...new Set(links)],prices:includePrices?(prices.length?prices:pricesFromText(text)):[]};
 }
@@ -82,7 +85,7 @@ export async function readDocument(url:string,signal?:AbortSignal,includePrices=
    const m=typeof date==='string'&&date.match(/^D:(\d{4})(\d{2})(\d{2})/);if(m)metadata=`${m[1]}-${m[2]}-${m[3]}`;
    if(!text.trim()){
     if(process.env.MENU_OCR_ENABLED!=='true')throw Error('Scanned PDF OCR disabled; set MENU_OCR_ENABLED=true.');
-    const {createCanvas}=await import('@napi-rs/canvas');const {createWorker}=await import('tesseract.js');const worker=await createWorker('eng');
+    const {createCanvas}=await import('@napi-rs/canvas');const {createWorker}=await import('tesseract.js');await mkdir('.local/ocr',{recursive:true});const worker=await createWorker('eng',1,{cachePath:'.local/ocr'});
     try{for(let n=1;n<=pdf.numPages;n++){
      signal?.throwIfAborted();const page=await pdf.getPage(n),viewport=page.getViewport({scale:1.5});
      if(viewport.width*viewport.height>16000000)throw Error('PDF page exceeds render limit.');
@@ -93,8 +96,9 @@ export async function readDocument(url:string,signal?:AbortSignal,includePrices=
   }finally{await task.destroy();}
   prices=includePrices?pricesFromText(text):[];
  }else if(r.type.startsWith('image/')){
-  format='image';extraction='ocr';if(process.env.MENU_OCR_ENABLED!=='true')throw Error('Image OCR disabled; set MENU_OCR_ENABLED=true to extract text locally.');
-  const {createWorker}=await import('tesseract.js');const worker=await createWorker('eng');
+  format='image';extraction='ocr';metadata=null; // HTTP Last-Modified is not the menu photo's publication date.
+  if(process.env.MENU_OCR_ENABLED!=='true')throw Error('Image OCR disabled; set MENU_OCR_ENABLED=true to extract text locally.');
+  const {createWorker}=await import('tesseract.js');await mkdir('.local/ocr',{recursive:true});const worker=await createWorker('eng',1,{cachePath:'.local/ocr'});
   try{text=(await worker.recognize(r.buffer)).data.text;}finally{await worker.terminate();}
   prices=includePrices?pricesFromText(text):[];
  }else if(r.type.includes('html')){

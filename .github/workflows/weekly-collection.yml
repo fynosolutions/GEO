@@ -1,6 +1,12 @@
 name: Weekly restaurant collection
 on:
   workflow_dispatch:
+    inputs:
+      acceptance_phone_change:
+        description: 'Validate one synthetic phone change on copies of this manual run (no extra Actor calls)'
+        required: false
+        type: boolean
+        default: false
   schedule:
     - cron: '0 6 * * 1'
       timezone: America/New_York
@@ -46,7 +52,7 @@ jobs:
           MENU_AUDIT_ENABLED: 'true'
           APIFY_MENU_ACTORS_ENABLED: 'true'
           MENU_OCR_ENABLED: 'true'
-          APIFY_MAX_CHARGE_USD: ${{ vars.APIFY_MAX_CHARGE_USD || '1' }}
+          APIFY_MAX_CHARGE_USD: ${{ vars.APIFY_MAX_CHARGE_USD || '0.50' }}
           WEEKLY_STORE_TIMEOUT_MS: '1200000'
           WEEKLY_BATCH_TIMEOUT_MS: '7200000'
           EVENT_NAME: ${{ github.event_name }}
@@ -59,6 +65,10 @@ jobs:
           npm run collect:weekly -- --history .local/history --mode "$mode" || code=$?
           echo "exit_code=$code" >> "$GITHUB_OUTPUT"
           if [ "$code" = 1 ]; then exit 1; fi
+      - name: Validate controlled phone change
+        if: github.event_name == 'workflow_dispatch' && inputs.acceptance_phone_change && steps.batch.outputs.exit_code == '0'
+        run: |
+          node scripts/acceptance-phone-change.mjs --latest-history .local/history ".local/history/manual/acceptance/phone-change/${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
       - name: Save history recovery artifact
         if: always()
         uses: actions/upload-artifact@v4
@@ -72,7 +82,8 @@ jobs:
         env:
           BATCH_EXIT: ${{ steps.batch.outputs.exit_code }}
         run: |
-          echo "Collection exit: ${BATCH_EXIT:-not started}. Partial results are preserved; review the history artifact and persistence job." >> "$GITHUB_STEP_SUMMARY"
+          echo "Collection exit: ${BATCH_EXIT:-not started}." >> "$GITHUB_STEP_SUMMARY"
+          node scripts/summarize-history.mjs .local/history "${{ github.event_name }}"
       - name: Signal store failures after preserving output
         if: steps.batch.outputs.exit_code == '2'
         run: exit 1
@@ -108,7 +119,7 @@ jobs:
           fi
           cd /tmp/geo-history-write
           # Restrict publication to generated public data trees; never copy .env or diagnostics.
-          for directory in snapshots diffs runs weeks menus manual; do
+          for directory in snapshots diffs runs weeks menus indexes manual; do
             if [ -d "/tmp/geo-history-payload/$directory" ]; then
               cp -R "/tmp/geo-history-payload/$directory" .
               git add -- "$directory"

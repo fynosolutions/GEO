@@ -60,10 +60,13 @@ export function week(raw:unknown):Array<Interval[]|null>{
 export function compareHours(records:Listing[]){
  const google=records.find(r=>r.platform==='google_maps'&&r.matched&&r.found),baseline=week(google?.hours);
  return records.flatMap(r=>{
-  const parsed=week(r.matched&&r.found?r.hours:null);
+  const raw=r.hours as any;
+  const unknownZone=r.platform==='grubhub'&&Array.isArray(raw)&&raw.some(v=>typeof v?.dayOfWeek==='number'&&Array.isArray(v.timeRanges)&&v.timeRanges.some((t:unknown)=>typeof t==='string'&&!/^closed$/i.test(t)));
+  const parsed=unknownZone?days.map(()=>null):week(r.matched&&r.found?r.hours:null);
   return days.map((day,i)=>{
    const a=parsed[i],b=baseline[i];let verdict:string|null=null,reason:string|null=null,diff_minutes:number|number[]|null=null;
-   if(a===null||b===null)reason='Missing or unsupported regular weekly hours; no comparison made.';
+   if(unknownZone)reason='Grubhub numeric schedule timezone is unverified; raw values retained without local-time comparison.';
+   else if(a===null||b===null)reason='Missing or unsupported regular weekly hours; no comparison made.';
    else if(a.length!==b.length){verdict='不一致';reason='Different closed status or number of service intervals.';}
    else if(a.length===0){verdict='一致';diff_minutes=0;}
    else {

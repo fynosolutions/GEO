@@ -1,0 +1,146 @@
+{
+  "context": "Delivery prices on public page; no address entered, no cart changes",
+  "selection": "First ten exact-name matches in observed menu order; truncated names excluded",
+  "checks": [
+    {
+      "name": "Coconut Chicken Mini Hot Pot",
+      "channel": "grubhub",
+      "json_price": {
+        "pickup": 22,
+        "delivery": 22
+      },
+      "json_delivery_price": 22,
+      "page_price": "$22.00",
+      "pass": true,
+      "source_url": "https://www.grubhub.com/restaurant/easy-joy-ayce-dim-sum-hot-pot-145-mulberry-st-new-york/12387504",
+      "json_fetched_at": "2026-11-05T13:43:34.611Z",
+      "page_checked_at": "2026-11-05T14:42:25.608Z"
+    },
+    {
+      "name": "Tomato Mini Hot Pot",
+      "channel": "grubhub",
+      "json_price": {
+        "pickup": 17.6,
+        "delivery": 17.6
+      },
+      "json_delivery_price": 17.6,
+      "page_price": "$17.60",
+      "pass": true,
+      "source_url": "https://www.grubhub.com/restaurant/easy-joy-ayce-dim-sum-hot-pot-145-mulberry-st-new-york/12387504",
+      "json_fetched_at": "2026-11-05T13:43:34.611Z",
+      "page_checked_at": "2026-11-05T14:42:25.608Z"
+    },
+    {
+      "name": "Pork Bone Broth Mini Hot Pot",
+      "channel": "grubhub",
+      "json_price": {
+        "pickup": 17.6,
+        "delivery": 17.6
+      },
+      "json_delivery_price": 17.6,
+      "page_price": "$17.60",
+      "pass": true,
+      "source_url": "https://www.grubhub.com/restaurant/easy-joy-ayce-dim-sum-hot-pot-145-mulberry-st-new-york/12387504",
+      "json_fetched_at": "2026-11-05T13:43:34.611Z",
+      "page_checked_at": "2026-11-05T14:42:25.608Z"
+    },
+    {
+      "name": "Vegetarian Mushroom Mini Hot Pot",
+      "channel": "grubhub",
+      "json_price": {
+        "pickup": 17.6,
+        "delivery": 17.6
+      },
+      "json_delivery_price": 17.6,
+      "page_price": "$17.60",
+      "pass": true,
+      "source_url": "https://www.grubhub.com/restaurant/easy-joy-ayce-dim-sum-hot-pot-145-mulberry-st-new-york/12387504",
+      "json_fetched_at": "2026-11-05T13:43:34.611Z",
+      "page_checked_at": "2026-11-05T14:42:25.608Z"
+    },
+    {
+      "name": "Tom Yum Mini Hot Pot",
+      "channel": "grubhub",
+      "json_price": {
+        "pickup": 22,
+        "delivery": 22
+      },
+      "json_delivery_price": 22,
+      "page_price": "$22.00",
+      "pass": true,
+      "source_url": "https://www.grubhub.com/restaurant/easy-joy-ayce-dim-sum-hot-pot-145-mulberry-st-new-york/12387504",
+      "json_fetched_at": "2026-11-05T13:43:34.611Z",
+      "page_checked_at": "2026-11-05T14:42:25.608Z"
+    },
+    {
+      "name": "Fish Maw Chicken Mini Hot Pot",
+      "channel": "grubhub",
+      "json_price": {
+        "pickup": 22,
+        "delivery": 22
+      },
+      "json_delivery_price": 22,
+      "page_price": "$22.00",
+      "pass": true,
+      "source_url": "https://www.grubhub.com/restaurant/easy-joy-ayce-dim-sum-hot-pot-145-mulberry-st-new-york/12387504",
+      "json_fetched_at": "2026-11-05T13:43:34.611Z",
+      "page_checked_at": "2026-11-05T14:42:25.608Z"
+    },
+    {
+      "name": "Fried Noodle/Fried Rice Set(Fried Noodles/Fried Ri",
+      "channel": "grubhub",
+      "json_price": {
+        "pickup": 19.79,
+        "delivery": 19.79
+      },
+      "json_delivery_price": 19.79,
+      "page_price": "$19.79",
+      "pass": true,
+      "source_url": "https://www.grubhub.com/restaurant/easy-joy-ayce-dim-sum-hot-pot-145-mulberry-st-new-york/12387504",
+      "json_fetched_at": "2026-11-05T13:43:34.611Z",
+      "page_checked_at": "2026-11-05T14:42:25.608Z"
+    },
+    {
+      "name": "Chive & Pork Dumplings(8pc)",
+      "channel": "grubhub",
+      "json_price": {
+        "pickup": 10.95,
+        "delivery": 10.95
+      },
+      "json_delivery_price": 10.95,
+      "page_price": "$10.95",
+      "pass": true,
+      "source_url": "https://www.grubhub.com/restaurant/easy-joy-ayce-dim-sum-hot-pot-145-mulberry-st-new-york/12387504",
+      "json_fetched_at": "2026-11-05T13:43:34.611Z",
+      "page_checked_at": "2026-11-05T14:42:25.608Z"
+    },
+    {
+      "name": "Corn & Pork Dumplings(8pc)",
+      "channel": "grubhub",
+      "json_price": {
+        "pickup": 10.95,
+        "delivery": 10.95
+      },
+      "json_delivery_price": 10.95,
+      "page_price": "$10.95",
+      "pass": true,
+      "source_url": "https://www.grubhub.com/restaurant/easy-joy-ayce-dim-sum-hot-pot-145-mulberry-st-new-york/12387504",
+      "json_fetched_at": "2026-11-05T13:43:34.611Z",
+      "page_checked_at": "2026-11-05T14:42:25.608Z"
+    },
+    {
+      "name": "Seaweed & Pork Dumplings(8pc)",
+      "channel": "grubhub",
+      "json_price": {
+        "pickup": 10.95,
+        "delivery": 10.95
+      },
+      "json_delivery_price": 10.95,
+      "page_price": "$10.95",
+      "pass": true,
+      "source_url": "https://www.grubhub.com/restaurant/easy-joy-ayce-dim-sum-hot-pot-145-mulberry-st-new-york/12387504",
+      "json_fetched_at": "2026-11-05T13:43:34.611Z",
+      "page_checked_at": "2026-11-05T14:42:25.608Z"
+    }
+  ]
+}

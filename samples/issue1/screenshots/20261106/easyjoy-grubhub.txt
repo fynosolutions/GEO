@@ -1,0 +1,22 @@
+### Page
+- Page URL: https://www.grubhub.com/restaurant/easy-joy-ayce-dim-sum-hot-pot-145-mulberry-st-new-york/12387504
+- Page Title: Food Delivery | Restaurant Takeout | Order Food Online | Grubhub
+- Console: 1 errors, 1 warnings
+### Snapshot
+```yaml
+- generic [ref=f64e4]:
+  - navigation "Main Navigation" [ref=f64e6]:
+    - link "App logo" [ref=f64e8] [cursor=pointer]:
+      - /url: /lets-eat
+    - generic [ref=f64e9]:
+      - button "Enter an address" [ref=f64e14] [cursor=pointer]
+      - generic [ref=f64e26]:
+        - generic [ref=f64e27]: Search restaurants or dishes
+        - combobox "Search restaurants or dishes" [ref=f64e28]
+    - button "Sign in" [ref=f64e35] [cursor=pointer]
+    - generic "Toggle your bag (Open/Closed)" [ref=f64e37]:
+      - button "Your Bag" [ref=f64e38] [cursor=pointer]
+  - complementary [ref=f64e47]
+```
+### Events
+- New console entries: .playwright-cli/console-2026-11-06T03-40-59-555Z.log#L2-L4

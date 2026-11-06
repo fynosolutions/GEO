@@ -1,0 +1,297 @@
+{
+  "workflow_url": "https://github.com/fynosolutions/GEO/actions/runs/42037510321",
+  "method": "Account Actor runs started during workflow window; confirm attribution before billing report. GitHub runner cost excluded.",
+  "queried_at": "2026-11-05T14:38:14.989Z",
+  "run_count": 36,
+  "reported_usage_usd": 0.73975,
+  "runs": [
+    {
+      "run_id": "vfZnJfOs4AYfInZO9",
+      "actor_id": "nFJndFXA5zjCTuudP",
+      "status": "SUCCEEDED",
+      "started_at": "2026-11-05T13:52:22.372Z",
+      "finished_at": "2026-11-05T13:52:37.898Z",
+      "usage_total_usd": 0.004549999999999999
+    },
+    {
+      "run_id": "PTo19iOCfs2WJFuo0",
+      "actor_id": "nFJndFXA5zjCTuudP",
+      "status": "SUCCEEDED",
+      "started_at": "2026-11-05T13:52:15.293Z",
+      "finished_at": "2026-11-05T13:52:19.970Z",
+      "usage_total_usd": 0.004549999999999999
+    },
+    {
+      "run_id": "tjv3joyvFbMUvlAus",
+      "actor_id": "nFJndFXA5zjCTuudP",
+      "status": "SUCCEEDED",
+      "started_at": "2026-11-05T13:52:10.621Z",
+      "finished_at": "2026-11-05T13:52:14.603Z",
+      "usage_total_usd": 0.004549999999999999
+    },
+    {
+      "run_id": "TUmYSPrjX4Z5Fd43U",
+      "actor_id": "nFJndFXA5zjCTuudP",
+      "status": "SUCCEEDED",
+      "started_at": "2026-11-05T13:51:36.705Z",
+      "finished_at": "2026-11-05T13:52:09.922Z",
+      "usage_total_usd": 0.004549999999999999
+    },
+    {
+      "run_id": "egjB45yjxoegkepGZ",
+      "actor_id": "nFJndFXA5zjCTuudP",
+      "status": "SUCCEEDED",
+      "started_at": "2026-11-05T13:51:11.091Z",
+      "finished_at": "2026-11-05T13:51:36.082Z",
+      "usage_total_usd": 0.004549999999999999
+    },
+    {
+      "run_id": "2lX4YLaGg5Ttnzbc6",
+      "actor_id": "nFJndFXA5zjCTuudP",
+      "status": "SUCCEEDED",
+      "started_at": "2026-11-05T13:51:04.392Z",
+      "finished_at": "2026-11-05T13:51:10.073Z",
+      "usage_total_usd": 0.004549999999999999
+    },
+    {
+      "run_id": "M6fauqUXxWtAGY9cA",
+      "actor_id": "nFJndFXA5zjCTuudP",
+      "status": "SUCCEEDED",
+      "started_at": "2026-11-05T13:50:47.142Z",
+      "finished_at": "2026-11-05T13:51:03.073Z",
+      "usage_total_usd": 0.004549999999999999
+    },
+    {
+      "run_id": "OKDVDdR0i8JcejHHk",
+      "actor_id": "nFJndFXA5zjCTuudP",
+      "status": "SUCCEEDED",
+      "started_at": "2026-11-05T13:50:11.011Z",
+      "finished_at": "2026-11-05T13:50:46.765Z",
+      "usage_total_usd": 0.004549999999999999
+    },
+    {
+      "run_id": "PzyvoktMp4b7l2l9c",
+      "actor_id": "Dk45auvk9CiglEduQ",
+      "status": "SUCCEEDED",
+      "started_at": "2026-11-05T13:49:57.982Z",
+      "finished_at": "2026-11-05T13:50:10.583Z",
+      "usage_total_usd": 0.01205
+    },
+    {
+      "run_id": "qAaokLySmgj8RlKNg",
+      "actor_id": "Us34x9p7VgjCz99H6",
+      "status": "SUCCEEDED",
+      "started_at": "2026-11-05T13:49:53.415Z",
+      "finished_at": "2026-11-05T13:49:57.290Z",
+      "usage_total_usd": 0.013000000000000001
+    },
+    {
+      "run_id": "WSapFqZupgKtwu3XN",
+      "actor_id": "Dk45auvk9CiglEduQ",
+      "status": "SUCCEEDED",
+      "started_at": "2026-11-05T13:49:38.289Z",
+      "finished_at": "2026-11-05T13:49:52.582Z",
+      "usage_total_usd": 0.00505
+    },
+    {
+      "run_id": "1rk47z5j6DdvUSvLe",
+      "actor_id": "Dk45auvk9CiglEduQ",
+      "status": "SUCCEEDED",
+      "started_at": "2026-11-05T13:48:37.192Z",
+      "finished_at": "2026-11-05T13:49:37.727Z",
+      "usage_total_usd": 0.00005
+    },
+    {
+      "run_id": "RYE40NnL8chwKJjID",
+      "actor_id": "eLbbFqzciSzbfzW2D",
+      "status": "SUCCEEDED",
+      "started_at": "2026-11-05T13:48:26.346Z",
+      "finished_at": "2026-11-05T13:48:34.825Z",
+      "usage_total_usd": 0.0725
+    },
+    {
+      "run_id": "I6oe97StkAbBKgY7h",
+      "actor_id": "9jTOJO8sdazv6taBp",
+      "status": "SUCCEEDED",
+      "started_at": "2026-11-05T13:48:13.195Z",
+      "finished_at": "2026-11-05T13:48:24.629Z",
+      "usage_total_usd": 0.255
+    },
+    {
+      "run_id": "rhewenTXUCzlL9Ofw",
+      "actor_id": "48Fsw1m7zrnw8LWIG",
+      "status": "SUCCEEDED",
+      "started_at": "2026-11-05T13:48:02.310Z",
+      "finished_at": "2026-11-05T13:48:11.831Z",
+      "usage_total_usd": 0.002
+    },
+    {
+      "run_id": "Iy7IylZzEPT2S4jwE",
+      "actor_id": "dbEyMBriog95Fv8CW",
+      "status": "SUCCEEDED",
+      "started_at": "2026-11-05T13:47:55.535Z",
+      "finished_at": "2026-11-05T13:48:01.521Z",
+      "usage_total_usd": 0.0001
+    },
+    {
+      "run_id": "L5jQiRImtjCRlxJEH",
+      "actor_id": "nFJndFXA5zjCTuudP",
+      "status": "SUCCEEDED",
+      "started_at": "2026-11-05T13:46:56.416Z",
+      "finished_at": "2026-11-05T13:47:53.916Z",
+      "usage_total_usd": 0.009049999999999999
+    },
+    {
+      "run_id": "2N3K5cyHeoxAPnHbi",
+      "actor_id": "nFJndFXA5zjCTuudP",
+      "status": "SUCCEEDED",
+      "started_at": "2026-11-05T13:45:59.440Z",
+      "finished_at": "2026-11-05T13:46:54.051Z",
+      "usage_total_usd": 0.03605
+    },
+    {
+      "run_id": "jsWxbYpcvCml7VoJM",
+      "actor_id": "nwua9Gu5YrADL7ZDj",
+      "status": "SUCCEEDED",
+      "started_at": "2026-11-05T13:45:54.780Z",
+      "finished_at": "2026-11-05T13:45:58.081Z",
+      "usage_total_usd": 0.0062
+    },
+    {
+      "run_id": "DDfdkauTJrj7GXvUF",
+      "actor_id": "nFJndFXA5zjCTuudP",
+      "status": "SUCCEEDED",
+      "started_at": "2026-11-05T13:45:40.517Z",
+      "finished_at": "2026-11-05T13:45:49.375Z",
+      "usage_total_usd": 0.004549999999999999
+    },
+    {
+      "run_id": "9m6kenE6qLG1jeIur",
+      "actor_id": "nFJndFXA5zjCTuudP",
+      "status": "SUCCEEDED",
+      "started_at": "2026-11-05T13:45:33.690Z",
+      "finished_at": "2026-11-05T13:45:38.620Z",
+      "usage_total_usd": 0.004549999999999999
+    },
+    {
+      "run_id": "PDSyDaHgk7jyIRyie",
+      "actor_id": "nFJndFXA5zjCTuudP",
+      "status": "SUCCEEDED",
+      "started_at": "2026-11-05T13:45:10.265Z",
+      "finished_at": "2026-11-05T13:45:33.068Z",
+      "usage_total_usd": 0.004549999999999999
+    },
+    {
+      "run_id": "HkO9sBVMzV8fHPaJ0",
+      "actor_id": "nFJndFXA5zjCTuudP",
+      "status": "SUCCEEDED",
+      "started_at": "2026-11-05T13:45:03.477Z",
+      "finished_at": "2026-11-05T13:45:08.183Z",
+      "usage_total_usd": 0.004549999999999999
+    },
+    {
+      "run_id": "rH0sSJL5dZRenX8B1",
+      "actor_id": "nFJndFXA5zjCTuudP",
+      "status": "SUCCEEDED",
+      "started_at": "2026-11-05T13:44:52.531Z",
+      "finished_at": "2026-11-05T13:45:01.611Z",
+      "usage_total_usd": 0.004549999999999999
+    },
+    {
+      "run_id": "a0vlp99PQCQW7W1c4",
+      "actor_id": "nFJndFXA5zjCTuudP",
+      "status": "SUCCEEDED",
+      "started_at": "2026-11-05T13:43:34.743Z",
+      "finished_at": "2026-11-05T13:44:50.701Z",
+      "usage_total_usd": 0.004549999999999999
+    },
+    {
+      "run_id": "uTeZQfiJu0GcQl9as",
+      "actor_id": "Dk45auvk9CiglEduQ",
+      "status": "SUCCEEDED",
+      "started_at": "2026-11-05T13:42:10.784Z",
+      "finished_at": "2026-11-05T13:43:32.501Z",
+      "usage_total_usd": 0.01205
+    },
+    {
+      "run_id": "vd8IcZ8UvceTJp6zx",
+      "actor_id": "4Hv5RhChiaDk6iwad",
+      "status": "SUCCEEDED",
+      "started_at": "2026-11-05T13:41:59.855Z",
+      "finished_at": "2026-11-05T13:42:09.936Z",
+      "usage_total_usd": 0.012
+    },
+    {
+      "run_id": "al173LteRERIUe0hv",
+      "actor_id": "Dk45auvk9CiglEduQ",
+      "status": "SUCCEEDED",
+      "started_at": "2026-11-05T13:41:46.920Z",
+      "finished_at": "2026-11-05T13:41:59.333Z",
+      "usage_total_usd": 0.00505
+    },
+    {
+      "run_id": "DXccTsXwZdBiPjaRy",
+      "actor_id": "eLbbFqzciSzbfzW2D",
+      "status": "SUCCEEDED",
+      "started_at": "2026-11-05T13:41:36.068Z",
+      "finished_at": "2026-11-05T13:41:46.019Z",
+      "usage_total_usd": 0.1615
+    },
+    {
+      "run_id": "DhwNit70uv1Xiqff6",
+      "actor_id": "9jTOJO8sdazv6taBp",
+      "status": "SUCCEEDED",
+      "started_at": "2026-11-05T13:40:49.691Z",
+      "finished_at": "2026-11-05T13:41:35.347Z",
+      "usage_total_usd": 0.01
+    },
+    {
+      "run_id": "79ikrQV0MuTeQG3Bh",
+      "actor_id": "48Fsw1m7zrnw8LWIG",
+      "status": "SUCCEEDED",
+      "started_at": "2026-11-05T13:40:42.585Z",
+      "finished_at": "2026-11-05T13:40:48.732Z",
+      "usage_total_usd": 0.002
+    },
+    {
+      "run_id": "eUAq7ItA7So4y7C5l",
+      "actor_id": "dbEyMBriog95Fv8CW",
+      "status": "SUCCEEDED",
+      "started_at": "2026-11-05T13:40:35.904Z",
+      "finished_at": "2026-11-05T13:40:42.054Z",
+      "usage_total_usd": 0.0051
+    },
+    {
+      "run_id": "oOYcedRu1RumUSD6T",
+      "actor_id": "bf54TfrKoJrQZsrZm",
+      "status": "SUCCEEDED",
+      "started_at": "2026-11-05T13:40:14.627Z",
+      "finished_at": "2026-11-05T13:40:34.015Z",
+      "usage_total_usd": 0.006
+    },
+    {
+      "run_id": "yuSqzUmD2QY0zsJov",
+      "actor_id": "nFJndFXA5zjCTuudP",
+      "status": "SUCCEEDED",
+      "started_at": "2026-11-05T13:39:32.404Z",
+      "finished_at": "2026-11-05T13:40:12.338Z",
+      "usage_total_usd": 0.009049999999999999
+    },
+    {
+      "run_id": "vR8HQb0S4TJNlPplU",
+      "actor_id": "nFJndFXA5zjCTuudP",
+      "status": "SUCCEEDED",
+      "started_at": "2026-11-05T13:38:35.567Z",
+      "finished_at": "2026-11-05T13:39:31.996Z",
+      "usage_total_usd": 0.03605
+    },
+    {
+      "run_id": "wG9wHcswoRuOKxJ2Q",
+      "actor_id": "nwua9Gu5YrADL7ZDj",
+      "status": "SUCCEEDED",
+      "started_at": "2026-11-05T13:38:28.861Z",
+      "finished_at": "2026-11-05T13:38:33.890Z",
+      "usage_total_usd": 0.0062
+    }
+  ]
+}

@@ -1,0 +1,111 @@
+{
+  "directory": ".local/acceptance/20261106/website-followup/020/c7efcdfd-6a27-4da1-9e53-182ee2ee608f",
+  "menus": [],
+  "prices": [],
+  "hours": [],
+  "coverage": [
+    {
+      "channel": "official_html",
+      "found": false,
+      "status": "incomplete",
+      "attempts": [
+        {
+          "channel": "official_html",
+          "url": "https://www.easyjoybuffet.com/",
+          "platform": "official",
+          "identity_verified": false,
+          "status": "unverified",
+          "fetched_at": "2026-11-06T03:43:25.600Z",
+          "error": "Menu source branch identity could not be confirmed."
+        },
+        {
+          "channel": "official_html",
+          "url": "https://www.easyjoybuffet.com/",
+          "platform": "official",
+          "identity_verified": true,
+          "status": "unverified",
+          "fetched_at": "2026-11-06T03:43:26.687Z",
+          "error": "No menu extracted from this resource; dynamic content or other menu sources may exist."
+        }
+      ],
+      "fetched_at": "2026-11-06T03:43:23.757Z"
+    },
+    {
+      "channel": "official_file",
+      "found": false,
+      "status": "incomplete",
+      "attempts": [
+        {
+          "channel": "official_file",
+          "platform": "official",
+          "url": "https://www.easyjoybuffet.com/",
+          "status": "unverified",
+          "error": "No menu file link discovered; absence is unverified.",
+          "fetched_at": "2026-11-06T03:43:23.757Z"
+        }
+      ],
+      "fetched_at": "2026-11-06T03:43:23.757Z"
+    },
+    {
+      "channel": "google_menu",
+      "found": false,
+      "status": "not_checked",
+      "attempts": [],
+      "fetched_at": "2026-11-06T03:43:23.757Z"
+    },
+    {
+      "channel": "yelp_menu",
+      "found": false,
+      "status": "not_checked",
+      "attempts": [],
+      "fetched_at": "2026-11-06T03:43:23.757Z"
+    },
+    {
+      "channel": "delivery_menu",
+      "found": false,
+      "status": "not_checked",
+      "attempts": [],
+      "fetched_at": "2026-11-06T03:43:23.757Z"
+    },
+    {
+      "channel": "reservation_menu",
+      "found": false,
+      "status": "not_checked",
+      "attempts": [],
+      "fetched_at": "2026-11-06T03:43:23.757Z"
+    },
+    {
+      "channel": "social_menu",
+      "found": false,
+      "status": "not_checked",
+      "attempts": [],
+      "fetched_at": "2026-11-06T03:43:23.757Z"
+    }
+  ],
+  "summary": {
+    "platform_results": [
+      {
+        "platform": "official",
+        "found": false,
+        "status": "incomplete",
+        "attempts": 3
+      }
+    ],
+    "store_id": "020",
+    "name": "Easy Joy (Hot Pot, BBQ Skewers, Dim Sum) 意中人火锅烧烤点心",
+    "address": "145 Mulberry St, New York, NY 10013",
+    "run_id": "c7efcdfd-6a27-4da1-9e53-182ee2ee608f",
+    "fetched_at": "2026-11-06T03:43:23.757Z",
+    "mode": "full",
+    "selected_platforms": [
+      "official"
+    ],
+    "unsupported_platforms": [],
+    "coverage_complete": false,
+    "channels_out_of_sync": [],
+    "notes": [
+      "Price extraction requires source verification; OCR is not a claim of human validation.",
+      "Cross-channel date differences describe source dates, not price validity or identical menu contents."
+    ]
+  }
+}

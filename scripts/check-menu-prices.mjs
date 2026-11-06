@@ -1,0 +1,15 @@
+import {readFile,writeFile,copyFile} from 'node:fs/promises';
+import assert from 'node:assert/strict';
+const raw=await readFile(process.argv[2]||'/tmp/geo-grubhub-price-capture.txt','utf8');
+const observed=JSON.parse(raw.split('### Result\n')[1].split('\n### Ran')[0]);
+const original=JSON.parse(await readFile('samples/issue4/easy-joy/raw-result.json','utf8'));
+const menu=original.menus.find(m=>m.platform==='grubhub');assert.equal(new URL(menu.url).pathname,new URL(observed.url).pathname);
+const exact=observed.items.filter(p=>menu.items.some(i=>i.name===p.name)),chosen=exact.slice(0,10);assert.equal(chosen.length,10);
+const checks=chosen.map(p=>{const item=menu.items.find(i=>i.name===p.name);const numeric=typeof item.price==='object'?item.price.delivery:item.price;const pagePrice=Number(p.price.replace(/[^\d.]/g,''));return {name:p.name,channel:'grubhub',json_price:item.price,json_delivery_price:numeric,page_price:p.price,pass:Math.round(Number(numeric)*100)===Math.round(pagePrice*100),source_url:observed.url,json_fetched_at:item.fetched_at,page_checked_at:observed.captured_at};});
+await writeFile('samples/issue4/easy-joy/grubhub-page-evidence.json',JSON.stringify(observed,null,2)+'\n');
+await writeFile('samples/issue4/easy-joy/price-check.json',JSON.stringify({context:'Delivery prices on public page; no address entered, no cart changes',selection:'First ten exact-name matches in observed menu order; truncated names excluded',checks},null,2)+'\n');
+await copyFile('samples/issue4/菜价抽查.md','samples/issue4/其他平台待核对清单.md');
+const cell=v=>(typeof v==='string'?v:JSON.stringify(v)).replaceAll('|','&#124;');
+const rows=checks.map(c=>'| '+[c.name,c.channel,c.json_price,c.page_price,c.pass?'一致':'不一致',c.source_url,c.json_fetched_at,c.page_checked_at].map(cell).join(' | ')+' |');
+await writeFile('samples/issue4/菜价抽查.md','# 十道菜真实页面价格核对\n\n来源：Easy Joy 的 Grubhub 公开页面。按页面顺序选取前十个与原始 JSON 完整菜名相同的菜品；截断名称不用于匹配。页面处于 delivery 模式，因此比较原始价格对象中的 delivery，保留 pickup/delivery 原对象。此次核对不代表 Frydom、其他平台或其余菜品全部验收。\n\n页面证据：easy-joy/grubhub-page-evidence.json、easy-joy/grubhub-visible-menu.png；逐项结果：easy-joy/price-check.json。\n\n| 菜名 | 渠道 | JSON 原价格 | 页面价格 | 一致吗 | 页面链接 | JSON 抓取时间 | 页面核对时间 |\n|---|---|---|---|---|---|---|---|\n'+rows.join('\n')+'\n');
+assert.ok(checks.every(c=>c.pass),'Price differences found; inspect report');console.log('Real Grubhub menu price check: '+checks.filter(c=>c.pass).length+'/10 passed');

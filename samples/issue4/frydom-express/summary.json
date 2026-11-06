@@ -1,0 +1,92 @@
+{
+  "platform_results": [
+    {
+      "platform": "uber_eats",
+      "found": true,
+      "status": "found",
+      "attempts": 1
+    },
+    {
+      "platform": "google_maps",
+      "found": false,
+      "status": "incomplete",
+      "attempts": 2
+    },
+    {
+      "platform": "doordash",
+      "found": false,
+      "status": "incomplete",
+      "attempts": 1
+    },
+    {
+      "platform": "opentable",
+      "found": false,
+      "status": "incomplete",
+      "attempts": 1
+    },
+    {
+      "platform": "resy",
+      "found": false,
+      "status": "incomplete",
+      "attempts": 1
+    },
+    {
+      "platform": "facebook",
+      "found": false,
+      "status": "incomplete",
+      "attempts": 1
+    },
+    {
+      "platform": "official",
+      "found": true,
+      "status": "found",
+      "attempts": 7
+    },
+    {
+      "platform": "yelp",
+      "found": false,
+      "status": "incomplete",
+      "attempts": 2
+    },
+    {
+      "platform": "grubhub",
+      "found": false,
+      "status": "incomplete",
+      "attempts": 2
+    },
+    {
+      "platform": "instagram",
+      "found": false,
+      "status": "incomplete",
+      "attempts": 2
+    }
+  ],
+  "store_id": "001",
+  "name": "Frydom Express",
+  "address": "781 61st St, Brooklyn, NY 11220",
+  "run_id": "d1f83964-c33b-42b9-a549-06921f70fa28",
+  "fetched_at": "2026-11-06T03:34:11.616Z",
+  "mode": "full",
+  "selected_platforms": [
+    "official",
+    "google_maps",
+    "yelp",
+    "tripadvisor",
+    "opentable",
+    "doordash",
+    "uber_eats",
+    "grubhub",
+    "facebook",
+    "resy",
+    "instagram"
+  ],
+  "unsupported_platforms": [
+    "tripadvisor"
+  ],
+  "coverage_complete": false,
+  "channels_out_of_sync": [],
+  "notes": [
+    "Price extraction requires source verification; OCR is not a claim of human validation.",
+    "Cross-channel date differences describe source dates, not price validity or identical menu contents."
+  ]
+}

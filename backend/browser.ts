@@ -32,7 +32,7 @@ export function isListingCandidate(url: string, platform: string): boolean {
   try {
     const u=new URL(url);
     if(u.protocol!=='https:' || u.username || u.password || (u.port && u.port!=='443') || /\.(pdf|zip|docx?|png|jpe?g)(?:$|\/)/i.test(u.pathname))return false;
-    if(platform==='yelp')return /^(www\.)?yelp\.com$/i.test(u.hostname) && /^\/biz\/[^/]+\/?$/i.test(u.pathname);
+    if(platform==='yelp')return /^(?:(?:www|m)\.)?yelp\.com$/i.test(u.hostname) && /^\/biz\/[^/]+\/?$/i.test(u.pathname);
     if(platform==='opentable')return /(^|\.)opentable\.com$/.test(u.hostname)&&/^\/r\/[^/]+/.test(u.pathname);
     if(platform==='uber_eats')return /(^|\.)ubereats\.com$/.test(u.hostname)&&/\/store\//.test(u.pathname);
     if(platform==='doordash')return /(^|\.)doordash\.com$/.test(u.hostname)&&/\/store\//.test(u.pathname);

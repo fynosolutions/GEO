@@ -1,0 +1,204 @@
+[
+  {
+    "channel": "official_html",
+    "found": false,
+    "status": "incomplete",
+    "attempts": [
+      {
+        "channel": "official_html",
+        "url": "https://www.easyjoybuffet.com/",
+        "platform": "official",
+        "identity_verified": false,
+        "status": "unverified",
+        "fetched_at": "2026-11-06T03:29:20.557Z",
+        "error": "Menu source branch identity could not be confirmed."
+      }
+    ],
+    "fetched_at": "2026-11-06T03:26:02.233Z"
+  },
+  {
+    "channel": "official_file",
+    "found": false,
+    "status": "incomplete",
+    "attempts": [
+      {
+        "channel": "official_file",
+        "platform": "official",
+        "url": "https://www.easyjoybuffet.com/",
+        "status": "unverified",
+        "error": "No menu file link discovered; absence is unverified.",
+        "fetched_at": "2026-11-06T03:26:02.233Z"
+      }
+    ],
+    "fetched_at": "2026-11-06T03:26:02.233Z"
+  },
+  {
+    "channel": "google_menu",
+    "found": false,
+    "status": "incomplete",
+    "attempts": [
+      {
+        "channel": "google_menu",
+        "url": null,
+        "platform": "google.com",
+        "status": "unverified",
+        "error": "No eligible menu URL discovered; platform-wide absence is unverified.",
+        "provider_status": "unverified",
+        "fetched_at": "2026-11-06T03:27:54.015Z"
+      },
+      {
+        "channel": "google_menu",
+        "url": "https://www.google.com/maps/search/?api=1&query=Easy+Joy+%28Hot+Pot%2C+BBQ+Skewers%2C+Dim+Sum%29+%E6%84%8F%E4%B8%AD%E4%BA%BA%E7%81%AB%E9%94%85%E7%83%A7%E7%83%A4%E7%82%B9%E5%BF%83&query_place_id=ChIJhRc3tYlZwokRbR4dwpc-0qI",
+        "platform": "google_maps",
+        "identity_verified": true,
+        "status": "unverified",
+        "fetched_at": "2026-11-06T03:29:23.399Z",
+        "error": "No menu extracted from this resource; dynamic content or other menu sources may exist."
+      }
+    ],
+    "fetched_at": "2026-11-06T03:26:02.233Z"
+  },
+  {
+    "channel": "yelp_menu",
+    "found": false,
+    "status": "incomplete",
+    "attempts": [
+      {
+        "channel": "yelp_menu",
+        "url": "https://www.yelp.com/biz/easy-joy-dim-sum-and-ayce-hot-pot-new-york",
+        "platform": "yelp",
+        "identity_verified": true,
+        "status": "error",
+        "error": "Resource HTTP 403.",
+        "fetched_at": "2026-11-06T03:29:29.683Z"
+      },
+      {
+        "channel": "yelp_menu",
+        "url": "https://www.www.yelp.com/biz_photos/easy-joy-dim-sum-and-ayce-hot-pot-new-york?select=nlxM5HHNFBoGBoNmKqMegw",
+        "platform": "yelp.com",
+        "identity_verified": false,
+        "status": "error",
+        "error": "getaddrinfo ENOTFOUND www.www.yelp.com",
+        "fetched_at": "2026-11-06T03:29:31.828Z"
+      },
+      {
+        "channel": "yelp_menu",
+        "url": "https://www.www.yelp.com/biz_photos/easy-joy-dim-sum-and-ayce-hot-pot-new-york",
+        "platform": "yelp.com",
+        "identity_verified": false,
+        "status": "error",
+        "error": "getaddrinfo ENOTFOUND www.www.yelp.com",
+        "fetched_at": "2026-11-06T03:29:31.830Z"
+      }
+    ],
+    "fetched_at": "2026-11-06T03:26:02.233Z"
+  },
+  {
+    "channel": "delivery_menu",
+    "found": true,
+    "status": "found",
+    "attempts": [
+      {
+        "channel": "delivery_menu",
+        "platform": "doordash",
+        "url": "https://www.doordash.com/store/easy-joy-ayce-dim-sum-hot-pot---145-mulberry-st-new-york-35886623/?srsltid=AYCX9vKI9apb_Ce0gm2dxP1QDLOzBa2_PdEzI9Dm8ppExDpRdXApFHNW",
+        "status": "found",
+        "error": null,
+        "fetched_at": "2026-11-06T03:25:23.010Z",
+        "actor": "memo23/doordash-reviews-cheerio",
+        "actor_run_id": "HTXGiORpyEudRv01k"
+      },
+      {
+        "channel": "delivery_menu",
+        "platform": "uber_eats",
+        "url": "https://www.ubereats.com/en-US/store/easy-joy-dim-sum-hot-pot-buffet-%E6%84%8F%E4%B8%AD%E4%BA%BA%E7%82%B9%E5%BF%83%E7%81%AB%E9%94%85%E8%87%AA%E5%8A%A9-145-mulberry-street/7ObUBkSuUKCK1aTC7nHx_g?srsltid=AYCX9vKXdzH2FFilJ7ejrV3E7Zc0D5Z_06qYfjUDqyKoRF2FmJ8xpKrx",
+        "status": "found",
+        "error": null,
+        "fetched_at": "2026-11-06T03:25:37.617Z",
+        "actor": "memo23/uber-eats-scraper",
+        "actor_run_id": "yCacsUHL5k1VrTvck"
+      },
+      {
+        "channel": "delivery_menu",
+        "platform": "grubhub",
+        "url": "https://www.grubhub.com/restaurant/easy-joy-ayce-dim-sum-hot-pot-145-mulberry-st-new-york/12387504",
+        "status": "found",
+        "error": null,
+        "fetched_at": "2026-11-06T03:27:46.252Z",
+        "actor": "natanielsantos/grubhub-scraper",
+        "actor_run_id": "ehk3lySqzKfzZ5EpQ"
+      }
+    ],
+    "fetched_at": "2026-11-06T03:26:02.233Z"
+  },
+  {
+    "channel": "reservation_menu",
+    "found": false,
+    "status": "incomplete",
+    "attempts": [
+      {
+        "channel": "reservation_menu",
+        "url": null,
+        "platform": "opentable.com",
+        "status": "unverified",
+        "error": "No eligible menu URL discovered; platform-wide absence is unverified.",
+        "provider_status": "unverified",
+        "fetched_at": "2026-11-06T03:28:11.871Z"
+      },
+      {
+        "channel": "reservation_menu",
+        "url": null,
+        "platform": "resy.com",
+        "status": "unverified",
+        "error": "No eligible menu URL discovered; platform-wide absence is unverified.",
+        "provider_status": "unverified",
+        "fetched_at": "2026-11-06T03:28:58.686Z"
+      }
+    ],
+    "fetched_at": "2026-11-06T03:26:02.233Z"
+  },
+  {
+    "channel": "social_menu",
+    "found": false,
+    "status": "incomplete",
+    "attempts": [
+      {
+        "channel": "social_menu",
+        "url": null,
+        "platform": "facebook.com",
+        "status": "unverified",
+        "error": "No eligible menu URL discovered; platform-wide absence is unverified.",
+        "provider_status": "unverified",
+        "fetched_at": "2026-11-06T03:29:06.379Z"
+      },
+      {
+        "channel": "social_menu",
+        "url": "https://www.facebook.com/p/Easy-Joy-Buffet-61579381037917/",
+        "platform": "facebook",
+        "identity_verified": true,
+        "status": "unverified",
+        "fetched_at": "2026-11-06T03:29:31.629Z",
+        "error": "No menu extracted from this resource; dynamic content or other menu sources may exist."
+      },
+      {
+        "channel": "social_menu",
+        "url": "https://www.instagram.com/easyjoybuffet/",
+        "platform": "instagram.com",
+        "identity_verified": false,
+        "status": "error",
+        "error": "Resource HTTP 429.",
+        "fetched_at": "2026-11-06T03:29:33.509Z"
+      },
+      {
+        "channel": "social_menu",
+        "url": "https://www.instagram.com/reel/DRbBjsZjZpu/",
+        "platform": "instagram.com",
+        "identity_verified": false,
+        "status": "unverified",
+        "fetched_at": "2026-11-06T03:29:34.449Z",
+        "error": "Menu source branch identity could not be confirmed."
+      }
+    ],
+    "fetched_at": "2026-11-06T03:26:02.233Z"
+  }
+]

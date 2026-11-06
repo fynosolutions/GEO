@@ -1,0 +1,13 @@
+{
+  "channel": "official_file",
+  "url": "https://images.squarespace-cdn.com/content/v1/6102a1f9b9fc15011565183b/ba51e2d9-d23c-4159-95e5-66630c55f5d2/November%2B2026%2BFOOD%2BMENU.png",
+  "format": "image",
+  "menu_date": null,
+  "date_source": "unknown",
+  "date_text": null,
+  "freshness": "unknown_date",
+  "year": null,
+  "fetched_at": "2026-11-05T14:27:27.186Z",
+  "extraction": "ocr",
+  "sha256": "5da584c3637811b98d0acfa2b590b016ee05bb185cd529db6de2a2eb0a905fcc"
+}

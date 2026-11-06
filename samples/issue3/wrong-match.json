@@ -1,0 +1,17 @@
+[
+  {
+    "platform": "yelp",
+    "found": false,
+    "matched": false,
+    "url": null,
+    "name": null,
+    "address": null,
+    "phone": null,
+    "hours": null,
+    "rating": null,
+    "review_count": null,
+    "price_level": null,
+    "fetched_at": "2026-11-06T03:45:10.398Z",
+    "error": "Google Maps identity could not be confirmed; platform collection was not started."
+  }
+]

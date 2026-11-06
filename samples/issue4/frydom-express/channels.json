@@ -1,0 +1,238 @@
+[
+  {
+    "channel": "official_html",
+    "found": true,
+    "status": "incomplete",
+    "attempts": [
+      {
+        "channel": "official_html",
+        "url": "https://www.frydomexpress.com/",
+        "platform": "official",
+        "identity_verified": false,
+        "status": "found",
+        "fetched_at": "2026-11-06T03:37:28.600Z",
+        "error": null
+      },
+      {
+        "channel": "official_html",
+        "url": "https://pos.chowbus.com/online-ordering/store/Frydom-Express-Brooklyn/23427",
+        "platform": "official",
+        "identity_verified": true,
+        "status": "unverified",
+        "fetched_at": "2026-11-06T03:37:30.698Z",
+        "error": "No menu extracted from this resource; dynamic content or other menu sources may exist."
+      },
+      {
+        "channel": "official_html",
+        "platform": "official",
+        "url": "https://www.frydomexpress.com/menu.html",
+        "identity_verified": true,
+        "status": "found",
+        "fetched_at": "2026-11-06T03:37:40.325Z",
+        "error": null
+      },
+      {
+        "channel": "official_html",
+        "platform": "official",
+        "url": "https://www.frydomexpress.com/en/menu.html",
+        "identity_verified": true,
+        "status": "found",
+        "fetched_at": "2026-11-06T03:37:40.628Z",
+        "error": null
+      },
+      {
+        "channel": "official_html",
+        "platform": "official",
+        "url": "https://www.frydomexpress.com/franchise.html",
+        "identity_verified": true,
+        "status": "unverified",
+        "fetched_at": "2026-11-06T03:37:40.935Z",
+        "error": "No menu extracted from this resource; dynamic content or other menu sources may exist."
+      },
+      {
+        "channel": "official_html",
+        "platform": "official",
+        "url": "https://www.frydomexpress.com/en/franchise.html",
+        "identity_verified": true,
+        "status": "unverified",
+        "fetched_at": "2026-11-06T03:37:41.246Z",
+        "error": "No menu extracted from this resource; dynamic content or other menu sources may exist."
+      }
+    ],
+    "fetched_at": "2026-11-06T03:34:11.616Z"
+  },
+  {
+    "channel": "official_file",
+    "found": false,
+    "status": "incomplete",
+    "attempts": [
+      {
+        "channel": "official_file",
+        "platform": "official",
+        "url": "https://www.frydomexpress.com/",
+        "status": "unverified",
+        "error": "No menu file link discovered; absence is unverified.",
+        "fetched_at": "2026-11-06T03:34:11.616Z"
+      }
+    ],
+    "fetched_at": "2026-11-06T03:34:11.616Z"
+  },
+  {
+    "channel": "google_menu",
+    "found": false,
+    "status": "incomplete",
+    "attempts": [
+      {
+        "channel": "google_menu",
+        "url": null,
+        "platform": "google.com",
+        "status": "unverified",
+        "error": "No eligible menu URL discovered; platform-wide absence is unverified.",
+        "provider_status": "unverified",
+        "fetched_at": "2026-11-06T03:34:58.372Z"
+      },
+      {
+        "channel": "google_menu",
+        "url": "https://www.google.com/maps/search/?api=1&query=Frydom+Express&query_place_id=ChIJQ0XcUgBFwokRe90ZIiGy_G8",
+        "platform": "google_maps",
+        "identity_verified": true,
+        "status": "unverified",
+        "fetched_at": "2026-11-06T03:37:32.455Z",
+        "error": "No menu extracted from this resource; dynamic content or other menu sources may exist."
+      }
+    ],
+    "fetched_at": "2026-11-06T03:34:11.616Z"
+  },
+  {
+    "channel": "yelp_menu",
+    "found": false,
+    "status": "incomplete",
+    "attempts": [
+      {
+        "channel": "yelp_menu",
+        "url": "https://www.yelp.com/biz/frydom-express-brooklyn",
+        "platform": "yelp",
+        "identity_verified": true,
+        "status": "error",
+        "error": "Resource HTTP 403.",
+        "fetched_at": "2026-11-06T03:37:33.655Z"
+      },
+      {
+        "channel": "yelp_menu",
+        "url": "https://m.yelp.com/biz/frydom-express-brooklyn",
+        "platform": "yelp.com",
+        "identity_verified": false,
+        "status": "error",
+        "error": "Resource HTTP 403.",
+        "fetched_at": "2026-11-06T03:37:34.810Z"
+      }
+    ],
+    "fetched_at": "2026-11-06T03:34:11.616Z"
+  },
+  {
+    "channel": "delivery_menu",
+    "found": true,
+    "status": "incomplete",
+    "attempts": [
+      {
+        "channel": "delivery_menu",
+        "platform": "uber_eats",
+        "url": "https://www.ubereats.com/en-US/store/frydom-express-fried-chicken-%E9%A3%9E%E4%B9%90%E7%82%B8%E9%B8%A1-781-61st-street/OLdZQvsVXzWCMBpsf9uctg?srsltid=AYCX9vICJg1w1ReYLMHpjSjI-hkogrlW-aQgRkQ2sSJOZ2_8ONd6e1tq",
+        "status": "found",
+        "error": null,
+        "fetched_at": "2026-11-06T03:31:30.102Z",
+        "actor": "memo23/uber-eats-scraper",
+        "actor_run_id": "pjh9GZqtyh79m1nRU"
+      },
+      {
+        "channel": "delivery_menu",
+        "url": null,
+        "platform": "doordash.com",
+        "status": "unverified",
+        "error": "No eligible menu URL discovered; platform-wide absence is unverified.",
+        "provider_status": "unverified",
+        "fetched_at": "2026-11-06T03:35:34.648Z"
+      },
+      {
+        "channel": "delivery_menu",
+        "url": "https://www.grubhub.com/delivery/il-cherry_valley-61016",
+        "platform": "grubhub.com",
+        "identity_verified": false,
+        "status": "unverified",
+        "fetched_at": "2026-11-06T03:37:36.188Z",
+        "error": "Menu source branch identity could not be confirmed."
+      },
+      {
+        "channel": "delivery_menu",
+        "url": "https://www.grubhub.com/delivery/il-caledonia-61011",
+        "platform": "grubhub.com",
+        "identity_verified": false,
+        "status": "unverified",
+        "fetched_at": "2026-11-06T03:37:36.504Z",
+        "error": "Menu source branch identity could not be confirmed."
+      }
+    ],
+    "fetched_at": "2026-11-06T03:34:11.616Z"
+  },
+  {
+    "channel": "reservation_menu",
+    "found": false,
+    "status": "incomplete",
+    "attempts": [
+      {
+        "channel": "reservation_menu",
+        "url": null,
+        "platform": "opentable.com",
+        "status": "unverified",
+        "error": "No eligible menu URL discovered; platform-wide absence is unverified.",
+        "provider_status": "unverified",
+        "fetched_at": "2026-11-06T03:36:01.619Z"
+      },
+      {
+        "channel": "reservation_menu",
+        "url": null,
+        "platform": "resy.com",
+        "status": "unverified",
+        "error": "No eligible menu URL discovered; platform-wide absence is unverified.",
+        "provider_status": "unverified",
+        "fetched_at": "2026-11-06T03:36:43.779Z"
+      }
+    ],
+    "fetched_at": "2026-11-06T03:34:11.616Z"
+  },
+  {
+    "channel": "social_menu",
+    "found": false,
+    "status": "incomplete",
+    "attempts": [
+      {
+        "channel": "social_menu",
+        "url": null,
+        "platform": "facebook.com",
+        "status": "unverified",
+        "error": "No eligible menu URL discovered; platform-wide absence is unverified.",
+        "provider_status": "unverified",
+        "fetched_at": "2026-11-06T03:37:07.667Z"
+      },
+      {
+        "channel": "social_menu",
+        "url": "https://www.instagram.com/reel/DeZZzvqpbbx/",
+        "platform": "instagram.com",
+        "identity_verified": false,
+        "status": "unverified",
+        "fetched_at": "2026-11-06T03:37:38.333Z",
+        "error": "Menu source branch identity could not be confirmed."
+      },
+      {
+        "channel": "social_menu",
+        "url": "https://www.instagram.com/reel/DTk7pA_ESna/",
+        "platform": "instagram.com",
+        "identity_verified": false,
+        "status": "unverified",
+        "fetched_at": "2026-11-06T03:37:38.962Z",
+        "error": "Menu source branch identity could not be confirmed."
+      }
+    ],
+    "fetched_at": "2026-11-06T03:34:11.616Z"
+  }
+]

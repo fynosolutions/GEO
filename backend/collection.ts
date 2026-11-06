@@ -74,13 +74,14 @@ export function mapApify(platform:string,result:ApifyResult,target:Identity):Lis
  if(!['unverified','success'].includes(result.status))return {...emptyListing(platform,result.status==='empty'?null:result.note),fetched_at:result.collected_at};
  if(result.items.length&&result.items.every((v:any)=>v?.demo===true))return {...emptyListing(platform,'Apify Actor returned demo-only records; check Actor subscription or trial access.'),fetched_at:result.collected_at};
  if(result.items.length&&result.items.every((v:any)=>v&&typeof v==='object'&&v.error))return {...emptyListing(platform,result.items.map((v:any)=>String(v.errorDescription||v.error).slice(0,400)).join('; ')),fetched_at:result.collected_at};
+ const cateringOnly=platform==='grubhub'&&!/\bcatering\b/i.test(target.name);
  const candidates=result.items.filter((v:any)=>v&&typeof v==='object'&&!v.error).map((v:any)=>{
   const mapped=mapItem(platform,v);const requested=(result.target as any)?.listing_url;
   if(platform==='doordash'&&!mapped.url&&requested&&v.restaurant?.id){
    try{const id=new URL(requested).pathname.match(/(?:-|\/)(\d+)\/?$/)?.[1];if(id===String(v.restaurant.id))mapped.url=requested;}catch{}
   }
   return mapped;
- }).filter(v=>matchesIdentity(v,target)&&v.url&&matchesDomains(v.url,domains[platform])&&isListingCandidate(v.url,platform));
+ }).filter(v=>!(cateringOnly&&/\bcatering\b/i.test((v.name||'')+' '+(v.url||'')))&&matchesIdentity(v,target)&&v.url&&matchesDomains(v.url,domains[platform])&&isListingCandidate(v.url,platform));
  if(candidates.length!==1)return {...emptyListing(platform,candidates.length?'Ambiguous branch matches.':'No branch matched at least two identity fields (name, address, phone) with a platform source URL.'),fetched_at:result.collected_at};
  return {...candidates[0],matched:true,fetched_at:result.collected_at};
 }
@@ -121,7 +122,8 @@ async function collectYelpCandidates(apify:typeof collectApify,target:Parameters
  };
  while(visited.size<3){
   signal?.throwIfAborted();
-  const url=queue.shift();
+  let url=queue.shift();
+  if(url){const candidate=new URL(url);if(candidate.hostname==='m.yelp.com'){candidate.hostname='www.yelp.com';url=candidate.href;}}
   if(url){
    const key=yelpCandidateKey(url);if(!key||visited.has(key))continue;
    visited.add(key);best=mapApify('yelp',await run(url),identity);if(best.matched)break;

@@ -1,0 +1,92 @@
+{
+  "platform_results": [
+    {
+      "platform": "doordash",
+      "found": true,
+      "status": "found",
+      "attempts": 1
+    },
+    {
+      "platform": "uber_eats",
+      "found": true,
+      "status": "found",
+      "attempts": 1
+    },
+    {
+      "platform": "grubhub",
+      "found": true,
+      "status": "found",
+      "attempts": 1
+    },
+    {
+      "platform": "google_maps",
+      "found": false,
+      "status": "incomplete",
+      "attempts": 2
+    },
+    {
+      "platform": "opentable",
+      "found": false,
+      "status": "incomplete",
+      "attempts": 1
+    },
+    {
+      "platform": "resy",
+      "found": false,
+      "status": "incomplete",
+      "attempts": 1
+    },
+    {
+      "platform": "facebook",
+      "found": false,
+      "status": "incomplete",
+      "attempts": 2
+    },
+    {
+      "platform": "official",
+      "found": false,
+      "status": "incomplete",
+      "attempts": 2
+    },
+    {
+      "platform": "yelp",
+      "found": false,
+      "status": "incomplete",
+      "attempts": 3
+    },
+    {
+      "platform": "instagram",
+      "found": false,
+      "status": "incomplete",
+      "attempts": 2
+    }
+  ],
+  "store_id": "020",
+  "name": "Easy Joy (Hot Pot, BBQ Skewers, Dim Sum) 意中人火锅烧烤点心",
+  "address": "145 Mulberry St, New York, NY 10013",
+  "run_id": "7cee7ef1-b6dc-4152-89c9-229ac6db53cc",
+  "fetched_at": "2026-11-06T03:26:02.233Z",
+  "mode": "full",
+  "selected_platforms": [
+    "official",
+    "google_maps",
+    "yelp",
+    "tripadvisor",
+    "opentable",
+    "doordash",
+    "uber_eats",
+    "grubhub",
+    "facebook",
+    "resy",
+    "instagram"
+  ],
+  "unsupported_platforms": [
+    "tripadvisor"
+  ],
+  "coverage_complete": false,
+  "channels_out_of_sync": [],
+  "notes": [
+    "Price extraction requires source verification; OCR is not a claim of human validation.",
+    "Cross-channel date differences describe source dates, not price validity or identical menu contents."
+  ]
+}

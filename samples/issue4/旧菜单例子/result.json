@@ -1,0 +1,13 @@
+{
+  "channel": "official_html",
+  "url": "https://www.grassosrestaurant.com/menu/fall-dinner-menu-2023-copy/",
+  "format": "html",
+  "menu_date": "2024",
+  "date_source": "on_page",
+  "date_text": "Menu 2024",
+  "freshness": "stale",
+  "year": "2024",
+  "fetched_at": "2026-11-05T14:27:24.562Z",
+  "extraction": "html",
+  "sha256": "0018b3f4e1245cc38f8270af424777c0a673b3903ca6da8d8a06a71d975733b8"
+}

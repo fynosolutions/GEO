@@ -1,0 +1,908 @@
+[
+  {
+    "channel": "delivery_menu",
+    "platform": "uber_eats",
+    "url": "https://www.ubereats.com/en-US/store/frydom-express-fried-chicken-%E9%A3%9E%E4%B9%90%E7%82%B8%E9%B8%A1-781-61st-street/OLdZQvsVXzWCMBpsf9uctg?srsltid=AYCX9vICJg1w1ReYLMHpjSjI-hkogrlW-aQgRkQ2sSJOZ2_8ONd6e1tq",
+    "format": "html",
+    "menu_date": null,
+    "date_source": "unknown",
+    "fetched_at": "2026-11-06T03:31:30.102Z",
+    "menu_id": "uber_eats:main",
+    "date_text": null,
+    "freshness": "unknown_date",
+    "year": null,
+    "extraction": "apify-structured",
+    "actor": "memo23/uber-eats-scraper",
+    "actor_run_id": "pjh9GZqtyh79m1nRU",
+    "item_count": 61,
+    "items_collected": true,
+    "items": [
+      {
+        "name": "Korean Fried Chicken Combo",
+        "category": "Featured items",
+        "variant": null,
+        "price": 19.99,
+        "currency": "USD",
+        "url": "https://www.ubereats.com/en-US/store/frydom-express-fried-chicken-%E9%A3%9E%E4%B9%90%E7%82%B8%E9%B8%A1-781-61st-street/OLdZQvsVXzWCMBpsf9uctg?srsltid=AYCX9vICJg1w1ReYLMHpjSjI-hkogrlW-aQgRkQ2sSJOZ2_8ONd6e1tq",
+        "fetched_at": "2026-11-06T03:31:30.102Z"
+      },
+      {
+        "name": "Chicken Wings Combo",
+        "category": "Featured items",
+        "variant": null,
+        "price": 12.38,
+        "currency": "USD",
+        "url": "https://www.ubereats.com/en-US/store/frydom-express-fried-chicken-%E9%A3%9E%E4%B9%90%E7%82%B8%E9%B8%A1-781-61st-street/OLdZQvsVXzWCMBpsf9uctg?srsltid=AYCX9vICJg1w1ReYLMHpjSjI-hkogrlW-aQgRkQ2sSJOZ2_8ONd6e1tq",
+        "fetched_at": "2026-11-06T03:31:30.102Z"
+      },
+      {
+        "name": "Crispy Chicken Burger + Lemon Tea",
+        "category": "Featured items",
+        "variant": null,
+        "price": 13.99,
+        "currency": "USD",
+        "url": "https://www.ubereats.com/en-US/store/frydom-express-fried-chicken-%E9%A3%9E%E4%B9%90%E7%82%B8%E9%B8%A1-781-61st-street/OLdZQvsVXzWCMBpsf9uctg?srsltid=AYCX9vICJg1w1ReYLMHpjSjI-hkogrlW-aQgRkQ2sSJOZ2_8ONd6e1tq",
+        "fetched_at": "2026-11-06T03:31:30.102Z"
+      },
+      {
+        "name": "Snow Cheese Wings",
+        "category": "Featured items",
+        "variant": null,
+        "price": 6.55,
+        "currency": "USD",
+        "url": "https://www.ubereats.com/en-US/store/frydom-express-fried-chicken-%E9%A3%9E%E4%B9%90%E7%82%B8%E9%B8%A1-781-61st-street/OLdZQvsVXzWCMBpsf9uctg?srsltid=AYCX9vICJg1w1ReYLMHpjSjI-hkogrlW-aQgRkQ2sSJOZ2_8ONd6e1tq",
+        "fetched_at": "2026-11-06T03:31:30.102Z"
+      },
+      {
+        "name": "Crispy Chicken Burger",
+        "category": "Featured items",
+        "variant": null,
+        "price": 6.88,
+        "currency": "USD",
+        "url": "https://www.ubereats.com/en-US/store/frydom-express-fried-chicken-%E9%A3%9E%E4%B9%90%E7%82%B8%E9%B8%A1-781-61st-street/OLdZQvsVXzWCMBpsf9uctg?srsltid=AYCX9vICJg1w1ReYLMHpjSjI-hkogrlW-aQgRkQ2sSJOZ2_8ONd6e1tq",
+        "fetched_at": "2026-11-06T03:31:30.102Z"
+      },
+      {
+        "name": "Chicken Wing(6 Pics)",
+        "category": "Featured items",
+        "variant": null,
+        "price": 8.75,
+        "currency": "USD",
+        "url": "https://www.ubereats.com/en-US/store/frydom-express-fried-chicken-%E9%A3%9E%E4%B9%90%E7%82%B8%E9%B8%A1-781-61st-street/OLdZQvsVXzWCMBpsf9uctg?srsltid=AYCX9vICJg1w1ReYLMHpjSjI-hkogrlW-aQgRkQ2sSJOZ2_8ONd6e1tq",
+        "fetched_at": "2026-11-06T03:31:30.102Z"
+      },
+      {
+        "name": "Sweet Chili Wings",
+        "category": "Featured items",
+        "variant": null,
+        "price": 6.55,
+        "currency": "USD",
+        "url": "https://www.ubereats.com/en-US/store/frydom-express-fried-chicken-%E9%A3%9E%E4%B9%90%E7%82%B8%E9%B8%A1-781-61st-street/OLdZQvsVXzWCMBpsf9uctg?srsltid=AYCX9vICJg1w1ReYLMHpjSjI-hkogrlW-aQgRkQ2sSJOZ2_8ONd6e1tq",
+        "fetched_at": "2026-11-06T03:31:30.102Z"
+      },
+      {
+        "name": "Plum Chicken Wings",
+        "category": "Featured items",
+        "variant": null,
+        "price": 6.55,
+        "currency": "USD",
+        "url": "https://www.ubereats.com/en-US/store/frydom-express-fried-chicken-%E9%A3%9E%E4%B9%90%E7%82%B8%E9%B8%A1-781-61st-street/OLdZQvsVXzWCMBpsf9uctg?srsltid=AYCX9vICJg1w1ReYLMHpjSjI-hkogrlW-aQgRkQ2sSJOZ2_8ONd6e1tq",
+        "fetched_at": "2026-11-06T03:31:30.102Z"
+      },
+      {
+        "name": "Snow Cheese Boneless",
+        "category": "Featured items",
+        "variant": null,
+        "price": 5.45,
+        "currency": "USD",
+        "url": "https://www.ubereats.com/en-US/store/frydom-express-fried-chicken-%E9%A3%9E%E4%B9%90%E7%82%B8%E9%B8%A1-781-61st-street/OLdZQvsVXzWCMBpsf9uctg?srsltid=AYCX9vICJg1w1ReYLMHpjSjI-hkogrlW-aQgRkQ2sSJOZ2_8ONd6e1tq",
+        "fetched_at": "2026-11-06T03:31:30.102Z"
+      },
+      {
+        "name": "Popcorn Chicken",
+        "category": "Featured items",
+        "variant": null,
+        "price": 5.45,
+        "currency": "USD",
+        "url": "https://www.ubereats.com/en-US/store/frydom-express-fried-chicken-%E9%A3%9E%E4%B9%90%E7%82%B8%E9%B8%A1-781-61st-street/OLdZQvsVXzWCMBpsf9uctg?srsltid=AYCX9vICJg1w1ReYLMHpjSjI-hkogrlW-aQgRkQ2sSJOZ2_8ONd6e1tq",
+        "fetched_at": "2026-11-06T03:31:30.102Z"
+      },
+      {
+        "name": "Golden Chicken Combo",
+        "category": "Featured items",
+        "variant": null,
+        "price": 17.99,
+        "currency": "USD",
+        "url": "https://www.ubereats.com/en-US/store/frydom-express-fried-chicken-%E9%A3%9E%E4%B9%90%E7%82%B8%E9%B8%A1-781-61st-street/OLdZQvsVXzWCMBpsf9uctg?srsltid=AYCX9vICJg1w1ReYLMHpjSjI-hkogrlW-aQgRkQ2sSJOZ2_8ONd6e1tq",
+        "fetched_at": "2026-11-06T03:31:30.102Z"
+      },
+      {
+        "name": "Cumin Wings",
+        "category": "Featured items",
+        "variant": null,
+        "price": 6.55,
+        "currency": "USD",
+        "url": "https://www.ubereats.com/en-US/store/frydom-express-fried-chicken-%E9%A3%9E%E4%B9%90%E7%82%B8%E9%B8%A1-781-61st-street/OLdZQvsVXzWCMBpsf9uctg?srsltid=AYCX9vICJg1w1ReYLMHpjSjI-hkogrlW-aQgRkQ2sSJOZ2_8ONd6e1tq",
+        "fetched_at": "2026-11-06T03:31:30.102Z"
+      },
+      {
+        "name": "Crispy Fish Fillet Burger Combo",
+        "category": "Featured items",
+        "variant": null,
+        "price": 11.82,
+        "currency": "USD",
+        "url": "https://www.ubereats.com/en-US/store/frydom-express-fried-chicken-%E9%A3%9E%E4%B9%90%E7%82%B8%E9%B8%A1-781-61st-street/OLdZQvsVXzWCMBpsf9uctg?srsltid=AYCX9vICJg1w1ReYLMHpjSjI-hkogrlW-aQgRkQ2sSJOZ2_8ONd6e1tq",
+        "fetched_at": "2026-11-06T03:31:30.102Z"
+      },
+      {
+        "name": "Chicken Wrap",
+        "category": "Featured items",
+        "variant": null,
+        "price": 6.55,
+        "currency": "USD",
+        "url": "https://www.ubereats.com/en-US/store/frydom-express-fried-chicken-%E9%A3%9E%E4%B9%90%E7%82%B8%E9%B8%A1-781-61st-street/OLdZQvsVXzWCMBpsf9uctg?srsltid=AYCX9vICJg1w1ReYLMHpjSjI-hkogrlW-aQgRkQ2sSJOZ2_8ONd6e1tq",
+        "fetched_at": "2026-11-06T03:31:30.102Z"
+      },
+      {
+        "name": "Chicken Wrap Combo",
+        "category": "Featured items",
+        "variant": null,
+        "price": 10.18,
+        "currency": "USD",
+        "url": "https://www.ubereats.com/en-US/store/frydom-express-fried-chicken-%E9%A3%9E%E4%B9%90%E7%82%B8%E9%B8%A1-781-61st-street/OLdZQvsVXzWCMBpsf9uctg?srsltid=AYCX9vICJg1w1ReYLMHpjSjI-hkogrlW-aQgRkQ2sSJOZ2_8ONd6e1tq",
+        "fetched_at": "2026-11-06T03:31:30.102Z"
+      },
+      {
+        "name": "Spicy Boneless",
+        "category": "Featured items",
+        "variant": null,
+        "price": 5.45,
+        "currency": "USD",
+        "url": "https://www.ubereats.com/en-US/store/frydom-express-fried-chicken-%E9%A3%9E%E4%B9%90%E7%82%B8%E9%B8%A1-781-61st-street/OLdZQvsVXzWCMBpsf9uctg?srsltid=AYCX9vICJg1w1ReYLMHpjSjI-hkogrlW-aQgRkQ2sSJOZ2_8ONd6e1tq",
+        "fetched_at": "2026-11-06T03:31:30.102Z"
+      },
+      {
+        "name": "Crispy Chicken Burger Combo",
+        "category": "Featured items",
+        "variant": null,
+        "price": 10.95,
+        "currency": "USD",
+        "url": "https://www.ubereats.com/en-US/store/frydom-express-fried-chicken-%E9%A3%9E%E4%B9%90%E7%82%B8%E9%B8%A1-781-61st-street/OLdZQvsVXzWCMBpsf9uctg?srsltid=AYCX9vICJg1w1ReYLMHpjSjI-hkogrlW-aQgRkQ2sSJOZ2_8ONd6e1tq",
+        "fetched_at": "2026-11-06T03:31:30.102Z"
+      },
+      {
+        "name": "Honey Mustard Wings",
+        "category": "Featured items",
+        "variant": null,
+        "price": 6.55,
+        "currency": "USD",
+        "url": "https://www.ubereats.com/en-US/store/frydom-express-fried-chicken-%E9%A3%9E%E4%B9%90%E7%82%B8%E9%B8%A1-781-61st-street/OLdZQvsVXzWCMBpsf9uctg?srsltid=AYCX9vICJg1w1ReYLMHpjSjI-hkogrlW-aQgRkQ2sSJOZ2_8ONd6e1tq",
+        "fetched_at": "2026-11-06T03:31:30.102Z"
+      },
+      {
+        "name": "Crispy Chicken Burger",
+        "category": "A La Carte",
+        "variant": null,
+        "price": 6.88,
+        "currency": "USD",
+        "url": "https://www.ubereats.com/en-US/store/frydom-express-fried-chicken-%E9%A3%9E%E4%B9%90%E7%82%B8%E9%B8%A1-781-61st-street/OLdZQvsVXzWCMBpsf9uctg?srsltid=AYCX9vICJg1w1ReYLMHpjSjI-hkogrlW-aQgRkQ2sSJOZ2_8ONd6e1tq",
+        "fetched_at": "2026-11-06T03:31:30.102Z"
+      },
+      {
+        "name": "Angus Beef Cheeseburger",
+        "category": "A La Carte",
+        "variant": null,
+        "price": 9.08,
+        "currency": "USD",
+        "url": "https://www.ubereats.com/en-US/store/frydom-express-fried-chicken-%E9%A3%9E%E4%B9%90%E7%82%B8%E9%B8%A1-781-61st-street/OLdZQvsVXzWCMBpsf9uctg?srsltid=AYCX9vICJg1w1ReYLMHpjSjI-hkogrlW-aQgRkQ2sSJOZ2_8ONd6e1tq",
+        "fetched_at": "2026-11-06T03:31:30.102Z"
+      },
+      {
+        "name": "Chicken Wrap",
+        "category": "A La Carte",
+        "variant": null,
+        "price": 6.55,
+        "currency": "USD",
+        "url": "https://www.ubereats.com/en-US/store/frydom-express-fried-chicken-%E9%A3%9E%E4%B9%90%E7%82%B8%E9%B8%A1-781-61st-street/OLdZQvsVXzWCMBpsf9uctg?srsltid=AYCX9vICJg1w1ReYLMHpjSjI-hkogrlW-aQgRkQ2sSJOZ2_8ONd6e1tq",
+        "fetched_at": "2026-11-06T03:31:30.102Z"
+      },
+      {
+        "name": "Chicken Wing(6 Pics)",
+        "category": "A La Carte",
+        "variant": null,
+        "price": 8.75,
+        "currency": "USD",
+        "url": "https://www.ubereats.com/en-US/store/frydom-express-fried-chicken-%E9%A3%9E%E4%B9%90%E7%82%B8%E9%B8%A1-781-61st-street/OLdZQvsVXzWCMBpsf9uctg?srsltid=AYCX9vICJg1w1ReYLMHpjSjI-hkogrlW-aQgRkQ2sSJOZ2_8ONd6e1tq",
+        "fetched_at": "2026-11-06T03:31:30.102Z"
+      },
+      {
+        "name": "Crispy Fish Fillet Burger",
+        "category": "A La Carte",
+        "variant": null,
+        "price": 7.65,
+        "currency": "USD",
+        "url": "https://www.ubereats.com/en-US/store/frydom-express-fried-chicken-%E9%A3%9E%E4%B9%90%E7%82%B8%E9%B8%A1-781-61st-street/OLdZQvsVXzWCMBpsf9uctg?srsltid=AYCX9vICJg1w1ReYLMHpjSjI-hkogrlW-aQgRkQ2sSJOZ2_8ONd6e1tq",
+        "fetched_at": "2026-11-06T03:31:30.102Z"
+      },
+      {
+        "name": "Crispy Chicken Burger Combo",
+        "category": "Combo",
+        "variant": null,
+        "price": 10.95,
+        "currency": "USD",
+        "url": "https://www.ubereats.com/en-US/store/frydom-express-fried-chicken-%E9%A3%9E%E4%B9%90%E7%82%B8%E9%B8%A1-781-61st-street/OLdZQvsVXzWCMBpsf9uctg?srsltid=AYCX9vICJg1w1ReYLMHpjSjI-hkogrlW-aQgRkQ2sSJOZ2_8ONd6e1tq",
+        "fetched_at": "2026-11-06T03:31:30.102Z"
+      },
+      {
+        "name": "Angus Beef Cheeseburger Combo",
+        "category": "Combo",
+        "variant": null,
+        "price": 15.99,
+        "currency": "USD",
+        "url": "https://www.ubereats.com/en-US/store/frydom-express-fried-chicken-%E9%A3%9E%E4%B9%90%E7%82%B8%E9%B8%A1-781-61st-street/OLdZQvsVXzWCMBpsf9uctg?srsltid=AYCX9vICJg1w1ReYLMHpjSjI-hkogrlW-aQgRkQ2sSJOZ2_8ONd6e1tq",
+        "fetched_at": "2026-11-06T03:31:30.102Z"
+      },
+      {
+        "name": "Chicken Wrap Combo",
+        "category": "Combo",
+        "variant": null,
+        "price": 10.18,
+        "currency": "USD",
+        "url": "https://www.ubereats.com/en-US/store/frydom-express-fried-chicken-%E9%A3%9E%E4%B9%90%E7%82%B8%E9%B8%A1-781-61st-street/OLdZQvsVXzWCMBpsf9uctg?srsltid=AYCX9vICJg1w1ReYLMHpjSjI-hkogrlW-aQgRkQ2sSJOZ2_8ONd6e1tq",
+        "fetched_at": "2026-11-06T03:31:30.102Z"
+      },
+      {
+        "name": "Chicken Wings Combo",
+        "category": "Combo",
+        "variant": null,
+        "price": 12.38,
+        "currency": "USD",
+        "url": "https://www.ubereats.com/en-US/store/frydom-express-fried-chicken-%E9%A3%9E%E4%B9%90%E7%82%B8%E9%B8%A1-781-61st-street/OLdZQvsVXzWCMBpsf9uctg?srsltid=AYCX9vICJg1w1ReYLMHpjSjI-hkogrlW-aQgRkQ2sSJOZ2_8ONd6e1tq",
+        "fetched_at": "2026-11-06T03:31:30.102Z"
+      },
+      {
+        "name": "Crispy Fish Fillet Burger Combo",
+        "category": "Combo",
+        "variant": null,
+        "price": 11.82,
+        "currency": "USD",
+        "url": "https://www.ubereats.com/en-US/store/frydom-express-fried-chicken-%E9%A3%9E%E4%B9%90%E7%82%B8%E9%B8%A1-781-61st-street/OLdZQvsVXzWCMBpsf9uctg?srsltid=AYCX9vICJg1w1ReYLMHpjSjI-hkogrlW-aQgRkQ2sSJOZ2_8ONd6e1tq",
+        "fetched_at": "2026-11-06T03:31:30.102Z"
+      },
+      {
+        "name": "Crispy Chicken Burger + Lemon Tea",
+        "category": "Combo",
+        "variant": null,
+        "price": 13.99,
+        "currency": "USD",
+        "url": "https://www.ubereats.com/en-US/store/frydom-express-fried-chicken-%E9%A3%9E%E4%B9%90%E7%82%B8%E9%B8%A1-781-61st-street/OLdZQvsVXzWCMBpsf9uctg?srsltid=AYCX9vICJg1w1ReYLMHpjSjI-hkogrlW-aQgRkQ2sSJOZ2_8ONd6e1tq",
+        "fetched_at": "2026-11-06T03:31:30.102Z"
+      },
+      {
+        "name": "Golden Chicken Combo",
+        "category": "Combo",
+        "variant": null,
+        "price": 17.99,
+        "currency": "USD",
+        "url": "https://www.ubereats.com/en-US/store/frydom-express-fried-chicken-%E9%A3%9E%E4%B9%90%E7%82%B8%E9%B8%A1-781-61st-street/OLdZQvsVXzWCMBpsf9uctg?srsltid=AYCX9vICJg1w1ReYLMHpjSjI-hkogrlW-aQgRkQ2sSJOZ2_8ONd6e1tq",
+        "fetched_at": "2026-11-06T03:31:30.102Z"
+      },
+      {
+        "name": "Korean Fried Chicken Combo",
+        "category": "Combo",
+        "variant": null,
+        "price": 19.99,
+        "currency": "USD",
+        "url": "https://www.ubereats.com/en-US/store/frydom-express-fried-chicken-%E9%A3%9E%E4%B9%90%E7%82%B8%E9%B8%A1-781-61st-street/OLdZQvsVXzWCMBpsf9uctg?srsltid=AYCX9vICJg1w1ReYLMHpjSjI-hkogrlW-aQgRkQ2sSJOZ2_8ONd6e1tq",
+        "fetched_at": "2026-11-06T03:31:30.102Z"
+      },
+      {
+        "name": "Beef Burger + Lemon Tea",
+        "category": "Combo",
+        "variant": null,
+        "price": 17.99,
+        "currency": "USD",
+        "url": "https://www.ubereats.com/en-US/store/frydom-express-fried-chicken-%E9%A3%9E%E4%B9%90%E7%82%B8%E9%B8%A1-781-61st-street/OLdZQvsVXzWCMBpsf9uctg?srsltid=AYCX9vICJg1w1ReYLMHpjSjI-hkogrlW-aQgRkQ2sSJOZ2_8ONd6e1tq",
+        "fetched_at": "2026-11-06T03:31:30.102Z"
+      },
+      {
+        "name": "Crispy Chicken Leg Quarter+Crispy Chicken Burger+Fries/Butter Corn",
+        "category": "Combo",
+        "variant": null,
+        "price": 18,
+        "currency": "USD",
+        "url": "https://www.ubereats.com/en-US/store/frydom-express-fried-chicken-%E9%A3%9E%E4%B9%90%E7%82%B8%E9%B8%A1-781-61st-street/OLdZQvsVXzWCMBpsf9uctg?srsltid=AYCX9vICJg1w1ReYLMHpjSjI-hkogrlW-aQgRkQ2sSJOZ2_8ONd6e1tq",
+        "fetched_at": "2026-11-06T03:31:30.102Z"
+      },
+      {
+        "name": "Crispy Chicken Leg Quarter+Boneless Chicken (Small)+Fries/Butter Corn",
+        "category": "Combo",
+        "variant": null,
+        "price": 17,
+        "currency": "USD",
+        "url": "https://www.ubereats.com/en-US/store/frydom-express-fried-chicken-%E9%A3%9E%E4%B9%90%E7%82%B8%E9%B8%A1-781-61st-street/OLdZQvsVXzWCMBpsf9uctg?srsltid=AYCX9vICJg1w1ReYLMHpjSjI-hkogrlW-aQgRkQ2sSJOZ2_8ONd6e1tq",
+        "fetched_at": "2026-11-06T03:31:30.102Z"
+      },
+      {
+        "name": "Original Recipe Fried Chicken",
+        "category": "Fried Chicken",
+        "variant": null,
+        "price": 10.95,
+        "currency": "USD",
+        "url": "https://www.ubereats.com/en-US/store/frydom-express-fried-chicken-%E9%A3%9E%E4%B9%90%E7%82%B8%E9%B8%A1-781-61st-street/OLdZQvsVXzWCMBpsf9uctg?srsltid=AYCX9vICJg1w1ReYLMHpjSjI-hkogrlW-aQgRkQ2sSJOZ2_8ONd6e1tq",
+        "fetched_at": "2026-11-06T03:31:30.102Z"
+      },
+      {
+        "name": "Crispy Chicken Leg Quarter",
+        "category": "Fried Chicken",
+        "variant": null,
+        "price": 7.1,
+        "currency": "USD",
+        "url": "https://www.ubereats.com/en-US/store/frydom-express-fried-chicken-%E9%A3%9E%E4%B9%90%E7%82%B8%E9%B8%A1-781-61st-street/OLdZQvsVXzWCMBpsf9uctg?srsltid=AYCX9vICJg1w1ReYLMHpjSjI-hkogrlW-aQgRkQ2sSJOZ2_8ONd6e1tq",
+        "fetched_at": "2026-11-06T03:31:30.102Z"
+      },
+      {
+        "name": "Popcorn Chicken",
+        "category": "Extras",
+        "variant": null,
+        "price": 5.45,
+        "currency": "USD",
+        "url": "https://www.ubereats.com/en-US/store/frydom-express-fried-chicken-%E9%A3%9E%E4%B9%90%E7%82%B8%E9%B8%A1-781-61st-street/OLdZQvsVXzWCMBpsf9uctg?srsltid=AYCX9vICJg1w1ReYLMHpjSjI-hkogrlW-aQgRkQ2sSJOZ2_8ONd6e1tq",
+        "fetched_at": "2026-11-06T03:31:30.102Z"
+      },
+      {
+        "name": "French Fries",
+        "category": "Extras",
+        "variant": null,
+        "price": 4.35,
+        "currency": "USD",
+        "url": "https://www.ubereats.com/en-US/store/frydom-express-fried-chicken-%E9%A3%9E%E4%B9%90%E7%82%B8%E9%B8%A1-781-61st-street/OLdZQvsVXzWCMBpsf9uctg?srsltid=AYCX9vICJg1w1ReYLMHpjSjI-hkogrlW-aQgRkQ2sSJOZ2_8ONd6e1tq",
+        "fetched_at": "2026-11-06T03:31:30.102Z"
+      },
+      {
+        "name": "Colonels Chicken Nuggets",
+        "category": "Extras",
+        "variant": null,
+        "price": 3.58,
+        "currency": "USD",
+        "url": "https://www.ubereats.com/en-US/store/frydom-express-fried-chicken-%E9%A3%9E%E4%B9%90%E7%82%B8%E9%B8%A1-781-61st-street/OLdZQvsVXzWCMBpsf9uctg?srsltid=AYCX9vICJg1w1ReYLMHpjSjI-hkogrlW-aQgRkQ2sSJOZ2_8ONd6e1tq",
+        "fetched_at": "2026-11-06T03:31:30.102Z"
+      },
+      {
+        "name": "Butter Corn",
+        "category": "Extras",
+        "variant": null,
+        "price": 4.35,
+        "currency": "USD",
+        "url": "https://www.ubereats.com/en-US/store/frydom-express-fried-chicken-%E9%A3%9E%E4%B9%90%E7%82%B8%E9%B8%A1-781-61st-street/OLdZQvsVXzWCMBpsf9uctg?srsltid=AYCX9vICJg1w1ReYLMHpjSjI-hkogrlW-aQgRkQ2sSJOZ2_8ONd6e1tq",
+        "fetched_at": "2026-11-06T03:31:30.102Z"
+      },
+      {
+        "name": "Cola",
+        "category": "Drinks",
+        "variant": null,
+        "price": 1.65,
+        "currency": "USD",
+        "url": "https://www.ubereats.com/en-US/store/frydom-express-fried-chicken-%E9%A3%9E%E4%B9%90%E7%82%B8%E9%B8%A1-781-61st-street/OLdZQvsVXzWCMBpsf9uctg?srsltid=AYCX9vICJg1w1ReYLMHpjSjI-hkogrlW-aQgRkQ2sSJOZ2_8ONd6e1tq",
+        "fetched_at": "2026-11-06T03:31:30.102Z"
+      },
+      {
+        "name": "Diet Cola",
+        "category": "Drinks",
+        "variant": null,
+        "price": 1.65,
+        "currency": "USD",
+        "url": "https://www.ubereats.com/en-US/store/frydom-express-fried-chicken-%E9%A3%9E%E4%B9%90%E7%82%B8%E9%B8%A1-781-61st-street/OLdZQvsVXzWCMBpsf9uctg?srsltid=AYCX9vICJg1w1ReYLMHpjSjI-hkogrlW-aQgRkQ2sSJOZ2_8ONd6e1tq",
+        "fetched_at": "2026-11-06T03:31:30.102Z"
+      },
+      {
+        "name": "Sprite",
+        "category": "Drinks",
+        "variant": null,
+        "price": 1.65,
+        "currency": "USD",
+        "url": "https://www.ubereats.com/en-US/store/frydom-express-fried-chicken-%E9%A3%9E%E4%B9%90%E7%82%B8%E9%B8%A1-781-61st-street/OLdZQvsVXzWCMBpsf9uctg?srsltid=AYCX9vICJg1w1ReYLMHpjSjI-hkogrlW-aQgRkQ2sSJOZ2_8ONd6e1tq",
+        "fetched_at": "2026-11-06T03:31:30.102Z"
+      },
+      {
+        "name": "Orange Soda",
+        "category": "Drinks",
+        "variant": null,
+        "price": 1.65,
+        "currency": "USD",
+        "url": "https://www.ubereats.com/en-US/store/frydom-express-fried-chicken-%E9%A3%9E%E4%B9%90%E7%82%B8%E9%B8%A1-781-61st-street/OLdZQvsVXzWCMBpsf9uctg?srsltid=AYCX9vICJg1w1ReYLMHpjSjI-hkogrlW-aQgRkQ2sSJOZ2_8ONd6e1tq",
+        "fetched_at": "2026-11-06T03:31:30.102Z"
+      },
+      {
+        "name": "Mineral Water",
+        "category": "Drinks",
+        "variant": null,
+        "price": 1.65,
+        "currency": "USD",
+        "url": "https://www.ubereats.com/en-US/store/frydom-express-fried-chicken-%E9%A3%9E%E4%B9%90%E7%82%B8%E9%B8%A1-781-61st-street/OLdZQvsVXzWCMBpsf9uctg?srsltid=AYCX9vICJg1w1ReYLMHpjSjI-hkogrlW-aQgRkQ2sSJOZ2_8ONd6e1tq",
+        "fetched_at": "2026-11-06T03:31:30.102Z"
+      },
+      {
+        "name": "Snow Cheese Wings",
+        "category": "Korean Fried Chicken",
+        "variant": null,
+        "price": 6.55,
+        "currency": "USD",
+        "url": "https://www.ubereats.com/en-US/store/frydom-express-fried-chicken-%E9%A3%9E%E4%B9%90%E7%82%B8%E9%B8%A1-781-61st-street/OLdZQvsVXzWCMBpsf9uctg?srsltid=AYCX9vICJg1w1ReYLMHpjSjI-hkogrlW-aQgRkQ2sSJOZ2_8ONd6e1tq",
+        "fetched_at": "2026-11-06T03:31:30.102Z"
+      },
+      {
+        "name": "Snow Cheese Boneless",
+        "category": "Korean Fried Chicken",
+        "variant": null,
+        "price": 5.45,
+        "currency": "USD",
+        "url": "https://www.ubereats.com/en-US/store/frydom-express-fried-chicken-%E9%A3%9E%E4%B9%90%E7%82%B8%E9%B8%A1-781-61st-street/OLdZQvsVXzWCMBpsf9uctg?srsltid=AYCX9vICJg1w1ReYLMHpjSjI-hkogrlW-aQgRkQ2sSJOZ2_8ONd6e1tq",
+        "fetched_at": "2026-11-06T03:31:30.102Z"
+      },
+      {
+        "name": "Amber Wings",
+        "category": "Korean Fried Chicken",
+        "variant": null,
+        "price": 6.55,
+        "currency": "USD",
+        "url": "https://www.ubereats.com/en-US/store/frydom-express-fried-chicken-%E9%A3%9E%E4%B9%90%E7%82%B8%E9%B8%A1-781-61st-street/OLdZQvsVXzWCMBpsf9uctg?srsltid=AYCX9vICJg1w1ReYLMHpjSjI-hkogrlW-aQgRkQ2sSJOZ2_8ONd6e1tq",
+        "fetched_at": "2026-11-06T03:31:30.102Z"
+      },
+      {
+        "name": "Amber Boneless",
+        "category": "Korean Fried Chicken",
+        "variant": null,
+        "price": 5.45,
+        "currency": "USD",
+        "url": "https://www.ubereats.com/en-US/store/frydom-express-fried-chicken-%E9%A3%9E%E4%B9%90%E7%82%B8%E9%B8%A1-781-61st-street/OLdZQvsVXzWCMBpsf9uctg?srsltid=AYCX9vICJg1w1ReYLMHpjSjI-hkogrlW-aQgRkQ2sSJOZ2_8ONd6e1tq",
+        "fetched_at": "2026-11-06T03:31:30.102Z"
+      },
+      {
+        "name": "Honey Mustard Wings",
+        "category": "Korean Fried Chicken",
+        "variant": null,
+        "price": 6.55,
+        "currency": "USD",
+        "url": "https://www.ubereats.com/en-US/store/frydom-express-fried-chicken-%E9%A3%9E%E4%B9%90%E7%82%B8%E9%B8%A1-781-61st-street/OLdZQvsVXzWCMBpsf9uctg?srsltid=AYCX9vICJg1w1ReYLMHpjSjI-hkogrlW-aQgRkQ2sSJOZ2_8ONd6e1tq",
+        "fetched_at": "2026-11-06T03:31:30.102Z"
+      },
+      {
+        "name": "Honey Mustard Boneless",
+        "category": "Korean Fried Chicken",
+        "variant": null,
+        "price": 5.45,
+        "currency": "USD",
+        "url": "https://www.ubereats.com/en-US/store/frydom-express-fried-chicken-%E9%A3%9E%E4%B9%90%E7%82%B8%E9%B8%A1-781-61st-street/OLdZQvsVXzWCMBpsf9uctg?srsltid=AYCX9vICJg1w1ReYLMHpjSjI-hkogrlW-aQgRkQ2sSJOZ2_8ONd6e1tq",
+        "fetched_at": "2026-11-06T03:31:30.102Z"
+      },
+      {
+        "name": "Sweet Chili Wings",
+        "category": "Korean Fried Chicken",
+        "variant": null,
+        "price": 6.55,
+        "currency": "USD",
+        "url": "https://www.ubereats.com/en-US/store/frydom-express-fried-chicken-%E9%A3%9E%E4%B9%90%E7%82%B8%E9%B8%A1-781-61st-street/OLdZQvsVXzWCMBpsf9uctg?srsltid=AYCX9vICJg1w1ReYLMHpjSjI-hkogrlW-aQgRkQ2sSJOZ2_8ONd6e1tq",
+        "fetched_at": "2026-11-06T03:31:30.102Z"
+      },
+      {
+        "name": "Sweet Chili Boneless",
+        "category": "Korean Fried Chicken",
+        "variant": null,
+        "price": 5.45,
+        "currency": "USD",
+        "url": "https://www.ubereats.com/en-US/store/frydom-express-fried-chicken-%E9%A3%9E%E4%B9%90%E7%82%B8%E9%B8%A1-781-61st-street/OLdZQvsVXzWCMBpsf9uctg?srsltid=AYCX9vICJg1w1ReYLMHpjSjI-hkogrlW-aQgRkQ2sSJOZ2_8ONd6e1tq",
+        "fetched_at": "2026-11-06T03:31:30.102Z"
+      },
+      {
+        "name": "Spicy Wings",
+        "category": "Korean Fried Chicken",
+        "variant": null,
+        "price": 6.55,
+        "currency": "USD",
+        "url": "https://www.ubereats.com/en-US/store/frydom-express-fried-chicken-%E9%A3%9E%E4%B9%90%E7%82%B8%E9%B8%A1-781-61st-street/OLdZQvsVXzWCMBpsf9uctg?srsltid=AYCX9vICJg1w1ReYLMHpjSjI-hkogrlW-aQgRkQ2sSJOZ2_8ONd6e1tq",
+        "fetched_at": "2026-11-06T03:31:30.102Z"
+      },
+      {
+        "name": "Spicy Boneless",
+        "category": "Korean Fried Chicken",
+        "variant": null,
+        "price": 5.45,
+        "currency": "USD",
+        "url": "https://www.ubereats.com/en-US/store/frydom-express-fried-chicken-%E9%A3%9E%E4%B9%90%E7%82%B8%E9%B8%A1-781-61st-street/OLdZQvsVXzWCMBpsf9uctg?srsltid=AYCX9vICJg1w1ReYLMHpjSjI-hkogrlW-aQgRkQ2sSJOZ2_8ONd6e1tq",
+        "fetched_at": "2026-11-06T03:31:30.102Z"
+      },
+      {
+        "name": "Cumin Wings",
+        "category": "Korean Fried Chicken",
+        "variant": null,
+        "price": 6.55,
+        "currency": "USD",
+        "url": "https://www.ubereats.com/en-US/store/frydom-express-fried-chicken-%E9%A3%9E%E4%B9%90%E7%82%B8%E9%B8%A1-781-61st-street/OLdZQvsVXzWCMBpsf9uctg?srsltid=AYCX9vICJg1w1ReYLMHpjSjI-hkogrlW-aQgRkQ2sSJOZ2_8ONd6e1tq",
+        "fetched_at": "2026-11-06T03:31:30.102Z"
+      },
+      {
+        "name": "Cumin Boneless",
+        "category": "Korean Fried Chicken",
+        "variant": null,
+        "price": 5.45,
+        "currency": "USD",
+        "url": "https://www.ubereats.com/en-US/store/frydom-express-fried-chicken-%E9%A3%9E%E4%B9%90%E7%82%B8%E9%B8%A1-781-61st-street/OLdZQvsVXzWCMBpsf9uctg?srsltid=AYCX9vICJg1w1ReYLMHpjSjI-hkogrlW-aQgRkQ2sSJOZ2_8ONd6e1tq",
+        "fetched_at": "2026-11-06T03:31:30.102Z"
+      },
+      {
+        "name": "Pepper Salt Boneless",
+        "category": "Korean Fried Chicken",
+        "variant": null,
+        "price": 5.45,
+        "currency": "USD",
+        "url": "https://www.ubereats.com/en-US/store/frydom-express-fried-chicken-%E9%A3%9E%E4%B9%90%E7%82%B8%E9%B8%A1-781-61st-street/OLdZQvsVXzWCMBpsf9uctg?srsltid=AYCX9vICJg1w1ReYLMHpjSjI-hkogrlW-aQgRkQ2sSJOZ2_8ONd6e1tq",
+        "fetched_at": "2026-11-06T03:31:30.102Z"
+      },
+      {
+        "name": "Plum Chicken Wings",
+        "category": "Korean Fried Chicken",
+        "variant": null,
+        "price": 6.55,
+        "currency": "USD",
+        "url": "https://www.ubereats.com/en-US/store/frydom-express-fried-chicken-%E9%A3%9E%E4%B9%90%E7%82%B8%E9%B8%A1-781-61st-street/OLdZQvsVXzWCMBpsf9uctg?srsltid=AYCX9vICJg1w1ReYLMHpjSjI-hkogrlW-aQgRkQ2sSJOZ2_8ONd6e1tq",
+        "fetched_at": "2026-11-06T03:31:30.102Z"
+      },
+      {
+        "name": "Plum Boneless Chicken Pieces",
+        "category": "Korean Fried Chicken",
+        "variant": null,
+        "price": 5.45,
+        "currency": "USD",
+        "url": "https://www.ubereats.com/en-US/store/frydom-express-fried-chicken-%E9%A3%9E%E4%B9%90%E7%82%B8%E9%B8%A1-781-61st-street/OLdZQvsVXzWCMBpsf9uctg?srsltid=AYCX9vICJg1w1ReYLMHpjSjI-hkogrlW-aQgRkQ2sSJOZ2_8ONd6e1tq",
+        "fetched_at": "2026-11-06T03:31:30.102Z"
+      },
+      {
+        "name": "Pepper Salt Wings",
+        "category": "Korean Fried Chicken",
+        "variant": null,
+        "price": 6.55,
+        "currency": "USD",
+        "url": "https://www.ubereats.com/en-US/store/frydom-express-fried-chicken-%E9%A3%9E%E4%B9%90%E7%82%B8%E9%B8%A1-781-61st-street/OLdZQvsVXzWCMBpsf9uctg?srsltid=AYCX9vICJg1w1ReYLMHpjSjI-hkogrlW-aQgRkQ2sSJOZ2_8ONd6e1tq",
+        "fetched_at": "2026-11-06T03:31:30.102Z"
+      }
+    ],
+    "sha256": "16ce93bc67c674582e0cfb0bafd4a86841bb2fae4053ae4767283fc4c723cceb"
+  },
+  {
+    "channel": "official_html",
+    "url": "https://www.frydomexpress.com/",
+    "format": "html",
+    "menu_date": "2026-08-28",
+    "date_source": "metadata",
+    "fetched_at": "2026-11-06T03:37:28.600Z",
+    "menu_id": "official:/",
+    "platform": "official",
+    "date_text": "Fri, 28 Aug 2026 08:07:49 GMT",
+    "freshness": "fresh",
+    "year": "2026",
+    "sha256": "c88f2d83ec2a2b3420b8854f6ea6d51655311e8b05a8c989f7724517f9328f3b",
+    "extraction": "html",
+    "item_count": 17,
+    "items_collected": true,
+    "items": [
+      {
+        "name": "蜂蜜芥末鸡翅",
+        "category": "chicken",
+        "variant": null,
+        "price": "S $5.95 · L $11.25",
+        "currency": null,
+        "url": "https://www.frydomexpress.com/",
+        "fetched_at": "2026-11-06T03:37:28.600Z"
+      },
+      {
+        "name": "甜辣鸡翅",
+        "category": "chicken",
+        "variant": null,
+        "price": "S $5.95 · L $11.25",
+        "currency": null,
+        "url": "https://www.frydomexpress.com/",
+        "fetched_at": "2026-11-06T03:37:28.600Z"
+      },
+      {
+        "name": "雪花芝士无骨鸡块",
+        "category": "chicken",
+        "variant": null,
+        "price": "S $4.95 · L $8.95",
+        "currency": null,
+        "url": "https://www.frydomexpress.com/",
+        "fetched_at": "2026-11-06T03:37:28.600Z"
+      },
+      {
+        "name": "琥珀无骨鸡块",
+        "category": "chicken",
+        "variant": null,
+        "price": "S $4.95 · L $8.95",
+        "currency": null,
+        "url": "https://www.frydomexpress.com/",
+        "fetched_at": "2026-11-06T03:37:28.600Z"
+      },
+      {
+        "name": "蜂蜜芥末无骨鸡块",
+        "category": "chicken",
+        "variant": null,
+        "price": "S $4.95 · L $8.95",
+        "currency": null,
+        "url": "https://www.frydomexpress.com/",
+        "fetched_at": "2026-11-06T03:37:28.600Z"
+      },
+      {
+        "name": "甜辣无骨鸡块",
+        "category": "chicken",
+        "variant": null,
+        "price": "S $4.95 · L $8.95",
+        "currency": null,
+        "url": "https://www.frydomexpress.com/",
+        "fetched_at": "2026-11-06T03:37:28.600Z"
+      },
+      {
+        "name": "菠萝牛肉堡套餐",
+        "category": "burger",
+        "variant": null,
+        "price": "Combo $9.95 · 单点汉堡 $6.25",
+        "currency": null,
+        "url": "https://www.frydomexpress.com/",
+        "fetched_at": "2026-11-06T03:37:28.600Z"
+      },
+      {
+        "name": "芝士牛肉堡套餐",
+        "category": "burger",
+        "variant": null,
+        "price": "Combo $11.95 · Only Burger $8.25",
+        "currency": null,
+        "url": "https://www.frydomexpress.com/",
+        "fetched_at": "2026-11-06T03:37:28.600Z"
+      },
+      {
+        "name": "鳕鱼堡套餐",
+        "category": "burger",
+        "variant": null,
+        "price": "Combo $9.25 · Only Wrap $5.95",
+        "currency": null,
+        "url": "https://www.frydomexpress.com/",
+        "fetched_at": "2026-11-06T03:37:28.600Z"
+      },
+      {
+        "name": "Chicken Wings Combo",
+        "category": "burger",
+        "variant": null,
+        "price": "Combo $11.25 · Only Wings $7.95",
+        "currency": null,
+        "url": "https://www.frydomexpress.com/",
+        "fetched_at": "2026-11-06T03:37:28.600Z"
+      },
+      {
+        "name": "洋葱芝士培根堡套餐",
+        "category": "burger",
+        "variant": null,
+        "price": "Combo $11.25 · Only Wings $7.95",
+        "currency": null,
+        "url": "https://www.frydomexpress.com/",
+        "fetched_at": "2026-11-06T03:37:28.600Z"
+      },
+      {
+        "name": "鸡米花",
+        "category": "sides",
+        "variant": null,
+        "price": "$4.95",
+        "currency": null,
+        "url": "https://www.frydomexpress.com/",
+        "fetched_at": "2026-11-06T03:37:28.600Z"
+      },
+      {
+        "name": "薯条",
+        "category": "sides",
+        "variant": null,
+        "price": "$3.95",
+        "currency": null,
+        "url": "https://www.frydomexpress.com/",
+        "fetched_at": "2026-11-06T03:37:28.600Z"
+      },
+      {
+        "name": "上校鸡块",
+        "category": "sides",
+        "variant": null,
+        "price": "6 PC $3.25 · 12 PC $5.95",
+        "currency": null,
+        "url": "https://www.frydomexpress.com/",
+        "fetched_at": "2026-11-06T03:37:28.600Z"
+      },
+      {
+        "name": "可乐 / 无糖可乐",
+        "category": "drink",
+        "variant": null,
+        "price": "$1.50",
+        "currency": null,
+        "url": "https://www.frydomexpress.com/",
+        "fetched_at": "2026-11-06T03:37:28.600Z"
+      },
+      {
+        "name": "雪碧",
+        "category": "drink",
+        "variant": null,
+        "price": "$1.50",
+        "currency": null,
+        "url": "https://www.frydomexpress.com/",
+        "fetched_at": "2026-11-06T03:37:28.600Z"
+      },
+      {
+        "name": "橙味汽水",
+        "category": "drink",
+        "variant": null,
+        "price": "$1.50",
+        "currency": null,
+        "url": "https://www.frydomexpress.com/",
+        "fetched_at": "2026-11-06T03:37:28.600Z"
+      }
+    ]
+  },
+  {
+    "channel": "official_html",
+    "url": "https://www.frydomexpress.com/menu.html",
+    "format": "html",
+    "menu_date": "2026-08-28",
+    "date_source": "metadata",
+    "fetched_at": "2026-11-06T03:37:40.325Z",
+    "menu_id": "official:/menu.html",
+    "platform": "official",
+    "date_text": "Fri, 28 Aug 2026 08:07:40 GMT",
+    "freshness": "fresh",
+    "year": "2026",
+    "sha256": "b29c15461e6ba6b56e80c4effea514e7f57909e380ab2f4f6b147f8cf29988f1",
+    "extraction": "html",
+    "item_count": 7,
+    "items_collected": true,
+    "items": [
+      {
+        "name": "香脆鸡腿堡套餐",
+        "category": "burger",
+        "variant": null,
+        "price": "$10.95",
+        "currency": null,
+        "url": "https://www.frydomexpress.com/menu.html",
+        "fetched_at": "2026-11-06T03:37:40.325Z"
+      },
+      {
+        "name": "安格斯芝士牛肉堡套餐",
+        "category": "burger",
+        "variant": null,
+        "price": "$13.15",
+        "currency": null,
+        "url": "https://www.frydomexpress.com/menu.html",
+        "fetched_at": "2026-11-06T03:37:40.325Z"
+      },
+      {
+        "name": "鸡肉卷套餐",
+        "category": "burger",
+        "variant": null,
+        "price": "$10.18",
+        "currency": null,
+        "url": "https://www.frydomexpress.com/menu.html",
+        "fetched_at": "2026-11-06T03:37:40.325Z"
+      },
+      {
+        "name": "鸡翅套餐",
+        "category": "burger",
+        "variant": null,
+        "price": "$12.38",
+        "currency": null,
+        "url": "https://www.frydomexpress.com/menu.html",
+        "fetched_at": "2026-11-06T03:37:40.325Z"
+      },
+      {
+        "name": "洋葱芝士培根汉堡套餐",
+        "category": "burger",
+        "variant": null,
+        "price": "$11.82",
+        "currency": null,
+        "url": "https://www.frydomexpress.com/menu.html",
+        "fetched_at": "2026-11-06T03:37:40.325Z"
+      },
+      {
+        "name": "芝士牛肉堡套餐",
+        "category": "burger",
+        "variant": null,
+        "price": "$12.38",
+        "currency": null,
+        "url": "https://www.frydomexpress.com/menu.html",
+        "fetched_at": "2026-11-06T03:37:40.325Z"
+      },
+      {
+        "name": "菠萝牛肉汉堡套餐",
+        "category": "burger",
+        "variant": null,
+        "price": "$12.38",
+        "currency": null,
+        "url": "https://www.frydomexpress.com/menu.html",
+        "fetched_at": "2026-11-06T03:37:40.325Z"
+      }
+    ]
+  },
+  {
+    "channel": "official_html",
+    "url": "https://www.frydomexpress.com/en/menu.html",
+    "format": "html",
+    "menu_date": "2026-08-28",
+    "date_source": "metadata",
+    "fetched_at": "2026-11-06T03:37:40.628Z",
+    "menu_id": "official:/en/menu.html",
+    "platform": "official",
+    "date_text": "Fri, 28 Aug 2026 08:16:35 GMT",
+    "freshness": "fresh",
+    "year": "2026",
+    "sha256": "d77832a90686fa51f967e2a621f70a448e40584f4667e3d753b2fdf299c0bbbd",
+    "extraction": "html",
+    "item_count": 7,
+    "items_collected": true,
+    "items": [
+      {
+        "name": "Crispy Chicken Burger Combo",
+        "category": "burger",
+        "variant": null,
+        "price": "$10.95",
+        "currency": null,
+        "url": "https://www.frydomexpress.com/en/menu.html",
+        "fetched_at": "2026-11-06T03:37:40.628Z"
+      },
+      {
+        "name": "Angus Beef Cheeseburger Combo",
+        "category": "burger",
+        "variant": null,
+        "price": "$13.15",
+        "currency": null,
+        "url": "https://www.frydomexpress.com/en/menu.html",
+        "fetched_at": "2026-11-06T03:37:40.628Z"
+      },
+      {
+        "name": "Chicken Wrap Combo",
+        "category": "burger",
+        "variant": null,
+        "price": "$10.18",
+        "currency": null,
+        "url": "https://www.frydomexpress.com/en/menu.html",
+        "fetched_at": "2026-11-06T03:37:40.628Z"
+      },
+      {
+        "name": "Wings Combo",
+        "category": "burger",
+        "variant": null,
+        "price": "$12.38",
+        "currency": null,
+        "url": "https://www.frydomexpress.com/en/menu.html",
+        "fetched_at": "2026-11-06T03:37:40.628Z"
+      },
+      {
+        "name": "Onion Cheese Bacon Burger Combo",
+        "category": "burger",
+        "variant": null,
+        "price": "$11.82",
+        "currency": null,
+        "url": "https://www.frydomexpress.com/en/menu.html",
+        "fetched_at": "2026-11-06T03:37:40.628Z"
+      },
+      {
+        "name": "Beef Cheeseburger Combo",
+        "category": "burger",
+        "variant": null,
+        "price": "$12.38",
+        "currency": null,
+        "url": "https://www.frydomexpress.com/en/menu.html",
+        "fetched_at": "2026-11-06T03:37:40.628Z"
+      },
+      {
+        "name": "Pineapple Beef Burger Combo",
+        "category": "burger",
+        "variant": null,
+        "price": "$12.38",
+        "currency": null,
+        "url": "https://www.frydomexpress.com/en/menu.html",
+        "fetched_at": "2026-11-06T03:37:40.628Z"
+      }
+    ]
+  }
+]

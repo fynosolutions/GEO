@@ -111,3 +111,26 @@ test('weekly collection preserves full menu details and reports menu date change
  const details=JSON.parse(await readFile(join(first.runDir,'details',stores[0].id+'.json'),'utf8'));assert.equal(details.directory,undefined);assert.equal(details.prices[0].price,'$5');assert.equal(first.manifest.stores[0].status,'partial');assert.match(first.report,/Some channels blocked/);
  date='2026';const next=await runWeekly({stores,root,mode:'scheduled',now:new Date('2026-11-09T12:00:00Z'),collect});assert.match(next.report,/menu date changed/);assert.match(next.report,/2024/);assert.match(next.report,/2026/);
 }));
+
+test('latest index points to successful retry without rewriting failed canonical snapshots',()=>fixture(async root=>{
+ const first=await runWeekly({root,stores,runId:'failed-first',collect:async()=>{throw Error('fixture');}});
+ const old=await readFile(join(root,'manual/snapshots/sample-a',first.manifest.date+'.json'),'utf8');
+ const retry=await runWeekly({root,stores,runId:'recovered',collect:async()=>records()});
+ assert.equal(retry.manifest.canonical,false);
+ assert.equal(await readFile(join(root,'manual/snapshots/sample-a',first.manifest.date+'.json'),'utf8'),old);
+ const latest=JSON.parse(await readFile(join(root,'manual/indexes/latest.json'),'utf8'));
+ assert.equal(latest.run_id,'recovered');assert.equal(latest.stores[0].status,'completed');
+ assert.equal(JSON.parse(await readFile(join(root,'manual/indexes/dates',first.manifest.date+'.json'),'utf8')).run_id,'recovered');
+}));
+test('explicit same-day manual comparison detects phone change and leaves original run untouched',()=>fixture(async root=>{
+ const initial=await runWeekly({root,stores,runId:'baseline',collect:async()=>records()});
+ const bytes=await readFile(join(initial.runDir,'snapshots/sample-a.json'),'utf8');
+ const changed=records();changed[0].phone='222';
+ const next=await runWeekly({root,stores,runId:'comparison',compareRun:'baseline',collect:async()=>changed});
+ assert.match(next.report,/Explicit comparison run: baseline/);assert.match(next.report,/phone.*111.*222.*IMPORTANT/);
+ assert.equal(await readFile(join(initial.runDir,'snapshots/sample-a.json'),'utf8'),bytes);
+ let calls=0;
+ await assert.rejects(runWeekly({root,stores,compareRun:'missing',collect:async()=>{calls++;return records();}}),/not found/);
+ assert.equal(calls,0);
+ await assert.rejects(runWeekly({root,stores,compareRun:'baseline',mode:'scheduled',now:new Date('2026-11-09T11:00:00Z'),collect:async()=>records()}),/manual mode/);
+}));

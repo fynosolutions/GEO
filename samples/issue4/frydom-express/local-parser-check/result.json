@@ -1,0 +1,46 @@
+{
+  "source_url": "https://www.frydomexpress.com/menu.html",
+  "scope": "Brand representative menu; branch-specific prices are not verified",
+  "validation_at": "2026-11-05T14:35:51.393Z",
+  "menu_evidence": true,
+  "menu_media": [],
+  "items": [
+    {
+      "name": "香脆鸡腿堡套餐",
+      "category": "burger",
+      "price": "$10.95"
+    },
+    {
+      "name": "安格斯芝士牛肉堡套餐",
+      "category": "burger",
+      "price": "$13.15"
+    },
+    {
+      "name": "鸡肉卷套餐",
+      "category": "burger",
+      "price": "$10.18"
+    },
+    {
+      "name": "鸡翅套餐",
+      "category": "burger",
+      "price": "$12.38"
+    },
+    {
+      "name": "洋葱芝士培根汉堡套餐",
+      "category": "burger",
+      "price": "$11.82"
+    },
+    {
+      "name": "芝士牛肉堡套餐",
+      "category": "burger",
+      "price": "$12.38"
+    },
+    {
+      "name": "菠萝牛肉汉堡套餐",
+      "category": "burger",
+      "price": "$12.38"
+    }
+  ],
+  "source_hash": "b29c15461e6ba6b56e80c4effea514e7f57909e380ab2f4f6b147f8cf29988f1",
+  "source_file_saved_at": "2026-11-05T14:22:17.046556+00:00"
+}

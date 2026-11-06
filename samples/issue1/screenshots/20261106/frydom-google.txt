@@ -1,0 +1,218 @@
+### Page
+- Page URL: https://www.google.com/maps/place/Frydom+Express/@40.6352389,-74.0102796,17z/data=!3m1!4b1!4m6!3m5!1s0x89c2450052dc4543:0x6ffcb2212219dd7b!8m2!3d40.6352389!4d-74.0102796!16s%2Fg%2F11ymjlwymt?hl=en&entry=ttu&g_ep=EgoyMDI2MTEwMy4wIKXMDSoASAFQAw%3D%3D
+- Page Title: Frydom Express - Google Maps
+### Snapshot
+```yaml
+- generic "Google Maps" [ref=f2e2]:
+  - generic [ref=f2e3]:
+    - application "Map · Use arrow keys to pan the map. · Get details about a place by pressing its corresponding number key." [ref=f2e5]
+    - search [ref=f2e11]:
+      - generic [ref=f2e12]:
+        - combobox [ref=f2e14]: Frydom Express
+        - button "Search" [ref=f2e16] [cursor=pointer]:
+          - generic [aria-hidden] [ref=f2e17]: 
+        - button "Close" [ref=f2e19] [cursor=pointer]:
+          - generic [aria-hidden] [ref=f2e20]: 
+    - region "Available search options for this area" [ref=f2e27]:
+      - generic [ref=f2e30]:
+        - button "Nearby restaurants" [ref=f2e32] [cursor=pointer]:
+          - generic [ref=f2e33]:
+            - generic [aria-hidden] [ref=f2e35]: 
+            - generic [ref=f2e36]: Nearby restaurants
+        - button "Hotels" [ref=f2e38] [cursor=pointer]:
+          - generic [ref=f2e39]:
+            - generic [aria-hidden] [ref=f2e41]: 
+            - generic [ref=f2e42]: Hotels
+        - button "Things to do" [ref=f2e44] [cursor=pointer]:
+          - generic [ref=f2e45]:
+            - generic [aria-hidden] [ref=f2e47]: 
+            - generic [ref=f2e48]: Things to do
+        - button "Bars" [ref=f2e50] [cursor=pointer]:
+          - generic [ref=f2e51]:
+            - generic [aria-hidden] [ref=f2e53]: 
+            - generic [ref=f2e54]: Bars
+        - button "Coffee" [ref=f2e56] [cursor=pointer]:
+          - generic [ref=f2e57]:
+            - generic [aria-hidden] [ref=f2e59]: 
+            - generic [ref=f2e60]: Coffee
+        - button "Takeout" [ref=f2e62] [cursor=pointer]:
+          - generic [ref=f2e63]:
+            - generic [aria-hidden] [ref=f2e65]: 
+            - generic [ref=f2e66]: Takeout
+        - button "Groceries" [ref=f2e68] [cursor=pointer]:
+          - generic [ref=f2e69]:
+            - generic [aria-hidden] [ref=f2e71]: 
+            - generic [ref=f2e72]: Groceries
+      - button "Next page" [ref=f2e73] [cursor=pointer]:
+        - generic [aria-hidden] [ref=f2e74]: 
+    - generic [ref=f2e75]:
+      - generic [ref=f2e76]:
+        - list [ref=f2e78]:
+          - listitem [ref=f2e79]:
+            - button "Menu" [ref=f2e80] [cursor=pointer]:
+              - generic [aria-hidden] [ref=f2e82]: 
+          - listitem [ref=f2e83]:
+            - button "Saved" [ref=f2e84] [cursor=pointer]:
+              - generic [aria-hidden] [ref=f2e86]: 
+          - listitem [ref=f2e89]:
+            - button "Recents" [ref=f2e90] [cursor=pointer]:
+              - generic [aria-hidden] [ref=f2e92]: 
+          - listitem [ref=f2e96]:
+            - button "Frydom Express" [ref=f2e97] [cursor=pointer]
+          - listitem [ref=f2e105]:
+            - button "Get app" [ref=f2e106] [cursor=pointer]:
+              - generic [aria-hidden] [ref=f2e108]: 
+        - main "Frydom Express" [ref=f2e115]:
+          - generic [ref=f2e116]:
+            - generic [ref=f2e117]:
+              - button "Photo of Frydom Express" [active] [ref=f2e119] [cursor=pointer]
+              - button "See photos" [ref=f2e121] [cursor=pointer]:
+                - generic [aria-hidden] [ref=f2e122]: 
+            - generic [ref=f2e126]:
+              - heading "Frydom Express" [level=1] [ref=f2e128]
+              - generic [ref=f2e130]:
+                - generic [ref=f2e133]:
+                  - text: "4.6"
+                  - img "4.6 stars" [ref=f2e134]
+                - generic [ref=f2e140]:
+                  - button "Fast food restaurant" [ref=f2e143]
+                  - text: ·
+                  - img "Wheelchair accessible entrance" [ref=f2e144]: 
+            - tablist [ref=f2e147]:
+              - tab "Overview of Frydom Express" [selected] [ref=f2e148]:
+                - generic [aria-hidden] [ref=f2e150]: Overview
+              - tab "About Frydom Express" [ref=f2e152]:
+                - generic [aria-hidden] [ref=f2e154]: About
+            - region "Actions for Frydom Express" [ref=f2e156]:
+              - button "Directions" [ref=f2e158] [cursor=pointer]:
+                - generic [aria-hidden] [ref=f2e160]: 
+              - button "Save" [ref=f2e163] [cursor=pointer]:
+                - generic [aria-hidden] [ref=f2e165]: 
+              - button "Nearby" [ref=f2e168] [cursor=pointer]:
+                - generic [aria-hidden] [ref=f2e170]: 
+              - button "Send to phone" [ref=f2e173] [cursor=pointer]:
+                - generic [aria-hidden] [ref=f2e175]: 
+              - button "Share" [ref=f2e178] [cursor=pointer]:
+                - generic [aria-hidden] [ref=f2e180]: 
+            - link [ref=f2e184] [cursor=pointer]:
+              - /url: https://www.google.com/searchviewer/42?cvd=CLw_EicKJeICIjIgEhkiF9LX29IPEQoNL2cvMTF5bWpsd3ltdBgAOgMI8A0%3D&hl=en-US&gl=us&fo_m=MfohQo559jFvMUOzJVpjPL1YMfZ3bInYwBDuMfaXTPp5KXh-&utm_source=tactile&gei=mkjtap-0GcmjptQPqrCk8AM&ei=mkjtap-0GcmjptQPqrCk8AM&fo_s=OA,SOE&opi=79508299&ebb=1&cs=0&foub=mcpp
+              - generic [ref=f2e185]:
+                - generic [aria-hidden] [ref=f2e186]: 
+                - text: Order online
+            - region "Information for Frydom Express" [ref=f2e190]:
+              - generic [ref=f2e191]:
+                - 'button "Address: 781 61st St, Brooklyn, NY 11220" [ref=f2e192] [cursor=pointer]':
+                  - generic [ref=f2e193]:
+                    - generic [aria-hidden] [ref=f2e195]: 
+                    - generic [ref=f2e196]: 781 61st St, Brooklyn, NY 11220
+                - button "Copy address" [ref=f2e200] [cursor=pointer]:
+                  - generic [aria-hidden] [ref=f2e202]: 
+              - button "Closed · Opens 11 AM Fri · See more hours" [ref=f2e204] [cursor=pointer]:
+                - generic [ref=f2e205]:
+                  - generic [aria-hidden] [ref=f2e207]: 
+                  - generic [ref=f2e208]:
+                    - generic [ref=f2e209]: Closed · Opens 11 AM Fri
+                    - paragraph [ref=f2e212]:
+                      - generic [ref=f2e213]: See more hours
+                - generic:
+                  - generic:
+                    - generic [aria-hidden]: 
+              - generic [ref=f2e214]:
+                - 'link "Website: pos.chowbus.com" [ref=f2e215] [cursor=pointer]':
+                  - /url: https://pos.chowbus.com/online-ordering/store/Frydom-Express-Brooklyn/23427
+                  - generic [ref=f2e216]:
+                    - generic [aria-hidden] [ref=f2e218]: 
+                    - generic [ref=f2e219]: pos.chowbus.com
+                - generic [ref=f2e221]:
+                  - link "Open website" [ref=f2e223] [cursor=pointer]:
+                    - /url: https://pos.chowbus.com/online-ordering/store/Frydom-Express-Brooklyn/23427
+                    - generic [aria-hidden] [ref=f2e225]: 
+                  - button "Copy website" [ref=f2e227] [cursor=pointer]:
+                    - generic [aria-hidden] [ref=f2e229]: 
+              - generic [ref=f2e230]:
+                - 'button "Phone: (929) 805-0718" [ref=f2e231] [cursor=pointer]':
+                  - generic [ref=f2e232]:
+                    - generic [aria-hidden] [ref=f2e234]: 
+                    - generic [ref=f2e235]: (929) 805-0718
+                - generic [ref=f2e237]:
+                  - button "Copy phone number" [ref=f2e239] [cursor=pointer]:
+                    - generic [aria-hidden] [ref=f2e241]: 
+                  - link "Call phone number" [ref=f2e243] [cursor=pointer]:
+                    - /url: tel:+19298050718
+                    - generic [aria-hidden] [ref=f2e245]: 
+              - generic [ref=f2e246]:
+                - 'button "Plus code: JXPQ+3V Brooklyn, New York" [ref=f2e247] [cursor=pointer]':
+                  - generic [ref=f2e248]:
+                    - generic [aria-hidden] [ref=f2e250]: 
+                    - generic [ref=f2e251]: JXPQ+3V Brooklyn, New York
+                - generic [ref=f2e253]:
+                  - button "Copy plus code" [ref=f2e255] [cursor=pointer]:
+                    - generic [aria-hidden] [ref=f2e257]: 
+                  - button "Learn more about plus codes" [ref=f2e259] [cursor=pointer]:
+                    - generic [aria-hidden] [ref=f2e261]: 
+            - button "Suggest an edit" [ref=f2e265] [cursor=pointer]:
+              - generic [ref=f2e266]:
+                - generic [aria-hidden] [ref=f2e267]: 
+                - generic [ref=f2e268]: Suggest an edit
+            - generic [ref=f2e271]:
+              - generic [ref=f2e272]: From the owner
+              - button "See local posts" [ref=f2e274] [cursor=pointer]:
+                - generic [ref=f2e276]:
+                  - generic [ref=f2e277]: Happy Mid-Autumn Festival! 🌕 Round moon, crispy chicken — share a bucket of Frydom fried chicken with the people you love this weekend. 中秋快乐，炸鸡团圆！
+                  - generic [ref=f2e279]: Sep 26, 2026
+            - heading "Photos" [level=2] [ref=f2e285]
+            - button "Street View" [ref=f2e288] [cursor=pointer]:
+              - generic [aria-hidden] [ref=f2e292]: 
+            - button "Add photos & videos" [ref=f2e296] [cursor=pointer]:
+              - generic [ref=f2e297]:
+                - generic [aria-hidden] [ref=f2e298]: 
+                - generic [ref=f2e299]: Add photos & videos
+            - button "Write a review" [ref=f2e305] [cursor=pointer]:
+              - generic [ref=f2e306]:
+                - generic [aria-hidden] [ref=f2e307]: 
+                - generic [ref=f2e308]: Write a review
+            - link "About this data" [ref=f2e313] [cursor=pointer]:
+              - /url: https://support.google.com/local-listings?p=how_google_sources&authuser=0&hl=en
+            - generic [ref=f2e318]:
+              - generic [aria-hidden] [ref=f2e320]: 
+              - generic [ref=f2e321]:
+                - text: You're seeing a limited view of Google Maps.
+                - button "See more" [ref=f2e322] [cursor=pointer]
+      - button "Collapse side panel" [ref=f2e324] [cursor=pointer]:
+        - generic [aria-hidden] [ref=f2e325]: 
+    - generic [ref=f2e329]:
+      - button "Google apps" [ref=f2e333] [cursor=pointer]
+      - link "Sign in" [ref=f2e337] [cursor=pointer]:
+        - /url: https://accounts.google.com/ServiceLogin?hl=en&passive=true&continue=https%3A%2F%2Fwww.google.com%2Fmaps%2Fplace%2FFrydom%2BExpress%2F%4040.6352389%2C-74.0102796%2C17z%2Fdata%3D!3m1!4b1!4m6!3m5!1s0x89c2450052dc4543%3A0x6ffcb2212219dd7b!8m2!3d40.6352389!4d-74.0102796!16s%252Fg%252F11ymjlwymt%3Fhl%3Den%26ved%3D1t%253A314688&service=local&ec=GAZAcQ
+    - generic:
+      - generic:
+        - button "Show Your Location" [ref=f2e340] [cursor=pointer]:
+          - generic [aria-hidden] [ref=f2e342]: 
+        - generic [ref=f2e344] [cursor=pointer]:
+          - button "Zoom in" [ref=f2e345]:
+            - generic [aria-hidden] [ref=f2e347]: 
+          - button "Zoom out" [ref=f2e348]:
+            - generic [aria-hidden] [ref=f2e350]: 
+      - generic [ref=f2e354]:
+        - button "Browse Street View images" [ref=f2e356]:
+          - generic [ref=f2e363]:
+            - text: Check out Dua Lipa’s New York City list on Google Maps -
+            - link "goo.gle/dua" [ref=f2e364] [cursor=pointer]:
+              - /url: https://goo.gle/dua
+        - button "Street View" [ref=f2e366] [cursor=pointer]:
+          - generic [aria-hidden] [ref=f2e369]: 
+      - generic [ref=f2e370]:
+        - generic "Interactive map" [ref=f2e371]
+        - generic [ref=f2e375] [cursor=pointer]:
+          - generic [aria-hidden] [ref=f2e376]: 
+          - generic [ref=f2e377]: Layers
+        - button "Layers" [ref=f2e378] [cursor=pointer]
+    - generic [ref=f2e380]:
+      - contentinfo [ref=f2e383]:
+        - text: Map data ©2026 Google
+        - button "United States" [ref=f2e384] [cursor=pointer]
+        - button "Terms" [ref=f2e385] [cursor=pointer]
+        - button "Privacy" [ref=f2e386] [cursor=pointer]
+        - button "Send Product Feedback" [ref=f2e387] [cursor=pointer]
+      - button "200 ft" [ref=f2e389] [cursor=pointer]
+```

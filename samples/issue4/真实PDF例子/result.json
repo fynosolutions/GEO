@@ -1,0 +1,13 @@
+{
+  "channel": "official_file",
+  "url": "https://media-cdn.getbento.com/accounts/1a691e6ec49e9291d5a9fc0abb20a78d/media/YHRMfx6gT1aIXbxbnZkg_Winter%20Diner%202023.pdf",
+  "format": "pdf",
+  "menu_date": "2023-12-21",
+  "date_source": "metadata",
+  "date_text": "2023-12-21",
+  "freshness": "stale",
+  "year": "2023",
+  "fetched_at": "2026-11-05T14:32:31.894Z",
+  "extraction": "pdf-text",
+  "sha256": "80d1ada188d5f0e59ee8550c73501dc13919f79b209cb165f80ad4f76b91075c"
+}

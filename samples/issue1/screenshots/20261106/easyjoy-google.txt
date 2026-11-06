@@ -1,0 +1,213 @@
+### Page
+- Page URL: https://www.google.com/maps/search/?api=1&query=Easy%20Joy&query_place_id=ChIJhRc3tYlZwokRbR4dwpc-0qI&hl=en&gl=us
+- Page Title: Easy Joy (Hot Pot, BBQ Skewers, Dim Sum) 意中人火锅烧烤点心 - Google Maps
+### Snapshot
+```yaml
+- generic "Google Maps" [ref=f36e9]:
+  - generic [ref=f36e3]:
+    - application "Map · Use arrow keys to pan the map. · Get details about a place by pressing its corresponding number key." [ref=f36e10]
+    - search [ref=f36e15]:
+      - generic [ref=f36e16]:
+        - combobox [ref=f36e18]: Easy Joy (Hot Pot, BBQ Skewers, Dim Sum) 意中人火锅烧烤点心
+        - button "Search" [ref=f36e20] [cursor=pointer]:
+          - generic [aria-hidden] [ref=f36e21]: 
+        - button "Close" [ref=f36e23] [cursor=pointer]:
+          - generic [aria-hidden] [ref=f36e24]: 
+    - region "Available search options for this area" [ref=f36e31]:
+      - generic [ref=f36e34]:
+        - button "Nearby restaurants" [ref=f36e36] [cursor=pointer]:
+          - generic [ref=f36e37]:
+            - generic [aria-hidden] [ref=f36e39]: 
+            - generic [ref=f36e40]: Nearby restaurants
+        - button "Hotels" [ref=f36e42] [cursor=pointer]:
+          - generic [ref=f36e43]:
+            - generic [aria-hidden] [ref=f36e45]: 
+            - generic [ref=f36e46]: Hotels
+        - button "Things to do" [ref=f36e48] [cursor=pointer]:
+          - generic [ref=f36e49]:
+            - generic [aria-hidden] [ref=f36e51]: 
+            - generic [ref=f36e52]: Things to do
+        - button "Bars" [ref=f36e54] [cursor=pointer]:
+          - generic [ref=f36e55]:
+            - generic [aria-hidden] [ref=f36e57]: 
+            - generic [ref=f36e58]: Bars
+        - button "Coffee" [ref=f36e60] [cursor=pointer]:
+          - generic [ref=f36e61]:
+            - generic [aria-hidden] [ref=f36e63]: 
+            - generic [ref=f36e64]: Coffee
+        - button "Takeout" [ref=f36e66] [cursor=pointer]:
+          - generic [ref=f36e67]:
+            - generic [aria-hidden] [ref=f36e69]: 
+            - generic [ref=f36e70]: Takeout
+        - button "Groceries" [ref=f36e72] [cursor=pointer]:
+          - generic [ref=f36e73]:
+            - generic [aria-hidden] [ref=f36e75]: 
+            - generic [ref=f36e76]: Groceries
+    - generic [ref=f36e77]:
+      - generic [ref=f36e78]:
+        - list [ref=f36e80]:
+          - listitem [ref=f36e81]:
+            - button "Menu" [ref=f36e82] [cursor=pointer]:
+              - generic [aria-hidden] [ref=f36e84]: 
+          - listitem [ref=f36e85]:
+            - button "Saved" [ref=f36e86] [cursor=pointer]:
+              - generic [aria-hidden] [ref=f36e88]: 
+          - listitem [ref=f36e91]:
+            - button "Recents" [ref=f36e92] [cursor=pointer]:
+              - generic [aria-hidden] [ref=f36e94]: 
+          - listitem [ref=f36e98]:
+            - button "Easy Joy (Hot Pot, BBQ Skewers, Dim Sum) 意中人火锅烧烤点心" [ref=f36e99] [cursor=pointer]
+          - listitem [ref=f36e107]:
+            - button "Get app" [ref=f36e108] [cursor=pointer]:
+              - generic [aria-hidden] [ref=f36e110]: 
+        - main "Easy Joy (Hot Pot, BBQ Skewers, Dim Sum) 意中人火锅烧烤点心" [ref=f36e117]:
+          - generic [ref=f36e118]:
+            - generic [ref=f36e119]:
+              - button "Photo of Easy Joy (Hot Pot, BBQ Skewers, Dim Sum) 意中人火锅烧烤点心" [active] [ref=f36e121] [cursor=pointer]
+              - button "See photos" [ref=f36e122] [cursor=pointer]:
+                - generic [aria-hidden] [ref=f36e123]: 
+            - generic [ref=f36e127]:
+              - heading "Easy Joy (Hot Pot, BBQ Skewers, Dim Sum) 意中人火锅烧烤点心" [level=1] [ref=f36e129]
+              - generic [ref=f36e131]:
+                - generic [ref=f36e134]:
+                  - text: "4.8"
+                  - img "4.8 stars" [ref=f36e135]
+                - button "Chinese restaurant" [ref=f36e144]
+            - tablist [ref=f36e147]:
+              - tab "Overview of Easy Joy (Hot Pot, BBQ Skewers, Dim Sum) 意中人火锅烧烤点心" [selected] [ref=f36e148]:
+                - generic [aria-hidden] [ref=f36e150]: Overview
+              - tab "About Easy Joy (Hot Pot, BBQ Skewers, Dim Sum) 意中人火锅烧烤点心" [ref=f36e152]:
+                - generic [aria-hidden] [ref=f36e154]: About
+            - region "Actions for Easy Joy (Hot Pot, BBQ Skewers, Dim Sum) 意中人火锅烧烤点心" [ref=f36e156]:
+              - button "Directions" [ref=f36e158] [cursor=pointer]:
+                - generic [aria-hidden] [ref=f36e160]: 
+              - button "Save" [ref=f36e163] [cursor=pointer]:
+                - generic [aria-hidden] [ref=f36e165]: 
+              - button "Nearby" [ref=f36e168] [cursor=pointer]:
+                - generic [aria-hidden] [ref=f36e170]: 
+              - button "Send to phone" [ref=f36e173] [cursor=pointer]:
+                - generic [aria-hidden] [ref=f36e175]: 
+              - button "Share" [ref=f36e178] [cursor=pointer]:
+                - generic [aria-hidden] [ref=f36e180]: 
+            - generic [ref=f36e182]:
+              - link [ref=f36e184] [cursor=pointer]:
+                - /url: https://www.google.com/maps/reserve/v/dine/c/5JbF2pqiWDo?source=pa&opi=79508299&hl=en-US&gei=_kntao3aFbqfptQPoIbgqAo&ahbb=1&sourceurl=https://www.google.com/maps/preview/place?authuser%3D0%26hl%3Den%26gl%3Dus%26q%3DEasy%2BJoy%26pb%3D!1m16!1s0x89c25989b5371785:0xa2d23e97c21d1e6d!2sEasy%2BJoy!3m12!1m3!1d4.683014974231837E7!2d-119.8093025!3d44.24236485!2m3!1f0.0!2f0.0!3f0.0!3m2!1i1024!2i768!4f13.1!9e0!12m4!2m3!1i360!2i120!4i8!13m57!2m2!1i203!2i100!3m2!2i4!5b1!6m6!1m2!1i86!2i86!1m2!1i408!2i240!7m33!1m3!1e1!2b0!3e3!1m3!1e2!2b1!3e2!1m3!1e2!2b0!3e3!1m3!1e8!2b0!3e3!1m3!1e10!2b0!3e3!1m3!1e10!2b1!3e2!1m3!1e10!2b0!3e4!1m3!1e9!2b1!3e2!2b1!9b0!15m8!1m7!1m2!1m1!1e2!2m2!1i195!2i195!3i20!14m3!1s_Untaq66OqrvmLQPmeKVqAo!7e81!15i10112!15m108!1m26!13m9!2b1!3b1!4b1!6i1!8b1!9b1!14b1!20b1!25b1!18m15!3b1!4b1!5b1!6b1!13b1!14b1!17b1!21b1!22b1!30b1!32b1!33m1!1b1!34b1!36e2!10m1!8e3!11m1!3e1!17b1!20m2!1e3!1e6!24b1!25b1!26b1!27b1!29b1!30m1!2b1!36b1!37b1!39m3!2m2!2i1!3i1!43b1!52b1!54m1!1b1!55b1!56m1!1b1!61m2!1m1!1e1!65m5!3m4!1m3!1m2!1i224!2i298!72m22!1m8!2b1!5b1!7b1!12m4!1b1!2b1!4m1!1e1!4b1!8m10!1m6!4m1!1e1!4m1!1e3!4m1!1e4!3sother_user_google_review_posts__and__hotel_and_vr_partner_review_posts!6m1!1e1!9b1!89b1!90m2!1m1!1e2!98m3!1b1!2b1!3b1!103b1!113b1!114m3!1b1!2m1!1b1!117b1!122m1!1b1!126b1!127b1!128m1!1b1!21m0!22m1!1e81!30m8!3b1!6m2!1b1!2b1!7m2!1e3!2b1!9b1!34m5!7b1!10b1!14b1!15m1!1b0!37i803
+                - generic [ref=f36e185]:
+                  - generic [aria-hidden] [ref=f36e186]: 
+                  - text: Reserve a table
+              - link [ref=f36e188] [cursor=pointer]:
+                - /url: https://www.google.com/searchviewer/42?cvd=CLw_EiYKJOICITIfEhgiFtLX29IPEAoML2cvMTFyOTdxYnl0GAA6AwjwDQ%3D%3D&hl=en-US&gl=us&fo_m=MfohQo559jFvMUOzJVpjPL1YMfZ3bInYwBDuMfaXTPp5KXh-&utm_source=tactile&gei=_kntao3aFbqfptQPoIbgqAo&ei=_kntao3aFbqfptQPoIbgqAo&fo_s=OA,SOE&opi=79508299&ebb=1&cs=0&foub=mcpp
+                - generic [ref=f36e189]:
+                  - generic [aria-hidden] [ref=f36e190]: 
+                  - text: Order online
+            - region "Information for Easy Joy (Hot Pot, BBQ Skewers, Dim Sum) 意中人火锅烧烤点心" [ref=f36e194]:
+              - generic [ref=f36e195]:
+                - 'button "Address: 145 Mulberry St, New York, NY 10013" [ref=f36e196] [cursor=pointer]':
+                  - generic [ref=f36e197]:
+                    - generic [aria-hidden] [ref=f36e199]: 
+                    - generic [ref=f36e200]: 145 Mulberry St, New York, NY 10013
+                - button "Copy address" [ref=f36e204] [cursor=pointer]:
+                  - generic [aria-hidden] [ref=f36e206]: 
+              - button "Hours Closed · Opens 10 AM Fri Show open hours for the week" [ref=f36e208] [cursor=pointer]:
+                - img "Hours" [ref=f36e209]: 
+                - generic [ref=f36e211]:
+                  - generic [ref=f36e212]: Closed · Opens 10 AM Fri
+                  - img "Show open hours for the week" [ref=f36e214]: 
+              - generic [ref=f36e215]:
+                - 'link "Website: easyjoybuffet.com" [ref=f36e216] [cursor=pointer]':
+                  - /url: http://www.easyjoybuffet.com/
+                  - generic [ref=f36e217]:
+                    - generic [aria-hidden] [ref=f36e219]: 
+                    - generic [ref=f36e220]: easyjoybuffet.com
+                - generic [ref=f36e222]:
+                  - link "Open website" [ref=f36e224] [cursor=pointer]:
+                    - /url: http://www.easyjoybuffet.com/
+                    - generic [aria-hidden] [ref=f36e226]: 
+                  - button "Copy website" [ref=f36e228] [cursor=pointer]:
+                    - generic [aria-hidden] [ref=f36e230]: 
+              - generic [ref=f36e231]:
+                - 'button "Phone: (929) 243-6130" [ref=f36e232] [cursor=pointer]':
+                  - generic [ref=f36e233]:
+                    - generic [aria-hidden] [ref=f36e235]: 
+                    - generic [ref=f36e236]: (929) 243-6130
+                - generic [ref=f36e238]:
+                  - button "Copy phone number" [ref=f36e240] [cursor=pointer]:
+                    - generic [aria-hidden] [ref=f36e242]: 
+                  - link "Call phone number" [ref=f36e244] [cursor=pointer]:
+                    - /url: tel:+19292436130
+                    - generic [aria-hidden] [ref=f36e246]: 
+              - generic [ref=f36e247]:
+                - 'button "Plus code: P292+HW New York" [ref=f36e248] [cursor=pointer]':
+                  - generic [ref=f36e249]:
+                    - generic [aria-hidden] [ref=f36e251]: 
+                    - generic [ref=f36e252]: P292+HW New York
+                - generic [ref=f36e254]:
+                  - button "Copy plus code" [ref=f36e256] [cursor=pointer]:
+                    - generic [aria-hidden] [ref=f36e258]: 
+                  - button "Learn more about plus codes" [ref=f36e260] [cursor=pointer]:
+                    - generic [aria-hidden] [ref=f36e262]: 
+              - generic [ref=f36e263]: LGBTQ+ friendly
+            - button "Suggest an edit" [ref=f36e271] [cursor=pointer]:
+              - generic [ref=f36e272]:
+                - generic [aria-hidden] [ref=f36e273]: 
+                - generic [ref=f36e274]: Suggest an edit
+            - generic [ref=f36e277]:
+              - generic [ref=f36e278]: From the owner
+              - button "See local posts" [ref=f36e280] [cursor=pointer]:
+                - generic [ref=f36e282]:
+                  - generic [ref=f36e283]: Happy Mid-Autumn Festival! 🌕 Reunion tastes better together — bring the whole family to Easy Joy on Mulberry St this weekend. 中秋快乐，团团圆圆！
+                  - generic [ref=f36e285]: Sep 26, 2026
+            - heading "Photos" [level=2] [ref=f36e291]
+            - button "Street View" [ref=f36e294] [cursor=pointer]:
+              - generic [aria-hidden] [ref=f36e298]: 
+            - button "Add photos & videos" [ref=f36e302] [cursor=pointer]:
+              - generic [ref=f36e303]:
+                - generic [aria-hidden] [ref=f36e304]: 
+                - generic [ref=f36e305]: Add photos & videos
+            - button "Write a review" [ref=f36e311] [cursor=pointer]:
+              - generic [ref=f36e312]:
+                - generic [aria-hidden] [ref=f36e313]: 
+                - generic [ref=f36e314]: Write a review
+            - link "About this data" [ref=f36e319] [cursor=pointer]:
+              - /url: https://support.google.com/local-listings?p=how_google_sources&authuser=0&hl=en
+            - generic [ref=f36e324]:
+              - generic [aria-hidden] [ref=f36e326]: 
+              - generic [ref=f36e327]:
+                - text: You're seeing a limited view of Google Maps.
+                - button "See more" [ref=f36e328] [cursor=pointer]
+      - button "Collapse side panel" [ref=f36e330] [cursor=pointer]:
+        - generic [aria-hidden] [ref=f36e331]: 
+    - generic [ref=f36e335]:
+      - button "Google apps" [ref=f36e339] [cursor=pointer]
+      - link "Sign in" [ref=f36e343] [cursor=pointer]:
+        - /url: https://accounts.google.com/ServiceLogin?hl=en&passive=true&continue=https%3A%2F%2Fwww.google.com%2Fmaps%2Fsearch%2F%3Fapi%3D1%26query%3DEasy%2520Joy%26query_place_id%3DChIJhRc3tYlZwokRbR4dwpc-0qI%26hl%3Den%26gl%3Dus%26ved%3D1t%253A314688&service=local&ec=GAZAcQ
+    - generic:
+      - generic:
+        - button "Show Your Location" [ref=f36e346] [cursor=pointer]:
+          - generic [aria-hidden] [ref=f36e348]: 
+        - generic [ref=f36e350] [cursor=pointer]:
+          - button "Zoom in" [ref=f36e351]:
+            - generic [aria-hidden] [ref=f36e353]: 
+          - button "Zoom out" [ref=f36e354]:
+            - generic [aria-hidden] [ref=f36e356]: 
+      - generic [ref=f36e360]:
+        - button "Browse Street View images" [ref=f36e362]
+        - button "Street View" [ref=f36e364] [cursor=pointer]:
+          - generic [aria-hidden] [ref=f36e367]: 
+      - generic [ref=f36e368]:
+        - generic "Interactive map" [ref=f36e369]
+        - generic [ref=f36e373] [cursor=pointer]:
+          - generic [aria-hidden] [ref=f36e374]: 
+          - generic [ref=f36e375]: Layers
+        - button "Layers" [ref=f36e376] [cursor=pointer]
+    - generic [ref=f36e378]:
+      - contentinfo [ref=f36e381]:
+        - text: Map data ©2026 Google
+        - button "United States" [ref=f36e382] [cursor=pointer]
+        - button "Terms" [ref=f36e383] [cursor=pointer]
+        - button "Privacy" [ref=f36e384] [cursor=pointer]
+        - button "Send Product Feedback" [ref=f36e385] [cursor=pointer]
+      - button "200 ft" [ref=f36e387] [cursor=pointer]
+```
+### Events
+- New console entries: .playwright-cli/console-2026-11-06T03-31-09-584Z.log#L1-L4

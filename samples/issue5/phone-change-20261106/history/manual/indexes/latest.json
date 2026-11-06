@@ -1,0 +1,18 @@
+{
+  "run_id": "changed-1793936315937",
+  "date": "2026-11-05",
+  "mode": "manual",
+  "path": "runs/changed-1793936315937",
+  "canonical": false,
+  "stores": [
+    {
+      "id": "020",
+      "status": "partial"
+    },
+    {
+      "id": "001",
+      "status": "partial"
+    }
+  ],
+  "finished_at": "2026-11-06T03:38:35.952Z"
+}

@@ -1,0 +1,114 @@
+### Page
+- Page URL: https://www.grubhub.com/restaurant/frydom-express-fried-chicken-fei-le-zha-ji-781-61st-street-brooklyn/13464504
+- Page Title: Food Delivery | Restaurant Takeout | Order Food Online | Grubhub
+- Console: 3 errors, 3 warnings
+### Snapshot
+```yaml
+- generic [ref=f7e4]:
+  - navigation "Main Navigation" [ref=f7e6]:
+    - link "App logo" [ref=f7e8] [cursor=pointer]:
+      - /url: /lets-eat
+    - generic [ref=f7e9]:
+      - button "Enter an address" [ref=f7e14] [cursor=pointer]
+      - generic [ref=f7e26]:
+        - generic [ref=f7e27]: Search restaurants or dishes
+        - combobox "Search restaurants or dishes" [ref=f7e28]
+    - button "Sign in" [ref=f7e35] [cursor=pointer]
+    - generic "Toggle your bag (Open/Closed)" [ref=f7e37]:
+      - button "Your Bag" [ref=f7e38] [cursor=pointer]
+  - generic [ref=f7e44]:
+    - generic [ref=f7e47]:
+      - heading "Looks like we're missing something" [level=1] [ref=f7e48]
+      - paragraph [ref=f7e49]: We couldn't cook up the page you were looking for because it doesn't exist.
+      - paragraph [ref=f7e50]:
+        - link "Return to the homepage" [ref=f7e51] [cursor=pointer]:
+          - /url: /lets-eat
+      - paragraph [ref=f7e52]: "Error code: 410"
+    - contentinfo [ref=f7e55]:
+      - generic [ref=f7e57]:
+        - generic [ref=f7e64]:
+          - generic [ref=f7e66]:
+            - generic [ref=f7e67]: Get to know us
+            - list [ref=f7e72]:
+              - listitem [ref=f7e73]:
+                - link "About Grubhub" [ref=f7e74] [cursor=pointer]:
+                  - /url: https://about.grubhub.com/
+              - listitem [ref=f7e75]:
+                - link "Our apps" [ref=f7e76] [cursor=pointer]:
+                  - /url: https://www.grubhub.com/mobile_home
+              - listitem [ref=f7e77]:
+                - link "Careers" [ref=f7e78] [cursor=pointer]:
+                  - /url: https://careers.grubhub.com
+              - listitem [ref=f7e79]:
+                - link "News" [ref=f7e80] [cursor=pointer]:
+                  - /url: https://about.grubhub.com/media/
+          - generic [ref=f7e82]:
+            - generic [ref=f7e83]: Useful links
+            - list [ref=f7e88]:
+              - listitem [ref=f7e89]:
+                - link "Gift cards" [ref=f7e90] [cursor=pointer]:
+                  - /url: https://grubhub.cashstar.com/store/buy/recipient?utm_source=www.grubhub.com%2Fgiftcards&utm_medium=content_owned&utm_campaign=useful_links
+              - listitem [ref=f7e91]:
+                - link "Grubhub Perks" [ref=f7e92] [cursor=pointer]:
+                  - /url: https://www.grubhub.com/offers
+              - listitem [ref=f7e93]:
+                - link "Grubhub+" [ref=f7e94] [cursor=pointer]:
+                  - /url: https://www.grubhub.com/plus
+              - listitem [ref=f7e95]:
+                - link "Grubhub Guarantee" [ref=f7e96] [cursor=pointer]:
+                  - /url: https://www.grubhub.com/guarantee
+              - listitem [ref=f7e97]:
+                - link "Help" [ref=f7e98] [cursor=pointer]:
+                  - /url: /help/contact-us
+              - listitem [ref=f7e99]:
+                - link "Catering" [ref=f7e100] [cursor=pointer]:
+                  - /url: /catering
+              - listitem [ref=f7e101]:
+                - link "Keyboard Shortcuts" [ref=f7e102] [cursor=pointer]:
+                  - /url: /keyboard-shortcuts
+              - listitem [ref=f7e103]:
+                - link "Answers" [ref=f7e104] [cursor=pointer]:
+                  - /url: /answers/
+          - generic [ref=f7e106]:
+            - generic [ref=f7e107]: Connect with us
+            - list [ref=f7e112]:
+              - listitem [ref=f7e113]:
+                - link "Facebook" [ref=f7e114] [cursor=pointer]:
+                  - /url: https://www.facebook.com/grubhub
+              - listitem [ref=f7e115]:
+                - link "Twitter/X" [ref=f7e116] [cursor=pointer]:
+                  - /url: https://twitter.com/grubhub
+              - listitem [ref=f7e117]:
+                - link "Instagram" [ref=f7e118] [cursor=pointer]:
+                  - /url: https://www.instagram.com/grubhub/
+              - listitem [ref=f7e119]:
+                - link "YouTube" [ref=f7e120] [cursor=pointer]:
+                  - /url: https://www.youtube.com/user/grubhub
+          - generic [ref=f7e122]:
+            - generic [ref=f7e123]: Partner with us
+            - generic [ref=f7e127]:
+              - link "For restaurants" [ref=f7e128] [cursor=pointer]:
+                - /url: https://get.grubhub.com?utm_source=grubhub_webdinerapp&utm_medium=content_owned&utm_campaign=product_footer-link
+              - link "For drivers" [ref=f7e132] [cursor=pointer]:
+                - /url: https://driver.grubhub.com/?utm_source=grubhub_webdinerapp&utm_medium=content_owned&utm_campaign=product_footer-link
+              - link "For corporate accounts" [ref=f7e136] [cursor=pointer]:
+                - /url: https://corporate.grubhub.com/?utm_source=grubhub_webdinerapp&utm_medium=content_owned&utm_campaign=product_footer-link
+              - link "Become an Affiliate" [ref=f7e140] [cursor=pointer]:
+                - /url: https://www.grubhub.com/eat/affiliate?utm_source=grubhub.com&utm_medium=owned_channel&utm_campaign=footer_become_an_affiliate
+              - link "For campuses & hotels" [ref=f7e144] [cursor=pointer]:
+                - /url: https://onsite.grubhub.com
+        - separator [ref=f7e58]
+        - generic [ref=f7e150]:
+          - paragraph [ref=f7e152]: © 2026 Grubhub All rights reserved.
+          - generic [ref=f7e154]:
+            - link "Terms of Use" [ref=f7e156] [cursor=pointer]:
+              - /url: /legal/terms-of-use
+            - link "Privacy Policy" [ref=f7e158] [cursor=pointer]:
+              - /url: /legal/privacy-policy
+            - link "Notice of Financial Incentive" [ref=f7e160] [cursor=pointer]:
+              - /url: /legal/notice-financial-incentive
+            - link "Do Not Sell or Share My Personal Information" [ref=f7e162] [cursor=pointer]:
+              - /url: /help/privacy/opt-out
+```
+### Events
+- New console entries: .playwright-cli/console-2026-11-06T03-28-15-682Z.log#L9-L11

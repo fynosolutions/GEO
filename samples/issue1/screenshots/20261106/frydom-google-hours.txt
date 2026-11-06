@@ -1,0 +1,118 @@
+### Page
+- Page URL: https://www.google.com/maps/place/Frydom+Express/@40.6352389,-74.0102796,17z/data=!4m7!3m6!1s0x89c2450052dc4543:0x6ffcb2212219dd7b!8m2!3d40.6352389!4d-74.0102796!10e2!16s%2Fg%2F11ymjlwymt?hl=en&entry=ttu&g_ep=EgoyMDI2MTEwMy4wIKXMDSoASAFQAw%3D%3D
+- Page Title: Frydom Express - Google Maps
+### Snapshot
+```yaml
+- generic "Google Maps" [ref=f2e2]:
+  - generic [ref=f2e3]:
+    - application "Map · Use arrow keys to pan the map. · Get details about a place by pressing its corresponding number key." [ref=f2e5]
+    - search [ref=f2e11]:
+      - button "Back" [ref=f2e396] [cursor=pointer]:
+        - generic [aria-hidden] [ref=f2e397]: 
+      - generic [ref=f2e12]:
+        - combobox [ref=f2e14]: Frydom Express
+        - button "Search" [ref=f2e16] [cursor=pointer]:
+          - generic [aria-hidden] [ref=f2e17]: 
+        - button "Close" [ref=f2e19] [cursor=pointer]:
+          - generic [aria-hidden] [ref=f2e20]: 
+    - region "Available search options for this area" [ref=f2e27]:
+      - generic [ref=f2e30]:
+        - button "Nearby restaurants" [ref=f2e32] [cursor=pointer]:
+          - generic [ref=f2e33]:
+            - generic [aria-hidden] [ref=f2e35]: 
+            - generic [ref=f2e36]: Nearby restaurants
+        - button "Hotels" [ref=f2e38] [cursor=pointer]:
+          - generic [ref=f2e39]:
+            - generic [aria-hidden] [ref=f2e41]: 
+            - generic [ref=f2e42]: Hotels
+        - button "Things to do" [ref=f2e44] [cursor=pointer]:
+          - generic [ref=f2e45]:
+            - generic [aria-hidden] [ref=f2e47]: 
+            - generic [ref=f2e48]: Things to do
+        - button "Bars" [ref=f2e50] [cursor=pointer]:
+          - generic [ref=f2e51]:
+            - generic [aria-hidden] [ref=f2e53]: 
+            - generic [ref=f2e54]: Bars
+        - button "Coffee" [ref=f2e56] [cursor=pointer]:
+          - generic [ref=f2e57]:
+            - generic [aria-hidden] [ref=f2e59]: 
+            - generic [ref=f2e60]: Coffee
+        - button "Takeout" [ref=f2e62] [cursor=pointer]:
+          - generic [ref=f2e63]:
+            - generic [aria-hidden] [ref=f2e65]: 
+            - generic [ref=f2e66]: Takeout
+        - button "Groceries" [ref=f2e68] [cursor=pointer]:
+          - generic [ref=f2e69]:
+            - generic [aria-hidden] [ref=f2e71]: 
+            - generic [ref=f2e72]: Groceries
+      - button "Next page" [ref=f2e73] [cursor=pointer]:
+        - generic [aria-hidden] [ref=f2e74]: 
+    - generic [ref=f2e75]:
+      - generic [ref=f2e76]:
+        - list [ref=f2e78]:
+          - listitem [ref=f2e79]:
+            - button "Menu" [ref=f2e80] [cursor=pointer]:
+              - generic [aria-hidden] [ref=f2e82]: 
+          - listitem [ref=f2e83]:
+            - button "Saved" [ref=f2e84] [cursor=pointer]:
+              - generic [aria-hidden] [ref=f2e86]: 
+          - listitem [ref=f2e89]:
+            - button "Recents" [ref=f2e90] [cursor=pointer]:
+              - generic [aria-hidden] [ref=f2e92]: 
+          - listitem [ref=f2e96]:
+            - button "Frydom Express" [ref=f2e97] [cursor=pointer]
+          - listitem [ref=f2e105]:
+            - button "Get app" [ref=f2e106] [cursor=pointer]:
+              - generic [aria-hidden] [ref=f2e108]: 
+        - main [ref=f2e398]:
+          - heading "Hours" [level=1] [ref=f2e402]
+          - generic [ref=f2e403]:
+            - generic [ref=f2e404]:
+              - button "Show open hours for the week Frydom Express" [expanded] [active] [ref=f2e405] [cursor=pointer]:
+                - img "Show open hours for the week" [ref=f2e406]: 
+                - generic [ref=f2e407]: Frydom Express
+              - generic [ref=f2e411]:
+                - generic [ref=f2e412]: Thursday
+                - list [ref=f2e413]:
+                  - listitem [ref=f2e414]: 11 AM–9 PM
+                - button "Thursday, 11 AM to 9 PM, Copy open hours" [ref=f2e415] [cursor=pointer]:
+                  - generic [aria-hidden] [ref=f2e416]: 
+                - button "Suggest an edit to open hours" [ref=f2e419]:
+                  - generic [ref=f2e420] [cursor=pointer]: Suggest new hours
+            - button "Show open hours for the week Delivery" [ref=f2e423] [cursor=pointer]:
+              - img "Show open hours for the week" [ref=f2e424]: 
+              - generic [ref=f2e425]: Delivery
+      - button "Collapse side panel" [ref=f2e324] [cursor=pointer]:
+        - generic [aria-hidden] [ref=f2e325]: 
+    - generic [ref=f2e329]:
+      - button "Google apps" [ref=f2e333] [cursor=pointer]
+      - link "Sign in" [ref=f2e337] [cursor=pointer]:
+        - /url: https://accounts.google.com/ServiceLogin?hl=en&passive=true&continue=https%3A%2F%2Fwww.google.com%2Fmaps%2Fplace%2FFrydom%2BExpress%2F%4040.6352389%2C-74.0102796%2C17z%2Fdata%3D!4m7!3m6!1s0x89c2450052dc4543%3A0x6ffcb2212219dd7b!8m2!3d40.6352389!4d-74.0102796!10e2!16s%252Fg%252F11ymjlwymt%3Fhl%3Den%26ved%3D1t%253A314688&service=local&ec=GAZAcQ
+    - generic:
+      - generic:
+        - button "Show Your Location" [ref=f2e340] [cursor=pointer]:
+          - generic [aria-hidden] [ref=f2e342]: 
+        - generic [ref=f2e344] [cursor=pointer]:
+          - button "Zoom in" [ref=f2e345]:
+            - generic [aria-hidden] [ref=f2e347]: 
+          - button "Zoom out" [ref=f2e348]:
+            - generic [aria-hidden] [ref=f2e350]: 
+      - generic [ref=f2e354]:
+        - button "Browse Street View images" [ref=f2e356]
+        - button "Street View" [ref=f2e366] [cursor=pointer]:
+          - generic [aria-hidden] [ref=f2e369]: 
+      - generic [ref=f2e370]:
+        - generic "Interactive map" [ref=f2e371]
+        - generic [ref=f2e375] [cursor=pointer]:
+          - generic [aria-hidden] [ref=f2e376]: 
+          - generic [ref=f2e377]: Layers
+        - button "Layers" [ref=f2e378] [cursor=pointer]
+    - generic [ref=f2e380]:
+      - contentinfo [ref=f2e383]:
+        - text: Map data ©2026 Google
+        - button "United States" [ref=f2e384] [cursor=pointer]
+        - button "Terms" [ref=f2e385] [cursor=pointer]
+        - button "Privacy" [ref=f2e386] [cursor=pointer]
+        - button "Send Product Feedback" [ref=f2e387] [cursor=pointer]
+      - button "200 ft" [ref=f2e389] [cursor=pointer]
+```

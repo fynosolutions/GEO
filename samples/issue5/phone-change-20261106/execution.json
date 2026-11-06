@@ -1,0 +1,9 @@
+{
+  "environment": "local",
+  "github_run_id": null,
+  "source_run": "597d254e-e15a-4b02-99d5-9260ab7e2bf0",
+  "baseline_run": "baseline-1793936315937",
+  "comparison_run": "changed-1793936315937",
+  "synthetic": true,
+  "extra_actor_calls": 0
+}

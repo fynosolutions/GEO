@@ -1,0 +1,24 @@
+### Page
+- Page URL: https://no.tripadvisor.com/Restaurant_Review-g60763-d34291343-Reviews-Easy_Joy_Dim_Sum_AYCE_Hot_Pot-New_York_City_New_York.html
+- Page Title: tripadvisor.com
+- HTTP status: 403
+- Console: 1 errors, 0 warnings
+### Snapshot
+```yaml
+- iframe [ref=f61e2]:
+  - generic [ref=f62e2]:
+    - paragraph [ref=f62e8]: 访问暂时受限
+    - generic [ref=f62e10]:
+      - generic [ref=f62e11]:
+        - paragraph [ref=f62e12]: 为什么需要经过「我不是机器人」的验证? 在您浏览网页过程中，
+        - paragraph [ref=f62e13]: 可能有以下几种原因启动此验证程式：
+        - list [ref=f62e14]:
+          - listitem [ref=f62e15]: "-系统侦测到您浏览网页的速度异常，为非正常操作。"
+          - listitem [ref=f62e16]: "-您的电脑设定/软体阻挡网页 Javascript 程式运行。"
+          - listitem [ref=f62e17]: "-您使用的IP位址(IP:192.255.232.20)与网路机器人相同。"
+      - generic [ref=f62e18]:
+        - paragraph [ref=f62e19]:
+          - text: 无法操作验证页面?
+          - button "联络我们" [ref=f62e20] [cursor=pointer]
+        - paragraph [ref=f62e21]: "ID: 91ef7ac3-2391-c4a3-39d3-19aee938a872"
+```

@@ -1,0 +1,32 @@
+### Page
+- Page URL: https://www.yelp.com/biz/frydom-express-brooklyn?hl=en_US
+- Page Title: yelp.com
+- HTTP status: 403
+- Console: 1 errors, 0 warnings
+### Snapshot
+```yaml
+- iframe [ref=f4e2]:
+  - generic [ref=f5e2]:
+    - generic [ref=f5e5]:
+      - img "Yelp"
+    - paragraph [ref=f5e8]: 访问暂时受限
+    - generic [ref=f5e10]:
+      - generic [ref=f5e11]:
+        - paragraph [ref=f5e12]: 为什么需要经过「我不是机器人」的验证? 在您浏览网页过程中，
+        - paragraph [ref=f5e13]: 可能有以下几种原因启动此验证程式：
+        - list [ref=f5e14]:
+          - listitem [ref=f5e15]: 系统侦测到您浏览网页的速度异常，为非正常操作。
+          - listitem [ref=f5e16]: 您的电脑设定/软体阻挡网页 Javascript 程式运行。
+          - listitem [ref=f5e17]: 您使用的IP位址(IP:192.255.232.20)与网路机器人相同。
+      - generic [ref=f5e18]:
+        - paragraph [ref=f5e19]:
+          - text: 无法操作验证页面?
+          - button "联络我们" [ref=f5e20]
+        - paragraph [ref=f5e21]: "ID: f0819050-80c7-3029-2ef5-b1e055fa6724"
+      - generic [ref=f5e23]:
+        - group "请选择一个理由（强制性）。" [ref=f5e24]:
+          - textbox "问题说明" [ref=f5e27]
+        - button "发送" [ref=f5e28]
+```
+### Events
+- New console entries: .playwright-cli/console-2026-11-06T03-27-16-747Z.log#L3

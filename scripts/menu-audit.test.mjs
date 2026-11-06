@@ -82,7 +82,9 @@ test('real provider hour shapes preserve raw values and compare without assuming
  const before=JSON.stringify([google,yelp,uber,grub]),rows=compareHours([google,yelp,uber,grub]);
  assert.equal(rows.find(r=>r.platform==='yelp'&&r.day==='Monday').verdict,'一致');
  assert.equal(rows.find(r=>r.platform==='uber_eats'&&r.day==='Monday').verdict,'不一致');
- assert.equal(rows.find(r=>r.platform==='grubhub'&&r.day==='Monday').diff_minutes,270);
+ assert.equal(rows.find(r=>r.platform==='grubhub'&&r.day==='Monday').diff_minutes,null);
+ assert.equal(rows.find(r=>r.platform==='grubhub'&&r.day==='Monday').verdict,null);
+ assert.match(rows.find(r=>r.platform==='grubhub'&&r.day==='Monday').reason,/timezone is unverified/);
  assert.equal(JSON.stringify([google,yelp,uber,grub]),before);
 });
 
@@ -233,4 +235,39 @@ test('Uber Eats weekday ranges, split hours and explicit end-of-day minutes rema
  const before=JSON.stringify(raw),parsed=week(raw);assert.ok(parsed.every(Boolean));assert.equal(parsed[0][0].close,'21:30');assert.equal(parsed[3][0].open,'08:00');assert.equal(parsed[4][0].close,'23:59');assert.equal(parsed[5][0].close,'24:00');assert.equal(parsed[6].length,2);assert.equal(JSON.stringify(raw),before);
  const wrapped=week([{dayRange:'Friday - Monday',sectionHours:[{startTime:600,endTime:1200}]}]);assert.ok(wrapped[0]);assert.equal(wrapped[1],null);assert.ok(wrapped[4]);
  assert.equal(week([{dayRange:'Unknown',sectionHours:[{startTime:1,endTime:2}]}])[0],null);
+});
+
+test('configured official website and Google ordering website are both checked without granting configured identity',async()=>{
+ const root=await mkdtemp(join(tmpdir(),'official-sites-'));const visited=[];
+ try{
+  const out=await collectMenuAudit({store_id:'demo',name:'Demo Cafe',address:'1 Main St',records:[],website:'https://demo.example/',websites:[{url:'https://demo.example/',verified:false},{url:'https://ordering.example/123',verified:true}]},{root,platforms:['official'],read:async url=>{
+   visited.push(url);return {url,format:'html',text:'Menu',menuEvidence:true,identities:url.includes('demo.example')?[{name:'Other Cafe',address:'2 Main St',phone:null}]:[],links:[],prices:[],date:extractDate(''),fetched_at:'2026-11-05T00:00:00Z',sha256:'fixture',extraction:'html'};
+  }});
+  assert.deepEqual(visited,['https://demo.example/','https://ordering.example/123']);
+  assert.equal(out.menus.length,1);assert.equal(out.menus[0].url,'https://ordering.example/123');
+  assert.equal(out.coverage.find(c=>c.channel==='official_html').attempts[0].status,'unverified');
+ }finally{await rm(root,{recursive:true,force:true});}
+});
+test('empty menu search and dynamic HTML never establish platform-wide menu absence',async()=>{
+ const root=await mkdtemp(join(tmpdir(),'unknown-menu-'));
+ try{
+  const out=await collectMenuAudit({store_id:'demo',name:'Demo',address:'1 Main St',records:[],sources:[{channel:'delivery_menu',platform:'uber_eats',url:'https://www.ubereats.com/store/demo',identity_verified:true}]},{root,discover:true,platforms:['uber_eats'],runProvider:async()=>({status:'empty',items:[],collected_at:'2026-11-05T00:00:00Z',note:''}),read:async url=>({url,format:'html',text:'Enable JavaScript',menuEvidence:false,links:[],prices:[],date:extractDate(''),fetched_at:'2026-11-05T00:00:00Z',sha256:'fixture',extraction:'html'})});
+  assert.equal(out.coverage.find(c=>c.channel==='delivery_menu').status,'incomplete');
+  assert.ok(out.coverage.find(c=>c.channel==='delivery_menu').attempts.every(a=>a.status==='unverified'));
+ }finally{await rm(root,{recursive:true,force:true});}
+});
+
+test('menu-card prices are extracted while dish photography is excluded from menu OCR',()=>{
+ const doc=htmlDocument('<body><article class="menu-card" data-cat="burgers"><img src="/images/menu-chicken-burger-440.webp" alt="Chicken burger"><div class="menu-card-title">Chicken Burger</div><span class="menu-card-price">$10.95</span></article><img src="/dinner-menu2.png" alt="Dinner menu"></body>','https://example.com/menu.html');
+ assert.equal(doc.prices[0].name,'Chicken Burger');assert.equal(doc.prices[0].category,'burgers');assert.equal(doc.prices[0].price,'$10.95');assert.equal(doc.menuEvidence,true);
+ assert.equal(doc.menuMedia.length,1);assert.ok(!doc.links.some(x=>x.includes('chicken-burger')));
+});
+
+test('unverified configured HTTPS source cannot suppress a verified HTTP redirect to that same document',async()=>{
+ const root=await mkdtemp(join(tmpdir(),'official-redirect-'));
+ try{
+  const result=await collectMenuAudit({store_id:'demo',name:'Long Google alias',address:'1 Main St',records:[],websites:[{url:'https://example.com/',verified:false},{url:'http://example.com/',verified:true}]},{root,platforms:['official'],read:async()=>({url:'https://example.com/',format:'html',text:'Menu',menuEvidence:true,identities:[],links:[],prices:[],date:extractDate(''),fetched_at:'2026-11-06T00:00:00Z',sha256:'fixture',extraction:'html'})});
+  assert.equal(result.menus.length,1);assert.equal(result.menus[0].url,'https://example.com/');
+  assert.equal(result.coverage[0].attempts[0].status,'unverified');assert.equal(result.coverage[0].attempts[1].status,'found');
+ }finally{await rm(root,{recursive:true,force:true});}
 });

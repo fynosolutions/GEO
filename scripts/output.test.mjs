@@ -68,3 +68,28 @@ test('name and place-ID inputs produce the same eight-record file contract; plat
   assert.deepEqual(await readdir(join(dir,'out')),['Fixture Cafe.json']);
  }finally{for(const k of keys)if(previous[k]===undefined)delete process.env[k];else process.env[k]=previous[k];await rm(dir,{recursive:true,force:true});}
 });
+
+test('Grubhub Catering listing cannot stand in for a normal restaurant at the same address',()=>{
+ const catering={name:'Fixture Cafe - Catering',address:item.address,url:'https://www.grubhub.com/restaurant/fixture-cafe---catering-123-main/1234'};
+ assert.equal(mapApify('grubhub',result([catering]),{name:'Fixture Cafe',address:item.address}).matched,false);
+ assert.equal(mapApify('grubhub',result([catering]),{name:'Fixture Cafe Catering',address:item.address}).matched,true);
+ const normal={...catering,name:'Fixture Cafe',url:'https://www.grubhub.com/restaurant/fixture-cafe-123-main/1235'};
+ assert.equal(mapApify('grubhub',result([catering,normal]),{name:'Fixture Cafe',address:item.address}).url,normal.url);
+});
+test('mobile Yelp discovery is accepted and canonicalized before Actor input',async()=>{
+ const {isListingCandidate}=await import('../dist/backend/browser.js');
+ assert.equal(isListingCandidate('https://m.yelp.com/biz/fixture-cafe','yelp'),true);
+ const root=await mkdtemp(join(tmpdir(),'mobile-yelp-'));const old=process.env.OUTPUT_DIR,oldData=process.env.COLLECTION_DATA_DIR;
+ process.env.OUTPUT_DIR=join(root,'out');process.env.COLLECTION_DATA_DIR=join(root,'data');const calls=[];
+ try{
+  const apify=async(platform,target)=>{
+   calls.push({platform,target});
+   if(platform==='google_maps')return result([item]);
+   if(platform==='_discovery')return result([{organicResults:[{url:'https://m.yelp.com/biz/fixture-cafe'}]}]);
+   return result([{...item,name:item.title,url:target.listing_url}]);
+  };
+  const data=await collectRestaurant({name:item.title,address:item.address,platforms:['yelp']},undefined,undefined,{apify});
+  assert.equal(data.records[0].matched,true);
+  assert.equal(calls.find(c=>c.platform==='yelp').target.listing_url,'https://www.yelp.com/biz/fixture-cafe');
+ }finally{for(const [k,v] of [['OUTPUT_DIR',old],['COLLECTION_DATA_DIR',oldData]])if(v===undefined)delete process.env[k];else process.env[k]=v;await rm(root,{recursive:true,force:true});}
+});

@@ -64,3 +64,16 @@ Menu source comparison ignores common tracking parameters (utm_*, srsltid, gclid
 The workflow enables MENU_AUDIT_ENABLED, APIFY_MENU_ACTORS_ENABLED and MENU_OCR_ENABLED. It remains gated by GEO_WEEKLY_ENABLED; no remote activation has been performed. The worker uses the resolved branch identity and website, produces menu date sidecars, and returns full menu details. The CLI deletes scratch outputs after the orchestrator archives public details under runs/<run-id>/details/<store-id>.json. Files are persisted with the existing runs tree to the history branch/artifact. Partial menu coverage appears in the manifest and Markdown report. Earlier notes describing the adapter as pending are historical; this section supersedes them.
 
 stores.json now contains the Issue #10 acceptance targets: Easy Joy (id "020") and Frydom Express (id "001"). Both Place IDs were extracted from verified Google collection results. IDs are strings so leading zeros are preserved; place_id plus address is used for identity resolution. Katz remains a supplementary test merchant, outside the scheduled store list. Stable IDs remain snapshot directory identifiers; names and addresses appear in manifests/reports. Scheduled production acceptance still requires deployment and two actual weekly runs.
+
+
+## Local fixes and cloud acceptance — 2026-11-05
+
+The collector/workflow is published to main. A manual cloud run completed (Actions 42037510321); both stores were partial, not fully accepted. The user's recurring schedule remains disabled. Manual dispatch is independent of GEO_WEEKLY_ENABLED; only scheduled execution uses that gate. Earlier deployment-pending statements are historical.
+
+Canonical date snapshots remain immutable. After each complete attempt, read `indexes/latest.json` (manual: `manual/indexes/latest.json`) or `indexes/dates/<date>.json`, then follow `path` to that attempt's snapshots, details and diff. These pointers represent the latest finished attempt and expose partial/failed status; they do not assert complete coverage or replace weekly baselines. Legacy archives gain pointers on their next run. The workflow copies the indexes tree when this local change is deployed.
+
+Explicit same-day comparison: `npm run collect:weekly -- --history .local/history --mode manual --compare-run RUN_ID`. The reference must be a prior manual run in that same history, with matching store identity. This mode does not claim consecutive weekly failures. Default scheduled comparison still uses the previous calendar week.
+
+Offline controlled phone test: `node scripts/acceptance-phone-change.mjs RAW_RUN_DIRECTORY samples/issue5/phone-change`. It replays real output, deliberately changes ONE phone digit in a labelled synthetic copy, verifies IMPORTANT in the diff, and leaves source observations/baseline intact. It makes no paid requests and is not cloud/two-week acceptance.
+
+Workers now log each listing result, menu stage and a 30-second heartbeat. Messages contain progress only; provider tokens and raw exceptions are not logged. Configured websites and Google ordering URLs are both checked; an independently configured site must still establish branch identity.

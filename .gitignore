@@ -13,3 +13,6 @@ crawl-records/
 output/playwright/
 
 .playwright-cli/
+
+# Tesseract runtime language cache
+*.traineddata

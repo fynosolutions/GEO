@@ -39,9 +39,9 @@
     ],
     "rating": 4.8,
     "review_count": 1163,
-    "price_level": "$40–50",
-    "fetched_at": "2026-11-06T03:23:23.970Z",
-    "error": null
+    "price_level": null,
+    "fetched_at": "2026-11-06T03:25:07.240Z",
+    "error": "Unavailable public fields: price_level."
   },
   {
     "platform": "yelp",
@@ -176,14 +176,14 @@
     "rating": 4.5,
     "review_count": 84,
     "price_level": "$31-60",
-    "fetched_at": "2026-11-06T03:24:41.266Z",
+    "fetched_at": "2026-11-06T03:26:24.963Z",
     "error": null
   },
   {
     "platform": "tripadvisor",
     "found": true,
     "matched": true,
-    "url": "https://no.tripadvisor.com/Restaurant_Review-g60763-d34291343-Reviews-Easy_Joy_Dim_Sum_AYCE_Hot_Pot-New_York_City_New_York.html",
+    "url": "https://www.tripadvisor.com/Restaurant_Review-g60763-d34291343-Reviews-Easy_Joy_Dim_Sum_AYCE_Hot_Pot-New_York_City_New_York.html",
     "name": "Easy Joy Dim Sum & AYCE Hot Pot",
     "address": "145 Mulberry Street, New York City, NY 10013",
     "phone": "+1 929-243-6130",
@@ -251,7 +251,7 @@
     "rating": 5,
     "review_count": 20,
     "price_level": "$$ - $$$",
-    "fetched_at": "2026-11-06T03:24:53.672Z",
+    "fetched_at": "2026-11-06T03:26:36.911Z",
     "error": null
   },
   {
@@ -266,14 +266,14 @@
     "rating": null,
     "review_count": null,
     "price_level": null,
-    "fetched_at": "2026-11-06T03:25:01.333Z",
+    "fetched_at": "2026-11-06T03:26:46.544Z",
     "error": null
   },
   {
     "platform": "doordash",
     "found": true,
     "matched": true,
-    "url": "https://www.doordash.com/store/easy-joy-ayce-dim-sum-hot-pot---145-mulberry-st-new-york-35886623/?srsltid=AYCX9vKI9apb_Ce0gm2dxP1QDLOzBa2_PdEzI9Dm8ppExDpRdXApFHNW",
+    "url": "https://www.doordash.com/store/easy-joy-ayce-dim-sum-hot-pot---145-mulberry-st-new-york-35886623/?srsltid=AYCX9vIWYgDgDn6V4CPH1dY4aZBp0Dvb1xh-fBJfTcS8h7J9_YiF6fvK",
     "name": "EASY JOY AYCE DIM SUM HOT POT - 145 Mulberry St",
     "address": {
       "lat": 40.718891,
@@ -293,14 +293,14 @@
     },
     "review_count": 10,
     "price_level": null,
-    "fetched_at": "2026-11-06T03:25:23.010Z",
+    "fetched_at": "2026-11-06T03:27:00.593Z",
     "error": "Unavailable public fields: phone; price_level; hours."
   },
   {
     "platform": "uber_eats",
     "found": true,
     "matched": true,
-    "url": "https://www.ubereats.com/en-US/store/easy-joy-dim-sum-hot-pot-buffet-%E6%84%8F%E4%B8%AD%E4%BA%BA%E7%82%B9%E5%BF%83%E7%81%AB%E9%94%85%E8%87%AA%E5%8A%A9-145-mulberry-street/7ObUBkSuUKCK1aTC7nHx_g?srsltid=AYCX9vKXdzH2FFilJ7ejrV3E7Zc0D5Z_06qYfjUDqyKoRF2FmJ8xpKrx",
+    "url": "https://www.ubereats.com/en-US/store/easy-joy-dim-sum-hot-pot-buffet-%E6%84%8F%E4%B8%AD%E4%BA%BA%E7%82%B9%E5%BF%83%E7%81%AB%E9%94%85%E8%87%AA%E5%8A%A9-145-mulberry-street/7ObUBkSuUKCK1aTC7nHx_g?srsltid=AYCX9vKkIfXmhXnyanQT_1FKl-WNdpZ5OZxslKuP4heyqf8ZBfEf17eF",
     "name": "Easy Joy Dim Sum Hot Pot Buffet 意中人点心火锅自助 (145 Mulberry Street)",
     "address": "145 Mulberry Street, New York, NY, 10013, US",
     "phone": "+19292436130",
@@ -317,9 +317,9 @@
       }
     ],
     "rating": null,
-    "review_count": 550,
+    "review_count": 24,
     "price_level": null,
-    "fetched_at": "2026-11-06T03:25:37.617Z",
+    "fetched_at": "2026-11-06T03:27:12.483Z",
     "error": "Unavailable public fields: rating; price_level."
   },
   {
@@ -377,7 +377,7 @@
     "rating": 4.3,
     "review_count": 9,
     "price_level": 2,
-    "fetched_at": "2026-11-06T03:25:54.504Z",
+    "fetched_at": "2026-11-06T03:27:26.618Z",
     "error": null
   },
   {
@@ -392,7 +392,7 @@
     "rating": "Not yet rated (0 reviews)",
     "review_count": 0,
     "price_level": null,
-    "fetched_at": "2026-11-06T03:26:02.203Z",
+    "fetched_at": "2026-11-06T03:27:34.019Z",
     "error": "Unavailable public fields: price_level."
   }
 ]

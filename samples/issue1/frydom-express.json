@@ -39,9 +39,9 @@
     ],
     "rating": 4.6,
     "review_count": 119,
-    "price_level": "$10–20",
-    "fetched_at": "2026-11-06T03:29:41.184Z",
-    "error": null
+    "price_level": null,
+    "fetched_at": "2026-11-06T05:00:24.242Z",
+    "error": "Unavailable public fields: price_level."
   },
   {
     "platform": "yelp",
@@ -176,7 +176,7 @@
     "rating": 5,
     "review_count": 3,
     "price_level": null,
-    "fetched_at": "2026-11-06T03:30:31.156Z",
+    "fetched_at": "2026-11-06T05:01:39.907Z",
     "error": "Unavailable public fields: price_level."
   },
   {
@@ -191,7 +191,7 @@
     "rating": null,
     "review_count": null,
     "price_level": null,
-    "fetched_at": "2026-11-06T03:30:38.948Z",
+    "fetched_at": "2026-11-06T05:01:49.611Z",
     "error": null
   },
   {
@@ -206,7 +206,7 @@
     "rating": null,
     "review_count": null,
     "price_level": null,
-    "fetched_at": "2026-11-06T03:31:02.834Z",
+    "fetched_at": "2026-11-06T05:01:57.084Z",
     "error": null
   },
   {
@@ -221,14 +221,14 @@
     "rating": null,
     "review_count": null,
     "price_level": null,
-    "fetched_at": "2026-11-06T03:31:13.112Z",
+    "fetched_at": "2026-11-06T05:02:20.344Z",
     "error": "No branch matched at least two identity fields (name, address, phone) with a platform source URL."
   },
   {
     "platform": "uber_eats",
     "found": true,
     "matched": true,
-    "url": "https://www.ubereats.com/en-US/store/frydom-express-fried-chicken-%E9%A3%9E%E4%B9%90%E7%82%B8%E9%B8%A1-781-61st-street/OLdZQvsVXzWCMBpsf9uctg?srsltid=AYCX9vICJg1w1ReYLMHpjSjI-hkogrlW-aQgRkQ2sSJOZ2_8ONd6e1tq",
+    "url": "https://www.ubereats.com/en-US/store/frydom-express-fried-chicken-%E9%A3%9E%E4%B9%90%E7%82%B8%E9%B8%A1-781-61st-street/OLdZQvsVXzWCMBpsf9uctg",
     "name": "Frydom Express Fried Chicken 飞乐炸鸡 (781 61st Street)",
     "address": "781 61st Street, Brooklyn, NY, 11220, US",
     "phone": "+19298050792",
@@ -257,23 +257,66 @@
     "rating": null,
     "review_count": 43,
     "price_level": null,
-    "fetched_at": "2026-11-06T03:31:30.102Z",
+    "fetched_at": "2026-11-06T05:02:52.408Z",
     "error": "Unavailable public fields: rating; price_level."
   },
   {
     "platform": "grubhub",
-    "found": false,
-    "matched": false,
-    "url": null,
-    "name": null,
-    "address": null,
-    "phone": null,
-    "hours": null,
-    "rating": null,
-    "review_count": null,
-    "price_level": null,
-    "fetched_at": "2026-11-06T03:32:56.926Z",
-    "error": "No branch matched at least two identity fields (name, address, phone) with a platform source URL."
+    "found": true,
+    "matched": true,
+    "url": "https://www.grubhub.com/restaurant/frydom-express-fried-chicken-fei-le-zha-ji---catering-781-61st-street-brooklyn/15870720",
+    "name": "Frydom Express Fried Chicken Fei Le Zha Ji - Catering",
+    "address": "781 61st Street, Brooklyn, NY 11220",
+    "phone": "9178924086",
+    "hours": [
+      {
+        "dayOfWeek": 1,
+        "timeRanges": [
+          "CLOSED"
+        ]
+      },
+      {
+        "dayOfWeek": 2,
+        "timeRanges": [
+          "CLOSED"
+        ]
+      },
+      {
+        "dayOfWeek": 3,
+        "timeRanges": [
+          "CLOSED"
+        ]
+      },
+      {
+        "dayOfWeek": 4,
+        "timeRanges": [
+          "CLOSED"
+        ]
+      },
+      {
+        "dayOfWeek": 5,
+        "timeRanges": [
+          "CLOSED"
+        ]
+      },
+      {
+        "dayOfWeek": 6,
+        "timeRanges": [
+          "CLOSED"
+        ]
+      },
+      {
+        "dayOfWeek": 7,
+        "timeRanges": [
+          "CLOSED"
+        ]
+      }
+    ],
+    "rating": 0,
+    "review_count": 0,
+    "price_level": 0,
+    "fetched_at": "2026-11-06T05:04:42.135Z",
+    "error": null
   },
   {
     "platform": "facebook",
@@ -287,7 +330,7 @@
     "rating": null,
     "review_count": null,
     "price_level": null,
-    "fetched_at": "2026-11-06T03:34:11.593Z",
+    "fetched_at": "2026-11-06T05:04:49.503Z",
     "error": "Empty or private data for provided input"
   }
 ]

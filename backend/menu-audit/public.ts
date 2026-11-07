@@ -93,11 +93,11 @@ export async function collectMenuAudit(input:MenuAuditInput,options:{root?:strin
    if(source.platform==='official'&&(matchedIdentity?.hours||doc.hours)&&!officialHours.length){const baseline=input.records.find(r=>r.platform==='google_maps');if(baseline)officialHours.push({...baseline,platform:'official',found:true,matched:true,url:doc.url,hours:matchedIdentity?.hours||doc.hours,fetched_at:doc.fetched_at,error:null});}
    for(const media of doc.menuMedia??[])candidates.push({channel:source.platform==='official'?'official_file':source.channel,url:media.url,platform:source.platform,identity_verified:true,menu_media:true,upload_date:media.upload_date??undefined});
    const menuLike=doc.format!=='html'||doc.menuEvidence===true||(doc.menuEvidence===undefined&&/\bmenu\b/i.test(new URL(doc.url).pathname)&&/menu|appetizer|entree|dessert|菜单/i.test(doc.text));
-   attempts.push({...source,url:doc.url,status:menuLike?'found':'unverified',fetched_at:doc.fetched_at,error:menuLike?null:'No menu extracted from this resource; dynamic content or other menu sources may exist.'});
+   attempts.push({...source,url:doc.url,status:menuLike?'found':'unverified',fetched_at:doc.fetched_at,...(doc.collection?{collection:doc.collection,partial:!doc.collection.complete}:{}),error:menuLike?(doc.collection?.reason??null):'No menu extracted from this resource; dynamic content or other menu sources may exist.'});
    if(menuLike){
     const menuIdentity=new URL(menuUrlKey(doc.url));
     const menu_id=source.menu_id??`${source.platform}:${menuIdentity.pathname}${orderingProvider(doc.url)?menuIdentity.search+menuIdentity.hash:''}`;
-    menus.push({channel:source.channel,url:doc.url,...(source.discovered_from?{discovered_from:source.discovered_from}:{}),format:doc.format,menu_date:doc.date.menu_date,date_source:doc.date.date_source,fetched_at:doc.fetched_at,menu_id,platform:source.platform,date_text:doc.date.date_text,...freshness(doc.date.menu_date,doc.fetched_at),sha256:doc.sha256,extraction:doc.extraction,item_count:mode==='full'?doc.prices.length:null,items_collected:mode==='full',items:mode==='full'?doc.prices.map(p=>({name:p.name,category:p.category??null,variant:p.variant,price:p.price,currency:p.currency,url:doc.url,fetched_at:doc.fetched_at})):[]});
+    menus.push({channel:source.channel,url:doc.url,...(source.discovered_from?{discovered_from:source.discovered_from}:{}),format:doc.format,...(doc.collection?{collection:doc.collection}:{}),menu_date:doc.date.menu_date,date_source:doc.date.date_source,fetched_at:doc.fetched_at,menu_id,platform:source.platform,date_text:doc.date.date_text,...freshness(doc.date.menu_date,doc.fetched_at),sha256:doc.sha256,extraction:doc.extraction,item_count:mode==='full'?doc.prices.length:null,items_collected:mode==='full',items:mode==='full'?doc.prices.map(p=>({name:p.name,category:p.category??null,variant:p.variant,price:p.price,currency:p.currency,url:doc.url,fetched_at:doc.fetched_at})):[]});
     if(mode==='full')prices.push(...doc.prices.map(p=>({...p,channel:source.channel,menu_id,url:doc.url,fetched_at:doc.fetched_at})));
    }
    for(const url of [...new Map(doc.links.filter(url=>menuUrlKey(url)!==menuUrlKey(doc.url)).map(url=>[menuUrlKey(url),url])).values()].slice(0,10)){
@@ -113,7 +113,7 @@ export async function collectMenuAudit(input:MenuAuditInput,options:{root?:strin
  if(attempts.some(a=>a.channel==='official_html'&&['found','not_found','unverified'].includes(a.status))&&!candidates.some(c=>c.channel==='official_file'))attempts.push({channel:'official_file',platform:'official',url:input.website??input.websites?.[0]?.url??null,status:'unverified',error:'No menu file link discovered; absence is unverified.',fetched_at});
  const coverage=channels.map(channel=>{
   const entries=attempts.filter(a=>a.channel===channel),found=entries.some(a=>a.status==='found');
-  const incomplete=entries.some(a=>['error','unverified','not_checked'].includes(a.status));
+  const incomplete=entries.some(a=>a.partial===true||['error','unverified','not_checked'].includes(a.status));
   return {channel,found,status:incomplete?'incomplete':found?'found':entries.length?'not_found':'not_checked',attempts:entries,fetched_at};
  });
  const hours=compareHours([...input.records,...officialHours]);
@@ -121,7 +121,7 @@ export async function collectMenuAudit(input:MenuAuditInput,options:{root?:strin
  const sync=channelsOutOfSync(menus);
  const perPlatform=summarizePlatforms(options.platforms??[...new Set(attempts.map(a=>canonicalPlatform(a.platform)))],attempts,menus,p=>Boolean(group(p))||p==='official');
  const scopeComplete=options.platforms?perPlatform.every(p=>p.status==='found'||p.status==='not_found'):coverage.every(c=>c.status==='found'||c.status==='not_found');
- const summary={platform_results:perPlatform,store_id:input.store_id,name:input.name,address:input.address,run_id,fetched_at,mode,selected_platforms:options.platforms??[...new Set(['official',...input.records.map(r=>r.platform),'resy','instagram'])],unsupported_platforms:(options.platforms??input.records.map(r=>r.platform)).filter(p=>p!=='official'&&!group(p)),coverage_complete:scopeComplete,channels_out_of_sync:sync,notes:['Price extraction requires source verification; OCR is not a claim of human validation.','Cross-channel date differences describe source dates, not price validity or identical menu contents.']};
+ const summary={platform_results:perPlatform,store_id:input.store_id,name:input.name,address:input.address,run_id,fetched_at,mode,selected_platforms:options.platforms??[...new Set(['official',...input.records.map(r=>r.platform),'resy','instagram'])],unsupported_platforms:(options.platforms??input.records.map(r=>r.platform)).filter(p=>p!=='official'&&!group(p)),coverage_complete:scopeComplete&&menus.every(m=>m.collection?.complete!==false),channels_out_of_sync:sync,notes:['Price extraction requires source verification; OCR is not a claim of human validation.','Cross-channel date differences describe source dates, not price validity or identical menu contents.']};
  await mkdir(directory,{recursive:true});
  for(const [name,value] of Object.entries({channels:coverage,menus,prices,hours,summary})){const path=join(directory,name+'.json'),tmp=path+'.tmp';await writeFile(tmp,JSON.stringify(value,null,2));await rename(tmp,path);}
  return {directory,menus,prices,hours,coverage,summary};

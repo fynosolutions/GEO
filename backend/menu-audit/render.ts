@@ -5,6 +5,7 @@ import {createHash} from 'node:crypto';
 import {htmlDocument,type Document} from './extract.js';
 import {extractDate} from './dates.js';
 import {orderingProvider} from './sources.js';
+import {isGoogleMapsMenuUrl,collectGoogleMenu} from './google.js';
 import {isPublicIP,classifyPage} from '../browser.js';
 
 /** Exact anonymous initialization/read requests observed in the public ordering page. */
@@ -25,8 +26,8 @@ export async function readRenderedMenu(url:string,signal?:AbortSignal,includePri
 }
 async function render(url:string,signal?:AbortSignal,includePrices=true):Promise<Document>{
  const target=new URL(url);
- if(!orderingProvider(url)&&!(/^https:\/\/(?:www\.|m\.)?yelp\.com\/menu\/[^/]+\/?(?:\?.*)?$/.test(url)))throw Error('Unsupported rendered menu source.');
- const configured=Number(process.env.MENU_BROWSER_TIMEOUT_MS||(orderingProvider(url)==='mealkeyway'?'180000':'90000')),limit=Number.isFinite(configured)?Math.max(5000,Math.min(180000,configured)):90000;
+ if(!isGoogleMapsMenuUrl(url)&&!orderingProvider(url)&&!(/^https:\/\/(?:www\.|m\.)?yelp\.com\/menu\/[^/]+\/?(?:\?.*)?$/.test(url)))throw Error('Unsupported rendered menu source.');
+ const configured=Number(process.env.MENU_BROWSER_TIMEOUT_MS||(orderingProvider(url)==='mealkeyway'?'180000':isGoogleMapsMenuUrl(url)?'120000':'90000')),limit=Number.isFinite(configured)?Math.max(5000,Math.min(180000,configured)):90000;
  const proxyUrl=process.env.BROWSER_PROXY||process.env.HTTPS_PROXY||process.env.https_proxy,proxy=proxyUrl?new URL(proxyUrl):null;
  const env=Object.fromEntries(['SystemRoot','WINDIR','TEMP','TMP','PATH','HOME','USERPROFILE','LOCALAPPDATA'].flatMap(k=>process.env[k]?[[k,process.env[k]!]]:[]));
  signal?.throwIfAborted();
@@ -61,7 +62,17 @@ async function render(url:string,signal?:AbortSignal,includePrices=true):Promise
   page.on('response',r=>{const u=new URL(r.url());if(u.hostname===target.hostname)network.push({path:u.pathname,status:r.status()});});context.on('page',popup=>{if(popup!==page)void popup.close();});page.on('dialog',d=>void d.dismiss());
   let status:number|null=null;
   page.on('response',r=>{if(r.request().isNavigationRequest()&&r.frame()===page.mainFrame())status=r.status();});
-  await page.goto(url,{waitUntil:'commit',timeout:20000}).catch(()=>{});
+  const navigation=new URL(url);if(isGoogleMapsMenuUrl(url)){navigation.searchParams.set('hl','en');navigation.searchParams.set('gl','us');}
+  await page.goto(navigation.href,{waitUntil:'commit',timeout:20000}).catch(()=>{});
+  if(isGoogleMapsMenuUrl(url)){
+   let result;try{result=await collectGoogleMenu(page,signal,Date.now()+limit);}catch(error){
+    if(process.env.MENU_BROWSER_DEBUG==='true'){await mkdir('.local/menu-browser',{recursive:true});await writeFile('.local/menu-browser/google-menu.json',JSON.stringify({url:page.url(),status,blockedRequests,network,errors,text:(await page.locator('body').innerText({timeout:1500}).catch(()=>'' )).slice(0,10000)},null,2));}
+    throw error;
+   }
+   const body=await page.locator('body').innerText({timeout:1500}).catch(()=>'');
+   if(classifyPage(status,body))throw Error('Google Maps menu access restricted; no login or challenge attempted.');
+   return {url:page.url(),format:'html',text:result.text,prices:includePrices?result.prices:[],links:[],date:extractDate(''),fetched_at:new Date().toISOString(),sha256:createHash('sha256').update(JSON.stringify(result)).digest('hex'),extraction:'google-maps-menu-dom',menuEvidence:true,collection:result.collection};
+  }
   const started=Date.now();let lastCount=-1,stable=0,parsed:ReturnType<typeof htmlDocument>|null=null,html='';
   while(Date.now()-started<limit){
    signal?.throwIfAborted();

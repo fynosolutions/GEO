@@ -11,8 +11,8 @@ assert.ok(Array.isArray(manifest.stores)&&manifest.stores.length>0);
 let menuCount=0,hourCount=0;
 for(const store of manifest.stores){
  assert.equal(typeof store.id,'string');assert.match(store.id,/^[a-z0-9][a-z0-9-]*$/);
- const records=validateRecords(await read('snapshots/'+store.id+'.json'));
- for(const r of records){if(!r.matched){for(const key of ['name','address','phone','hours','rating','review_count','price_level'])assert.equal(r[key],null,`${store.id}/${r.platform}: unverified field ${key}`);}}
+ const records=validateRecords(await read('snapshots/'+store.id+'.json'),true);
+ for(const r of records){if(!r.matched){for(const key of ['name','address','phone','hours','rating','review_count','followers','posts','price_level'].filter(key=>Object.hasOwn(r,key)))assert.equal(r[key],null,`${store.id}/${r.platform}: unverified field ${key}`);}}
  if(store.status==='failed')continue;
  const details=await read('details/'+store.id+'.json');
  assert.deepEqual(details.coverage.map(c=>c.channel),[...channels]);
@@ -32,6 +32,6 @@ for(const store of manifest.stores){
   if(row.verdict===null)assert.ok(typeof row.reason==='string'&&row.reason.length>0);
   hourCount++;
  }
- console.log(`${store.id}: 8 platform records, 7 channel records; status=${store.status}`);
+ console.log(`${store.id}: ${records.length} platform records, 7 channel records; status=${store.status}`);
 }
 console.log(`Required field and provenance validation passed: ${menuCount} menus, ${hourCount} daily hour rows. This validates structure, not complete platform coverage or page accuracy.`);

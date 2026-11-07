@@ -3,10 +3,11 @@ import {mkdir} from 'node:fs/promises';
 import {lookup} from 'node:dns/promises';
 import {isIP} from 'node:net';
 import {orderingProvider} from './sources.js';
+import {isGoogleMapsMenuUrl,type GoogleMenuCollection} from './google.js';
 import {createHash} from 'node:crypto';
 import {extractDate} from './dates.js';
 export type Price={name:string;category?:string|null;variant:string|null;price:string;currency:string|null;evidence:string};
-export type Document={url:string;format:'html'|'pdf'|'image';text:string;prices:Price[];links:string[];date:ReturnType<typeof extractDate>;fetched_at:string;sha256:string;extraction:string;menuEvidence?:boolean;menuMedia?:Array<{url:string;upload_date:string|null}>;hours?:any;identities?:Array<{name:string;address:any;phone:any;hours?:any}>};
+export type Document={url:string;format:'html'|'pdf'|'image';text:string;prices:Price[];links:string[];date:ReturnType<typeof extractDate>;fetched_at:string;sha256:string;extraction:string;collection?:GoogleMenuCollection;menuEvidence?:boolean;menuMedia?:Array<{url:string;upload_date:string|null}>;hours?:any;identities?:Array<{name:string;address:any;phone:any;hours?:any}>};
 export function pricesFromText(text:string):Price[]{
  return text.split(/\r?\n/).flatMap(line=>{
   const m=line.trim().match(/^(.{2,120}?)\s+(\$\s*\d+(?:\.\d{1,2})?(?:\s*[-–]\s*\$?\d+(?:\.\d{1,2})?)?)\s*$/);
@@ -130,7 +131,7 @@ async function readStaticDocument(url:string,signal?:AbortSignal,includePrices=t
 }
 
 export async function readDocument(url:string,signal?:AbortSignal,includePrices=true):Promise<Document>{
- const host=new URL(url).hostname,renderable=!!orderingProvider(url)||/^(www\.|m\.)?yelp\.com$/.test(host)&&/^\/menu\//.test(new URL(url).pathname);
+ const host=new URL(url).hostname,renderable=isGoogleMapsMenuUrl(url)||!!orderingProvider(url)||/^(www\.|m\.)?yelp\.com$/.test(host)&&/^\/menu\//.test(new URL(url).pathname);
  // Rendering cannot repair a CAPTCHA/login wall; the browser reader detects and reports it.
  if(renderable&&process.env.MENU_BROWSER_ENABLED!=='false'){
   const {readRenderedMenu}=await import('./render.js');return readRenderedMenu(url,signal,includePrices);

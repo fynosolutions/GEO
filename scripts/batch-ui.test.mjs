@@ -1,7 +1,7 @@
 import test from 'node:test';import assert from 'node:assert/strict';import {readFile} from 'node:fs/promises';import {chromium} from 'playwright';
 
 test('restaurant list mode supports text/file input, selected platforms and excludes single-target/menu fields',async()=>{
- const browser=await chromium.launch({headless:true});
+ const browser=await chromium.launch({headless:true,channel:process.env.BROWSER_CHANNEL||undefined});
  try{
   const page=await browser.newPage(),submissions=[];
   await page.route('http://geo.test/**',async route=>{
@@ -25,7 +25,7 @@ test('restaurant list mode supports text/file input, selected platforms and excl
 });
 
 test('batch results preview each store and expose restaurant JSON downloads',async()=>{
- const browser=await chromium.launch({headless:true});
+ const browser=await chromium.launch({headless:true,channel:process.env.BROWSER_CHANNEL||undefined});
  try{
   const page=await browser.newPage(),errors=[];page.on('pageerror',e=>errors.push(e.message));
   const stores=['First Cafe','Second Cafe'].map((name,index)=>({id:'store-'+index,input:{name},filename:name+'.json',output_file:'out/'+name+'.json',status:'partial',error:null,records:[{platform:'yelp',found:true,matched:true,name,rating:4.5},{platform:'instagram',found:false,matched:false,error:'No public listing for the target restaurant was found in the returned search results. This does not confirm whether the restaurant has registered an account on this platform.'}]}));

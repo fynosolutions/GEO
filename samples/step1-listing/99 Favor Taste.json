@@ -1,0 +1,382 @@
+[
+  {
+    "platform": "google_maps",
+    "found": true,
+    "matched": true,
+    "url": "https://www.google.com/maps/search/?api=1&query=99%20Favor%20Taste&query_place_id=ChIJ6cK8modZwokRTHEfaD9uzAY",
+    "name": "99 Favor Taste",
+    "address": "285 Grand St, New York, NY 10002",
+    "phone": "(646) 682-9162",
+    "hours": [
+      {
+        "day": "Monday",
+        "hours": "11 AM to 11 PM"
+      },
+      {
+        "day": "Tuesday",
+        "hours": "11 AM to 11 PM"
+      },
+      {
+        "day": "Wednesday",
+        "hours": "11 AM to 11 PM"
+      },
+      {
+        "day": "Thursday",
+        "hours": "11 AM to 11 PM"
+      },
+      {
+        "day": "Friday",
+        "hours": "11 AM to 12 AM"
+      },
+      {
+        "day": "Saturday",
+        "hours": "11 AM to 12 AM"
+      },
+      {
+        "day": "Sunday",
+        "hours": "11 AM to 11 PM"
+      }
+    ],
+    "rating_raw": {
+      "average": 4.2,
+      "count": 3264
+    },
+    "rating": 4.2,
+    "review_count": 3264,
+    "price_level": null,
+    "fetched_at": "2026-11-07T07:05:29.458Z",
+    "error": "Unavailable public fields: price_level."
+  },
+  {
+    "platform": "yelp",
+    "found": true,
+    "matched": true,
+    "url": "https://www.yelp.com/biz/99-favor-taste-new-york-new-york?start=1040",
+    "name": "99 Favor Taste - New York",
+    "address": {
+      "addressLine1": "285 Grand St",
+      "addressLine2": "",
+      "addressLine3": "",
+      "city": "New York",
+      "regionCode": "NY",
+      "postalCode": "10002",
+      "country": "US"
+    },
+    "phone": "(646) 682-9162",
+    "hours": [
+      {
+        "hours": [
+          "11:00 AM - 11:00 PM"
+        ],
+        "regularHours": [
+          "11:00 AM - 11:00 PM"
+        ],
+        "regularHoursRaw": [
+          [
+            660,
+            1380
+          ]
+        ],
+        "hasSpecialHours": false,
+        "dayOfWeekShort": "Mon"
+      },
+      {
+        "hours": [
+          "11:00 AM - 11:00 PM"
+        ],
+        "regularHours": [
+          "11:00 AM - 11:00 PM"
+        ],
+        "regularHoursRaw": [
+          [
+            2100,
+            2820
+          ]
+        ],
+        "hasSpecialHours": false,
+        "dayOfWeekShort": "Tue"
+      },
+      {
+        "hours": [
+          "11:00 AM - 11:00 PM"
+        ],
+        "regularHours": [
+          "11:00 AM - 11:00 PM"
+        ],
+        "regularHoursRaw": [
+          [
+            3540,
+            4260
+          ]
+        ],
+        "hasSpecialHours": false,
+        "dayOfWeekShort": "Wed"
+      },
+      {
+        "hours": [
+          "11:00 AM - 11:00 PM"
+        ],
+        "regularHours": [
+          "11:00 AM - 11:00 PM"
+        ],
+        "regularHoursRaw": [
+          [
+            4980,
+            5700
+          ]
+        ],
+        "hasSpecialHours": false,
+        "dayOfWeekShort": "Thu"
+      },
+      {
+        "hours": [
+          "11:00 AM - 12:00 AM (Next day)"
+        ],
+        "regularHours": [
+          "11:00 AM - 12:00 AM (Next day)"
+        ],
+        "regularHoursRaw": [
+          [
+            6420,
+            7200
+          ]
+        ],
+        "hasSpecialHours": false,
+        "dayOfWeekShort": "Fri"
+      },
+      {
+        "hours": [
+          "11:00 AM - 12:00 AM (Next day)"
+        ],
+        "regularHours": [
+          "11:00 AM - 12:00 AM (Next day)"
+        ],
+        "regularHoursRaw": [
+          [
+            7860,
+            8640
+          ]
+        ],
+        "hasSpecialHours": false,
+        "dayOfWeekShort": "Sat"
+      },
+      {
+        "hours": [
+          "11:00 AM - 11:00 PM"
+        ],
+        "regularHours": [
+          "11:00 AM - 11:00 PM"
+        ],
+        "regularHoursRaw": [
+          [
+            9300,
+            10020
+          ]
+        ],
+        "hasSpecialHours": false,
+        "dayOfWeekShort": "Sun"
+      }
+    ],
+    "rating_raw": {
+      "average": 4,
+      "count": 2280
+    },
+    "rating": 4,
+    "review_count": 2280,
+    "price_level": "$31-60",
+    "fetched_at": "2026-11-07T07:06:58.883Z",
+    "error": null
+  },
+  {
+    "platform": "tripadvisor",
+    "found": true,
+    "matched": true,
+    "url": "https://www.tripadvisor.com/Restaurant_Review-g60763-d7789330-Reviews-99_Favor_Taste-New_York_City_New_York.html",
+    "name": "99 Favor Taste",
+    "address": "285 Grand St, New York City, NY 10002",
+    "phone": "+1 646-682-9162",
+    "hours": {
+      "weekRanges": [
+        [
+          {
+            "open": 720,
+            "openHours": "12:00",
+            "close": 1500,
+            "closeHours": "01:00"
+          }
+        ],
+        [
+          {
+            "open": 720,
+            "openHours": "12:00",
+            "close": 1500,
+            "closeHours": "01:00"
+          }
+        ],
+        [
+          {
+            "open": 720,
+            "openHours": "12:00",
+            "close": 1500,
+            "closeHours": "01:00"
+          }
+        ],
+        [
+          {
+            "open": 720,
+            "openHours": "12:00",
+            "close": 1500,
+            "closeHours": "01:00"
+          }
+        ],
+        [
+          {
+            "open": 720,
+            "openHours": "12:00",
+            "close": 1500,
+            "closeHours": "01:00"
+          }
+        ],
+        [
+          {
+            "open": 720,
+            "openHours": "12:00",
+            "close": 1500,
+            "closeHours": "01:00"
+          }
+        ],
+        [
+          {
+            "open": 720,
+            "openHours": "12:00",
+            "close": 1500,
+            "closeHours": "01:00"
+          }
+        ]
+      ],
+      "timezone": null
+    },
+    "rating_raw": {
+      "average": 4,
+      "count": 72
+    },
+    "rating": 4,
+    "review_count": 72,
+    "price_level": "$$ - $$$",
+    "fetched_at": "2026-11-07T07:07:10.745Z",
+    "error": null
+  },
+  {
+    "platform": "opentable",
+    "found": false,
+    "matched": false,
+    "url": null,
+    "name": null,
+    "address": null,
+    "phone": null,
+    "hours": null,
+    "rating_raw": null,
+    "rating": null,
+    "review_count": null,
+    "price_level": null,
+    "fetched_at": "2026-11-07T07:07:21.145Z",
+    "error": "matched:false; the candidate has a conflicting street number."
+  },
+  {
+    "platform": "doordash",
+    "found": false,
+    "matched": false,
+    "url": null,
+    "name": null,
+    "address": null,
+    "phone": null,
+    "hours": null,
+    "rating_raw": null,
+    "rating": null,
+    "review_count": null,
+    "price_level": null,
+    "fetched_at": "2026-11-07T07:07:35.213Z",
+    "error": "No matching public listing was found."
+  },
+  {
+    "platform": "uber_eats",
+    "found": false,
+    "matched": false,
+    "url": null,
+    "name": null,
+    "address": null,
+    "phone": null,
+    "hours": null,
+    "rating_raw": null,
+    "rating": null,
+    "review_count": null,
+    "price_level": null,
+    "fetched_at": "2026-11-07T07:07:58.260Z",
+    "error": "No matching public listing was found."
+  },
+  {
+    "platform": "grubhub",
+    "found": false,
+    "matched": false,
+    "url": null,
+    "name": null,
+    "address": null,
+    "phone": null,
+    "hours": null,
+    "rating_raw": null,
+    "rating": null,
+    "review_count": null,
+    "price_level": null,
+    "fetched_at": "2026-11-07T07:08:23.668Z",
+    "error": "No matching public listing was found."
+  },
+  {
+    "platform": "facebook",
+    "found": true,
+    "matched": true,
+    "url": "https://www.facebook.com/99favortasteLES/",
+    "name": "99 Favor Taste-Chinatown | New York NY",
+    "address": "285 Grand St, New York, NY, United States, 10002",
+    "phone": "(646) 682-9162",
+    "hours": "Closed now",
+    "rating_raw": {
+      "average": "92% recommend (770 reviews)",
+      "count": 770
+    },
+    "rating": "92% recommend (770 reviews)",
+    "review_count": 770,
+    "price_level": "$$",
+    "fetched_at": "2026-11-07T07:08:33.254Z",
+    "error": null
+  },
+  {
+    "platform": "resy",
+    "found": false,
+    "matched": false,
+    "url": null,
+    "name": null,
+    "address": null,
+    "phone": null,
+    "hours": null,
+    "followers": null,
+    "posts": null,
+    "price_level": null,
+    "fetched_at": "2026-11-07T07:08:53.998Z",
+    "error": "No matching public listing was found."
+  },
+  {
+    "platform": "instagram",
+    "found": false,
+    "matched": false,
+    "url": null,
+    "name": null,
+    "address": null,
+    "phone": null,
+    "hours": null,
+    "followers": null,
+    "posts": null,
+    "price_level": null,
+    "fetched_at": "2026-11-07T07:08:54.007Z",
+    "error": "No branch listing URL discovered; Actor not started."
+  }
+]

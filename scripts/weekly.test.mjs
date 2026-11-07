@@ -3,11 +3,18 @@ import assert from 'node:assert/strict';
 import {mkdtemp,readFile,writeFile,rm} from 'node:fs/promises';
 import {join} from 'node:path';
 import {tmpdir} from 'node:os';
+import {emptyListing} from '../dist/backend/public.js';
 import {platforms,storesFrom,collectionInputForStore,validateRecords,compare,runWeekly,businessDate,previousWeek} from '../dist/backend/weekly/public.js';
 const stores=[{id:'sample-a',name:'Sample | <A>',address:'1 Main St',place_id:null},{id:'sample-b',name:'Sample B',address:'2 Main St',place_id:null}];
-const records=()=>platforms.map(platform=>({platform,found:true,matched:true,url:'https://example.com',name:'Sample',address:{city:'NY',street:'1 Main St'},phone:'111',hours:{Mon:'9-5'},rating:4,review_count:100,price_level:null,fetched_at:'2026-11-02T11:00:00Z',error:null}));
+const records=()=>platforms.map(platform=>({...emptyListing(platform),found:true,matched:true,url:'https://example.com',name:'Sample',address:{city:'NY',street:'1 Main St'},phone:'111',hours:{Mon:'9-5'},...(['resy','instagram'].includes(platform)?{followers:200,posts:10}:{rating:4,review_count:100}),price_level:null,fetched_at:'2026-11-02T11:00:00Z',error:null}));
 const failed=()=>records().map(r=>({...r,found:false,error:'Unavailable'}));
 const fixture=async fn=>{const root=await mkdtemp(join(tmpdir(),'weekly-test-'));try{await fn(root);}finally{await rm(root,{recursive:true,force:true});}};
+
+test('historical snapshots without rating_raw remain readable without adding invented values',()=>{
+ const legacy=records().map(({rating_raw,...record})=>record);
+ assert.throws(()=>validateRecords(legacy));assert.equal(validateRecords(legacy,true),legacy);
+ assert.ok(legacy.every(record=>!Object.hasOwn(record,'rating_raw')));
+});
 test('configuration rejects traversal, duplicate IDs and missing fields',()=>{
  assert.deepEqual(storesFrom(stores),stores);
  for(const value of [[],[stores[0],stores[0]],[{...stores[0],id:'../escape'}],[{...stores[0],place_id:undefined}]])assert.throws(()=>storesFrom(value));
@@ -26,7 +33,7 @@ test('object order and fetch timestamp changes do not produce changes',()=>{
  const old=records(),next=records();next[0].address={street:'1 Main St',city:'NY'};next[0].fetched_at='2026-11-09T11:00:00Z';assert.deepEqual(compare(stores[0],next,old).rows,[]);
 });
 test('failure is not absence; partial listing is not whole-platform failure',()=>{
- assert.equal(compare(stores[0],failed(),failed()).failures.length,8);
+ assert.equal(compare(stores[0],failed(),failed()).failures.length,10);
  assert.equal(compare(stores[0],failed(),null).failures.length,0);
  assert.ok(compare(stores[0],failed(),records()).rows.every(s=>!s.includes('presence changed')));
  const next=records();next[0].error='Missing phone';next[0].phone=null;next[1].found=false;
@@ -58,7 +65,7 @@ test('menu sidecars detect dates without modifying the current listing contract'
  await runWeekly({root,stores,collect:async()=>records(),menus:[menu],mode:'scheduled',now:new Date('2026-11-02T11:00:00Z')});
  const next=await runWeekly({root,stores,collect:async()=>records(),menus:[{...menu,menu_date:'2026-11-01'}],mode:'scheduled',now:new Date('2026-11-09T11:00:00Z')});
  assert.match(next.report,/menu_date.*2026-01-01.*2026-11-01.*IMPORTANT/);
- const snapshot=JSON.parse(await readFile(join(root,'snapshots/sample-a/2026-11-09.json'),'utf8'));assert.equal(Object.keys(snapshot[0]).length,13);
+ const snapshot=JSON.parse(await readFile(join(root,'snapshots/sample-a/2026-11-09.json'),'utf8'));assert.equal(Object.keys(snapshot[0]).length,14);
 }));
 test('invalid menu provenance and concurrent writers fail safely',()=>fixture(async root=>{
  const {menuObservations}=await import('../dist/backend/weekly/public.js');

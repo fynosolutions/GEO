@@ -2,6 +2,14 @@ import {matchesIdentity,mapItem} from '../dist/backend/collection.js';
 const identityConflict=(items,target)=>!matchesIdentity(mapItem('google_maps',items[0]),target);
 import test from 'node:test';import assert from 'node:assert/strict';
 import {collectApify,expandInput} from '../dist/backend/apify.js';
+
+test('402 billing errors explain the account restriction without leaking raw provider messages',async()=>{
+ const old=process.env.APIFY_TOKEN;process.env.APIFY_TOKEN='fixture-private-token';
+ try{
+  const r=await collectApify('google_maps',{name:'Fixture',address:'New York',listing_url:'',website_url:''},undefined,async()=>Response.json({error:{type:'not-enough-usage-to-run-paid-actor',message:'raw fixture-private-token'}},{status:402}));
+  assert.equal(r.status,'error');assert.equal(r.run_id,null);assert.match(r.note,/not-enough-usage-to-run-paid-actor/);assert.match(r.note,/Insufficient Apify account usage/);assert.ok(!r.note.includes('fixture-private-token'));
+ }finally{if(old===undefined)delete process.env.APIFY_TOKEN;else process.env.APIFY_TOKEN=old;}
+});
 test('wrong-branch provider results are rejected rather than treated as successful extraction',()=>{
  const target={name:'Easy Joy Dim Sum & AYCE Hot Pot',address:'145 Mulberry St, New York, NY 10013'};
  assert.equal(identityConflict([{name:'Canyon Lake Country Club Bar & Grill',address:'32001 Railroad Canyon Rd, Canyon Lake, CA 92587'}],target),true);
@@ -30,6 +38,49 @@ test('missing token skips without a network request',async()=>{
  const previous=process.env.APIFY_TOKEN;delete process.env.APIFY_TOKEN;
  try{const r=await collectApify('yelp',{},undefined,()=>{throw Error('unexpected network');});assert.equal(r.status,'skipped');}
  finally{if(previous!==undefined)process.env.APIFY_TOKEN=previous;}
+});
+
+test('new platform Actor inputs use the verified schemas',async()=>{
+ const old=process.env.APIFY_TOKEN;process.env.APIFY_TOKEN='fixture';const calls=[];
+ try{
+  const transport=async(url,options)=>{
+   if(options.method==='POST'){calls.push({url,input:JSON.parse(options.body)});return Response.json({data:{id:'fixture',status:'SUCCEEDED',defaultDatasetId:'fixture'}});}
+   return Response.json([]);
+  };
+  const target={name:'Fixture Cafe',address:'123 Main St, New York, NY 10001',website_url:'',listing_url:''};
+  await collectApify('resy',target,undefined,transport);
+  await collectApify('resy',{...target,listing_url:'https://resy.com/cities/new-york-ny/venues/fixture'},undefined,transport);
+  const skip=await collectApify('instagram',target,undefined,transport);assert.equal(skip.status,'skipped');
+  await collectApify('instagram',{...target,listing_url:'https://www.instagram.com/fixturecafe/'},undefined,transport);
+  assert.ok(calls[0].url.includes('memo23~resy-restaurant-scraper'));assert.deepEqual(calls[0].input.cities,['New York']);
+  assert.equal(calls[0].input.query,'Fixture Cafe');assert.equal(calls[0].input.includeAvailability,false);
+  assert.deepEqual(calls[1].input.startUrls,['https://resy.com/cities/new-york-ny/venues/fixture']);assert.equal(calls[1].input.cities,undefined);
+  assert.ok(calls[2].url.includes('apify~instagram-profile-scraper'));assert.deepEqual(calls[2].input,{usernames:['https://www.instagram.com/fixturecafe/'],includeAboutSection:false});
+ }finally{if(old===undefined)delete process.env.APIFY_TOKEN;else process.env.APIFY_TOKEN=old;}
+});
+
+test('Stop aborts a remote Actor once even when cancellation races its start acknowledgement',async()=>{
+ const old=process.env.APIFY_TOKEN;process.env.APIFY_TOKEN='fixture';
+ try{
+  for(const phase of ['start','running','abort-failure']){
+   const controller=new AbortController();const calls=[];
+   const transport=async(url,options)=>{
+    calls.push(url);
+    if(url.includes('/abort?')){assert.equal(options.signal.aborted,false);return phase==='abort-failure'?Response.json({},{status:503}):Response.json({data:{status:'ABORTED'}});}
+    if(url.includes('/runs?')){
+     if(phase==='start')controller.abort();
+     else setTimeout(()=>controller.abort(),5);
+     assert.equal(options.signal.aborted,false);
+     return Response.json({data:{id:'fixture-run',status:'RUNNING'}});
+    }
+    throw Error('Polling or dataset fetch must stop');
+   };
+   const result=await collectApify('google_maps',{name:'Fixture',address:'New York',listing_url:'',website_url:''},controller.signal,transport);
+   assert.equal(result.status,'cancelled');assert.equal(calls.filter(u=>u.includes('/abort?gracefully=false')).length,1);
+   assert.equal(calls.length,2);assert.match(result.note,/Cancelled/);
+   if(phase==='abort-failure')assert.match(result.note,/remote Actor termination could not be confirmed/);
+  }
+ }finally{if(old===undefined)delete process.env.APIFY_TOKEN;else process.env.APIFY_TOKEN=old;}
 });
 
 test('Yelp only scrapes observed US listing URLs and never starts its broken native search',async()=>{
@@ -67,7 +118,7 @@ test('cancellation aborts an already-started remote Actor',async()=>{
  const old=process.env.APIFY_TOKEN;process.env.APIFY_TOKEN='fixture';const controller=new AbortController();let aborted=false;
  try{
   const r=await collectApify('yelp',{listing_url:'https://www.yelp.com/biz/fixture'},controller.signal,async(url)=>{
-   if(url.endsWith('/abort')){aborted=true;return Response.json({data:{}});}
+   if(url.includes('/abort?gracefully=false')){aborted=true;return Response.json({data:{}});}
    controller.abort();return Response.json({data:{id:'run1',status:'RUNNING'}});
   });assert.equal(r.status,'cancelled');assert.equal(aborted,true);
  }finally{if(old===undefined)delete process.env.APIFY_TOKEN;else process.env.APIFY_TOKEN=old;}

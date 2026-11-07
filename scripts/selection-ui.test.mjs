@@ -8,7 +8,7 @@ test('form combines name/address and submits only checked platforms',async()=>{
    if(path==='/api/check'){submissions.push(route.request().postDataJSON());return route.fulfill({status:400,json:{message:'Fixture received.'}});}
    const file=path.startsWith('/js/')||path.startsWith('/css/')?'dist/public'+path:'dist/public/index.html';return route.fulfill({body:await readFile(file),contentType:path.endsWith('.js')?'text/javascript':path.endsWith('.css')?'text/css':'text/html'});
   });
-  await page.goto('http://geo.test/');assert.equal(await page.locator('input[name=platforms]').count(),8);
+  await page.goto('http://geo.test/');assert.equal(await page.locator('input[name=platforms]').count(),10);
   await page.locator('#website').fill('Fixture Cafe');await page.locator('#target-address').fill('123 Main St');
   assert.equal(await page.locator('#search-preview').textContent(),'Google Maps search: Fixture Cafe — 123 Main St');
   for(const checkbox of await page.locator('input[name=platforms]').all())await checkbox.uncheck();

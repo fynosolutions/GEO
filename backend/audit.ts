@@ -4,10 +4,12 @@ import { mkdir, readFile, writeFile, rename } from 'node:fs/promises';
 import { resolve, join } from 'node:path';
 import {configuredMenuSources} from './weekly/public.js';
 import {collectMenuAudit} from './menu-audit/public.js';
-import { collectRestaurant, readVerifiedMenuProviders, type Listing, type CollectionInput, domains } from './collection.js';
-export const outputFields=['platform','found','matched','url','name','address','phone','hours','rating','review_count','price_level','fetched_at','error'];
+import { collectRestaurant, readVerifiedMenuProviders, selectedPlatforms, type Listing, type CollectionInput, domains, fieldGroups } from './collection.js';
+import {collectBatch,parseStoreList,type BatchInput,type BatchProgress,type BatchStore} from './batch.js';
+import {conciseError} from './errors.js';
+export const outputFields=[...new Set(Object.values(fieldGroups).flat())];
 export const platforms=Object.fromEntries(Object.entries(domains).map(([key,value])=>[key,[key,value]]));
-export type Job={id:string;created_at:string;status:string;input:CollectionInput;records:Listing[];output_file?:string;filename?:string;merchant:{name:string;address:string}|null;error:string|null;menu_mode?:'links'|'full';menu_scope?:'selected'|'all_channels';menu_status?:string;menu_result?:Awaited<ReturnType<typeof collectMenuAudit>>;menu_error?:string};
+export type Job={id:string;created_at:string;status:string;input:CollectionInput&{stores?:BatchStore[]};batch?:BatchProgress;records:Listing[];output_file?:string;filename?:string;merchant:{name:string;address:string}|null;error:string|null;menu_mode?:'links'|'full';menu_scope?:'selected'|'all_channels';menu_status?:string;menu_result?:Awaited<ReturnType<typeof collectMenuAudit>>;menu_error?:string};
 const root=resolve(process.env.AUDIT_DATA_DIR||'.local/audits');
 const controls=new Map<string,{controller:AbortController;job:Job}>();
 const writes=new Map<string,Promise<void>>();
@@ -24,6 +26,20 @@ export async function getJob(id:string):Promise<Job>{
 }
 export const isBusy=()=>controls.size>0;
 export async function cancelJob(id:string){const control=controls.get(id);if(!control)return getJob(id);control.job.status='cancelling';control.controller.abort();await saveJob(control.job);return control.job;}
+export async function startBatchJob(input:BatchInput):Promise<Job>{
+ const validated={stores:parseStoreList(input.stores),platforms:selectedPlatforms(input.platforms)};
+ const job:Job={id:randomUUID(),input:validated,records:[],created_at:new Date().toISOString(),status:'running',merchant:null,error:null};
+ const controller=new AbortController();controls.set(job.id,{controller,job});
+ try{await saveJob(job);}catch(e){controls.delete(job.id);throw e;}
+ void(async()=>{
+  try{
+   job.batch=await collectBatch(validated,controller.signal,async progress=>{job.batch=progress;await saveJob(job);});
+   job.status=controller.signal.aborted?'cancelled':job.batch.stores.every(s=>s.status==='failed')?'failed':job.batch.stores.some(s=>s.status!=='completed')?'partial':'completed';
+  }catch(e){job.status=controller.signal.aborted?'cancelled':'failed';job.error=conciseError(e);}
+  finally{try{await saveJob(job);}finally{controls.delete(job.id);}}
+ })().catch(()=>console.error('Could not persist batch audit.'));
+ return job;
+}
 export async function startJob(input:CollectionInput,menuMode?:'links'|'full',menuScope:'selected'|'all_channels'='selected'):Promise<Job>{
  const job:Job={id:randomUUID(),input,records:[],created_at:new Date().toISOString(),status:'running',merchant:null,error:null,...(menuMode?{menu_mode:menuMode,menu_scope:menuScope,menu_status:'pending'}:{})};
  const controller=new AbortController();controls.set(job.id,{controller,job});
@@ -31,7 +47,9 @@ export async function startJob(input:CollectionInput,menuMode?:'links'|'full',me
  void (async()=>{try{
   const result=await collectRestaurant(job.input,controller.signal,async r=>{job.records.push(r);await saveJob(job);});
   job.output_file=result.output_file;job.filename=result.filename;job.merchant={name:result.name,address:result.address};job.status=controller.signal.aborted?'cancelled':result.records.some(r=>r.error)?'partial':'completed';
-  if(menuMode&&!controller.signal.aborted){
+  const basicFailed=!result.records.some(r=>r.found)&&result.records.some(r=>r.error);
+  if(basicFailed&&!controller.signal.aborted){job.status='failed';job.error=result.records.find(r=>r.error?.startsWith('Apify HTTP'))?.error||result.records.find(r=>r.error)?.error||'Basic collection failed.';if(menuMode)job.menu_status='not_started';}
+  if(menuMode&&!controller.signal.aborted&&!basicFailed){
    job.status='running';job.menu_status='running';await saveJob(job);
    try{
     job.menu_result=await collectMenuAudit({store_id:job.id,name:result.name,address:result.address,website:result.website,website_verified:!!result.website,sources:await configuredMenuSources(result.google_record),records:menuScope==='all_channels'&&!result.records.some(r=>r.platform==='google_maps')?[result.google_record,...result.records]:result.records,provider_results:await readVerifiedMenuProviders(result.directory,result.records)},{signal:controller.signal,discover:true,platforms:menuScope==='all_channels'?undefined:input.platforms,mode:menuMode});
@@ -39,7 +57,7 @@ export async function startJob(input:CollectionInput,menuMode?:'links'|'full',me
    }catch{job.menu_status=controller.signal.aborted?'cancelled':'failed';job.menu_error='Menu collection could not complete; basic listing data was retained.';}
    job.status=controller.signal.aborted?'cancelled':job.menu_status==='completed'&&!result.records.some(r=>r.error)?'completed':'partial';
   }
- }catch(e){job.status=controller.signal.aborted?'cancelled':'failed';job.error=e instanceof Error?e.message:'Collection failed.';}
+ }catch(e){job.status=controller.signal.aborted?'cancelled':'failed';job.error=conciseError(e);}
  finally{try{await saveJob(job);}finally{controls.delete(job.id);}}})().catch(()=>console.error('Could not persist audit.'));
  return job;
 }

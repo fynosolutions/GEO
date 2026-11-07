@@ -1,7 +1,7 @@
 import { createServer, type ServerResponse } from 'node:http';
 import { authenticated, sessionCookie } from './auth.js';
 import { readFile } from 'node:fs/promises';
-import { outputFields as fields, platforms, getJob, isBusy, selectedPlatforms, startJob, cancelJob } from './public.js';
+import { outputFields as fields, platforms, platformGroups, fieldGroups, getJob, isBusy, selectedPlatforms, startJob, startBatchJob, parseStoreList, cancelJob } from './public.js';
 
 const port = Number(process.env.PORT ?? 3001);
 const host = process.env.HOST ?? '127.0.0.1';
@@ -46,7 +46,7 @@ const server = createServer(async (request, response) => {
       }
     }
     if (pathname === '/api/health' && request.method === 'GET') {
-      json(response, 200, { status: 'ok', apifyEnabled:Boolean(process.env.APIFY_TOKEN)&&process.env.APIFY_ENABLED!=='false', fields, platforms });
+      json(response, 200, { status: 'ok', apifyEnabled:Boolean(process.env.APIFY_TOKEN)&&process.env.APIFY_ENABLED!=='false', fields, platforms, platformGroups, fieldGroups });
       return;
     }
 
@@ -55,6 +55,17 @@ const server = createServer(async (request, response) => {
       const origin=request.headers.origin;
       if(origin && origin!==`http://${request.headers.host}` && origin!==`https://${request.headers.host}`) {json(response,403,{message:'Cross-origin request rejected.'});return;}
       try {json(response,202,await cancelJob(cancel[1]));}catch{json(response,404,{message:'Audit not found.'});} return;
+    }
+    const storeDownload=pathname.match(/^\/api\/audits\/([a-f0-9-]{36})\/stores\/([a-zA-Z0-9_-]+)\.json$/);
+    if(storeDownload&&request.method==='GET'){
+     try{
+      const job=await getJob(storeDownload[1]),store=job.batch?.stores.find(s=>s.id===storeDownload[2]);
+      const file=store?.output_file;
+      if(typeof file!=='string'||!store?.filename){json(response,404,{message:'Restaurant output not found.'});return;}
+      const content=await readFile(file);
+      const encoded=encodeURIComponent(store.filename).replace(/[!'()*]/g,c=>`%${c.charCodeAt(0).toString(16).toUpperCase()}`);
+      response.writeHead(200,{'Content-Type':'application/json; charset=utf-8','Cache-Control':'no-store','Content-Disposition':`attachment; filename="restaurant.json"; filename*=UTF-8''${encoded}`});response.end(content);
+     }catch{json(response,404,{message:'Restaurant output not found.'});}return;
     }
     const match=pathname.match(/^\/api\/audits\/([a-f0-9-]{36})(\/(?:output|menu|report)\.json)?$/);
     if(match&&request.method==='GET'){
@@ -100,12 +111,13 @@ const server = createServer(async (request, response) => {
       let body = '';
       for await (const chunk of request) {
         body += chunk.toString();
-        if (Buffer.byteLength(body) > 8192) {
+        if (Buffer.byteLength(body) > 65536) {
           json(response, 413, { message: 'The request body is too large.' });
           return;
         }
       }
       let collectionInput: import('./public.js').CollectionInput = {};
+      let batchInput:import('./public.js').BatchInput|undefined;
       let address: string | null = null;
       let menuMode:'links'|'full'|undefined;
       let menuScope:'selected'|'all_channels'='selected';
@@ -117,16 +129,22 @@ const server = createServer(async (request, response) => {
         menuMode=data.menu_mode as 'links'|'full'|undefined;
         if(data.menu_scope!==undefined&&!['selected','all_channels'].includes(String(data.menu_scope)))throw Error();
         menuScope=(data.menu_scope as typeof menuScope)||'selected';
+        if('stores' in data){
+         if(data.name!==undefined||data.place_id!==undefined||data.target_address!==undefined||'url' in data)throw Error('Batch input cannot include a single restaurant target.');
+         if(menuMode)throw Error('Batch listing collection does not accept menu_mode.');
+         batchInput={stores:parseStoreList(data.stores),platforms:selectedPlatforms(data.platforms)};
+        }else{
         address=typeof data.target_address==='string'?data.target_address.trim().slice(0,500)||null:null;
         collectionInput={name:typeof data.name==='string'?data.name.trim().slice(0,500):undefined,place_id:typeof data.place_id==='string'?data.place_id.trim().slice(0,500):undefined,address:address||undefined,platforms:selectedPlatforms(data.platforms)};
         if((!!collectionInput.name)===(!!collectionInput.place_id)||'url' in data)throw new Error();
-      } catch {
-        json(response, 400, { message: 'Provide either a restaurant name or Google place ID, with an optional branch address and at least one valid selected platform.' });
+        }
+      } catch(error) {
+        json(response, 400, { message:error instanceof Error&&error.message?error.message:'Provide a valid restaurant list, or a restaurant name / Google place ID, and at least one selected platform.' });
         return;
       }
       // Re-check after reading the body, so simultaneous submissions cannot bypass the job cap.
       if (isBusy()) { json(response, 429, { message: 'An audit is running.' }); return; }
-      const job = await startJob(collectionInput,menuMode,menuScope);
+      const job = batchInput?await startBatchJob(batchInput):await startJob(collectionInput,menuMode,menuScope);
       json(response, 202, { id: job.id, result_url: `/results?id=${job.id}` });
       return;
     }

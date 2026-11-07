@@ -33,6 +33,8 @@ export function isListingCandidate(url: string, platform: string): boolean {
     const u=new URL(url);
     if(u.protocol!=='https:' || u.username || u.password || (u.port && u.port!=='443') || /\.(pdf|zip|docx?|png|jpe?g)(?:$|\/)/i.test(u.pathname))return false;
     if(platform==='yelp')return /^(?:(?:www|m)\.)?yelp\.com$/i.test(u.hostname) && /^\/biz\/[^/]+\/?$/i.test(u.pathname);
+    if(platform==='resy')return /^(www\.)?resy\.com$/i.test(u.hostname)&&/^\/cities\/[^/]+\/(?:venues\/)?[^/]+\/?$/i.test(u.pathname);
+    if(platform==='instagram')return /^(www\.)?instagram\.com$/i.test(u.hostname)&&/^\/(?!p(?:\/|$)|reel(?:\/|$)|reels(?:\/|$)|stories(?:\/|$)|explore(?:\/|$)|accounts(?:\/|$)|direct(?:\/|$)|about(?:\/|$)|legal(?:\/|$))[a-zA-Z0-9._]+\/?$/.test(u.pathname);
     if(platform==='opentable')return /(^|\.)opentable\.com$/.test(u.hostname)&&/^\/r\/[^/]+/.test(u.pathname);
     if(platform==='uber_eats')return /(^|\.)ubereats\.com$/.test(u.hostname)&&/\/store\//.test(u.pathname);
     if(platform==='doordash')return /(^|\.)doordash\.com$/.test(u.hostname)&&/\/store\//.test(u.pathname);

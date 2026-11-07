@@ -5,11 +5,11 @@ import { join } from 'node:path';
 import { createHash, randomUUID } from 'node:crypto';
 import {matchesIdentity,type Listing,type CollectionInput} from '../public.js';
 import type {MenuSource} from '../menu-audit/public.js';
+import {platformGroups,fieldsForPlatform,emptyListing} from '../public.js';
 
-export const platforms = ['google_maps','yelp','tripadvisor','opentable','doordash','uber_eats','grubhub','facebook'];
-const fields = ['platform','found','url','name','address','phone','hours','rating','review_count','price_level','fetched_at','error'];
+export const platforms = [...platformGroups.listings,...platformGroups.profiles];
 export type Store = { id:string; name:string; address:string; place_id:string|null; website?:string|null; menu_sources?:MenuSource[] };
-export type SnapshotListing = Omit<Listing,'matched'> & {matched?:boolean};
+export type SnapshotListing = Omit<Listing,'matched'|'rating_raw'> & {matched?:boolean;rating_raw?:Listing['rating_raw']};
 export type Collector = (store:Store)=>Promise<Listing[]|{records:Listing[];menus?:MenuObservation[];menu_error?:string;menu_details?:unknown}>;
 export function storesFrom(value:unknown):Store[] {
  if(!Array.isArray(value)||!value.length||value.length>20)throw Error('Configure 1–20 stores.');
@@ -37,9 +37,10 @@ export function collectionInputForStore(store:Store):CollectionInput {
  return store.place_id?{place_id:store.place_id,address:store.address}:{name:store.website?.trim()||store.name,address:store.address};
 }
 export function validateRecords(value:unknown,allowLegacy=false):SnapshotListing[] {
- if(!Array.isArray(value)||value.length!==8)throw Error('Snapshot must contain eight platforms.');
+ if(!Array.isArray(value)||![8,10].includes(value.length))throw Error('Snapshot must contain ten platforms (or eight for an existing snapshot).');
  for(const [i,r] of value.entries()) {
-  const expected=allowLegacy&&!Object.hasOwn(r??{},'matched')?fields:[...fields,'matched'];
+  const fields=fieldsForPlatform(platforms[i]);
+  const expected=allowLegacy?fields.filter(f=>!(['matched','rating_raw'].includes(f)&&!Object.hasOwn(r??{},f))):fields;
   if(!r||r.platform!==platforms[i]||Object.keys(r).sort().join()!==[...expected].sort().join()||('matched' in r&&(typeof r.matched!=='boolean'||r.found&&!r.matched))||typeof r.found!=='boolean'||!(r.error===null||typeof r.error==='string')||typeof r.fetched_at!=='string'||!Number.isFinite(Date.parse(r.fetched_at)))throw Error('Invalid snapshot contract.');
  }
  return value as SnapshotListing[];
@@ -69,7 +70,7 @@ export function compare(store:Store,current:SnapshotListing[],previous:SnapshotL
   if(failed(old)){row(r.platform,'collection',null,r.found,'Previous week unavailable; no factual comparison');continue;}
   if(old.found!==r.found){row(r.platform,'found',old.found,r.found,'IMPORTANT: observed listing presence changed');continue;}
   if(!r.found)continue;
-  for(const f of ['url','name','address','phone','hours','rating','review_count','price_level'] as const){
+  for(const f of ['url','name','address','phone','hours','rating','review_count','followers','posts','price_level'] as const){
    if(canonical(old[f])===canonical(r[f]))continue;
    let note=['phone','address','hours'].includes(f)?'IMPORTANT: source value changed':'Source value changed';
    if(old[f]===null||r[f]===null)note='Availability changed; business change unverified';
@@ -134,7 +135,7 @@ export async function runWeekly(options:{stores:Store[];root:string;collect:Coll
     }
    }catch{
     // Do not export raw exceptions: provider errors can contain credential-bearing request URLs.
-    records=platforms.map(platform=>({platform,found:false,matched:false,url:null,name:null,address:null,phone:null,hours:null,rating:null,review_count:null,price_level:null,fetched_at:new Date().toISOString(),error:'Store collection failed or timed out; no verified observation available.'}));
+    records=platforms.map(platform=>emptyListing(platform,'Store collection failed or timed out; no verified observation available.'));
    }
    const secret=process.env.APIFY_TOKEN;if(secret)records=JSON.parse(JSON.stringify(records).split(secret).join('[REDACTED]'));
    snapshots.set(s.id,records);await atomic(join(runDir,'snapshots',s.id+'.json'),records);

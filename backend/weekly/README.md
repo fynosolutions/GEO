@@ -1,5 +1,7 @@
 # Weekly collection (#5)
 
+The default collector now emits ten records with category-specific fields: eight listings plus Resy/Instagram profiles. New snapshots validate against that schema; existing eight-platform snapshots remain readable without rewriting history. Comparisons include followers/posts when present.
+
 This module owns batch orchestration, immutable weekly history and comparisons. It consumes the existing collector via `../public.ts`; it does not change #3 matching or #4 menu extraction. `public.ts` contains testable storage/comparison functions; `worker.ts` runs each collector in a separate process; `cli.ts` handles configuration and deadlines.
 
 ## Local usage

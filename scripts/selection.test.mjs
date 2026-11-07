@@ -37,7 +37,7 @@ test('Yelp rejects a discovered wrong branch then searches with the full Google 
    const apify=async(key,target)=>{
     calls.push({key,target:{...target}});
     if(key==='google_maps')return result([anchor]);
-    if(key==='_discovery'){assert.ok(target.queries.includes(anchor.address));discoveries++;if(discoveries===1){assert.ok(target.queries.includes(anchor.phone));return result([{organicResults:[{url:wrong.url}]}]);}return result([{organicResults:succeeds?[{url:wrong.url+'?duplicate=1'},{url:correct.url}]:[]}]);}
+    if(key==='_discovery'){assert.ok(target.queries.includes(anchor.address));discoveries++;if(discoveries===1){assert.ok(target.queries.includes(anchor.phone));return result([{organicResults:[{url:wrong.url}]}]);}return result([{organicResults:succeeds?[{url:wrong.url+'?duplicate=1'},{url:correct.url.replace('www.yelp.com','m.yelp.com')}]:[]}]);}
     assert.equal(target.address,anchor.address);assert.equal(target.name,'KFC');
     if(target.listing_url===wrong.url)return result([wrong]);
     if(target.listing_url===correct.url)return result([correct]);
@@ -71,7 +71,7 @@ test('Yelp verifies at most three different candidates, stops on success, and ke
    const collected=await collectRestaurant({name:google.title,address:google.address,platforms:['yelp']},undefined,undefined,{apify});
    assert.deepEqual(details,urls.slice(0,successAt||3));assert.equal(searches,0);assert.equal(peak,1);assert.equal(active,0);
    assert.equal(collected.records[0].matched,successAt>0);
-   if(!successAt){assert.match(collected.records[0].error,/3 distinct/);for(const field of ['url','name','address','phone','hours','rating','review_count','price_level'])assert.equal(collected.records[0][field],null);}
+   if(!successAt){assert.match(collected.records[0].error,/conflicting street number/);for(const field of ['url','name','address','phone','hours','rating','review_count','price_level'])assert.equal(collected.records[0][field],null);}
   }
  }finally{for(const [key,value] of Object.entries(previous))if(value===undefined)delete process.env[key];else process.env[key]=value;await rm(directory,{recursive:true,force:true});}
 });

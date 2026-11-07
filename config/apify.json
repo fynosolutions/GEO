@@ -136,6 +136,31 @@
       ]
     }
   },
+  "resy": {
+    "actor": "memo23/resy-restaurant-scraper",
+    "input": {
+      "cities": ["{{city}}"],
+      "query": "{{name}}",
+      "maxItems": 5,
+      "maxConcurrency": 1,
+      "includeAvailability": false,
+      "enrichEmails": false
+    },
+    "listing_input": {
+      "startUrls": ["{{listing_url}}"],
+      "maxItems": 1,
+      "maxConcurrency": 1,
+      "includeAvailability": false,
+      "enrichEmails": false
+    }
+  },
+  "instagram": {
+    "actor": "apify/instagram-profile-scraper",
+    "input": {
+      "usernames": ["{{listing_url}}"],
+      "includeAboutSection": false
+    }
+  },
   "_discovery": {
     "actor": "apify/google-search-scraper",
     "input": {

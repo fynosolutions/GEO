@@ -1,0 +1,316 @@
+[
+  {
+    "platform": "google_maps",
+    "found": true,
+    "matched": true,
+    "url": "https://www.google.com/maps/search/?api=1&query=The%20Dolar%20Shop%20Hot%20Pot%20Manhattan&query_place_id=ChIJaVSb2EBZwokRJMIsBasdHpg",
+    "name": "The Dolar Shop Hot Pot Manhattan",
+    "address": "55 3rd Ave, New York, NY 10003",
+    "phone": "(646) 590-0034",
+    "hours": [
+      {
+        "day": "Monday",
+        "hours": "12 PM to 12 AM"
+      },
+      {
+        "day": "Tuesday",
+        "hours": "12 PM to 12 AM"
+      },
+      {
+        "day": "Wednesday",
+        "hours": "12 PM to 12 AM"
+      },
+      {
+        "day": "Thursday",
+        "hours": "12 PM to 12 AM"
+      },
+      {
+        "day": "Friday",
+        "hours": "12 PM to 1 AM"
+      },
+      {
+        "day": "Saturday",
+        "hours": "11:30 AM to 1 AM"
+      },
+      {
+        "day": "Sunday",
+        "hours": "11:30 AM to 12 AM"
+      }
+    ],
+    "rating_raw": {
+      "average": 4.4,
+      "count": 627
+    },
+    "rating": 4.4,
+    "review_count": 627,
+    "price_level": null,
+    "fetched_at": "2026-11-07T07:09:01.730Z",
+    "error": "Unavailable public fields: price_level."
+  },
+  {
+    "platform": "yelp",
+    "found": true,
+    "matched": true,
+    "url": "https://www.yelp.com/biz/the-dolar-shop-new-york?start=40",
+    "name": "The Dolar Shop",
+    "address": {
+      "city": "New York",
+      "regionCode": "NY",
+      "addressLine1": "55 3rd Ave",
+      "addressLine2": "",
+      "addressLine3": null,
+      "postalCode": "10003",
+      "country": "US"
+    },
+    "phone": "(646) 590-0034",
+    "hours": [
+      {
+        "hours": [
+          "12:00 PM - 12:00 AM (Next day)"
+        ],
+        "regularHours": [
+          "12:00 PM - 12:00 AM (Next day)"
+        ],
+        "regularHoursRaw": [
+          [
+            720,
+            1440
+          ]
+        ],
+        "hasSpecialHours": false,
+        "dayOfWeekShort": "Mon"
+      },
+      {
+        "hours": [
+          "12:00 PM - 12:00 AM (Next day)"
+        ],
+        "regularHours": [
+          "12:00 PM - 12:00 AM (Next day)"
+        ],
+        "regularHoursRaw": [
+          [
+            2160,
+            2880
+          ]
+        ],
+        "hasSpecialHours": false,
+        "dayOfWeekShort": "Tue"
+      },
+      {
+        "hours": [
+          "12:00 PM - 12:00 AM (Next day)"
+        ],
+        "regularHours": [
+          "12:00 PM - 12:00 AM (Next day)"
+        ],
+        "regularHoursRaw": [
+          [
+            3600,
+            4320
+          ]
+        ],
+        "hasSpecialHours": false,
+        "dayOfWeekShort": "Wed"
+      },
+      {
+        "hours": [
+          "12:00 PM - 12:00 AM (Next day)"
+        ],
+        "regularHours": [
+          "12:00 PM - 12:00 AM (Next day)"
+        ],
+        "regularHoursRaw": [
+          [
+            5040,
+            5760
+          ]
+        ],
+        "hasSpecialHours": false,
+        "dayOfWeekShort": "Thu"
+      },
+      {
+        "hours": [
+          "12:00 PM - 1:00 AM (Next day)"
+        ],
+        "regularHours": [
+          "12:00 PM - 1:00 AM (Next day)"
+        ],
+        "regularHoursRaw": [
+          [
+            6480,
+            7260
+          ]
+        ],
+        "hasSpecialHours": false,
+        "dayOfWeekShort": "Fri"
+      },
+      {
+        "hours": [
+          "11:30 AM - 1:00 AM (Next day)"
+        ],
+        "regularHours": [
+          "11:30 AM - 1:00 AM (Next day)"
+        ],
+        "regularHoursRaw": [
+          [
+            7890,
+            8700
+          ]
+        ],
+        "hasSpecialHours": false,
+        "dayOfWeekShort": "Sat"
+      },
+      {
+        "hours": [
+          "11:30 AM - 12:00 AM (Next day)"
+        ],
+        "regularHours": [
+          "11:30 AM - 12:00 AM (Next day)"
+        ],
+        "regularHoursRaw": [
+          [
+            9330,
+            0
+          ]
+        ],
+        "hasSpecialHours": false,
+        "dayOfWeekShort": "Sun"
+      }
+    ],
+    "rating_raw": {
+      "average": 4.5,
+      "count": 587
+    },
+    "rating": 4.5,
+    "review_count": 587,
+    "price_level": "$31-60",
+    "fetched_at": "2026-11-07T07:09:56.802Z",
+    "error": null
+  },
+  {
+    "platform": "tripadvisor",
+    "found": false,
+    "matched": false,
+    "url": null,
+    "name": null,
+    "address": null,
+    "phone": null,
+    "hours": null,
+    "rating_raw": null,
+    "rating": null,
+    "review_count": null,
+    "price_level": null,
+    "fetched_at": "2026-11-07T07:10:06.742Z",
+    "error": "No matching public listing was found."
+  },
+  {
+    "platform": "opentable",
+    "found": false,
+    "matched": false,
+    "url": null,
+    "name": null,
+    "address": null,
+    "phone": null,
+    "hours": null,
+    "rating_raw": null,
+    "rating": null,
+    "review_count": null,
+    "price_level": null,
+    "fetched_at": "2026-11-07T07:10:14.165Z",
+    "error": "No matching public listing was found."
+  },
+  {
+    "platform": "doordash",
+    "found": false,
+    "matched": false,
+    "url": null,
+    "name": null,
+    "address": null,
+    "phone": null,
+    "hours": null,
+    "rating_raw": null,
+    "rating": null,
+    "review_count": null,
+    "price_level": null,
+    "fetched_at": "2026-11-07T07:10:28.256Z",
+    "error": "No matching public listing was found."
+  },
+  {
+    "platform": "uber_eats",
+    "found": false,
+    "matched": false,
+    "url": null,
+    "name": null,
+    "address": null,
+    "phone": null,
+    "hours": null,
+    "rating_raw": null,
+    "rating": null,
+    "review_count": null,
+    "price_level": null,
+    "fetched_at": "2026-11-07T07:10:51.387Z",
+    "error": "No matching public listing was found."
+  },
+  {
+    "platform": "grubhub",
+    "found": false,
+    "matched": false,
+    "url": null,
+    "name": null,
+    "address": null,
+    "phone": null,
+    "hours": null,
+    "rating_raw": null,
+    "rating": null,
+    "review_count": null,
+    "price_level": null,
+    "fetched_at": "2026-11-07T07:11:50.306Z",
+    "error": "No matching public listing was found."
+  },
+  {
+    "platform": "facebook",
+    "found": false,
+    "matched": false,
+    "url": null,
+    "name": null,
+    "address": null,
+    "phone": null,
+    "hours": null,
+    "rating_raw": null,
+    "rating": null,
+    "review_count": null,
+    "price_level": null,
+    "fetched_at": "2026-11-07T07:11:57.795Z",
+    "error": "No matching public listing was found."
+  },
+  {
+    "platform": "resy",
+    "found": true,
+    "matched": true,
+    "url": "https://resy.com/cities/new-york-ny/venues/the-dolar-shop-hot-pot-manhattan",
+    "name": "The Dolar Shop Hot Pot Manhattan",
+    "address": "55 3rd Avenue",
+    "phone": "+16465900034",
+    "hours": null,
+    "followers": null,
+    "posts": null,
+    "price_level": "$",
+    "fetched_at": "2026-11-07T07:12:14.078Z",
+    "error": "Unavailable public fields: followers, posts, hours."
+  },
+  {
+    "platform": "instagram",
+    "found": false,
+    "matched": false,
+    "url": null,
+    "name": null,
+    "address": null,
+    "phone": null,
+    "hours": null,
+    "followers": null,
+    "posts": null,
+    "price_level": null,
+    "fetched_at": "2026-11-07T07:12:14.103Z",
+    "error": "No branch listing URL discovered; Actor not started."
+  }
+]

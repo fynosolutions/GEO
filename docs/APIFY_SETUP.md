@@ -1,6 +1,18 @@
 # Apify adapters
 
+## Resy and Instagram (2026-11-07)
+
+- Resy: `memo23/resy-restaurant-scraper`. Native input uses `cities:[city]`, `query:name`, `maxItems:5`, `maxConcurrency:1`, `includeAvailability:false`, `enrichEmails:false`. Discovered venue URLs use `startUrls:[listing_url]`, `maxItems:1`, with no city-wide search in the same run. Reservations and email enrichment are disabled.
+- Instagram: `apify/instagram-profile-scraper`. Input uses `usernames:[listing_url]` (the documented field accepts public profile URLs), `includeAboutSection:false`. No login, follower-list collection or separate post scraping. Only an observed profile URL starts this Actor; missing URLs produce an explicit skipped note.
+- Input fields and Actor existence verified read-only against the public default build schemas on 2026-11-07. Resy build `b0NYWSRjk8RBgWW8t`; Instagram build `jeTZkbCKkAlF9hLdz`. This checks configuration syntax, not account entitlement or live restaurant availability.
+- Instagram `followersCount` and `postsCount` map to followers/posts. Resy normally provides neither; preserve null rather than inferring counts from ratings or linked social accounts. Both use the user-requested provisional profile category and omit rating_raw, rating and review_count from exports. Raw Actor datasets retain all original data, including any Resy rating, under ignored diagnostics.
+- Stop cancels the job signal and immediately requests force-abort for known active runs. A pending start acknowledgement is kept for at most ten seconds so its run ID can be aborted as soon as received. If the network loses the acknowledgement or abort request, remote termination cannot be guaranteed; the Actor still has its existing 180-second timeout and per-run budget. See [Apify abort API](https://docs.apify.com/api/v2/actor-run-abort-post).
+
+References: [Resy Actor](https://apify.com/memo23/resy-restaurant-scraper), [Instagram Actor](https://apify.com/apify/instagram-profile-scraper). These are data collectors, not reservation-booking Actors.
+
 Configure APIFY_TOKEN, APIFY_ENABLED and optionally APIFY_MAX_CHARGE_USD in .env. The budget applies to each Actor run, including retries, not a whole collection. HTTP errors, inaccessible Actors, timeouts and invalid datasets become platform errors. Running Actors are aborted on cancellation where possible.
+
+HTTP 402 with not-enough-usage-to-run-paid-actor means Apify refused to start a paid Actor due to insufficient available account usage. Lowering the per-run charge cap does not necessarily resolve this account restriction; review Billing in Apify Console. Error handling retains the safe error type without exporting the raw response body or credentials. When all basic records fail, the web job is failed with the underlying reason and does not start menu collection. Existing valid basic data still survives individual platform/menu failures.
 
 config/apify.json contains Actors and typed input templates. Placeholders: name, address, listing_url, website_url, city. Google retrieves up to five candidates to expose ambiguity. Place-ID runs use a direct Maps URL and verify returned placeId. URL-only Actors wait for observed URLs or browser discovery; slugs are never fabricated.
 
@@ -43,3 +55,5 @@ All structured rows pass branch identity checks before becoming menu evidence. O
 Sources: https://apify.com/memo23/uber-eats-scraper ; https://apify.com/memo23/doordash-reviews-cheerio ; https://apify.com/natanielsantos/grubhub-scraper . Schema availability alone does not establish subscription, balance or real collection success.
 
 Read reliability: GET status/dataset calls retry network errors, unreadable JSON and HTTP 429/500/502/503/504 up to three attempts with bounded backoff and the existing total timeout/cancellation signal. POST start/abort calls are not replayed. HTTP 401/402/403 do not trigger automatic read retries; notes distinguish authentication, billing, permission and temporary service failures. Remote cleanup still occurs if run monitoring fails after retries are exhausted.
+
+Yelp discovery accepts observed m.yelp.com/biz/ mobile URLs and sends the equivalent www.yelp.com/biz/ URL to the same configured Actor. This changes only the request alias, not provider field values or Actor configuration. An account Key change does not alter config/apify.json; empty searches, provider errors and rejected branches must be distinguished from permission/billing errors using saved Actor run evidence.

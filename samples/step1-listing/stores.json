@@ -1,0 +1,32 @@
+[
+  {
+    "id": "store-001",
+    "name": "Easy Joy Dim Sum & AYCE Hot Pot",
+    "address": "145 Mulberry St, New York, NY 10013"
+  },
+  {
+    "id": "store-002",
+    "name": "LaoJie Hotpot",
+    "address": "105 Bowery, New York, NY 10002"
+  },
+  {
+    "id": "store-003",
+    "name": "99 Favor Taste",
+    "address": "285 Grand St, New York, NY 10002"
+  },
+  {
+    "id": "store-004",
+    "name": "The Dolar Shop Hot Pot",
+    "address": "55 3rd Ave, New York, NY 10003"
+  },
+  {
+    "id": "store-005",
+    "name": "Shoo Loong Kan Hot Pot 小龙坎",
+    "address": "22 E 13th St, New York, NY 10003"
+  },
+  {
+    "id": "store-006",
+    "name": "KPOT Korean BBQ & Hot Pot",
+    "address": "310 W 38th St, New York, NY 10018"
+  }
+]

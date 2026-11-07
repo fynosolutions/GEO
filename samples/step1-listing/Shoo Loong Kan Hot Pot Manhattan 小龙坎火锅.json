@@ -1,0 +1,238 @@
+[
+  {
+    "platform": "google_maps",
+    "found": true,
+    "matched": true,
+    "url": "https://www.google.com/maps/search/?api=1&query=Shoo%20Loong%20Kan%20Hot%20Pot%20Manhattan%20%E5%B0%8F%E9%BE%99%E5%9D%8E%E7%81%AB%E9%94%85&query_place_id=ChIJJccD46NZwokRu4jCJM5f_AI",
+    "name": "Shoo Loong Kan Hot Pot Manhattan 小龙坎火锅",
+    "address": "22 E 13th St, New York, NY 10003",
+    "phone": "(917) 721-2927",
+    "hours": [
+      {
+        "day": "Monday",
+        "hours": "11:30 AM to 9:30 PM"
+      },
+      {
+        "day": "Tuesday",
+        "hours": "11:30 AM to 9:30 PM"
+      },
+      {
+        "day": "Wednesday",
+        "hours": "11:30 AM to 9:30 PM"
+      },
+      {
+        "day": "Thursday",
+        "hours": "11:30 AM to 9:30 PM"
+      },
+      {
+        "day": "Friday",
+        "hours": "11:30 AM to 10 PM"
+      },
+      {
+        "day": "Saturday",
+        "hours": "11:30 AM to 10 PM"
+      },
+      {
+        "day": "Sunday",
+        "hours": "11:30 AM to 9:30 PM"
+      }
+    ],
+    "rating_raw": {
+      "average": 4.9,
+      "count": 1799
+    },
+    "rating": 4.9,
+    "review_count": 1799,
+    "price_level": null,
+    "fetched_at": "2026-11-07T07:12:21.592Z",
+    "error": "Unavailable public fields: price_level."
+  },
+  {
+    "platform": "yelp",
+    "found": false,
+    "matched": false,
+    "url": null,
+    "name": null,
+    "address": null,
+    "phone": null,
+    "hours": null,
+    "rating_raw": null,
+    "rating": null,
+    "review_count": null,
+    "price_level": null,
+    "fetched_at": "2026-11-07T07:13:36.426Z",
+    "error": "No matching public listing was found."
+  },
+  {
+    "platform": "tripadvisor",
+    "found": false,
+    "matched": false,
+    "url": null,
+    "name": null,
+    "address": null,
+    "phone": null,
+    "hours": null,
+    "rating_raw": null,
+    "rating": null,
+    "review_count": null,
+    "price_level": null,
+    "fetched_at": "2026-11-07T07:14:22.726Z",
+    "error": "No matching public listing was found."
+  },
+  {
+    "platform": "opentable",
+    "found": false,
+    "matched": false,
+    "url": null,
+    "name": null,
+    "address": null,
+    "phone": null,
+    "hours": null,
+    "rating_raw": null,
+    "rating": null,
+    "review_count": null,
+    "price_level": null,
+    "fetched_at": "2026-11-07T07:14:30.187Z",
+    "error": "No matching public listing was found."
+  },
+  {
+    "platform": "doordash",
+    "found": false,
+    "matched": false,
+    "url": null,
+    "name": null,
+    "address": null,
+    "phone": null,
+    "hours": null,
+    "rating_raw": null,
+    "rating": null,
+    "review_count": null,
+    "price_level": null,
+    "fetched_at": "2026-11-07T07:14:42.038Z",
+    "error": "No matching public listing was found."
+  },
+  {
+    "platform": "uber_eats",
+    "found": false,
+    "matched": false,
+    "url": null,
+    "name": null,
+    "address": null,
+    "phone": null,
+    "hours": null,
+    "rating_raw": null,
+    "rating": null,
+    "review_count": null,
+    "price_level": null,
+    "fetched_at": "2026-11-07T07:14:58.374Z",
+    "error": "matched:false; the candidate has a conflicting street number."
+  },
+  {
+    "platform": "grubhub",
+    "found": true,
+    "matched": true,
+    "url": "https://www.grubhub.com/restaurant/shoo-loong-kan-hotpot-manhattan-xiao-long-kan-huo-guo-22-east-13th-street-new-york/11089536",
+    "name": "Shoo Loong Kan Hotpot Manhattan Xiao Long Kan Huo Guo",
+    "address": "22 East 13th Street, New York, NY 10003",
+    "phone": "9177212927",
+    "hours": [
+      {
+        "dayOfWeek": 1,
+        "timeRanges": [
+          "16:30-01:59"
+        ]
+      },
+      {
+        "dayOfWeek": 2,
+        "timeRanges": [
+          "16:30-01:59"
+        ]
+      },
+      {
+        "dayOfWeek": 3,
+        "timeRanges": [
+          "16:30-01:59"
+        ]
+      },
+      {
+        "dayOfWeek": 4,
+        "timeRanges": [
+          "16:30-01:59"
+        ]
+      },
+      {
+        "dayOfWeek": 5,
+        "timeRanges": [
+          "16:30-01:59"
+        ]
+      },
+      {
+        "dayOfWeek": 6,
+        "timeRanges": [
+          "16:30-01:59"
+        ]
+      },
+      {
+        "dayOfWeek": 7,
+        "timeRanges": [
+          "16:30-01:59"
+        ]
+      }
+    ],
+    "rating_raw": {
+      "average": 5,
+      "count": 3
+    },
+    "rating": 5,
+    "review_count": 3,
+    "price_level": 2,
+    "fetched_at": "2026-11-07T07:15:10.325Z",
+    "error": null
+  },
+  {
+    "platform": "facebook",
+    "found": false,
+    "matched": false,
+    "url": null,
+    "name": null,
+    "address": null,
+    "phone": null,
+    "hours": null,
+    "rating_raw": null,
+    "rating": null,
+    "review_count": null,
+    "price_level": null,
+    "fetched_at": "2026-11-07T07:16:07.059Z",
+    "error": "The public listing is private or requires login."
+  },
+  {
+    "platform": "resy",
+    "found": false,
+    "matched": false,
+    "url": null,
+    "name": null,
+    "address": null,
+    "phone": null,
+    "hours": null,
+    "followers": null,
+    "posts": null,
+    "price_level": null,
+    "fetched_at": "2026-11-07T07:16:42.480Z",
+    "error": "matched:false; the candidate has a conflicting street number."
+  },
+  {
+    "platform": "instagram",
+    "found": true,
+    "matched": true,
+    "url": "https://www.instagram.com/shooloongkanmanhattan",
+    "name": "Shoo Loong Kan｜Manhattan",
+    "address": "22 E 13th St, New York, NY 10003",
+    "phone": null,
+    "hours": null,
+    "followers": 483,
+    "posts": 213,
+    "price_level": null,
+    "fetched_at": "2026-11-07T07:16:49.865Z",
+    "error": "Unavailable public fields: phone, price_level, hours."
+  }
+]

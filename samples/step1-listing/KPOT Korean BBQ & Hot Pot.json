@@ -1,0 +1,412 @@
+[
+  {
+    "platform": "google_maps",
+    "found": true,
+    "matched": true,
+    "url": "https://www.google.com/maps/search/?api=1&query=KPOT%20Korean%20BBQ%20%26%20Hot%20Pot&query_place_id=ChIJC70PpdFZwokR3hbV7oPm8RU",
+    "name": "KPOT Korean BBQ & Hot Pot",
+    "address": "310 W 38th St, New York, NY 10018",
+    "phone": "(646) 337-1718",
+    "hours": [
+      {
+        "day": "Monday",
+        "hours": "12 to 9:30 PM"
+      },
+      {
+        "day": "Tuesday",
+        "hours": "12 to 9:30 PM"
+      },
+      {
+        "day": "Wednesday",
+        "hours": "12 to 9:30 PM"
+      },
+      {
+        "day": "Thursday",
+        "hours": "12 to 9:30 PM"
+      },
+      {
+        "day": "Friday",
+        "hours": "12 to 10:30 PM"
+      },
+      {
+        "day": "Saturday",
+        "hours": "12 to 10:30 PM"
+      },
+      {
+        "day": "Sunday",
+        "hours": "12 to 9:30 PM"
+      }
+    ],
+    "rating_raw": {
+      "average": 4.9,
+      "count": 6985
+    },
+    "rating": 4.9,
+    "review_count": 6985,
+    "price_level": null,
+    "fetched_at": "2026-11-07T07:16:57.481Z",
+    "error": "Unavailable public fields: price_level."
+  },
+  {
+    "platform": "yelp",
+    "found": true,
+    "matched": true,
+    "url": "https://www.yelp.com/biz/kpot-korean-bbq-and-hot-pot-new-york-3",
+    "name": "KPOT Korean BBQ & Hot Pot",
+    "address": {
+      "city": "New York",
+      "regionCode": "NY",
+      "addressLine1": "310 W 38th St",
+      "addressLine2": "",
+      "addressLine3": null,
+      "postalCode": "10018",
+      "country": "US"
+    },
+    "phone": "(646) 337-1718",
+    "hours": [
+      {
+        "hours": [
+          "12:00 PM - 9:30 PM"
+        ],
+        "regularHours": [
+          "12:00 PM - 9:30 PM"
+        ],
+        "regularHoursRaw": [
+          [
+            720,
+            1290
+          ]
+        ],
+        "hasSpecialHours": false,
+        "dayOfWeekShort": "Mon"
+      },
+      {
+        "hours": [
+          "12:00 PM - 9:30 PM"
+        ],
+        "regularHours": [
+          "12:00 PM - 9:30 PM"
+        ],
+        "regularHoursRaw": [
+          [
+            2160,
+            2730
+          ]
+        ],
+        "hasSpecialHours": false,
+        "dayOfWeekShort": "Tue"
+      },
+      {
+        "hours": [
+          "12:00 PM - 9:30 PM"
+        ],
+        "regularHours": [
+          "12:00 PM - 9:30 PM"
+        ],
+        "regularHoursRaw": [
+          [
+            3600,
+            4170
+          ]
+        ],
+        "hasSpecialHours": false,
+        "dayOfWeekShort": "Wed"
+      },
+      {
+        "hours": [
+          "12:00 PM - 9:30 PM"
+        ],
+        "regularHours": [
+          "12:00 PM - 9:30 PM"
+        ],
+        "regularHoursRaw": [
+          [
+            5040,
+            5610
+          ]
+        ],
+        "hasSpecialHours": false,
+        "dayOfWeekShort": "Thu"
+      },
+      {
+        "hours": [
+          "12:00 PM - 10:30 PM"
+        ],
+        "regularHours": [
+          "12:00 PM - 10:30 PM"
+        ],
+        "regularHoursRaw": [
+          [
+            6480,
+            7110
+          ]
+        ],
+        "hasSpecialHours": false,
+        "dayOfWeekShort": "Fri"
+      },
+      {
+        "hours": [
+          "12:00 PM - 10:30 PM"
+        ],
+        "regularHours": [
+          "12:00 PM - 10:30 PM"
+        ],
+        "regularHoursRaw": [
+          [
+            7920,
+            8550
+          ]
+        ],
+        "hasSpecialHours": false,
+        "dayOfWeekShort": "Sat"
+      },
+      {
+        "hours": [
+          "12:00 PM - 9:30 PM"
+        ],
+        "regularHours": [
+          "12:00 PM - 9:30 PM"
+        ],
+        "regularHoursRaw": [
+          [
+            9360,
+            9930
+          ]
+        ],
+        "hasSpecialHours": false,
+        "dayOfWeekShort": "Sun"
+      }
+    ],
+    "rating_raw": {
+      "average": 4.3,
+      "count": 217
+    },
+    "rating": 4.3,
+    "review_count": 217,
+    "price_level": "$31-60",
+    "fetched_at": "2026-11-07T07:18:26.106Z",
+    "error": null
+  },
+  {
+    "platform": "tripadvisor",
+    "found": true,
+    "matched": true,
+    "url": "https://www.tripadvisor.com/Restaurant_Review-g60763-d28651380-Reviews-Kpot_Korean_Bbq_Hotpot-New_York_City_New_York.html",
+    "name": "Kpot Korean Bbq & Hotpot",
+    "address": "310 W 38th St, New York City, NY 10018-3074",
+    "phone": "+1 646-337-1718",
+    "hours": {
+      "weekRanges": [
+        [
+          {
+            "open": 720,
+            "openHours": "12:00",
+            "close": 1350,
+            "closeHours": "22:30"
+          }
+        ],
+        [
+          {
+            "open": 720,
+            "openHours": "12:00",
+            "close": 1350,
+            "closeHours": "22:30"
+          }
+        ],
+        [
+          {
+            "open": 720,
+            "openHours": "12:00",
+            "close": 1350,
+            "closeHours": "22:30"
+          }
+        ],
+        [
+          {
+            "open": 720,
+            "openHours": "12:00",
+            "close": 1350,
+            "closeHours": "22:30"
+          }
+        ],
+        [
+          {
+            "open": 720,
+            "openHours": "12:00",
+            "close": 1350,
+            "closeHours": "22:30"
+          }
+        ],
+        [
+          {
+            "open": 720,
+            "openHours": "12:00",
+            "close": 1410,
+            "closeHours": "23:30"
+          }
+        ],
+        [
+          {
+            "open": 720,
+            "openHours": "12:00",
+            "close": 1410,
+            "closeHours": "23:30"
+          }
+        ]
+      ],
+      "timezone": null
+    },
+    "rating_raw": {
+      "average": 5,
+      "count": 7
+    },
+    "rating": 5,
+    "review_count": 7,
+    "price_level": null,
+    "fetched_at": "2026-11-07T07:18:35.776Z",
+    "error": "Unavailable public fields: price_level."
+  },
+  {
+    "platform": "opentable",
+    "found": true,
+    "matched": true,
+    "url": "https://www.opentable.com/r/kpot-korean-bbq-and-hot-pot-new-york-city-new-york",
+    "name": "KPot Korean BBQ & Hot Pot - New York City",
+    "address": "310 W 38th St, New York, NY 10018",
+    "phone": "(646) 337-1718",
+    "hours": null,
+    "rating_raw": {
+      "average": 0,
+      "count": 0
+    },
+    "rating": 0,
+    "review_count": 0,
+    "price_level": "$30 and under",
+    "fetched_at": "2026-11-07T07:18:40.891Z",
+    "error": "Unavailable public fields: hours."
+  },
+  {
+    "platform": "doordash",
+    "found": true,
+    "matched": true,
+    "url": "https://www.doordash.com/store/kpot-korean-bbq-&-hot-pot-new-york-30477027/?srsltid=AYCX9vLZK1u0gn4cG2E5qTWFXVe59_AQqKukFQYMRfWnT_7sGXZV70Oq",
+    "name": "KPOT Korean BBQ & Hot Pot",
+    "address": {
+      "lat": 40.755201,
+      "lng": -73.99244,
+      "display_address": "310 W 38th St, New York NY 10018-3074, United States",
+      "street": "310 W 38th St",
+      "city": "New York",
+      "state": "NY",
+      "country_shortname": "US"
+    },
+    "phone": null,
+    "hours": null,
+    "rating_raw": {
+      "average": 4.5,
+      "count": 203,
+      "display_string": "203"
+    },
+    "rating": {
+      "average": 4.5,
+      "count": 203,
+      "display_string": "203"
+    },
+    "review_count": 203,
+    "price_level": null,
+    "fetched_at": "2026-11-07T07:18:52.706Z",
+    "error": "Unavailable public fields: phone, price_level, hours."
+  },
+  {
+    "platform": "uber_eats",
+    "found": true,
+    "matched": true,
+    "url": "https://www.ubereats.com/en-US/store/kpot-korean-bbq-%26-hot-pot-midtown-ny/jtshahoLVSq6E62VrbqL2Q?srsltid=AYCX9vJoAPwgQEcuNMEiFnnFqcw8tEHBEiDSCq-B3-kddWSry7uJ4nfw",
+    "name": "Kpot Korean BBQ & Hot Pot (Midtown, NY)",
+    "address": "310 W 38th St, New York, NY, 10018, US",
+    "phone": "+16463371718",
+    "hours": [
+      {
+        "dayRange": "Every Day",
+        "sectionHours": [
+          {
+            "startTime": 720,
+            "endTime": 1290,
+            "sectionTitle": ""
+          }
+        ]
+      }
+    ],
+    "rating_raw": {
+      "average": null,
+      "count": 96
+    },
+    "rating": null,
+    "review_count": 96,
+    "price_level": null,
+    "fetched_at": "2026-11-07T07:19:06.756Z",
+    "error": "Unavailable public fields: rating, price_level."
+  },
+  {
+    "platform": "grubhub",
+    "found": false,
+    "matched": false,
+    "url": null,
+    "name": null,
+    "address": null,
+    "phone": null,
+    "hours": null,
+    "rating_raw": null,
+    "rating": null,
+    "review_count": null,
+    "price_level": null,
+    "fetched_at": "2026-11-07T07:19:38.791Z",
+    "error": "No matching public listing was found."
+  },
+  {
+    "platform": "facebook",
+    "found": false,
+    "matched": false,
+    "url": null,
+    "name": null,
+    "address": null,
+    "phone": null,
+    "hours": null,
+    "rating_raw": null,
+    "rating": null,
+    "review_count": null,
+    "price_level": null,
+    "fetched_at": "2026-11-07T07:19:46.181Z",
+    "error": "The public listing is private or requires login."
+  },
+  {
+    "platform": "resy",
+    "found": false,
+    "matched": false,
+    "url": null,
+    "name": null,
+    "address": null,
+    "phone": null,
+    "hours": null,
+    "followers": null,
+    "posts": null,
+    "price_level": null,
+    "fetched_at": "2026-11-07T07:20:18.697Z",
+    "error": "matched:false; the candidate has a conflicting street number."
+  },
+  {
+    "platform": "instagram",
+    "found": false,
+    "matched": false,
+    "url": null,
+    "name": null,
+    "address": null,
+    "phone": null,
+    "hours": null,
+    "followers": null,
+    "posts": null,
+    "price_level": null,
+    "fetched_at": "2026-11-07T07:20:18.713Z",
+    "error": "No branch listing URL discovered; Actor not started."
+  }
+]

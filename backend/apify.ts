@@ -1,6 +1,7 @@
 import './config.js';
 import { readFile } from 'node:fs/promises';
 import { setTimeout as delay } from 'node:timers/promises';
+import {conciseError} from './errors.js';
 
 export type ApifyResult={status:string;actor:string|null;run_id:string|null;dataset_id:string|null;collected_at:string;note:string;items:unknown[];truncated:boolean;target:unknown};
 export type Context={name:string;address:string;website_url:string;listing_url:string;city?:string;place_id?:string;queries?:string;search_url?:string};
@@ -19,7 +20,7 @@ export async function collectApify(platform:string,target:Context,signal?:AbortS
  catch{result.status='error';result.note='Cannot read Apify config JSON.';return result;}
  let entry=config[platform];if(!entry){result.note='No Actor configured for this platform.';return result;}
  if(target.listing_url&&entry.listing_input)entry={...entry,actor:entry.listing_actor||entry.actor,input:entry.listing_input};
- if(!entry.actor){result.note=entry.reason||'No verified Actor configured.';return result;}
+ if(!entry.actor){result.note=conciseError(entry.reason||'No verified Actor configured.');return result;}
  const actor=entry.actor?.replace('/','~');
  if(!actor||!/^[a-zA-Z0-9_-]+(?:~[a-zA-Z0-9_-]+)?$/.test(actor)){result.status='error';result.note='Invalid Actor ID.';return result;}
  result.actor=entry.actor;
@@ -40,10 +41,10 @@ export async function collectApify(platform:string,target:Context,signal?:AbortS
    }
    if(!response.ok){
     const transient=[429,500,502,503,504].includes(response.status);
-    await response.body?.cancel();
+    let kind='';try{const data=await response.json();if(typeof data.error?.type==='string'&&/^[a-z0-9-]{1,100}$/.test(data.error.type))kind=data.error.type;}catch{}
     if(transient&&attempt+1<attempts){await delay(500*2**attempt,undefined,{signal:requestSignal});continue;}
-    const reason=response.status===401?'invalid or expired Token':response.status===402?'account credit or billing restriction':response.status===403?'Actor or resource permission denied':transient?(method==='GET'?'temporary Apify API failure; read retries exhausted':'temporary Apify API failure; Actor start was not replayed'):'request or Actor input rejected';
-    throw Error(`Apify HTTP ${response.status}; ${reason}. Stage: ${path.startsWith('acts/')?'start':path.startsWith('datasets/')?'dataset read':'run status/abort'}.`);
+    const reason=response.status===401?'invalid or expired Token':response.status===402?'Insufficient Apify account usage':response.status===403?'Actor or resource permission denied':transient?(method==='GET'?'temporary Apify API failure; read retries exhausted':'temporary Apify API failure; Actor start was not replayed'):'request or Actor input rejected';
+    throw Error(`Apify HTTP ${response.status}${kind?` (${kind})`:''}; ${reason}; Stage: ${path.startsWith('acts/')?'start':path.startsWith('datasets/')?'dataset read':'run status/abort'}.`);
    }
    try{return await response.json();}catch{
     if(requestSignal.aborted)requestSignal.throwIfAborted();
@@ -53,7 +54,14 @@ export async function collectApify(platform:string,target:Context,signal?:AbortS
   }
   throw Error('Apify API read failed.');
  };
- let completed=false;
+ let completed=false,abortFailed=false,abortTask:Promise<void>|undefined;
+ const abortRemote=()=>{
+  if(!result.run_id||completed)return;
+  abortTask??=api(`actor-runs/${encodeURIComponent(result.run_id)}/abort?gracefully=false`,'POST',undefined,true).then(()=>{}).catch(()=>{
+   abortFailed=true;
+  });
+ };
+ combined.addEventListener('abort',abortRemote,{once:true});
  try{
   combined.throwIfAborted();
   const budget=Number(process.env.APIFY_MAX_CHARGE_USD||0.5);
@@ -66,8 +74,11 @@ export async function collectApify(platform:string,target:Context,signal?:AbortS
    : platform==='google_maps'&&target.listing_url
     ? {...entry.input as object,startUrls:[{url:target.listing_url}],searchStringsArray:undefined}
     : entry.input;
-  const started=await api(`acts/${actor}/runs?timeout=180&maxTotalChargeUsd=${budget}`,'POST',expandInput(actorInput,context));
+  const started=await api(`acts/${actor}/runs?timeout=180&maxTotalChargeUsd=${budget}`,'POST',expandInput(actorInput,context),true);
   result.run_id=started.data.id;let run=started.data;
+  if(!['READY','RUNNING','TIMING-OUT','ABORTING'].includes(run.status))completed=true;
+  if(combined.aborted)abortRemote();
+  combined.throwIfAborted();
   while(['READY','RUNNING','TIMING-OUT','ABORTING'].includes(run.status)){
    await delay(2000,undefined,{signal:combined});run=(await api(`actor-runs/${encodeURIComponent(result.run_id!)}`)).data;
   }
@@ -82,10 +93,10 @@ export async function collectApify(platform:string,target:Context,signal?:AbortS
    result.items.push(...items);if(items.length<100)break;
    if(offset+100===max)result.truncated=true;
   }
-  if(!result.items.length&&/0 succeeded,\s*[1-9]\d* failed/i.test(run.statusMessage||''))throw new Error('Actor ended with all requests failed; inspect Actor logs for blocked requests or timeouts.');
+  if(!result.items.length&&/0 succeeded,\s*[1-9]\d* failed/i.test(run.statusMessage||''))throw new Error('Actor ended with all requests failed.');
   result.status=result.items.length?'unverified':'empty';
   result.note='Dataset collected; identity and field validation are performed before export.';
- }catch(error){result.status=signal?.aborted?'cancelled':'error';result.note=error instanceof Error&&error.message.startsWith('Apify ')||error instanceof Error&&error.message.startsWith('Actor ended')?error.message:'Apify collection failed or timed out. Check configuration, network, credit and Actor logs.';}
- finally{if(result.run_id&&!completed)await api(`actor-runs/${encodeURIComponent(result.run_id)}/abort`,'POST',undefined,true).catch(()=>{result.note+=' Remote abort could not be confirmed; inspect Apify Console.';});}
+ }catch(error){result.status=signal?.aborted?'cancelled':'error';result.note=signal?.aborted?'Cancelled.':error instanceof Error&&error.message.startsWith('Apify ')||error instanceof Error&&error.message.startsWith('Actor ended')?conciseError(error):'Apify request failed or timed out.';}
+ finally{abortRemote();await abortTask;combined.removeEventListener('abort',abortRemote);if(abortFailed)result.note=result.note.replace(/[.!?]+$/,'')+'; remote Actor termination could not be confirmed.';}
  result.collected_at=new Date().toISOString();return result;
 }

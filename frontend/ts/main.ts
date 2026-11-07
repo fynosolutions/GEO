@@ -4,6 +4,22 @@ const input = document.querySelector<HTMLInputElement>('#website')!;
 const button = document.querySelector<HTMLButtonElement>('#submit-button')!;
 const buttonLabel = document.querySelector<HTMLSpanElement>('#button-label')!;
 const result = document.querySelector<HTMLDivElement>('#result')!;
+const inputKind=document.querySelector<HTMLSelectElement>('#input-kind')!;
+const storesInput=document.querySelector<HTMLTextAreaElement>('#stores-input')!;
+const menuCheckbox=document.querySelector<HTMLInputElement>('#collect-menus')!;
+inputKind.addEventListener('change',()=>{
+ const batch=inputKind.value==='batch';
+ document.querySelector<HTMLElement>('#single-target')!.hidden=batch;input.required=!batch;
+ document.querySelector<HTMLElement>('#batch-target')!.hidden=!batch;storesInput.required=batch;
+ menuCheckbox.disabled=batch;
+ document.querySelector<HTMLElement>('#menu-options')!.hidden=batch||!menuCheckbox.checked;
+ document.querySelector('#form-note')!.textContent=batch?'One JSON file per restaurant is saved in out/batches/<batch-id>/. Batch mode collects listing data.':'The output file is saved to out/<restaurant-name>.json. This page is a local test interface.';
+});
+document.querySelector<HTMLInputElement>('#stores-file')!.addEventListener('change',async event=>{
+ const file=(event.target as HTMLInputElement).files?.[0];if(!file)return;
+ if(file.size>60000){showResult('Restaurant list file must be at most 60 KB.','error');return;}
+ try{storesInput.value=await file.text();}catch{showResult('Could not read the restaurant list file.','error');}
+});
 
 function showResult(message: string, kind: 'info' | 'error'): void {
   result.replaceChildren();
@@ -30,9 +46,10 @@ form.addEventListener('submit', async (event) => {
   event.preventDefault();
   if (button.disabled) return;
   const value = input.value.trim();
-  if(!value){showResult('Enter a restaurant name or Google place ID.','error');return;}
-  const kind=document.querySelector<HTMLSelectElement>('#input-kind')!.value;
-  const target=kind==='place_id'?{place_id:value}:{name:value};
+  const kind=inputKind.value,batch=kind==='batch';
+  if(!batch&&!value){showResult('Enter a restaurant name or Google place ID.','error');return;}
+  if(batch&&!storesInput.value.trim()){showResult('Enter or upload a restaurant list.','error');return;}
+  const target=batch?{stores:storesInput.value}:kind==='place_id'?{place_id:value}:{name:value};
   const platforms=Array.from(document.querySelectorAll<HTMLInputElement>('input[name="platforms"]:checked')).map(el=>el.value);
   if(!platforms.length){showResult('Select at least one platform.','error');return;}
   button.disabled = true;
@@ -45,7 +62,7 @@ form.addEventListener('submit', async (event) => {
     const response = await fetch('/api/check', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ ...target, platforms, ...(document.querySelector<HTMLInputElement>('#collect-menus')!.checked?{menu_mode:document.querySelector<HTMLSelectElement>('#menu-mode')!.value,menu_scope:document.querySelector<HTMLSelectElement>('#menu-scope')!.value}:{}), target_address: document.querySelector<HTMLInputElement>('#target-address')?.value.trim() || null }),
+      body: JSON.stringify({ ...target, platforms, ...(!batch&&menuCheckbox.checked?{menu_mode:document.querySelector<HTMLSelectElement>('#menu-mode')!.value,menu_scope:document.querySelector<HTMLSelectElement>('#menu-scope')!.value}:{}), ...(!batch?{target_address:document.querySelector<HTMLInputElement>('#target-address')?.value.trim()||null}:{}) }),
       signal: AbortSignal.timeout(10000),
     });
     const data = await response.json() as { message?: string; result_url?: string };

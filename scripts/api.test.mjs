@@ -26,7 +26,7 @@ test('local UI needs no login and downloads the actual single output file; old i
   const submitted=await post({name:"Fixture's Café"});assert.equal(submitted.status,202);const {id}=await submitted.json();
   let job;
   for(let i=0;i<100;i++){job=await (await fetch(`${base}/api/audits/${id}`)).json();if(!['running','cancelling'].includes(job.status))break;await new Promise(r=>setTimeout(r,20));}
-  assert.equal(job.status,'partial');assert.equal(job.filename,"Fixture's Café.json");
+  assert.equal(job.status,'failed');assert.equal(job.filename,"Fixture's Café.json");
   const response=await fetch(`${base}/api/audits/${id}/output.json`);assert.equal(response.status,200);
   assert.match(response.headers.get('content-disposition'),/Fixture%27s%20Caf%C3%A9\.json/);
   assert.equal(await response.text(),await readFile(job.output_file,'utf8'));
@@ -35,5 +35,19 @@ test('local UI needs no login and downloads the actual single output file; old i
   const report=await (await fetch(`${base}/api/audits/${id}/report.json`)).json();assert.equal(report.schema_version,'geo-report.v1');assert.deepEqual(report.platforms,job.records);assert.equal(report.menu,null);
   for(const path of ['official.json','toast.json','yelp.json','restaurant.json','screenshots/yelp.browser.png'])assert.equal((await fetch(`${base}/api/audits/${id}/${path}`)).status,404);
   assert.equal((await fetch(base+'/js/comparison.js')).status,404);
+  for(const input of [{stores:[]},{stores:[{name:'Good'},{name:''}]},{stores:[{name:'Cafe'}],name:'Other'},{stores:[{name:'Cafe'}],menu_mode:'full'}])assert.equal((await post(input)).status,400);
+  let batchResponse;
+  for(let i=0;i<100;i++){batchResponse=await post({stores:'Fixture A | 1 Main St\nFixture B | 2 Main St',platforms:['yelp','instagram']});if(batchResponse.status!==429)break;await new Promise(r=>setTimeout(r,20));}
+  assert.equal(batchResponse.status,202);const batchId=(await batchResponse.json()).id;
+  for(let i=0;i<100;i++){job=await(await fetch(`${base}/api/audits/${batchId}`)).json();if(!['running','cancelling'].includes(job.status))break;await new Promise(r=>setTimeout(r,20));}
+  assert.equal(job.batch.total,2);assert.equal(job.batch.completed,2);assert.equal(job.batch.stores.length,2);
+  assert.deepEqual(Object.keys(job.batch.output_files),['store-001','store-002']);
+  for(const store of job.batch.stores){
+   const download=await fetch(`${base}/api/audits/${batchId}/stores/${store.id}.json`);assert.equal(download.status,200);
+   assert.ok(download.headers.get('content-disposition').includes(encodeURIComponent(store.filename)));
+   const rows=await download.json();assert.equal(rows.length,2);assert.deepEqual(rows.map(r=>r.platform),['yelp','instagram']);assert.ok(rows.every(r=>!r.found&&r.error&&!('input' in r)&&!('store_id' in r)));
+  }
+  assert.equal((await fetch(`${base}/api/audits/${batchId}/stores/unknown.json`)).status,404);
+  assert.equal((await fetch(`${base}/api/audits/${batchId}/platforms/facebook.json`)).status,404);
  }finally{child.kill();await once(child,'exit');await rm(directory,{recursive:true,force:true});}
 });

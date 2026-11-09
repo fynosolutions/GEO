@@ -1,0 +1,18 @@
+{
+  "run_id": "89b6bcc7-148f-4117-9897-1ea95b42b645",
+  "date": "2026-11-09",
+  "mode": "scheduled",
+  "path": "runs/89b6bcc7-148f-4117-9897-1ea95b42b645",
+  "canonical": true,
+  "stores": [
+    {
+      "id": "020",
+      "status": "partial"
+    },
+    {
+      "id": "001",
+      "status": "partial"
+    }
+  ],
+  "finished_at": "2026-11-09T21:37:24.640Z"
+}

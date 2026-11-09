@@ -1,0 +1,70 @@
+{
+  "run_id": "89b6bcc7-148f-4117-9897-1ea95b42b645",
+  "date": "2026-11-09",
+  "previous_week": "2026-11-02",
+  "mode": "scheduled",
+  "started_at": "2026-11-09T21:22:26.845Z",
+  "finished_at": "2026-11-09T21:37:24.640Z",
+  "code_sha": "ac314499033d82145a3e1920e84966badf434a62",
+  "config_hash": "e2c825d1889ab9d2057041e8f26b79f5d871069bed9ac6de28d340d311784c5c",
+  "stores": [
+    {
+      "id": "020",
+      "name": "Easy Joy Dim Sum & AYCE Hot Pot",
+      "address": "145 Mulberry St, New York, NY 10013",
+      "place_id": "ChIJhRc3tYlZwokRbR4dwpc-0qI",
+      "website": "https://www.easyjoybuffet.com/",
+      "menu_sources": [
+        {
+          "channel": "official_html",
+          "platform": "official",
+          "url": "https://order.mealkeyway.com/customer/release/index?mid=35554f7339436751782f466c5152626a423569654a773d3d#/main",
+          "identity_verified": true,
+          "discovered_from": "https://www.easyjoybuffet.com/"
+        },
+        {
+          "channel": "yelp_menu",
+          "platform": "yelp",
+          "url": "https://www.yelp.com/menu/easy-joy-dim-sum-and-ayce-hot-pot-new-york",
+          "identity_verified": true
+        }
+      ],
+      "menu_error": "Menu channels incomplete; inspect stored menu details.",
+      "status": "partial"
+    },
+    {
+      "id": "001",
+      "name": "Frydom Express",
+      "address": "781 61st St, Brooklyn, NY 11220",
+      "place_id": "ChIJQ0XcUgBFwokRe90ZIiGy_G8",
+      "website": "https://www.frydomexpress.com/",
+      "menu_sources": [
+        {
+          "channel": "official_html",
+          "platform": "official",
+          "url": "https://pos.chowbus.com/online-ordering/store/Frydom-Express-Brooklyn/23427",
+          "identity_verified": true,
+          "discovered_from": "https://www.frydomexpress.com/"
+        },
+        {
+          "channel": "google_menu",
+          "platform": "google_maps",
+          "url": "https://pos.chowbus.com/online-ordering/store/Frydom-Express-Brooklyn/23427",
+          "identity_verified": true,
+          "discovered_from": "https://www.google.com/maps/search/?api=1&query=Frydom%20Express&query_place_id=ChIJQ0XcUgBFwokRe90ZIiGy_G8"
+        },
+        {
+          "channel": "yelp_menu",
+          "platform": "yelp",
+          "url": "https://www.yelp.com/menu/frydom-express-brooklyn",
+          "identity_verified": true
+        }
+      ],
+      "menu_error": "Menu channels incomplete; inspect stored menu details.",
+      "status": "partial"
+    }
+  ],
+  "menu_comparison": "provided",
+  "canonical": true,
+  "comparison_run": null
+}

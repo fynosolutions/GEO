@@ -1,0 +1,50 @@
+[
+  {
+    "id": "store-001",
+    "name": "Easy Joy Dim Sum & AYCE Hot Pot",
+    "address": "145 Mulberry St, New York, NY 10013",
+    "place_id": "ChIJhRc3tYlZwokRbR4dwpc-0qI",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Easy%20Joy%20(Hot%20Pot%2C%20BBQ%20Skewers%2C%20Dim%20Sum)%20%E6%84%8F%E4%B8%AD%E4%BA%BA%E7%81%AB%E9%94%85%E7%83%A7%E7%83%A4%E7%82%B9%E5%BF%83&query_place_id=ChIJhRc3tYlZwokRbR4dwpc-0qI",
+    "yelp_url": "https://www.yelp.com/biz/easy-joy-dim-sum-and-ayce-hot-pot-new-york"
+  },
+  {
+    "id": "store-002",
+    "name": "LaoJie Hotpot",
+    "address": "105 Bowery, New York, NY 10002",
+    "place_id": "ChIJ76QaGzxZwokRfGxoduYPISA",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=LaoJie%20Hotpot&query_place_id=ChIJ76QaGzxZwokRfGxoduYPISA",
+    "yelp_url": "https://www.yelp.com/biz/laojie-hotpot-manhattan-new-york"
+  },
+  {
+    "id": "store-003",
+    "name": "99 Favor Taste",
+    "address": "285 Grand St, New York, NY 10002",
+    "place_id": "ChIJ6cK8modZwokRTHEfaD9uzAY",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=99%20Favor%20Taste&query_place_id=ChIJ6cK8modZwokRTHEfaD9uzAY",
+    "yelp_url": "https://www.yelp.com/biz/99-favor-taste-new-york-new-york"
+  },
+  {
+    "id": "store-004",
+    "name": "The Dolar Shop Hot Pot",
+    "address": "55 3rd Ave, New York, NY 10003",
+    "place_id": "ChIJaVSb2EBZwokRJMIsBasdHpg",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=The%20Dolar%20Shop%20Hot%20Pot%20Manhattan&query_place_id=ChIJaVSb2EBZwokRJMIsBasdHpg",
+    "yelp_url": "https://www.yelp.com/biz/the-dolar-shop-new-york"
+  },
+  {
+    "id": "store-005",
+    "name": "Shoo Loong Kan Hot Pot 小龙坎",
+    "address": "22 E 13th St, New York, NY 10003",
+    "place_id": "ChIJJccD46NZwokRu4jCJM5f_AI",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Shoo%20Loong%20Kan%20Hot%20Pot%20Manhattan%20%E5%B0%8F%E9%BE%99%E5%9D%8E%E7%81%AB%E9%94%85&query_place_id=ChIJJccD46NZwokRu4jCJM5f_AI",
+    "yelp_url": "https://www.yelp.com/biz/shoo-loong-kan-new-york-2"
+  },
+  {
+    "id": "store-006",
+    "name": "KPOT Korean BBQ & Hot Pot",
+    "address": "310 W 38th St, New York, NY 10018",
+    "place_id": "ChIJC70PpdFZwokR3hbV7oPm8RU",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=KPOT%20Korean%20BBQ%20%26%20Hot%20Pot&query_place_id=ChIJC70PpdFZwokR3hbV7oPm8RU",
+    "yelp_url": "https://www.yelp.com/biz/kpot-korean-bbq-and-hot-pot-new-york-3"
+  }
+]

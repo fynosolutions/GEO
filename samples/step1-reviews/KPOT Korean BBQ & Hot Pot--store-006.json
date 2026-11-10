@@ -1,0 +1,2433 @@
+[
+  {
+    "platform": "google_maps",
+    "total_reviews": 6985,
+    "topics": [
+      "hot pot · 230",
+      "kind staff · 203",
+      "sauce bar · 17",
+      "tablet ordering · 21",
+      "all you can eat · 64",
+      "sweet staff · 56",
+      "grill changes · 18",
+      "tatum · 19",
+      "funny server · 15",
+      "yuta · 9"
+    ],
+    "reviews": [
+      {
+        "date": "2026-10-20T21:05:18.342Z",
+        "rating": 5,
+        "text": "Daulet took great pictures and it was a great experience!",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-20T20:55:40.325Z",
+        "rating": 5,
+        "text": "Daulet took some really great pictures! And the food came out efficiently",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-20T20:20:09.985Z",
+        "rating": 5,
+        "text": "great food and service",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-20T19:07:33.353Z",
+        "rating": 5,
+        "text": "Coleen is the best! The moment we sat she did explain everything! She is a sweet server with a good vibes! 10 star to Coleen! Kudos\nAnd also food is amazing for a great price and quality of meat is amazing!",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-20T16:31:33.590Z",
+        "rating": 5,
+        "text": "Good price for Manhattan, good meats that taste authentic to Korean recipes, well maintained restrooms, promt grill change and order prep.\nThe appetizer chicken wing i grabbed out of curiosity was surprisingly good\nWe did have a bigger group and only one person with experience with grill, could've appreciated a bit more hands on help with the one out of two grills.",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-20T01:43:24.683Z",
+        "rating": 5,
+        "text": "Server was amazing great atmosphere when he’s around one thing about him his that he’s hilarious, handsome came to our table as quick as flash if your around here I would suggest Kevin as the server",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-20T01:37:41.170Z",
+        "rating": 5,
+        "text": "The food was good and store was spacious.\n\nKevin was our server and was really attentive. He came and checked up on us and changed the grill immediately. He made conversation and created an enjoyable atmosphere.\n\nThe food came rapidly and we were FULL!!",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-20T01:37:36.895Z",
+        "rating": 5,
+        "text": "his name is kevin he’s the handsome 6ft asian with tattoos and abs. he was absolutely hilarious and his cologne was to die for. i just had to ask what’s his skin care routine. definitely coming back!",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-20T00:27:18.422Z",
+        "rating": 5,
+        "text": "Fun time with good food!",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-19T23:23:28.480Z",
+        "rating": 5,
+        "text": "Coleen she’s awesome!!",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-19T23:16:05.273Z",
+        "rating": 5,
+        "text": "Pedimos de todo, comida rica, buen ambiente, buen servicio. Gracias",
+        "language": "es"
+      },
+      {
+        "date": "2026-10-19T22:25:28.967Z",
+        "rating": 5,
+        "text": "The service was amazing, Raul was very attentive and replacing our grill frequently so our food was always grilling on a clean grill",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-19T22:24:23.285Z",
+        "rating": 5,
+        "text": "Raul was great and food was good quality and place is clean!",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-19T22:06:15.963Z",
+        "rating": 5,
+        "text": "Kevin is amazing! Very attentive & helpful",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-19T21:05:31.308Z",
+        "rating": 5,
+        "text": "Pretty good!! Food is very fresh. And photo very nice",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-19T20:25:11.278Z",
+        "rating": 5,
+        "text": "Yummy food and came with cute pics at the end 😊",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-19T20:24:25.912Z",
+        "rating": 5,
+        "text": "Good was so good! Fun pictures!",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-19T20:24:05.565Z",
+        "rating": 5,
+        "text": "Food was great picture are gorgggg",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-19T20:07:22.134Z",
+        "rating": 5,
+        "text": "Muy rico todo! Nos atendió muy bien Raul!",
+        "language": "es"
+      },
+      {
+        "date": "2026-10-19T19:02:16.815Z",
+        "rating": 5,
+        "text": "Some of the music was mid but service and food were great. Shout out Ying",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-19T18:40:01.320Z",
+        "rating": 5,
+        "text": "Six start for Ying",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-19T18:37:00.519Z",
+        "rating": 5,
+        "text": "Raul was efficient & so nice! Food was great.",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-19T18:35:40.573Z",
+        "rating": 5,
+        "text": "Fire service",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-19T18:34:11.824Z",
+        "rating": 5,
+        "text": "Raul has great service",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-19T18:22:29.723Z",
+        "rating": 5,
+        "text": "Lance was amazing, very friendly and was patient with our group",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-19T18:21:34.757Z",
+        "rating": 5,
+        "text": "Great experience. Lance was super chill and is a great dude.",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-19T18:21:33.197Z",
+        "rating": 5,
+        "text": "Lance is the goat 10/10 service will come again",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-19T18:21:23.586Z",
+        "rating": 5,
+        "text": "Lance had a good vibe. Great service 10/10 would come again",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-19T18:20:35.392Z",
+        "rating": 5,
+        "text": "Lance is the greatest of all time",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-19T18:20:05.354Z",
+        "rating": 5,
+        "text": "Perfect experience, food and server gin",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-19T18:14:54.529Z",
+        "rating": 5,
+        "text": "Incredible food and service (especially from Raul)! Will certainly recommend and 100% will return.",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-19T18:14:28.937Z",
+        "rating": 5,
+        "text": "Raul is the best waiter in all the land",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-19T18:14:17.494Z",
+        "rating": 5,
+        "text": "raul so tuff and food mad good like 18 ppl came and 18 ppl satisfied",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-19T18:13:54.004Z",
+        "rating": 5,
+        "text": "Raul was a great waiter",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-19T18:13:20.296Z",
+        "rating": 5,
+        "text": "Raul was so nice! The food was very good.",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-19T17:45:13.321Z",
+        "rating": 5,
+        "text": "Ying  and Lance the best.",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-19T17:43:27.195Z",
+        "rating": 5,
+        "text": "Lance took really good care of us , thank you 🙏🏻",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-19T17:22:28.230Z",
+        "rating": 5,
+        "text": "",
+        "language": null
+      },
+      {
+        "date": "2026-10-19T01:54:10.965Z",
+        "rating": 5,
+        "text": "Amazing food amazing pictures",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-19T01:50:27.078Z",
+        "rating": 5,
+        "text": "Super good attention recommended 10/10",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-19T01:50:25.746Z",
+        "rating": 5,
+        "text": "W Lena, best photographer and very kind.",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-19T01:50:13.321Z",
+        "rating": 5,
+        "text": "Great food and ambience. Amazing picture by Lena.",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-19T00:59:18.436Z",
+        "rating": 5,
+        "text": "",
+        "language": null
+      },
+      {
+        "date": "2026-10-19T00:51:28.605Z",
+        "rating": 5,
+        "text": "Twilight was a very nice person, she took very nice photos and was kind to all of my family members.",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-18T19:56:49.348Z",
+        "rating": 5,
+        "text": "⭐️⭐️⭐️⭐️⭐️ **OUTSTANDING SERVICE FROM NACHO!**\n\nI honestly cannot say enough amazing things about Nacho! He provided some of the BEST service I have ever experienced. From the moment he attended to our table, he was incredibly friendly, attentive, helpful, and professional. I have NEVER, EVER had a server who was so on point and attentive while also managing other tables. He somehow made sure we always had everything we needed without us even having to ask!\n\nEvery time we needed something, Nacho was right there, making sure we were taken care of and bringing everything to us promptly. His attention to detail, positive attitude, and genuine care for his customers truly stood out. You can tell he takes pride in his work and genuinely wants every guest to have an amazing experience.\n\nGood service can make a meal enjoyable, but **EXCEPTIONAL service like Nacho’s makes the entire experience unforgettable!** He went above and beyond, and his hard work absolutely deserves recognition. KPOT is lucky to have someone like him on their team!\n\nIf management sees this, PLEASE recognize Nacho for the incredible job he does! Employees like him are the reason customers want to come back. We will absolutely be returning, and we hope to have Nacho as our server again. He deserves all the appreciation and recognition for making our visit so wonderful! 🙌❤️",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-18T19:11:52.871Z",
+        "rating": 5,
+        "text": "",
+        "language": null
+      },
+      {
+        "date": "2026-10-18T16:29:54.136Z",
+        "rating": 5,
+        "text": "We had an amazing time celebrating my little sister birthday. Thank you Robert, our server for a great service. He explained how the menu works. Very attentive service.",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-18T15:13:14.090Z",
+        "rating": 5,
+        "text": "The best hot pot experience.  Lots of options,  the staff is amazing and a great atmosphere.",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-16T22:55:59.181Z",
+        "rating": 5,
+        "text": "10/10 place would definitely go here again\nCame here with 7 wonderful humans after Finishing the day at Comic Con  .SO WORTH it  ! Did both HOTPOT & kBBQ . Love how you can do both.\nJust a heads up it is a wait time I would recommend trying to be on that QR line for less wait time 🥳",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-16T19:04:04.389Z",
+        "rating": 5,
+        "text": "love this place! amazing service, clean surfaces, great food!",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-16T19:03:07.238Z",
+        "rating": 5,
+        "text": "",
+        "language": null
+      },
+      {
+        "date": "2026-10-16T17:42:51.071Z",
+        "rating": 5,
+        "text": "",
+        "language": null
+      },
+      {
+        "date": "2026-10-16T17:39:19.235Z",
+        "rating": 5,
+        "text": "",
+        "language": null
+      },
+      {
+        "date": "2026-10-15T23:45:46.261Z",
+        "rating": 5,
+        "text": "The food is really good. The pictures are very nice",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-15T23:11:06.298Z",
+        "rating": 5,
+        "text": "Food is good and photos are taken with it as well. Fantastic place :)",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-15T22:54:32.454Z",
+        "rating": 5,
+        "text": "Food is good and service is amazing! Would definitely recommend!!",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-15T22:15:28.145Z",
+        "rating": 5,
+        "text": "Excellent food and service. Great photography",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-15T02:05:29.059Z",
+        "rating": 3,
+        "text": "Average Korean BBQ. Everything was fine, nothing bad, nothing great.",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-14T23:35:44.614Z",
+        "rating": 5,
+        "text": "Service was amazing! I have been to K pots many times but this location was a first and it was a great experience",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-14T22:46:44.417Z",
+        "rating": 5,
+        "text": "Loved the experience!",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-14T22:45:54.851Z",
+        "rating": 5,
+        "text": "Great service and selection of meats. Highly recommend!",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-14T22:45:51.393Z",
+        "rating": 5,
+        "text": "",
+        "language": null
+      },
+      {
+        "date": "2026-10-14T19:16:58.996Z",
+        "rating": 4,
+        "text": "",
+        "language": null
+      },
+      {
+        "date": "2026-10-14T03:01:16.094Z",
+        "rating": 5,
+        "text": "Amazing food and service! When we arrived the wait time was 45 minutes, however we were seated much quicker (20 mins). I would highly recommend this place to anyone that enjoys hot pot and Korean barbecue. They have a variety of items to choose from.",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-13T23:26:52.250Z",
+        "rating": 5,
+        "text": "Waitress was super nice! The service was super quick. Daulet took amazing photos for us as well. Overall, such an amazing experience because of the delicious food and amazing people! I definitely recommend checking it out. I heard people raving about this place and now I understand why! 😁",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-13T23:25:00.687Z",
+        "rating": 5,
+        "text": "Had a great time! Got really great photos with my friend from welcoming photographer, Daulet! Would definitely be back!!",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-13T21:28:05.448Z",
+        "rating": 5,
+        "text": "Omggggg I had such an amazing time with my besties here. Everything was great!!! The food was so good too. I had the Korean seafood it was delicious. Me and my friends came here twice actually and it’s always a good spot for us to spend time with each other. To top it off Daulet the photographer took pictures of us and when I tell you I was in awe. The pictures are so cute. In conclusion COME HEREEEEEE!!!",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-13T21:00:03.449Z",
+        "rating": 5,
+        "text": "Daulet good job in taking cute pictures of me and my mom and brother!! Super cute frames!!",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-13T18:05:25.525Z",
+        "rating": 5,
+        "text": "Great food and vibe. Wait wasn't long and they have great customer service",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-13T13:53:20.370Z",
+        "rating": 5,
+        "text": "",
+        "language": null
+      },
+      {
+        "date": "2026-10-13T00:40:21.384Z",
+        "rating": 5,
+        "text": "Food is great and the photos r nice !",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-13T00:39:18.254Z",
+        "rating": 5,
+        "text": "the food is amazing and the pictures are even better",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-12T21:35:12.615Z",
+        "rating": 5,
+        "text": "Really good food, atmosphere is nice, and the pictures are really nice! 👍😌",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-12T21:34:49.222Z",
+        "rating": 5,
+        "text": "The food is good the pictures are beautiful",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-12T01:56:50.055Z",
+        "rating": 5,
+        "text": "Great food and dipping sauce, loves all the meat since that’s what we all order! Didn’t have the stomach for veggies. Surprisingly they have the photographer which took amazing pictures, with the printed out Pics and Fames !!! Two birthday celebrations next table. First time here, very good experience~",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-12T01:53:58.957Z",
+        "rating": 5,
+        "text": "Good food. Good photos",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-12T01:34:07.805Z",
+        "rating": 5,
+        "text": "The photographer was great and I loved our photos. We looked so amazing. Loved our time here",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-12T01:33:16.587Z",
+        "rating": 5,
+        "text": "the photographer here was amazing! we love eating here<3",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-12T01:23:05.770Z",
+        "rating": 5,
+        "text": "Food was yummy. Photographer was very nice and professional.",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-11T23:18:50.805Z",
+        "rating": 5,
+        "text": "Great experience, awesome photographer. Made our time here super fun!",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-11T01:22:32.303Z",
+        "rating": 5,
+        "text": "Robert was so helpful & a great server! We had a great experience!",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-11T00:52:42.763Z",
+        "rating": 5,
+        "text": "Amazing, delicious and super fun experience. Robert was great!",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-11T00:52:06.471Z",
+        "rating": 5,
+        "text": "Robert was an amazing server!!",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-11T00:45:39.396Z",
+        "rating": 5,
+        "text": "My overall experience was wonderful! The steak was especially delicious, and I really loved how she took our pictures. She was so sweet, patient, and kind, and made us feel comfortable throughout the experience. Her kindness really made the visit even more enjoyable!",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-11T00:20:48.932Z",
+        "rating": 5,
+        "text": "Amazing pictures taken, so lovely of our family and memorable !",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-10T18:29:36.472Z",
+        "rating": 5,
+        "text": "Nuray was great, she took beautiful pictures and was so kind to me and my husband!",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-10T03:11:29.195Z",
+        "rating": 5,
+        "text": "If you’re in New York, come to the spot the food and the service is great and we also got a really great picture to take home to remember the night",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-10T03:11:10.094Z",
+        "rating": 5,
+        "text": "Wonderful experience. Great food, excellent service. My first night in New York and I was so impressed. Special thanks to the photographer",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-10T02:39:20.253Z",
+        "rating": 5,
+        "text": "The food here is great. They have good customer service and take pictures.",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-10T01:17:55.487Z",
+        "rating": 5,
+        "text": "The food here was amazing and the staff were incredibly friendly and efficient! I highly recommend having dinner here!",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-10T01:16:13.170Z",
+        "rating": 5,
+        "text": "Great service great food. Photographer amazing!",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-09T20:34:18.205Z",
+        "rating": 5,
+        "text": "Returning customer, food is great as always. Our server Coleen was amazing  really welcoming. We'll definitely be back again",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-09T17:18:32.274Z",
+        "rating": 5,
+        "text": "Lance was friendly and helpful!",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-08T23:57:37.049Z",
+        "rating": 5,
+        "text": "Food, pictures ambiance and service were amazing! Will definitely return",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-08T23:55:07.854Z",
+        "rating": 5,
+        "text": "Food is super delicious, photos were adorable. I love the buffet and free dessert.",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-08T23:54:42.594Z",
+        "rating": 5,
+        "text": "Great good, great atmosphere, great pictures!",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-08T23:07:12.711Z",
+        "rating": 5,
+        "text": "There’s a very nice lady that takes wonderful photos, the service is fast and the atmosphere is great!!!!",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-08T22:47:11.886Z",
+        "rating": 5,
+        "text": "We had a great experience at K-Pop! The food was delicious and of good quality, and the atmosphere was welcoming, lively, and enjoyable. What really made our visit extra special was our server, Coleen. She was incredibly pleasant, attentive, and friendly, which made the entire experience even better. Great service truly makes a difference, and Colleen definitely contributed to making our visit memorable. We thoroughly enjoyed our time here and would absolutely come back again. Highly recommend!",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-08T22:32:37.728Z",
+        "rating": 5,
+        "text": "Loved the photos!!!",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-08T19:55:28.203Z",
+        "rating": 4,
+        "text": "Fun place to eat, I think the lunch special deal till 4 pm is the best value.",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-08T17:37:33.190Z",
+        "rating": 5,
+        "text": "I love this place. I have been here multiple times. The variety and quantity of food are incredible, unlike other AYCE places that only offer cheap items. I recently visited here with my friends and we had a great time. Norbu, Rose and the rest of the team provided exceptional service throughout our meal. They are attentive and friendly. We ordered both hotpot and bbq. Their healthy herb soup is so delicious. It makes me wanna go back for more. I will gladly recommend KPOT to all my friends, family and anyone reading this review!",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-08T01:58:41.361Z",
+        "rating": 5,
+        "text": "Photos were awesome!!",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-08T01:56:32.758Z",
+        "rating": 5,
+        "text": "Good food and photo service",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-07T23:31:36.794Z",
+        "rating": 5,
+        "text": "BEST food and atmosphere!! My bf and I got the cutest pics taken by the twilight lens photographer-would def recommend a cute couples pic",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-07T23:30:55.305Z",
+        "rating": 5,
+        "text": "Great photographer and great food!!!!",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-07T22:36:14.347Z",
+        "rating": 4,
+        "text": "Got some great photos and some great food - thank you for a good time",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-07T22:35:38.647Z",
+        "rating": 5,
+        "text": "The work are good with me when I come here the girl talk the pic very nice everybody work hard in k-pop",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-07T22:24:49.587Z",
+        "rating": 5,
+        "text": "Great experience from Coleen!! She was so friendly and attentive!",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-07T17:15:41.285Z",
+        "rating": 5,
+        "text": "Great good with amazing service! Coleen was my server and she did a wonderful job!",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-07T16:39:54.154Z",
+        "rating": 5,
+        "text": "",
+        "language": null
+      },
+      {
+        "date": "2026-10-07T00:34:30.718Z",
+        "rating": 5,
+        "text": "KEVIN IS AN AWESOME SERVER!!! He did such an awesome job taking care of us!!! #shoutouttokevin",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-07T00:28:35.070Z",
+        "rating": 5,
+        "text": "Ask for Kevin, he will hook you up with the best experience!!!",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-07T00:28:32.504Z",
+        "rating": 5,
+        "text": "",
+        "language": null
+      },
+      {
+        "date": "2026-10-06T21:56:12.476Z",
+        "rating": 5,
+        "text": "Kevin was an amazing server and was quick to help us make our dining experience exceptional. Daulet of Twilight Lens also came by our table to take our photo to help us remember the night.",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-06T21:56:01.749Z",
+        "rating": 5,
+        "text": "Food was great! There were lots of choices for both hotpot and grill. The special soup as the hotpot base was delicious. Service was amazing, they were very attentive and helpful. Twilight Lens Photography, Daulet also came and took our photos making the meal more special! Photos came out great!",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-06T21:55:41.864Z",
+        "rating": 5,
+        "text": "The food was great. A lot of options in the dinner menu, especially the seafood. They had crab, snow crab, oysters, scallops.\n\nThe marinade for the meat was good too, especially the short ribs.\n\nService was also excellent. Kevin helped us cook our food and made sure we got full.\n\nWe also had our picture taken. Daulet got great shots of us. And we bought the cartoon version.\n\nOverall great experience.",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-06T21:36:50.475Z",
+        "rating": 5,
+        "text": "Amazing time at KPOT !\nFood was great and excellent service. Daulet took some amazing photos of my amazing , coming back for my birthday",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-05T23:48:16.957Z",
+        "rating": 5,
+        "text": "Robert was an amazing server. The food was great 🎉🎉",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-05T22:12:48.715Z",
+        "rating": 5,
+        "text": "Food is amazing and fun pictures also! Would definitely go back!",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-05T22:12:34.435Z",
+        "rating": 5,
+        "text": "Food was great and photographer offers lovely photos",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-05T20:30:29.359Z",
+        "rating": 5,
+        "text": "Amazing food and the pictures they take are so cute. My favorite server is Kevin! He’s been here forever and always has the best service",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-05T20:29:43.155Z",
+        "rating": 5,
+        "text": "Amazing food & staff. The photos they take are so cute!",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-05T01:47:57.008Z",
+        "rating": 5,
+        "text": "Thanks Robert",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-05T01:45:47.756Z",
+        "rating": 5,
+        "text": "Robert was an amazing waiter he made our first time at Kpot very memorable and provided excellent service.",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-05T00:34:52.166Z",
+        "rating": 5,
+        "text": "Food is amazing! Also, a huge thank to Robert who made the experience much better.",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-04T22:45:47.171Z",
+        "rating": 5,
+        "text": "Spilled my beer everywhere and Robert was so nice about it… great food great service",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-04T22:42:37.576Z",
+        "rating": 5,
+        "text": "Robert… my g.",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-04T21:38:40.673Z",
+        "rating": 5,
+        "text": "Robert was an amazing server",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-04T21:34:57.363Z",
+        "rating": 5,
+        "text": "Great experience. Thanks Robert!",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-04T21:34:29.747Z",
+        "rating": 5,
+        "text": "",
+        "language": null
+      },
+      {
+        "date": "2026-10-04T21:00:16.337Z",
+        "rating": 5,
+        "text": "Great food and photos!",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-04T03:20:04.241Z",
+        "rating": 5,
+        "text": "First time experience and I absolutely love how everything was, our server was amazing and helpful in the process. There was huge selection of food to try and I loved how you could customize your own sauces! Would recommend and come again! ❤️",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-04T02:23:35.118Z",
+        "rating": 5,
+        "text": "Robert the goat server",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-04T01:01:21.063Z",
+        "rating": 5,
+        "text": "Enjoyable dinner amongst friends and colleagues.",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-03T23:37:39.745Z",
+        "rating": 5,
+        "text": "Our servers Robert was Phenomenal!!",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-03T23:36:44.684Z",
+        "rating": 5,
+        "text": "Omg Robert was the best, so patient and always came to check on us",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-03T22:29:11.686Z",
+        "rating": 5,
+        "text": "Kevin was the best! Extremely kind and his suggestions were perfection!",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-03T22:28:34.748Z",
+        "rating": 5,
+        "text": "The food here was amazing! I loved every moment of this experience! Our server Kevin was extremely kind and patient with us. He was attentive to me and partner! Would recommend going here",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-03T22:28:20.305Z",
+        "rating": 5,
+        "text": "Robert",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-03T22:28:13.826Z",
+        "rating": 5,
+        "text": "Kevin was amazing!",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-03T22:26:42.822Z",
+        "rating": 5,
+        "text": "Kevin made this experience tremendously easy and delicious. Definitely will be here again",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-03T20:50:44.743Z",
+        "rating": 5,
+        "text": "",
+        "language": null
+      },
+      {
+        "date": "2026-10-03T20:47:14.062Z",
+        "rating": 5,
+        "text": "Nuray is a lovely photographer!! She was so kind and generous and even offered to give us more photos after paying :))! Would definitely come back!!",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-03T18:39:34.125Z",
+        "rating": 5,
+        "text": "great food and atmosphere! great photography and service as well!",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-03T18:38:29.785Z",
+        "rating": 5,
+        "text": "The food is really amazing!! The service is so good everyone is very kind. The food came very fast. Photographer was so kind and took really good pictures of me and my friend I am very happy with everything overall",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-03T02:59:22.510Z",
+        "rating": 5,
+        "text": "Nuray took amazing photos of my friend which was a highlight of our experience here! Would 100% come back",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-03T02:59:02.542Z",
+        "rating": 5,
+        "text": "I loved my entire experience here! From the food to the staff everything was great! Nuray took the cutest pictures! Delvin was so attentive to the table. Truly wonderful and delicious.",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-03T02:42:57.046Z",
+        "rating": 5,
+        "text": "The photographer Twlight Lens here was professional and took 1 complimentary photo of me and my friends capturing our special moment here to remember at KPot! Would definitely come again she was so nice and helpful with how to pose. Food was also great",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-03T02:21:52.807Z",
+        "rating": 5,
+        "text": "",
+        "language": null
+      },
+      {
+        "date": "2026-10-02T22:30:23.970Z",
+        "rating": 1,
+        "text": "Most unprofessional people I've ever encountered over priced rude staff and they have the nerves to pull out they phone and ask me and my lady about our experience..that's the worse part is being recorded and told it's for advertising..terrible unsanitary unprofessional place overpriced don't go here",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-02T20:20:05.096Z",
+        "rating": 5,
+        "text": "Amazing place, great food, awesome service. I came here to have a fun time and celebrate my friend’s birthday and it was the perfect place.",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-02T20:13:29.848Z",
+        "rating": 5,
+        "text": "It was really an amazing service with Robert. I would not I would take a bullet for Robert was the best. He really added to the experience and we would lay down our lives for him, lay down our lives personally.",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-02T19:43:39.362Z",
+        "rating": 5,
+        "text": "We had such a great time! The staff were so friendly and helpful with the whole process. The cocktails and bubble tea are so delicious!",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-02T18:49:46.605Z",
+        "rating": 5,
+        "text": "The photography was phenomenal! The pictures are both high quality and very affordable. You get freebies as well :3",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-02T17:30:03.856Z",
+        "rating": 5,
+        "text": "Very nice atmosphere and very good staff",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-02T17:19:16.048Z",
+        "rating": 5,
+        "text": "Everyone was very nice and the food was very good!!",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-02T15:18:11.623Z",
+        "rating": 2,
+        "text": "They include an automatic 18% tip (fine) but also preselect an additional tip when paying! Not very honest! My tourist friend got caught by this and ended up way overtipping. Quite sneaky of them.\n\nFood is decent though.",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-02T05:21:36.088Z",
+        "rating": 5,
+        "text": "The photographer Danlet (I think that was his name) was so kind and took amazing photos of me and my boyfriend. I loved the photos and the food and the service. Everyone was so kind.",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-02T00:32:29.665Z",
+        "rating": 5,
+        "text": "Best Korean Bbq place. We had our photos taken here and they came out really good! The photography team is great and did an awesome job!",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-02T00:31:57.744Z",
+        "rating": 5,
+        "text": "Amazing food and photography service",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-02T00:19:40.098Z",
+        "rating": 5,
+        "text": "The food was really good and the server was very polite, his name was Robert and was very attentive. It was my first time trying this type of food and it did not disappoint!!! Will come here again. :)",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-01T23:32:08.115Z",
+        "rating": 5,
+        "text": "Another great meal at Kpot. I’ve been here many times and I always have a wonderful meal. Top tier service this trip. Thanks Robert!",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-01T22:45:39.158Z",
+        "rating": 5,
+        "text": "Courteous service especially from Twilight Lens!! Very friendly and understanding yummy food too",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-01T22:31:29.129Z",
+        "rating": 5,
+        "text": "I like the food but the most i like is the photographer he soo sweet and really helpful in our aniversary! 🫶",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-01T02:20:37.164Z",
+        "rating": 5,
+        "text": "Yummy kbbq, robert our server was very kind, thank you!",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-01T02:20:14.041Z",
+        "rating": 5,
+        "text": "",
+        "language": null
+      },
+      {
+        "date": "2026-10-01T01:43:30.368Z",
+        "rating": 5,
+        "text": "daulet did an amazing job taking our picture they came out really nice and i love them so much hes really good at photography 10/10",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-01T01:25:00.918Z",
+        "rating": 5,
+        "text": "I had a great time here celebrating my fiancé’s birthday . We had the chance to get photos taken by Daulet which was a great experience and opportunity. Now we have pictures to remember today .",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-01T00:52:10.251Z",
+        "rating": 5,
+        "text": "Daulet was very sweet and provided a very nice photography service 💗",
+        "language": "en"
+      },
+      {
+        "date": "2026-09-30T23:58:49.521Z",
+        "rating": 5,
+        "text": "The photos were really great. Daulet the photographer took amazing photos",
+        "language": "en"
+      },
+      {
+        "date": "2026-09-30T05:48:37.272Z",
+        "rating": 5,
+        "text": "Absolutely delicious and a fun experience, our server Gia was wonderful! Very kind and very in top of it with ensuring we had a fresh grill to cook food on. Priced decently for the quality of meat you get and how much you can get.",
+        "language": "en"
+      },
+      {
+        "date": "2026-09-30T02:41:24.383Z",
+        "rating": 5,
+        "text": "Coleen was the reason we had a great birthday.",
+        "language": "en"
+      },
+      {
+        "date": "2026-09-30T02:34:03.115Z",
+        "rating": 5,
+        "text": "I had such a great experience here! Coleen is such a great and sociable server.",
+        "language": "en"
+      },
+      {
+        "date": "2026-09-30T02:33:11.266Z",
+        "rating": 5,
+        "text": "Coleen is so sweet. Best food, best server.",
+        "language": "en"
+      },
+      {
+        "date": "2026-09-30T02:33:09.211Z",
+        "rating": 5,
+        "text": "Coleen was so amazing she made our experience so wonderful will come back solely because i loved her service!!!!!!! ❤️❤️❤️❤️",
+        "language": "en"
+      },
+      {
+        "date": "2026-09-30T00:59:24.577Z",
+        "rating": 5,
+        "text": "If you’re ever nearby, ask for LANCE! Amazing service! Definitely, worth the walk. Lance’s customer service level is top tier! Drinks topped off, meat flowing, and clean grill!",
+        "language": "en"
+      },
+      {
+        "date": "2026-09-30T00:26:33.570Z",
+        "rating": 5,
+        "text": "Lance was an amazing waiter. Always checked on us and food was amazing !!!",
+        "language": "en"
+      },
+      {
+        "date": "2026-09-29T23:43:16.924Z",
+        "rating": 5,
+        "text": "Raul was great! Good service and amazing food!",
+        "language": "en"
+      },
+      {
+        "date": "2026-09-29T23:40:59.364Z",
+        "rating": 5,
+        "text": "Raul is the GOAT! Great guy and service.",
+        "language": "en"
+      },
+      {
+        "date": "2026-09-29T23:40:29.253Z",
+        "rating": 5,
+        "text": "Raul was our server and he was very quick with requests",
+        "language": "en"
+      },
+      {
+        "date": "2026-09-29T23:39:59.297Z",
+        "rating": 5,
+        "text": "Raul was our server and he was very attentive and the food was good",
+        "language": "en"
+      },
+      {
+        "date": "2026-09-29T23:24:32.808Z",
+        "rating": 5,
+        "text": "Really nice place! Raul was very quick with the service and polite through and through.",
+        "language": "en"
+      },
+      {
+        "date": "2026-09-29T23:23:08.486Z",
+        "rating": 5,
+        "text": "Took my boyfriend here for the first time and he throughly enjoyed the offerings. Service was great and our server Raul accommodated my special soup mixture request. Looking forward to coming back again soon!",
+        "language": "en"
+      },
+      {
+        "date": "2026-09-29T23:19:49.542Z",
+        "rating": 5,
+        "text": "Great food, thanks to Daulet for taking pictures for the memories",
+        "language": "en"
+      },
+      {
+        "date": "2026-09-29T22:59:21.961Z",
+        "rating": 5,
+        "text": "My server Lance was a vibe. I loved his energy; it was a great experience",
+        "language": "en"
+      },
+      {
+        "date": "2026-09-29T22:59:20.532Z",
+        "rating": 3,
+        "text": "Lance",
+        "language": "en"
+      },
+      {
+        "date": "2026-09-29T22:52:57.223Z",
+        "rating": 4,
+        "text": "Lance was such a great server! He's been the server for me and my friends everytime we've come here and he's always great. Everything comes on time and he's always in a good mood. Good service!",
+        "language": "en"
+      },
+      {
+        "date": "2026-09-29T22:50:14.401Z",
+        "rating": 4,
+        "text": "",
+        "language": null
+      },
+      {
+        "date": "2026-09-29T22:15:55.249Z",
+        "rating": 5,
+        "text": "Thank you Raul! Such a nice experience.",
+        "language": "en"
+      },
+      {
+        "date": "2026-09-29T22:15:27.871Z",
+        "rating": 5,
+        "text": "Raul was a fantastic server!!",
+        "language": "en"
+      },
+      {
+        "date": "2026-09-29T21:47:17.120Z",
+        "rating": 5,
+        "text": "Amazing food and the photographer was so friendly we had a great time",
+        "language": "en"
+      },
+      {
+        "date": "2026-09-29T21:37:04.701Z",
+        "rating": 5,
+        "text": "Daulet was amazing. He took super cute pictures of us!!!!",
+        "language": "en"
+      },
+      {
+        "date": "2026-09-29T21:35:26.869Z",
+        "rating": 5,
+        "text": "daulet was amazing and gave us the cutest poses ever!",
+        "language": "en"
+      },
+      {
+        "date": "2026-09-29T21:28:23.044Z",
+        "rating": 5,
+        "text": "coleen was amazing!!! great service as well and great food :)",
+        "language": "en"
+      },
+      {
+        "date": "2026-09-29T21:21:27.534Z",
+        "rating": 5,
+        "text": "The food here was really good. Service was fast. The photographer Daulet takes your photos after the meal which is a nice touch! We would visit again.",
+        "language": "en"
+      },
+      {
+        "date": "2026-09-29T20:59:06.003Z",
+        "rating": 5,
+        "text": "Great experience at KPOT Korean BBQ and Hot Pot. The service was amazing and by the end we got amazing photos that we got to purchase and take home. Highly recommend!!!!!!",
+        "language": "en"
+      },
+      {
+        "date": "2026-09-29T17:25:05.248Z",
+        "rating": 5,
+        "text": "Great Food, great service. Thank you to Nacho for serving us!",
+        "language": "en"
+      },
+      {
+        "date": "2026-09-29T01:49:41.378Z",
+        "rating": 5,
+        "text": "Kevin is the bomb. Funny and super helpful. The food was lit. A little goes a long way. Will be back!",
+        "language": "en"
+      },
+      {
+        "date": "2026-09-28T23:17:30.823Z",
+        "rating": 5,
+        "text": "i loved this place so much had such a great ambiance food was good and the photographer was so friendly and amazing!",
+        "language": "en"
+      },
+      {
+        "date": "2026-09-28T23:16:22.913Z",
+        "rating": 5,
+        "text": "The food and pictures were amazing, love love love",
+        "language": "en"
+      }
+    ],
+    "url": "https://www.google.com/maps/search/?api=1&query=KPOT%20Korean%20BBQ%20%26%20Hot%20Pot&query_place_id=ChIJC70PpdFZwokR3hbV7oPm8RU",
+    "fetched_at": "2026-11-09T11:35:18.605Z",
+    "error": null
+  },
+  {
+    "platform": "yelp",
+    "total_reviews": 218,
+    "topics": [],
+    "reviews": [
+      {
+        "date": "2026-11-07T22:09:37Z",
+        "rating": 5,
+        "text": "Came here for a weekday lunch for the very first time.  We got the additional bbq option for $5 extra.  \n\nAs we went at off peak times, it was we didn't make a reservation and walked straight in. \n\nThe place was nice and clean with friendly employees. We were told we had a 2 hours limit. \n\nOrdered a whole bunch of different items for both hotpot and bbq. The honey chicken for bbq was really nice. The options were pretty extensive although there were items that's only available for dinner.  \n\nAs we went during off peak time - there was happy hour which gave us $4 off cocktails. \n\nRecommend this place - come hungry though.",
+        "language": "en"
+      },
+      {
+        "date": "2026-11-04T01:03:12Z",
+        "rating": 5,
+        "text": "i have never had hotpot before and so today on my day off i decided to treat myself to a spiritually and physically healing meal here. as the meal progressed i felt my vibrational frequency increase with the spice intake until finally my chest cavity began releasing mucus's that i can only assume have been trapped in my body since last spring. it was at this point i began to feel the presence of the angel gabriel who came down from the heavens and ushered me to not fear, but to give into the holy flame of szechuan spices and braised pork belly. when my meal was finished i was overcome with what i can only describe as nirvana, and the sinking feeling yet holy realization that i had met god at this Kpot.\n\naffordable during lunch and excellent service.",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-31T04:06:45Z",
+        "rating": 4,
+        "text": "I went to KPot with my family on a cold night. The wait was really long but overall the warm hotpot was worth it. I liked the individual hot pots and the variety of food you could order. Ordering on the iPad made things very easy, although I will say there were times when our orders would never come. This might have been because they were busy. The food felt fresh and the sauce bar was extensive and soup base was delicious. Overall, it was an excellent experience. The main thing I wish was a bit improved was the communication. At the beginning the waiter said there was no time limit only for another person to prompt us to leave after 1.5 hours because we had \"hit the time limit\".",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-29T14:48:17Z",
+        "rating": 3,
+        "text": "Only one grill for a table of 6 was a bit inadequate and inconvenient, but I do like that they offer both bbq and hot pot, and that each person gets their own individual pot. Food was solid, though fruit and dessert at the self-serving bar were rather lacking.",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-22T02:43:24Z",
+        "rating": 3,
+        "text": "Still a go to just for the location. I don't like that they changed the ordering option to have both whole order and half orders, but regardless of how you order, it still comes out as a half order. So why not just not differentiate and bring out half orders regardless.\n\nBut the mango popsicle this time was good. Better than this ice cream cups.",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-18T14:10:44Z",
+        "rating": 5,
+        "text": "The food was amazing. Very tasty. 10/10. Would go again. \nDrinks are tasty, but not strong!",
+        "language": "en"
+      },
+      {
+        "date": "2026-10-17T23:44:18Z",
+        "rating": 5,
+        "text": "Always awesome. Best in the city! Bring friends that know how to eat. No light weights allowed",
+        "language": "en"
+      },
+      {
+        "date": "2026-09-29T00:21:46Z",
+        "rating": 5,
+        "text": "KPOT Korean BBQ & Hot Pot in Midtown West (310 W 38th St) delivers an energetic, high-value, all-you-can-eat dining experience that combines interactive table grilling with individual hot pots. The service is amazing as well and good service.",
+        "language": "en"
+      },
+      {
+        "date": "2026-09-24T01:05:53Z",
+        "rating": 4,
+        "text": "Came in with two friends and really enjoyed our service! The BBQ grill was changed often and the servers ensured our soup was at the right temperature. Food came out quickly and the buffet of snacks was a fun perk. Enjoyed a lot of fish and shrimp. The bubble tea was nice to have as well! Nothing crazy with the options but a little unique from some other spots that don't have. It was about $63 per person which is great considering all the expensive options in the city for a nice fun dinner.",
+        "language": "en"
+      },
+      {
+        "date": "2026-09-19T22:27:03Z",
+        "rating": 5,
+        "text": "Very nice food with good service. I liked theirs nice sauce selection and meat options.",
+        "language": "en"
+      },
+      {
+        "date": "2026-09-19T20:00:59Z",
+        "rating": 5,
+        "text": "I went with my family in a Friday. Our server was Ying, amazing server. She changed the grill every 2 rounds. Food was great as always and in every location.",
+        "language": "en"
+      },
+      {
+        "date": "2026-09-11T07:40:19Z",
+        "rating": 4,
+        "text": "Went on September 2, 2026, and I really enjoyed my experience! I loved the variety of food and sauces available in the buffet area. Our food came out quickly, and our waiter was attentive throughout the meal. We left extremely full and satisfied, and for the price, you really can't beat it! I would definitely come back again.",
+        "language": "en"
+      },
+      {
+        "date": "2026-09-06T20:11:33Z",
+        "rating": 5,
+        "text": "We came here for ACYE KBBQ on a sunday during lunch (note- it's dinner prices because it's a weekend). There's a buffet of fried foods, fruits, side dishes like kimchi, make your own sauce area, and ice cream. Each table gets a tablet and you can just order on there and they bring everything to your table. We really enjoyed the bulgogi; the meat in general was very flavorful. I was def come back again, the place is very big and spacious. I think there's a two hour time limit but we finished within an hour (there was 2 of us) - may take longer if you got a larger group.\n\nThey also have ACYE hotpot.",
+        "language": "en"
+      },
+      {
+        "date": "2026-09-06T01:42:45Z",
+        "rating": 4,
+        "text": "We did the AYCE KBBQ for 39-40 dollars per person. The fruit bar was really good and we appreciated the variety in sauces. The service was very prompt and on top of switching out the grill. However, the grill was super dirty and the quality of meats varied. The KPot steak and thinly sliced brisket was good but other meats like the flank steak were inedible. The pickled radish and radish kimchi were good, but the cabbage kimchi less so. If you're looking to get a KBBQ experience for as cheaply as possible in New York, this is the right place. There's a lot of variety and it's very good for families and  large parties. But if you're looking for a high-quality, authentic experience then I would suggest shelling out a bit more elsewhere. The server asked us at the end of the meal to rate the restaurant 5 stars, so I also wonder how many of these Yelp reviews are truly authentic.",
+        "language": "en"
+      },
+      {
+        "date": "2026-09-05T17:52:04Z",
+        "rating": 3,
+        "text": "I normally love this place--the food, ambiance, and staff are usually wonderful. However, my most recent visit was very disappointing. I was dining with four children (ages 8-13), and only an hour and a half into our meal, the floor manager told us our time was up and asked us to leave.\n    This happened right after I went ahead and paid the bill early while the kids were finishing dessert so we wouldn't have to wait around at the end. It was embarrassing to be rushed out when we were well within the two-hour dining limit. I am sharing this review in hopes that management will be more mindful, check actual seating times, and exercise patience with families dining with children.",
+        "language": "en"
+      },
+      {
+        "date": "2026-09-05T16:20:36Z",
+        "rating": 5,
+        "text": "I had a great time with my family and Lance was out service and he was amazing . We enjoyed the food and cooking it was so fun. My son enjoyed hisself",
+        "language": "en"
+      },
+      {
+        "date": "2026-08-23T14:29:27Z",
+        "rating": 5,
+        "text": "We eat here about once a month! It's always a 10/10 because you can have a different meal every time depending on what you're craving. Service is standard. Ambiance is lively.",
+        "language": "en"
+      },
+      {
+        "date": "2026-08-20T10:49:15Z",
+        "rating": 5,
+        "text": "Fue un buen servicio, nos ofrecieron un birthday discount y para 5 personas fue un buen gasto",
+        "language": "es"
+      },
+      {
+        "date": "2026-08-13T20:50:21Z",
+        "rating": 5,
+        "text": "Outstanding across the board. Tried the one in carolina and it was equally as good. Pretty good work on the consistency across locations. I wish they had more pickle options as side. Pickled onion, raddish, pickles, you name it and I'll be happy. They only have kimchi pickles which are delicious but not close to what a pickled vegetable does to a bite of kbbq. Still, one of my favorite Korean bbqs in the country, too 3 Korean bbq chain for sure",
+        "language": "en"
+      },
+      {
+        "date": "2026-08-06T17:06:05Z",
+        "rating": 5,
+        "text": "Our very first time going here and it was so good, everything from the bartenders to the hostess and wait staff they were all so nice and welcoming. We went back and and had the same exact waiter which was so nice because he was amazing. The only thing I'd have to say is that I wish they offered more sauces. But would I go back Most Definitely and definitely Recommend",
+        "language": "en"
+      },
+      {
+        "date": "2026-07-30T15:02:42Z",
+        "rating": 5,
+        "text": "The value you get at KPot is pretty good if you're a food enjoyer. Service at this location is always great. The staff are so helpful with any menu questions. Pretty decent seating inside.",
+        "language": "en"
+      },
+      {
+        "date": "2026-07-17T13:51:50Z",
+        "rating": 4,
+        "text": "Kpot is solid choice.  Its a chain, but it has good value.  Came here for lunch,  AYCE, is around 30$.  Dont expect the best meats, but they are solid.  You will definately get full and your money's worth.  The dinner menu has more choice but its slightly more.  The food comes fast.  Service is always fast and friendly",
+        "language": "en"
+      },
+      {
+        "date": "2026-07-15T00:25:56Z",
+        "rating": 5,
+        "text": "My siblings and I had a great time! Great food and we had an amazing server, Raul. He was extremely attentive and helpful. He consistently made sure everything was okay and we really enjoyed the food.",
+        "language": "en"
+      },
+      {
+        "date": "2026-07-11T22:15:44Z",
+        "rating": 5,
+        "text": "Visited earlier today, we visited last year and had such a lovely experience with Lance and had the same again today - would absolutely recommend and Lance it was wonderful to see you, look forward to seeing you again on our next trip into the city. K-pot give this man a raise. \n-Julian and Naomi",
+        "language": "en"
+      },
+      {
+        "date": "2026-07-09T20:45:01Z",
+        "rating": 5,
+        "text": "Honestly, the food is Amazing here, really delicious and the place is really organized! Totally worth it.",
+        "language": "en"
+      },
+      {
+        "date": "2026-06-27T13:13:13Z",
+        "rating": 5,
+        "text": "Korean bbq buffet at kpot is not exactly cheap but still a much better deal than most other korean bbq restaurants if you are into meats and /or hotpot's.  Here you have unlimited servings of meat vs $25-$38 per serving at other typical korean restaurants.  The service is usually a hit or miss at this specific location but the quality and taste  has always been good.",
+        "language": "en"
+      },
+      {
+        "date": "2026-06-22T19:39:29Z",
+        "rating": 5,
+        "text": "The food was yummy, fresh and the service was great! loved out server. I would definitely go again!",
+        "language": "en"
+      },
+      {
+        "date": "2026-06-21T16:48:33Z",
+        "rating": 4,
+        "text": "Convenient, contemporary, similar to Shahu Shabu set ups. Family and kid friendly. Welcoming ambiance with neon lights. Inner city so parking might be a problem but it is ideal for walkers staying or working near the area. I recommend making sure that the salmon is well cooked if you are going to consume it. In this particular picture, the waiter had cut off the stove before the salmon came out (likely because he thought that I was done). When I put it in the pot, this is what I ended up seeing so my appetite for it was spoiled after that.  Other than that, everyone at the other tables appeared to be enjoying themselves.",
+        "language": "en"
+      },
+      {
+        "date": "2026-06-15T13:43:54Z",
+        "rating": 4,
+        "text": "Had a great experience when my dad and I went, our waiter was Anthony S. and he was really nice to talk to and really helpful. The vibe and the food was great as well.",
+        "language": "en"
+      },
+      {
+        "date": "2026-06-04T22:05:10Z",
+        "rating": 4,
+        "text": "We had a great experience here at KPot! They have a salad bar with all the banchan, and then you can order AYCE to your table! We got bulgogi, squid, and lots of veggies and sides. Price is decent and if it is your birthday they come with a sign and fanfare. Good service and stellar vibe.",
+        "language": "en"
+      },
+      {
+        "date": "2026-05-30T12:24:26Z",
+        "rating": 4,
+        "text": "Please join the waitlist before arriving. Out table took 90 minutes so we walked around the neighborhood until it rained. Nice experience making hot pot then grilling the meats.",
+        "language": "en"
+      },
+      {
+        "date": "2026-05-25T18:03:18Z",
+        "rating": 5,
+        "text": "Food is tasty and cheap. All you can eat, so you won't be hungry. Taking both hot pot and bbq doesn't add much to the price",
+        "language": "en"
+      },
+      {
+        "date": "2026-05-04T18:31:14Z",
+        "rating": 5,
+        "text": "There is a food waste policy that they might not tell you about but the food is amazing bring your own seasonings for better experience.",
+        "language": "en"
+      },
+      {
+        "date": "2026-04-27T00:57:53Z",
+        "rating": 5,
+        "text": "The food was delicious. Typically you find the quality of all you can eat isn't great, but it was so flavorful! I loved the sauce making station and side selection as well. Definitely would recommend!",
+        "language": "en"
+      },
+      {
+        "date": "2026-04-24T12:11:56Z",
+        "rating": 5,
+        "text": "one of the best korean BBQ' variety of meet' fish and veg.\nThe food is very tasty, \ngood vibe\nand great service\n\nand the value is 100%",
+        "language": "en"
+      },
+      {
+        "date": "2026-04-20T01:37:32Z",
+        "rating": 4,
+        "text": "We had to wait for quite long. Great food, bbq is awesome. Starters ok but dessert not good with poor choice. Ambiance is great. Careful when going out, you need to wash all your clothes as the smell is very strong.",
+        "language": "fr"
+      },
+      {
+        "date": "2026-04-15T17:07:11Z",
+        "rating": 5,
+        "text": "I came for a work lunch and then back with friends.  Both times i had a good time and well worth it.  All you can eat hot pot, bbq, appetizer and sauce bar.  My favorite broth for the hot pot is the spicy all the veggies and meat were so fresh and delicious not complaints.  However, the 2hour seating period goes fast when you eating good and laughing alot.  The service team was excellent, everyone was very help and quick.  Overall this was A+ and I do recommend.",
+        "language": "en"
+      },
+      {
+        "date": "2026-04-11T14:21:12Z",
+        "rating": 4,
+        "text": "My new favorite AYCE Korean BBQ in the city!  Food, ambiance  and service are outstanding. \nMy only negative feedback is their lack of exhaust tubes on every table (like the ones at WONDER PIG BBQ).  So we strongly smelled like BBQ grease (esp our hair and clothes) after our meal.  The problem was, we went to see a Bway show after dinner and even the person next to me had to mention during the show's intermission that I smelled like food so bad and it bothered her. LOL.  Oops, sorry. \nIn fact, In the next four days, my coat that I used for dinner still smelled like barbecue.  \nSolution: Next time, I will bring a large sealed plastic bag to put all out of coats, bags, etc. (and  shower caps for our hair! Lol).  \nAnd we will not go socialize or see a show after the meal.  Lol.\nPS: Our waiter was so nice and helpful.  The company should give him a raise.!",
+        "language": "en"
+      },
+      {
+        "date": "2026-04-01T21:24:59Z",
+        "rating": 5,
+        "text": "Incredible. Best ive had. Hot pot and Korean bbq  both wonderful. 10/10 and planning to go back into the city just for this.",
+        "language": "en"
+      },
+      {
+        "date": "2026-03-30T23:06:37Z",
+        "rating": 5,
+        "text": "The food was actually delicious my daughters and I wanted to try something new and different and it was worth it. I definitely recommend this place and the owner was very nice.",
+        "language": "en"
+      },
+      {
+        "date": "2026-03-27T15:58:11Z",
+        "rating": 5,
+        "text": "Love the ambiance and the service! The bar drinks are amazing! This is my third time coming here and it was really fun and the food was great.",
+        "language": "en"
+      },
+      {
+        "date": "2026-03-26T10:27:15Z",
+        "rating": 4,
+        "text": "Good overall experience. Food was flavorful and came out at a good pace. Service was attentive without being overbearing. The space is comfortable and works well for a casual meal. Solid choice in the area.",
+        "language": "en"
+      },
+      {
+        "date": "2026-03-18T15:17:46Z",
+        "rating": 5,
+        "text": "I hadn't had Korean food in a while so it was refreshing to have the whole experience again.\n\nI enjoyed the sauce bar & making my own dips. \n\nLance was a great server & very attentive.",
+        "language": "en"
+      },
+      {
+        "date": "2026-03-17T06:48:23Z",
+        "rating": 5,
+        "text": "Had a great dinner at KPOT Korean BBQ & Hot Pot (Midtown South NYC)!  From the moment we walked in, the hostess team was warm, welcoming, and super accommodating with our requests \n\nOur server, August, was truly outstanding--attentive without being overbearing, perfectly timed with every check-in, and on point with delivering everything we needed  You can tell he really cares about giving guests a great experience \n\nThe food, as always, hit the spot  but what really stood out to me was the consistency of the team. It's so nice to see the same management group still there, keeping the energy and standards strong \n\nOverall, a really enjoyable dinner with great service all around. Definitely looking forward to coming back! \n\n#KPOT #NYCEats #KBBQ #HotPotLovers #MidtownNY",
+        "language": "en"
+      },
+      {
+        "date": "2026-03-16T20:40:49Z",
+        "rating": 5,
+        "text": "Wonderful service by Amber! She was very attentive, very helpful and aware of certain allergens to assist in proper recommendations. Food was amazing and full of flavor and seasoning. Ambiance was a casual chill vibe and very clean. Be mindful to add yourself to the waitlist the day of, at least 2hrs before your visit if you are going in after 6. The place gets very busy and they don't do reservations.",
+        "language": "en"
+      },
+      {
+        "date": "2026-03-15T00:25:35Z",
+        "rating": 1,
+        "text": "This is the worst K pot in the city, I really recommend the Bay Plaza location. In my opinion the customer service is lacking in hospitality. They forgot about our reservation and then apologized but we were already leaving. I had been to this location once prior, the food is not the best and you lose alot of time waiting. The restaurant itself is beautiful though but again I recommend Bay Plaza",
+        "language": "en"
+      },
+      {
+        "date": "2026-03-14T14:01:17Z",
+        "rating": 3,
+        "text": "For the price it's great, service is friendly and nice, place is clean. Now the quality of the beef was a bit chewy. The short ribs were a bit of chew, more fatty when cooked. The steak was a bit better. The snow crab legs were not that good, very small as well. Blue crabs were meaty and fresh. It wasn't a bad experience but the quality of the meat and seafood were not that great but otherwise a good experience.",
+        "language": "en"
+      },
+      {
+        "date": "2026-03-14T01:39:33Z",
+        "rating": 5,
+        "text": "Great value and the food was delicious! They were very good about clearing plates to keep our table uncluttered.",
+        "language": "en"
+      },
+      {
+        "date": "2026-03-10T02:15:32Z",
+        "rating": 5,
+        "text": "Great food and service! We had a fantastic time to celebrate my day today!  It was a lot of food options to cook and eat.",
+        "language": "en"
+      },
+      {
+        "date": "2026-03-09T18:34:26Z",
+        "rating": 1,
+        "text": "Food was great but I was told the wait time was a hour I ended up waiting 3 hours... and then I was only able to order once",
+        "language": "en"
+      },
+      {
+        "date": "2026-03-07T04:06:35Z",
+        "rating": 2,
+        "text": "I don't really think this can be called Korean Barbecue.The meat is oddly seasoned, there's no ssamjang, and the kimchi has sugar in it. If you're expecting a real Korean BBQ experience, I would really recommend going somewhere else.",
+        "language": "en"
+      },
+      {
+        "date": "2026-03-03T02:38:42Z",
+        "rating": 5,
+        "text": "Great service. Had a bit of a wait because it was so busy but it was well worth the wait.",
+        "language": "en"
+      },
+      {
+        "date": "2026-02-28T17:01:37Z",
+        "rating": 5,
+        "text": "Love this place, the food is delicious and the the servers are nice and help. Been to this location multiple times and enjoyed it every single time.",
+        "language": "en"
+      },
+      {
+        "date": "2026-02-27T18:42:47Z",
+        "rating": 3,
+        "text": "As far as ayce KPOT bbq goes, I think it is pretty reasonable.  I like that they had tons of prepared food options. We partook in the fries and the fruits. The tables are huge, which is always a plus for hot pot. If you come early for dinner, around 5:30 pm to 6 pm, there is no wait on a Friday night. \n\nThe broths are not as flavorful as they could be. They also charge for any remaining food. I saw the table next to us had a lot of extra food wasted and the bussers told them they would be charged for it. The selection is pretty extensive and they do include seafood as part of the AYCE, so this is a pretty good deal. The price for kids is also reasonable. \n\nAs with all AYCE places, I left way too full and always say I won't due this again, but then I do.",
+        "language": "en"
+      },
+      {
+        "date": "2026-02-27T15:12:51Z",
+        "rating": 2,
+        "text": "My husband and I were excited for our first time experience at Kpot for our wedding anniversary,located on W38th Street. \n\nOur server Tatum explained we had 90 mins to eat starting from our first order from the table. \n \nMy husband and I finished our first Hot pots and noticed we couldn't find our server. I noticed the neighboring server Lance (not sure if that is his name, very tall,kind gentleman). Was pre-bussing our table, prividing napkins,refills,changing and greasing our grill. After waiting for about 15 mins. Tatum still no where to be found. My husband and I continued to eat from the grill & ordered our proteins and veggies for our Second HOt pot of Broth, until Tatum returns.\n\nI became frustrated and asked Lance can he please get me more broth. While he was refilling his guest hot pots. He gave me a tiny bit of broth that was left over from serving his guest. Which wasn't even enough for me to eat my Lobster & Crab balls,there wasn't enough broth for them to submerge in the pot. The server Lance noticed my pot was almost empty, apologized  and said he would return with more broth. \n\nWe were now sitting there for over 30 mins without any broth. Tatum returned from break , & noticed I had no broth for the duration of her break. \n\nTatum finally returns several mins later. Finally with my hot pot, she dropped the bill and said you have 30 mins remaining. Beyond rude to drop the bill, when I didn't even get to complete my dining experience. \n\nI asked her where did she go cause we were left without refills that took away from our dining time. She stated that she left on break. As someone that has been in the restaurant industry for 20 plus years. It's the server's responsibility,before leaving to break or switching shifts. To introduce the server that will be taking over your section during this duration of your break or switching shifts. Also, prior to leaving on break ,she should've CHECKED BACK with her guest for pre-bussing, refilling bev's,refilling broth, change the grill and spraying the grill,napkins, etc. Making sure the needs of her guest were accommodated prior to taking break. \n\nNot only did she drop our bill, she dropped the bills of three other tables,that were seated way before us. They were already eating at the time of our arrival. She tried to clear out her entire section, burning & turning her tables without regard to our dining time. \n\nI saw the hostess with the tablet, checking for open tables & requesting for tables to be bussed & reset. I walked passed and asked do I still have time , he looks and states. Yes you are fine , I returned to my table and Taum turned off our grill & asked for my husband and I to remove our food from the grill. Removing the grill so we were not able to use it for the remainder of our time. At this point we didn't even want desert or drinks which we had intended on having but the experwince over all was rushed,unpleasant, & unprofessional . \n\nThe only reason I gave two stars is because of Lance the neighboring server. He went above and beyond trying to accommodate our needs providing napkins, refilled our drinks, changed & greased our grills, etc &  all his other guest.With the exception of my broth but from what I was able to gather. He was covering the sections of two servers, that were on break. You definitely need a better system, that works for guest & their experience,while  your servers are on break. Truly disappointing experience for us, KPot was recommended by so many of our friends for it to be an absolute disaster & disappointment. I don't know if my husband and I will be returning or reccommending friends or family due to this experience!",
+        "language": "en"
+      },
+      {
+        "date": "2026-02-27T08:57:53Z",
+        "rating": 5,
+        "text": "Great spot for hot pot & Korean bbq in my neighborhood. I keep going back!  Keep in mind the time for the all-you-can-eat menu--time flies quickly!",
+        "language": "en"
+      },
+      {
+        "date": "2026-02-22T08:17:03Z",
+        "rating": 2,
+        "text": "This place is not good for big groups. I had a group of 7 people and there was only 1 grill at the table. Since there was only 1 grill, it took a while to cook enough food for 7 people. The service was also very slow. We had to ask for sake 3 times until they finally remembered to bring it to us. The 2 hour limit is also too short for 7 people. It doesn't make sense that it is the same time limit for 2 people. There should be additional time if the group is larger since you can only cook so much food on 1 grill. Would not recommend for groups larger than 4.",
+        "language": "en"
+      },
+      {
+        "date": "2026-02-20T23:22:24Z",
+        "rating": 5,
+        "text": "AHHHHH HOT POT IN MIDTOWN THAT IS AYCE!!!!! So delicious & would 100% recommend. I didn't get her name but a waitress we had 1/27 was incredible. At one point I saw her scrubbing/cleaning the WALLS and I doubt she is paid enough to do that. \n\nWarning there will be a wait, though weeknight should be no longer that 15-30 min",
+        "language": "en"
+      },
+      {
+        "date": "2026-02-20T20:58:17Z",
+        "rating": 4,
+        "text": "Lance was a great waiter. He was knowledgeable and attentive! KPot was awesome. K BBQ and hot pot is such an amazing experience.",
+        "language": "en"
+      },
+      {
+        "date": "2026-02-19T01:55:26Z",
+        "rating": 5,
+        "text": "Amazing! Visited NYC and was craving some good ole kbbq and we found the spot. Price was very reasonable and the options were plenty. It's a huge space so we were seated fairly quick and tended to almost immediately. You order everything on a tablet that is left at your table which makes it very easy to get your next order ready. The food came out pretty quick and everything tasted amazing. If in NYC again, I will definitely come by here to enjoy some kbbq.",
+        "language": "en"
+      },
+      {
+        "date": "2026-02-15T00:57:49Z",
+        "rating": 5,
+        "text": "So first of all I love the hot pot and the Korean bbq it was all delicious but I also want to give big thanks to our server JK!! he was super nice and gave us an amazing experience and the whole place was just a vibe with the mix Kpop and pop music. IT WAS AMAZIN!!!",
+        "language": "en"
+      },
+      {
+        "date": "2026-02-12T04:33:47Z",
+        "rating": 5,
+        "text": "This is my favorite KPOT location in NYC! I recently brought a friend who was visiting from California here for dinner.\nOur server, Tatum, was attentive, friendly, and incredibly helpful throughout our meal. Her great service made us feel welcome and well taken care of.",
+        "language": "en"
+      },
+      {
+        "date": "2026-02-03T03:02:08Z",
+        "rating": 4,
+        "text": "The restaurant is spacious (though the \"buffet area\"is awkwardly set up and can cause congestion. \nThe servers are friendly and very attentive.  You do order on a tablet but they check on your table for grill changes, drink and soup refills, as well as just general check ins.\nIt was our first time at this restaurant and I find the menu a little confusing.  The lunch menu includes both hot pot and kbbq BUT the meats are very limited.  And they recommend you order your hotpot meat first.  So by the time we started to order our kbbq meat and realized most of the meats we wanted weren't available and wanted to switch to the dinner menu we had to do the highest menu and get both hotpotand kbbq at the dinner price.  Had I known the limited meat selection at first I would have just done the dinner kbbq.\nI found the hot pot to be nice but not really worth the extra price.  There is a two hour maximum and even having both we were out in an hour and a half.",
+        "language": "en"
+      },
+      {
+        "date": "2026-02-03T00:11:59Z",
+        "rating": 1,
+        "text": "Absolutely horrific experience with a server. Came here today (around 2pm) and was served by an asian man with black hair (Li Je) I think his name was - not sure. When the bill came I payed and selected no tip (small personal meal and was going to cash tip the other workers). My waiter proceeds to insult me as to why I am not tipping him and starts to be extremely rude. He then ignores me and selects his own tip on the screen and runs away with my credit card during the active transaction. I walk up to staff and request for the manager because at this point this is theft, but he comes up to me again and says that he will not charge me anymore and that he \"misheard\". Absolutely disgusting experience with this server and its a shame because the food was actually quite good and I hoped to return for it. Do not recommend going here at all if management trains their staff like this. AVOID!!",
+        "language": "en"
+      },
+      {
+        "date": "2026-02-02T01:44:07Z",
+        "rating": 2,
+        "text": "Be prepared to wait. This place is always packed and when they tell you 15 minutes. It's closer to 45. They move very slow.",
+        "language": "en"
+      },
+      {
+        "date": "2026-01-31T23:25:24Z",
+        "rating": 3,
+        "text": "Found this place while looking for a lunch spot with my coworkers on an in-office day. I wasn't in the mood for another slop-bowl situation, so we ended up here instead. The lunch deal is great -- about $26 per person after tax and tip for AYCE BBQ. They also offer hot pot, or a combo of BBQ and hot pot for an extra charge. Definitely a nice change of pace from the usual Chipotle bowls and fast-food options around the Times Square area, especially if you have a longer lunch break.",
+        "language": "en"
+      },
+      {
+        "date": "2026-01-31T18:51:06Z",
+        "rating": 5,
+        "text": "The wait is kinda long I advise you to waitlist an hour or two before going so you don't have to wait long but amazing food and cool scenery",
+        "language": "en"
+      },
+      {
+        "date": "2026-01-31T15:03:13Z",
+        "rating": 5,
+        "text": "Amazing food and the service is great and it's affordable to I would really recommend this place",
+        "language": "en"
+      },
+      {
+        "date": "2026-01-30T18:59:09Z",
+        "rating": 5,
+        "text": "Always have an amazing type at KPot! This time was even better because of the friendly and warm service from Tatum, she really took her time to chat with my group and went out of her way to make sure we didn't run out of water, soup broth, etc.",
+        "language": "en"
+      },
+      {
+        "date": "2026-01-25T19:36:26Z",
+        "rating": 5,
+        "text": "The food was super fresh and came fast, I would say in less than 5 mins so we got to eating quick. Our server was super kind and made sure to check if we were okay during our time there. The vibes of the place were top tier, it wasn't too overwhelming yet not dead to feel boring. Definitely the best place to chill with friends yet go home full and tired.",
+        "language": "en"
+      },
+      {
+        "date": "2026-01-20T03:45:13Z",
+        "rating": 4,
+        "text": "Food is solid. I have come to this location multiple times. Quiet enough without the music blasting at high volume where you can actually hear what people are saying...The hanger steak so good and the spicy beef bulgogi (which you can also get during lunch). \n\nTWO CONS:\n1) They need to have bags to put coats etc in. Otherwise my clothes will smell so much after.... Other places seem to have it.\n2) They didn't give me a KPOT KREW REWARDS CARD. ITS ON THE WEBSITE AND SHOULD BE MORE ADVETRISED!!! I DOCKED OFF A STAR FOR THIS.",
+        "language": "en"
+      },
+      {
+        "date": "2026-01-18T10:59:38Z",
+        "rating": 5,
+        "text": "The bbq was awesome! The meat was so fresh and the sauce bar is excellent. Will be coming back soon!",
+        "language": "en"
+      },
+      {
+        "date": "2026-01-17T03:44:10Z",
+        "rating": 5,
+        "text": "Best service we've ever received at hotpot from KEVIN D. Constantly checked on us, made sure we got our food, refreshed drinks without asking.. food was great but the service made the meal a 5/5!",
+        "language": "en"
+      },
+      {
+        "date": "2026-01-15T02:13:08Z",
+        "rating": 5,
+        "text": "Absolutely amazing all-you-can-eat Korean BBQ & hot pot experience! From the moment we sat down, everything exceeded expectations. The quality of the meats was outstanding!!!fresh, well-marinated, and tender and the variety was impressive. Whether you're craving classic KBBQ cuts or dipping thinly sliced meats into rich, flavorful hot pot broths, this place delivers on all fronts.\n\nThe sides and appetizers were just as good as the mains.Everything came out quickly, and the staff was attentive, friendly, and happy to help explain the menu or refill items without us even having to ask.\n\nFor the price, the value is unbeatable. You leave full, satisfied, and already planning your next visit. If you're a fan of Korean BBQ, seafood, hot pot, or just love great all-you-can-eat food, this spot is a must-try. Highly recommend!",
+        "language": "en"
+      },
+      {
+        "date": "2026-01-13T23:49:08Z",
+        "rating": 5,
+        "text": "I definitely recommend coming here! The food itself comes super fast and the workers are always paying attention to when and where you need your food and beverages! They'll take care of everything! The ambiance is definitely worth staying, the music itself and you'll get your own privacy. Amber, our server was amazing paid attention to everyone!",
+        "language": "en"
+      },
+      {
+        "date": "2026-01-13T03:08:04Z",
+        "rating": 5,
+        "text": "Kpot is one of our favorites! Huge thank you to Tatum for making our night extra special!",
+        "language": "en"
+      },
+      {
+        "date": "2026-01-11T03:33:18Z",
+        "rating": 4,
+        "text": "This place is massive and was super busy. I like the concept of a half bbq and hot pot but it was hard to balance both without compromising one of the meats. The self serve bar was good, servers were nice and they had a variety of shabu stuff.",
+        "language": "en"
+      },
+      {
+        "date": "2026-01-10T23:51:06Z",
+        "rating": 5,
+        "text": "Good food, good service. You definitely need to make a reservation or join their waitlist at least an hour before you plan on having dinner here. But it's worth it!",
+        "language": "en"
+      },
+      {
+        "date": "2026-01-09T20:46:08Z",
+        "rating": 5,
+        "text": "Didn't take many pictures, but we had a great time at this KPOT location. Our waiter, Leo, deserves a shoutout, he truly made our experience 100% better! Our waiter was super attentive and just made sure we were always good.",
+        "language": "en"
+      },
+      {
+        "date": "2026-01-09T14:43:10Z",
+        "rating": 4,
+        "text": "We came here for dinner and decided to do BBQ, although we saw that most tables around us were doing hotpot (might have to come back and try that!). \n\nThe space is quite large, and we were seated at a 4-top which offered us extra room. The BBQ menu had a sizable variety of protein (different types of beef, chicken, pork, seafood) and many vegetable options. My favorites were the beef short rib and the thinly sliced beef belly. The meat was really tasty and seemed fresh, especially for an AYCE spot as I sometimes see lower quality meats at these establishments. Our server was fairly attentive and always checked on us to change our grill. I appreciated this as it gets quite difficult to cook when your grill is burnt. You get a 2 hour seating time for $36.99 per person, which is pretty hard to beat in the city. \n\nI would recommend joining the waitlist before coming for dinner as there was a large crowd of people waiting to be seated as we were leaving.",
+        "language": "en"
+      },
+      {
+        "date": "2025-12-31T22:23:32Z",
+        "rating": 5,
+        "text": "Great service, one of the employee names August was really efficient and fast. The food game quick and it was really fresh",
+        "language": "en"
+      },
+      {
+        "date": "2025-12-31T07:50:35Z",
+        "rating": 4,
+        "text": "Really good hotpot. Not the best I've ever had. Also the wait was rather long. 90+ minutes for a party of 3 and I was there on a Tuesday. Guess that speaks more to the place's popularity than anything else!",
+        "language": "fr"
+      },
+      {
+        "date": "2025-12-31T00:31:27Z",
+        "rating": 1,
+        "text": "WTF to put ppl on waitlist and than cancel it? When I put my name I was number 46! When I got cancel message i was on possition 13! 13 parties was ahead of me! WTF? I was already waiting 1,5 hours! I don't have to sit in the restaurant all this time and wait! And because my position was still 13!",
+        "language": "en"
+      },
+      {
+        "date": "2025-12-30T23:28:33Z",
+        "rating": 3,
+        "text": "amazing service. meat quality not so much. if you are looking for a thicker cut of pork belly, this isn't the place",
+        "language": "en"
+      },
+      {
+        "date": "2025-12-30T00:08:11Z",
+        "rating": 4,
+        "text": "This franchise has lots of locations across multiple states and I've been to many of them. This location is one of the better ones I've been too. Very clean and everything is stocked. \nYou order on the ipad and everything comes out pretty quickly. \nWe only did the hot pot option this time and there is a lot of variety and options for hot pot.",
+        "language": "en"
+      },
+      {
+        "date": "2025-12-29T08:21:37Z",
+        "rating": 5,
+        "text": "This is a 2 hr AYCE for Korean hotpot or/and bbq. Super busy, popular but organized and well attended because of quality and quantity. A bar is there for overflow waiting. Theres a prepared area in front for fried items across from dessert/sides/seasonings. When you get to your table, be ready to max your time by knowing your broth preferences ahead. If you let them know you're new they will walk you through how to order your ingredients by iPad picture menu. \nYou still have to deal with your clothes smelling like steam food afterwards though :)",
+        "language": "en"
+      },
+      {
+        "date": "2025-12-27T18:03:33Z",
+        "rating": 5,
+        "text": "I've never met a kbbq/hot pot place I didn't like! \n\nSERVICE: I particularly appreciated the fact that this location catered to our large party of around 16 people. Due to a last minute decision, we didn't give a huge advanced notice, but we were still able to get seated quickly. \n\nEXPERIENCE: For those who had never had kbbq/hot pot before, they were very informative on the process. This particular place had a tablet to self-order instead of relying on your server to come back around which was very convient! \n\nFOOD: And of course, there was a huge variety of all sorts of dishes ranging from meat, seafood, vegetables, noodles, dumplings, etc!! In addition to all the food you could order straight to the table, there was also a custom sauce bar, a small fruit/dessert bar, and a small fried appetizer bar.",
+        "language": "en"
+      },
+      {
+        "date": "2025-12-14T19:20:06Z",
+        "rating": 5,
+        "text": "We came in around 12:30 on a Sunday, wasn't busy. Our server was Andrea and she was helpful in getting us setup for our first time meal. Highly recommend the Thai Tom Yum if you're into spicy soups.\n\nThe Japanese miso, tonkatsu and Szechuan were all great as well.\n\nThe drinks we got berry daze and peachy Lola were sweet and refreshing.\n\nSurprisingly the snow crab add ons were really fresh without that fishy smell that some places offer! And the sauce bar is loaded with options. Highly recommend visiting this spot if you were out all weekend in NYC.\n\nIt's a clean, modern, and has a ton of variety for roughly 160 for 4.",
+        "language": "en"
+      },
+      {
+        "date": "2025-12-09T05:05:06Z",
+        "rating": 4,
+        "text": "Came to this location for the first time and pleasantly surprised how big and roomy the whole place is. I usually go to the one in downtown Brooklyn. Food selection was very good and everything we ordered were very fresh. Service was very good as well and place looks very clean. Will definitely come again.",
+        "language": "en"
+      },
+      {
+        "date": "2025-12-09T03:05:16Z",
+        "rating": 5,
+        "text": "Hot pot and bbq and buffet station!!! Can't go wrong with that!!! Service was fast.  Our table was always full of food which was a little bit overwhelming.  We had to slow down on our order.  Staff was friendly. Ambiance was nice.  The only negative was the wait.  Everything was good!!!",
+        "language": "en"
+      },
+      {
+        "date": "2025-12-08T00:21:54Z",
+        "rating": 5,
+        "text": "Omg! Best service ever! Gia was an amazing server, attentive and the lighting was nice and the music was calm! Food tasted amazing too!! BBQ POT was the best!",
+        "language": "en"
+      },
+      {
+        "date": "2025-12-07T00:10:43Z",
+        "rating": 2,
+        "text": "I deeply disappointed with KPot.  We sat down for both bbq and hot pot and when we tried to bbq our first piece of meat, we saw whole bunch of black spots that's came off from the coating of the pan.  We quickly explained to the waiter and he immediately exchanged it for us. But unfortunately, it happened again. So the manager got involved and they found a pan with the least amount of coating on the pan and that finally resolved the issue.  Not sure if other people have experienced the same but these coatings are known to cause cancer so be careful!",
+        "language": "en"
+      },
+      {
+        "date": "2025-12-04T23:09:24Z",
+        "rating": 5,
+        "text": "I came here with my family after seeing a matinee Broadway show. We were a group of 7. They don't take any reservations so if you are a large group, I recommend that you get there early. They also seat you when your whole group arrives and the hostess made it a point to mention that we have 2hrs to eat after we are seated. \n\nAt this restaurant, you have the option to do AYCE Korean bbq, hot pot, or both. It's $35.99 and if you want both it is an additional $5. The whole group has to get the same thing. So we got the hot pot. There are no physical menus. The waiter handed us an iPad where we would order the dishes we wanted. Everyone got their own pot of broth. The dishes came out quickly and everything was fresh. The appetizers and dessert were included in the price. I would love to come back to try the Korean bbq.",
+        "language": "en"
+      },
+      {
+        "date": "2025-12-01T17:47:10Z",
+        "rating": 5,
+        "text": "So went here on a chilly Sunday evening post Thanksgiving and was excited to try their AYCE hot pot and barbeque combo deal for just $41which is rare to find in the city. They don't accept ressie's but you can come in and put you name on the waitlist. Resto was packed with a lot of people waiting on line to register at the waitlist kiosk. When we registered, it said it would be around a 50-75 minute wait for a table of 7. All of the Kpot staff that we interacted with were very pleasant and cheerful which is tough in a sea of hungry people waiting to get a table. Despite the estimated wait time our name was called just 20 minutes after we registered. Ressie waitlist system seemed very well organized. Got a nice table towards the back and our waiter's name was Robert. Super friendly with cheerful welcoming vibes! He asked if we've been there before and then proceeded to tell us the details of how everything works. A lot of questions but he was helpful and eager to answer. We ordered 2 bottles of wine for our table and he brought them out right away after we ordered them. Robert's personal attention to our table was something to really call out as it's rare to get this pleasant, efficient and helpful service especially in a big establishment like this. Anything we asked for he responded right away and made our dinner that much more enjoyable. Food was really good and love the many options of how you can customized your sauces to your liking. The only thing that I can call out that could have been better is the spacing of the tables and chairs. It was hard to maneuver in and out since the chairs of the other tables were literally back to back leaving very little room if you had to get up. Fortunately the surrounding tables were very nice and respectful when having to get out. Love this place, will definitely be back and also special shout out to Robert for taking care of our family. You really need more servers like Robert to get people to come back. CHEERS EVERYONE! Happy Eating!!!! My Best, Jeffrey",
+        "language": "en"
+      },
+      {
+        "date": "2025-11-29T03:47:15Z",
+        "rating": 5,
+        "text": "Buen servicio y muy amable y rica la comida y serca de time square muy bonito todo y la  atención",
+        "language": "es"
+      },
+      {
+        "date": "2025-11-28T20:19:30Z",
+        "rating": 5,
+        "text": "I came to KPOT for lunch with a group of friends, and we had such a great experience. The food was fresh, the stations were clean, and everything came out quickly--exactly what you want for a hot pot and BBQ lunch.\n\nOur server, Lance, really made the meal even better. He was attentive without hovering, kept our table stocked with everything we needed, and checked in often to make sure we were good. Even during a busy lunch rush, he stayed patient, upbeat, and on top of everything.\n\nYou can tell Lance genuinely enjoys what he does. His great service took our lunch from good to great. We'll definitely be coming back!",
+        "language": "en"
+      },
+      {
+        "date": "2025-11-28T20:07:20Z",
+        "rating": 5,
+        "text": "August was my server today. He was a really really sweetheart   great service, super polite, very kindly, fast and attentive \nAlways attentive to refill my water, change the grill, ask if everything is okay, provide me with napkins (No restaurant gives you napkins unless you ask for it :/) Notice that he gave equal attention to the other tables, really happy and encouraged to work hard  Congratulations to KPOT Korean BBQ & HOT POT for having such a special employee \nThe Hotpot was so-so, I ordered too much, and I filled up too quickly. The BBQ was okay. Very greasy but I was satisfied. \nI will recommend this wonderful restaurant",
+        "language": "en"
+      },
+      {
+        "date": "2025-11-26T23:13:56Z",
+        "rating": 5,
+        "text": "Solid place for AYCE Hotpot and KBBQ. Small or large parties are no problem when you can sign up in their waitlist ahead of time to cut on waiting time during busy hours. Great value and service at this location.",
+        "language": "en"
+      },
+      {
+        "date": "2025-11-25T01:42:10Z",
+        "rating": 4,
+        "text": "Came here for dinner with a group of friends. This place is amazing and spacious, as it offers All You Can Eat Korean BBQ for $36, which is the cheapest I've seen it. The interior was spacious and cool looking with futuristic lights, neon signage, as well as colorful touches. Front waiting area was organized and I signed in for my party. Once everyone arrived, we were seated promptly towards the back area in booth tables, which felt nice and cozy.\n\nThere was a buffet containing fried coconut shrimp, nuggets, spring rolls, fries, and other finger foods. I didn't get much of this, as I wanted to keep my appetite for the Korean BBQ. There was also an awesome sauce bar where I made my own concoction, using peanut butter, sesame, oyster sauce, garlic, scallions, and more.\n\nWe ordered Beef Bulgogi, Prime Brisket, Hanger Steak, KPOT Steak, Pork Belly, Garlic Shrimp, Garlic Chicken, along with other types of meat. I also added some vegetables, including Pineapple, Sweet Potato, Onion, Potato, Mushroom, Pumpkin, and Pepper. Cooking everything was a joint effort, and everything came out tasting delicious! The meat was wonderfully tender, juicy, and well seasoned. Veggies had perfect grill marks and were crunchy, as well as fresh. \n\nThere were plenty of desserts as well, such as Fruits, Tiramisu, Coconut Cake. In addition, there was a bin of ice cream with chocolate, strawberry, vanilla flavors, as well as classic ice pops, like the Orange Dream and Chocolate Eclair. So many mouthwatering and sweet treats! \n\nService was solid. Prices cannot be beat. I would be open to returning for Hot Pot.",
+        "language": "en"
+      },
+      {
+        "date": "2025-11-24T03:08:41Z",
+        "rating": 5,
+        "text": "Eat everything for one price!!\nThis is a great place to buy and share food.\nIs buffet but with service at the table.\nHave everything included ice cream \nThe ambience is great.\nI highly recommend this place.",
+        "language": "en"
+      },
+      {
+        "date": "2025-11-23T21:09:11Z",
+        "rating": 4,
+        "text": "Stumbled upon this hole in the wall Kpop ambiance all you can eat spot. Chose the BBQ option and not disappointed!. Don't let the server talk you into more than you can handle, & don't order pork (dry). Stick to beef & other. Really good, fresh and loads of great sauce options. Fun for a group, date night or besties. Deserts are meh, but the mains & appetizers are the stars here.",
+        "language": "en"
+      },
+      {
+        "date": "2025-11-18T14:02:23Z",
+        "rating": 3,
+        "text": "All you can eat (within a couple hours) truly is a ton of food. The hot pot was my favorite particularly the miso soup and pho noodles.",
+        "language": "en"
+      },
+      {
+        "date": "2025-11-17T07:25:01Z",
+        "rating": 5,
+        "text": "Love the service and always treated with respect and kindness. The food is great and love doing the Hot Pot!!! Would definitely recommend.",
+        "language": "en"
+      },
+      {
+        "date": "2025-11-13T11:01:56Z",
+        "rating": 1,
+        "text": "I went here a few months ago and my server literally came up to the table and complained about the fact that he just got sat me when he's supposed to be leaving in 20 minutes normally I'm greeted with a High my name is would you like something to drink this was very weird and pretty much dictated the entire experience I haven't been back since because when I went to the manager about it as I left, he was very combative and almost took the side of the server, acting as if I made the whole thing up. It's unfortunate because the food was really good but the fact that you have to cook your own food, combine with the fact that you get an attitude doesn't make it the most recommendable experience",
+        "language": "en"
+      },
+      {
+        "date": "2025-11-04T22:42:47Z",
+        "rating": 5,
+        "text": "The food was amazing and service was fast! Lance was super helpful and nice! Made the overall experience very good!!",
+        "language": "en"
+      },
+      {
+        "date": "2025-11-04T12:34:30Z",
+        "rating": 5,
+        "text": "I came with some friends. Food came out quickly and was checked up on to see if we needed refills.",
+        "language": "en"
+      },
+      {
+        "date": "2025-10-27T14:10:57Z",
+        "rating": 5,
+        "text": "This place is amazing! I go here at-least once a month with family or friends. The service is great the overall ambiance is very nice and the waitstaff is amazing. You never have to hold on to dirty or empty dishes. The waitstaff is always super attentive. Highly recommend!!",
+        "language": "en"
+      },
+      {
+        "date": "2025-10-26T13:58:04Z",
+        "rating": 4,
+        "text": "Reasonable price compared to others in Ktown. Service, space and bbq was very good. Hot buffet in Flushing had a nicer selection but overall good. We came on the weekend bbq short ribs was our fave. If you come M-F you can't beat the price excluding certain selection but what a deal.",
+        "language": "en"
+      },
+      {
+        "date": "2025-10-24T22:39:18Z",
+        "rating": 5,
+        "text": "The food was absolutely amazing! Everything was fresh and flavorful. The service was great -- the staff was attentive and friendly. The atmosphere was fun, welcoming, and full of good energy. Definitely a place I'll be coming back to!",
+        "language": "en"
+      },
+      {
+        "date": "2025-10-17T15:45:36Z",
+        "rating": 2,
+        "text": "Mid. Service was fine. Wait was long. Dude outside jacking off. Food war meh. $58 for one person and one drink soju.",
+        "language": "en"
+      },
+      {
+        "date": "2025-10-13T03:33:21Z",
+        "rating": 5,
+        "text": "The food was so good! The service was friendly, and the place had a nice atmosphere. Definitely recommend it!",
+        "language": "en"
+      },
+      {
+        "date": "2025-10-09T04:31:38Z",
+        "rating": 5,
+        "text": "Great place for kbbq and hotpot combo. Came here and ate my heart out. I appreciate the diversity in things we can order, as well as the prepared small dishes and fried foods and dessert. Order was easy and fast through an iPad and food came so fast.",
+        "language": "en"
+      },
+      {
+        "date": "2025-10-08T12:21:39Z",
+        "rating": 4,
+        "text": "They do not do reservations so make sure to get on the waitlist and your whole party must be there. The service is quick! You order on the iPad and it comes within 2-3 minutes. Our waiter always made sure we had water in our cups and broth in our bowls. The meats and veggies are very fresh. We only did the hotpot - the mushroom soup is amazing!!!! They also have several dessert options to choose from. Overall I will continue to come here. Be warned that you will smell like cooked meats after you leave, and so will most of your belongings.",
+        "language": "en"
+      },
+      {
+        "date": "2025-10-06T23:33:43Z",
+        "rating": 5,
+        "text": "We came here on a Friday afternoon for lunch after a hotel award ceremony, and let me just say -- this place absolutely delivered! Our party of 30 coworkers (yes, 30!) was handled with incredible professionalism and warmth.\n\nWhat made this extra special? For 25 of the people, it was their very first time trying AYCE hotpot and Korean BBQ -- and now they are all wondering why they waited so long! The food was fresh and flavorful. From the perfectly marinated meats to the wide variety of hotpot broths and dipping sauces, there was something for everyone to love.\nThe staff was on top of everything -- fast, friendly, and super helpful with guiding the newbies through the process. They kept the grills clean, the broth pots boiling, and made sure drinks and orders kept flowing. Even with such a large group, everything went off without a hitch.\n\nEveryone left full, happy, and already planning their next visit. Whether you're a seasoned hotpot fan or a total first-timer, this place hits the mark. Highly recommend for corporate outings, big celebrations, or just a memorable lunch with friends",
+        "language": "en"
+      },
+      {
+        "date": "2025-10-02T08:05:15Z",
+        "rating": 4,
+        "text": "We tried the hot pot. Good choices and lots of ppl. Large variety of items to choose from. U can do grill or both. So much food so try not to over order.",
+        "language": "en"
+      },
+      {
+        "date": "2025-09-26T18:10:42Z",
+        "rating": 4,
+        "text": "Love the dessert and amazing options here. The service was fast as always. The food was so delicious and the employees were so accommodating and sweet! Thank you so much Kevin specifically for making our Lunch feel really special!",
+        "language": "en"
+      },
+      {
+        "date": "2025-09-22T01:12:59Z",
+        "rating": 4,
+        "text": "There's a fantastic selection of food for both BBQ and hotpot. We chose the hotpot, which offers a variety of soup options, including mushroom and tomato. The touch screen menu makes it easy to select your ingredients at your own pace. In addition to the delicious main dishes, there's also an appetizer bar and a dessert station with ice cream.\n\nThe service is exceptionally friendly and attentive.\n\nThe ambiance is relaxing; we noticed people celebrating birthdays as well as enjoying family gatherings.",
+        "language": "en"
+      },
+      {
+        "date": "2025-09-21T01:26:44Z",
+        "rating": 5,
+        "text": "Great food, all you can eat for $36. Convenient waiting list system. Good service. Really enjoyed the experience.",
+        "language": "en"
+      },
+      {
+        "date": "2025-09-19T22:49:23Z",
+        "rating": 5,
+        "text": "we have came to this place so many times and it's always great foods amazing there is ice cream cake srimp and more and those are just starting foods 10/10 so recommend",
+        "language": "en"
+      },
+      {
+        "date": "2025-09-02T00:42:49Z",
+        "rating": 4,
+        "text": "Service: Great\nQuantity: AYCE\nCleanliness: Good\nPrice: Fair\n\nAll-you-can-eat BBQ and hot pot? Yes, please! I went for lunch on a weekend (dinner price $35.99 + $5 per person for both options) and it was worth every bite.\n\nService was spot-on -- attentive and friendly. Right when you walk in, there's a spread of fried bites, cold kimchi, and desserts. I loved the kimchi, cucumber kimchi, and marinated daikon radishes -- so refreshing alongside the BBQ.\n\nOrdering is done on an iPad (super easy). My top picks: finger ribs, signature pork cheek, and the Kpot short rib. If you're a shrimp lover, don't skip the garlic shrimp -- fresh, garlicky, and delicious.\n\nDining time is limited to 2 hours, but that's more than enough to feast. By the end, I practically had to roll myself out. Perfect spot for a big group hangout!",
+        "language": "en"
+      },
+      {
+        "date": "2025-09-01T22:14:48Z",
+        "rating": 5,
+        "text": "Great food, a bit slow refill, great experience. Worth to recommend especially that you can book your table online.",
+        "language": "pl"
+      },
+      {
+        "date": "2025-08-30T22:45:39Z",
+        "rating": 5,
+        "text": "Food was amazing as always! \n\nTatum was the most amazing server! So attentive and explained the menu and experience to our table so well. Would come back again just to have her as our server again!",
+        "language": "en"
+      },
+      {
+        "date": "2025-08-29T23:48:00Z",
+        "rating": 5,
+        "text": "Excellent value for the cost. Good kbbq and hot pot combo. Get the Szechuan and healthy herb broths and mix them together. Logan was our server and was super helpful.",
+        "language": "en"
+      },
+      {
+        "date": "2025-08-29T04:26:12Z",
+        "rating": 5,
+        "text": "The food here is great, always tastes well. Our server Mina provided great service was amazing and very helpful, always made sure we had everything we needed. Great spot!",
+        "language": "en"
+      },
+      {
+        "date": "2025-08-29T00:08:12Z",
+        "rating": 5,
+        "text": "Great Korean BBQ in midtown at great value price. Our server August was attentive, friendly and gave great service. Highly recommend - go at lunch during the week for less crowds.",
+        "language": "en"
+      },
+      {
+        "date": "2025-08-23T01:40:00Z",
+        "rating": 5,
+        "text": "Robert kept us from burning ourselves all night. He kept it fun and light, and the food was a great value! I see Nico Robin in his future.",
+        "language": "en"
+      },
+      {
+        "date": "2025-08-22T20:17:26Z",
+        "rating": 5,
+        "text": "Five Stars for Tatum! \n\nFrom the moment we sat down, Tatum made the experience effortless and fun. She had that perfect mix of warm personality and attentive service that you don't see every day. Before we even had to think about asking, she was there with drink refills -- it felt like she read our minds!\n\nNot only was she quick and efficient, but she was also genuinely personable, striking that sweet balance between friendly conversation and giving us space to enjoy our meal. It honestly made the whole dining experience so much better.\n\nIf you're lucky enough to be seated in Tatum's section, you're in for a treat. She turned what could've been an ordinary night out into something memorable.\n\n Highly recommend -- and special thanks to Tatum for being such a star!",
+        "language": "en"
+      },
+      {
+        "date": "2025-08-22T16:05:49Z",
+        "rating": 5,
+        "text": "This was a remarkable value for money restaurant.  Once you figure out the somewhat confusing ordering system and the salad bar arrangement for the Banchan (side dishes) it's all good.  The food comes quickly and the staff kept the grill clean.  While I'm not a big eater, the all you can eat option will be a hit with most people.  The atmosphere is very much industrial, so I'll call it modern.",
+        "language": "en"
+      },
+      {
+        "date": "2025-08-20T01:37:46Z",
+        "rating": 3,
+        "text": "Menu was overwhelming and the food was ok. But the experience overall wasn't great and the service was meh at best.",
+        "language": "en"
+      },
+      {
+        "date": "2025-08-12T21:34:04Z",
+        "rating": 5,
+        "text": "Our first Korean BBQ and hot pot experience. It was so delicious thanks to our friendly server who explained everything and kept coming back to answer questions. Favorite was the brisket and so many sauces to try!",
+        "language": "en"
+      },
+      {
+        "date": "2025-08-10T12:11:34Z",
+        "rating": 2,
+        "text": "My experience at this establishment was disappointing. The atmosphere felt disorganized and rushed, and the food quality did not meet expectations. Overall, I would not recommend this location.",
+        "language": "en"
+      },
+      {
+        "date": "2025-08-08T17:41:19Z",
+        "rating": 4,
+        "text": "Probably the best AYCE K-bbq at this price-point in the city. Most AYCE you can get is around $50+, so I would say a visit here is definitely worth it at around $35 per person. \nMy favorite item to get here is the short ribs. They cook very nicely and develop a slightly crispy glaze because of its sweet marinade. They also provide a small AYCE buffet of fried foods, which include fries, shrimp, and scallops, and other banchan, such as kimchi, seaweed salad, and fish cakes. I think they also have free ice cream, but I was too full to try by the end of my dinner. \nThey have a wide variety of meats to cook, as well, which include fish, pork, beef, meat, and chicken. I surprisingly enjoyed the garlic chicken, as I don't usually order chicken at k-bbq. it cooks pretty slowly, but is insanely soft. \nThe waiters here are very quick to replace any burning metal plates. I think ours was replaced around 5 times during my whole meal, which I appreciated. We arrived at around 7:30PM on a Wednesday night and was allotted two hours to eat. For a Wednesday, this place was pretty full! They had nice music and dim lighting, and lots of tables. We had no issues and left extremely full.",
+        "language": "en"
+      },
+      {
+        "date": "2025-08-04T22:14:11Z",
+        "rating": 5,
+        "text": "The grilled beef at Haidilao is tender and fresh, just a few seconds on the grill and the aroma kicks in. The fat renders nicely and adds a crispy edge. The chicken roll is decent crispy outside and juicy inside. Seasoning is light, so it works best with the dipping sauce.",
+        "language": "en"
+      },
+      {
+        "date": "2025-08-03T22:50:33Z",
+        "rating": 5,
+        "text": "K-bbq and hotpot? Let's go! Came here to do both and it's safe to say, I came out with a full belly. This is AYCE so you can eat until you drop. When you walk in, they have a small variety of hot foods buffet style like french fries, fried shrimp and more. They also have a bar with side dishes and cold foods, a dessert bar, and a station for your sauces. Last but not least, they have a fridge with ice cream. \n\nTo order, you first pick your broth on the ipad and then all other selections you can go ahead and add to the cart in the ipad. The food will be brought out within the next 10 minutes. They also have a variety of drinks, so I opted for the fountain drink since it was refillable. It was definitely chaotic trying to balance grilling the meat and cooking everything in the pot, but you get a bang for you buck here.",
+        "language": "en"
+      },
+      {
+        "date": "2025-08-03T01:52:45Z",
+        "rating": 5,
+        "text": "Best Korean BBQ there!! This is my second time and it is still the same!\n\nLocation: It is located along 38th st. We went on a Friday night and it was little busy. We waited approximately 20 mins. Lot of seatings inside and looks very clean.\n\nService: they are amazing! Really took care of us and very hospitable.\n\nFood: Everything was good! I did not expect this but everything was delicious. From the meats they are flavored well. They also changed the grill open for the meat to not stick. There are a lot of sauces you can choose from. There are also hot foods that are available. You can also order bubble tea, I had thai tea and it was good.\n\nPrice rating: 6/10. It was not expensive to he honest. \n\nDefinitely will come back because its cheap and a lot of food.",
+        "language": "en"
+      },
+      {
+        "date": "2025-08-02T06:54:43Z",
+        "rating": 5,
+        "text": "Delicious and great price. Came here to grab a bite while waiting for our hotel room to become available. Services was prompt and friendly. The serve yourself banchan/buffet was yummy. Food showed up quickly enough to start our grilling experience. Only thing was our grill temp was low, it took most of the time slot to get our first meats up to an edible temp. The server kept coming by and adjusting- maybe we just had a weaker grill. The mango green tea was sooooo yummy!\nSpicy bbq pork \nGarlic bbq chicken \nGarlic pork belly \nBeef brisket \nBeef belly \nGarlic\nMochi dumplings",
+        "language": "en"
+      },
+      {
+        "date": "2025-08-02T03:08:34Z",
+        "rating": 5,
+        "text": "amazing ambiance, thank you robert for assisting us throughout the night! best hotpot/kbbq place i've been to :)",
+        "language": "en"
+      },
+      {
+        "date": "2025-07-28T16:57:38Z",
+        "rating": 4,
+        "text": "This place gets both the cooking and the customer care right. They set reasonable charges, deliver good service, and cook wonderful food. The team balances kind service with food information. Food here reaches exceptional standards. KPOT Korean BBQ & Hot Pot has clearly mastered their craft.",
+        "language": "en"
+      },
+      {
+        "date": "2025-07-28T07:05:54Z",
+        "rating": 5,
+        "text": "my boyf loves KbbQ .. we've been everywhere from COTE in Flatiron to Lee's, a mom & pop shop in LA where we've both from.. this place is solid !!\nWe've been to KPOT 2x, once for the lunch special where we opted for both KbbQ & HotPot, & the other for Dinner where we did jst KbbQ.. \nwe preferred going for the lunch special which was less crowded, a bit cheaper & has all the meat options we enjoyed ..\nWe also loved our server the first time we went .. Allen, or Lin L .. he was the most attentive, sweet, knowledgeable ever !! He anticipated all of our needs & made our experience all the more special \nThe beef Belly is my Fav !! My boyf likes it all \nThe meat is nice .. good quality But obvi not waygu or a ribeye .. \nWe love the sauce bar .. I love their spicy Mayo & the French fries & coconut shrimp lol \nAlso u get dessert w the meal .. the lil orange cake square & mango cake slice are soo good .. I'll always agree to go w my man bc I think abt the cake lol !! \nThe restaurant is clean w lots of workers walking around cleaning the public areas & cleaning up yr table so it's not incredibly crowded & messy \nSuch a nice lunch spot ..",
+        "language": "en"
+      },
+      {
+        "date": "2025-07-26T01:31:25Z",
+        "rating": 5,
+        "text": "This was very affordable Korean BBQ! $35 per person for an all you can eat dinner that includes beef, chicken, seafood, vegetables and sides. \nAllan L was our waiter and he took good care of us, with a few corrections on when we should cut the meat and to add sauce to cook the sweet potatoes quicker. \nMy favorite parts were bulgolgi beef, chicken (which was a pleasant surprise) and pineapple. We also ordered lychee soju at the bar. \nWe are leaving full and happy. \nThe wait time wasn't horrible for a Friday night. \nOnly warning for people new to Korean BBQ is that you do the cooking yourself, with some coaching and encouragement from Allan.\nWe saw a guy walking out carrying a fudgecicle, when we \"oooh\"ed over it he said \"all included bro.\"  So we put that to the test and ate way too much and carried dessert out since we were approaching our 2 hour time limit.",
+        "language": "en"
+      },
+      {
+        "date": "2025-07-21T22:36:11Z",
+        "rating": 5,
+        "text": "Our server today was great. top notched service he had some of the best recommendations when it came to food/drinks. Definitely will recommend next time you're around the area. Ask for Ariz",
+        "language": "en"
+      },
+      {
+        "date": "2025-07-18T00:10:23Z",
+        "rating": 4,
+        "text": "Missing a couple classic banchan options, but otherwise a great deal and food. Meat was very tasty. Great service especially from JK!",
+        "language": "en"
+      },
+      {
+        "date": "2025-07-13T02:24:46Z",
+        "rating": 5,
+        "text": "I was here earlier with my friend, it was my first time. I had a great experience! We definitely got more bang for our buck for $36 for 2 hours. We enjoyed the different meats, including the steak. The ambiance was chill. I'll definitely go here again",
+        "language": "en"
+      },
+      {
+        "date": "2025-07-11T21:33:13Z",
+        "rating": 5,
+        "text": "I really enjoyed lunch at KPOT on 38th street. Nichole was our server and she was great, knew everything about the menu, and she was funny. I had tons of questions and she was super nice about it. Sen, the manager, came over, introduced himself, and even made me a drink. I'm a big fan of soup and I really enjoy their broths. Great food, great selection, and nice set up. We'll definitely be back!!!!",
+        "language": "en"
+      },
+      {
+        "date": "2025-07-11T15:14:23Z",
+        "rating": 1,
+        "text": "the food wasn't seasoned well, the service was great and the ambiance was perfect. but the food? again not good, sides were kinda bad, would not go again. save the money.",
+        "language": "en"
+      },
+      {
+        "date": "2025-07-08T00:01:16Z",
+        "rating": 4,
+        "text": "Excellent service and many options to choose from. The wait was a little longer than expected but we were able to wait at the bar and grab a drink. Place is great for small or large groups and everything is reasonably priced. Bathroom is clean and seems to be attended to frequently. Save room for dessert; they have ice cream, cakes, and fruits. The only down part was that the place was extra hot but it makes sense since all tables are using heat.",
+        "language": "en"
+      },
+      {
+        "date": "2025-07-04T02:23:58Z",
+        "rating": 1,
+        "text": "Food was good but took forever to cook the meat. I would have been ok until what happened at the very end. I went to go get cake and they ran out of spoons. I went to ask for spoons and the waiter goes and gets the used ones and cleans it off with a cloth and hands them to me.  I was just shocked, is that normal? Sheesh that bothered me so much.",
+        "language": "en"
+      },
+      {
+        "date": "2025-07-01T00:51:54Z",
+        "rating": 5,
+        "text": "Lots of food. If you order too much food and don't eat it they charge you for it. Drinks are expensive. I'm talking coke and soda",
+        "language": "en"
+      },
+      {
+        "date": "2025-06-27T11:07:21Z",
+        "rating": 5,
+        "text": "I find pure joy in every bite here. The staff maintained a warm approach to service. The staff treats each customer with care. Many different plates have impressed me. This place is worth telling others about.",
+        "language": "en"
+      },
+      {
+        "date": "2025-06-19T10:23:02Z",
+        "rating": 5,
+        "text": "You'll appreciate both what comes from the kitchen and how it's served. Worker attention was truly impressive! The dishes were good yet fell short of the finest we've tried. This place confirms what people recommend. The taste was amazing!",
+        "language": "en"
+      },
+      {
+        "date": "2025-06-15T11:40:30Z",
+        "rating": 4,
+        "text": "Legitimately impressive. The moment of our arrival, every employee showed exceptional friendliness. Locating this place made us smile! This place delivered amazing results. The price reflects accurate value.",
+        "language": "en"
+      },
+      {
+        "date": "2025-06-07T04:54:46Z",
+        "rating": 5,
+        "text": "Great KBBQ; great service; love the self serve and make your own sauce bar- overall great experience- would make this a regular spot",
+        "language": "en"
+      },
+      {
+        "date": "2025-06-06T19:42:19Z",
+        "rating": 5,
+        "text": "The best meal we had in NYC. We chose both the \"All-you-can-eat\" BBQ and Hot Pot which were amazing and delicious. The price is very reasonable. Great service by August!",
+        "language": "en"
+      },
+      {
+        "date": "2025-05-30T18:08:34Z",
+        "rating": 4,
+        "text": "I got the short rib bento box. It came with kimchi, fried siu Mai and marinated bean curd.\n\nEverything tasted good and price was reasonable, no complaints here.",
+        "language": "en"
+      },
+      {
+        "date": "2025-05-14T20:50:56Z",
+        "rating": 1,
+        "text": "This place is a actual nightmare the meat is horrible it tastes like shit all the foods are low quality and headache inducing even RFK is baffled at how badly regulated they are. The icecream good the nuggets and fries taste like mystery the cakes are cheap and full of cream instead of cake everything just tastes like pure shit I came into the restaurant with excitement to be fed after a long day of starving for this and I left with a headache and a growing tumor from all the processed tasting food. I am a fat fatty I love food and I eat ALOT but I was barely able to get myself to eat the first portion of food because of how intoxicatingly bad it was it got me drunk on chemicals I will sue this place if I have another me talking out my neck in a few days.GOODBAI. All hyped up 4 nothing I'm OUET and this in serious review",
+        "language": "en"
+      },
+      {
+        "date": "2025-05-12T17:09:36Z",
+        "rating": 5,
+        "text": "Service was great excellent options for grilling or hotpot. Go at a non peak time for maximum enjoyment",
+        "language": "en"
+      },
+      {
+        "date": "2025-05-01T23:13:19Z",
+        "rating": 5,
+        "text": "came here for visitor to try US version of AYCE KBBQ. the service was awesome . Came to check on us frequently. Reasonable prices for AYCE bbq and hot pot. Will definitely come back",
+        "language": "en"
+      },
+      {
+        "date": "2025-04-20T02:24:44Z",
+        "rating": 5,
+        "text": "the options felt endless in all categories and they served us so quickly. so worth it for the kbbq and hot pot.",
+        "language": "en"
+      },
+      {
+        "date": "2025-03-29T19:55:41Z",
+        "rating": 3,
+        "text": "Food was good and nice. Wait time was horrible. The service was good though and the ambiance is pretty nice.",
+        "language": "en"
+      },
+      {
+        "date": "2025-03-29T04:09:54Z",
+        "rating": 5,
+        "text": "I don't normally write review whether good or bad about a restaurant, but this is an exception.  Outstanding customer services as always!  I have went to KPot in Atlanta, Houston, and now Midtown, New York.  Great food and great customer services, couldn't ask for more, oh and really great price too!  I can't wait for KPot to open in Baton Rouge so I can enjoy!  Come hungry and leave with the seven deadly sin of gluttony, lol....",
+        "language": "en"
+      },
+      {
+        "date": "2025-03-26T20:28:22Z",
+        "rating": 5,
+        "text": "First time coming here and I was not disappointed. \n\nThere was no waiting. We were quickly seated and our server Mina was top notch in making everything great for us. He was on point with showing us how to order, getting our drinks quick, changing the grill to avoid it smoking up and made sure we were ok thru out the night. \n\nThe food was great. The service was great. The restaurant was very comfy. \n\nDefinitely coming back.",
+        "language": "en"
+      },
+      {
+        "date": "2025-03-25T22:53:04Z",
+        "rating": 5,
+        "text": "Our first visit, K Pot is an amazing all-you-can- eat experience! The concept is great, modern with efficient survices. With many fresh ingredients, great variety  and all at a very reasonable price. The quality of food was very good, everything was well stocked and fresh.\n\nService was top notch, well trained. We were lucky to have Tashi take care of our order, came along another helper Vincent,they both both make sure we had a great experience and great time. Both are friendly, attentive and super efficient ! Highly recommended. Will definitely be back.",
+        "language": "en"
+      },
+      {
+        "date": "2025-03-25T02:28:22Z",
+        "rating": 5,
+        "text": "We were a group of 3 that went on a sunday evening. There was no wait and we were quickly seated, the system explained to us and we went right to the buffet. The buffet was relatively varied and things seemed fresh. We had the 36 dollar only kbbq option. The meats were good, didn't taste or smell old. Some items were spicier than I expected (I'm korean). Some buffet items like the kimchi were overly sweet, but it was not much of a problem. I'm not sure if they allow people to fry their own rice though. Post tax and tip it came out to about 42 dollars per person, which honestly was a good deal in this part of Manhattan. I would recommend.",
+        "language": "en"
+      },
+      {
+        "date": "2025-03-19T01:07:06Z",
+        "rating": 5,
+        "text": "it was a hour and a half wait, but we sat down at the bar and talk for a while, but overall i love the service & great def recommend 10/10.",
+        "language": "en"
+      },
+      {
+        "date": "2025-03-13T14:06:54Z",
+        "rating": 5,
+        "text": "Giving this place a 5/5 rating because it's perfect for exactly what it is, and the price-to-quality ratio for Midtown Manhattan is excellent.\n\nWe were looking to have a nice dinner and catch up among friends, and were in the mood for Korean food.  After a glance at other price points for typical Korean BBQ in K-Town, we were starting to look into other cuisines just to avoid spending $60 - $80 per person (minimum, at the slightly nicer / better quality places).\n\nBut then my friend came across this place, we looked at the reviews and we came by to try this out - and I'm super glad we did.  \n\nThe big takeaways:\n\n- This has All You Can Eat options for up to 2 hours, for both Korean BBQ and Hot Pot, for around $35 - $40.  Heck of a deal in Manhattan.\n\n- They have a buffet-style area for fried and breaded shrimp, scallops and popcorn chicken, plus 10-20 sauces, plus fruit and desserts (cake, fudge-sickles and sorbets), all included in the all-you-can-eat deal\n\n- The staff are super friendly and helpful, and give you good pointers on what to order and how long to cook the meats/fish/veggies on your hot-plate for.  They also give you a heads-up when you have 20 more minutes on your 2-hour window to order food.  Our server, Mina, was a great guy.\n\n- The quality of the meat overall is super solid.  There was nothing we didn't enjoy - and most of the food comes pre-seasoned so basically nothing is bland either\n\n- They have a ton of variety - pork belly, beef bulgogi, steak, marinated baby octopus, beef tongue, chicken, mushrooms, sweet potatoes, and about 30 other options\n\nWe tried a bit of everything and we went away full to the brim.  With tip included it ended up being closer to $50 - $55 per person, but again based both on the sheer quantity of food and compared to any other Korean BBQ place in Manhattan, it was well worth it.\n\nWill definitely be my go-to spot for Korean BBQ in NYC moving forward.",
+        "language": "en"
+      },
+      {
+        "date": "2025-03-12T20:12:30Z",
+        "rating": 4,
+        "text": "This was a super cool place. You could choose to do KBBQ or Hot Pot (alternatively you can do both for 5$ more). We did hotpot and there were some pros and cons. \n\nPros- we were SO FULL, big sauce bar, yummy ice cream at the end, really enjoyed the meal \n\nCons- service was virtually nonexistent, had to get up and ask our waiter for things because they neglected to fill our water, we dropped a chopstick and couldn't eat for like 10 minutes until we got up and asked for another. Felt like we were being actively ignored too bc they were overwhelmed. Our iPad also had issues so we lost some time to eat. We also thought we had two hours but they kicked us out sooner than that (gave us a 20 min warning about an hour and 20 min in). Also the only meat we really enjoyed was the brisket- the rest was super thick and hard to chew. \n\nDespite what looks like an overwhelming amount of cons, I would definitely come back here. I wish the meat selection was better, but we ended up just sticking with what we liked and definitely filled up.  Would maybe try the kbbq next time since there are other meat options. For the price- great value !",
+        "language": "en"
+      },
+      {
+        "date": "2025-03-09T05:48:49Z",
+        "rating": 5,
+        "text": "The service is amazing. You feel welcome and served when you enter in. My favorite has to be the tom yum broth from the hotpot. We got the hot pot and bbq but it would be $5 extra. I would definitely come back because you got many options and you just don't want to leave. However, you can't take anything out of to go. But I would love to come back since the food and service is so good!",
+        "language": "en"
+      },
+      {
+        "date": "2025-03-08T00:31:20Z",
+        "rating": 5,
+        "text": "Went for my beast friend birthday it was definitely the best Korean bbq I ever had! All worth it!",
+        "language": "en"
+      },
+      {
+        "date": "2025-02-26T04:15:10Z",
+        "rating": 4,
+        "text": "The food and the service was excellent. Great variety and good quality food! The service was great and fast and the atmosphere was nice.",
+        "language": "en"
+      },
+      {
+        "date": "2025-02-25T00:34:40Z",
+        "rating": 4,
+        "text": "Fairly long wait - 45 minutes - but great service, reasonable price, and good food.  A little bland but there's a full spice bar to make it how you like it.",
+        "language": "en"
+      },
+      {
+        "date": "2025-02-24T00:04:18Z",
+        "rating": 5,
+        "text": "What an awesome surprise!!\n\nIt was cold and snowing, and I was craving hot pot while my family was in the mood for KBBQ. So, I turned to TikTok and came across a lot of videos of KPot, a place that offers both AYCE hot pot and KBBQ! We walked over, and what a great surprise it turned out to be!\n\nThe food was incredible. I was thrilled to see multiple hot pot options, and not just one big pot to share. Each person gets their own individual flavor - such a game changer! The KBBQ was delicious, and the short ribs along with the buffet-style sides were definitely the highlight of the meal.\n\nI've been to many KBBQ places where I'm waving down the waiter for more kimchi, but here, I didn't have to do that thanks to the buffet-style sides. It was so convenient!\n\nMena, our waiter, was amazing. So kind, attentive, and helpful throughout the meal.\n\nThe price was reasonable, and the dinner menu has way more options than the lunch menu. Plus, they have a 2-hour dining time, which I think is very fair.\n\nIf you're staying in Times Square, this place is a must-try!",
+        "language": "en"
+      },
+      {
+        "date": "2025-02-20T21:21:25Z",
+        "rating": 1,
+        "text": "This may have been the worst meal of my life. The quality of the food was so low that I genuinely wouldn't feed it to\nmy dog. The brisket was flavorless, unseasoned, and dry. The bulgogi tasted like watery marinara. The service and ambiance were acceptable, but at the end of the day the food has to be edible!",
+        "language": "en"
+      },
+      {
+        "date": "2025-02-18T21:26:56Z",
+        "rating": 5,
+        "text": "Great spot for birthdays!!! The food is amazing, super accessible in my opinion (lots of options for different dietary restrictions), the waitstaff are friendly and helpful, and the energy inside is nice as the music isn't too loud and the lighting is lovely. Good experience :)",
+        "language": "en"
+      },
+      {
+        "date": "2025-02-17T20:53:00Z",
+        "rating": 5,
+        "text": "Favorite spot for kpot. We come here at least once a month.  Lunch and dinner menus differ. No lamb or crab legs at lunch",
+        "language": "en"
+      },
+      {
+        "date": "2025-02-16T18:56:43Z",
+        "rating": 5,
+        "text": "Loved our server so much! Super helpful with everything and they were quick with handing out the meats. The ambiance is quite nice and calm. There wasn't a lot of people and the wait times are relatively short! Overall 10/10 experience",
+        "language": "en"
+      },
+      {
+        "date": "2025-02-16T02:11:15Z",
+        "rating": 5,
+        "text": "I went on Friday night and it was about a 40 minute wait. The ayce prices are amazing for nyc. I went for dinner so it was about ~$35/pp with a 2 hr time limit. My party did the kbbq + hotpot. The food comes out fast and there's a bar where u can make your own sauce. There's an area with ayce fries and fried chicken and there's unlimited ice cream for when you're done eating. I was a bit sick to my stomach afterwards which just means I definitely got my moneys worth. Come here for sure.",
+        "language": "en"
+      },
+      {
+        "date": "2025-02-15T03:37:01Z",
+        "rating": 1,
+        "text": "The girl working the cashier, 02/14/2025, at 10:20 pm took us off the waitlist while it took us 1h30 min to get there. It was valentines as well. Sucks",
+        "language": "en"
+      },
+      {
+        "date": "2025-02-08T15:42:24Z",
+        "rating": 5,
+        "text": "The food was a 10/10 , delicious. Service 10/10 , The servers are very nice and friendly and are quick to help assist you with whatever you need.I was with 6 people and we all left full just make sure to not over eat cus they will charge you for the extra food that's not eaten . Also this place is always packed on the weekends so always look at the waiting list and go on it before entering. Over all place 10/10",
+        "language": "en"
+      },
+      {
+        "date": "2025-02-08T02:53:28Z",
+        "rating": 5,
+        "text": "Mina was our server for tonight and he did an amazing job on such a busy night (Friday) Always checking up on us if we're doing okay - if we needed more food/water, he was very attentive and we appreciate his hard work! Thank you Mina!",
+        "language": "en"
+      },
+      {
+        "date": "2025-02-02T00:13:11Z",
+        "rating": 5,
+        "text": "This is a big restaurant and you're no packed like sardines. Not sure how they lucked out with scoring such a huge space in the middle of Manhattan.\n\nWe opted for the hotpot buffet. So many options to choose from. The best meat was beef belly because it was very tender compared to the other cuts. For seafood, the scallops were best. For veggies it was the pea shoots. All types of fishballs were very good. Topped it off with free ice cream at the end - the mint was the best.\n\nThis place will be very popular soon\n\nServer was super busy, but attentive at the same time. A+",
+        "language": "en"
+      },
+      {
+        "date": "2025-01-26T17:35:10Z",
+        "rating": 5,
+        "text": "Favorite Korean bbq spot I've tried in a long time. The kimchi was one of the best kimchi we ever tried. Meat quality was also amazing",
+        "language": "en"
+      },
+      {
+        "date": "2025-01-24T22:57:08Z",
+        "rating": 5,
+        "text": "All you can eat for 2 hours. Snack f! Service is great, food quality is great. We went for CNY ( Chinese new year ) celebrating  and did the dinner for  $40. I did the rookie mistake n had some aps n French fries. Was full before the bbq cake our ‍. Definitely go hungry beware you can order as much as you want",
+        "language": "en"
+      },
+      {
+        "date": "2025-01-24T02:00:52Z",
+        "rating": 5,
+        "text": "Went for lunch by myself and was seated after only a 5-6 minute wait. The staff were friendly and the service was efficient. The food was delicious. Since I did the AYCE BBQ option, I was full after having a single order of beef, pork belly, shrimp, and chicken. The sauce bar gives you so many options to season your food. There are also plenty of condiments at the other end. There is a small hot bar with a small selection of fried foods and the usual salad options plus cold salads such as seaweed salad, etc. The decor was modern and the place looked clean and well maintained. Definitely worth the price. I'm planning on trying the AYCE hotpot next.",
+        "language": "en"
+      },
+      {
+        "date": "2025-01-15T02:59:54Z",
+        "rating": 5,
+        "text": "Fresh food. AYCE. You're in control. Choose your broth. Choose your meats and vegetables. Silky tofu was good. Be conservative with the sauces, which you make up yourself at their bar. Less is more in that regard. Soy sauce with scallions is my go to. I made another one from one of their recipes. It was too complicated and ended up being \"too much\" for my own good. I liked that the decor didn't TVs with KPop on a loop. Music was classics/standards. Finally, the server was attentive and using the tablet to order more items was intuitive and gratification was not long in coming. Nothing separates this ACYE Hot Pot from others except the uniform quality and seamlessness of the experience.",
+        "language": "en"
+      },
+      {
+        "date": "2025-01-13T04:19:12Z",
+        "rating": 1,
+        "text": "So for one this place only allowed you to change the soup 1 time and complained about it. The server was very cold and did not care took for ever and this is one bad location. \n\nAlso if one person gets soup everyone has to it is a scam.",
+        "language": "en"
+      },
+      {
+        "date": "2025-01-13T01:06:00Z",
+        "rating": 2,
+        "text": "This branch of KPOT doesn't meet the level of the ones in Brooklyn in terms of food and service .",
+        "language": "en"
+      },
+      {
+        "date": "2025-01-11T04:53:35Z",
+        "rating": 4,
+        "text": "Dinner here is so fairly priced at under $35 and lunch is under $25! The Korean BBQ meats are marinated really well and they oil up the grill nicely so you can cook everything in front of you. I also enjoyed the fried food station where you can get popcorn shrimp, popcorn chicken, fries, and spring rolls.\n\nAs for the hot pot, the broths are solid and the sliced beef and chicken all cook super fast! I love making my own dipping sauce at the sauce station and dipping all my cooked fishballs/seafood/veggies in it. At the end, you can even get ice cream and fresh fruit!",
+        "language": "en"
+      },
+      {
+        "date": "2024-12-29T23:23:03Z",
+        "rating": 5,
+        "text": "Excellent food and service.                       Amazing variety of options for hot pot and bbq",
+        "language": "en"
+      },
+      {
+        "date": "2024-12-27T17:38:38Z",
+        "rating": 5,
+        "text": "Nice new spot for hotpot and kbbq in Hell's Kitchen. Very large and good for big groups although there's usually a wait - you can add yourself to the waitlist via Yelp prior to going in person. Solid sauce bar selection and lots of meat options on the menu too. They also have free sides like fried scallops and dessert. They seem a bit understaffed at times but the servers are very nice and really do try to be as attentive as possible - constantly changing out the kbbq pan or providing more broth for hotpot. \n\nOverall solid local spot and good value for all you can eat price.",
+        "language": "en"
+      },
+      {
+        "date": "2024-12-27T16:24:35Z",
+        "rating": 2,
+        "text": "I went here for hot pot on Christmas Eve with a friend and received great service from start to finish. The ambiance is a lot of artificial light, pop music, and no windows. There were lots of meat, seafood, and vegetarian options and a great buffet with appetizers, sauces, and dessert. The lunch and dinner prices for all-you-can-eat are reasonable especially for Manhattan.\n\nUnfortunately, I got a bad case of food poisoning from my hot pot, likely from some seafood. I highly advise that you make sure your hot pot is extremely hot and wait several minutes to ensure that all meat and seafood is cooked properly and thoroughly.",
+        "language": "en"
+      },
+      {
+        "date": "2024-12-25T07:39:30Z",
+        "rating": 5,
+        "text": "Great variety. Good chilled vibe. Easy location and value for $. Would definitely come back",
+        "language": "en"
+      },
+      {
+        "date": "2024-12-21T18:26:12Z",
+        "rating": 5,
+        "text": "I love this all-you-can-eat hot pot spot! KPot has such a wide variety of ingredients--from meats and seafood to vegetables--and I'm impressed by how fresh everything is. We went on a Friday evening around 6pm and waited about 30 minutes for a table. It's quite popular, so if you can, make a reservation in advance.\n\nI highly recommend trying the Healthy Herbal Soup broth. We chose the hot pot-only option and were really satisfied with our decision. Plus, everyone gets their own individual pot, so you don't have to share. The all-you-can-eat dinner and weekend price is currently $35.99, and I think it's definitely worth it. I'd suggest this place to anyone looking for a great AYCE hot pot experience!",
+        "language": "en"
+      },
+      {
+        "date": "2024-12-19T01:00:50Z",
+        "rating": 5,
+        "text": "Eat here and food was so amazing! Waiters name was Thai his service was so phenomenal!! 100 recommend sitting in his section!",
+        "language": "en"
+      },
+      {
+        "date": "2024-12-09T01:45:48Z",
+        "rating": 5,
+        "text": "Even though KPOT has 4.8 stars, it really should have 5! Absolutely loved my full experience from beginning to end. The staff greeted us as soon as we walked in, were super friendly, and sat us almost immediately. The facility itself was really nice - high ceilings, clean, comfy chairs, and a good amount of space between tables.\nOnce seated, we decided to do hot pot and it's such a great price - $34.99 for all you can eat pp, and there were a plethora of choices from the hot pot to the buffet to the dessert, all inclusive! I got the Tom Kha broth - I like spicy, and this def had some spice - and my partner got the miso broth. What's nice is you order from an iPad and you can keep ordering from there, and the food will come out as it's ready. We got everything from shrimp dumplings to pumpkin to ramen to bok choy to three types of mushrooms...just to name a few. Def don't skip the buffet that they have - they have a myriad of sauces, and even have recipes of your own you can make. I made a peanut sauce that elevated the food.\nWhat was especially outstanding was the service. Our server Daya was so kind and helpful, she made our meal that much better. She was one of the best servers we've had in a long time, and we hope to have her as our waitress in the future!\nSo so excited to come back again soon!",
+        "language": "en"
+      },
+      {
+        "date": "2024-12-08T18:43:00Z",
+        "rating": 4,
+        "text": "The food was good and the appetizer options are great! There's plenty of seating but does fill up quickly. Music will be playing throughout the time so it's a nice place to get dinner and catch up with friends.",
+        "language": "en"
+      },
+      {
+        "date": "2024-12-08T17:46:35Z",
+        "rating": 5,
+        "text": "Excellent service and value during lunch time, especially for midtown manhattan. AYCE hotpot for $27 after tax and tip is practically unheard of in the city (and even new jersey!)\n\nGreat for large groups and as a party activity - it's a big space with a fun, futuristic/arcade-like interior. \n\nThe service is prompt and so friendly, the hot food bar items were all crispy, and you even get a decent selection of sweet treats (different ice creams, fruits, mousse cakes) included in the buffet. \n\nCouldn't recommend this spot enough. All my friends and I were scratching our heads wondering how this place makes money.",
+        "language": "en"
+      },
+      {
+        "date": "2024-12-05T03:13:44Z",
+        "rating": 5,
+        "text": "Amazing service. All banchan is self serve which we thought was amazing. Our server DJ was fantastic. Good quality meats.",
+        "language": "en"
+      },
+      {
+        "date": "2024-11-12T03:43:39Z",
+        "rating": 4,
+        "text": "This was a really fun experience.  Our host brought us to the table, we only opted for bbq. We were shown the buffet to grab extras and make sauces and were let loose!\nAll of the food was fresh and quite tasty.  They didn't have their liquor license when we went but that was ok because we both had delicious boba teas. I would definitely go back.  Great for big groups and I felt like it was fairly priced for AYCE.",
+        "language": "en"
+      },
+      {
+        "date": "2024-10-30T14:57:57Z",
+        "rating": 4,
+        "text": "Great staff, they were very nice! \nThis was my first time, the food was delicious and very fun experience!",
+        "language": "en"
+      },
+      {
+        "date": "2024-10-23T18:41:19Z",
+        "rating": 4,
+        "text": "Went on a busy Friday night but the wait wasn't too bad since the space is huge. The servers are all so sweet and we had a fantastic time! \n\nFor the KBBQ part, especially loved the galbi/short ribs. For the hotpot park, the beef tongue was super yummy. They have a wide selection and the broths are pretty yummy too. Also love that they have some cold/hot foods on the side, buffet style as well. \n\nDon't forget about the ice creams - was surprised by how good the Hersheys cup ice creams were. Yummm",
+        "language": "en"
+      }
+    ],
+    "url": "https://www.yelp.com/biz/kpot-korean-bbq-and-hot-pot-new-york-3",
+    "fetched_at": "2026-11-09T11:35:52.754Z",
+    "error": null
+  }
+]

@@ -3,20 +3,21 @@ import { readFile } from 'node:fs/promises';
 import { setTimeout as delay } from 'node:timers/promises';
 import {conciseError} from './errors.js';
 
-export type ApifyResult={status:string;actor:string|null;run_id:string|null;dataset_id:string|null;collected_at:string;note:string;items:unknown[];truncated:boolean;target:unknown};
+export type ApifyResult={status:string;actor:string|null;run_id:string|null;dataset_id:string|null;collected_at:string;note:string;items:unknown[];truncated:boolean;target:unknown;usage_usd?:number};
 export type Context={name:string;address:string;website_url:string;listing_url:string;city?:string;place_id?:string;queries?:string;search_url?:string};
-type Entry={actor:string|null;input?:unknown;reason?:string;listing_actor?:string;listing_input?:unknown};
+export type Entry={actor:string|null;input?:unknown;reason?:string;listing_actor?:string;listing_input?:unknown};
 export function expandInput(input:unknown,context:Context):unknown {
  if(typeof input==='string')return input.replace(/\{\{(name|address|website_url|listing_url|city|queries|search_url)\}\}/g,(_,key:keyof Context)=>context[key]||'');
  if(Array.isArray(input))return input.map(v=>expandInput(v,context));
  if(input&&typeof input==='object')return Object.fromEntries(Object.entries(input).map(([k,v])=>[k,expandInput(v,context)]));
  return input;
 }
-export async function collectApify(platform:string,target:Context,signal?:AbortSignal,transport:typeof fetch=fetch):Promise<ApifyResult> {
+export type ApifyOptions={entry?:Entry;timeoutMs?:number;actorTimeoutSecs?:number;maxChargeUsd?:number;onStarted?:(runId:string)=>Promise<void>};
+export async function collectApify(platform:string,target:Context,signal?:AbortSignal,transport:typeof fetch=fetch,options:ApifyOptions={}):Promise<ApifyResult> {
  const result:ApifyResult={status:'skipped',actor:null,run_id:null,dataset_id:null,collected_at:new Date().toISOString(),note:'',items:[],truncated:false,target};
  if(process.env.APIFY_ENABLED==='false'||!process.env.APIFY_TOKEN){result.note='Apify disabled or APIFY_TOKEN not configured.';return result;}
  let config:Record<string,Entry>;
- try{config=JSON.parse(await readFile(process.env.APIFY_CONFIG_FILE||'config/apify.json','utf8'));}
+ try{config=options.entry?{[platform]:options.entry}:JSON.parse(await readFile(process.env.APIFY_CONFIG_FILE||'config/apify.json','utf8'));}
  catch{result.status='error';result.note='Cannot read Apify config JSON.';return result;}
  let entry=config[platform];if(!entry){result.note='No Actor configured for this platform.';return result;}
  if(target.listing_url&&entry.listing_input)entry={...entry,actor:entry.listing_actor||entry.actor,input:entry.listing_input};
@@ -25,7 +26,7 @@ export async function collectApify(platform:string,target:Context,signal?:AbortS
  if(!actor||!/^[a-zA-Z0-9_-]+(?:~[a-zA-Z0-9_-]+)?$/.test(actor)){result.status='error';result.note='Invalid Actor ID.';return result;}
  result.actor=entry.actor;
  if(JSON.stringify(entry.input||{}).includes('{{listing_url}}')&&!target.listing_url){result.note='No branch listing URL discovered; Actor not started.';return result;}
- const timeout=AbortSignal.timeout(240000),combined=signal?AbortSignal.any([signal,timeout]):timeout;
+ const timeout=AbortSignal.timeout(options.timeoutMs??240000),combined=signal?AbortSignal.any([signal,timeout]):timeout;
  const api=async(path:string,method='GET',body?:unknown,cleanup=false)=>{
   const requestSignal=cleanup?AbortSignal.timeout(10000):combined;
   const attempts=method==='GET'?3:1;
@@ -64,7 +65,7 @@ export async function collectApify(platform:string,target:Context,signal?:AbortS
  combined.addEventListener('abort',abortRemote,{once:true});
  try{
   combined.throwIfAborted();
-  const budget=Number(process.env.APIFY_MAX_CHARGE_USD||0.5);
+  const budget=options.maxChargeUsd??Number(process.env.APIFY_MAX_CHARGE_USD||0.5);
   if(!Number.isFinite(budget)||budget<=0)throw new Error('Invalid APIFY_MAX_CHARGE_USD.');
   const parts=target.address?.split(',')||[];
   const context={...target,city:target.city||(parts.length>=3?parts[parts.length-2].trim():'')};
@@ -74,8 +75,9 @@ export async function collectApify(platform:string,target:Context,signal?:AbortS
    : platform==='google_maps'&&target.listing_url
     ? {...entry.input as object,startUrls:[{url:target.listing_url}],searchStringsArray:undefined}
     : entry.input;
-  const started=await api(`acts/${actor}/runs?timeout=180&maxTotalChargeUsd=${budget}`,'POST',expandInput(actorInput,context),true);
+  const started=await api(`acts/${actor}/runs?timeout=${options.actorTimeoutSecs??180}&maxTotalChargeUsd=${budget}`,'POST',expandInput(actorInput,context),true);
   result.run_id=started.data.id;let run=started.data;
+  await options.onStarted?.(result.run_id!);
   if(!['READY','RUNNING','TIMING-OUT','ABORTING'].includes(run.status))completed=true;
   if(combined.aborted)abortRemote();
   combined.throwIfAborted();
@@ -83,6 +85,7 @@ export async function collectApify(platform:string,target:Context,signal?:AbortS
    await delay(2000,undefined,{signal:combined});run=(await api(`actor-runs/${encodeURIComponent(result.run_id!)}`)).data;
   }
   completed=true;result.dataset_id=run.defaultDatasetId||null;
+  if(typeof run.usageTotalUsd==='number'&&Number.isFinite(run.usageTotalUsd))result.usage_usd=run.usageTotalUsd;
   if(run.status!=='SUCCEEDED')throw new Error(`Actor ended with ${run.status}.`);
   if(!result.dataset_id)throw new Error('Actor returned no dataset.');
   // Fetch every field; paginate records without clean/fields/omit projections.

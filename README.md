@@ -87,3 +87,7 @@ Batch collection, immutable snapshots and week-over-week reports are available v
 ## Menus, prices and hours (issue #4)
 
 `npm run collect:details -- --stores stores.json --store STORE_ID` produces independent channel/menu/price/hours files. See [menu audit](backend/menu-audit/README.md) for source verification, OCR configuration, output and current acceptance limits. Live runs use Apify discovery; offline tests do not establish real seven-channel coverage.
+
+## Review text (issue #14)
+
+Collect the latest Google/Yelp reviews using an explicit six-store input: `npm run collect:reviews -- --stores samples/step1-reviews/stores.json`. The separate review module preserves original texts, saves reusable Actor results and tracks the US$5 task budget. See [review collection](backend/reviews/README.md) for cache-only replay, output fields and live acceptance requirements.

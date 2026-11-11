@@ -91,3 +91,7 @@ Batch collection, immutable snapshots and week-over-week reports are available v
 ## Review text (issue #14)
 
 Collect the latest Google/Yelp reviews using an explicit six-store input: `npm run collect:reviews -- --stores samples/step1-reviews/stores.json`. The separate review module preserves original texts, saves reusable Actor results and tracks the US$5 task budget. See [review collection](backend/reviews/README.md) for cache-only replay, output fields and live acceptance requirements.
+
+## Media lists (issue #15)
+
+`npm run verify:media` validates the delivered nine-source JSON and six-branch membership table without network or private caches (run `npm run build` first). The samples have 105 entries, 22 descriptions and 83 explicitly null descriptions. User-saved Reddit coverage accounts for 47 comment nodes, including one deleted node. `collect:media` supports direct caches, labelled index fallbacks and user-saved HTML; strict full-data acceptance remains partial. See [media collection](backend/media/README.md) for reproduction, saved-file import and known gaps.

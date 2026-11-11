@@ -1,0 +1,117 @@
+[
+  {
+    "source_id": "infatuation-hot-pot",
+    "path": "infatuation-hot-pot.html",
+    "sha256": "e2c0effc5422a75bc9456b4d4825848fad2f5f3b43159f483680253f5f066957"
+  },
+  {
+    "source_id": "infatuation-hot-pot",
+    "path": "infatuation-hot-pot.json",
+    "sha256": "2a94ebeb244951f5eb47d1f81fc8035461cde65c7381fcbedcc4e91c2a223318"
+  },
+  {
+    "source_id": "eater-hot-pot",
+    "path": "eater-hot-pot.html",
+    "sha256": "c5805971eff8a8b2bcbade7eb01176061ee1a12d1c6d68e02c8d7200f6609060"
+  },
+  {
+    "source_id": "eater-hot-pot",
+    "path": "eater-hot-pot.json",
+    "sha256": "f3367987795d63c41a961012b40d534cef4ae700ff3a15be54de9b715152b3de"
+  },
+  {
+    "source_id": "infatuation-hot-pot-directory",
+    "path": "infatuation-hot-pot-directory.html",
+    "sha256": "89a051fc962ffb299754f6321690c1e23c0845f83d3d10582ce9ce1872e847ce"
+  },
+  {
+    "source_id": "infatuation-hot-pot-directory",
+    "path": "infatuation-hot-pot-directory.json",
+    "sha256": "bf39b95b12a6c1874d9c2c6cbad65efeaf40d40835fd9853208ad6af56ffdc0f"
+  },
+  {
+    "source_id": "infatuation-dim-sum",
+    "path": "infatuation-dim-sum.html",
+    "sha256": "9ad8d6adf6180820ea4b395baa20e9eefef96460cd381a97178b586054fe09d6"
+  },
+  {
+    "source_id": "infatuation-dim-sum",
+    "path": "infatuation-dim-sum.json",
+    "sha256": "485833c7763aa539753d2eff8a8f8452734769f8f17dc81e7534fcdcbdebc9eb"
+  },
+  {
+    "source_id": "infatuation-ayce",
+    "path": "infatuation-ayce.html",
+    "sha256": "4279e5e788828fdeda3056e3e16e48f513ec3b50414b82d0771c32a420218f5f"
+  },
+  {
+    "source_id": "infatuation-ayce",
+    "path": "infatuation-ayce.json",
+    "sha256": "78988c7d8e93be272650db747991ebed807fa26ce8321fdfd6a2a16c5831715a"
+  },
+  {
+    "source_id": "eater-ayce",
+    "path": "eater-ayce.html",
+    "sha256": "db2fb7fed53060e586e71007e28dddf1491dbf7b2f931971f4e790ea4d587099"
+  },
+  {
+    "source_id": "eater-ayce",
+    "path": "eater-ayce.json",
+    "sha256": "29fcaf83fdfd467ac32bdc2e621cf7ab58e4e0385961d883a204f549f0ffaea6"
+  },
+  {
+    "source_id": "reddit-hot-pot",
+    "path": "reddit-hot-pot.web.txt",
+    "sha256": "a0e883ae0fa1962e8ac4f1c8607d2e3adb8aa7c8a2281f887bd26da98a69d149"
+  },
+  {
+    "source_id": "reddit-hot-pot",
+    "path": "reddit-hot-pot.web.json",
+    "sha256": "2225b07521b73cc69837d505ab18c963843477d66816b998c4b774a6c51bb568"
+  },
+  {
+    "source_id": "timeout-dim-sum",
+    "path": "timeout-dim-sum.html",
+    "sha256": "31dde36f3d5debbc5be0bfd8efe2439f15a61f2044825cbd4528334098e876ae"
+  },
+  {
+    "source_id": "timeout-dim-sum",
+    "path": "timeout-dim-sum.json",
+    "sha256": "93892bc728fa10523f0db076869333e208c007181e48efa12631e7310a8f6aea"
+  },
+  {
+    "source_id": "michelin-dim-sum",
+    "path": "michelin-dim-sum.html",
+    "sha256": "d3c8812da1f999a3741de5b0dd22aabbd0ea50fdce47be465e61851c8e0bd422"
+  },
+  {
+    "source_id": "michelin-dim-sum",
+    "path": "michelin-dim-sum.json",
+    "sha256": "1eb517334e8c181e702f3733d1d10146406934d22726577fd66684485c917a99"
+  },
+  {
+    "source_id": "michelin-dim-sum",
+    "path": "michelin-dim-sum.web.txt",
+    "sha256": "6c4081a030d20c177b17040f1fe5400b218b72569169db8b23ad08d6bba23222"
+  },
+  {
+    "source_id": "michelin-dim-sum",
+    "path": "michelin-dim-sum.web.json",
+    "sha256": "cd595b50f29865b8651f50b87cc5c2f0bdb85e95065169b7a414e8c8a5f99cb9"
+  },
+  {
+    "source_id": "infatuation-hot-pot",
+    "path": "user-supplied/infatuation-hot-pot.html",
+    "sha256": "0270aebd2730a133798e985d890507d28859f47921858500aef56c1c5150f822"
+  },
+  {
+    "source_id": "reddit-hot-pot",
+    "path": "user-supplied/reddit-hot-pot.html",
+    "sha256": "4b1204e22e2318dff928fad121c9893e109994a9c9aea5556f86805daee7c87c"
+  },
+  {
+    "source_id": "saved-page-manifest",
+    "path": "user-supplied/manifest.json",
+    "sha256": "34ad6fe435b7b237519cc886a74c53e7888941277178206ed0c8f05315bdb282"
+  }
+]

@@ -1,0 +1,452 @@
+[
+  {
+    "url": "https://ny.eater.com/maps/best-hot-pot-restaurants-nyc",
+    "restaurants": [
+      {
+        "rank": 1,
+        "name": "99 Favor Taste",
+        "blurb": ""
+      },
+      {
+        "rank": 2,
+        "name": "Hometown Hotpot & BBQ",
+        "blurb": ""
+      },
+      {
+        "rank": 3,
+        "name": "Da Long Yi Hot Pot",
+        "blurb": ""
+      },
+      {
+        "rank": 4,
+        "name": "Hou Yi Hot Pot",
+        "blurb": ""
+      },
+      {
+        "rank": 5,
+        "name": "Shabushabu Mayumon",
+        "blurb": ""
+      },
+      {
+        "rank": 6,
+        "name": "886",
+        "blurb": ""
+      },
+      {
+        "rank": 7,
+        "name": "The Dolar Shop Manhattan",
+        "blurb": ""
+      },
+      {
+        "rank": 8,
+        "name": "Kimura",
+        "blurb": ""
+      },
+      {
+        "rank": 9,
+        "name": "Shabu-Tatsu",
+        "blurb": ""
+      },
+      {
+        "rank": 10,
+        "name": "Sik Gaek",
+        "blurb": ""
+      },
+      {
+        "rank": 11,
+        "name": "Jaew Hon",
+        "blurb": ""
+      },
+      {
+        "rank": 12,
+        "name": "Lao Jie Food",
+        "blurb": ""
+      },
+      {
+        "rank": 13,
+        "name": "Xiang Hotpot",
+        "blurb": ""
+      },
+      {
+        "rank": 14,
+        "name": "Chong Qing Lao Zao",
+        "blurb": ""
+      },
+      {
+        "rank": 15,
+        "name": "Little Sheep Mongolian Hot Pot, Flushing 小肥羊",
+        "blurb": ""
+      },
+      {
+        "rank": 16,
+        "name": "Haidilao Hotpot",
+        "blurb": ""
+      },
+      {
+        "rank": 17,
+        "name": "Liuyishou Hotpot (Flushing) 刘一手火锅",
+        "blurb": ""
+      },
+      {
+        "rank": 18,
+        "name": "Lao Shen Hot Pot",
+        "blurb": ""
+      }
+    ]
+  },
+  {
+    "url": "https://www.theinfatuation.com/new-york/cuisines/hot-pot",
+    "restaurants": [
+      {
+        "rank": 1,
+        "name": "YGF Malatang",
+        "blurb": ""
+      },
+      {
+        "rank": 2,
+        "name": "The Dolar Shop",
+        "blurb": ""
+      },
+      {
+        "rank": 3,
+        "name": "99 Favor Taste",
+        "blurb": ""
+      },
+      {
+        "rank": 4,
+        "name": "Three Hot Pot",
+        "blurb": ""
+      },
+      {
+        "rank": 5,
+        "name": "Da Long Yi",
+        "blurb": ""
+      },
+      {
+        "rank": 6,
+        "name": "Chong Qing Wharf",
+        "blurb": ""
+      }
+    ]
+  },
+  {
+    "url": "https://www.theinfatuation.com/new-york/guides/best-dim-sum-nyc",
+    "restaurants": [
+      {
+        "rank": 1,
+        "name": "100 Feast & Lounge",
+        "blurb": ""
+      },
+      {
+        "rank": 2,
+        "name": "Asian Jewels Seafood Restaurant",
+        "blurb": ""
+      },
+      {
+        "rank": 3,
+        "name": "House Of Joy",
+        "blurb": ""
+      },
+      {
+        "rank": 4,
+        "name": "Golden Lake Pavilion",
+        "blurb": ""
+      },
+      {
+        "rank": 5,
+        "name": "Dim Sum Palace",
+        "blurb": ""
+      },
+      {
+        "rank": 6,
+        "name": "Royal Seafood Restaurant",
+        "blurb": ""
+      },
+      {
+        "rank": 7,
+        "name": "Ping's Seafood",
+        "blurb": ""
+      },
+      {
+        "rank": 8,
+        "name": "Golden Unicorn",
+        "blurb": ""
+      },
+      {
+        "rank": 9,
+        "name": "East Harbor Seafood Palace",
+        "blurb": ""
+      },
+      {
+        "rank": 10,
+        "name": "Shanghai You Garden",
+        "blurb": ""
+      },
+      {
+        "rank": 11,
+        "name": "Bamboo Garden Restaurant",
+        "blurb": ""
+      },
+      {
+        "rank": 12,
+        "name": "Mr. Bun",
+        "blurb": ""
+      },
+      {
+        "rank": 13,
+        "name": "Nom Wah Tea Parlor",
+        "blurb": ""
+      },
+      {
+        "rank": 14,
+        "name": "Jing Fong",
+        "blurb": ""
+      },
+      {
+        "rank": 15,
+        "name": "Tim Ho Wan",
+        "blurb": ""
+      }
+    ]
+  },
+  {
+    "url": "https://www.theinfatuation.com/new-york/guides/best-all-you-can-eat-new-york",
+    "restaurants": [
+      {
+        "rank": 1,
+        "name": "SourAji",
+        "blurb": ""
+      },
+      {
+        "rank": 2,
+        "name": "Hometown Hotpot & BBQ",
+        "blurb": ""
+      },
+      {
+        "rank": 3,
+        "name": "Lakruwana",
+        "blurb": ""
+      },
+      {
+        "rank": 4,
+        "name": "Let’s Meat",
+        "blurb": ""
+      },
+      {
+        "rank": 5,
+        "name": "Churrascaria Plataforma",
+        "blurb": ""
+      },
+      {
+        "rank": 6,
+        "name": "Akino",
+        "blurb": ""
+      },
+      {
+        "rank": 7,
+        "name": "Xi Yue Hui Seafood Hot Pot",
+        "blurb": ""
+      },
+      {
+        "rank": 8,
+        "name": "Hou Yi Hot Pot",
+        "blurb": ""
+      },
+      {
+        "rank": 9,
+        "name": "Chong Qing Wharf",
+        "blurb": ""
+      },
+      {
+        "rank": 10,
+        "name": "Kikoo",
+        "blurb": ""
+      }
+    ]
+  },
+  {
+    "url": "https://ny.eater.com/maps/best-all-you-can-eat-restaurants-nyc",
+    "restaurants": [
+      {
+        "rank": 1,
+        "name": "Hibachi Grill and Supreme Buffet",
+        "blurb": ""
+      },
+      {
+        "rank": 2,
+        "name": "Churrascaria Plataforma",
+        "blurb": ""
+      },
+      {
+        "rank": 3,
+        "name": "Becco",
+        "blurb": ""
+      },
+      {
+        "rank": 4,
+        "name": "Jongro BBQ Market",
+        "blurb": ""
+      },
+      {
+        "rank": 5,
+        "name": "Witch Topokki",
+        "blurb": ""
+      },
+      {
+        "rank": 6,
+        "name": "Let’s Meat BBQ",
+        "blurb": ""
+      },
+      {
+        "rank": 7,
+        "name": "Wonder Pig K-BBQ",
+        "blurb": ""
+      },
+      {
+        "rank": 8,
+        "name": "Na Rath",
+        "blurb": ""
+      },
+      {
+        "rank": 9,
+        "name": "Good Time Country Buffet",
+        "blurb": ""
+      },
+      {
+        "rank": 10,
+        "name": "Boon Dee Moo Ka Ta Thai B.B.Q.",
+        "blurb": ""
+      },
+      {
+        "rank": 11,
+        "name": "99 Favor Taste",
+        "blurb": ""
+      },
+      {
+        "rank": 12,
+        "name": "Rakuzen AYCE Sushi",
+        "blurb": ""
+      },
+      {
+        "rank": 13,
+        "name": "Lakruwana Restaurant",
+        "blurb": ""
+      },
+      {
+        "rank": 14,
+        "name": "Crab House Brooklyn",
+        "blurb": ""
+      }
+    ]
+  },
+  {
+    "url": "https://www.timeout.com/newyork/restaurants/best-dim-sum-restaurants-in-new-york-city",
+    "restaurants": [
+      {
+        "rank": 1,
+        "name": "House of Joy",
+        "blurb": ""
+      },
+      {
+        "rank": 2,
+        "name": "Dim Sum Sam",
+        "blurb": ""
+      },
+      {
+        "rank": 3,
+        "name": "Tim Ho Wan",
+        "blurb": ""
+      },
+      {
+        "rank": 4,
+        "name": "RedFarm",
+        "blurb": ""
+      },
+      {
+        "rank": 5,
+        "name": "Asian Jewels Seafood",
+        "blurb": ""
+      },
+      {
+        "rank": 6,
+        "name": "Bamboo Garden",
+        "blurb": ""
+      },
+      {
+        "rank": 7,
+        "name": "Awesum Dimsum",
+        "blurb": ""
+      },
+      {
+        "rank": 8,
+        "name": "Pacificana/Pacific Palace",
+        "blurb": ""
+      },
+      {
+        "rank": 9,
+        "name": "Dim Sum Go Go",
+        "blurb": ""
+      },
+      {
+        "rank": 10,
+        "name": "Dim Sum Palace",
+        "blurb": ""
+      },
+      {
+        "rank": 11,
+        "name": "Ping's Seafood",
+        "blurb": ""
+      },
+      {
+        "rank": 12,
+        "name": "Jing Fong",
+        "blurb": ""
+      },
+      {
+        "rank": 13,
+        "name": "Yin Ji Chang Fen",
+        "blurb": ""
+      },
+      {
+        "rank": 14,
+        "name": "Nom Wah Tea Parlor",
+        "blurb": ""
+      },
+      {
+        "rank": 15,
+        "name": "East Harbor Seafood Palace",
+        "blurb": ""
+      },
+      {
+        "rank": 16,
+        "name": "Buddha Bodai",
+        "blurb": ""
+      },
+      {
+        "rank": 17,
+        "name": "Golden Unicorn Restaurant",
+        "blurb": ""
+      }
+    ]
+  },
+  {
+    "url": "https://guide.michelin.com/en/best-of/best-dim-sum-nyc",
+    "restaurants": [
+      {
+        "rank": 1,
+        "name": "Asian Jewels",
+        "blurb": ""
+      },
+      {
+        "rank": 2,
+        "name": "Dim Sum Go Go",
+        "blurb": ""
+      },
+      {
+        "rank": 3,
+        "name": "East Harbor Seafood Palace",
+        "blurb": ""
+      }
+    ]
+  }
+]

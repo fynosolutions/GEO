@@ -1,0 +1,73 @@
+{
+  "attempts": [
+    {
+      "source_id": "reddit-hot-pot",
+      "purpose": "Check public thread JSON for collapsed reply coverage",
+      "url": "https://www.reddit.com/r/FoodNYC/comments/1wmlr4l/best_all_you_can_eat_hot_pot_in_manhattan_or_lic/.json?limit=500&raw_json=1",
+      "fetched_at": "2026-11-11T08:53:20.388Z",
+      "status": null,
+      "error": "fetch failed"
+    },
+    {
+      "source_id": "michelin-dim-sum",
+      "purpose": "Public HTTP access recheck",
+      "url": "https://guide.michelin.com/en/best-of/best-dim-sum-nyc",
+      "fetched_at": "2026-11-11T09:14:20.352Z",
+      "status": 202,
+      "final_url": "https://guide.michelin.com/en/best-of/best-dim-sum-nyc",
+      "content_type": "text/html; charset=UTF-8"
+    },
+    {
+      "source_id": "reddit-hot-pot",
+      "purpose": "Public HTTP access recheck",
+      "url": "https://www.reddit.com/r/FoodNYC/comments/1wmlr4l/best_all_you_can_eat_hot_pot_in_manhattan_or_lic/.json?limit=500&raw_json=1",
+      "fetched_at": "2026-11-11T09:14:21.670Z",
+      "status": 403,
+      "final_url": "https://www.reddit.com/r/FoodNYC/comments/1wmlr4l/best_all_you_can_eat_hot_pot_in_manhattan_or_lic/.json?limit=500&raw_json=1",
+      "content_type": "text/html"
+    },
+    {
+      "source_id": "michelin-dim-sum",
+      "purpose": "Normal browser DOM verification; three displayed cards verified",
+      "url": "https://guide.michelin.com/en/best-of/best-dim-sum-nyc",
+      "fetched_at": "2026-11-11T09:21:13.971Z",
+      "retrieval": "browser_dom",
+      "rendered": true,
+      "status": null
+    },
+    {
+      "source_id": "reddit-hot-pot",
+      "url": "https://www.reddit.com/r/FoodNYC/comments/1wmlr4l/best_all_you_can_eat_hot_pot_in_manhattan_or_lic/",
+      "purpose": "Normal public browser page; expanded replies unavailable",
+      "observed_at": "2026-11-11T09:22:57.802Z",
+      "retrieval": "browser_navigation",
+      "status": 403,
+      "snapshot": ".playwright-cli/page-2026-11-11T09-22-57-802Z.yml"
+    },
+    {
+      "source_id": "infatuation-hot-pot",
+      "purpose": "User-provided saved source HTML supersedes earlier index/access failure for this capture",
+      "retrieval": "user_saved_html",
+      "saved_at": "2026-11-11T13:57:25.714Z",
+      "sha256": "0270aebd2730a133798e985d890507d28859f47921858500aef56c1c5150f822"
+    },
+    {
+      "source_id": "reddit-hot-pot",
+      "purpose": "User-provided saved source HTML supersedes earlier index/access failure for this capture",
+      "retrieval": "user_saved_html",
+      "saved_at": "2026-11-11T14:33:37.842Z",
+      "sha256": "4b1204e22e2318dff928fad121c9893e109994a9c9aea5556f86805daee7c87c",
+      "comment_coverage": {
+        "declared": 47,
+        "saved": 47,
+        "readable": 46,
+        "deleted": 1,
+        "unavailable": 0,
+        "unique_ids": true,
+        "reviewed": true
+      }
+    }
+  ],
+  "apify_runs": 0,
+  "apify_cost_usd": 0
+}

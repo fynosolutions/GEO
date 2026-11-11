@@ -13,3 +13,5 @@ See [the contract](../docs/API_CONTRACTS.md) and [Actor setup](../docs/APIFY_SET
 The current input supports optional platforms. Google identity resolution is mandatory; only selected platforms are queried/emitted afterwards. matched:false records contain no unconfirmed business data. Source values are unchanged on successful matches.
 
 Yelp verifies at most three distinct listing candidates per target (one attempt and two retries). It can use one supplemental Apify SERP search for more candidate URLs when needed; that search keeps the full Google-resolved name/address, and the target identity is never replaced by a different branch. The Yelp Actor only receives business URLs: its native and search-URL modes were observed rewriting US searches to the UK domain and failing. Duplicate URL variants do not count as new candidates.
+
+`media/public.ts` exposes the issue #15 source manifest and article parsers. `media/cli.ts` provides cache-first HTTP capture and offline replay, separate from listing collection. See [scope and current acceptance](media/README.md).

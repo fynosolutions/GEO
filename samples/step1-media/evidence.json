@@ -1,0 +1,307 @@
+{
+  "apify_runs": 0,
+  "apify_cost_usd": 0,
+  "descriptions_available": 22,
+  "sources": [
+    {
+      "source_id": "infatuation-hot-pot",
+      "fetched_at": "2026-11-11T13:57:25.714Z",
+      "source_kind": "user_saved_html",
+      "status": "complete",
+      "expected_count": 10,
+      "extracted_count": 10,
+      "count_verified": true,
+      "issues": [
+        "Conflicting updated dates; no value selected.",
+        "Descriptions extracted from the user-provided saved HTML venue paragraphs; wording and paragraph order retained."
+      ],
+      "dates": [
+        {
+          "field": "published",
+          "value": "2022-01-21T02:01:12.245Z",
+          "source": "article:published_time"
+        },
+        {
+          "field": "published",
+          "value": "2022-01-21T02:01:12.245Z",
+          "source": "JSON-LD Article"
+        },
+        {
+          "field": "updated",
+          "value": "2024-10-04T15:00:00.000Z",
+          "source": "article:modified_time"
+        },
+        {
+          "field": "updated",
+          "value": "2026-06-12T21:16:50.393Z",
+          "source": "JSON-LD Article"
+        }
+      ],
+      "user_file_sha256": "0270aebd2730a133798e985d890507d28859f47921858500aef56c1c5150f822"
+    },
+    {
+      "source_id": "eater-hot-pot",
+      "fetched_at": "2026-11-10T06:24:08.322Z",
+      "source_kind": "direct_html",
+      "status": "partial",
+      "expected_count": 18,
+      "extracted_count": 18,
+      "count_verified": true,
+      "issues": [
+        "Full copyrighted descriptions are not included in this metadata export; blurb remains null."
+      ],
+      "dates": [
+        {
+          "field": "published",
+          "value": "2018-11-30T17:27:53+00:00",
+          "source": "article:published_time"
+        },
+        {
+          "field": "updated",
+          "value": "2022-02-28T22:16:19+00:00",
+          "source": "article:modified_time"
+        }
+      ]
+    },
+    {
+      "source_id": "infatuation-hot-pot-directory",
+      "fetched_at": "2026-11-10T06:38:20.196Z",
+      "source_kind": "direct_html",
+      "status": "partial",
+      "expected_count": 6,
+      "extracted_count": 6,
+      "count_verified": true,
+      "issues": [
+        "Cuisine directory, not an editorial ranking. Guide cards are excluded. Addresses use the page embedded restaurant fields.",
+        "Full copyrighted descriptions are not included in this metadata export; blurb remains null."
+      ],
+      "dates": []
+    },
+    {
+      "source_id": "infatuation-dim-sum",
+      "fetched_at": "2026-11-10T06:38:22.096Z",
+      "source_kind": "direct_html",
+      "status": "partial",
+      "expected_count": 15,
+      "extracted_count": 15,
+      "count_verified": true,
+      "issues": [
+        "Conflicting updated dates; no value selected.",
+        "Full copyrighted descriptions are not included in this metadata export; blurb remains null."
+      ],
+      "dates": [
+        {
+          "field": "published",
+          "value": "2023-05-16T19:48:49.409Z",
+          "source": "article:published_time"
+        },
+        {
+          "field": "published",
+          "value": "2023-05-16T19:48:49.409Z",
+          "source": "JSON-LD Article"
+        },
+        {
+          "field": "updated",
+          "value": "2026-07-22T15:00:00.000Z",
+          "source": "article:modified_time"
+        },
+        {
+          "field": "updated",
+          "value": "2026-07-22T19:54:01.420Z",
+          "source": "JSON-LD Article"
+        }
+      ]
+    },
+    {
+      "source_id": "infatuation-ayce",
+      "fetched_at": "2026-11-10T06:38:24.042Z",
+      "source_kind": "direct_html",
+      "status": "partial",
+      "expected_count": 10,
+      "extracted_count": 10,
+      "count_verified": true,
+      "issues": [
+        "Conflicting updated dates; no value selected.",
+        "Full copyrighted descriptions are not included in this metadata export; blurb remains null."
+      ],
+      "dates": [
+        {
+          "field": "published",
+          "value": "2024-02-23T20:51:09.596Z",
+          "source": "article:published_time"
+        },
+        {
+          "field": "published",
+          "value": "2024-02-23T20:51:09.596Z",
+          "source": "JSON-LD Article"
+        },
+        {
+          "field": "updated",
+          "value": "2025-09-16T15:00:00.000Z",
+          "source": "article:modified_time"
+        },
+        {
+          "field": "updated",
+          "value": "2026-06-12T20:57:10.782Z",
+          "source": "JSON-LD Article"
+        }
+      ]
+    },
+    {
+      "source_id": "eater-ayce",
+      "fetched_at": "2026-11-10T06:38:24.974Z",
+      "source_kind": "direct_html",
+      "status": "partial",
+      "expected_count": 14,
+      "extracted_count": 14,
+      "count_verified": true,
+      "issues": [
+        "Full copyrighted descriptions are not included in this metadata export; blurb remains null."
+      ],
+      "dates": [
+        {
+          "field": "published",
+          "value": "2023-02-10T18:05:11+00:00",
+          "source": "article:published_time"
+        },
+        {
+          "field": "updated",
+          "value": "2025-02-28T19:47:43+00:00",
+          "source": "article:modified_time"
+        }
+      ]
+    },
+    {
+      "source_id": "reddit-hot-pot",
+      "fetched_at": "2026-11-11T14:33:37.842Z",
+      "status": "complete",
+      "expected_count": null,
+      "extracted_count": 12,
+      "count_verified": true,
+      "source_kind": "user_saved_html",
+      "user_file_sha256": "4b1204e22e2318dff928fad121c9893e109994a9c9aea5556f86805daee7c87c",
+      "issues": [
+        "User-provided thread HTML: 47 saved comment nodes, 46 readable, 1 deleted/removed, 0 unexplained. Deleted text is not recovered.",
+        "Community mentions, not an editorial ranking. First occurrence in the saved Best-sort thread determines order; original spellings and paragraphs retained. No full branch addresses are inferred.",
+        "Readable saved comments reviewed for restaurant mentions; coverage applies to this capture only, not future comments."
+      ],
+      "dates": [
+        {
+          "field": "published",
+          "value": "2026-09-21T18:52:14.705000+0000",
+          "source": "saved post created-timestamp"
+        }
+      ],
+      "mentions": [
+        {
+          "rank": 1,
+          "context": "lao jie in the bowery or sunset park"
+        },
+        {
+          "rank": 2,
+          "context": "Best deal is 99 favor taste"
+        },
+        {
+          "rank": 3,
+          "context": "Tbh I think most of the hotpot places have a birthday offer. I know Easy Joy and Lao Jie both do. You'll have to go as a party of 4 though."
+        },
+        {
+          "rank": 4,
+          "context": "Funny BBQ on Bowery. They have unlimited crayfish too"
+        },
+        {
+          "rank": 5,
+          "context": "I enjoy the new Zao Men Qian in LIC"
+        },
+        {
+          "rank": 6,
+          "context": "I like K-pot. They do both hot pot and kbbq. very clean and fast, and no ordering gimmicks."
+        },
+        {
+          "rank": 7,
+          "context": "i miss hou yi"
+        },
+        {
+          "rank": 8,
+          "context": "Same and Hometown"
+        },
+        {
+          "rank": 9,
+          "context": "its not all you can eat but the best hotpot is Chonqing Lao zao in Flushing"
+        },
+        {
+          "rank": 10,
+          "context": "Mikiya has ayce A5 wagyu"
+        },
+        {
+          "rank": 11,
+          "context": "Xiang Hot Pot in Sunset"
+        },
+        {
+          "rank": 12,
+          "context": "Dolar Shop after 9:30pm"
+        }
+      ],
+      "comment_coverage": {
+        "declared": 47,
+        "saved": 47,
+        "readable": 46,
+        "deleted": 1,
+        "unavailable": 0,
+        "unique_ids": true,
+        "reviewed": true
+      }
+    },
+    {
+      "source_id": "timeout-dim-sum",
+      "fetched_at": "2026-11-10T06:38:36.590Z",
+      "source_kind": "direct_html",
+      "status": "partial",
+      "expected_count": 17,
+      "extracted_count": 17,
+      "count_verified": true,
+      "issues": [
+        "Count checked against the headline and consecutive visible item numbers. Addresses absent from this list remain null.",
+        "Some restaurant addresses are unavailable.",
+        "Full copyrighted descriptions are not included in this metadata export; blurb remains null."
+      ],
+      "dates": [
+        {
+          "field": "published",
+          "value": "2025-01-21T05:00:00Z",
+          "source": "JSON-LD Article"
+        },
+        {
+          "field": "updated",
+          "value": "2025-02-03T13:43:09Z",
+          "source": "JSON-LD Article"
+        }
+      ]
+    },
+    {
+      "source_id": "michelin-dim-sum",
+      "fetched_at": "2026-11-11T09:21:13.971Z",
+      "source_kind": "browser_dom",
+      "status": "partial",
+      "expected_count": 3,
+      "extracted_count": 3,
+      "count_verified": true,
+      "issues": [
+        "Restaurant cards checked against the visible restaurant count; related best-of guides are excluded.",
+        "Full copyrighted descriptions are not included in this metadata export; blurb remains null.",
+        "Introductory prose says four restaurants; the live displayed count and all three cards agree. No fourth restaurant is inferred."
+      ],
+      "dates": [
+        {
+          "field": "updated",
+          "value": "19 May 2025",
+          "source": "visible page text"
+        }
+      ],
+      "count_conflict": {
+        "introductory": 4,
+        "displayed": 3
+      }
+    }
+  ]
+}

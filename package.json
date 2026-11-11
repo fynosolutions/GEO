@@ -21,7 +21,10 @@
     "apify:check": "node scripts/apify-check.mjs",
     "deploy:check": "node scripts/deploy-preflight.mjs",
     "collect:reviews": "node dist/backend/reviews/cli.js",
-    "precollect:reviews": "node scripts/check-runtime.mjs"
+    "precollect:reviews": "node scripts/check-runtime.mjs",
+    "collect:media": "node dist/backend/media/cli.js",
+    "precollect:media": "node scripts/check-runtime.mjs",
+    "verify:media": "node scripts/verify-media-samples.mjs"
   },
   "engines": {
     "node": ">=24.14.0"

@@ -1,0 +1,79 @@
+[
+  {
+    "platform": "google_maps",
+    "categories": [
+      "Chinese restaurant",
+      "Hot pot restaurant"
+    ],
+    "description": "Shoo Loong Kan Hot Pot Manhattan offers authentic Sichuan-style Chinese hotpot in the heart of Union Square, New York City. Located at 22 E 13th St, NYC, we serve rich spicy broths, classic Chongqing flavors, freshly sliced meats, seafood, vegetables, and a full self-serve sauce bar. Founded in Chengdu, China, Shoo Loong Kan has grown to over 800 hotpot restaurants worldwide, known for premium ingredients, traditional recipes, and elegant dining. Perfect for group hotpot, family meals, or late-night dining in Manhattan, we welcome locals and visitors seeking the best hotpot in NYC. Dine in, reserve online, or walk in today for an unforgettable Union Square hotpot experience.",
+    "attributes": [
+      "Onsite services",
+      "Dine-in",
+      "Fast service",
+      "Lunch",
+      "Dinner",
+      "Solo dining",
+      "Wheelchair accessible restroom",
+      "Wheelchair accessible parking lot",
+      "Alcohol",
+      "Beer",
+      "Comfort food",
+      "Small plates",
+      "Vegetarian options",
+      "Lunch",
+      "Dinner",
+      "Counter service",
+      "Dessert",
+      "Table service",
+      "Bar onsite",
+      "Restroom",
+      "Casual",
+      "Trendy",
+      "Groups",
+      "Tourists",
+      "Accepts reservations",
+      "Credit cards",
+      "Debit cards",
+      "NFC mobile payments",
+      "Paid street parking"
+    ],
+    "highlights": [
+      "hotpot · 146",
+      "tomato broth · 22",
+      "fresh ingredients · 67",
+      "spicy broth · 16",
+      "sauce bar · 22",
+      "pork broth · 8",
+      "Soup base · 6",
+      "mushroom broth · 5",
+      "dipping sauces · 11",
+      "flavorful broth · 6"
+    ],
+    "photo_count": 1191,
+    "url": "https://www.google.com/maps/search/?api=1&query=Shoo%20Loong%20Kan%20Hot%20Pot%20Manhattan%20%E5%B0%8F%E9%BE%99%E5%9D%8E%E7%81%AB%E9%94%85&query_place_id=ChIJJccD46NZwokRu4jCJM5f_AI",
+    "fetched_at": "2026-11-12T07:44:47.164Z",
+    "error": null
+  },
+  {
+    "platform": "yelp",
+    "categories": null,
+    "description": null,
+    "attributes": null,
+    "highlights": null,
+    "photo_count": null,
+    "url": null,
+    "fetched_at": "2026-11-12T07:45:05.890Z",
+    "error": "No matching public listing was found."
+  },
+  {
+    "platform": "tripadvisor",
+    "categories": null,
+    "description": null,
+    "attributes": null,
+    "highlights": null,
+    "photo_count": null,
+    "url": null,
+    "fetched_at": "2026-11-12T07:45:40.944Z",
+    "error": "No matching public listing was found."
+  }
+]

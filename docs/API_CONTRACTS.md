@@ -1,6 +1,6 @@
 # File contract and local test API
 
-The corrected user-requested batch interface (2026-11-07) is **out/batches/&lt;batch-id&gt;/&lt;restaurant-name&gt;.json**, one UTF-8 array per restaurant, with ten platform records by default and the exact single-store schema. Single-store debugging retains **out/&lt;restaurant-name&gt;.json**, one UTF-8 array of platform records without a job wrapper. The current revision adds matched as explicitly requested by the user. No values/evidence wrapper, official-site record or Toast record is emitted.
+Collect Information saves batch files under `out/information/batches/<timestamp> - Collect Information/<restaurant-name>.json` and single-store files under `out/information/<restaurant-name>.json`. Each file is a UTF-8 array of platform records, with ten records by default. Batch folder timestamps use UTC with milliseconds, formatted as `YYYY-MM-DDTHH-mm-ss-SSSZ`. `OUTPUT_DIR` overrides the `out` root. The current revision adds matched as explicitly requested by the user. No values/evidence wrapper, official-site record or Toast record is emitted.
 
 ## Batch input and output
 
@@ -69,6 +69,14 @@ Shared public.ts entry points: collectRestaurant(input, signal?, onResult?, depe
 - GET/POST /api/session: existing optional remote-access token gate; loopback without GEO_API_TOKEN requires no login.
 
 Old per-platform downloads, screenshot API, comparison.js and website input paths are removed. Cross-origin writes are rejected. API messages are English. Integrations should consume the file rather than the visualization API.
+
+## Restaurant introductions (issue #13)
+
+`POST /api/introduction` accepts the same single restaurant and list targets as `POST /api/check`. `platforms` defaults to `google_maps`, `yelp` and `tripadvisor` and can select a nonempty subset. The response is HTTP 202 with `id` and `result_url` at `/introduction?id=<id>`. Poll `GET /api/audits/<id>` for `introduction.stores`, cancel via the audit cancel route, and download each store via `GET /api/audits/<id>/stores/<store-id>.json`.
+
+Single-store files are saved at `out/introductions/<restaurant-name>.json`. A new run with the same filename replaces the file atomically. The download for each audit uses that audit's saved records. Batch files are saved at `out/introductions/batches/<timestamp> - Collect Introduction/<restaurant-name>.json`. A submitted restaurant list uses the batch path even when it contains a single store. Each file is an array with exactly one record per selected platform. Fields are `platform`, `categories`, `description`, `attributes`, `highlights`, `photo_count`, `url`, `fetched_at` and `error`. Categories, attributes and highlights are arrays of source strings or `null`. Descriptions preserve source text. Attributes retain the provider's original labels in order, including explicitly negative availability labels and labels repeated across groups. Highlights use platform-supplied review summaries or topics, rendered as `label · count` where a count exists. Missing highlights are `null`. Photo count uses a source total and can be zero. If the branch cannot be verified, its fields and URL are `null` and `error` records the reason. Timestamps are ISO 8601 UTC. Missing required source fields are listed in `error`.
+
+Introduction collection uses the Apify account's usage and billing settings. The Google Maps Actor requests place details. Provider output and the attributes visible in the browser can differ.
 
 ## Current collection mode
 

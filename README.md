@@ -1,6 +1,6 @@
 # Restaurant JSON Collector
 
-Input a restaurant list to collect every store and produce **one JSON file per restaurant** under `out/batches/<batch-id>/<restaurant-name>.json`. Each file uses the same array format as single-store collection and contains ten platform records by default. Single-store debugging still produces `out/<restaurant-name>.json`. The website is a local visualization and test interface over the same collector. This branch uses Node.js HTTP, TypeScript and Playwright. Detection, optimization and reporting are not implemented.
+**Collect Information** produces **one JSON file per restaurant** under `out/information/`. A single-store run saves `out/information/<restaurant-name>.json`. A list run saves files in `out/information/batches/<timestamp> - Collect Information/`. Each file contains ten platform records by default. The website is a local visualization and test interface over the same collector. This branch uses Node.js HTTP, TypeScript and Playwright. Detection, optimization and reporting are not implemented.
 
 ## Install and run (macOS / Linux / Windows)
 
@@ -64,7 +64,7 @@ The single file is a JSON array with ten platform records by default. The eight 
 
 Collection currently uses Apify only; browser is temporarily disabled even if an old environment setting enables it. Apify Google Search discovers platform URLs, then the platform Actors retrieve their own data. Missing links can fall back to configured native Actor search; Yelp and Instagram require observed listing/profile URLs. Google resolves the target; other platforms must match at least two identity facts. Source values are retained except the explicit Facebook conversion above. The UI renders separate category tables as readable lists without JSON syntax. Stop collection cancels the current job and requests abortion of its active Apify runs, retaining completed results. No cross-platform backfilling occurs.
 
-Facebook adapters and schema verification: [APIFY_SETUP.md](docs/APIFY_SETUP.md). Raw responses, jobs, browser observations and screenshots stay in ignored `.local/` directories. They are diagnostics, not the downstream interface. `APIFY_MAX_CHARGE_USD` limits each Actor run rather than the whole job. Missing fields, subscription requirements or access restrictions can produce partial results.
+Facebook adapters and schema verification: [APIFY_SETUP.md](docs/APIFY_SETUP.md). Raw responses, jobs, browser observations and screenshots stay in ignored `.local/` directories. They are diagnostics, not the downstream interface. For Collect Information, `APIFY_MAX_CHARGE_USD` is the per-Actor run limit. Missing fields, subscription requirements or access restrictions can produce partial results.
 
 ## Verification and delivery
 
@@ -95,3 +95,7 @@ Collect the latest Google/Yelp reviews using an explicit six-store input: `npm r
 ## Media lists (issue #15)
 
 `npm run verify:media` validates the delivered nine-source JSON and six-branch membership table without network or private caches (run `npm run build` first). The samples have 105 entries, 22 descriptions and 83 explicitly null descriptions. User-saved Reddit coverage accounts for 47 comment nodes, including one deleted node. `collect:media` supports direct caches, labelled index fallbacks and user-saved HTML; strict full-data acceptance remains partial. See [media collection](backend/media/README.md) for reproduction, saved-file import and known gaps.
+
+## Restaurant introductions (issue #13)
+
+From the home page, enter a name, website or Google place ID, or paste/upload a restaurant list. Select the desired platforms among Google Maps, Yelp and Tripadvisor, then choose **Collect Introduction**. The introduction page shows the source and a JSON download for each store. Single-store files are saved at `out/introductions/<restaurant-name>.json`. List runs save files in `out/introductions/batches/<timestamp> - Collect Introduction/`. Batch directory timestamps use UTC with milliseconds, for example `2026-11-11T12-08-59-802Z - Collect Introduction`. The [introduction contract](docs/API_CONTRACTS.md#restaurant-introductions-issue-13) describes the profile fields and limits.

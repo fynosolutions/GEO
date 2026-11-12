@@ -1,7 +1,7 @@
 import { createServer, type ServerResponse } from 'node:http';
 import { authenticated, sessionCookie } from './auth.js';
 import { readFile } from 'node:fs/promises';
-import { outputFields as fields, platforms, platformGroups, fieldGroups, getJob, isBusy, selectedPlatforms, startJob, startBatchJob, parseStoreList, cancelJob } from './public.js';
+import { outputFields as fields, platforms, platformGroups, fieldGroups, getJob, isBusy, selectedPlatforms, startJob, startBatchJob, parseStoreList, cancelJob, selectIntroductionPlatforms, startIntroductionJob } from './public.js';
 
 const port = Number(process.env.PORT ?? 3001);
 const host = process.env.HOST ?? '127.0.0.1';
@@ -9,10 +9,12 @@ const publicRoot = new URL('../public/', import.meta.url);
 const assets = new Map([
   ['/', ['index.html', 'text/html; charset=utf-8']],
   ['/results', ['results.html', 'text/html; charset=utf-8']],
+  ['/introduction', ['introduction.html', 'text/html; charset=utf-8']],
   ['/css/style.css', ['css/style.css', 'text/css; charset=utf-8']],
   ['/js/auth.js', ['js/auth.js', 'text/javascript; charset=utf-8']],
   ['/js/main.js', ['js/main.js', 'text/javascript; charset=utf-8']],
   ['/js/results.js', ['js/results.js', 'text/javascript; charset=utf-8']],
+  ['/js/introduction.js', ['js/introduction.js', 'text/javascript; charset=utf-8']],
   ['/js/menu-results.js', ['js/menu-results.js', 'text/javascript; charset=utf-8']],
   ['/js/menu-price.js', ['js/menu-price.js', 'text/javascript; charset=utf-8']],
 ]);
@@ -59,10 +61,12 @@ const server = createServer(async (request, response) => {
     const storeDownload=pathname.match(/^\/api\/audits\/([a-f0-9-]{36})\/stores\/([a-zA-Z0-9_-]+)\.json$/);
     if(storeDownload&&request.method==='GET'){
      try{
-      const job=await getJob(storeDownload[1]),store=job.batch?.stores.find(s=>s.id===storeDownload[2]);
+      const job=await getJob(storeDownload[1]);
+      const store=(job.introduction?.stores ?? job.batch?.stores)?.find(s=>s.id===storeDownload[2]);
       const file=store?.output_file;
       if(typeof file!=='string'||!store?.filename){json(response,404,{message:'Restaurant output not found.'});return;}
-      const content=await readFile(file);
+      // Single-store introductions share their filename across runs.
+      const content=job.introduction?JSON.stringify(store.records,null,2):await readFile(file);
       const encoded=encodeURIComponent(store.filename).replace(/[!'()*]/g,c=>`%${c.charCodeAt(0).toString(16).toUpperCase()}`);
       response.writeHead(200,{'Content-Type':'application/json; charset=utf-8','Cache-Control':'no-store','Content-Disposition':`attachment; filename="restaurant.json"; filename*=UTF-8''${encoded}`});response.end(content);
      }catch{json(response,404,{message:'Restaurant output not found.'});}return;
@@ -90,7 +94,8 @@ const server = createServer(async (request, response) => {
      }catch{json(response,404,{message:'Audit not found.'});}return;
     }
 
-    if (pathname === '/api/check') {
+    if (pathname === '/api/check' || pathname === '/api/introduction') {
+      const introduction = pathname === '/api/introduction';
       if (request.method !== 'POST') {
         response.setHeader('Allow', 'POST');
         json(response, 405, { message: 'Please use POST to start collection.' });
@@ -121,10 +126,15 @@ const server = createServer(async (request, response) => {
       let address: string | null = null;
       let menuMode:'links'|'full'|undefined;
       let menuScope:'selected'|'all_channels'='selected';
+      let introductionSelection: ReturnType<typeof selectIntroductionPlatforms> | undefined;
       try {
         const input: unknown = JSON.parse(body);
         if (!input || typeof input!=='object')throw new Error();
         const data=input as Record<string,unknown>;
+        if (introduction) {
+          introductionSelection = selectIntroductionPlatforms(data.platforms);
+          if ('menu_mode' in data || 'menu_scope' in data) throw Error('Introduction collection does not accept menu options.');
+        }
         if(data.menu_mode!==undefined&&!['links','full'].includes(String(data.menu_mode)))throw Error();
         menuMode=data.menu_mode as 'links'|'full'|undefined;
         if(data.menu_scope!==undefined&&!['selected','all_channels'].includes(String(data.menu_scope)))throw Error();
@@ -132,10 +142,10 @@ const server = createServer(async (request, response) => {
         if('stores' in data){
          if(data.name!==undefined||data.place_id!==undefined||data.target_address!==undefined||'url' in data)throw Error('Batch input cannot include a single restaurant target.');
          if(menuMode)throw Error('Batch listing collection does not accept menu_mode.');
-         batchInput={stores:parseStoreList(data.stores),platforms:selectedPlatforms(data.platforms)};
+         batchInput={stores:parseStoreList(data.stores),platforms:introductionSelection ?? selectedPlatforms(data.platforms)};
         }else{
         address=typeof data.target_address==='string'?data.target_address.trim().slice(0,500)||null:null;
-        collectionInput={name:typeof data.name==='string'?data.name.trim().slice(0,500):undefined,place_id:typeof data.place_id==='string'?data.place_id.trim().slice(0,500):undefined,address:address||undefined,platforms:selectedPlatforms(data.platforms)};
+        collectionInput={name:typeof data.name==='string'?data.name.trim().slice(0,500):undefined,place_id:typeof data.place_id==='string'?data.place_id.trim().slice(0,500):undefined,address:address||undefined,platforms:introductionSelection ?? selectedPlatforms(data.platforms)};
         if((!!collectionInput.name)===(!!collectionInput.place_id)||'url' in data)throw new Error();
         }
       } catch(error) {
@@ -144,6 +154,13 @@ const server = createServer(async (request, response) => {
       }
       // Re-check after reading the body, so simultaneous submissions cannot bypass the job cap.
       if (isBusy()) { json(response, 429, { message: 'An audit is running.' }); return; }
+      if (introductionSelection) {
+        const { name, place_id, address } = collectionInput;
+        const stores = batchInput?.stores ?? [{ id: 'store-001', name, place_id, address }];
+        const job = await startIntroductionJob(stores, introductionSelection, batchInput !== undefined);
+        json(response, 202, { id: job.id, result_url: `/introduction?id=${job.id}` });
+        return;
+      }
       const job = batchInput?await startBatchJob(batchInput):await startJob(collectionInput,menuMode,menuScope);
       json(response, 202, { id: job.id, result_url: `/results?id=${job.id}` });
       return;

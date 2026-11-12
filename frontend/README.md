@@ -17,3 +17,5 @@ Restaurant information appears first. When menu collection is enabled, the form 
 Menu categories use the explicit category field; variants are not shown as categories. Refreshes preserve dish-table and source-check disclosure states for the same platform/menu source. Successful source checks display a success explanation.
 
 Price cells support Grubhub pickup/delivery objects alongside scalar and display/amount prices. Both service prices remain in the same Price column, zero is valid, missing values stay unavailable, and no currency is inferred. Saved audit JSON is not rewritten for presentation.
+
+The home form also submits to **Collect Introduction** with the same name, website, place ID, address and restaurant-list inputs. The selected Google Maps, Yelp and Tripadvisor checkboxes apply to introductions. The introduction page shows original platform descriptions, attributes, highlights and a JSON download per store.

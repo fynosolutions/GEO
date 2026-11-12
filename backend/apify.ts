@@ -12,7 +12,7 @@ export function expandInput(input:unknown,context:Context):unknown {
  if(input&&typeof input==='object')return Object.fromEntries(Object.entries(input).map(([k,v])=>[k,expandInput(v,context)]));
  return input;
 }
-export type ApifyOptions={entry?:Entry;timeoutMs?:number;actorTimeoutSecs?:number;maxChargeUsd?:number;onStarted?:(runId:string)=>Promise<void>};
+export type ApifyOptions={entry?:Entry;timeoutMs?:number;actorTimeoutSecs?:number;maxChargeUsd?:number|null;onStarted?:(runId:string)=>Promise<void>};
 export async function collectApify(platform:string,target:Context,signal?:AbortSignal,transport:typeof fetch=fetch,options:ApifyOptions={}):Promise<ApifyResult> {
  const result:ApifyResult={status:'skipped',actor:null,run_id:null,dataset_id:null,collected_at:new Date().toISOString(),note:'',items:[],truncated:false,target};
  if(process.env.APIFY_ENABLED==='false'||!process.env.APIFY_TOKEN){result.note='Apify disabled or APIFY_TOKEN not configured.';return result;}
@@ -65,8 +65,12 @@ export async function collectApify(platform:string,target:Context,signal?:AbortS
  combined.addEventListener('abort',abortRemote,{once:true});
  try{
   combined.throwIfAborted();
-  const budget=options.maxChargeUsd??Number(process.env.APIFY_MAX_CHARGE_USD||0.5);
-  if(!Number.isFinite(budget)||budget<=0)throw new Error('Invalid APIFY_MAX_CHARGE_USD.');
+  const runParams = new URLSearchParams({ timeout: String(options.actorTimeoutSecs ?? 180) });
+  if (options.maxChargeUsd !== null) {
+   const budget = options.maxChargeUsd ?? Number(process.env.APIFY_MAX_CHARGE_USD || 0.5);
+   if (!Number.isFinite(budget) || budget <= 0) throw Error('Invalid APIFY_MAX_CHARGE_USD.');
+   runParams.set('maxTotalChargeUsd', String(budget));
+  }
   const parts=target.address?.split(',')||[];
   const context={...target,city:target.city||(parts.length>=3?parts[parts.length-2].trim():'')};
   // Use the Actor's native Place ID field; Maps API search URLs can silently return an empty dataset.
@@ -75,7 +79,7 @@ export async function collectApify(platform:string,target:Context,signal?:AbortS
    : platform==='google_maps'&&target.listing_url
     ? {...entry.input as object,startUrls:[{url:target.listing_url}],searchStringsArray:undefined}
     : entry.input;
-  const started=await api(`acts/${actor}/runs?timeout=${options.actorTimeoutSecs??180}&maxTotalChargeUsd=${budget}`,'POST',expandInput(actorInput,context),true);
+  const started=await api(`acts/${actor}/runs?${runParams}`,'POST',expandInput(actorInput,context),true);
   result.run_id=started.data.id;let run=started.data;
   await options.onStarted?.(result.run_id!);
   if(!['READY','RUNNING','TIMING-OUT','ABORTING'].includes(run.status))completed=true;

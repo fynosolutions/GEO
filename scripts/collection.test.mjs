@@ -37,7 +37,7 @@ test('disabled providers save one aggregate output containing all ten records',a
  try{
   const result=await collectRestaurant({name:'Test Cafe'});assert.equal(result.records.length,10);
   for(const r of result.records){assert.equal(r.found,false);assert.ok(r.error);}
-  assert.equal(JSON.parse(await readFile(join(directory,'out','Test Cafe.json'),'utf8')).length,10);
+  assert.equal(JSON.parse(await readFile(join(directory,'out','information','Test Cafe.json'),'utf8')).length,10);
   const second=await collectRestaurant({name:'Test Cafe'});assert.notEqual(result.directory,second.directory);assert.equal((await readdir(join(directory,'records'))).length,2);
  }finally{for(const k of keys)if(old[k]===undefined)delete process.env[k];else process.env[k]=old[k];await rm(directory,{recursive:true,force:true});}
 });

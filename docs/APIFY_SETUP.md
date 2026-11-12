@@ -10,7 +10,7 @@
 
 References: [Resy Actor](https://apify.com/memo23/resy-restaurant-scraper), [Instagram Actor](https://apify.com/apify/instagram-profile-scraper). These are data collectors, not reservation-booking Actors.
 
-Configure APIFY_TOKEN, APIFY_ENABLED and optionally APIFY_MAX_CHARGE_USD in .env. The budget applies to each Actor run, including retries, not a whole collection. HTTP errors, inaccessible Actors, timeouts and invalid datasets become platform errors. Running Actors are aborted on cancellation where possible.
+Configure APIFY_TOKEN and APIFY_ENABLED in .env. APIFY_MAX_CHARGE_USD is an optional per-Actor limit for Collect Information, including retries. Collect Introduction uses the Apify account's usage and billing settings. HTTP errors, inaccessible Actors, timeouts and invalid datasets become platform errors. Running Actors are aborted on cancellation where possible.
 
 HTTP 402 with not-enough-usage-to-run-paid-actor means Apify refused to start a paid Actor due to insufficient available account usage. Lowering the per-run charge cap does not necessarily resolve this account restriction; review Billing in Apify Console. Error handling retains the safe error type without exporting the raw response body or credentials. When all basic records fail, the web job is failed with the underlying reason and does not start menu collection. Existing valid basic data still survives individual platform/menu failures.
 

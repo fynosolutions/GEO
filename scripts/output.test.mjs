@@ -54,18 +54,18 @@ test('name and place-ID inputs produce the same ten-record file contract; platfo
   for(const input of [{name:'Fixture Cafe'},{place_id:'fixture-place-id'},{name:'https://fixture.example/'}]){
    const wrapped=async(platform,target)=>platform==='google_maps'&&input.name?.startsWith('https:')?result([{...item,website:'https://fixture.example/'}]):apify(platform,target);
    const r=await collectRestaurant(input,undefined,undefined,{apify:wrapped,browser:async()=>{throw Error('Browser must never be invoked.');}});
-   assert.equal(r.filename,'Fixture Cafe.json');assert.equal(r.output_file,join(dir,'out','Fixture Cafe.json'));
+   assert.equal(r.filename,'Fixture Cafe.json');assert.equal(r.output_file,join(dir,'out','information','Fixture Cafe.json'));
    const json=JSON.parse(await readFile(r.output_file,'utf8'));assert.equal(json.length,10);assert.equal(json.find(v=>v.platform==='facebook').found,true);assert.match(json.find(v=>v.platform==='yelp').error,/Fixture provider failure/);
    assert.deepEqual(json.map(v=>v.platform),['google_maps','yelp','tripadvisor','opentable','doordash','uber_eats','grubhub','facebook','resy','instagram']);
    assert.deepEqual(Object.keys(json[0]),['platform','found','matched','url','name','address','phone','hours','rating_raw','rating','review_count','price_level','fetched_at','error']);
    assert.match(json.find(v=>v.platform==='opentable').error,/No matching public listing/);assert.equal(json[0].matched,true);
   }
-  assert.deepEqual(await readdir(join(dir,'out')),['Fixture Cafe.json']);assert.equal(calls.filter(v=>v.platform==='google_maps').length,2);assert.equal(calls.filter(v=>v.platform==='google_maps')[1].target.place_id,'fixture-place-id');
+  assert.deepEqual(await readdir(join(dir,'out','information')),['Fixture Cafe.json']);assert.equal(calls.filter(v=>v.platform==='google_maps').length,2);assert.equal(calls.filter(v=>v.platform==='google_maps')[1].target.place_id,'fixture-place-id');
   const controller=new AbortController();
   const cancelled=await collectRestaurant({name:'Fixture Cafe'},controller.signal,async r=>{if(r.platform==='google_maps')controller.abort();},{apify});
   assert.equal(cancelled.records[0].found,true);assert.ok(cancelled.records.slice(1).every(r=>r.found===false&&r.error==='Cancelled.'));
   await assert.rejects(collectRestaurant({place_id:'unresolved'},undefined,undefined,{apify:async()=>({...result([]),status:'empty'})}),/resolution/);
-  assert.deepEqual(await readdir(join(dir,'out')),['Fixture Cafe.json']);
+  assert.deepEqual(await readdir(join(dir,'out','information')),['Fixture Cafe.json']);
  }finally{for(const k of keys)if(previous[k]===undefined)delete process.env[k];else process.env[k]=previous[k];await rm(dir,{recursive:true,force:true});}
 });
 

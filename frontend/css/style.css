@@ -185,6 +185,11 @@ button {
   cursor:pointer;
   transition:background .2s
 }
+.collection-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
 button:hover {
   background:#174832
 }

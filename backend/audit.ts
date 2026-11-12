@@ -7,9 +7,10 @@ import {collectMenuAudit} from './menu-audit/public.js';
 import { collectRestaurant, readVerifiedMenuProviders, selectedPlatforms, type Listing, type CollectionInput, domains, fieldGroups } from './collection.js';
 import {collectBatch,parseStoreList,type BatchInput,type BatchProgress,type BatchStore} from './batch.js';
 import {conciseError} from './errors.js';
+import {collectIntroductions, type IntroductionProgress} from './introduction.js';
 export const outputFields=[...new Set(Object.values(fieldGroups).flat())];
 export const platforms=Object.fromEntries(Object.entries(domains).map(([key,value])=>[key,[key,value]]));
-export type Job={id:string;created_at:string;status:string;input:CollectionInput&{stores?:BatchStore[]};batch?:BatchProgress;records:Listing[];output_file?:string;filename?:string;merchant:{name:string;address:string}|null;error:string|null;menu_mode?:'links'|'full';menu_scope?:'selected'|'all_channels';menu_status?:string;menu_result?:Awaited<ReturnType<typeof collectMenuAudit>>;menu_error?:string};
+export type Job={id:string;created_at:string;status:string;input:CollectionInput&{stores?:BatchStore[]};batch?:BatchProgress;introduction?:IntroductionProgress;records:Listing[];output_file?:string;filename?:string;merchant:{name:string;address:string}|null;error:string|null;menu_mode?:'links'|'full';menu_scope?:'selected'|'all_channels';menu_status?:string;menu_result?:Awaited<ReturnType<typeof collectMenuAudit>>;menu_error?:string};
 const root=resolve(process.env.AUDIT_DATA_DIR||'.local/audits');
 const controls=new Map<string,{controller:AbortController;job:Job}>();
 const writes=new Map<string,Promise<void>>();
@@ -26,6 +27,29 @@ export async function getJob(id:string):Promise<Job>{
 }
 export const isBusy=()=>controls.size>0;
 export async function cancelJob(id:string){const control=controls.get(id);if(!control)return getJob(id);control.job.status='cancelling';control.controller.abort();await saveJob(control.job);return control.job;}
+export async function startIntroductionJob(stores: BatchStore[], platforms: Parameters<typeof collectIntroductions>[2], batch: boolean): Promise<Job> {
+ const introduction: IntroductionProgress = { stores: [] };
+ const job: Job = {
+  id: randomUUID(), created_at: new Date().toISOString(), status: 'running',
+  input: { stores, platforms }, records: [], merchant: null, error: null, introduction,
+ };
+ const controller = new AbortController();
+ controls.set(job.id, { controller, job });
+ try { await saveJob(job); } catch (error) { controls.delete(job.id); throw error; }
+ void (async () => {
+  try {
+   await collectIntroductions(job.id, stores, platforms, introduction, controller.signal, () => saveJob(job), { batch });
+   const results = introduction.stores;
+   job.status = controller.signal.aborted ? 'cancelled' : results.every(store => store.status === 'failed') ? 'failed' : results.every(store => store.status === 'completed') ? 'completed' : 'partial';
+  } catch (error) {
+   job.status = controller.signal.aborted ? 'cancelled' : 'failed';
+   job.error = conciseError(error);
+  } finally {
+   try { await saveJob(job); } finally { controls.delete(job.id); }
+  }
+ })().catch(() => console.error('Could not persist introduction audit.'));
+ return job;
+}
 export async function startBatchJob(input:BatchInput):Promise<Job>{
  const validated={stores:parseStoreList(input.stores),platforms:selectedPlatforms(input.platforms)};
  const job:Job={id:randomUUID(),input:validated,records:[],created_at:new Date().toISOString(),status:'running',merchant:null,error:null};

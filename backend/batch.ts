@@ -1,9 +1,10 @@
 import './config.js';
-import {mkdir,writeFile,rename} from 'node:fs/promises';
+import {writeFile,rename} from 'node:fs/promises';
 import {join,resolve} from 'node:path';
 import {randomUUID} from 'node:crypto';
 import {collectRestaurant,emptyListing,selectedPlatforms,safeName,type CollectionInput,type Listing} from './collection.js';
 import {conciseError} from './errors.js';
+import {createBatchOutputDirectory} from './output.js';
 
 export type BatchStore={id:string;name?:string;address?:string;place_id?:string};
 export type BatchInput={stores:BatchStore[];platforms?:string[]};
@@ -42,11 +43,9 @@ export function parseStoreList(value:unknown):BatchStore[]{
 
 export async function collectBatch(input:BatchInput,signal?:AbortSignal,onProgress?:(progress:BatchProgress)=>Promise<void>,options:{collect?:typeof collectRestaurant;outputRoot?:string;dataRoot?:string}={}){
  const stores=parseStoreList(input.stores),platforms=selectedPlatforms(input.platforms);
- const batchId=new Date().toISOString().replace(/[:.]/g,'-')+'-'+randomUUID();
- const directory=resolve(options.outputRoot||join(process.env.OUTPUT_DIR||'out','batches'),batchId);
- const dataRoot=resolve(options.dataRoot||'.local/batches',batchId);
+ const directory=await createBatchOutputDirectory(options.outputRoot||join(process.env.OUTPUT_DIR||'out','information','batches'),'Collect Information');
+ const dataRoot=resolve(options.dataRoot||'.local/batches',randomUUID());
  const progress:BatchProgress={directory,output_files:{},total:stores.length,completed:0,current_store_id:null,stores:stores.map(({id,...target})=>({id,input:target,status:'pending',records:platforms.map(p=>emptyListing(p,'Collection not started.')),error:null}))};
- await mkdir(directory,{recursive:true});
  const filenameFor=(store:BatchStoreProgress)=>{
   const base=safeName(store.resolved_name||store.input.name||store.input.place_id||store.id);
   let filename=`${base}.json`,suffix=0;

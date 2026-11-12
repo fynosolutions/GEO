@@ -220,7 +220,7 @@ export async function collectRestaurant(input:CollectionInput,signal?:AbortSigna
  if(g.found){target.name=g.name!;target.address=addressText(g.address);target.phone=g.phone;const seed=google.items.find((v:any)=>mapItem('google_maps',v).url===g.url) as any;target.website_url=typeof seed?.website==='string'?seed.website:'';}
  // A place-ID-only run cannot honestly name the requested output until Google resolves it.
  if((!input.name||inputWebsite(input))&&!g.found){await json(join(directory,'providers.json'),providerData);throw Error(g.error||'Could not resolve restaurant name from Google place ID.');}
- const out=resolve(dependencies.outputDirectory||process.env.OUTPUT_DIR||'out');await mkdir(out,{recursive:true});
+ const out=resolve(dependencies.outputDirectory||join(process.env.OUTPUT_DIR||'out','information'));await mkdir(out,{recursive:true});
  const filename=`${safeName(target.name||input.name!.trim())}.json`,output_file=join(out,filename);
  const records=selected.map(k=>emptyListing(k,'Collection has not completed.'));
  const persist=()=>json(output_file,records);
@@ -293,7 +293,7 @@ export async function collectRestaurant(input:CollectionInput,signal?:AbortSigna
 }
 
 // Expose only provider items that still match the already verified platform listing.
-export async function readVerifiedMenuProviders(directory:string,records:Listing[]):Promise<Record<string,ApifyResult>> {
+export async function readVerifiedProviders(directory:string,records:Listing[]):Promise<Record<string,ApifyResult>> {
  const providers=JSON.parse(await readFile(join(directory,'providers.json'),'utf8'));
  const result:Record<string,ApifyResult>={};
  for(const record of records){
@@ -304,3 +304,4 @@ export async function readVerifiedMenuProviders(directory:string,records:Listing
  }
  return result;
 }
+export { readVerifiedProviders as readVerifiedMenuProviders };

@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
-  "description": "Restaurant listing collector producing out/<restaurant-name>.json",
+  "description": "Restaurant collector writing information and introduction JSON files under out/",
   "scripts": {
     "build": "tsc -p config/tsconfig.server.json && tsc -p config/tsconfig.client.json && node scripts/copy-assets.mjs",
     "check": "tsc -p config/tsconfig.server.json --noEmit && tsc -p config/tsconfig.client.json --noEmit",

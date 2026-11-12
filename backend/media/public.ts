@@ -1,9 +1,11 @@
 import {load} from 'cheerio';
+import {inspectCardDescription} from './descriptions.js';
 
 export type MediaSource={id:string;site:string;url:string;priority:number};
 export type MediaRestaurant={name:string;rank:number;address:string|null;blurb:string|null};
 export type MediaArticle={url:string;site:string;title:string|null;published:string|null;updated:string|null;restaurants:MediaRestaurant[]};
-export type MediaEvidence={source_id:string;fetched_at:string|null;status:'complete'|'partial'|'failed';expected_count:number|null;extracted_count:number;count_verified:boolean;issues:string[];source_kind?:'direct_html'|'browser_dom'|'user_saved_html'|'web_index';source_age?:string;count_conflict?:{introductory:number;displayed:number};mentions?:{rank:number;context:string}[];user_file_sha256?:string;comment_coverage?:{declared:number|null;saved:number;readable:number;deleted:number;unavailable:number;unique_ids:boolean;reviewed:boolean};supplied_texts?:{rank:number;sha256:string}[];dates:{field:string;value:string;source:string}[]};
+export type MediaDescriptionEvidence={rank:number;name:string;present:boolean|null;reason:'exported'|'not_selected'|'not_provided'|'parse_failed';selector:string;characters:number|null};
+export type MediaEvidence={source_id:string;fetched_at:string|null;status:'complete'|'partial'|'failed';expected_count:number|null;extracted_count:number;count_verified:boolean;issues:string[];source_kind?:'direct_html'|'browser_dom'|'user_saved_html'|'web_index';source_age?:string;descriptions?:MediaDescriptionEvidence[];count_conflict?:{introductory:number;displayed:number};mentions?:{rank:number;context:string}[];user_file_sha256?:string;comment_coverage?:{declared:number|null;saved:number;readable:number;deleted:number;unavailable:number;unique_ids:boolean;reviewed:boolean};supplied_texts?:{rank:number;sha256:string}[];dates:{field:string;value:string;source:string}[]};
 export const mediaSources:MediaSource[]=[
  {id:'infatuation-hot-pot',site:'The Infatuation',url:'https://www.theinfatuation.com/new-york/guides/best-hot-pot-nyc',priority:55},
  {id:'eater-hot-pot',site:'Eater NY',url:'https://ny.eater.com/maps/best-hot-pot-restaurants-nyc',priority:51},
@@ -15,7 +17,7 @@ export const mediaSources:MediaSource[]=[
  {id:'timeout-dim-sum',site:'Time Out New York',url:'https://www.timeout.com/newyork/restaurants/best-dim-sum-restaurants-in-new-york-city',priority:0},
  {id:'michelin-dim-sum',site:'MICHELIN Guide',url:'https://guide.michelin.com/en/best-of/best-dim-sum-nyc',priority:0},
 ];
-export function parseMediaArticle(html:string,source:MediaSource,fetchedAt:string){
+export function parseMediaArticle(html:string,source:MediaSource,fetchedAt:string,options:{includeDescriptions?:boolean}={}){
  const $=load(html),issues:string[]=[],dates:MediaEvidence['dates']=[];
  const schemas:any[]=[];
  const walk=(v:any):void=>{if(Array.isArray(v)){v.forEach(walk);return;}if(v&&typeof v==='object'){schemas.push(v);if(v['@graph'])walk(v['@graph']);}};
@@ -40,26 +42,32 @@ export function parseMediaArticle(html:string,source:MediaSource,fetchedAt:strin
  const items:any[]=list?.itemListElement??[];
  let expected:number|null=items.length||null;
  let referenceNames:string[]|null=null,sequenceVerified=true;
+ const descriptions:MediaDescriptionEvidence[]=[];
+ const description=(card:any,name:string)=>{
+  const found=inspectCardDescription($,card,source),include=options.includeDescriptions!==false;
+  descriptions.push({rank:article.restaurants.length+1,name,present:found.present,reason:found.text?(include?'exported':'not_selected'):found.present===false?'not_provided':'parse_failed',selector:found.selector,characters:found.text?.length??null});
+  return include?found.text:null;
+ };
  if(source.id==='infatuation-hot-pot-directory'){
   const reviews=directory?.items.filter((v:any)=>v.__typename==='PostReview')??[];
   referenceNames=reviews.map((v:any)=>v.documentTitleText.trim());expected=directory&&!directory.hasNextPage&&directory.totalCount===directory.items.length?reviews.length:null;
   $('[data-testid="detailedStory-storyElement"]').each((_,e)=>{
    const link=$(e).find('a[href*="/reviews/"]').first(),name=text($(e).find('h3').first());if(!link.length||!name)return;
    const item=reviews.find((v:any)=>v.documentIdentifier===$(e).attr('id'));
-   article.restaurants.push({name,rank:article.restaurants.length+1,address:item?.placeStreetName||null,blurb:null});
+   article.restaurants.push({name,rank:article.restaurants.length+1,address:item?.placeStreetName||null,blurb:description($(e),name)});
   });
   issues.push('Cuisine directory, not an editorial ranking. Guide cards are excluded. Addresses use the page embedded restaurant fields.');
  }else if(source.site==='The Infatuation'){
   $('[data-testid="venue-title"]').each((_,e)=>{
    const card=$(e).closest('[id]'),name=text(e);if(!name||!card.length)return;
    const addressNode=card.find('a[href*="google.com/maps/search"]').first();
-   article.restaurants.push({name,rank:article.restaurants.length+1,address:addressNode.length?text(addressNode):null,blurb:null});
+   article.restaurants.push({name,rank:article.restaurants.length+1,address:addressNode.length?text(addressNode):null,blurb:description(card,name)});
   });
  }else if(source.site==='Eater NY'){
   $('.duet--article--map-card').each((_,e)=>{
    const card=$(e),name=text(card.find('h2').first());if(!name)return;
    const location=card.find('a[href*="google.com/maps/search"] div').first();
-   article.restaurants.push({name,rank:article.restaurants.length+1,address:location.length?text(location):null,blurb:null});
+   article.restaurants.push({name,rank:article.restaurants.length+1,address:location.length?text(location):null,blurb:description(card,name)});
   });
  }
  else if(source.site==='Time Out New York'){
@@ -68,7 +76,7 @@ export function parseMediaArticle(html:string,source:MediaSource,fetchedAt:strin
   $('article[data-testid="tile-zone-large-list_testID"]').each((_,e)=>{
    const heading=text($(e).find('h3[data-testid="tile-title_testID"]').first()),m=heading.match(/^(\d+)\.\s*(.+)$/);if(!m)return;
    const rank=article.restaurants.length+1;if(Number(m[1])!==rank)sequenceVerified=false;
-   article.restaurants.push({name:m[2],rank,address:text($(e).find('address').first())||null,blurb:null});
+   article.restaurants.push({name:m[2],rank,address:text($(e).find('address').first())||null,blurb:description($(e),m[2])});
   });
   issues.push('Count checked against the headline and consecutive visible item numbers. Addresses absent from this list remain null.');
  }else if(source.site==='MICHELIN Guide'){
@@ -77,7 +85,7 @@ export function parseMediaArticle(html:string,source:MediaSource,fetchedAt:strin
   $('h5.card__menu-content--title').each((_,e)=>{
    const name=text($(e).find('a[href*="/restaurant/"]').first());if(!name)return;
    const card=$(e).parent();
-   article.restaurants.push({name,rank:article.restaurants.length+1,address:text(card.find('.card__menu-content--address').first())||null,blurb:null});
+   article.restaurants.push({name,rank:article.restaurants.length+1,address:text(card.find('.card__menu-content--address').first())||null,blurb:description(card,name)});
   });
   const updated=$('.detail-page-single-header').map((_,e)=>text(e)).get().find(t=>/^Updated on /.test(t));
   if(updated){const value=updated.slice(11),parsed=Date.parse(value+' UTC');if(Number.isFinite(parsed)){article.updated=new Date(parsed).toISOString().slice(0,10);dates.push({field:'updated',value,source:'visible page text'});}}
@@ -89,8 +97,10 @@ export function parseMediaArticle(html:string,source:MediaSource,fetchedAt:strin
  if(!countVerified)issues.push('Visible entries do not match a verified structured list in count and order.');
  if(!article.restaurants.length)issues.push('No validated restaurant entries extracted; this does not establish absence.');
  if(article.restaurants.some(r=>!r.address))issues.push('Some restaurant addresses are unavailable.');
- issues.push('Full copyrighted descriptions are not included in this metadata export; blurb remains null.');
- const evidence:MediaEvidence={source_id:source.id,fetched_at:fetchedAt,source_kind:'direct_html',status:article.restaurants.length?'partial':'failed',expected_count:expected,extracted_count:article.restaurants.length,count_verified:countVerified,issues,dates};
+ if(descriptions.some(d=>d.reason==='not_selected'))issues.push('Description text is present but excluded by the selected export policy; null does not mean absent.');
+ if(descriptions.some(d=>d.reason==='parse_failed'))issues.push('Description layout was not recognized for some entries; absence is not established.');
+ if(descriptions.some(d=>d.reason==='not_provided'))issues.push('A recognized description container is empty for some entries.');
+ const evidence:MediaEvidence={source_id:source.id,fetched_at:fetchedAt,source_kind:'direct_html',status:article.restaurants.length?'partial':'failed',expected_count:expected,extracted_count:article.restaurants.length,count_verified:countVerified,issues,dates,descriptions};
  if(source.site==='MICHELIN Guide'&&/four restaurants/i.test(text($('.detail-page-single-header').first()))&&expected===3){evidence.count_conflict={introductory:4,displayed:3};issues.push('Introductory prose says four restaurants; the live displayed count and all three cards agree. No fourth restaurant is inferred.');}
  return {article,evidence};
 }
@@ -102,3 +112,5 @@ export {applySuppliedTexts} from './texts.js';
 export {evaluateMediaAcceptance,missingDescriptions,mediaAcceptanceReport} from './acceptance.js';
 
 export {parseSavedMediaPage} from './saved.js';
+
+export {descriptionAvailability} from './descriptions.js';

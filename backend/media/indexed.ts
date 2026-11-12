@@ -6,7 +6,7 @@ export function parseIndexedMedia(raw:string,source:MediaSource,fetchedAt:string
  const lines=raw.split('\n').flatMap(s=>{const m=s.match(/^L\d+: ?(.*)$/);return m?[m[1]]:[];});
  const article:MediaArticle={url:source.url,site:source.site,title:plain(lines.find(s=>s.startsWith('# '))?.slice(2)??'')||null,published:null,updated:null,restaurants:[]};
  const sourceAge=raw.match(/Crawled: ([^;\n]+)/)?.[1]??'unavailable';
- const issues=[`Search-index snapshot; reported crawl age: ${sourceAge}. Not a fresh direct HTML capture.`,'Full copyrighted descriptions are not included; blurb remains null.'];
+ const issues=[`Search-index snapshot; reported crawl age: ${sourceAge}. Not a fresh direct HTML capture.`,'Original descriptions have not been extracted from this indexed snapshot.'];
  const evidence:MediaEvidence={source_id:source.id,fetched_at:fetchedAt,source_kind:'web_index',source_age:sourceAge,status:'partial',expected_count:null,extracted_count:0,count_verified:false,issues,dates:[]};
  if(source.id==='michelin-dim-sum'){
   const declared=lines.map(plain).map(s=>s.match(/\b(\d+) Restaurants\b/)).find(Boolean);evidence.expected_count=declared?Number(declared[1]):null;
@@ -25,7 +25,7 @@ export function parseIndexedMedia(raw:string,source:MediaSource,fetchedAt:string
   for(const line of body){const hits=patterns.flatMap((pattern,id)=>Array.from(line.matchAll(pattern),m=>({id,index:m.index!,name:m[0]}))).sort((a,b)=>a.index-b.index);
    for(const hit of hits){if(seen.has(hit.id))continue;seen.add(hit.id);const rank=article.restaurants.length+1;article.restaurants.push({name:hit.name,rank,address:null,blurb:line});evidence.mentions.push({rank,context:line});}
   }
-  const unavailable=issues.indexOf('Full copyrighted descriptions are not included; blurb remains null.');if(unavailable>=0)issues.splice(unavailable,1);
+  const unavailable=issues.indexOf('Original descriptions have not been extracted from this indexed snapshot.');if(unavailable>=0)issues.splice(unavailable,1);
   issues.push('Blurb retains the first visible comment paragraph mentioning the restaurant, with rendered link labels. Repeated mentions are not merged.');
   issues.push('Community mentions, not an editorial ranking. First visible mention determines order. Replies are collapsed, so exhaustive coverage is not verified. Location hints are not full branch addresses; none is inferred.');
  }else throw Error('No indexed parser is configured for this source.');

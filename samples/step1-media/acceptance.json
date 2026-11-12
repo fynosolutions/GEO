@@ -1,12 +1,12 @@
 {
-  "complete": false,
-  "ready_for_delivery": false,
+  "complete": true,
+  "ready_for_delivery": true,
   "scope": "all_required_sources",
   "missing_sources": [],
   "source_count": 9,
   "restaurant_count": 105,
-  "descriptions_available": 22,
-  "descriptions_missing": 83,
+  "descriptions_available": 105,
+  "descriptions_missing": 0,
   "sources": [
     {
       "source_id": "infatuation-hot-pot",
@@ -19,85 +19,75 @@
       "blocking_reasons": [],
       "warnings": [
         "Conflicting updated dates; no value selected.",
-        "Descriptions extracted from the user-provided saved HTML venue paragraphs; wording and paragraph order retained."
+        "Descriptions parsed from user-provided source HTML; original wording and paragraph order retained."
       ]
     },
     {
       "source_id": "eater-hot-pot",
       "url": "https://ny.eater.com/maps/best-hot-pot-restaurants-nyc",
-      "status": "partial",
-      "complete": false,
+      "status": "complete",
+      "complete": true,
       "restaurants": 18,
-      "descriptions": 0,
-      "missing_descriptions": 18,
-      "blocking_reasons": [
-        "18 original descriptions unavailable."
-      ],
+      "descriptions": 18,
+      "missing_descriptions": 0,
+      "blocking_reasons": [],
       "warnings": [
-        "Full copyrighted descriptions are not included in this metadata export; blurb remains null."
+        "Descriptions parsed from user-provided source HTML; original wording and paragraph order retained."
       ]
     },
     {
       "source_id": "infatuation-hot-pot-directory",
       "url": "https://www.theinfatuation.com/new-york/cuisines/hot-pot",
-      "status": "partial",
-      "complete": false,
+      "status": "complete",
+      "complete": true,
       "restaurants": 6,
-      "descriptions": 0,
-      "missing_descriptions": 6,
-      "blocking_reasons": [
-        "6 original descriptions unavailable."
-      ],
+      "descriptions": 6,
+      "missing_descriptions": 0,
+      "blocking_reasons": [],
       "warnings": [
         "Cuisine directory, not an editorial ranking. Guide cards are excluded. Addresses use the page embedded restaurant fields.",
-        "Full copyrighted descriptions are not included in this metadata export; blurb remains null."
+        "Descriptions parsed from user-provided source HTML; original wording and paragraph order retained."
       ]
     },
     {
       "source_id": "infatuation-dim-sum",
       "url": "https://www.theinfatuation.com/new-york/guides/best-dim-sum-nyc",
-      "status": "partial",
-      "complete": false,
+      "status": "complete",
+      "complete": true,
       "restaurants": 15,
-      "descriptions": 0,
-      "missing_descriptions": 15,
-      "blocking_reasons": [
-        "15 original descriptions unavailable."
-      ],
+      "descriptions": 15,
+      "missing_descriptions": 0,
+      "blocking_reasons": [],
       "warnings": [
         "Conflicting updated dates; no value selected.",
-        "Full copyrighted descriptions are not included in this metadata export; blurb remains null."
+        "Descriptions parsed from user-provided source HTML; original wording and paragraph order retained."
       ]
     },
     {
       "source_id": "infatuation-ayce",
       "url": "https://www.theinfatuation.com/new-york/guides/best-all-you-can-eat-new-york",
-      "status": "partial",
-      "complete": false,
+      "status": "complete",
+      "complete": true,
       "restaurants": 10,
-      "descriptions": 0,
-      "missing_descriptions": 10,
-      "blocking_reasons": [
-        "10 original descriptions unavailable."
-      ],
+      "descriptions": 10,
+      "missing_descriptions": 0,
+      "blocking_reasons": [],
       "warnings": [
         "Conflicting updated dates; no value selected.",
-        "Full copyrighted descriptions are not included in this metadata export; blurb remains null."
+        "Descriptions parsed from user-provided source HTML; original wording and paragraph order retained."
       ]
     },
     {
       "source_id": "eater-ayce",
       "url": "https://ny.eater.com/maps/best-all-you-can-eat-restaurants-nyc",
-      "status": "partial",
-      "complete": false,
+      "status": "complete",
+      "complete": true,
       "restaurants": 14,
-      "descriptions": 0,
-      "missing_descriptions": 14,
-      "blocking_reasons": [
-        "14 original descriptions unavailable."
-      ],
+      "descriptions": 14,
+      "missing_descriptions": 0,
+      "blocking_reasons": [],
       "warnings": [
-        "Full copyrighted descriptions are not included in this metadata export; blurb remains null."
+        "Descriptions parsed from user-provided source HTML; original wording and paragraph order retained."
       ]
     },
     {
@@ -118,35 +108,31 @@
     {
       "source_id": "timeout-dim-sum",
       "url": "https://www.timeout.com/newyork/restaurants/best-dim-sum-restaurants-in-new-york-city",
-      "status": "partial",
-      "complete": false,
+      "status": "complete",
+      "complete": true,
       "restaurants": 17,
-      "descriptions": 0,
-      "missing_descriptions": 17,
-      "blocking_reasons": [
-        "17 original descriptions unavailable."
-      ],
+      "descriptions": 17,
+      "missing_descriptions": 0,
+      "blocking_reasons": [],
       "warnings": [
         "Count checked against the headline and consecutive visible item numbers. Addresses absent from this list remain null.",
         "Some restaurant addresses are unavailable.",
-        "Full copyrighted descriptions are not included in this metadata export; blurb remains null."
+        "Descriptions parsed from user-provided source HTML; original wording and paragraph order retained."
       ]
     },
     {
       "source_id": "michelin-dim-sum",
       "url": "https://guide.michelin.com/en/best-of/best-dim-sum-nyc",
-      "status": "partial",
-      "complete": false,
+      "status": "complete",
+      "complete": true,
       "restaurants": 3,
-      "descriptions": 0,
-      "missing_descriptions": 3,
-      "blocking_reasons": [
-        "3 original descriptions unavailable."
-      ],
+      "descriptions": 3,
+      "missing_descriptions": 0,
+      "blocking_reasons": [],
       "warnings": [
         "Restaurant cards checked against the visible restaurant count; related best-of guides are excluded.",
-        "Full copyrighted descriptions are not included in this metadata export; blurb remains null.",
-        "Introductory prose says four restaurants; the live displayed count and all three cards agree. No fourth restaurant is inferred."
+        "Introductory prose says four restaurants; the live displayed count and all three cards agree. No fourth restaurant is inferred.",
+        "Descriptions parsed from user-provided source HTML; original wording and paragraph order retained."
       ]
     }
   ]

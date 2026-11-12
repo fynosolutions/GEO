@@ -11,16 +11,10 @@ export function parseSavedMediaPage(html:string,source:MediaSource,savedAt:strin
  if(!Number.isFinite(Date.parse(savedAt)))throw Error('Saved HTML timestamp is invalid.');
  const hash=createHash('sha256').update(html).digest('hex'),$=load(html);
  $('script,style,noscript,svg').remove();
- if(source.site==='The Infatuation'&&source.id!=='infatuation-hot-pot-directory'){
-  const result=parseMediaArticle(html,source,savedAt);
-  $('[data-testid="venue-title"]').each((index,e)=>{
-   const card=$(e).closest('[id]'),paragraphs=card.find('div[city] p').map((_,p)=>$(p).text().trim()).get().filter(Boolean);
-   if(result.article.restaurants[index]&&paragraphs.length)result.article.restaurants[index].blurb=paragraphs.join('\n\n');
-  });
+ if(source.id!=='reddit-hot-pot'){
+  const result=parseMediaArticle(html,source,savedAt,{includeDescriptions:true});
   result.evidence.source_kind='user_saved_html';result.evidence.user_file_sha256=hash;
-  result.evidence.issues=result.evidence.issues.filter(s=>!s.startsWith('Full copyrighted descriptions'));
-  if(result.article.restaurants.some(r=>!r.blurb))result.evidence.issues.push('Some descriptions were not present in the saved venue-description layout.');
-  result.evidence.issues.push('Descriptions extracted from the user-provided saved HTML venue paragraphs; wording and paragraph order retained.');
+  result.evidence.issues.push('Descriptions parsed from user-provided source HTML; original wording and paragraph order retained.');
   return result;
  }
  if(source.id!=='reddit-hot-pot')throw Error('No saved-page parser is validated for this source.');

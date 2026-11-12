@@ -1,48 +1,53 @@
 # Issue #15 交付数据
 
-覆盖指定七个来源，以及 Time Out、米其林各一篇，共九条来源记录、105个餐厅/目录/社区条目。JSON和上榜表由同一程序生成，没有手工编辑餐厅行。
+2026-11-12 已使用用户提供的九份 HTML 重新导出。共九个来源、105 个餐厅/目录/社区条目，105 条介绍或评论原文均已写入 blurb，缺失介绍为 0。JSON 和上榜表由同一程序生成。
 
-| 来源 | 条目 | 介绍原文 | 读取方式 | 数量核对 |
-|---|---:|---:|---|---|
-| Infatuation 热锅榜单 | 10 | 10 | 用户保存的原站 HTML | 通过 |
-| Eater 热锅榜单 | 18 | 0 | 原站 HTML | 通过 |
-| Infatuation 热锅目录 | 6 | 0 | 原站 HTML；排除指南卡片 | 通过，末页已核对 |
-| Infatuation 点心榜单 | 15 | 0 | 原站 HTML | 通过 |
-| Infatuation 自助餐榜单 | 10 | 0 | 原站 HTML | 通过 |
-| Eater 自助餐榜单 | 14 | 0 | 原站 HTML | 通过 |
-| Reddit 热锅讨论 | 12 | 12 | 用户保存的登录后原站 HTML | 47个评论节点对齐，46个有正文、1个删除节点 |
-| Time Out 点心榜单 | 17 | 0 | 原站 HTML | 通过 |
-| Michelin 点心推荐 | 3 | 0 | 原站浏览器 DOM | 三张卡片与显示数量一致 |
+| 来源 | 条目 | 已导出介绍/评论 | 输入 |
+|---|---:|---:|---|
+| Infatuation 火锅榜单 | 10 | 10 | 用户保存的 HTML |
+| Eater 火锅榜单 | 18 | 18 | 用户保存的 HTML |
+| Infatuation 火锅目录 | 6 | 6 | 用户保存的 HTML；排除指南卡片 |
+| Infatuation 点心榜单 | 15 | 15 | 用户保存的 HTML |
+| Infatuation 自助餐榜单 | 10 | 10 | 用户保存的 HTML |
+| Eater 自助餐榜单 | 14 | 14 | 用户保存的 HTML |
+| Reddit 火锅讨论 | 12 | 12 | 用户保存的 HTML；47 个评论节点 |
+| Time Out 点心榜单 | 17 | 17 | 用户保存的 HTML |
+| Michelin 点心推荐 | 3 | 3 | 用户保存的 HTML |
+| 合计 | 105 | 105 | 九份输入均核对来源 URL 和内容哈希 |
 
 ## 文件
 
-- `articles.json`：严格按 Issue #15 字段生成的九条来源记录。
-- `上榜表.md`：六家目标分店的确认榜单、目录收录及同名/其他分店/社区提及。
-- `evidence.json`：原始读取时间、用户保存时间、SHA-256、评论覆盖、数量核对与缺失原因。
-- `acceptance.json`、`验收报告.md`：完整数据状态及逐来源缺口。
-- `cache-manifest.json`：本地输入文件校验值，不含原始 HTML 或登录状态。
-- `supplied-texts.template.json`：83条尚缺介绍原文的准确来源、名称和顺序。
-- `access-checks.json`：此前直接访问受限及后续用户文件补充证据。
+- articles.json：严格保留 Issue #15 的文章及餐厅字段，原文位于 blurb。
+- 上榜表.md：六家目标分店的确认榜单、目录及其他分店/社区提及。
+- evidence.json：用户保存时间、SHA-256、数量、介绍与评论覆盖证据。
+- acceptance.json、验收报告.md：complete:true、ready_for_delivery:true，及仍保留的字段限制。
+- description-availability.json：105 条均已导出；not_selected、parse_failed、未知和确认空介绍均为 0。
+- cache-manifest.json：本地输入校验值，不包含 HTML 或登录状态。
+- supplied-texts.template.json：空数组，当前没有待补介绍。
+- access-checks.json：此前访问尝试的历史记录；不代表本轮重新联网访问结果。
 
-## 验收与已知缺口
+## 核验范围
 
-九个来源均有记录；八个媒体/目录页面共93条，Reddit有12个不同餐厅提及。Reddit全部46条可读评论已人工核对餐厅提及，未增加新的餐厅；保存文件包含47个唯一评论节点，与页面47一致。删除节点不恢复正文，结论只覆盖保存时的公开可见评论。首次提及决定顺序与原句，因此部分原句可能不同于旧索引。
+八个媒体/目录页面共 93 条，Reddit 有 12 个不同餐厅提及。Reddit 保存文件哈希未变：47 个唯一评论节点、46 个可读、1 个删除节点；此前已审阅全部可读评论。删除正文不恢复，结论仅覆盖保存版本。目录顺序和社区首次提及顺序不解释为媒体排名。
 
-22条介绍原文已提供，83条仍为null；其他媒体完整介绍未收录，没有用摘要冒充。完整数据状态仍为 complete:false / ready_for_delivery:false / exit 2。按Issue允许null、注明缺口交付，由mentor核验，不宣称介绍原文已全量齐备。
+Infatuation 点心页面标题写 11 家，正文餐厅卡片与结构化列表均为 15 条，保留正文 15 条。Michelin 简介写四家，显示数量与实际卡片为三家，保留三条及差异说明。Time Out 未给地址、部分 Infatuation 日期冲突、Reddit 未给完整分店地址，继续保留 null，不猜测补齐。介绍原文的 83 个 null 已全部消除。
 
-Time Out榜单未给地址，保留null。部分Infatuation日期候选冲突，updated保留null，候选见evidence。米其林简介写四家、实际显示三家，按实际三张卡片输出并保留差异。Reddit地点提示不补造完整地址，不计入确认分店榜单数。目标99 Favor Taste和Dolar Shop分店各有两篇确认媒体榜单及一个目录；其他分店未确认的结果不解释为从未被报道。
+完整性标记表示程序的来源覆盖、数量和介绍检查通过，不替代 mentor 验收。输入为用户保存的页面，不声称重新完成实时网页访问。
 
-## 核验与复现
+## 复现
 
 ```sh
 npm ci
+npm run check
 npm run build
 npm run verify:media
 BROWSER_CHANNEL=chrome npm test
+# 需要本地私有输入；全新检出不含这些 HTML
+npm run collect:media -- --descriptions full --supplied-pages .local/issue15/user-supplied --out samples/step1-media
 ```
 
-`verify:media`不联网、不调用Apify，检查已交付schema、数量、验收计算及上榜表生成一致性。重新采集与用户页面导入见 `backend/media/README.md`。全新检出不含被忽略的本地HTML缓存；精确重放需相应输入文件，不会伪造缓存。原始页面不上传GitHub，尤其用户登录后保存的HTML可能含账户界面与会话信息。
+原始 HTML、资源文件和登录状态仅保留本地，不上传仓库。离线 verify:media 不联网、不调用付费服务。此次导入无 Apify 调用，Apify 费用 US$0，未启动商户采集或每周任务。本次修复交付至 main；具体提交及验收证据见 Issue #15 最新交付说明。
 
-本项无Apify调用，Apify费用US$0，未触发每周或付费采集任务。
+本轮验证：npm run check、npm run build、npm run verify:media、git diff --check 均通过；BROWSER_CHANNEL=chrome npm test 共 166 项通过、0 失败。额外将 105 条介绍的各段文字与对应用户 HTML 的可见文本逐一核对，全部匹配。新保存的 Infatuation 火锅目录中 Three Hot Pot 与 99 Favor Taste 的顺序对调，已按新页面保留；六家目标分店的上榜统计没有变化。
 
-最终最新main基线验证：类型检查、构建、离线样例核验通过；162项测试通过、0项失败（含23项媒体测试）。UI使用本机真实Chrome，BROWSER_CHANNEL=chrome；测试不调用付费采集。
+推送前已整合 main 的 #13 提交 8691c17，重新完成类型检查、构建、离线样例核验；完整测试 169 项通过、0 失败（含 27 项媒体测试）。前述 166 项为整合前验证。原始 HTML 未进入提交。

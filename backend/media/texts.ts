@@ -23,12 +23,18 @@ export function applySuppliedTexts(articles:MediaArticle[],evidence:MediaEvidenc
  }
  // Validate the whole input before applying any changes.
  const result=structuredClone({articles,evidence});
- for(const patch of patches)result.articles[patch.article].restaurants[patch.restaurant].blurb=patch.text;
+ for(const patch of patches){
+  const restaurant=result.articles[patch.article].restaurants[patch.restaurant];restaurant.blurb=patch.text;
+  const observation=result.evidence[patch.article].descriptions?.find(d=>d.rank===restaurant.rank&&d.name===restaurant.name);
+  if(observation){observation.present=true;observation.reason='exported';observation.characters=patch.text.length;}
+ }
  for(const index of new Set(patches.map(p=>p.article))){
   const changed=patches.filter(p=>p.article===index),source=result.evidence[index];
   source.supplied_texts=changed.map(p=>({rank:result.articles[index].restaurants[p.restaurant].rank,sha256:createHash('sha256').update(p.text).digest('hex')}));
-  source.issues=source.issues.filter(s=>!s.startsWith('Full copyrighted descriptions'));
-  if(result.articles[index].restaurants.some(r=>r.blurb===null))source.issues.push('Some original descriptions are still unavailable.');
+  source.issues=source.issues.filter(s=>!s.startsWith('Full copyrighted descriptions')&&!s.startsWith('Description text is present but excluded')&&!s.startsWith('Description layout was not recognized'));
+  if(source.descriptions?.some(d=>d.reason==='not_selected'))source.issues.push('Description text is present but excluded by the selected export policy; null does not mean absent.');
+  if(source.descriptions?.some(d=>d.reason==='parse_failed'))source.issues.push('Description layout was not recognized for some entries; absence is not established.');
+  if(result.articles[index].restaurants.some(r=>r.blurb===null))source.issues.push('Some original descriptions are still not exported; see per-entry description evidence.');
   source.issues.push('Supplementary original text supplied by the user; wording preserved, source-page correspondence not independently verified.');
  }
  return result;

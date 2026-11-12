@@ -1,7 +1,7 @@
 {
   "apify_runs": 0,
   "apify_cost_usd": 0,
-  "descriptions_available": 22,
+  "descriptions_available": 105,
   "sources": [
     {
       "source_id": "infatuation-hot-pot",
@@ -13,7 +13,7 @@
       "count_verified": true,
       "issues": [
         "Conflicting updated dates; no value selected.",
-        "Descriptions extracted from the user-provided saved HTML venue paragraphs; wording and paragraph order retained."
+        "Descriptions parsed from user-provided source HTML; original wording and paragraph order retained."
       ],
       "dates": [
         {
@@ -37,18 +37,100 @@
           "source": "JSON-LD Article"
         }
       ],
+      "descriptions": [
+        {
+          "rank": 1,
+          "name": "Chong Qing Lao Zao",
+          "present": true,
+          "reason": "exported",
+          "selector": "[data-testid=\"venue-description\"], div[city]",
+          "characters": 636
+        },
+        {
+          "rank": 2,
+          "name": "Hometown Hotpot & BBQ",
+          "present": true,
+          "reason": "exported",
+          "selector": "[data-testid=\"venue-description\"], div[city]",
+          "characters": 456
+        },
+        {
+          "rank": 3,
+          "name": "Hou Yi Hot Pot",
+          "present": true,
+          "reason": "exported",
+          "selector": "[data-testid=\"venue-description\"], div[city]",
+          "characters": 517
+        },
+        {
+          "rank": 4,
+          "name": "The Dolar Shop",
+          "present": true,
+          "reason": "exported",
+          "selector": "[data-testid=\"venue-description\"], div[city]",
+          "characters": 577
+        },
+        {
+          "rank": 5,
+          "name": "99 Favor Taste",
+          "present": true,
+          "reason": "exported",
+          "selector": "[data-testid=\"venue-description\"], div[city]",
+          "characters": 496
+        },
+        {
+          "rank": 6,
+          "name": "Da Long Yi",
+          "present": true,
+          "reason": "exported",
+          "selector": "[data-testid=\"venue-description\"], div[city]",
+          "characters": 481
+        },
+        {
+          "rank": 7,
+          "name": "Three Hot Pot",
+          "present": true,
+          "reason": "exported",
+          "selector": "[data-testid=\"venue-description\"], div[city]",
+          "characters": 566
+        },
+        {
+          "rank": 8,
+          "name": "Shabu-Tatsu",
+          "present": true,
+          "reason": "exported",
+          "selector": "[data-testid=\"venue-description\"], div[city]",
+          "characters": 444
+        },
+        {
+          "rank": 9,
+          "name": "Xi Yue Hui Seafood Hot Pot",
+          "present": true,
+          "reason": "exported",
+          "selector": "[data-testid=\"venue-description\"], div[city]",
+          "characters": 516
+        },
+        {
+          "rank": 10,
+          "name": "LaoJie Hotpot",
+          "present": true,
+          "reason": "exported",
+          "selector": "[data-testid=\"venue-description\"], div[city]",
+          "characters": 510
+        }
+      ],
       "user_file_sha256": "0270aebd2730a133798e985d890507d28859f47921858500aef56c1c5150f822"
     },
     {
       "source_id": "eater-hot-pot",
-      "fetched_at": "2026-11-10T06:24:08.322Z",
-      "source_kind": "direct_html",
-      "status": "partial",
+      "fetched_at": "2026-11-12T12:18:04.229Z",
+      "source_kind": "user_saved_html",
+      "status": "complete",
       "expected_count": 18,
       "extracted_count": 18,
       "count_verified": true,
       "issues": [
-        "Full copyrighted descriptions are not included in this metadata export; blurb remains null."
+        "Descriptions parsed from user-provided source HTML; original wording and paragraph order retained."
       ],
       "dates": [
         {
@@ -61,33 +143,231 @@
           "value": "2022-02-28T22:16:19+00:00",
           "source": "article:modified_time"
         }
-      ]
+      ],
+      "descriptions": [
+        {
+          "rank": 1,
+          "name": "99 Favor Taste",
+          "present": true,
+          "reason": "exported",
+          "selector": "p.duet--article--standard-paragraph",
+          "characters": 722
+        },
+        {
+          "rank": 2,
+          "name": "Hometown Hotpot & BBQ",
+          "present": true,
+          "reason": "exported",
+          "selector": "p.duet--article--standard-paragraph",
+          "characters": 434
+        },
+        {
+          "rank": 3,
+          "name": "Da Long Yi Hot Pot",
+          "present": true,
+          "reason": "exported",
+          "selector": "p.duet--article--standard-paragraph",
+          "characters": 629
+        },
+        {
+          "rank": 4,
+          "name": "Hou Yi Hot Pot",
+          "present": true,
+          "reason": "exported",
+          "selector": "p.duet--article--standard-paragraph",
+          "characters": 229
+        },
+        {
+          "rank": 5,
+          "name": "Shabushabu Mayumon",
+          "present": true,
+          "reason": "exported",
+          "selector": "p.duet--article--standard-paragraph",
+          "characters": 550
+        },
+        {
+          "rank": 6,
+          "name": "886",
+          "present": true,
+          "reason": "exported",
+          "selector": "p.duet--article--standard-paragraph",
+          "characters": 384
+        },
+        {
+          "rank": 7,
+          "name": "The Dolar Shop Manhattan",
+          "present": true,
+          "reason": "exported",
+          "selector": "p.duet--article--standard-paragraph",
+          "characters": 615
+        },
+        {
+          "rank": 8,
+          "name": "Kimura",
+          "present": true,
+          "reason": "exported",
+          "selector": "p.duet--article--standard-paragraph",
+          "characters": 850
+        },
+        {
+          "rank": 9,
+          "name": "Shabu-Tatsu",
+          "present": true,
+          "reason": "exported",
+          "selector": "p.duet--article--standard-paragraph",
+          "characters": 497
+        },
+        {
+          "rank": 10,
+          "name": "Sik Gaek",
+          "present": true,
+          "reason": "exported",
+          "selector": "p.duet--article--standard-paragraph",
+          "characters": 662
+        },
+        {
+          "rank": 11,
+          "name": "Jaew Hon",
+          "present": true,
+          "reason": "exported",
+          "selector": "p.duet--article--standard-paragraph",
+          "characters": 877
+        },
+        {
+          "rank": 12,
+          "name": "Lao Jie Food",
+          "present": true,
+          "reason": "exported",
+          "selector": "p.duet--article--standard-paragraph",
+          "characters": 507
+        },
+        {
+          "rank": 13,
+          "name": "Xiang Hotpot",
+          "present": true,
+          "reason": "exported",
+          "selector": "p.duet--article--standard-paragraph",
+          "characters": 682
+        },
+        {
+          "rank": 14,
+          "name": "Chong Qing Lao Zao",
+          "present": true,
+          "reason": "exported",
+          "selector": "p.duet--article--standard-paragraph",
+          "characters": 385
+        },
+        {
+          "rank": 15,
+          "name": "Little Sheep Mongolian Hot Pot, Flushing 小肥羊",
+          "present": true,
+          "reason": "exported",
+          "selector": "p.duet--article--standard-paragraph",
+          "characters": 682
+        },
+        {
+          "rank": 16,
+          "name": "Haidilao Hotpot",
+          "present": true,
+          "reason": "exported",
+          "selector": "p.duet--article--standard-paragraph",
+          "characters": 741
+        },
+        {
+          "rank": 17,
+          "name": "Liuyishou Hotpot (Flushing) 刘一手火锅",
+          "present": true,
+          "reason": "exported",
+          "selector": "p.duet--article--standard-paragraph",
+          "characters": 374
+        },
+        {
+          "rank": 18,
+          "name": "Lao Shen Hot Pot",
+          "present": true,
+          "reason": "exported",
+          "selector": "p.duet--article--standard-paragraph",
+          "characters": 541
+        }
+      ],
+      "user_file_sha256": "1683adadd180d5317d97d1ffa44bbebe5060adeb35a8e24b345d47976ba7fcef"
     },
     {
       "source_id": "infatuation-hot-pot-directory",
-      "fetched_at": "2026-11-10T06:38:20.196Z",
-      "source_kind": "direct_html",
-      "status": "partial",
+      "fetched_at": "2026-11-12T11:58:41.545Z",
+      "source_kind": "user_saved_html",
+      "status": "complete",
       "expected_count": 6,
       "extracted_count": 6,
       "count_verified": true,
       "issues": [
         "Cuisine directory, not an editorial ranking. Guide cards are excluded. Addresses use the page embedded restaurant fields.",
-        "Full copyrighted descriptions are not included in this metadata export; blurb remains null."
+        "Descriptions parsed from user-provided source HTML; original wording and paragraph order retained."
       ],
-      "dates": []
+      "dates": [],
+      "descriptions": [
+        {
+          "rank": 1,
+          "name": "YGF Malatang",
+          "present": true,
+          "reason": "exported",
+          "selector": "p.css-501r93",
+          "characters": 81
+        },
+        {
+          "rank": 2,
+          "name": "The Dolar Shop",
+          "present": true,
+          "reason": "exported",
+          "selector": "p.css-501r93",
+          "characters": 82
+        },
+        {
+          "rank": 3,
+          "name": "Three Hot Pot",
+          "present": true,
+          "reason": "exported",
+          "selector": "p.css-501r93",
+          "characters": 74
+        },
+        {
+          "rank": 4,
+          "name": "99 Favor Taste",
+          "present": true,
+          "reason": "exported",
+          "selector": "p.css-501r93",
+          "characters": 76
+        },
+        {
+          "rank": 5,
+          "name": "Da Long Yi",
+          "present": true,
+          "reason": "exported",
+          "selector": "p.css-501r93",
+          "characters": 93
+        },
+        {
+          "rank": 6,
+          "name": "Chong Qing Wharf",
+          "present": true,
+          "reason": "exported",
+          "selector": "p.css-501r93",
+          "characters": 98
+        }
+      ],
+      "user_file_sha256": "6ac3f7c76b517be5349b57d153744c27b326e2a71b8e4a94c90981be71b2de17"
     },
     {
       "source_id": "infatuation-dim-sum",
-      "fetched_at": "2026-11-10T06:38:22.096Z",
-      "source_kind": "direct_html",
-      "status": "partial",
+      "fetched_at": "2026-11-12T12:28:12.919Z",
+      "source_kind": "user_saved_html",
+      "status": "complete",
       "expected_count": 15,
       "extracted_count": 15,
       "count_verified": true,
       "issues": [
         "Conflicting updated dates; no value selected.",
-        "Full copyrighted descriptions are not included in this metadata export; blurb remains null."
+        "Descriptions parsed from user-provided source HTML; original wording and paragraph order retained."
       ],
       "dates": [
         {
@@ -110,19 +390,142 @@
           "value": "2026-07-22T19:54:01.420Z",
           "source": "JSON-LD Article"
         }
-      ]
+      ],
+      "descriptions": [
+        {
+          "rank": 1,
+          "name": "100 Feast & Lounge",
+          "present": true,
+          "reason": "exported",
+          "selector": "[data-testid=\"venue-description\"], div[city]",
+          "characters": 630
+        },
+        {
+          "rank": 2,
+          "name": "Asian Jewels Seafood Restaurant",
+          "present": true,
+          "reason": "exported",
+          "selector": "[data-testid=\"venue-description\"], div[city]",
+          "characters": 661
+        },
+        {
+          "rank": 3,
+          "name": "House Of Joy",
+          "present": true,
+          "reason": "exported",
+          "selector": "[data-testid=\"venue-description\"], div[city]",
+          "characters": 578
+        },
+        {
+          "rank": 4,
+          "name": "Golden Lake Pavilion",
+          "present": true,
+          "reason": "exported",
+          "selector": "[data-testid=\"venue-description\"], div[city]",
+          "characters": 622
+        },
+        {
+          "rank": 5,
+          "name": "Dim Sum Palace",
+          "present": true,
+          "reason": "exported",
+          "selector": "[data-testid=\"venue-description\"], div[city]",
+          "characters": 687
+        },
+        {
+          "rank": 6,
+          "name": "Royal Seafood Restaurant",
+          "present": true,
+          "reason": "exported",
+          "selector": "[data-testid=\"venue-description\"], div[city]",
+          "characters": 515
+        },
+        {
+          "rank": 7,
+          "name": "Ping's Seafood",
+          "present": true,
+          "reason": "exported",
+          "selector": "[data-testid=\"venue-description\"], div[city]",
+          "characters": 461
+        },
+        {
+          "rank": 8,
+          "name": "Golden Unicorn",
+          "present": true,
+          "reason": "exported",
+          "selector": "[data-testid=\"venue-description\"], div[city]",
+          "characters": 557
+        },
+        {
+          "rank": 9,
+          "name": "East Harbor Seafood Palace",
+          "present": true,
+          "reason": "exported",
+          "selector": "[data-testid=\"venue-description\"], div[city]",
+          "characters": 703
+        },
+        {
+          "rank": 10,
+          "name": "Shanghai You Garden",
+          "present": true,
+          "reason": "exported",
+          "selector": "[data-testid=\"venue-description\"], div[city]",
+          "characters": 355
+        },
+        {
+          "rank": 11,
+          "name": "Bamboo Garden Restaurant",
+          "present": true,
+          "reason": "exported",
+          "selector": "[data-testid=\"venue-description\"], div[city]",
+          "characters": 710
+        },
+        {
+          "rank": 12,
+          "name": "Mr. Bun",
+          "present": true,
+          "reason": "exported",
+          "selector": "[data-testid=\"venue-description\"], div[city]",
+          "characters": 556
+        },
+        {
+          "rank": 13,
+          "name": "Nom Wah Tea Parlor",
+          "present": true,
+          "reason": "exported",
+          "selector": "[data-testid=\"venue-description\"], div[city]",
+          "characters": 591
+        },
+        {
+          "rank": 14,
+          "name": "Jing Fong",
+          "present": true,
+          "reason": "exported",
+          "selector": "[data-testid=\"venue-description\"], div[city]",
+          "characters": 603
+        },
+        {
+          "rank": 15,
+          "name": "Tim Ho Wan",
+          "present": true,
+          "reason": "exported",
+          "selector": "[data-testid=\"venue-description\"], div[city]",
+          "characters": 684
+        }
+      ],
+      "user_file_sha256": "27191312775a7c00fabac96bf4abf41ba917709c35c1368fea6d3eedb7061632"
     },
     {
       "source_id": "infatuation-ayce",
-      "fetched_at": "2026-11-10T06:38:24.042Z",
-      "source_kind": "direct_html",
-      "status": "partial",
+      "fetched_at": "2026-11-12T12:17:45.656Z",
+      "source_kind": "user_saved_html",
+      "status": "complete",
       "expected_count": 10,
       "extracted_count": 10,
       "count_verified": true,
       "issues": [
         "Conflicting updated dates; no value selected.",
-        "Full copyrighted descriptions are not included in this metadata export; blurb remains null."
+        "Descriptions parsed from user-provided source HTML; original wording and paragraph order retained."
       ],
       "dates": [
         {
@@ -145,18 +548,101 @@
           "value": "2026-06-12T20:57:10.782Z",
           "source": "JSON-LD Article"
         }
-      ]
+      ],
+      "descriptions": [
+        {
+          "rank": 1,
+          "name": "SourAji",
+          "present": true,
+          "reason": "exported",
+          "selector": "[data-testid=\"venue-description\"], div[city]",
+          "characters": 653
+        },
+        {
+          "rank": 2,
+          "name": "Hometown Hotpot & BBQ",
+          "present": true,
+          "reason": "exported",
+          "selector": "[data-testid=\"venue-description\"], div[city]",
+          "characters": 609
+        },
+        {
+          "rank": 3,
+          "name": "Lakruwana",
+          "present": true,
+          "reason": "exported",
+          "selector": "[data-testid=\"venue-description\"], div[city]",
+          "characters": 645
+        },
+        {
+          "rank": 4,
+          "name": "Let’s Meat",
+          "present": true,
+          "reason": "exported",
+          "selector": "[data-testid=\"venue-description\"], div[city]",
+          "characters": 519
+        },
+        {
+          "rank": 5,
+          "name": "Churrascaria Plataforma",
+          "present": true,
+          "reason": "exported",
+          "selector": "[data-testid=\"venue-description\"], div[city]",
+          "characters": 512
+        },
+        {
+          "rank": 6,
+          "name": "Akino",
+          "present": true,
+          "reason": "exported",
+          "selector": "[data-testid=\"venue-description\"], div[city]",
+          "characters": 615
+        },
+        {
+          "rank": 7,
+          "name": "Xi Yue Hui Seafood Hot Pot",
+          "present": true,
+          "reason": "exported",
+          "selector": "[data-testid=\"venue-description\"], div[city]",
+          "characters": 547
+        },
+        {
+          "rank": 8,
+          "name": "Hou Yi Hot Pot",
+          "present": true,
+          "reason": "exported",
+          "selector": "[data-testid=\"venue-description\"], div[city]",
+          "characters": 511
+        },
+        {
+          "rank": 9,
+          "name": "Chong Qing Wharf",
+          "present": true,
+          "reason": "exported",
+          "selector": "[data-testid=\"venue-description\"], div[city]",
+          "characters": 470
+        },
+        {
+          "rank": 10,
+          "name": "Kikoo",
+          "present": true,
+          "reason": "exported",
+          "selector": "[data-testid=\"venue-description\"], div[city]",
+          "characters": 601
+        }
+      ],
+      "user_file_sha256": "9e07080e39f1b947a88dad45f93198acf35acf74e587f1a914f5b9ad9cb13360"
     },
     {
       "source_id": "eater-ayce",
-      "fetched_at": "2026-11-10T06:38:24.974Z",
-      "source_kind": "direct_html",
-      "status": "partial",
+      "fetched_at": "2026-11-12T12:20:43.800Z",
+      "source_kind": "user_saved_html",
+      "status": "complete",
       "expected_count": 14,
       "extracted_count": 14,
       "count_verified": true,
       "issues": [
-        "Full copyrighted descriptions are not included in this metadata export; blurb remains null."
+        "Descriptions parsed from user-provided source HTML; original wording and paragraph order retained."
       ],
       "dates": [
         {
@@ -169,7 +655,122 @@
           "value": "2025-02-28T19:47:43+00:00",
           "source": "article:modified_time"
         }
-      ]
+      ],
+      "descriptions": [
+        {
+          "rank": 1,
+          "name": "Hibachi Grill and Supreme Buffet",
+          "present": true,
+          "reason": "exported",
+          "selector": "p.duet--article--standard-paragraph",
+          "characters": 306
+        },
+        {
+          "rank": 2,
+          "name": "Churrascaria Plataforma",
+          "present": true,
+          "reason": "exported",
+          "selector": "p.duet--article--standard-paragraph",
+          "characters": 520
+        },
+        {
+          "rank": 3,
+          "name": "Becco",
+          "present": true,
+          "reason": "exported",
+          "selector": "p.duet--article--standard-paragraph",
+          "characters": 282
+        },
+        {
+          "rank": 4,
+          "name": "Jongro BBQ Market",
+          "present": true,
+          "reason": "exported",
+          "selector": "p.duet--article--standard-paragraph",
+          "characters": 375
+        },
+        {
+          "rank": 5,
+          "name": "Witch Topokki",
+          "present": true,
+          "reason": "exported",
+          "selector": "p.duet--article--standard-paragraph",
+          "characters": 427
+        },
+        {
+          "rank": 6,
+          "name": "Let’s Meat BBQ",
+          "present": true,
+          "reason": "exported",
+          "selector": "p.duet--article--standard-paragraph",
+          "characters": 306
+        },
+        {
+          "rank": 7,
+          "name": "Wonder Pig K-BBQ",
+          "present": true,
+          "reason": "exported",
+          "selector": "p.duet--article--standard-paragraph",
+          "characters": 493
+        },
+        {
+          "rank": 8,
+          "name": "Na Rath",
+          "present": true,
+          "reason": "exported",
+          "selector": "p.duet--article--standard-paragraph",
+          "characters": 436
+        },
+        {
+          "rank": 9,
+          "name": "Good Time Country Buffet",
+          "present": true,
+          "reason": "exported",
+          "selector": "p.duet--article--standard-paragraph",
+          "characters": 205
+        },
+        {
+          "rank": 10,
+          "name": "Boon Dee Moo Ka Ta Thai B.B.Q.",
+          "present": true,
+          "reason": "exported",
+          "selector": "p.duet--article--standard-paragraph",
+          "characters": 586
+        },
+        {
+          "rank": 11,
+          "name": "99 Favor Taste",
+          "present": true,
+          "reason": "exported",
+          "selector": "p.duet--article--standard-paragraph",
+          "characters": 409
+        },
+        {
+          "rank": 12,
+          "name": "Rakuzen AYCE Sushi",
+          "present": true,
+          "reason": "exported",
+          "selector": "p.duet--article--standard-paragraph",
+          "characters": 286
+        },
+        {
+          "rank": 13,
+          "name": "Lakruwana Restaurant",
+          "present": true,
+          "reason": "exported",
+          "selector": "p.duet--article--standard-paragraph",
+          "characters": 336
+        },
+        {
+          "rank": 14,
+          "name": "Crab House Brooklyn",
+          "present": true,
+          "reason": "exported",
+          "selector": "p.duet--article--standard-paragraph",
+          "characters": 564
+        }
+      ],
+      "user_file_sha256": "c2a4454d2290bac634e8d4cd36eaa8fe7b66f0fa3ee75255275e03c1c4891bda"
     },
     {
       "source_id": "reddit-hot-pot",
@@ -254,16 +855,16 @@
     },
     {
       "source_id": "timeout-dim-sum",
-      "fetched_at": "2026-11-10T06:38:36.590Z",
-      "source_kind": "direct_html",
-      "status": "partial",
+      "fetched_at": "2026-11-12T12:10:00.012Z",
+      "source_kind": "user_saved_html",
+      "status": "complete",
       "expected_count": 17,
       "extracted_count": 17,
       "count_verified": true,
       "issues": [
         "Count checked against the headline and consecutive visible item numbers. Addresses absent from this list remain null.",
         "Some restaurant addresses are unavailable.",
-        "Full copyrighted descriptions are not included in this metadata export; blurb remains null."
+        "Descriptions parsed from user-provided source HTML; original wording and paragraph order retained."
       ],
       "dates": [
         {
@@ -276,20 +877,159 @@
           "value": "2025-02-03T13:43:09Z",
           "source": "JSON-LD Article"
         }
-      ]
+      ],
+      "descriptions": [
+        {
+          "rank": 1,
+          "name": "House of Joy",
+          "present": true,
+          "reason": "exported",
+          "selector": "[data-testid=\"summary_testID\"]",
+          "characters": 506
+        },
+        {
+          "rank": 2,
+          "name": "Dim Sum Sam",
+          "present": true,
+          "reason": "exported",
+          "selector": "[data-testid=\"summary_testID\"]",
+          "characters": 468
+        },
+        {
+          "rank": 3,
+          "name": "Tim Ho Wan",
+          "present": true,
+          "reason": "exported",
+          "selector": "[data-testid=\"summary_testID\"]",
+          "characters": 340
+        },
+        {
+          "rank": 4,
+          "name": "RedFarm",
+          "present": true,
+          "reason": "exported",
+          "selector": "[data-testid=\"summary_testID\"]",
+          "characters": 341
+        },
+        {
+          "rank": 5,
+          "name": "Asian Jewels Seafood",
+          "present": true,
+          "reason": "exported",
+          "selector": "[data-testid=\"summary_testID\"]",
+          "characters": 337
+        },
+        {
+          "rank": 6,
+          "name": "Bamboo Garden",
+          "present": true,
+          "reason": "exported",
+          "selector": "[data-testid=\"summary_testID\"]",
+          "characters": 273
+        },
+        {
+          "rank": 7,
+          "name": "Awesum Dimsum",
+          "present": true,
+          "reason": "exported",
+          "selector": "[data-testid=\"summary_testID\"]",
+          "characters": 403
+        },
+        {
+          "rank": 8,
+          "name": "Pacificana/Pacific Palace",
+          "present": true,
+          "reason": "exported",
+          "selector": "[data-testid=\"summary_testID\"]",
+          "characters": 233
+        },
+        {
+          "rank": 9,
+          "name": "Dim Sum Go Go",
+          "present": true,
+          "reason": "exported",
+          "selector": "[data-testid=\"summary_testID\"]",
+          "characters": 327
+        },
+        {
+          "rank": 10,
+          "name": "Dim Sum Palace",
+          "present": true,
+          "reason": "exported",
+          "selector": "[data-testid=\"summary_testID\"]",
+          "characters": 353
+        },
+        {
+          "rank": 11,
+          "name": "Ping's Seafood",
+          "present": true,
+          "reason": "exported",
+          "selector": "[data-testid=\"summary_testID\"]",
+          "characters": 388
+        },
+        {
+          "rank": 12,
+          "name": "Jing Fong",
+          "present": true,
+          "reason": "exported",
+          "selector": "[data-testid=\"summary_testID\"]",
+          "characters": 260
+        },
+        {
+          "rank": 13,
+          "name": "Yin Ji Chang Fen",
+          "present": true,
+          "reason": "exported",
+          "selector": "[data-testid=\"summary_testID\"]",
+          "characters": 474
+        },
+        {
+          "rank": 14,
+          "name": "Nom Wah Tea Parlor",
+          "present": true,
+          "reason": "exported",
+          "selector": "[data-testid=\"summary_testID\"]",
+          "characters": 338
+        },
+        {
+          "rank": 15,
+          "name": "East Harbor Seafood Palace",
+          "present": true,
+          "reason": "exported",
+          "selector": "[data-testid=\"summary_testID\"]",
+          "characters": 364
+        },
+        {
+          "rank": 16,
+          "name": "Buddha Bodai",
+          "present": true,
+          "reason": "exported",
+          "selector": "[data-testid=\"summary_testID\"]",
+          "characters": 210
+        },
+        {
+          "rank": 17,
+          "name": "Golden Unicorn Restaurant",
+          "present": true,
+          "reason": "exported",
+          "selector": "[data-testid=\"summary_testID\"]",
+          "characters": 479
+        }
+      ],
+      "user_file_sha256": "90c9b09daeb758291783c5ea39392489966719ccebe22a627aa1a02e54f30a7e"
     },
     {
       "source_id": "michelin-dim-sum",
-      "fetched_at": "2026-11-11T09:21:13.971Z",
-      "source_kind": "browser_dom",
-      "status": "partial",
+      "fetched_at": "2026-11-12T12:35:45.653Z",
+      "source_kind": "user_saved_html",
+      "status": "complete",
       "expected_count": 3,
       "extracted_count": 3,
       "count_verified": true,
       "issues": [
         "Restaurant cards checked against the visible restaurant count; related best-of guides are excluded.",
-        "Full copyrighted descriptions are not included in this metadata export; blurb remains null.",
-        "Introductory prose says four restaurants; the live displayed count and all three cards agree. No fourth restaurant is inferred."
+        "Introductory prose says four restaurants; the live displayed count and all three cards agree. No fourth restaurant is inferred.",
+        "Descriptions parsed from user-provided source HTML; original wording and paragraph order retained."
       ],
       "dates": [
         {
@@ -298,10 +1038,37 @@
           "source": "visible page text"
         }
       ],
+      "descriptions": [
+        {
+          "rank": 1,
+          "name": "Asian Jewels",
+          "present": true,
+          "reason": "exported",
+          "selector": ".card__menu-content--desc",
+          "characters": 365
+        },
+        {
+          "rank": 2,
+          "name": "Dim Sum Go Go",
+          "present": true,
+          "reason": "exported",
+          "selector": ".card__menu-content--desc",
+          "characters": 527
+        },
+        {
+          "rank": 3,
+          "name": "East Harbor Seafood Palace",
+          "present": true,
+          "reason": "exported",
+          "selector": ".card__menu-content--desc",
+          "characters": 356
+        }
+      ],
       "count_conflict": {
         "introductory": 4,
         "displayed": 3
-      }
+      },
+      "user_file_sha256": "1455c0a555c7ed73fecfcdc6d469570f432a70370505789ac4e4a041946b50a7"
     }
   ]
 }

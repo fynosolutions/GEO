@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import {readFile} from 'node:fs/promises';
 import {resolve,join} from 'node:path';
-import {mediaSources,mediaMembershipReport,evaluateMediaAcceptance} from '../dist/backend/media/public.js';
+import {mediaSources,mediaMembershipReport,evaluateMediaAcceptance,descriptionAvailability} from '../dist/backend/media/public.js';
 const dir=resolve(process.argv[2]??'samples/step1-media');
 const json=async name=>JSON.parse(await readFile(join(dir,name),'utf8'));
 const articles=await json('articles.json'),sources=(await json('evidence.json')).sources,acceptance=await json('acceptance.json');
@@ -12,6 +12,7 @@ for(let i=0;i<articles.length;i++){
  a.restaurants.forEach((r,index)=>{assert.deepEqual(Object.keys(r),['name','rank','address','blurb']);assert.equal(typeof r.name,'string');assert.ok(r.name.trim());assert.equal(r.rank,index+1);for(const key of ['address','blurb'])assert.ok(r[key]===null||typeof r[key]==='string'&&r[key].trim().length>0);});
  assert.equal(sources[i].extracted_count,a.restaurants.length);
 }
+assert.deepEqual(await json('description-availability.json'),descriptionAvailability(articles,sources));
 assert.deepEqual(evaluateMediaAcceptance(articles,sources,mediaSources).acceptance,acceptance);
 const targets=JSON.parse(await readFile('backend/media/targets.json','utf8'));assert.equal(await readFile(join(dir,'上榜表.md'),'utf8'),mediaMembershipReport(articles,sources,targets));
 console.log(JSON.stringify({sources:articles.length,restaurants:acceptance.restaurant_count,descriptions:acceptance.descriptions_available,missing_descriptions:acceptance.descriptions_missing,full_data_complete:acceptance.complete,schema:'passed',counts:'passed',generated_table:'passed',network_requests:0}));

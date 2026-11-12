@@ -100,9 +100,14 @@
     "sha256": "cd595b50f29865b8651f50b87cc5c2f0bdb85e95065169b7a414e8c8a5f99cb9"
   },
   {
-    "source_id": "infatuation-hot-pot",
-    "path": "user-supplied/infatuation-hot-pot.html",
-    "sha256": "0270aebd2730a133798e985d890507d28859f47921858500aef56c1c5150f822"
+    "source_id": "timeout-dim-sum",
+    "path": "user-supplied/timeout-dim-sum.html",
+    "sha256": "90c9b09daeb758291783c5ea39392489966719ccebe22a627aa1a02e54f30a7e"
+  },
+  {
+    "source_id": "eater-hot-pot",
+    "path": "user-supplied/eater-hot-pot.html",
+    "sha256": "1683adadd180d5317d97d1ffa44bbebe5060adeb35a8e24b345d47976ba7fcef"
   },
   {
     "source_id": "reddit-hot-pot",
@@ -110,8 +115,38 @@
     "sha256": "4b1204e22e2318dff928fad121c9893e109994a9c9aea5556f86805daee7c87c"
   },
   {
+    "source_id": "michelin-dim-sum",
+    "path": "user-supplied/michelin-dim-sum.html",
+    "sha256": "1455c0a555c7ed73fecfcdc6d469570f432a70370505789ac4e4a041946b50a7"
+  },
+  {
+    "source_id": "infatuation-hot-pot-directory",
+    "path": "user-supplied/infatuation-hot-pot-directory.html",
+    "sha256": "6ac3f7c76b517be5349b57d153744c27b326e2a71b8e4a94c90981be71b2de17"
+  },
+  {
+    "source_id": "infatuation-ayce",
+    "path": "user-supplied/infatuation-ayce.html",
+    "sha256": "9e07080e39f1b947a88dad45f93198acf35acf74e587f1a914f5b9ad9cb13360"
+  },
+  {
+    "source_id": "infatuation-dim-sum",
+    "path": "user-supplied/infatuation-dim-sum.html",
+    "sha256": "27191312775a7c00fabac96bf4abf41ba917709c35c1368fea6d3eedb7061632"
+  },
+  {
+    "source_id": "eater-ayce",
+    "path": "user-supplied/eater-ayce.html",
+    "sha256": "c2a4454d2290bac634e8d4cd36eaa8fe7b66f0fa3ee75255275e03c1c4891bda"
+  },
+  {
+    "source_id": "infatuation-hot-pot",
+    "path": "user-supplied/infatuation-hot-pot.html",
+    "sha256": "0270aebd2730a133798e985d890507d28859f47921858500aef56c1c5150f822"
+  },
+  {
     "source_id": "saved-page-manifest",
     "path": "user-supplied/manifest.json",
-    "sha256": "34ad6fe435b7b237519cc886a74c53e7888941277178206ed0c8f05315bdb282"
+    "sha256": "76623acd4d463a50449007f3c18b37470ef0264b373612f28859394315db4043"
   }
 ]

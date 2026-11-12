@@ -172,3 +172,40 @@ test('CLI imports saved-page manifest and requires reviewed hash before acceptin
 });
 
 import {createHash} from 'node:crypto';
+
+import {descriptionAvailability} from '../dist/backend/media/public.js';
+test('description export preserves paragraphs and excludes navigation, hidden text and neighbouring cards',()=>{
+ const html=fixture().replace('<p>A fictional restaurant paragraph for this test.</p>','<div city="new-york"><p>Fictional noodles &amp; tea.</p><p>Second original paragraph.<span hidden>Hidden UI</span></p><button>Read review</button><aside><p>Ad copy.</p></aside></div>');
+ const result=parseMediaArticle(html,source,'2026-11-12T00:00:00Z');
+ assert.equal(result.article.restaurants[0].blurb,'Fictional noodles & tea.\n\nSecond original paragraph.');
+ assert.equal(result.evidence.descriptions[0].reason,'exported');assert.equal(result.evidence.descriptions[0].present,true);
+ const limited=parseMediaArticle(html,source,'2026-11-12T00:00:00Z',{includeDescriptions:false});assert.equal(limited.article.restaurants[0].blurb,null);assert.equal(limited.evidence.descriptions[0].reason,'not_selected');assert.equal(limited.evidence.descriptions[0].present,true);
+ const availability=descriptionAvailability([limited.article],[limited.evidence]);assert.equal(availability.counts.not_selected,1);assert.equal(availability.confirmed_absent,0);assert.equal(availability.present,1);
+});
+test('empty recognized description and unknown layout remain different states',()=>{
+ const empty=parseMediaArticle(fixture().replace('<p>A fictional restaurant paragraph for this test.</p>','<div city="new-york"><p> </p></div>'),source,'2026-11-12T00:00:00Z');
+ assert.equal(empty.evidence.descriptions[0].present,false);assert.equal(empty.evidence.descriptions[0].reason,'not_provided');
+ const unknown=parseMediaArticle(fixture(),source,'2026-11-12T00:00:00Z');assert.equal(unknown.evidence.descriptions[0].present,null);assert.equal(unknown.evidence.descriptions[0].reason,'parse_failed');
+});
+test('Eater, Time Out, Michelin and cuisine-directory descriptions use source-specific containers',()=>{
+ const cases=[
+  [mediaSources[1],'<h1>Fictional list</h1><script type="application/ld+json">{"@type":"ItemList","itemListElement":[{"item":{"name":"Fictional Cafe"}}]}</script><div class="duet--article--map-card"><h2>Fictional Cafe</h2><p class="duet--article--standard-paragraph">Fictional Eater paragraph.</p><aside><p>Not an introduction.</p></aside></div>','Fictional Eater paragraph.'],
+  [mediaSources[7],'<h1>The 1 fictional cafe</h1><script type="application/ld+json">{"@type":"Article","headline":"The 1 fictional cafe"}</script><article data-testid="tile-zone-large-list_testID"><h3 data-testid="tile-title_testID">1. Fictional Cafe</h3><div data-testid="summary_testID"><p>Fictional Time Out paragraph.</p></div><p>Unrelated UI.</p></article>','Fictional Time Out paragraph.'],
+  [mediaSources[8],michelinFixture.replace('Kitchen A</a></h5>','Kitchen A</a></h5><div class="card__menu-content--desc">Fictional Michelin paragraph.</div>'),'Fictional Michelin paragraph.'],
+  [mediaSources[2],directoryFixture().replace('<h3>Test Kitchen</h3>','<h3>Test Kitchen</h3><p class="css-501r93">Fictional directory excerpt.</p><p class="flatplan_authorName">Author.</p>'),'Fictional directory excerpt.']
+ ];
+ for(const [source,html,expected] of cases){
+  const result=parseMediaArticle(html,source,'2026-11-12T00:00:00Z');assert.equal(result.article.restaurants[0].blurb,expected,source.id);assert.equal(result.evidence.count_verified,true,source.id);
+  const saved=parseSavedMediaPage(savedHeader(source)+html,source,'2026-11-12T00:00:00Z');assert.equal(saved.article.restaurants[0].blurb,expected,source.id);assert.equal(saved.evidence.source_kind,'user_saved_html');
+ }
+});
+test('CLI full mode exports fixture descriptions by default; supplied-only reports present but not selected',()=>{
+ const root=mkdtempSync(join(tmpdir(),'geo-media-policy-')),cache=join(root,'cache'),out=join(root,'out');mkdirSync(cache);
+ try{
+  const html=fixture().replace('<p>A fictional restaurant paragraph for this test.</p>','<div city="new-york"><p>Fictional original cafe description.</p></div>');writeFileSync(join(cache,source.id+'.html'),html);writeFileSync(join(cache,source.id+'.json'),JSON.stringify({url:source.url,status:200,fetched_at:'2026-11-12T00:00:00Z'}));
+  const args=['dist/backend/media/cli.js','--source',source.id,'--cache',cache,'--out',out];
+  assert.equal(spawnSync(process.execPath,args,{encoding:'utf8'}).status,0);assert.equal(JSON.parse(readFileSync(join(out,'articles.json'),'utf8'))[0].restaurants[0].blurb,'Fictional original cafe description.');
+  assert.equal(spawnSync(process.execPath,[...args,'--descriptions','supplied-only'],{encoding:'utf8'}).status,2);const report=JSON.parse(readFileSync(join(out,'description-availability.json'),'utf8'));assert.equal(report.present,1);assert.equal(report.counts.not_selected,1);assert.equal(report.confirmed_absent,0);
+  assert.equal(spawnSync(process.execPath,[...args,'--descriptions','unknown'],{encoding:'utf8'}).status,1);
+ }finally{rmSync(root,{recursive:true,force:true});}
+});

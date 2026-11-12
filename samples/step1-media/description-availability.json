@@ -1,0 +1,1121 @@
+{
+  "entries": 105,
+  "present": 105,
+  "confirmed_absent": 0,
+  "unknown": 0,
+  "counts": {
+    "exported": 105,
+    "not_selected": 0,
+    "not_provided": 0,
+    "parse_failed": 0,
+    "not_checked": 0
+  },
+  "entries_by_source": [
+    {
+      "source_id": "infatuation-hot-pot",
+      "entries": 10,
+      "present": 10,
+      "exported": 10
+    },
+    {
+      "source_id": "eater-hot-pot",
+      "entries": 18,
+      "present": 18,
+      "exported": 18
+    },
+    {
+      "source_id": "infatuation-hot-pot-directory",
+      "entries": 6,
+      "present": 6,
+      "exported": 6
+    },
+    {
+      "source_id": "infatuation-dim-sum",
+      "entries": 15,
+      "present": 15,
+      "exported": 15
+    },
+    {
+      "source_id": "infatuation-ayce",
+      "entries": 10,
+      "present": 10,
+      "exported": 10
+    },
+    {
+      "source_id": "eater-ayce",
+      "entries": 14,
+      "present": 14,
+      "exported": 14
+    },
+    {
+      "source_id": "reddit-hot-pot",
+      "entries": 12,
+      "present": 12,
+      "exported": 12
+    },
+    {
+      "source_id": "timeout-dim-sum",
+      "entries": 17,
+      "present": 17,
+      "exported": 17
+    },
+    {
+      "source_id": "michelin-dim-sum",
+      "entries": 3,
+      "present": 3,
+      "exported": 3
+    }
+  ],
+  "rows": [
+    {
+      "source_id": "infatuation-hot-pot",
+      "url": "https://www.theinfatuation.com/new-york/guides/best-hot-pot-nyc",
+      "rank": 1,
+      "name": "Chong Qing Lao Zao",
+      "present": true,
+      "reason": "exported",
+      "characters": 636,
+      "selector": "[data-testid=\"venue-description\"], div[city]"
+    },
+    {
+      "source_id": "infatuation-hot-pot",
+      "url": "https://www.theinfatuation.com/new-york/guides/best-hot-pot-nyc",
+      "rank": 2,
+      "name": "Hometown Hotpot & BBQ",
+      "present": true,
+      "reason": "exported",
+      "characters": 456,
+      "selector": "[data-testid=\"venue-description\"], div[city]"
+    },
+    {
+      "source_id": "infatuation-hot-pot",
+      "url": "https://www.theinfatuation.com/new-york/guides/best-hot-pot-nyc",
+      "rank": 3,
+      "name": "Hou Yi Hot Pot",
+      "present": true,
+      "reason": "exported",
+      "characters": 517,
+      "selector": "[data-testid=\"venue-description\"], div[city]"
+    },
+    {
+      "source_id": "infatuation-hot-pot",
+      "url": "https://www.theinfatuation.com/new-york/guides/best-hot-pot-nyc",
+      "rank": 4,
+      "name": "The Dolar Shop",
+      "present": true,
+      "reason": "exported",
+      "characters": 577,
+      "selector": "[data-testid=\"venue-description\"], div[city]"
+    },
+    {
+      "source_id": "infatuation-hot-pot",
+      "url": "https://www.theinfatuation.com/new-york/guides/best-hot-pot-nyc",
+      "rank": 5,
+      "name": "99 Favor Taste",
+      "present": true,
+      "reason": "exported",
+      "characters": 496,
+      "selector": "[data-testid=\"venue-description\"], div[city]"
+    },
+    {
+      "source_id": "infatuation-hot-pot",
+      "url": "https://www.theinfatuation.com/new-york/guides/best-hot-pot-nyc",
+      "rank": 6,
+      "name": "Da Long Yi",
+      "present": true,
+      "reason": "exported",
+      "characters": 481,
+      "selector": "[data-testid=\"venue-description\"], div[city]"
+    },
+    {
+      "source_id": "infatuation-hot-pot",
+      "url": "https://www.theinfatuation.com/new-york/guides/best-hot-pot-nyc",
+      "rank": 7,
+      "name": "Three Hot Pot",
+      "present": true,
+      "reason": "exported",
+      "characters": 566,
+      "selector": "[data-testid=\"venue-description\"], div[city]"
+    },
+    {
+      "source_id": "infatuation-hot-pot",
+      "url": "https://www.theinfatuation.com/new-york/guides/best-hot-pot-nyc",
+      "rank": 8,
+      "name": "Shabu-Tatsu",
+      "present": true,
+      "reason": "exported",
+      "characters": 444,
+      "selector": "[data-testid=\"venue-description\"], div[city]"
+    },
+    {
+      "source_id": "infatuation-hot-pot",
+      "url": "https://www.theinfatuation.com/new-york/guides/best-hot-pot-nyc",
+      "rank": 9,
+      "name": "Xi Yue Hui Seafood Hot Pot",
+      "present": true,
+      "reason": "exported",
+      "characters": 516,
+      "selector": "[data-testid=\"venue-description\"], div[city]"
+    },
+    {
+      "source_id": "infatuation-hot-pot",
+      "url": "https://www.theinfatuation.com/new-york/guides/best-hot-pot-nyc",
+      "rank": 10,
+      "name": "LaoJie Hotpot",
+      "present": true,
+      "reason": "exported",
+      "characters": 510,
+      "selector": "[data-testid=\"venue-description\"], div[city]"
+    },
+    {
+      "source_id": "eater-hot-pot",
+      "url": "https://ny.eater.com/maps/best-hot-pot-restaurants-nyc",
+      "rank": 1,
+      "name": "99 Favor Taste",
+      "present": true,
+      "reason": "exported",
+      "characters": 722,
+      "selector": "p.duet--article--standard-paragraph"
+    },
+    {
+      "source_id": "eater-hot-pot",
+      "url": "https://ny.eater.com/maps/best-hot-pot-restaurants-nyc",
+      "rank": 2,
+      "name": "Hometown Hotpot & BBQ",
+      "present": true,
+      "reason": "exported",
+      "characters": 434,
+      "selector": "p.duet--article--standard-paragraph"
+    },
+    {
+      "source_id": "eater-hot-pot",
+      "url": "https://ny.eater.com/maps/best-hot-pot-restaurants-nyc",
+      "rank": 3,
+      "name": "Da Long Yi Hot Pot",
+      "present": true,
+      "reason": "exported",
+      "characters": 629,
+      "selector": "p.duet--article--standard-paragraph"
+    },
+    {
+      "source_id": "eater-hot-pot",
+      "url": "https://ny.eater.com/maps/best-hot-pot-restaurants-nyc",
+      "rank": 4,
+      "name": "Hou Yi Hot Pot",
+      "present": true,
+      "reason": "exported",
+      "characters": 229,
+      "selector": "p.duet--article--standard-paragraph"
+    },
+    {
+      "source_id": "eater-hot-pot",
+      "url": "https://ny.eater.com/maps/best-hot-pot-restaurants-nyc",
+      "rank": 5,
+      "name": "Shabushabu Mayumon",
+      "present": true,
+      "reason": "exported",
+      "characters": 550,
+      "selector": "p.duet--article--standard-paragraph"
+    },
+    {
+      "source_id": "eater-hot-pot",
+      "url": "https://ny.eater.com/maps/best-hot-pot-restaurants-nyc",
+      "rank": 6,
+      "name": "886",
+      "present": true,
+      "reason": "exported",
+      "characters": 384,
+      "selector": "p.duet--article--standard-paragraph"
+    },
+    {
+      "source_id": "eater-hot-pot",
+      "url": "https://ny.eater.com/maps/best-hot-pot-restaurants-nyc",
+      "rank": 7,
+      "name": "The Dolar Shop Manhattan",
+      "present": true,
+      "reason": "exported",
+      "characters": 615,
+      "selector": "p.duet--article--standard-paragraph"
+    },
+    {
+      "source_id": "eater-hot-pot",
+      "url": "https://ny.eater.com/maps/best-hot-pot-restaurants-nyc",
+      "rank": 8,
+      "name": "Kimura",
+      "present": true,
+      "reason": "exported",
+      "characters": 850,
+      "selector": "p.duet--article--standard-paragraph"
+    },
+    {
+      "source_id": "eater-hot-pot",
+      "url": "https://ny.eater.com/maps/best-hot-pot-restaurants-nyc",
+      "rank": 9,
+      "name": "Shabu-Tatsu",
+      "present": true,
+      "reason": "exported",
+      "characters": 497,
+      "selector": "p.duet--article--standard-paragraph"
+    },
+    {
+      "source_id": "eater-hot-pot",
+      "url": "https://ny.eater.com/maps/best-hot-pot-restaurants-nyc",
+      "rank": 10,
+      "name": "Sik Gaek",
+      "present": true,
+      "reason": "exported",
+      "characters": 662,
+      "selector": "p.duet--article--standard-paragraph"
+    },
+    {
+      "source_id": "eater-hot-pot",
+      "url": "https://ny.eater.com/maps/best-hot-pot-restaurants-nyc",
+      "rank": 11,
+      "name": "Jaew Hon",
+      "present": true,
+      "reason": "exported",
+      "characters": 877,
+      "selector": "p.duet--article--standard-paragraph"
+    },
+    {
+      "source_id": "eater-hot-pot",
+      "url": "https://ny.eater.com/maps/best-hot-pot-restaurants-nyc",
+      "rank": 12,
+      "name": "Lao Jie Food",
+      "present": true,
+      "reason": "exported",
+      "characters": 507,
+      "selector": "p.duet--article--standard-paragraph"
+    },
+    {
+      "source_id": "eater-hot-pot",
+      "url": "https://ny.eater.com/maps/best-hot-pot-restaurants-nyc",
+      "rank": 13,
+      "name": "Xiang Hotpot",
+      "present": true,
+      "reason": "exported",
+      "characters": 682,
+      "selector": "p.duet--article--standard-paragraph"
+    },
+    {
+      "source_id": "eater-hot-pot",
+      "url": "https://ny.eater.com/maps/best-hot-pot-restaurants-nyc",
+      "rank": 14,
+      "name": "Chong Qing Lao Zao",
+      "present": true,
+      "reason": "exported",
+      "characters": 385,
+      "selector": "p.duet--article--standard-paragraph"
+    },
+    {
+      "source_id": "eater-hot-pot",
+      "url": "https://ny.eater.com/maps/best-hot-pot-restaurants-nyc",
+      "rank": 15,
+      "name": "Little Sheep Mongolian Hot Pot, Flushing 小肥羊",
+      "present": true,
+      "reason": "exported",
+      "characters": 682,
+      "selector": "p.duet--article--standard-paragraph"
+    },
+    {
+      "source_id": "eater-hot-pot",
+      "url": "https://ny.eater.com/maps/best-hot-pot-restaurants-nyc",
+      "rank": 16,
+      "name": "Haidilao Hotpot",
+      "present": true,
+      "reason": "exported",
+      "characters": 741,
+      "selector": "p.duet--article--standard-paragraph"
+    },
+    {
+      "source_id": "eater-hot-pot",
+      "url": "https://ny.eater.com/maps/best-hot-pot-restaurants-nyc",
+      "rank": 17,
+      "name": "Liuyishou Hotpot (Flushing) 刘一手火锅",
+      "present": true,
+      "reason": "exported",
+      "characters": 374,
+      "selector": "p.duet--article--standard-paragraph"
+    },
+    {
+      "source_id": "eater-hot-pot",
+      "url": "https://ny.eater.com/maps/best-hot-pot-restaurants-nyc",
+      "rank": 18,
+      "name": "Lao Shen Hot Pot",
+      "present": true,
+      "reason": "exported",
+      "characters": 541,
+      "selector": "p.duet--article--standard-paragraph"
+    },
+    {
+      "source_id": "infatuation-hot-pot-directory",
+      "url": "https://www.theinfatuation.com/new-york/cuisines/hot-pot",
+      "rank": 1,
+      "name": "YGF Malatang",
+      "present": true,
+      "reason": "exported",
+      "characters": 81,
+      "selector": "p.css-501r93"
+    },
+    {
+      "source_id": "infatuation-hot-pot-directory",
+      "url": "https://www.theinfatuation.com/new-york/cuisines/hot-pot",
+      "rank": 2,
+      "name": "The Dolar Shop",
+      "present": true,
+      "reason": "exported",
+      "characters": 82,
+      "selector": "p.css-501r93"
+    },
+    {
+      "source_id": "infatuation-hot-pot-directory",
+      "url": "https://www.theinfatuation.com/new-york/cuisines/hot-pot",
+      "rank": 3,
+      "name": "Three Hot Pot",
+      "present": true,
+      "reason": "exported",
+      "characters": 74,
+      "selector": "p.css-501r93"
+    },
+    {
+      "source_id": "infatuation-hot-pot-directory",
+      "url": "https://www.theinfatuation.com/new-york/cuisines/hot-pot",
+      "rank": 4,
+      "name": "99 Favor Taste",
+      "present": true,
+      "reason": "exported",
+      "characters": 76,
+      "selector": "p.css-501r93"
+    },
+    {
+      "source_id": "infatuation-hot-pot-directory",
+      "url": "https://www.theinfatuation.com/new-york/cuisines/hot-pot",
+      "rank": 5,
+      "name": "Da Long Yi",
+      "present": true,
+      "reason": "exported",
+      "characters": 93,
+      "selector": "p.css-501r93"
+    },
+    {
+      "source_id": "infatuation-hot-pot-directory",
+      "url": "https://www.theinfatuation.com/new-york/cuisines/hot-pot",
+      "rank": 6,
+      "name": "Chong Qing Wharf",
+      "present": true,
+      "reason": "exported",
+      "characters": 98,
+      "selector": "p.css-501r93"
+    },
+    {
+      "source_id": "infatuation-dim-sum",
+      "url": "https://www.theinfatuation.com/new-york/guides/best-dim-sum-nyc",
+      "rank": 1,
+      "name": "100 Feast & Lounge",
+      "present": true,
+      "reason": "exported",
+      "characters": 630,
+      "selector": "[data-testid=\"venue-description\"], div[city]"
+    },
+    {
+      "source_id": "infatuation-dim-sum",
+      "url": "https://www.theinfatuation.com/new-york/guides/best-dim-sum-nyc",
+      "rank": 2,
+      "name": "Asian Jewels Seafood Restaurant",
+      "present": true,
+      "reason": "exported",
+      "characters": 661,
+      "selector": "[data-testid=\"venue-description\"], div[city]"
+    },
+    {
+      "source_id": "infatuation-dim-sum",
+      "url": "https://www.theinfatuation.com/new-york/guides/best-dim-sum-nyc",
+      "rank": 3,
+      "name": "House Of Joy",
+      "present": true,
+      "reason": "exported",
+      "characters": 578,
+      "selector": "[data-testid=\"venue-description\"], div[city]"
+    },
+    {
+      "source_id": "infatuation-dim-sum",
+      "url": "https://www.theinfatuation.com/new-york/guides/best-dim-sum-nyc",
+      "rank": 4,
+      "name": "Golden Lake Pavilion",
+      "present": true,
+      "reason": "exported",
+      "characters": 622,
+      "selector": "[data-testid=\"venue-description\"], div[city]"
+    },
+    {
+      "source_id": "infatuation-dim-sum",
+      "url": "https://www.theinfatuation.com/new-york/guides/best-dim-sum-nyc",
+      "rank": 5,
+      "name": "Dim Sum Palace",
+      "present": true,
+      "reason": "exported",
+      "characters": 687,
+      "selector": "[data-testid=\"venue-description\"], div[city]"
+    },
+    {
+      "source_id": "infatuation-dim-sum",
+      "url": "https://www.theinfatuation.com/new-york/guides/best-dim-sum-nyc",
+      "rank": 6,
+      "name": "Royal Seafood Restaurant",
+      "present": true,
+      "reason": "exported",
+      "characters": 515,
+      "selector": "[data-testid=\"venue-description\"], div[city]"
+    },
+    {
+      "source_id": "infatuation-dim-sum",
+      "url": "https://www.theinfatuation.com/new-york/guides/best-dim-sum-nyc",
+      "rank": 7,
+      "name": "Ping's Seafood",
+      "present": true,
+      "reason": "exported",
+      "characters": 461,
+      "selector": "[data-testid=\"venue-description\"], div[city]"
+    },
+    {
+      "source_id": "infatuation-dim-sum",
+      "url": "https://www.theinfatuation.com/new-york/guides/best-dim-sum-nyc",
+      "rank": 8,
+      "name": "Golden Unicorn",
+      "present": true,
+      "reason": "exported",
+      "characters": 557,
+      "selector": "[data-testid=\"venue-description\"], div[city]"
+    },
+    {
+      "source_id": "infatuation-dim-sum",
+      "url": "https://www.theinfatuation.com/new-york/guides/best-dim-sum-nyc",
+      "rank": 9,
+      "name": "East Harbor Seafood Palace",
+      "present": true,
+      "reason": "exported",
+      "characters": 703,
+      "selector": "[data-testid=\"venue-description\"], div[city]"
+    },
+    {
+      "source_id": "infatuation-dim-sum",
+      "url": "https://www.theinfatuation.com/new-york/guides/best-dim-sum-nyc",
+      "rank": 10,
+      "name": "Shanghai You Garden",
+      "present": true,
+      "reason": "exported",
+      "characters": 355,
+      "selector": "[data-testid=\"venue-description\"], div[city]"
+    },
+    {
+      "source_id": "infatuation-dim-sum",
+      "url": "https://www.theinfatuation.com/new-york/guides/best-dim-sum-nyc",
+      "rank": 11,
+      "name": "Bamboo Garden Restaurant",
+      "present": true,
+      "reason": "exported",
+      "characters": 710,
+      "selector": "[data-testid=\"venue-description\"], div[city]"
+    },
+    {
+      "source_id": "infatuation-dim-sum",
+      "url": "https://www.theinfatuation.com/new-york/guides/best-dim-sum-nyc",
+      "rank": 12,
+      "name": "Mr. Bun",
+      "present": true,
+      "reason": "exported",
+      "characters": 556,
+      "selector": "[data-testid=\"venue-description\"], div[city]"
+    },
+    {
+      "source_id": "infatuation-dim-sum",
+      "url": "https://www.theinfatuation.com/new-york/guides/best-dim-sum-nyc",
+      "rank": 13,
+      "name": "Nom Wah Tea Parlor",
+      "present": true,
+      "reason": "exported",
+      "characters": 591,
+      "selector": "[data-testid=\"venue-description\"], div[city]"
+    },
+    {
+      "source_id": "infatuation-dim-sum",
+      "url": "https://www.theinfatuation.com/new-york/guides/best-dim-sum-nyc",
+      "rank": 14,
+      "name": "Jing Fong",
+      "present": true,
+      "reason": "exported",
+      "characters": 603,
+      "selector": "[data-testid=\"venue-description\"], div[city]"
+    },
+    {
+      "source_id": "infatuation-dim-sum",
+      "url": "https://www.theinfatuation.com/new-york/guides/best-dim-sum-nyc",
+      "rank": 15,
+      "name": "Tim Ho Wan",
+      "present": true,
+      "reason": "exported",
+      "characters": 684,
+      "selector": "[data-testid=\"venue-description\"], div[city]"
+    },
+    {
+      "source_id": "infatuation-ayce",
+      "url": "https://www.theinfatuation.com/new-york/guides/best-all-you-can-eat-new-york",
+      "rank": 1,
+      "name": "SourAji",
+      "present": true,
+      "reason": "exported",
+      "characters": 653,
+      "selector": "[data-testid=\"venue-description\"], div[city]"
+    },
+    {
+      "source_id": "infatuation-ayce",
+      "url": "https://www.theinfatuation.com/new-york/guides/best-all-you-can-eat-new-york",
+      "rank": 2,
+      "name": "Hometown Hotpot & BBQ",
+      "present": true,
+      "reason": "exported",
+      "characters": 609,
+      "selector": "[data-testid=\"venue-description\"], div[city]"
+    },
+    {
+      "source_id": "infatuation-ayce",
+      "url": "https://www.theinfatuation.com/new-york/guides/best-all-you-can-eat-new-york",
+      "rank": 3,
+      "name": "Lakruwana",
+      "present": true,
+      "reason": "exported",
+      "characters": 645,
+      "selector": "[data-testid=\"venue-description\"], div[city]"
+    },
+    {
+      "source_id": "infatuation-ayce",
+      "url": "https://www.theinfatuation.com/new-york/guides/best-all-you-can-eat-new-york",
+      "rank": 4,
+      "name": "Let’s Meat",
+      "present": true,
+      "reason": "exported",
+      "characters": 519,
+      "selector": "[data-testid=\"venue-description\"], div[city]"
+    },
+    {
+      "source_id": "infatuation-ayce",
+      "url": "https://www.theinfatuation.com/new-york/guides/best-all-you-can-eat-new-york",
+      "rank": 5,
+      "name": "Churrascaria Plataforma",
+      "present": true,
+      "reason": "exported",
+      "characters": 512,
+      "selector": "[data-testid=\"venue-description\"], div[city]"
+    },
+    {
+      "source_id": "infatuation-ayce",
+      "url": "https://www.theinfatuation.com/new-york/guides/best-all-you-can-eat-new-york",
+      "rank": 6,
+      "name": "Akino",
+      "present": true,
+      "reason": "exported",
+      "characters": 615,
+      "selector": "[data-testid=\"venue-description\"], div[city]"
+    },
+    {
+      "source_id": "infatuation-ayce",
+      "url": "https://www.theinfatuation.com/new-york/guides/best-all-you-can-eat-new-york",
+      "rank": 7,
+      "name": "Xi Yue Hui Seafood Hot Pot",
+      "present": true,
+      "reason": "exported",
+      "characters": 547,
+      "selector": "[data-testid=\"venue-description\"], div[city]"
+    },
+    {
+      "source_id": "infatuation-ayce",
+      "url": "https://www.theinfatuation.com/new-york/guides/best-all-you-can-eat-new-york",
+      "rank": 8,
+      "name": "Hou Yi Hot Pot",
+      "present": true,
+      "reason": "exported",
+      "characters": 511,
+      "selector": "[data-testid=\"venue-description\"], div[city]"
+    },
+    {
+      "source_id": "infatuation-ayce",
+      "url": "https://www.theinfatuation.com/new-york/guides/best-all-you-can-eat-new-york",
+      "rank": 9,
+      "name": "Chong Qing Wharf",
+      "present": true,
+      "reason": "exported",
+      "characters": 470,
+      "selector": "[data-testid=\"venue-description\"], div[city]"
+    },
+    {
+      "source_id": "infatuation-ayce",
+      "url": "https://www.theinfatuation.com/new-york/guides/best-all-you-can-eat-new-york",
+      "rank": 10,
+      "name": "Kikoo",
+      "present": true,
+      "reason": "exported",
+      "characters": 601,
+      "selector": "[data-testid=\"venue-description\"], div[city]"
+    },
+    {
+      "source_id": "eater-ayce",
+      "url": "https://ny.eater.com/maps/best-all-you-can-eat-restaurants-nyc",
+      "rank": 1,
+      "name": "Hibachi Grill and Supreme Buffet",
+      "present": true,
+      "reason": "exported",
+      "characters": 306,
+      "selector": "p.duet--article--standard-paragraph"
+    },
+    {
+      "source_id": "eater-ayce",
+      "url": "https://ny.eater.com/maps/best-all-you-can-eat-restaurants-nyc",
+      "rank": 2,
+      "name": "Churrascaria Plataforma",
+      "present": true,
+      "reason": "exported",
+      "characters": 520,
+      "selector": "p.duet--article--standard-paragraph"
+    },
+    {
+      "source_id": "eater-ayce",
+      "url": "https://ny.eater.com/maps/best-all-you-can-eat-restaurants-nyc",
+      "rank": 3,
+      "name": "Becco",
+      "present": true,
+      "reason": "exported",
+      "characters": 282,
+      "selector": "p.duet--article--standard-paragraph"
+    },
+    {
+      "source_id": "eater-ayce",
+      "url": "https://ny.eater.com/maps/best-all-you-can-eat-restaurants-nyc",
+      "rank": 4,
+      "name": "Jongro BBQ Market",
+      "present": true,
+      "reason": "exported",
+      "characters": 375,
+      "selector": "p.duet--article--standard-paragraph"
+    },
+    {
+      "source_id": "eater-ayce",
+      "url": "https://ny.eater.com/maps/best-all-you-can-eat-restaurants-nyc",
+      "rank": 5,
+      "name": "Witch Topokki",
+      "present": true,
+      "reason": "exported",
+      "characters": 427,
+      "selector": "p.duet--article--standard-paragraph"
+    },
+    {
+      "source_id": "eater-ayce",
+      "url": "https://ny.eater.com/maps/best-all-you-can-eat-restaurants-nyc",
+      "rank": 6,
+      "name": "Let’s Meat BBQ",
+      "present": true,
+      "reason": "exported",
+      "characters": 306,
+      "selector": "p.duet--article--standard-paragraph"
+    },
+    {
+      "source_id": "eater-ayce",
+      "url": "https://ny.eater.com/maps/best-all-you-can-eat-restaurants-nyc",
+      "rank": 7,
+      "name": "Wonder Pig K-BBQ",
+      "present": true,
+      "reason": "exported",
+      "characters": 493,
+      "selector": "p.duet--article--standard-paragraph"
+    },
+    {
+      "source_id": "eater-ayce",
+      "url": "https://ny.eater.com/maps/best-all-you-can-eat-restaurants-nyc",
+      "rank": 8,
+      "name": "Na Rath",
+      "present": true,
+      "reason": "exported",
+      "characters": 436,
+      "selector": "p.duet--article--standard-paragraph"
+    },
+    {
+      "source_id": "eater-ayce",
+      "url": "https://ny.eater.com/maps/best-all-you-can-eat-restaurants-nyc",
+      "rank": 9,
+      "name": "Good Time Country Buffet",
+      "present": true,
+      "reason": "exported",
+      "characters": 205,
+      "selector": "p.duet--article--standard-paragraph"
+    },
+    {
+      "source_id": "eater-ayce",
+      "url": "https://ny.eater.com/maps/best-all-you-can-eat-restaurants-nyc",
+      "rank": 10,
+      "name": "Boon Dee Moo Ka Ta Thai B.B.Q.",
+      "present": true,
+      "reason": "exported",
+      "characters": 586,
+      "selector": "p.duet--article--standard-paragraph"
+    },
+    {
+      "source_id": "eater-ayce",
+      "url": "https://ny.eater.com/maps/best-all-you-can-eat-restaurants-nyc",
+      "rank": 11,
+      "name": "99 Favor Taste",
+      "present": true,
+      "reason": "exported",
+      "characters": 409,
+      "selector": "p.duet--article--standard-paragraph"
+    },
+    {
+      "source_id": "eater-ayce",
+      "url": "https://ny.eater.com/maps/best-all-you-can-eat-restaurants-nyc",
+      "rank": 12,
+      "name": "Rakuzen AYCE Sushi",
+      "present": true,
+      "reason": "exported",
+      "characters": 286,
+      "selector": "p.duet--article--standard-paragraph"
+    },
+    {
+      "source_id": "eater-ayce",
+      "url": "https://ny.eater.com/maps/best-all-you-can-eat-restaurants-nyc",
+      "rank": 13,
+      "name": "Lakruwana Restaurant",
+      "present": true,
+      "reason": "exported",
+      "characters": 336,
+      "selector": "p.duet--article--standard-paragraph"
+    },
+    {
+      "source_id": "eater-ayce",
+      "url": "https://ny.eater.com/maps/best-all-you-can-eat-restaurants-nyc",
+      "rank": 14,
+      "name": "Crab House Brooklyn",
+      "present": true,
+      "reason": "exported",
+      "characters": 564,
+      "selector": "p.duet--article--standard-paragraph"
+    },
+    {
+      "source_id": "reddit-hot-pot",
+      "url": "https://www.reddit.com/r/FoodNYC/comments/1wmlr4l/best_all_you_can_eat_hot_pot_in_manhattan_or_lic/",
+      "rank": 1,
+      "name": "lao jie",
+      "present": true,
+      "reason": "exported",
+      "characters": 36,
+      "selector": null
+    },
+    {
+      "source_id": "reddit-hot-pot",
+      "url": "https://www.reddit.com/r/FoodNYC/comments/1wmlr4l/best_all_you_can_eat_hot_pot_in_manhattan_or_lic/",
+      "rank": 2,
+      "name": "99 favor taste",
+      "present": true,
+      "reason": "exported",
+      "characters": 27,
+      "selector": null
+    },
+    {
+      "source_id": "reddit-hot-pot",
+      "url": "https://www.reddit.com/r/FoodNYC/comments/1wmlr4l/best_all_you_can_eat_hot_pot_in_manhattan_or_lic/",
+      "rank": 3,
+      "name": "Easy Joy",
+      "present": true,
+      "reason": "exported",
+      "characters": 139,
+      "selector": null
+    },
+    {
+      "source_id": "reddit-hot-pot",
+      "url": "https://www.reddit.com/r/FoodNYC/comments/1wmlr4l/best_all_you_can_eat_hot_pot_in_manhattan_or_lic/",
+      "rank": 4,
+      "name": "Funny BBQ",
+      "present": true,
+      "reason": "exported",
+      "characters": 53,
+      "selector": null
+    },
+    {
+      "source_id": "reddit-hot-pot",
+      "url": "https://www.reddit.com/r/FoodNYC/comments/1wmlr4l/best_all_you_can_eat_hot_pot_in_manhattan_or_lic/",
+      "rank": 5,
+      "name": "Zao Men Qian",
+      "present": true,
+      "reason": "exported",
+      "characters": 35,
+      "selector": null
+    },
+    {
+      "source_id": "reddit-hot-pot",
+      "url": "https://www.reddit.com/r/FoodNYC/comments/1wmlr4l/best_all_you_can_eat_hot_pot_in_manhattan_or_lic/",
+      "rank": 6,
+      "name": "K-pot",
+      "present": true,
+      "reason": "exported",
+      "characters": 91,
+      "selector": null
+    },
+    {
+      "source_id": "reddit-hot-pot",
+      "url": "https://www.reddit.com/r/FoodNYC/comments/1wmlr4l/best_all_you_can_eat_hot_pot_in_manhattan_or_lic/",
+      "rank": 7,
+      "name": "hou yi",
+      "present": true,
+      "reason": "exported",
+      "characters": 13,
+      "selector": null
+    },
+    {
+      "source_id": "reddit-hot-pot",
+      "url": "https://www.reddit.com/r/FoodNYC/comments/1wmlr4l/best_all_you_can_eat_hot_pot_in_manhattan_or_lic/",
+      "rank": 8,
+      "name": "Hometown",
+      "present": true,
+      "reason": "exported",
+      "characters": 17,
+      "selector": null
+    },
+    {
+      "source_id": "reddit-hot-pot",
+      "url": "https://www.reddit.com/r/FoodNYC/comments/1wmlr4l/best_all_you_can_eat_hot_pot_in_manhattan_or_lic/",
+      "rank": 9,
+      "name": "Chonqing Lao zao",
+      "present": true,
+      "reason": "exported",
+      "characters": 75,
+      "selector": null
+    },
+    {
+      "source_id": "reddit-hot-pot",
+      "url": "https://www.reddit.com/r/FoodNYC/comments/1wmlr4l/best_all_you_can_eat_hot_pot_in_manhattan_or_lic/",
+      "rank": 10,
+      "name": "Mikiya",
+      "present": true,
+      "reason": "exported",
+      "characters": 24,
+      "selector": null
+    },
+    {
+      "source_id": "reddit-hot-pot",
+      "url": "https://www.reddit.com/r/FoodNYC/comments/1wmlr4l/best_all_you_can_eat_hot_pot_in_manhattan_or_lic/",
+      "rank": 11,
+      "name": "Xiang Hot Pot",
+      "present": true,
+      "reason": "exported",
+      "characters": 23,
+      "selector": null
+    },
+    {
+      "source_id": "reddit-hot-pot",
+      "url": "https://www.reddit.com/r/FoodNYC/comments/1wmlr4l/best_all_you_can_eat_hot_pot_in_manhattan_or_lic/",
+      "rank": 12,
+      "name": "Dolar Shop",
+      "present": true,
+      "reason": "exported",
+      "characters": 23,
+      "selector": null
+    },
+    {
+      "source_id": "timeout-dim-sum",
+      "url": "https://www.timeout.com/newyork/restaurants/best-dim-sum-restaurants-in-new-york-city",
+      "rank": 1,
+      "name": "House of Joy",
+      "present": true,
+      "reason": "exported",
+      "characters": 506,
+      "selector": "[data-testid=\"summary_testID\"]"
+    },
+    {
+      "source_id": "timeout-dim-sum",
+      "url": "https://www.timeout.com/newyork/restaurants/best-dim-sum-restaurants-in-new-york-city",
+      "rank": 2,
+      "name": "Dim Sum Sam",
+      "present": true,
+      "reason": "exported",
+      "characters": 468,
+      "selector": "[data-testid=\"summary_testID\"]"
+    },
+    {
+      "source_id": "timeout-dim-sum",
+      "url": "https://www.timeout.com/newyork/restaurants/best-dim-sum-restaurants-in-new-york-city",
+      "rank": 3,
+      "name": "Tim Ho Wan",
+      "present": true,
+      "reason": "exported",
+      "characters": 340,
+      "selector": "[data-testid=\"summary_testID\"]"
+    },
+    {
+      "source_id": "timeout-dim-sum",
+      "url": "https://www.timeout.com/newyork/restaurants/best-dim-sum-restaurants-in-new-york-city",
+      "rank": 4,
+      "name": "RedFarm",
+      "present": true,
+      "reason": "exported",
+      "characters": 341,
+      "selector": "[data-testid=\"summary_testID\"]"
+    },
+    {
+      "source_id": "timeout-dim-sum",
+      "url": "https://www.timeout.com/newyork/restaurants/best-dim-sum-restaurants-in-new-york-city",
+      "rank": 5,
+      "name": "Asian Jewels Seafood",
+      "present": true,
+      "reason": "exported",
+      "characters": 337,
+      "selector": "[data-testid=\"summary_testID\"]"
+    },
+    {
+      "source_id": "timeout-dim-sum",
+      "url": "https://www.timeout.com/newyork/restaurants/best-dim-sum-restaurants-in-new-york-city",
+      "rank": 6,
+      "name": "Bamboo Garden",
+      "present": true,
+      "reason": "exported",
+      "characters": 273,
+      "selector": "[data-testid=\"summary_testID\"]"
+    },
+    {
+      "source_id": "timeout-dim-sum",
+      "url": "https://www.timeout.com/newyork/restaurants/best-dim-sum-restaurants-in-new-york-city",
+      "rank": 7,
+      "name": "Awesum Dimsum",
+      "present": true,
+      "reason": "exported",
+      "characters": 403,
+      "selector": "[data-testid=\"summary_testID\"]"
+    },
+    {
+      "source_id": "timeout-dim-sum",
+      "url": "https://www.timeout.com/newyork/restaurants/best-dim-sum-restaurants-in-new-york-city",
+      "rank": 8,
+      "name": "Pacificana/Pacific Palace",
+      "present": true,
+      "reason": "exported",
+      "characters": 233,
+      "selector": "[data-testid=\"summary_testID\"]"
+    },
+    {
+      "source_id": "timeout-dim-sum",
+      "url": "https://www.timeout.com/newyork/restaurants/best-dim-sum-restaurants-in-new-york-city",
+      "rank": 9,
+      "name": "Dim Sum Go Go",
+      "present": true,
+      "reason": "exported",
+      "characters": 327,
+      "selector": "[data-testid=\"summary_testID\"]"
+    },
+    {
+      "source_id": "timeout-dim-sum",
+      "url": "https://www.timeout.com/newyork/restaurants/best-dim-sum-restaurants-in-new-york-city",
+      "rank": 10,
+      "name": "Dim Sum Palace",
+      "present": true,
+      "reason": "exported",
+      "characters": 353,
+      "selector": "[data-testid=\"summary_testID\"]"
+    },
+    {
+      "source_id": "timeout-dim-sum",
+      "url": "https://www.timeout.com/newyork/restaurants/best-dim-sum-restaurants-in-new-york-city",
+      "rank": 11,
+      "name": "Ping's Seafood",
+      "present": true,
+      "reason": "exported",
+      "characters": 388,
+      "selector": "[data-testid=\"summary_testID\"]"
+    },
+    {
+      "source_id": "timeout-dim-sum",
+      "url": "https://www.timeout.com/newyork/restaurants/best-dim-sum-restaurants-in-new-york-city",
+      "rank": 12,
+      "name": "Jing Fong",
+      "present": true,
+      "reason": "exported",
+      "characters": 260,
+      "selector": "[data-testid=\"summary_testID\"]"
+    },
+    {
+      "source_id": "timeout-dim-sum",
+      "url": "https://www.timeout.com/newyork/restaurants/best-dim-sum-restaurants-in-new-york-city",
+      "rank": 13,
+      "name": "Yin Ji Chang Fen",
+      "present": true,
+      "reason": "exported",
+      "characters": 474,
+      "selector": "[data-testid=\"summary_testID\"]"
+    },
+    {
+      "source_id": "timeout-dim-sum",
+      "url": "https://www.timeout.com/newyork/restaurants/best-dim-sum-restaurants-in-new-york-city",
+      "rank": 14,
+      "name": "Nom Wah Tea Parlor",
+      "present": true,
+      "reason": "exported",
+      "characters": 338,
+      "selector": "[data-testid=\"summary_testID\"]"
+    },
+    {
+      "source_id": "timeout-dim-sum",
+      "url": "https://www.timeout.com/newyork/restaurants/best-dim-sum-restaurants-in-new-york-city",
+      "rank": 15,
+      "name": "East Harbor Seafood Palace",
+      "present": true,
+      "reason": "exported",
+      "characters": 364,
+      "selector": "[data-testid=\"summary_testID\"]"
+    },
+    {
+      "source_id": "timeout-dim-sum",
+      "url": "https://www.timeout.com/newyork/restaurants/best-dim-sum-restaurants-in-new-york-city",
+      "rank": 16,
+      "name": "Buddha Bodai",
+      "present": true,
+      "reason": "exported",
+      "characters": 210,
+      "selector": "[data-testid=\"summary_testID\"]"
+    },
+    {
+      "source_id": "timeout-dim-sum",
+      "url": "https://www.timeout.com/newyork/restaurants/best-dim-sum-restaurants-in-new-york-city",
+      "rank": 17,
+      "name": "Golden Unicorn Restaurant",
+      "present": true,
+      "reason": "exported",
+      "characters": 479,
+      "selector": "[data-testid=\"summary_testID\"]"
+    },
+    {
+      "source_id": "michelin-dim-sum",
+      "url": "https://guide.michelin.com/en/best-of/best-dim-sum-nyc",
+      "rank": 1,
+      "name": "Asian Jewels",
+      "present": true,
+      "reason": "exported",
+      "characters": 365,
+      "selector": ".card__menu-content--desc"
+    },
+    {
+      "source_id": "michelin-dim-sum",
+      "url": "https://guide.michelin.com/en/best-of/best-dim-sum-nyc",
+      "rank": 2,
+      "name": "Dim Sum Go Go",
+      "present": true,
+      "reason": "exported",
+      "characters": 527,
+      "selector": ".card__menu-content--desc"
+    },
+    {
+      "source_id": "michelin-dim-sum",
+      "url": "https://guide.michelin.com/en/best-of/best-dim-sum-nyc",
+      "rank": 3,
+      "name": "East Harbor Seafood Palace",
+      "present": true,
+      "reason": "exported",
+      "characters": 356,
+      "selector": ".card__menu-content--desc"
+    }
+  ]
+}

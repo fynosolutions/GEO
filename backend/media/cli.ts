@@ -3,15 +3,16 @@ import {readFile,mkdir,writeFile,copyFile,stat} from 'node:fs/promises';
 import {resolve,join} from 'node:path';
 import {createHash} from 'node:crypto';
 import type {MediaArticle,MediaEvidence,MediaSource} from './public.js';
-import {mediaSources,parseMediaArticle,parseIndexedMedia,mediaMembershipReport,applySuppliedTexts,evaluateMediaAcceptance,missingDescriptions,mediaAcceptanceReport,parseSavedMediaPage} from './public.js';
+import {mediaSources,parseMediaArticle,parseIndexedMedia,mediaMembershipReport,applySuppliedTexts,evaluateMediaAcceptance,missingDescriptions,mediaAcceptanceReport,parseSavedMediaPage,descriptionAvailability} from './public.js';
 
 const args=process.argv.slice(2);
-if(args.includes('--help')){console.log('collect:media [--cache DIR] [--out DIR] [--source ID] [--targets FILE] [--fetch-missing] [--refresh] [--supplied-texts FILE] [--supplied-pages DIR]\nDefault: offline replay. Exit 0: selected scope complete; 2: partial; 1: invalid input/fatal failure.');process.exit(0);}
+if(args.includes('--help')){console.log('collect:media [--cache DIR] [--out DIR] [--source ID] [--targets FILE] [--fetch-missing] [--refresh] [--supplied-texts FILE] [--supplied-pages DIR] [--descriptions full|supplied-only]\nDefault: offline replay. Exit 0: selected scope complete; 2: partial; 1: invalid input/fatal failure.');process.exit(0);}
 const value=(flag:string,fallback:string)=>{const i=args.indexOf(flag);if(i<0)return fallback;if(!args[i+1]||args[i+1].startsWith('--'))throw Error('Missing value for '+flag);return args[i+1];};
 try{
- const allowed=new Set(['--cache','--out','--source','--fetch-missing','--refresh','--targets','--supplied-texts','--supplied-pages']),seen=new Set<string>();
+ const allowed=new Set(['--cache','--out','--source','--fetch-missing','--refresh','--targets','--supplied-texts','--supplied-pages','--descriptions']),seen=new Set<string>();
  for(let i=0;i<args.length;i++){if(!allowed.has(args[i])||seen.has(args[i]))throw Error('Unknown or duplicate option: '+args[i]);seen.add(args[i]);if(!['--fetch-missing','--refresh'].includes(args[i])){value(args[i],'');i++;}}
  const cache=resolve(value('--cache','.local/issue15/pages')),out=resolve(value('--out','.local/issue15/parsed')),id=value('--source','');
+ const descriptionPolicy=value('--descriptions','full');if(!['full','supplied-only'].includes(descriptionPolicy))throw Error('Invalid description export policy.');
  const sources=id?mediaSources.filter(s=>s.id===id):mediaSources;if(!sources.length)throw Error('Unknown media source: '+id);
  let articles:MediaArticle[]=[],evidence:MediaEvidence[]=[];
  const textPath=value('--supplied-texts',''),pagesPath=value('--supplied-pages','');
@@ -46,7 +47,7 @@ try{
    if(args.includes('--refresh')||!direct&&args.includes('--fetch-missing')){await capture(source);direct={html:await readFile(join(cache,source.id+'.html'),'utf8'),meta:JSON.parse(await readFile(join(cache,source.id+'.json'),'utf8'))};}
    const validate=(m:any)=>{if(m.url!==source.url||!Number.isFinite(Date.parse(m.fetched_at)))throw Error('Cache identity or fetch timestamp is invalid.');};
    let result:ReturnType<typeof parseMediaArticle>|undefined;
-   if(direct){meta=direct.meta;validate(meta);if(meta.status===200||meta.retrieval==='browser_dom'&&meta.rendered===true){result=parseMediaArticle(direct.html,source,meta.fetched_at);if(meta.retrieval==='browser_dom')result.evidence.source_kind='browser_dom';if(!result.article.restaurants.length)result=undefined;}}
+   if(direct){meta=direct.meta;validate(meta);if(meta.status===200||meta.retrieval==='browser_dom'&&meta.rendered===true){result=parseMediaArticle(direct.html,source,meta.fetched_at,{includeDescriptions:descriptionPolicy==='full'});if(meta.retrieval==='browser_dom')result.evidence.source_kind='browser_dom';if(!result.article.restaurants.length)result=undefined;}}
    // Fresh valid direct HTML wins over an older index; failed access never upgrades an index to live evidence.
    if(!result){
     let raw:string;
@@ -70,10 +71,10 @@ try{
  for(const source of sources)for(const ext of ['html','json','web.txt','web.json'])try{const path=source.id+'.'+ext,bytes=await readFile(join(cache,path));cacheManifest.push({source_id:source.id,path,sha256:createHash('sha256').update(bytes).digest('hex')});}catch(error:any){if(error.code!=='ENOENT')throw error;}
  for(const p of savedPages){const bytes=await readFile(join(resolve(pagesPath),p.file));cacheManifest.push({source_id:p.source_id,path:'user-supplied/'+p.file,sha256:createHash('sha256').update(bytes).digest('hex')});}
  if(pagesPath){const bytes=await readFile(join(resolve(pagesPath),'manifest.json'));cacheManifest.push({source_id:'saved-page-manifest',path:'user-supplied/manifest.json',sha256:createHash('sha256').update(bytes).digest('hex')});}
- const outputs:Record<string,unknown>={'articles.json':articles,'evidence.json':{apify_runs:0,apify_cost_usd:0,descriptions_available:evaluated.acceptance.descriptions_available,sources:evidence},'acceptance.json':evaluated.acceptance,'supplied-texts.template.json':missingDescriptions(articles),'cache-manifest.json':cacheManifest};
+ const outputs:Record<string,unknown>={'articles.json':articles,'evidence.json':{apify_runs:0,apify_cost_usd:0,descriptions_available:evaluated.acceptance.descriptions_available,sources:evidence},'acceptance.json':evaluated.acceptance,'supplied-texts.template.json':missingDescriptions(articles),'cache-manifest.json':cacheManifest,'description-availability.json':descriptionAvailability(articles,evidence)};
  await mkdir(out,{recursive:true});
  for(const [name,data] of Object.entries(outputs))await writeFile(join(out,name),JSON.stringify(data,null,2)+'\n');
- await writeFile(join(out,'上榜表.md'),table);await writeFile(join(out,'验收报告.md'),mediaAcceptanceReport(evaluated.acceptance));
+ await writeFile(join(out,'上榜表.md'),table);await writeFile(join(out,'验收报告.md'),mediaAcceptanceReport(evaluated.acceptance,descriptionAvailability(articles,evidence)));
  console.log(JSON.stringify({out,articles:articles.length,restaurants:evaluated.acceptance.restaurant_count,descriptions_available:evaluated.acceptance.descriptions_available,descriptions_missing:evaluated.acceptance.descriptions_missing,complete:evaluated.acceptance.complete,ready_for_delivery:evaluated.acceptance.ready_for_delivery,apify_cost_usd:0}));
  process.exitCode=evaluated.acceptance.complete?0:2;
 }catch(error:any){console.error(error.message);process.exitCode=1;}

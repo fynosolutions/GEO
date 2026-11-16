@@ -1,0 +1,18 @@
+{
+  "run_id": "70f0781e-fa14-4976-aa8f-8ab22340582e",
+  "date": "2026-11-16",
+  "mode": "scheduled",
+  "path": "runs/70f0781e-fa14-4976-aa8f-8ab22340582e",
+  "canonical": true,
+  "stores": [
+    {
+      "id": "020",
+      "status": "failed"
+    },
+    {
+      "id": "001",
+      "status": "failed"
+    }
+  ],
+  "finished_at": "2026-11-16T20:53:15.130Z"
+}

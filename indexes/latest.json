@@ -1,18 +1,18 @@
 {
-  "run_id": "89b6bcc7-148f-4117-9897-1ea95b42b645",
-  "date": "2026-11-09",
+  "run_id": "70f0781e-fa14-4976-aa8f-8ab22340582e",
+  "date": "2026-11-16",
   "mode": "scheduled",
-  "path": "runs/89b6bcc7-148f-4117-9897-1ea95b42b645",
+  "path": "runs/70f0781e-fa14-4976-aa8f-8ab22340582e",
   "canonical": true,
   "stores": [
     {
       "id": "020",
-      "status": "partial"
+      "status": "failed"
     },
     {
       "id": "001",
-      "status": "partial"
+      "status": "failed"
     }
   ],
-  "finished_at": "2026-11-09T21:37:24.640Z"
+  "finished_at": "2026-11-16T20:53:15.130Z"
 }

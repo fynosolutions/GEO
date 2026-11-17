@@ -1,0 +1,194 @@
+[
+  {
+    "store_id": "020",
+    "channel": "delivery_menu",
+    "source_url": "https://www.doordash.com/store/easy-joy-ayce-dim-sum-hot-pot---145-mulberry-st-new-york-35886623/?srsltid=AYCX9vL9cATL6bJDWDw9U6X-W0jkps19lp8elSDgfwwS4w7XLyp3j6E-",
+    "menu_date": null,
+    "date_source": "unknown",
+    "menu_id": "doordash:main"
+  },
+  {
+    "store_id": "020",
+    "channel": "delivery_menu",
+    "source_url": "https://www.ubereats.com/en-US/store/easy-joy-dim-sum-hot-pot-buffet-%E6%84%8F%E4%B8%AD%E4%BA%BA%E7%82%B9%E5%BF%83%E7%81%AB%E9%94%85%E8%87%AA%E5%8A%A9-145-mulberry-street/7ObUBkSuUKCK1aTC7nHx_g?srsltid=AYCX9vKpzgQyqQ_NIrlzIx5ZC_dKo4Ch6rFmoE_8nHymQASnibcTEh0H",
+    "menu_date": null,
+    "date_source": "unknown",
+    "menu_id": "uber_eats:main"
+  },
+  {
+    "store_id": "020",
+    "channel": "delivery_menu",
+    "source_url": "https://www.grubhub.com/restaurant/easy-joy-ayce-dim-sum-hot-pot-145-mulberry-st-new-york/12387504",
+    "menu_date": null,
+    "date_source": "unknown",
+    "menu_id": "grubhub:main"
+  },
+  {
+    "store_id": "020",
+    "channel": "yelp_menu",
+    "source_url": "https://www.yelp.com/menu/easy-joy-dim-sum-and-ayce-hot-pot-new-york",
+    "menu_date": null,
+    "date_source": "unknown",
+    "menu_id": "yelp:/menu/easy-joy-dim-sum-and-ayce-hot-pot-new-york"
+  },
+  {
+    "store_id": "020",
+    "channel": "official_html",
+    "source_url": "https://order.mealkeyway.com/customer/release/index?mid=35554f7339436751782f466c5152626a423569654a773d3d#/main",
+    "menu_date": null,
+    "date_source": "unknown",
+    "menu_id": "official:/customer/release/index?mid=35554f7339436751782f466c5152626a423569654a773d3d#/main"
+  },
+  {
+    "store_id": "020",
+    "channel": "official_html",
+    "source_url": "https://www.easyjoybuffet.com/menu/",
+    "menu_date": "2026-11-15",
+    "date_source": "metadata",
+    "menu_id": "official:/menu/"
+  },
+  {
+    "store_id": "020",
+    "channel": "official_html",
+    "source_url": "https://www.easyjoybuffet.com/menu/take-out-menu/",
+    "menu_date": "2026-11-16",
+    "date_source": "metadata",
+    "menu_id": "official:/menu/take-out-menu/"
+  },
+  {
+    "store_id": "020",
+    "channel": "official_html",
+    "source_url": "https://www.easyjoybuffet.com/menu/premium-dim-sum/",
+    "menu_date": "2026-11-16",
+    "date_source": "metadata",
+    "menu_id": "official:/menu/premium-dim-sum/"
+  },
+  {
+    "store_id": "020",
+    "channel": "official_html",
+    "source_url": "https://www.easyjoybuffet.com/menu/bbq/",
+    "menu_date": "2026-11-16",
+    "date_source": "metadata",
+    "menu_id": "official:/menu/bbq/"
+  },
+  {
+    "store_id": "020",
+    "channel": "official_html",
+    "source_url": "https://www.easyjoybuffet.com/menu/soup-base-delivery/",
+    "menu_date": "2026-11-16",
+    "date_source": "metadata",
+    "menu_id": "official:/menu/soup-base-delivery/"
+  },
+  {
+    "store_id": "020",
+    "channel": "official_html",
+    "source_url": "https://www.easyjoybuffet.com/menu/bun-dumplings/",
+    "menu_date": "2026-11-15",
+    "date_source": "metadata",
+    "menu_id": "official:/menu/bun-dumplings/"
+  },
+  {
+    "store_id": "020",
+    "channel": "official_html",
+    "source_url": "https://www.easyjoybuffet.com/menu/rice-noodle-roll/",
+    "menu_date": "2026-11-16",
+    "date_source": "metadata",
+    "menu_id": "official:/menu/rice-noodle-roll/"
+  },
+  {
+    "store_id": "020",
+    "channel": "official_html",
+    "source_url": "https://www.easyjoybuffet.com/menu/pie/",
+    "menu_date": "2026-11-16",
+    "date_source": "metadata",
+    "menu_id": "official:/menu/pie/"
+  },
+  {
+    "store_id": "020",
+    "channel": "official_html",
+    "source_url": "https://www.easyjoybuffet.com/menu/fried-rice-and-noodles/",
+    "menu_date": "2026-11-16",
+    "date_source": "metadata",
+    "menu_id": "official:/menu/fried-rice-and-noodles/"
+  },
+  {
+    "store_id": "020",
+    "channel": "official_file",
+    "source_url": "https://www.easyjoybuffet.com/assets/menus/drinks-menu-945.webp",
+    "menu_date": null,
+    "date_source": "unknown",
+    "menu_id": "official:/assets/menus/drinks-menu-945.webp"
+  },
+  {
+    "store_id": "020",
+    "channel": "official_html",
+    "source_url": "https://www.easyjoybuffet.com/menu/malatang/",
+    "menu_date": "2026-11-16",
+    "date_source": "metadata",
+    "menu_id": "official:/menu/malatang/"
+  },
+  {
+    "store_id": "020",
+    "channel": "official_html",
+    "source_url": "https://www.easyjoybuffet.com/menu/new-arrival/",
+    "menu_date": "2026-11-16",
+    "date_source": "metadata",
+    "menu_id": "official:/menu/new-arrival/"
+  },
+  {
+    "store_id": "001",
+    "channel": "delivery_menu",
+    "source_url": "https://www.ubereats.com/en-US/store/frydom-express-fried-chicken-%E9%A3%9E%E4%B9%90%E7%82%B8%E9%B8%A1-781-61st-street/OLdZQvsVXzWCMBpsf9uctg?srsltid=AYCX9vKR2FT-qrvzOspso3uFwU9o7r9wLhDNR7d5o4FkkHRJdpiFv53u",
+    "menu_date": null,
+    "date_source": "unknown",
+    "menu_id": "uber_eats:main"
+  },
+  {
+    "store_id": "001",
+    "channel": "yelp_menu",
+    "source_url": "https://www.yelp.com/menu/frydom-express-brooklyn",
+    "menu_date": null,
+    "date_source": "unknown",
+    "menu_id": "yelp:/menu/frydom-express-brooklyn"
+  },
+  {
+    "store_id": "001",
+    "channel": "official_html",
+    "source_url": "https://pos.chowbus.com/online-ordering/store/Frydom-Express-Brooklyn/23427",
+    "menu_date": null,
+    "date_source": "unknown",
+    "menu_id": "official:/online-ordering/store/Frydom-Express-Brooklyn/23427"
+  },
+  {
+    "store_id": "001",
+    "channel": "google_menu",
+    "source_url": "https://pos.chowbus.com/online-ordering/store/Frydom-Express-Brooklyn/23427",
+    "menu_date": null,
+    "date_source": "unknown",
+    "menu_id": "google_maps:/online-ordering/store/Frydom-Express-Brooklyn/23427"
+  },
+  {
+    "store_id": "001",
+    "channel": "official_html",
+    "source_url": "https://www.frydomexpress.com/",
+    "menu_date": "2026-08-28",
+    "date_source": "metadata",
+    "menu_id": "official:/"
+  },
+  {
+    "store_id": "001",
+    "channel": "official_html",
+    "source_url": "https://www.frydomexpress.com/menu.html",
+    "menu_date": "2026-08-28",
+    "date_source": "metadata",
+    "menu_id": "official:/menu.html"
+  },
+  {
+    "store_id": "001",
+    "channel": "official_html",
+    "source_url": "https://www.frydomexpress.com/en/menu.html",
+    "menu_date": "2026-08-28",
+    "date_source": "metadata",
+    "menu_id": "official:/en/menu.html"
+  }
+]

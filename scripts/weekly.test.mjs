@@ -153,3 +153,17 @@ test('configured menu sources reach only the verified branch and validate before
  assert.deepEqual(await configuredMenuSources({name:'Demo',address:'1 Main St, New York, NY 10001'},path),[source]);
  assert.deepEqual(await configuredMenuSources({name:'Demo',address:'2 Main St, New York, NY 10001'},path),[]);
 }));
+
+test('weekly credentials fail before collection and never disclose token or response bodies',async()=>{
+ const {checkWeeklyCredentials,safeWorkerFailure}=await import('../dist/backend/weekly/preflight.js');
+ const previous=process.env.APIFY_TOKEN;process.env.APIFY_TOKEN='private-test-token';
+ try{
+  let calls=0;
+  await assert.rejects(checkWeeklyCredentials(async(url,options)=>{calls++;assert.equal(url,'https://api.apify.com/v2/users/me');assert.equal(options.method,undefined);return new Response('private response',{status:401});}),/invalid or revoked.*HTTP 401/);
+  assert.equal(calls,1);
+  await checkWeeklyCredentials(async()=>new Response('{}',{status:200}));
+  await assert.rejects(checkWeeklyCredentials(async()=>{throw Error('private-test-token');}),/could not connect/);
+  assert.equal(safeWorkerFailure(Error('Apify HTTP 402 private-test-token')),'Store worker failed: Apify HTTP 402; account usage unavailable.');
+  assert.ok(!safeWorkerFailure(Error('private-test-token')).includes('private-test-token'));
+ }finally{if(previous===undefined)delete process.env.APIFY_TOKEN;else process.env.APIFY_TOKEN=previous;}
+});

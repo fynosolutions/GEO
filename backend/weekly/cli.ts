@@ -1,4 +1,5 @@
 import '../config.js';
+import {checkWeeklyCredentials} from './preflight.js';
 import {readFile,mkdtemp,rm} from 'node:fs/promises';
 import {tmpdir} from 'node:os';
 import {join,resolve} from 'node:path';
@@ -15,6 +16,7 @@ try{
  const started=Date.now(),budget=Number(process.env.WEEKLY_BATCH_TIMEOUT_MS??7200000);
  if(!Number.isFinite(budget)||budget<timeout||budget>14400000)throw Error('Batch timeout must cover one store and be <=4 hours.');
  const menus=opts['--menus']?menuObservations(JSON.parse(await readFile(opts['--menus'],'utf8'))):undefined;
+ if(process.env.APIFY_ENABLED==='true')await checkWeeklyCredentials();
  const result=await runWeekly({menus,stores,compareRun:opts['--compare-run'],onProgress:message=>console.log(new Date().toISOString()+' '+message),root:resolve(opts['--history']??'.local/history'),mode,codeSha:process.env.GITHUB_SHA,collect:async store=>{
   const remaining=budget-(Date.now()-started);if(remaining<=0)throw Error('Batch deadline reached.');
   const dir=await mkdtemp(join(tmpdir(),'geo-weekly-'));

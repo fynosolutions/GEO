@@ -1,3 +1,4 @@
+import {safeWorkerFailure} from './preflight.js';
 import {writeFile} from 'node:fs/promises';
 import {collectRestaurant,readVerifiedMenuProviders} from '../public.js';
 import {collectMenuAudit} from '../menu-audit/public.js';
@@ -18,4 +19,4 @@ try{
    await writeFile(path,JSON.stringify({records:result.records,menu_error:details.summary.coverage_complete?undefined:'Menu channels incomplete; inspect stored menu details.',menu_details:details,menus:details.menus.map(m=>({store_id:store.id,channel:m.channel,source_url:m.url,menu_date:m.menu_date,date_source:m.date_source,menu_id:m.menu_id}))}));
   }catch{await writeFile(path,JSON.stringify({records:result.records,menu_error:'Menu audit failed; basic listing records retained.'}));}
  }else await writeFile(path,JSON.stringify(result.records));
-}catch{console.error('Store worker failed; no verified full result was produced.');process.exitCode=1;}finally{clearInterval(heartbeat);}
+}catch(error){console.error(safeWorkerFailure(error));process.exitCode=1;}finally{clearInterval(heartbeat);}

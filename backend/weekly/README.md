@@ -82,3 +82,7 @@ Workers now log each listing result, menu stage and a 30-second heartbeat. Messa
 
 
 Confirmed `menu_sources` in stores.json are passed to #4 by the worker, with optional referring URL evidence. Dynamic ordering/Yelp menus require Chromium; the prepared workflow now installs it. The recurring gate remains separate and unchanged. Operator source assertions do not replace Google store identity resolution or allow cross-store reuse.
+
+## Credential failure prevention — 2026-11-17
+
+When APIFY_ENABLED=true, weekly CLI checks GET /v2/users/me before entering runWeekly. Invalid/missing credentials or failed account checks stop before creating snapshots or starting Actors. Replace APIFY_TOKEN in the local .env and GitHub Actions Secret if HTTP 401 is reported. Account check success verifies authentication, not Actor permission, quota, or full platform coverage. Worker logs expose only allowlisted provider status categories; raw exceptions and response bodies remain excluded. Missing menu observations now report unavailable instead of the obsolete pending_issue_4 marker. Existing historical snapshots are never rewritten.

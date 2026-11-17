@@ -1,0 +1,201 @@
+{
+  "issue": 18,
+  "three_round_files_complete": true,
+  "stores": 6,
+  "rounds": 3,
+  "files": 18,
+  "active_rows": 144,
+  "legacy_booking_rows": 36,
+  "resumed_after_interruption": false,
+  "uninterrupted_execution": true,
+  "per_store_consecutive_attempt_order": true,
+  "source_timestamps_preserved": true,
+  "capture_windows": [
+    {
+      "round": 1,
+      "first_fetched_at": "2026-11-17T18:28:29.918Z",
+      "last_fetched_at": "2026-11-17T19:50:31.184Z"
+    },
+    {
+      "round": 2,
+      "first_fetched_at": "2026-11-17T18:31:09.709Z",
+      "last_fetched_at": "2026-11-17T19:55:36.187Z"
+    },
+    {
+      "round": 3,
+      "first_fetched_at": "2026-11-17T18:33:56.698Z",
+      "last_fetched_at": "2026-11-17T19:59:24.409Z"
+    }
+  ],
+  "store_capture_windows": [
+    {
+      "store": "020",
+      "captures": [
+        {
+          "round": 1,
+          "first_fetched_at": "2026-11-17T18:28:29.918Z",
+          "last_fetched_at": "2026-11-17T18:31:01.982Z"
+        },
+        {
+          "round": 2,
+          "first_fetched_at": "2026-11-17T18:31:09.709Z",
+          "last_fetched_at": "2026-11-17T18:33:46.717Z"
+        },
+        {
+          "round": 3,
+          "first_fetched_at": "2026-11-17T18:33:56.698Z",
+          "last_fetched_at": "2026-11-17T18:37:17.091Z"
+        }
+      ],
+      "non_overlapping_order": true
+    },
+    {
+      "store": "LaoJie Hotpot",
+      "captures": [
+        {
+          "round": 1,
+          "first_fetched_at": "2026-11-17T18:37:28.638Z",
+          "last_fetched_at": "2026-11-17T18:39:52.686Z"
+        },
+        {
+          "round": 2,
+          "first_fetched_at": "2026-11-17T18:40:03.194Z",
+          "last_fetched_at": "2026-11-17T18:42:14.255Z"
+        },
+        {
+          "round": 3,
+          "first_fetched_at": "2026-11-17T18:42:30.994Z",
+          "last_fetched_at": "2026-11-17T18:45:07.245Z"
+        }
+      ],
+      "non_overlapping_order": true
+    },
+    {
+      "store": "99 Favor Taste",
+      "captures": [
+        {
+          "round": 1,
+          "first_fetched_at": "2026-11-17T18:45:22.394Z",
+          "last_fetched_at": "2026-11-17T18:47:37.938Z"
+        },
+        {
+          "round": 2,
+          "first_fetched_at": "2026-11-17T18:47:48.102Z",
+          "last_fetched_at": "2026-11-17T18:49:43.893Z"
+        },
+        {
+          "round": 3,
+          "first_fetched_at": "2026-11-17T18:49:51.666Z",
+          "last_fetched_at": "2026-11-17T18:51:56.405Z"
+        }
+      ],
+      "non_overlapping_order": true
+    },
+    {
+      "store": "The Dolar Shop Hot Pot",
+      "captures": [
+        {
+          "round": 1,
+          "first_fetched_at": "2026-11-17T18:52:04.144Z",
+          "last_fetched_at": "2026-11-17T18:54:25.084Z"
+        },
+        {
+          "round": 2,
+          "first_fetched_at": "2026-11-17T18:54:35.106Z",
+          "last_fetched_at": "2026-11-17T18:57:46.454Z"
+        },
+        {
+          "round": 3,
+          "first_fetched_at": "2026-11-17T18:57:57.037Z",
+          "last_fetched_at": "2026-11-17T19:00:24.585Z"
+        }
+      ],
+      "non_overlapping_order": true
+    },
+    {
+      "store": "Shoo Loong Kan Hot Pot 小龙坎",
+      "captures": [
+        {
+          "round": 1,
+          "first_fetched_at": "2026-11-17T19:00:35.031Z",
+          "last_fetched_at": "2026-11-17T19:15:01.561Z"
+        },
+        {
+          "round": 2,
+          "first_fetched_at": "2026-11-17T19:15:09.373Z",
+          "last_fetched_at": "2026-11-17T19:31:02.849Z"
+        },
+        {
+          "round": 3,
+          "first_fetched_at": "2026-11-17T19:31:14.106Z",
+          "last_fetched_at": "2026-11-17T19:46:19.536Z"
+        }
+      ],
+      "non_overlapping_order": true
+    },
+    {
+      "store": "KPOT Korean BBQ & Hot Pot",
+      "captures": [
+        {
+          "round": 1,
+          "first_fetched_at": "2026-11-17T19:46:34.228Z",
+          "last_fetched_at": "2026-11-17T19:50:31.184Z"
+        },
+        {
+          "round": 2,
+          "first_fetched_at": "2026-11-17T19:50:38.868Z",
+          "last_fetched_at": "2026-11-17T19:55:36.187Z"
+        },
+        {
+          "round": 3,
+          "first_fetched_at": "2026-11-17T19:55:44.052Z",
+          "last_fetched_at": "2026-11-17T19:59:24.409Z"
+        }
+      ],
+      "non_overlapping_order": true
+    }
+  ],
+  "absence_distribution": {
+    "present": 81,
+    "confirmed_absent": 0,
+    "not_collected": 48,
+    "unsure": 15
+  },
+  "reviewed_differences": 4,
+  "all_differences_explained": true,
+  "observed_failed_retry_series": 3,
+  "cost_within_authorized_limit": true,
+  "budget_usd": 10,
+  "private_billing_receipts_published": false,
+  "legacy_booking_fingerprints": {
+    "99 Favor Taste.json": {
+      "opentable": "d15dc0396a858a0072242bc342b07f325facc2ee06b3b83adbee0f676d6e431c",
+      "resy": "4946f531caeccf035e17ab27cf95da629d2bcfc107983af969f38d7f2d26a622"
+    },
+    "Easy Joy (Hot Pot, BBQ Skewers, Dim Sum) 意中人火锅烧烤点心.json": {
+      "opentable": "fae60b20eed21ce0d5b58aeec76055ae77f5d2ae46d642a9f61bc0e2c28ba136",
+      "resy": "a5aa65c799932198bbcdef375ec943f38aefbb4c9bfb482ce46875f35edfd759"
+    },
+    "KPOT Korean BBQ & Hot Pot.json": {
+      "opentable": "6eddb52cf689aa757bf4aeb92cc41d30c94a25944160998d3b6ddb8bc3c6a718",
+      "resy": "8e064baeee7d55767a50746148610a3d189b52c8d9cb9fd8248d4cd17e9d9ea1"
+    },
+    "LaoJie Hotpot.json": {
+      "opentable": "927ba0534efbe57c28307534bbcaa7a4fb2a71ebbd178452e5ef3ae61a58a2be",
+      "resy": "80f6e77639f6e430e7b8c60468c0faab6314c922365027778c87b3a764af9697"
+    },
+    "Shoo Loong Kan Hot Pot Manhattan 小龙坎火锅.json": {
+      "opentable": "eeb2d6ebe62b8ef25e6c710b8b4933c8314024d5608902f5614387fba195d63e",
+      "resy": "4f711d70c87d1a74b869ce1593fd97fc718f219121f37f933149ae4182c2b788"
+    },
+    "The Dolar Shop Hot Pot Manhattan.json": {
+      "opentable": "a83b6da67d80e8d03d99b7c85410073e30d958b27e7dbe9899d3e0ed64ac9d25",
+      "resy": "b2aa55dd66ab93c3709f1adfe3ba0a2aa5fe950c6a4d5251fb4e0085ad6872a1"
+    }
+  },
+  "limitations": [
+    "No confirmed absence without reviewed search evidence.",
+    "Facebook hours may be current open state, not weekly hours.",
+    "Uber Eats aggregate fields differed; real source changes were not independently established."
+  ]
+}

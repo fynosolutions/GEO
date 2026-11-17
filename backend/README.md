@@ -17,3 +17,5 @@ Yelp verifies at most three distinct listing candidates per target (one attempt 
 `media/public.ts` exposes the issue #15 source manifest and article parsers. `media/cli.ts` provides cache-first HTTP capture and offline replay, separate from listing collection. See [scope and current acceptance](media/README.md).
 
 `introduction.ts` reuses branch verification and Apify discovery for Google Maps, Yelp and Tripadvisor. It maps original provider labels and review highlights to the issue #13 schema and writes one independent file per store under `out/introductions/`. `output.ts` reserves a unique timestamped directory for each batch of either collection type. Audit persistence, downloads and cancellation use the same controls as information jobs.
+
+`listing-quality/public.ts` provides the isolated Issue #18 quality policy and `listing-quality/cli.ts` stages budgeted six-store, three-round acceptance. Existing information/UI/weekly contracts are not silently changed. See listing-quality/README.md and docs/ISSUE18_STATUS.md before running the live command; a batch is already in progress and must not be duplicated.

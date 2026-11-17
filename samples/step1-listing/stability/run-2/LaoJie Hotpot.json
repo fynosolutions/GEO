@@ -1,0 +1,401 @@
+[
+  {
+    "platform": "google_maps",
+    "found": true,
+    "matched": true,
+    "url": "https://www.google.com/maps/search/?api=1&query=LaoJie%20Hotpot&query_place_id=ChIJ76QaGzxZwokRfGxoduYPISA",
+    "name": "LaoJie Hotpot",
+    "address": "105 Bowery, New York, NY 10002",
+    "phone": "(646) 478-8166",
+    "hours": [
+      {
+        "day": "Monday",
+        "hours": "12 PM to 12 AM"
+      },
+      {
+        "day": "Tuesday",
+        "hours": "12 PM to 12 AM"
+      },
+      {
+        "day": "Wednesday",
+        "hours": "12 PM to 12 AM"
+      },
+      {
+        "day": "Thursday",
+        "hours": "12 PM to 12 AM"
+      },
+      {
+        "day": "Friday",
+        "hours": "12 PM to 12 AM"
+      },
+      {
+        "day": "Saturday",
+        "hours": "12 PM to 12 AM"
+      },
+      {
+        "day": "Sunday",
+        "hours": "12 PM to 12 AM"
+      }
+    ],
+    "rating_raw": {
+      "average": 4.3,
+      "count": 625
+    },
+    "rating": 4.3,
+    "review_count": 625,
+    "price_level": null,
+    "fetched_at": "2026-11-17T18:40:03.194Z",
+    "error": null,
+    "absence": "present",
+    "search_url": null,
+    "store": "LaoJie Hotpot"
+  },
+  {
+    "platform": "yelp",
+    "found": true,
+    "matched": true,
+    "url": "https://www.yelp.com/biz/laojie-hotpot-manhattan-new-york",
+    "name": "LaoJie Hotpot Manhattan",
+    "address": {
+      "city": "New York",
+      "regionCode": "NY",
+      "addressLine1": "105 Bowery",
+      "addressLine2": null,
+      "addressLine3": "",
+      "postalCode": "10002",
+      "country": "US"
+    },
+    "phone": "(646) 478-8166",
+    "hours": [
+      {
+        "hours": [
+          "12:00 PM - 12:00 AM (Next day)"
+        ],
+        "regularHours": [
+          "12:00 PM - 12:00 AM (Next day)"
+        ],
+        "regularHoursRaw": [
+          [
+            720,
+            1440
+          ]
+        ],
+        "hasSpecialHours": false,
+        "dayOfWeekShort": "Mon"
+      },
+      {
+        "hours": [
+          "12:00 PM - 12:00 AM (Next day)"
+        ],
+        "regularHours": [
+          "12:00 PM - 12:00 AM (Next day)"
+        ],
+        "regularHoursRaw": [
+          [
+            2160,
+            2880
+          ]
+        ],
+        "hasSpecialHours": false,
+        "dayOfWeekShort": "Tue"
+      },
+      {
+        "hours": [
+          "12:00 PM - 12:00 AM (Next day)"
+        ],
+        "regularHours": [
+          "12:00 PM - 12:00 AM (Next day)"
+        ],
+        "regularHoursRaw": [
+          [
+            3600,
+            4320
+          ]
+        ],
+        "hasSpecialHours": false,
+        "dayOfWeekShort": "Wed"
+      },
+      {
+        "hours": [
+          "12:00 PM - 12:00 AM (Next day)"
+        ],
+        "regularHours": [
+          "12:00 PM - 12:00 AM (Next day)"
+        ],
+        "regularHoursRaw": [
+          [
+            5040,
+            5760
+          ]
+        ],
+        "hasSpecialHours": false,
+        "dayOfWeekShort": "Thu"
+      },
+      {
+        "hours": [
+          "12:00 PM - 12:00 AM (Next day)"
+        ],
+        "regularHours": [
+          "12:00 PM - 12:00 AM (Next day)"
+        ],
+        "regularHoursRaw": [
+          [
+            6480,
+            7200
+          ]
+        ],
+        "hasSpecialHours": false,
+        "dayOfWeekShort": "Fri"
+      },
+      {
+        "hours": [
+          "12:00 PM - 12:00 AM (Next day)"
+        ],
+        "regularHours": [
+          "12:00 PM - 12:00 AM (Next day)"
+        ],
+        "regularHoursRaw": [
+          [
+            7920,
+            8640
+          ]
+        ],
+        "hasSpecialHours": false,
+        "dayOfWeekShort": "Sat"
+      },
+      {
+        "hours": [
+          "12:00 PM - 12:00 AM (Next day)"
+        ],
+        "regularHours": [
+          "12:00 PM - 12:00 AM (Next day)"
+        ],
+        "regularHoursRaw": [
+          [
+            9360,
+            0
+          ]
+        ],
+        "hasSpecialHours": false,
+        "dayOfWeekShort": "Sun"
+      }
+    ],
+    "rating_raw": {
+      "average": 4.3,
+      "count": 282
+    },
+    "rating": 4.3,
+    "review_count": 282,
+    "price_level": "$31-60",
+    "fetched_at": "2026-11-17T18:41:09.899Z",
+    "error": null,
+    "absence": "present",
+    "search_url": null,
+    "store": "LaoJie Hotpot"
+  },
+  {
+    "platform": "tripadvisor",
+    "found": false,
+    "matched": false,
+    "url": null,
+    "name": null,
+    "address": null,
+    "phone": null,
+    "hours": null,
+    "rating_raw": null,
+    "rating": null,
+    "review_count": null,
+    "price_level": null,
+    "fetched_at": "2026-11-17T18:41:20.725Z",
+    "error": "No matching public listing was found.",
+    "absence": "not_collected",
+    "search_url": null,
+    "store": "LaoJie Hotpot"
+  },
+  {
+    "platform": "doordash",
+    "found": false,
+    "matched": false,
+    "url": null,
+    "name": null,
+    "address": null,
+    "phone": null,
+    "hours": null,
+    "rating_raw": null,
+    "rating": null,
+    "review_count": null,
+    "price_level": null,
+    "fetched_at": "2026-11-17T18:41:20.730Z",
+    "error": "DoorDash search mode returned unrelated countries during validation; a verified branch listing URL is required.",
+    "absence": "not_collected",
+    "search_url": null,
+    "store": "LaoJie Hotpot"
+  },
+  {
+    "platform": "uber_eats",
+    "found": true,
+    "matched": true,
+    "url": "https://www.ubereats.com/en-US/store/laojie-mala-tang/2Z1yVgQaUmWBU1LIv4anYQ?srsltid=AYCX9vIz__DAt2OmqKfBxH9QJWi1wJc6Kul8pspY4Jx9U9auQTldDWjF",
+    "name": "LaoJie Mala Tang",
+    "address": "105 Bowery, New York, NY, 10002, US",
+    "phone": "+16464788166",
+    "hours": [
+      {
+        "dayRange": "Every Day",
+        "sectionHours": [
+          {
+            "startTime": 750,
+            "endTime": 1320,
+            "sectionTitle": ""
+          }
+        ]
+      }
+    ],
+    "rating_raw": {
+      "average": 4.1,
+      "count": 36
+    },
+    "rating": 4.1,
+    "review_count": 36,
+    "price_level": null,
+    "fetched_at": "2026-11-17T18:41:35.379Z",
+    "error": null,
+    "absence": "present",
+    "search_url": null,
+    "store": "LaoJie Hotpot"
+  },
+  {
+    "platform": "grubhub",
+    "found": true,
+    "matched": true,
+    "url": "https://www.grubhub.com/restaurant/laojie-hotpot-manhattan---105-bowery-new-york/14433600",
+    "name": "LaoJie Hotpot Manhattan | 老街火锅曼哈顿",
+    "address": "105 Bowery, New York, NY 10002",
+    "phone": "6464788166",
+    "hours": [
+      {
+        "dayOfWeek": 1,
+        "timeRanges": [
+          "17:30-03:00"
+        ]
+      },
+      {
+        "dayOfWeek": 2,
+        "timeRanges": [
+          "17:30-03:00"
+        ]
+      },
+      {
+        "dayOfWeek": 3,
+        "timeRanges": [
+          "17:30-03:00"
+        ]
+      },
+      {
+        "dayOfWeek": 4,
+        "timeRanges": [
+          "17:30-03:00"
+        ]
+      },
+      {
+        "dayOfWeek": 5,
+        "timeRanges": [
+          "17:30-03:00"
+        ]
+      },
+      {
+        "dayOfWeek": 6,
+        "timeRanges": [
+          "17:30-03:00"
+        ]
+      },
+      {
+        "dayOfWeek": 7,
+        "timeRanges": [
+          "17:30-03:00"
+        ]
+      }
+    ],
+    "rating_raw": {
+      "average": 3.5,
+      "count": 6
+    },
+    "rating": 3.5,
+    "review_count": 6,
+    "price_level": 3,
+    "fetched_at": "2026-11-17T18:41:46.407Z",
+    "error": null,
+    "absence": "present",
+    "search_url": null,
+    "store": "LaoJie Hotpot"
+  },
+  {
+    "platform": "facebook",
+    "found": false,
+    "matched": false,
+    "url": null,
+    "name": null,
+    "address": null,
+    "phone": null,
+    "hours": null,
+    "rating_raw": null,
+    "rating": null,
+    "review_count": null,
+    "price_level": null,
+    "fetched_at": "2026-11-17T18:42:05.991Z",
+    "error": "matched:false; the candidate has a conflicting street number.",
+    "absence": "unsure",
+    "search_url": null,
+    "recommend_text": null,
+    "store": "LaoJie Hotpot"
+  },
+  {
+    "platform": "instagram",
+    "found": false,
+    "matched": false,
+    "url": null,
+    "name": null,
+    "address": null,
+    "phone": null,
+    "hours": null,
+    "followers": null,
+    "posts": null,
+    "price_level": null,
+    "fetched_at": "2026-11-17T18:42:14.255Z",
+    "error": "matched:false; the candidate has a conflicting street number.",
+    "absence": "unsure",
+    "search_url": null,
+    "store": "LaoJie Hotpot"
+  },
+  {
+    "platform": "opentable",
+    "found": false,
+    "matched": false,
+    "url": null,
+    "name": null,
+    "address": null,
+    "phone": null,
+    "hours": null,
+    "rating_raw": null,
+    "rating": null,
+    "review_count": null,
+    "price_level": null,
+    "fetched_at": "2026-11-07T07:03:30.976Z",
+    "error": "No matching public listing was found."
+  },
+  {
+    "platform": "resy",
+    "found": false,
+    "matched": false,
+    "url": null,
+    "name": null,
+    "address": null,
+    "phone": null,
+    "hours": null,
+    "followers": null,
+    "posts": null,
+    "price_level": null,
+    "fetched_at": "2026-11-07T07:05:14.381Z",
+    "error": "No matching public listing was found."
+  }
+]

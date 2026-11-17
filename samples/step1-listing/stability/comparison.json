@@ -1,0 +1,62 @@
+{
+  "differences": [
+    {
+      "store": "020",
+      "platform": "uber_eats",
+      "from_round": 1,
+      "to_round": 2,
+      "field": "rating",
+      "old": 4.5,
+      "new": 4.8,
+      "reason": "同一门店 UUID 和 canonical URL 的 Actor 原始 ratingValue 返回发生变化；统一映射直接保留该值。并非本地计数或分店切换；未独立确认真实评分或评论数发生变化。",
+      "source_evidence": {
+        "from_sha256": "e04392d296909d6281e650bbef7be16c2be23d6d465fa12d24de8ea09b62f565",
+        "to_sha256": "40aa920a578d3f4a3aa29ae14af3abccdbfd9f612b78b5015b15720defe35acb"
+      }
+    },
+    {
+      "store": "020",
+      "platform": "uber_eats",
+      "from_round": 1,
+      "to_round": 2,
+      "field": "review_count",
+      "old": 24,
+      "new": 550,
+      "reason": "同一门店 UUID 和 canonical URL 的 Actor 原始 reviewCount 返回发生变化；统一映射直接保留该值。并非本地计数或分店切换；未独立确认真实评分或评论数发生变化。",
+      "source_evidence": {
+        "from_sha256": "e04392d296909d6281e650bbef7be16c2be23d6d465fa12d24de8ea09b62f565",
+        "to_sha256": "40aa920a578d3f4a3aa29ae14af3abccdbfd9f612b78b5015b15720defe35acb"
+      }
+    },
+    {
+      "store": "LaoJie Hotpot",
+      "platform": "uber_eats",
+      "from_round": 1,
+      "to_round": 2,
+      "field": "url",
+      "old": "https://www.ubereats.com/en-US/store/laojie-mala-tang/2Z1yVgQaUmWBU1LIv4anYQ?srsltid=AYCX9vLgVyuI0sMLLExrG9LhsxhdpbM905U10xPZDH4KIQB4qr4K22RU",
+      "new": "https://www.ubereats.com/en-US/store/laojie-mala-tang/2Z1yVgQaUmWBU1LIv4anYQ?srsltid=AYCX9vIz__DAt2OmqKfBxH9QJWi1wJc6Kul8pspY4Jx9U9auQTldDWjF",
+      "reason": "同一 Uber Eats 门店路径，仅搜索追踪参数 srsltid 改变；商户身份和可读字段未因该参数变化。保留原始链接供核对。",
+      "source_evidence": {
+        "from_sha256": "7dbbd308e319e6c133919d9f286e6086b007ca6003790cb486c53b12345b69d2",
+        "to_sha256": "47aae6b5f9a18a4ee16f39b57ae9a34c9b49773d2eaaf2ed6cb69a0edf10e944"
+      }
+    },
+    {
+      "store": "LaoJie Hotpot",
+      "platform": "uber_eats",
+      "from_round": 2,
+      "to_round": 3,
+      "field": "url",
+      "old": "https://www.ubereats.com/en-US/store/laojie-mala-tang/2Z1yVgQaUmWBU1LIv4anYQ?srsltid=AYCX9vIz__DAt2OmqKfBxH9QJWi1wJc6Kul8pspY4Jx9U9auQTldDWjF",
+      "new": "https://www.ubereats.com/en-US/store/laojie-mala-tang/2Z1yVgQaUmWBU1LIv4anYQ?srsltid=AYCX9vICXw7WyaR7Mu9buy5FMgxONInDfAP6OwDjat3hIjexEW2rywhD",
+      "reason": "同一 Uber Eats 门店路径，仅搜索追踪参数 srsltid 改变；商户身份和可读字段未因该参数变化。保留原始链接供核对。",
+      "source_evidence": {
+        "from_sha256": "47aae6b5f9a18a4ee16f39b57ae9a34c9b49773d2eaaf2ed6cb69a0edf10e944",
+        "to_sha256": "bed7c56539da98c670b3de6c0d1e5fa3744020600179a7c9300df062b5edeb34"
+      }
+    }
+  ],
+  "identical": false,
+  "all_differences_explained": true
+}

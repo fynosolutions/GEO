@@ -39,13 +39,16 @@
     ],
     "rating_raw": {
       "average": 4.9,
-      "count": 1799
+      "count": 1802
     },
     "rating": 4.9,
-    "review_count": 1799,
+    "review_count": 1802,
     "price_level": null,
-    "fetched_at": "2026-11-07T07:12:21.592Z",
-    "error": "Unavailable public fields: price_level."
+    "fetched_at": "2026-11-17T19:31:14.106Z",
+    "error": null,
+    "absence": "present",
+    "search_url": null,
+    "store": "Shoo Loong Kan Hot Pot 小龙坎"
   },
   {
     "platform": "yelp",
@@ -60,8 +63,11 @@
     "rating": null,
     "review_count": null,
     "price_level": null,
-    "fetched_at": "2026-11-07T07:13:36.426Z",
-    "error": "No matching public listing was found."
+    "fetched_at": "2026-11-17T19:32:05.527Z",
+    "error": "No matching public listing was found.",
+    "absence": "not_collected",
+    "search_url": null,
+    "store": "Shoo Loong Kan Hot Pot 小龙坎"
   },
   {
     "platform": "tripadvisor",
@@ -76,24 +82,11 @@
     "rating": null,
     "review_count": null,
     "price_level": null,
-    "fetched_at": "2026-11-07T07:14:22.726Z",
-    "error": "No matching public listing was found."
-  },
-  {
-    "platform": "opentable",
-    "found": false,
-    "matched": false,
-    "url": null,
-    "name": null,
-    "address": null,
-    "phone": null,
-    "hours": null,
-    "rating_raw": null,
-    "rating": null,
-    "review_count": null,
-    "price_level": null,
-    "fetched_at": "2026-11-07T07:14:30.187Z",
-    "error": "No matching public listing was found."
+    "fetched_at": "2026-11-17T19:32:40.778Z",
+    "error": "No matching public listing was found.",
+    "absence": "not_collected",
+    "search_url": null,
+    "store": "Shoo Loong Kan Hot Pot 小龙坎"
   },
   {
     "platform": "doordash",
@@ -108,8 +101,11 @@
     "rating": null,
     "review_count": null,
     "price_level": null,
-    "fetched_at": "2026-11-07T07:14:42.038Z",
-    "error": "No matching public listing was found."
+    "fetched_at": "2026-11-17T19:32:40.784Z",
+    "error": "DoorDash search mode returned unrelated countries during validation; a verified branch listing URL is required.",
+    "absence": "not_collected",
+    "search_url": null,
+    "store": "Shoo Loong Kan Hot Pot 小龙坎"
   },
   {
     "platform": "uber_eats",
@@ -124,8 +120,11 @@
     "rating": null,
     "review_count": null,
     "price_level": null,
-    "fetched_at": "2026-11-07T07:14:58.374Z",
-    "error": "matched:false; the candidate has a conflicting street number."
+    "fetched_at": "2026-11-17T19:33:02.336Z",
+    "error": "No matching public listing was found.",
+    "absence": "not_collected",
+    "search_url": null,
+    "store": "Shoo Loong Kan Hot Pot 小龙坎"
   },
   {
     "platform": "grubhub",
@@ -186,8 +185,11 @@
     "rating": 5,
     "review_count": 3,
     "price_level": 2,
-    "fetched_at": "2026-11-07T07:15:10.325Z",
-    "error": null
+    "fetched_at": "2026-11-17T19:33:14.788Z",
+    "error": null,
+    "absence": "present",
+    "search_url": null,
+    "store": "Shoo Loong Kan Hot Pot 小龙坎"
   },
   {
     "platform": "facebook",
@@ -202,8 +204,46 @@
     "rating": null,
     "review_count": null,
     "price_level": null,
-    "fetched_at": "2026-11-07T07:16:07.059Z",
-    "error": "The public listing is private or requires login."
+    "fetched_at": "2026-11-17T19:46:10.700Z",
+    "error": "The public listing is private or requires login.",
+    "absence": "not_collected",
+    "search_url": null,
+    "recommend_text": null,
+    "store": "Shoo Loong Kan Hot Pot 小龙坎"
+  },
+  {
+    "platform": "instagram",
+    "found": true,
+    "matched": true,
+    "url": "https://www.instagram.com/shooloongkanmanhattan",
+    "name": "Shoo Loong Kan｜Manhattan",
+    "address": "22 E 13th St, New York, NY 10003",
+    "phone": null,
+    "hours": null,
+    "followers": 486,
+    "posts": 213,
+    "price_level": null,
+    "fetched_at": "2026-11-17T19:46:19.536Z",
+    "error": null,
+    "absence": "present",
+    "search_url": null,
+    "store": "Shoo Loong Kan Hot Pot 小龙坎"
+  },
+  {
+    "platform": "opentable",
+    "found": false,
+    "matched": false,
+    "url": null,
+    "name": null,
+    "address": null,
+    "phone": null,
+    "hours": null,
+    "rating_raw": null,
+    "rating": null,
+    "review_count": null,
+    "price_level": null,
+    "fetched_at": "2026-11-07T07:14:30.187Z",
+    "error": "No matching public listing was found."
   },
   {
     "platform": "resy",
@@ -219,20 +259,5 @@
     "price_level": null,
     "fetched_at": "2026-11-07T07:16:42.480Z",
     "error": "matched:false; the candidate has a conflicting street number."
-  },
-  {
-    "platform": "instagram",
-    "found": true,
-    "matched": true,
-    "url": "https://www.instagram.com/shooloongkanmanhattan",
-    "name": "Shoo Loong Kan｜Manhattan",
-    "address": "22 E 13th St, New York, NY 10003",
-    "phone": null,
-    "hours": null,
-    "followers": 483,
-    "posts": 213,
-    "price_level": null,
-    "fetched_at": "2026-11-07T07:16:49.865Z",
-    "error": "Unavailable public fields: phone, price_level, hours."
   }
 ]

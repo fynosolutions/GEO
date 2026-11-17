@@ -1,0 +1,30 @@
+[
+  {
+    "platform": "yelp",
+    "found": true,
+    "matched": true,
+    "name": "The Dolar Shop",
+    "address": {
+      "city": "New York",
+      "regionCode": "NY",
+      "addressLine1": "55 3rd Ave",
+      "addressLine2": "",
+      "addressLine3": null,
+      "postalCode": "10003",
+      "country": "US"
+    },
+    "url": "https://www.yelp.com/biz/the-dolar-shop-new-york",
+    "verified_at": "2026-11-17T05:07:57.170Z",
+    "evidence_sha256": "cac4df045530fe88948074e748d5b9651d0e0fbcb0ed755068cb86926e1110e3"
+  },
+  {
+    "platform": "tripadvisor",
+    "found": true,
+    "matched": true,
+    "name": "The Dolar Shop Manhattan",
+    "address": "55 3rd Ave, New York City, NY 10003",
+    "url": "https://www.tripadvisor.com/Restaurant_Review-g60763-d23991409-Reviews-The_Dolar_Shop_Manhattan-New_York_City_New_York.html",
+    "verified_at": "2026-11-17T05:08:07.463Z",
+    "evidence_sha256": "d15812b6c2fa124c0c53e673473c6a9d9e91136b61b02eb9598c085ddf2963e2"
+  }
+]

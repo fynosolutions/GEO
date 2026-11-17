@@ -1,0 +1,407 @@
+[
+  {
+    "platform": "google_maps",
+    "found": true,
+    "matched": true,
+    "url": "https://www.google.com/maps/search/?api=1&query=The%20Dolar%20Shop%20Hot%20Pot%20Manhattan&query_place_id=ChIJaVSb2EBZwokRJMIsBasdHpg",
+    "name": "The Dolar Shop Hot Pot Manhattan",
+    "address": "55 3rd Ave, New York, NY 10003",
+    "phone": "(646) 590-0034",
+    "hours": [
+      {
+        "day": "Monday",
+        "hours": "12 PM to 12 AM"
+      },
+      {
+        "day": "Tuesday",
+        "hours": "12 PM to 12 AM"
+      },
+      {
+        "day": "Wednesday",
+        "hours": "12 PM to 12 AM"
+      },
+      {
+        "day": "Thursday",
+        "hours": "12 PM to 12 AM"
+      },
+      {
+        "day": "Friday",
+        "hours": "12 PM to 1 AM"
+      },
+      {
+        "day": "Saturday",
+        "hours": "11:30 AM to 1 AM"
+      },
+      {
+        "day": "Sunday",
+        "hours": "11:30 AM to 12 AM"
+      }
+    ],
+    "rating_raw": {
+      "average": 4.4,
+      "count": 628
+    },
+    "rating": 4.4,
+    "review_count": 628,
+    "price_level": null,
+    "fetched_at": "2026-11-17T18:52:04.144Z",
+    "error": null,
+    "absence": "present",
+    "search_url": null,
+    "store": "The Dolar Shop Hot Pot"
+  },
+  {
+    "platform": "yelp",
+    "found": true,
+    "matched": true,
+    "url": "https://www.yelp.com/biz/the-dolar-shop-new-york?start=40",
+    "name": "The Dolar Shop",
+    "address": {
+      "city": "New York",
+      "regionCode": "NY",
+      "addressLine1": "55 3rd Ave",
+      "addressLine2": "",
+      "addressLine3": null,
+      "postalCode": "10003",
+      "country": "US"
+    },
+    "phone": "(646) 590-0034",
+    "hours": [
+      {
+        "hours": [
+          "12:00 PM - 12:00 AM (Next day)"
+        ],
+        "regularHours": [
+          "12:00 PM - 12:00 AM (Next day)"
+        ],
+        "regularHoursRaw": [
+          [
+            720,
+            1440
+          ]
+        ],
+        "hasSpecialHours": false,
+        "dayOfWeekShort": "Mon"
+      },
+      {
+        "hours": [
+          "12:00 PM - 12:00 AM (Next day)"
+        ],
+        "regularHours": [
+          "12:00 PM - 12:00 AM (Next day)"
+        ],
+        "regularHoursRaw": [
+          [
+            2160,
+            2880
+          ]
+        ],
+        "hasSpecialHours": false,
+        "dayOfWeekShort": "Tue"
+      },
+      {
+        "hours": [
+          "12:00 PM - 12:00 AM (Next day)"
+        ],
+        "regularHours": [
+          "12:00 PM - 12:00 AM (Next day)"
+        ],
+        "regularHoursRaw": [
+          [
+            3600,
+            4320
+          ]
+        ],
+        "hasSpecialHours": false,
+        "dayOfWeekShort": "Wed"
+      },
+      {
+        "hours": [
+          "12:00 PM - 12:00 AM (Next day)"
+        ],
+        "regularHours": [
+          "12:00 PM - 12:00 AM (Next day)"
+        ],
+        "regularHoursRaw": [
+          [
+            5040,
+            5760
+          ]
+        ],
+        "hasSpecialHours": false,
+        "dayOfWeekShort": "Thu"
+      },
+      {
+        "hours": [
+          "12:00 PM - 1:00 AM (Next day)"
+        ],
+        "regularHours": [
+          "12:00 PM - 1:00 AM (Next day)"
+        ],
+        "regularHoursRaw": [
+          [
+            6480,
+            7260
+          ]
+        ],
+        "hasSpecialHours": false,
+        "dayOfWeekShort": "Fri"
+      },
+      {
+        "hours": [
+          "11:30 AM - 1:00 AM (Next day)"
+        ],
+        "regularHours": [
+          "11:30 AM - 1:00 AM (Next day)"
+        ],
+        "regularHoursRaw": [
+          [
+            7890,
+            8700
+          ]
+        ],
+        "hasSpecialHours": false,
+        "dayOfWeekShort": "Sat"
+      },
+      {
+        "hours": [
+          "11:30 AM - 12:00 AM (Next day)"
+        ],
+        "regularHours": [
+          "11:30 AM - 12:00 AM (Next day)"
+        ],
+        "regularHoursRaw": [
+          [
+            9330,
+            0
+          ]
+        ],
+        "hasSpecialHours": false,
+        "dayOfWeekShort": "Sun"
+      }
+    ],
+    "rating_raw": {
+      "average": 4.5,
+      "count": 587
+    },
+    "rating": 4.5,
+    "review_count": 587,
+    "price_level": "$31-60",
+    "fetched_at": "2026-11-17T18:52:54.838Z",
+    "error": null,
+    "absence": "present",
+    "search_url": null,
+    "store": "The Dolar Shop Hot Pot"
+  },
+  {
+    "platform": "tripadvisor",
+    "found": true,
+    "matched": true,
+    "url": "https://www.tripadvisor.com/Restaurant_Review-g60763-d23991409-Reviews-The_Dolar_Shop_Manhattan-New_York_City_New_York.html",
+    "name": "The Dolar Shop Manhattan",
+    "address": "55 3rd Ave, New York City, NY 10003",
+    "phone": "+1 646-590-0034",
+    "hours": {
+      "weekRanges": [
+        [
+          {
+            "open": 690,
+            "openHours": "11:30",
+            "close": 1440,
+            "closeHours": "00:00"
+          }
+        ],
+        [
+          {
+            "open": 720,
+            "openHours": "12:00",
+            "close": 1440,
+            "closeHours": "00:00"
+          }
+        ],
+        [
+          {
+            "open": 720,
+            "openHours": "12:00",
+            "close": 1440,
+            "closeHours": "00:00"
+          }
+        ],
+        [
+          {
+            "open": 720,
+            "openHours": "12:00",
+            "close": 1440,
+            "closeHours": "00:00"
+          }
+        ],
+        [
+          {
+            "open": 720,
+            "openHours": "12:00",
+            "close": 1440,
+            "closeHours": "00:00"
+          }
+        ],
+        [
+          {
+            "open": 720,
+            "openHours": "12:00",
+            "close": 1500,
+            "closeHours": "01:00"
+          }
+        ],
+        [
+          {
+            "open": 690,
+            "openHours": "11:30",
+            "close": 1500,
+            "closeHours": "01:00"
+          }
+        ]
+      ],
+      "timezone": null
+    },
+    "rating_raw": {
+      "average": 4.5,
+      "count": 2
+    },
+    "rating": 4.5,
+    "review_count": 2,
+    "price_level": null,
+    "fetched_at": "2026-11-17T18:53:02.771Z",
+    "error": null,
+    "absence": "present",
+    "search_url": null,
+    "store": "The Dolar Shop Hot Pot"
+  },
+  {
+    "platform": "doordash",
+    "found": false,
+    "matched": false,
+    "url": null,
+    "name": null,
+    "address": null,
+    "phone": null,
+    "hours": null,
+    "rating_raw": null,
+    "rating": null,
+    "review_count": null,
+    "price_level": null,
+    "fetched_at": "2026-11-17T18:53:02.777Z",
+    "error": "DoorDash search mode returned unrelated countries during validation; a verified branch listing URL is required.",
+    "absence": "not_collected",
+    "search_url": null,
+    "store": "The Dolar Shop Hot Pot"
+  },
+  {
+    "platform": "uber_eats",
+    "found": false,
+    "matched": false,
+    "url": null,
+    "name": null,
+    "address": null,
+    "phone": null,
+    "hours": null,
+    "rating_raw": null,
+    "rating": null,
+    "review_count": null,
+    "price_level": null,
+    "fetched_at": "2026-11-17T18:53:37.734Z",
+    "error": "No matching public listing was found.",
+    "absence": "not_collected",
+    "search_url": null,
+    "store": "The Dolar Shop Hot Pot"
+  },
+  {
+    "platform": "grubhub",
+    "found": false,
+    "matched": false,
+    "url": null,
+    "name": null,
+    "address": null,
+    "phone": null,
+    "hours": null,
+    "rating_raw": null,
+    "rating": null,
+    "review_count": null,
+    "price_level": null,
+    "fetched_at": "2026-11-17T18:54:06.310Z",
+    "error": "No matching public listing was found.",
+    "absence": "not_collected",
+    "search_url": null,
+    "store": "The Dolar Shop Hot Pot"
+  },
+  {
+    "platform": "facebook",
+    "found": true,
+    "matched": true,
+    "url": "https://www.facebook.com/thedolarshopmanhattan/",
+    "name": "The Dolar Shop Manhattan | New City NY",
+    "address": "55 3rd Ave, New York, NY 10003, New City, NY, United States, 10003",
+    "phone": "(646) 590-0034",
+    "hours": "Open now",
+    "rating_raw": {
+      "average": "Not yet rated (4 reviews)",
+      "count": 4
+    },
+    "rating": null,
+    "review_count": 4,
+    "price_level": "$$$",
+    "fetched_at": "2026-11-17T18:54:17.014Z",
+    "error": null,
+    "absence": "present",
+    "search_url": null,
+    "recommend_text": "Not yet rated (4 reviews)",
+    "store": "The Dolar Shop Hot Pot"
+  },
+  {
+    "platform": "instagram",
+    "found": false,
+    "matched": false,
+    "url": null,
+    "name": null,
+    "address": null,
+    "phone": null,
+    "hours": null,
+    "followers": null,
+    "posts": null,
+    "price_level": null,
+    "fetched_at": "2026-11-17T18:54:25.084Z",
+    "error": "Candidate found but matched:false; only name matches (missing: address, phone).",
+    "absence": "unsure",
+    "search_url": null,
+    "store": "The Dolar Shop Hot Pot"
+  },
+  {
+    "platform": "opentable",
+    "found": false,
+    "matched": false,
+    "url": null,
+    "name": null,
+    "address": null,
+    "phone": null,
+    "hours": null,
+    "rating_raw": null,
+    "rating": null,
+    "review_count": null,
+    "price_level": null,
+    "fetched_at": "2026-11-07T07:10:14.165Z",
+    "error": "No matching public listing was found."
+  },
+  {
+    "platform": "resy",
+    "found": true,
+    "matched": true,
+    "url": "https://resy.com/cities/new-york-ny/venues/the-dolar-shop-hot-pot-manhattan",
+    "name": "The Dolar Shop Hot Pot Manhattan",
+    "address": "55 3rd Avenue",
+    "phone": "+16465900034",
+    "hours": null,
+    "followers": null,
+    "posts": null,
+    "price_level": "$",
+    "fetched_at": "2026-11-07T07:12:14.078Z",
+    "error": "Unavailable public fields: followers, posts, hours."
+  }
+]

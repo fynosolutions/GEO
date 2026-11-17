@@ -1,0 +1,39 @@
+{
+  "policy": {
+    "initial_attempts": 1,
+    "max_retries": 5,
+    "delay_ms": 3000,
+    "recover_existing_run_before_new_actor": true
+  },
+  "failed_series": [
+    {
+      "store": "Shoo Loong Kan Hot Pot 小龙坎",
+      "platform": "facebook",
+      "round": 1,
+      "attempts": 6,
+      "retries": 5,
+      "outcome": "not_collected",
+      "reason": "Actor request/data failures persisted through the bounded retry sequence; no absence assertion was inferred."
+    },
+    {
+      "store": "Shoo Loong Kan Hot Pot 小龙坎",
+      "platform": "facebook",
+      "round": 2,
+      "attempts": 6,
+      "retries": 5,
+      "outcome": "not_collected",
+      "reason": "Actor request/data failures persisted through the bounded retry sequence; no absence assertion was inferred."
+    },
+    {
+      "store": "Shoo Loong Kan Hot Pot 小龙坎",
+      "platform": "facebook",
+      "round": 3,
+      "attempts": 6,
+      "retries": 5,
+      "outcome": "not_collected",
+      "reason": "Actor request/data failures persisted through the bounded retry sequence; no absence assertion was inferred."
+    }
+  ],
+  "recovered_existing_runs": [],
+  "note": "Empty successful datasets and missing candidate URLs are not interface failures. Partial item errors with readable results proceed to identity checks."
+}

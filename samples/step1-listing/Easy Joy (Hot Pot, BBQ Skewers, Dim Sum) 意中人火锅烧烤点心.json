@@ -39,13 +39,16 @@
     ],
     "rating_raw": {
       "average": 4.8,
-      "count": 1163
+      "count": 1168
     },
     "rating": 4.8,
-    "review_count": 1163,
+    "review_count": 1168,
     "price_level": null,
-    "fetched_at": "2026-11-07T06:57:16.405Z",
-    "error": "Unavailable public fields: price_level."
+    "fetched_at": "2026-11-17T18:33:56.698Z",
+    "error": null,
+    "absence": "present",
+    "search_url": null,
+    "store": "020"
   },
   {
     "platform": "yelp",
@@ -179,13 +182,16 @@
     ],
     "rating_raw": {
       "average": 4.5,
-      "count": 84
+      "count": 87
     },
     "rating": 4.5,
-    "review_count": 84,
+    "review_count": 87,
     "price_level": "$31-60",
-    "fetched_at": "2026-11-07T06:59:10.073Z",
-    "error": null
+    "fetched_at": "2026-11-17T18:34:53.734Z",
+    "error": null,
+    "absence": "present",
+    "search_url": null,
+    "store": "020"
   },
   {
     "platform": "tripadvisor",
@@ -263,24 +269,11 @@
     "rating": 5,
     "review_count": 20,
     "price_level": "$$ - $$$",
-    "fetched_at": "2026-11-07T06:59:26.443Z",
-    "error": null
-  },
-  {
-    "platform": "opentable",
-    "found": false,
-    "matched": false,
-    "url": null,
-    "name": null,
-    "address": null,
-    "phone": null,
-    "hours": null,
-    "rating_raw": null,
-    "rating": null,
-    "review_count": null,
-    "price_level": null,
-    "fetched_at": "2026-11-07T06:59:33.864Z",
-    "error": "No matching public listing was found."
+    "fetched_at": "2026-11-17T18:35:08.602Z",
+    "error": null,
+    "absence": "present",
+    "search_url": null,
+    "store": "020"
   },
   {
     "platform": "doordash",
@@ -304,15 +297,14 @@
       "count": 10,
       "display_string": "10"
     },
-    "rating": {
-      "average": 4.5,
-      "count": 10,
-      "display_string": "10"
-    },
+    "rating": 4.5,
     "review_count": 10,
     "price_level": null,
-    "fetched_at": "2026-11-07T06:59:48.022Z",
-    "error": "Unavailable public fields: phone, price_level, hours."
+    "fetched_at": "2026-11-17T18:36:07.083Z",
+    "error": null,
+    "absence": "present",
+    "search_url": null,
+    "store": "020"
   },
   {
     "platform": "uber_eats",
@@ -335,14 +327,17 @@
       }
     ],
     "rating_raw": {
-      "average": null,
-      "count": 24
+      "average": 4.8,
+      "count": 550
     },
-    "rating": null,
-    "review_count": 24,
+    "rating": 4.8,
+    "review_count": 550,
     "price_level": null,
-    "fetched_at": "2026-11-07T07:00:04.470Z",
-    "error": "Unavailable public fields: rating, price_level."
+    "fetched_at": "2026-11-17T18:36:18.959Z",
+    "error": null,
+    "absence": "present",
+    "search_url": null,
+    "store": "020"
   },
   {
     "platform": "grubhub",
@@ -403,27 +398,68 @@
     "rating": 4.3,
     "review_count": 9,
     "price_level": 2,
-    "fetched_at": "2026-11-07T07:00:21.293Z",
-    "error": null
+    "fetched_at": "2026-11-17T18:36:33.267Z",
+    "error": null,
+    "absence": "present",
+    "search_url": null,
+    "store": "020"
   },
   {
     "platform": "facebook",
     "found": true,
     "matched": true,
-    "url": "https://www.facebook.com/p/Easy-Joy-Buffet-61579381037917/",
+    "url": "https://www.facebook.com/61579381037917/?locale=en_GB",
     "name": "Easy Joy Buffet | New York NY",
     "address": "145 Mulberry St, New York, NY, United States, 10013",
     "phone": "(646) 398-9113",
-    "hours": "Closed now",
+    "hours": "Open now",
     "rating_raw": {
       "average": "Not yet rated (0 reviews)",
       "count": 0
     },
-    "rating": 0,
+    "rating": null,
     "review_count": 0,
     "price_level": null,
-    "fetched_at": "2026-11-07T07:00:31.555Z",
-    "error": "Unavailable public fields: price_level."
+    "fetched_at": "2026-11-17T18:36:49.963Z",
+    "error": null,
+    "absence": "present",
+    "search_url": null,
+    "recommend_text": "Not yet rated (0 reviews)",
+    "store": "020"
+  },
+  {
+    "platform": "instagram",
+    "found": false,
+    "matched": false,
+    "url": null,
+    "name": null,
+    "address": null,
+    "phone": null,
+    "hours": null,
+    "followers": null,
+    "posts": null,
+    "price_level": null,
+    "fetched_at": "2026-11-17T18:37:17.091Z",
+    "error": "Candidate found but matched:false; only name matches (missing: address, phone).",
+    "absence": "unsure",
+    "search_url": null,
+    "store": "020"
+  },
+  {
+    "platform": "opentable",
+    "found": false,
+    "matched": false,
+    "url": null,
+    "name": null,
+    "address": null,
+    "phone": null,
+    "hours": null,
+    "rating_raw": null,
+    "rating": null,
+    "review_count": null,
+    "price_level": null,
+    "fetched_at": "2026-11-07T06:59:33.864Z",
+    "error": "No matching public listing was found."
   },
   {
     "platform": "resy",
@@ -439,20 +475,5 @@
     "price_level": null,
     "fetched_at": "2026-11-07T07:00:55.776Z",
     "error": "No matching public listing was found."
-  },
-  {
-    "platform": "instagram",
-    "found": false,
-    "matched": false,
-    "url": null,
-    "name": null,
-    "address": null,
-    "phone": null,
-    "hours": null,
-    "followers": null,
-    "posts": null,
-    "price_level": null,
-    "fetched_at": "2026-11-07T07:00:55.809Z",
-    "error": "No branch listing URL discovered; Actor not started."
   }
 ]

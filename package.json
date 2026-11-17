@@ -24,7 +24,9 @@
     "precollect:reviews": "node scripts/check-runtime.mjs",
     "collect:media": "node dist/backend/media/cli.js",
     "precollect:media": "node scripts/check-runtime.mjs",
-    "verify:media": "node scripts/verify-media-samples.mjs"
+    "verify:media": "node scripts/verify-media-samples.mjs",
+    "collect:listing-quality": "node dist/backend/listing-quality/cli.js",
+    "verify:listing-quality": "node scripts/verify-listing-quality.mjs"
   },
   "engines": {
     "node": ">=24.14.0"

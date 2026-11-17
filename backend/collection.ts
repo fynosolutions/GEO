@@ -41,7 +41,7 @@ export function mapItem(platform:string,item:any):Listing {
  result.phone=pick(r.phone,r.phone_formatted,r.phone_number,r.telephone,r.phoneNumber,r.contact?.phone,platform==='instagram'?r.businessPhoneNumber:null);
  result.url=pick(r.url,r.webUrl,r.directUrl,r.link,r.detailUrl,r.businessUrl,r.storeUrl,r.store_url,r.pageUrl,r.facebookUrl,platform==='resy'?r.resyUrl:null);
  result.hours=pick(r.openingHoursSpecification,r.openingHours,r.opening_hours,r.operationHours,r.hours,r.business_hours,r.businessHours,r.availableHours);
- const rawRating=pick(r.totalScore,r.rating,r.aggregatedRating,r.stars,r.averageRating,r.aggregateRating,platform==='facebook'?r.ratingOverall:null);
+ const rawRating=pick(r.totalScore,r.rating,r.ratingValue,r.aggregatedRating,r.stars,r.averageRating,r.aggregateRating,platform==='facebook'?r.ratingOverall:null);
  if(platformGroups.profiles.includes(platform)){
   result.followers=pick(r.followersCount,r.followers_count,r.followers);
   result.posts=pick(r.postsCount,r.posts_count,typeof r.posts==='number'?r.posts:null);
@@ -51,7 +51,7 @@ export function mapItem(platform:string,item:any):Listing {
    result.address=pick(result.address,r.biography.match(/\b\d{1,6}\s+[^\n,]{1,70}\b(?:Street|St|Avenue|Ave|Road|Rd|Broadway|Blvd|Boulevard|Lane|Ln|Drive|Dr)\b[^\n]*/i)?.[0]);
   }
  }else{
-  result.rating=pick(r.totalScore,r.rating,r.aggregatedRating,r.stars,r.averageRating,aggregate.ratingValue,platform==='facebook'?r.ratingOverall:null);
+  result.rating=pick(r.totalScore,r.rating,r.ratingValue,r.aggregatedRating,r.stars,r.averageRating,aggregate.ratingValue,platform==='facebook'?r.ratingOverall:null);
   if(platform==='facebook'&&typeof result.rating==='string'&&/^\s*Not yet rated\b/i.test(result.rating))result.rating=0;
   result.review_count=pick(r.reviewsCount,r.reviews_count,r.reviewCount,r.review_count,aggregate.reviewCount,aggregate.ratingCount,r.rating?.count,r.numReviews,r.num_ratings,r.numberOfReviews,r.ratingCount);
   if(rawRating!==null||result.review_count!==null){
@@ -81,7 +81,8 @@ function nameMatches(a:string,b:string):boolean{
  const brandA=normalized(a.split(/[([]/)[0]),brandB=normalized(b.split(/[([]/)[0]);
  if(brandA.length>=4&&y.includes(brandA)||brandB.length>=4&&x.includes(brandB))return true;
  const words=(v:string):string[]=>v.toLowerCase().match(/[\p{L}\p{N}]+/gu)||[];
- const left=words(a),right=words(b);const common=left.filter(w=>right.includes(w));
+ const generic=new Set(['the','a','an','and','of','shop','restaurant','restaurants','hot','pot','bbq','bar','grill','food','foods','kitchen','new','york','city','manhattan','brooklyn']);
+ const left=words(a).filter(w=>!generic.has(w)),right=words(b).filter(w=>!generic.has(w));const common=left.filter(w=>right.includes(w));
  return common.length>=2&&common.length/Math.min(left.length,right.length)>=0.6;
 }
 export function inputWebsite(input:CollectionInput):string|null{
@@ -154,6 +155,11 @@ export function resolveGoogle(result:ApifyResult,input:CollectionInput):Listing 
  }).map(v=>mapItem('google_maps',v)).filter(v=>v.name&&v.address&&v.url&&matchesDomains(v.url,domains.google_maps)&&(!input.name||website||nameMatches(v.name!,input.name))&&(!input.address||matchesIdentity(v,{name:v.name!,address:input.address})));
  return candidates.length===1?{...candidates[0],matched:true,fetched_at:result.collected_at}:emptyListing('google_maps',candidates.length?'Ambiguous Google identity; supply a full branch address or place ID.':'Google could not resolve a unique restaurant name and address.');
 }
+export function discoveryName(name:string):string {
+ const base=name.split(/[([]/)[0].trim();
+ const shorter=base.replace(/\s+(?:hot\s*pot|restaurant)(?:\s+(?:manhattan|new york|nyc))?$/i,'').trim();
+ return shorter.length>=4?shorter:base;
+}
 export function safeName(value:string):string {
  const clean=Array.from(value.replace(/[<>:"/\\|?*\x00-\x1f]/g,'_')).slice(0,100).join('').replace(/[. ]+$/g,'')||'merchant';
  return /^(con|prn|aux|nul|com[1-9]|lpt[1-9])(?:\.|$)/i.test(clean)?`_${clean}`:clean;
@@ -165,7 +171,7 @@ export function selectedPlatforms(value:unknown=undefined):string[]{
  if(!Array.isArray(value)||value.length===0||value.some(k=>typeof k!=='string'||!Object.hasOwn(domains,k)))throw Error('Select at least one valid platform.');
  return Object.keys(domains).filter(k=>value.includes(k));
 }
-type Dependencies={apify?:typeof collectApify;browser?:typeof readWithBrowser;outputDirectory?:string};
+type Dependencies={apify?:typeof collectApify;browser?:typeof readWithBrowser;outputDirectory?:string;knownListingUrls?:Record<string,string[]>};
 // Ignore tracking parameters and URL spelling variants when counting Yelp candidates.
 function yelpCandidateKey(value:string):string|null{
  try{const url=new URL(value);if(!matchesDomains(value,domains.yelp)||!isListingCandidate(value,'yelp'))return null;return url.pathname.replace(/\/+$/,'').toLowerCase();}catch{return null;}
@@ -207,6 +213,8 @@ export async function collectRestaurant(input:CollectionInput,signal?:AbortSigna
  if(!input.name?.trim()&&!input.place_id?.trim())throw Error('Provide a restaurant name or Google place ID.');
  if(input.name?.trim()&&input.place_id?.trim())throw Error('Provide either a restaurant name or place ID, not both.');
  const selected=selectedPlatforms(input.platforms);
+ const links:Record<string,string[]>={};
+ for(const [platform,urls] of Object.entries(dependencies.knownListingUrls??{})){if(!domains[platform]||!Array.isArray(urls)||urls.some(url=>!matchesDomains(url,domains[platform])||!isListingCandidate(url,platform)))throw Error('Invalid known listing URL');links[platform]=[...new Set(urls)];}
  const apify=dependencies.apify||collectApify;
  const label=input.name?.trim()||input.place_id!;
  const directory=resolve(process.env.COLLECTION_DATA_DIR||'.local/collections',randomUUID());
@@ -237,16 +245,16 @@ export async function collectRestaurant(input:CollectionInput,signal?:AbortSigna
  await persist();
  // Browser is temporarily disabled, regardless of the saved environment setting.
  // Apify SERP is used for URLs only; snippets never populate exported business fields.
- const links:Record<string,string[]>={};
+
  const platforms=selected.filter(k=>k!=='google_maps');
- const searchName=target.name.split(/[([]/)[0].trim()||target.name;
+ const searchName=discoveryName(target.name)||target.name;
  if(selected.includes('google_maps'))await accept(signal?.aborted?emptyListing('google_maps','Cancelled.'):g);
  if(!g.matched){
   for(const platform of platforms)await accept(emptyListing(platform,'Collection skipped because Google could not confirm the target restaurant.'));
   await json(join(directory,'providers.json'),providerData);return {directory,records,name:target.name||label,address:target.address,website:target.website_url||null,google_record:g,output_file,filename};
  }
- if(platforms.length&&!signal?.aborted&&g.found)try{
-   const queries=platforms.flatMap(k=>[
+ if(platforms.some(p=>!links[p]?.length)&&!signal?.aborted&&g.found)try{
+   const queries=platforms.filter(p=>!links[p]?.length).flatMap(k=>[
     `site:${domains[k][0]} "${searchName}" ${target.address}`,
     ...(k==='yelp'&&typeof target.phone==='string'&&target.phone.trim()?[`site:yelp.com/biz/ "${searchName}" "${target.phone}" ${target.address}`]:[]),
    ]).join('\n');

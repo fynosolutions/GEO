@@ -39,13 +39,16 @@
     ],
     "rating_raw": {
       "average": 4.4,
-      "count": 627
+      "count": 628
     },
     "rating": 4.4,
-    "review_count": 627,
+    "review_count": 628,
     "price_level": null,
-    "fetched_at": "2026-11-07T07:09:01.730Z",
-    "error": "Unavailable public fields: price_level."
+    "fetched_at": "2026-11-17T18:57:57.037Z",
+    "error": null,
+    "absence": "present",
+    "search_url": null,
+    "store": "The Dolar Shop Hot Pot"
   },
   {
     "platform": "yelp",
@@ -54,11 +57,11 @@
     "url": "https://www.yelp.com/biz/the-dolar-shop-new-york?start=40",
     "name": "The Dolar Shop",
     "address": {
-      "city": "New York",
-      "regionCode": "NY",
       "addressLine1": "55 3rd Ave",
       "addressLine2": "",
       "addressLine3": null,
+      "city": "New York",
+      "regionCode": "NY",
       "postalCode": "10003",
       "country": "US"
     },
@@ -184,11 +187,96 @@
     "rating": 4.5,
     "review_count": 587,
     "price_level": "$31-60",
-    "fetched_at": "2026-11-07T07:09:56.802Z",
-    "error": null
+    "fetched_at": "2026-11-17T18:58:54.201Z",
+    "error": null,
+    "absence": "present",
+    "search_url": null,
+    "store": "The Dolar Shop Hot Pot"
   },
   {
     "platform": "tripadvisor",
+    "found": true,
+    "matched": true,
+    "url": "https://www.tripadvisor.com/Restaurant_Review-g60763-d23991409-Reviews-The_Dolar_Shop_Manhattan-New_York_City_New_York.html",
+    "name": "The Dolar Shop Manhattan",
+    "address": "55 3rd Ave, New York City, NY 10003",
+    "phone": "+1 646-590-0034",
+    "hours": {
+      "weekRanges": [
+        [
+          {
+            "open": 690,
+            "openHours": "11:30",
+            "close": 1440,
+            "closeHours": "00:00"
+          }
+        ],
+        [
+          {
+            "open": 720,
+            "openHours": "12:00",
+            "close": 1440,
+            "closeHours": "00:00"
+          }
+        ],
+        [
+          {
+            "open": 720,
+            "openHours": "12:00",
+            "close": 1440,
+            "closeHours": "00:00"
+          }
+        ],
+        [
+          {
+            "open": 720,
+            "openHours": "12:00",
+            "close": 1440,
+            "closeHours": "00:00"
+          }
+        ],
+        [
+          {
+            "open": 720,
+            "openHours": "12:00",
+            "close": 1440,
+            "closeHours": "00:00"
+          }
+        ],
+        [
+          {
+            "open": 720,
+            "openHours": "12:00",
+            "close": 1500,
+            "closeHours": "01:00"
+          }
+        ],
+        [
+          {
+            "open": 690,
+            "openHours": "11:30",
+            "close": 1500,
+            "closeHours": "01:00"
+          }
+        ]
+      ],
+      "timezone": null
+    },
+    "rating_raw": {
+      "average": 4.5,
+      "count": 2
+    },
+    "rating": 4.5,
+    "review_count": 2,
+    "price_level": null,
+    "fetched_at": "2026-11-17T18:59:02.124Z",
+    "error": null,
+    "absence": "present",
+    "search_url": null,
+    "store": "The Dolar Shop Hot Pot"
+  },
+  {
+    "platform": "doordash",
     "found": false,
     "matched": false,
     "url": null,
@@ -200,8 +288,90 @@
     "rating": null,
     "review_count": null,
     "price_level": null,
-    "fetched_at": "2026-11-07T07:10:06.742Z",
-    "error": "No matching public listing was found."
+    "fetched_at": "2026-11-17T18:59:02.129Z",
+    "error": "DoorDash search mode returned unrelated countries during validation; a verified branch listing URL is required.",
+    "absence": "not_collected",
+    "search_url": null,
+    "store": "The Dolar Shop Hot Pot"
+  },
+  {
+    "platform": "uber_eats",
+    "found": false,
+    "matched": false,
+    "url": null,
+    "name": null,
+    "address": null,
+    "phone": null,
+    "hours": null,
+    "rating_raw": null,
+    "rating": null,
+    "review_count": null,
+    "price_level": null,
+    "fetched_at": "2026-11-17T18:59:25.682Z",
+    "error": "No matching public listing was found.",
+    "absence": "not_collected",
+    "search_url": null,
+    "store": "The Dolar Shop Hot Pot"
+  },
+  {
+    "platform": "grubhub",
+    "found": false,
+    "matched": false,
+    "url": null,
+    "name": null,
+    "address": null,
+    "phone": null,
+    "hours": null,
+    "rating_raw": null,
+    "rating": null,
+    "review_count": null,
+    "price_level": null,
+    "fetched_at": "2026-11-17T18:59:51.579Z",
+    "error": "No matching public listing was found.",
+    "absence": "not_collected",
+    "search_url": null,
+    "store": "The Dolar Shop Hot Pot"
+  },
+  {
+    "platform": "facebook",
+    "found": true,
+    "matched": true,
+    "url": "https://www.facebook.com/thedolarshopmanhattan/",
+    "name": "The Dolar Shop Manhattan | New City NY",
+    "address": "55 3rd Ave, New York, NY 10003, New City, NY, United States, 10003",
+    "phone": "(646) 590-0034",
+    "hours": "Open now",
+    "rating_raw": {
+      "average": "Not yet rated (4 reviews)",
+      "count": 4
+    },
+    "rating": null,
+    "review_count": 4,
+    "price_level": "$$$",
+    "fetched_at": "2026-11-17T19:00:09.062Z",
+    "error": null,
+    "absence": "present",
+    "search_url": null,
+    "recommend_text": "Not yet rated (4 reviews)",
+    "store": "The Dolar Shop Hot Pot"
+  },
+  {
+    "platform": "instagram",
+    "found": false,
+    "matched": false,
+    "url": null,
+    "name": null,
+    "address": null,
+    "phone": null,
+    "hours": null,
+    "followers": null,
+    "posts": null,
+    "price_level": null,
+    "fetched_at": "2026-11-17T19:00:24.585Z",
+    "error": "Candidate found but matched:false; only name matches (missing: address, phone).",
+    "absence": "unsure",
+    "search_url": null,
+    "store": "The Dolar Shop Hot Pot"
   },
   {
     "platform": "opentable",
@@ -220,70 +390,6 @@
     "error": "No matching public listing was found."
   },
   {
-    "platform": "doordash",
-    "found": false,
-    "matched": false,
-    "url": null,
-    "name": null,
-    "address": null,
-    "phone": null,
-    "hours": null,
-    "rating_raw": null,
-    "rating": null,
-    "review_count": null,
-    "price_level": null,
-    "fetched_at": "2026-11-07T07:10:28.256Z",
-    "error": "No matching public listing was found."
-  },
-  {
-    "platform": "uber_eats",
-    "found": false,
-    "matched": false,
-    "url": null,
-    "name": null,
-    "address": null,
-    "phone": null,
-    "hours": null,
-    "rating_raw": null,
-    "rating": null,
-    "review_count": null,
-    "price_level": null,
-    "fetched_at": "2026-11-07T07:10:51.387Z",
-    "error": "No matching public listing was found."
-  },
-  {
-    "platform": "grubhub",
-    "found": false,
-    "matched": false,
-    "url": null,
-    "name": null,
-    "address": null,
-    "phone": null,
-    "hours": null,
-    "rating_raw": null,
-    "rating": null,
-    "review_count": null,
-    "price_level": null,
-    "fetched_at": "2026-11-07T07:11:50.306Z",
-    "error": "No matching public listing was found."
-  },
-  {
-    "platform": "facebook",
-    "found": false,
-    "matched": false,
-    "url": null,
-    "name": null,
-    "address": null,
-    "phone": null,
-    "hours": null,
-    "rating_raw": null,
-    "rating": null,
-    "review_count": null,
-    "price_level": null,
-    "fetched_at": "2026-11-07T07:11:57.795Z",
-    "error": "No matching public listing was found."
-  },
-  {
     "platform": "resy",
     "found": true,
     "matched": true,
@@ -297,20 +403,5 @@
     "price_level": "$",
     "fetched_at": "2026-11-07T07:12:14.078Z",
     "error": "Unavailable public fields: followers, posts, hours."
-  },
-  {
-    "platform": "instagram",
-    "found": false,
-    "matched": false,
-    "url": null,
-    "name": null,
-    "address": null,
-    "phone": null,
-    "hours": null,
-    "followers": null,
-    "posts": null,
-    "price_level": null,
-    "fetched_at": "2026-11-07T07:12:14.103Z",
-    "error": "No branch listing URL discovered; Actor not started."
   }
 ]

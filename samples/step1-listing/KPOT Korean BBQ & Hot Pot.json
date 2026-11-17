@@ -39,13 +39,16 @@
     ],
     "rating_raw": {
       "average": 4.9,
-      "count": 6985
+      "count": 7029
     },
     "rating": 4.9,
-    "review_count": 6985,
+    "review_count": 7029,
     "price_level": null,
-    "fetched_at": "2026-11-07T07:16:57.481Z",
-    "error": "Unavailable public fields: price_level."
+    "fetched_at": "2026-11-17T19:55:44.052Z",
+    "error": null,
+    "absence": "present",
+    "search_url": null,
+    "store": "KPOT Korean BBQ & Hot Pot"
   },
   {
     "platform": "yelp",
@@ -179,13 +182,16 @@
     ],
     "rating_raw": {
       "average": 4.3,
-      "count": 217
+      "count": 221
     },
     "rating": 4.3,
-    "review_count": 217,
+    "review_count": 221,
     "price_level": "$31-60",
-    "fetched_at": "2026-11-07T07:18:26.106Z",
-    "error": null
+    "fetched_at": "2026-11-17T19:56:38.289Z",
+    "error": null,
+    "absence": "present",
+    "search_url": null,
+    "store": "KPOT Korean BBQ & Hot Pot"
   },
   {
     "platform": "tripadvisor",
@@ -263,27 +269,11 @@
     "rating": 5,
     "review_count": 7,
     "price_level": null,
-    "fetched_at": "2026-11-07T07:18:35.776Z",
-    "error": "Unavailable public fields: price_level."
-  },
-  {
-    "platform": "opentable",
-    "found": true,
-    "matched": true,
-    "url": "https://www.opentable.com/r/kpot-korean-bbq-and-hot-pot-new-york-city-new-york",
-    "name": "KPot Korean BBQ & Hot Pot - New York City",
-    "address": "310 W 38th St, New York, NY 10018",
-    "phone": "(646) 337-1718",
-    "hours": null,
-    "rating_raw": {
-      "average": 0,
-      "count": 0
-    },
-    "rating": 0,
-    "review_count": 0,
-    "price_level": "$30 and under",
-    "fetched_at": "2026-11-07T07:18:40.891Z",
-    "error": "Unavailable public fields: hours."
+    "fetched_at": "2026-11-17T19:56:48.138Z",
+    "error": null,
+    "absence": "present",
+    "search_url": null,
+    "store": "KPOT Korean BBQ & Hot Pot"
   },
   {
     "platform": "doordash",
@@ -304,18 +294,17 @@
     "hours": null,
     "rating_raw": {
       "average": 4.5,
-      "count": 203,
-      "display_string": "203"
+      "count": 207,
+      "display_string": "207"
     },
-    "rating": {
-      "average": 4.5,
-      "count": 203,
-      "display_string": "203"
-    },
-    "review_count": 203,
+    "rating": 4.5,
+    "review_count": 207,
     "price_level": null,
-    "fetched_at": "2026-11-07T07:18:52.706Z",
-    "error": "Unavailable public fields: phone, price_level, hours."
+    "fetched_at": "2026-11-17T19:56:58.503Z",
+    "error": null,
+    "absence": "present",
+    "search_url": null,
+    "store": "KPOT Korean BBQ & Hot Pot"
   },
   {
     "platform": "uber_eats",
@@ -338,14 +327,17 @@
       }
     ],
     "rating_raw": {
-      "average": null,
-      "count": 96
+      "average": 4.6,
+      "count": 97
     },
-    "rating": null,
-    "review_count": 96,
+    "rating": 4.6,
+    "review_count": 97,
     "price_level": null,
-    "fetched_at": "2026-11-07T07:19:06.756Z",
-    "error": "Unavailable public fields: rating, price_level."
+    "fetched_at": "2026-11-17T19:57:28.970Z",
+    "error": null,
+    "absence": "present",
+    "search_url": null,
+    "store": "KPOT Korean BBQ & Hot Pot"
   },
   {
     "platform": "grubhub",
@@ -360,8 +352,11 @@
     "rating": null,
     "review_count": null,
     "price_level": null,
-    "fetched_at": "2026-11-07T07:19:38.791Z",
-    "error": "No matching public listing was found."
+    "fetched_at": "2026-11-17T19:58:06.881Z",
+    "error": "No matching public listing was found.",
+    "absence": "not_collected",
+    "search_url": null,
+    "store": "KPOT Korean BBQ & Hot Pot"
   },
   {
     "platform": "facebook",
@@ -376,8 +371,49 @@
     "rating": null,
     "review_count": null,
     "price_level": null,
-    "fetched_at": "2026-11-07T07:19:46.181Z",
-    "error": "The public listing is private or requires login."
+    "fetched_at": "2026-11-17T19:59:24.396Z",
+    "error": "Candidate found but matched:false; only name matches (missing: address, phone).",
+    "absence": "unsure",
+    "search_url": null,
+    "recommend_text": null,
+    "store": "KPOT Korean BBQ & Hot Pot"
+  },
+  {
+    "platform": "instagram",
+    "found": false,
+    "matched": false,
+    "url": null,
+    "name": null,
+    "address": null,
+    "phone": null,
+    "hours": null,
+    "followers": null,
+    "posts": null,
+    "price_level": null,
+    "fetched_at": "2026-11-17T19:59:24.409Z",
+    "error": "No branch listing URL discovered; Actor not started.",
+    "absence": "not_collected",
+    "search_url": null,
+    "store": "KPOT Korean BBQ & Hot Pot"
+  },
+  {
+    "platform": "opentable",
+    "found": true,
+    "matched": true,
+    "url": "https://www.opentable.com/r/kpot-korean-bbq-and-hot-pot-new-york-city-new-york",
+    "name": "KPot Korean BBQ & Hot Pot - New York City",
+    "address": "310 W 38th St, New York, NY 10018",
+    "phone": "(646) 337-1718",
+    "hours": null,
+    "rating_raw": {
+      "average": 0,
+      "count": 0
+    },
+    "rating": null,
+    "review_count": 0,
+    "price_level": "$30 and under",
+    "fetched_at": "2026-11-07T07:18:40.891Z",
+    "error": "Unavailable public fields: hours."
   },
   {
     "platform": "resy",
@@ -393,20 +429,5 @@
     "price_level": null,
     "fetched_at": "2026-11-07T07:20:18.697Z",
     "error": "matched:false; the candidate has a conflicting street number."
-  },
-  {
-    "platform": "instagram",
-    "found": false,
-    "matched": false,
-    "url": null,
-    "name": null,
-    "address": null,
-    "phone": null,
-    "hours": null,
-    "followers": null,
-    "posts": null,
-    "price_level": null,
-    "fetched_at": "2026-11-07T07:20:18.713Z",
-    "error": "No branch listing URL discovered; Actor not started."
   }
 ]

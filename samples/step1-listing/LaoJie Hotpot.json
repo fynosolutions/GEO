@@ -39,13 +39,16 @@
     ],
     "rating_raw": {
       "average": 4.3,
-      "count": 622
+      "count": 625
     },
     "rating": 4.3,
-    "review_count": 622,
+    "review_count": 625,
     "price_level": null,
-    "fetched_at": "2026-11-07T07:01:03.654Z",
-    "error": "Unavailable public fields: price_level."
+    "fetched_at": "2026-11-17T18:42:30.994Z",
+    "error": null,
+    "absence": "present",
+    "search_url": null,
+    "store": "LaoJie Hotpot"
   },
   {
     "platform": "yelp",
@@ -179,13 +182,16 @@
     ],
     "rating_raw": {
       "average": 4.3,
-      "count": 281
+      "count": 282
     },
     "rating": 4.3,
-    "review_count": 281,
+    "review_count": 282,
     "price_level": "$31-60",
-    "fetched_at": "2026-11-07T07:03:07.195Z",
-    "error": null
+    "fetched_at": "2026-11-17T18:43:44.201Z",
+    "error": null,
+    "absence": "present",
+    "search_url": null,
+    "store": "LaoJie Hotpot"
   },
   {
     "platform": "tripadvisor",
@@ -200,24 +206,11 @@
     "rating": null,
     "review_count": null,
     "price_level": null,
-    "fetched_at": "2026-11-07T07:03:21.372Z",
-    "error": "No matching public listing was found."
-  },
-  {
-    "platform": "opentable",
-    "found": false,
-    "matched": false,
-    "url": null,
-    "name": null,
-    "address": null,
-    "phone": null,
-    "hours": null,
-    "rating_raw": null,
-    "rating": null,
-    "review_count": null,
-    "price_level": null,
-    "fetched_at": "2026-11-07T07:03:30.976Z",
-    "error": "No matching public listing was found."
+    "fetched_at": "2026-11-17T18:44:01.235Z",
+    "error": "No matching public listing was found.",
+    "absence": "not_collected",
+    "search_url": null,
+    "store": "LaoJie Hotpot"
   },
   {
     "platform": "doordash",
@@ -232,24 +225,44 @@
     "rating": null,
     "review_count": null,
     "price_level": null,
-    "fetched_at": "2026-11-07T07:03:42.832Z",
-    "error": "No matching public listing was found."
+    "fetched_at": "2026-11-17T18:44:01.240Z",
+    "error": "DoorDash search mode returned unrelated countries during validation; a verified branch listing URL is required.",
+    "absence": "not_collected",
+    "search_url": null,
+    "store": "LaoJie Hotpot"
   },
   {
     "platform": "uber_eats",
-    "found": false,
-    "matched": false,
-    "url": null,
-    "name": null,
-    "address": null,
-    "phone": null,
-    "hours": null,
-    "rating_raw": null,
-    "rating": null,
-    "review_count": null,
+    "found": true,
+    "matched": true,
+    "url": "https://www.ubereats.com/en-US/store/laojie-mala-tang/2Z1yVgQaUmWBU1LIv4anYQ?srsltid=AYCX9vICXw7WyaR7Mu9buy5FMgxONInDfAP6OwDjat3hIjexEW2rywhD",
+    "name": "LaoJie Mala Tang",
+    "address": "105 Bowery, New York, NY, 10002, US",
+    "phone": "+16464788166",
+    "hours": [
+      {
+        "dayRange": "Every Day",
+        "sectionHours": [
+          {
+            "startTime": 750,
+            "endTime": 1320,
+            "sectionTitle": ""
+          }
+        ]
+      }
+    ],
+    "rating_raw": {
+      "average": 4.1,
+      "count": 36
+    },
+    "rating": 4.1,
+    "review_count": 36,
     "price_level": null,
-    "fetched_at": "2026-11-07T07:04:24.505Z",
-    "error": "matched:false; the candidate has a conflicting street number."
+    "fetched_at": "2026-11-17T18:44:18.747Z",
+    "error": null,
+    "absence": "present",
+    "search_url": null,
+    "store": "LaoJie Hotpot"
   },
   {
     "platform": "grubhub",
@@ -304,14 +317,17 @@
       }
     ],
     "rating_raw": {
-      "average": 4,
-      "count": 5
+      "average": 3.5,
+      "count": 6
     },
-    "rating": 4,
-    "review_count": 5,
+    "rating": 3.5,
+    "review_count": 6,
     "price_level": 3,
-    "fetched_at": "2026-11-07T07:04:38.702Z",
-    "error": null
+    "fetched_at": "2026-11-17T18:44:42.879Z",
+    "error": null,
+    "absence": "present",
+    "search_url": null,
+    "store": "LaoJie Hotpot"
   },
   {
     "platform": "facebook",
@@ -326,8 +342,46 @@
     "rating": null,
     "review_count": null,
     "price_level": null,
-    "fetched_at": "2026-11-07T07:04:55.687Z",
-    "error": "matched:false; the candidate has a conflicting street number."
+    "fetched_at": "2026-11-17T18:45:00.753Z",
+    "error": "matched:false; the candidate has a conflicting street number.",
+    "absence": "unsure",
+    "search_url": null,
+    "recommend_text": null,
+    "store": "LaoJie Hotpot"
+  },
+  {
+    "platform": "instagram",
+    "found": false,
+    "matched": false,
+    "url": null,
+    "name": null,
+    "address": null,
+    "phone": null,
+    "hours": null,
+    "followers": null,
+    "posts": null,
+    "price_level": null,
+    "fetched_at": "2026-11-17T18:45:07.245Z",
+    "error": "matched:false; the candidate has a conflicting street number.",
+    "absence": "unsure",
+    "search_url": null,
+    "store": "LaoJie Hotpot"
+  },
+  {
+    "platform": "opentable",
+    "found": false,
+    "matched": false,
+    "url": null,
+    "name": null,
+    "address": null,
+    "phone": null,
+    "hours": null,
+    "rating_raw": null,
+    "rating": null,
+    "review_count": null,
+    "price_level": null,
+    "fetched_at": "2026-11-07T07:03:30.976Z",
+    "error": "No matching public listing was found."
   },
   {
     "platform": "resy",
@@ -343,20 +397,5 @@
     "price_level": null,
     "fetched_at": "2026-11-07T07:05:14.381Z",
     "error": "No matching public listing was found."
-  },
-  {
-    "platform": "instagram",
-    "found": false,
-    "matched": false,
-    "url": null,
-    "name": null,
-    "address": null,
-    "phone": null,
-    "hours": null,
-    "followers": null,
-    "posts": null,
-    "price_level": null,
-    "fetched_at": "2026-11-07T07:05:21.854Z",
-    "error": "matched:false; the candidate has a conflicting street number."
   }
 ]

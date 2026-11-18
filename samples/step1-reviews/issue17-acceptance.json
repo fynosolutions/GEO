@@ -1,0 +1,152 @@
+{
+  "issue": 17,
+  "files": 6,
+  "platform_records": 12,
+  "reviews": 2128,
+  "source_replay_verified": true,
+  "missing_ids": 0,
+  "missing_authors": 0,
+  "cost_within_authorized_limit": true,
+  "cost_within_original_issue_limit": true,
+  "account_metadata_published": false,
+  "platforms": [
+    {
+      "store": "020",
+      "platform": "google_maps",
+      "reviews": 200,
+      "newest": "2026-11-17T20:48:18.809Z",
+      "missing_ids": 0,
+      "missing_authors": 0,
+      "source_sha256": "2b7d7ee4a8e1da6171082654dbfa6efa0ec01653f957ace65b07b580ff2af46c"
+    },
+    {
+      "store": "020",
+      "platform": "yelp",
+      "reviews": 87,
+      "newest": "2026-11-16T16:18:29Z",
+      "missing_ids": 0,
+      "missing_authors": 0,
+      "source_sha256": "c8cb004fec156d9c7b08b5588005d00bb10b3abcb601a64e654a32d4597114e3"
+    },
+    {
+      "store": "LaoJie Hotpot",
+      "platform": "google_maps",
+      "reviews": 200,
+      "newest": "2026-11-10T00:14:24.031Z",
+      "missing_ids": 0,
+      "missing_authors": 0,
+      "source_sha256": "f2f4855a0f729ed45f976aba082e2eaef7d9a0052c4598fa14b2cb0f8985596b"
+    },
+    {
+      "store": "LaoJie Hotpot",
+      "platform": "yelp",
+      "reviews": 200,
+      "newest": "2026-11-09T16:54:54Z",
+      "missing_ids": 0,
+      "missing_authors": 0,
+      "source_sha256": "d1678b3f0ac0d5b40711eca9f1c508107f4efbefaeca8fdb901c5f6d8be26499"
+    },
+    {
+      "store": "99 Favor Taste",
+      "platform": "google_maps",
+      "reviews": 200,
+      "newest": "2026-11-15T01:19:33.500Z",
+      "missing_ids": 0,
+      "missing_authors": 0,
+      "source_sha256": "7ce7eff964f339a7449325536909de1af6df480e77f635af0461b491d07aa3f8"
+    },
+    {
+      "store": "99 Favor Taste",
+      "platform": "yelp",
+      "reviews": 200,
+      "newest": "2026-11-12T04:09:43Z",
+      "missing_ids": 0,
+      "missing_authors": 0,
+      "source_sha256": "1bfbab8b26ae3ace724f5ec91c54e2a7e71ffcd437461820f58567ced83c422c"
+    },
+    {
+      "store": "The Dolar Shop Hot Pot",
+      "platform": "google_maps",
+      "reviews": 200,
+      "newest": "2026-11-11T01:32:27.401Z",
+      "missing_ids": 0,
+      "missing_authors": 0,
+      "source_sha256": "d17a9cf2b96afc781218ffc4e70620cbf53ef9dde69b6a17abf181623ae3b3e8"
+    },
+    {
+      "store": "The Dolar Shop Hot Pot",
+      "platform": "yelp",
+      "reviews": 200,
+      "newest": "2026-11-04T17:35:03Z",
+      "missing_ids": 0,
+      "missing_authors": 0,
+      "source_sha256": "3f00aa0ae2d058bdfbd000546d018ad85cf16b935099ae24261f41c51c3f8d96"
+    },
+    {
+      "store": "Shoo Loong Kan Hot Pot 小龙坎",
+      "platform": "google_maps",
+      "reviews": 200,
+      "newest": "2026-11-15T22:37:56.024Z",
+      "missing_ids": 0,
+      "missing_authors": 0,
+      "source_sha256": "b97346030b7886b9cebfab7600143c5aedb0cc0eb05cb50eea4489954b758aa1"
+    },
+    {
+      "store": "Shoo Loong Kan Hot Pot 小龙坎",
+      "platform": "yelp",
+      "reviews": 41,
+      "newest": "2026-09-28T23:29:53Z",
+      "missing_ids": 0,
+      "missing_authors": 0,
+      "source_sha256": "d47a2128e9b42b5ecd2c6c2da64e2187f8a3738cfb506ef7bf28ac6c08442406"
+    },
+    {
+      "store": "KPOT Korean BBQ & Hot Pot",
+      "platform": "google_maps",
+      "reviews": 200,
+      "newest": "2026-11-18T05:13:49.249Z",
+      "missing_ids": 0,
+      "missing_authors": 0,
+      "source_sha256": "0e7bb7a3a01e895fc805fc24cc4a14c56fc5dbf016a131f8774167f105faf492"
+    },
+    {
+      "store": "KPOT Korean BBQ & Hot Pot",
+      "platform": "yelp",
+      "reviews": 200,
+      "newest": "2026-11-13T02:00:44Z",
+      "missing_ids": 0,
+      "missing_authors": 0,
+      "source_sha256": "3e80bb94c75a5e9100a6fcd771b87b03ceae0dcea5a9ccada0314dbc544dc028"
+    }
+  ],
+  "google_date_diagnosis": [
+    {
+      "store": "020",
+      "old_fetched_at": "2026-11-09T11:22:56.575Z",
+      "old_latest_raw": "2026-10-19T17:44:54.286Z",
+      "new_latest_raw": "2026-11-17T20:48:18.809Z",
+      "same_id_overlap": 195,
+      "same_id_changed_dates": 0,
+      "new_november_reviews": 5,
+      "new_november_before_old_fetch": 0,
+      "conclusion": "Old provider response itself contained October latest dates; local export preserved them. Fresh response contains November reviews; source dates were not shifted or rewritten."
+    },
+    {
+      "store": "KPOT Korean BBQ & Hot Pot",
+      "old_fetched_at": "2026-11-09T11:35:18.605Z",
+      "old_latest_raw": "2026-10-20T21:05:18.342Z",
+      "new_latest_raw": "2026-11-18T05:13:49.249Z",
+      "same_id_overlap": 139,
+      "same_id_changed_dates": 0,
+      "new_november_reviews": 61,
+      "new_november_before_old_fetch": 0,
+      "conclusion": "Old provider response itself contained October latest dates; local export preserved them. Fresh response contains November reviews; source dates were not shifted or rewritten."
+    }
+  ],
+  "shoo_yelp": {
+    "url": "https://www.yelp.com/biz/shoo-loong-kan-new-york-2",
+    "address": "22 E 13th St, New York, NY 10003",
+    "branch_identity_verified": true,
+    "conclusion": "Historical and fresh review payloads identify the configured 22 E 13th St branch. Listing discovery returned only Google site-search URLs without business name/address, while the dedicated review collector used the verified Yelp /biz/ URL. Listing not_collected is not proof of no Yelp page."
+  }
+}

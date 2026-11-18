@@ -27,7 +27,7 @@ try{
     const run=await cachedReviews(store,platform,limit,{root,budget,runCap,cacheOnly:opts['--cache-only']==='true',signal:controller.signal});
     const {result}=run;
     const value=normalizeReviews(platform,result.items,store,limit,result.collected_at,['unverified','success','empty'].includes(result.status)?(result.truncated?'Provider dataset was truncated.':null):result.note);
-    records=records.filter(r=>r.platform!==platform);records.push(value.record);
+    records=records.filter(r=>r.platform!==platform);records.push({...value.record,store:store.id==='store-001'?'020':store.name});
     await atomicJSON(path,reviewPlatforms.flatMap(p=>records.filter(r=>r.platform===p)));
     await atomicJSON(join(root,store.id+'-'+platform+'-evidence.json'),{store_id:store.id,platform,cache_key:run.key,run_id:result.run_id,limit,cached:run.cached,...value.evidence});
     console.log(JSON.stringify({store:store.id,platform,reviews:value.record.reviews.length,total:value.record.total_reviews,complete:value.evidence.complete,cached:run.cached,charged_or_reserved_usd:run.cost,error:value.record.error}));
@@ -35,7 +35,7 @@ try{
    }catch(e){
     partial=true;const error=e instanceof Error?e.message:'Review collection failed.';
     const existing=records.find(r=>r.platform===platform);
-    if(!existing?.reviews?.length){const {record}=normalizeReviews(platform,[],store,limit,undefined,error);records=records.filter(r=>r.platform!==platform);records.push(record);await atomicJSON(path,reviewPlatforms.flatMap(p=>records.filter(r=>r.platform===p)));}
+    if(!existing?.reviews?.length){const {record}=normalizeReviews(platform,[],store,limit,undefined,error);records=records.filter(r=>r.platform!==platform);records.push({...record,store:store.id==='store-001'?'020':store.name});await atomicJSON(path,reviewPlatforms.flatMap(p=>records.filter(r=>r.platform===p)));}
     await atomicJSON(join(root,store.id+'-'+platform+'-last-error.json'),{platform,error,attempted_at:new Date().toISOString(),kept_existing_output:!!existing?.reviews?.length});
     console.error(store.id+' '+platform+': '+error);
    }

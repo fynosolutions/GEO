@@ -75,7 +75,7 @@ export async function cachedReviews(store:ReviewStore,platform:ReviewPlatform,li
  await mkdir(join(root,'requests'),{recursive:true});
  const path=join(root,'requests',key+'.json'),ledgerPath=join(root,'ledger.json');
  const ledger:Ledger=await json(ledgerPath)??{version:1,ceiling:options.budget,requests:{}};
- if(!Number.isFinite(options.budget)||options.budget<=0||options.budget>5||!Number.isFinite(options.runCap)||options.runCap<=0||options.runCap>0.5)throw Error('Review budget must be <= US$5; per-run cap must be <= US$0.50.');
+ if(!Number.isFinite(options.budget)||options.budget<=0||options.budget>10||!Number.isFinite(options.runCap)||options.runCap<=0||options.runCap>0.5)throw Error('Review budget must be <= US$10; per-run cap must be <= US$0.50.');
  const ceiling=Math.min(ledger.ceiling,options.budget);
  if(!options.cacheOnly&&!options.collect){await reconcile(root,ledger);await atomicJSON(ledgerPath,ledger);}
  const cached=await json(path);

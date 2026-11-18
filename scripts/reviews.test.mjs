@@ -8,7 +8,7 @@ import {reviewStores,canonicalYelp,actorSpec,normalizeReviews,reviewFilename} fr
 import {cachedReviews,lockCache,settledUsage} from '../dist/backend/reviews/provider.js';
 import {collectApify} from '../dist/backend/apify.js';
 const store={id:'fixture',name:'Fixture Hot Pot',address:'123 Main St, New York, NY 10001',place_id:'fixture-place',google_maps_url:'https://www.google.com/maps/search/?api=1&query_place_id=fixture-place',yelp_url:'https://www.yelp.com/biz/fixture-hot-pot'};
-const review=(id,date='2026-11-09',text='Original long\n中文 review text')=>({reviewId:id,publishedAtDate:date,stars:5,text,language:'zh'});
+const review=(id,date='2026-11-09',text='Original long\n中文 review text')=>({reviewId:id,name:'Fixture Reviewer',publishedAtDate:date,stars:5,text,language:'zh'});
 const place=(reviews)=>({placeId:store.place_id,title:store.name,address:store.address,reviewsCount:reviews.length,reviewsTags:['broth · 4'],reviews});
 test('review inputs remove old Yelp offsets, reject wrong domains and duplicate branch targets',()=>{
  assert.equal(canonicalYelp(store.yelp_url+'?start=1040&osq=old#reviews'),store.yelp_url);
@@ -108,4 +108,30 @@ test('Google source line-break markup becomes displayed newlines without rewriti
  assert.equal(raw.text,original);
  const y={id:'breaks',businessName:store.name,businessAddress:store.address,businessUrl:store.yelp_url,reviewCount:1,date:'2026-11-09',rating:4,text:original,language:'en'};
  assert.equal(normalizeReviews('yelp',[y],store).record.reviews[0].text,original);
+});
+
+
+test('review export preserves platform IDs and public authors, never substitutes URLs or business names',()=>{
+ const raw={...review('native-id'),name:'公开名字'};
+ const g=normalizeReviews('google_maps',[place([raw,raw,{...review('second'),name:'公开名字'}])],store);
+ assert.deepEqual(g.record.reviews.map(r=>r.review_id),['native-id','second']);assert.equal(g.evidence.duplicates,1);
+ assert.ok(g.record.reviews.every(r=>r.author==='公开名字'));
+ const missing={...review(''),reviewUrl:'https://google.com/review/example',name:null};delete missing.reviewId;
+ const absent=normalizeReviews('google_maps',[place([missing])],store);
+ assert.equal(absent.record.reviews[0].review_id,null);assert.equal(absent.record.reviews[0].author,null);assert.equal(absent.evidence.missing_ids,1);
+ const y={id:'yelp-id',businessName:store.name,businessAddress:store.address,businessUrl:store.yelp_url,reviewCount:1,date:'2026-11-09',rating:5,text:'Original',language:'en',reviewerName:'Eunice Y.'};
+ const v=normalizeReviews('yelp',[y],store);assert.equal(v.record.reviews[0].review_id,'yelp-id');assert.equal(v.record.reviews[0].author,'Eunice Y.');
+ assert.equal(actorSpec('google_maps',store,200).input.scrapeReviewsPersonalData,true);
+});
+
+test('offline review delivery verifier rejects duplicate native IDs across a restaurant file',async()=>{
+ const root=await mkdtemp(join(tmpdir(),'geo-review-delivery-'));
+ try{
+  const stores=JSON.parse(await readFile('samples/step1-reviews/stores.json','utf8'));
+  await writeFile(join(root,'stores.json'),JSON.stringify(stores));
+  for(const s of stores){const rows=['google_maps','yelp'].map(platform=>({platform,store:s.id==='store-001'?'020':s.name,total_reviews:1,topics:[],url:platform==='yelp'?s.yelp_url:s.google_maps_url,fetched_at:'2026-11-18T00:00:00Z',error:null,reviews:[{review_id:platform+'-native',author:'Public Name',date:'2026-11-17T00:00:00Z',rating:5,text:'Original',language:'en'}]}));await writeFile(join(root,reviewFilename(s)),JSON.stringify(rows));}
+  const ok=spawnSync(process.execPath,['scripts/verify-review-samples.mjs',root],{encoding:'utf8'});assert.equal(ok.status,0,ok.stderr);
+  const file=join(root,reviewFilename(stores[0])),rows=JSON.parse(await readFile(file,'utf8'));rows[1].reviews[0].review_id=rows[0].reviews[0].review_id;await writeFile(file,JSON.stringify(rows));
+  const bad=spawnSync(process.execPath,['scripts/verify-review-samples.mjs',root],{encoding:'utf8'});assert.notEqual(bad.status,0);assert.match(bad.stderr,/Duplicate platform review ID/);
+ }finally{await rm(root,{recursive:true,force:true});}
 });

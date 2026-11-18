@@ -3,9 +3,9 @@ import {mapItem,matchesIdentity,safeName} from '../collection.js';
 export const reviewPlatforms=['google_maps','yelp'] as const;
 export type ReviewPlatform=typeof reviewPlatforms[number];
 export type ReviewStore={id:string;name:string;address:string;place_id:string;google_maps_url:string;yelp_url:string};
-export type Review={date:string|null;rating:number|null;text:string;language:string|null};
+export type Review={review_id:string|null;author:string|null;date:string|null;rating:number|null;text:string;language:string|null};
 export type ReviewRecord={platform:ReviewPlatform;total_reviews:number|null;topics:unknown[];reviews:Review[];url:string;fetched_at:string;error:string|null};
-export type ReviewEvidence={identity_verified:boolean;raw_count:number;duplicates:number;invalid:number;missing_language:number;possible_truncations:number;expected:number|null;complete:boolean;notes:string[]};
+export type ReviewEvidence={identity_verified:boolean;raw_count:number;duplicates:number;invalid:number;missing_language:number;possible_truncations:number;missing_ids:number;missing_authors:number;expected:number|null;complete:boolean;notes:string[]};
 const integer=(v:unknown):number|null=>typeof v==='number'&&Number.isInteger(v)&&v>=0?v:null;
 const pick=(...v:any[])=>v.find(x=>x!==undefined&&x!==null);
 export function canonicalYelp(value:string):string{
@@ -30,7 +30,7 @@ export function reviewFilename(s:ReviewStore){return safeName(s.name)+'--'+s.id+
 export function actorSpec(platform:ReviewPlatform,store:ReviewStore,limit:number){
  if(!Number.isInteger(limit)||limit<1||limit>200)throw Error('Review limit must be 1–200.');
  return platform==='google_maps'?{
-  actor:'compass/crawler-google-places',input:{placeIds:[store.place_id],maxCrawledPlacesPerSearch:1,maxReviews:limit,reviewsSort:'newest',reviewsOrigin:'google',scrapePlaceDetailPage:true,maxImages:0,scrapeReviewsPersonalData:false,language:'en'},
+  actor:'compass/crawler-google-places',input:{placeIds:[store.place_id],maxCrawledPlacesPerSearch:1,maxReviews:limit,reviewsSort:'newest',reviewsOrigin:'google',scrapePlaceDetailPage:true,maxImages:0,scrapeReviewsPersonalData:true,language:'en'},
  }:{actor:'tri_angle/yelp-review-scraper',input:{startUrls:[{url:canonicalYelp(store.yelp_url)}],maxReviewsPerUrl:limit}};
 }
 export function normalizeReviews(platform:ReviewPlatform,items:any[],store:ReviewStore,limit=200,fetchedAt=new Date().toISOString(),providerError:string|null=null){
@@ -53,11 +53,14 @@ export function normalizeReviews(platform:ReviewPlatform,items:any[],store:Revie
   topics=Array.isArray(roots[0]?.topics)?roots[0].topics:[];
   for(const r of roots)candidates.push(...(Array.isArray(r.reviews)?r.reviews:[r]));
  }
- const evidence:ReviewEvidence={identity_verified:identity,raw_count:candidates.length,duplicates:0,invalid:0,missing_language:0,possible_truncations:0,expected:total===null?null:Math.min(limit,total),complete:false,notes};
+ const evidence:ReviewEvidence={identity_verified:identity,raw_count:candidates.length,duplicates:0,invalid:0,missing_language:0,possible_truncations:0,missing_ids:0,missing_authors:0,expected:total===null?null:Math.min(limit,total),complete:false,notes};
  const reviews:Review[]=[],seen=new Set<string>();
  for(const r of candidates){
   if(!r||typeof r.text!=='string'){evidence.invalid++;continue;}
-  const id=pick(r.reviewId,r.id,r.reviewUrl);if(typeof id==='string'&&id){if(seen.has(id)){evidence.duplicates++;continue;}seen.add(id);}
+  const sourceString=(v:unknown):string|null=>typeof v==='string'&&v.trim()?v:null;
+  const review_id=sourceString(pick(r.reviewId,r.id));
+  const author=sourceString(platform==='google_maps'?pick(r.name,r.author?.name):pick(r.reviewerName,r.author?.name,r.user?.name));
+  const id=review_id??r.reviewUrl;if(typeof id==='string'&&id){if(seen.has(id)){evidence.duplicates++;continue;}seen.add(id);}
   const rawDate=pick(r.publishedAtDate,r.date,r.publishedDate),date=typeof rawDate==='string'&&Number.isFinite(Date.parse(rawDate))?rawDate:null;
   const rawRating=platform==='google_maps'?pick(r.stars,r.rating):r.rating,rating=typeof rawRating==='number'&&rawRating>=1&&rawRating<=5?rawRating:null;
   const rawLanguage=pick(r.originalLanguage,r.language,r.reviewLanguage),language=typeof rawLanguage==='string'&&/^[a-z]{2,3}(?:[-_][a-zA-Z]{2,4})?$/.test(rawLanguage)?rawLanguage:null;
@@ -66,10 +69,14 @@ export function normalizeReviews(platform:ReviewPlatform,items:any[],store:Revie
   if(/(?:read more|show more|…\s*more|\.\.\.\s*more|展开全文|查看更多|更多)\s*$/i.test(r.text))evidence.possible_truncations++;
   // Google encodes displayed line breaks in its original-text field. Preserve all other source characters.
   const text=platform==='google_maps'?r.text.replace(/<br\s*\/?>/gi,'\n'):r.text;
-  reviews.push({date,rating,text,language});
+  reviews.push({review_id,author,date,rating,text,language});
  }
  reviews.sort((a,b)=>(b.date?Date.parse(b.date):-Infinity)-(a.date?Date.parse(a.date):-Infinity));
  const selected=reviews.slice(0,limit);
+ evidence.missing_ids=selected.filter(r=>r.review_id===null).length;
+ evidence.missing_authors=selected.filter(r=>r.author===null).length;
+ if(evidence.missing_ids)notes.push('Platform review identifiers are unavailable for some reviews; review_id is null.');
+ if(evidence.missing_authors)notes.push('Public author display names are unavailable for some reviews; author is null.');
  if(!identity)notes.push('Target branch identity was not verified in provider output.');
  if(total===null)notes.push('Platform total review count is unavailable.');
  if(evidence.invalid)notes.push('Some review dates, ratings or original text fields are unavailable.');

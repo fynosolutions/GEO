@@ -80,13 +80,17 @@ Directory responsibilities: [backend](backend/README.md), [frontend](frontend/RE
 
 For single-platform debugging: `npm run collect -- --name "Restaurant" --address "123 Main St, City" --platforms yelp`. Google Maps always resolves identity internally, but appears in the JSON only if selected. An explicit empty selection is rejected. Failed identity matching emits matched:false and no other business data. See docs/ISSUE3.md for delivery notes and test evidence.
 
+## Menus, prices and hours (issue #4)
+
+`npm run collect:details -- --stores stores.json --store STORE_ID` produces independent channel/menu/price/hours files. See [menu audit](backend/menu-audit/README.md) for source verification, OCR configuration, output and current acceptance limits. Live runs use Apify discovery; offline tests do not establish real seven-channel coverage.
+
 ## Weekly history (issue #5)
 
 Batch collection, immutable snapshots and week-over-week reports are available via `npm run collect:weekly`. Configure `stores.json` first; its empty default prevents accidental paid collection. See [weekly module and deployment instructions](backend/weekly/README.md). The GitHub Actions workflow is prepared but disabled until `GEO_WEEKLY_ENABLED=true` is configured after integration. Menu-date comparison accepts a documented sidecar; the #4 producer adapter and cloud/two-week acceptance remain pending.
 
-## Menus, prices and hours (issue #4)
+## Restaurant introductions (issue #13)
 
-`npm run collect:details -- --stores stores.json --store STORE_ID` produces independent channel/menu/price/hours files. See [menu audit](backend/menu-audit/README.md) for source verification, OCR configuration, output and current acceptance limits. Live runs use Apify discovery; offline tests do not establish real seven-channel coverage.
+From the home page, enter a name, website or Google place ID, or paste/upload a restaurant list. Select the desired platforms among Google Maps, Yelp and Tripadvisor, then choose **Collect Introduction**. The introduction page shows the source and a JSON download for each store. Single-store files are saved at `out/introductions/<restaurant-name>.json`. List runs save files in `out/introductions/batches/<timestamp> - Collect Introduction/`. Batch directory timestamps use UTC with milliseconds, for example `2026-11-11T12-08-59-802Z - Collect Introduction`. The [introduction contract](docs/API_CONTRACTS.md#restaurant-introductions-issue-13) describes the profile fields and limits.
 
 ## Review text (issue #14)
 
@@ -96,6 +100,26 @@ Collect the latest Google/Yelp reviews using an explicit six-store input: `npm r
 
 `npm run verify:media` validates the delivered nine-source JSON and six-branch membership table without network or private caches (run `npm run build` first). The samples have 105 entries, 22 descriptions and 83 explicitly null descriptions. User-saved Reddit coverage accounts for 47 comment nodes, including one deleted node. `collect:media` supports direct caches, labelled index fallbacks and user-saved HTML; strict full-data acceptance remains partial. See [media collection](backend/media/README.md) for reproduction, saved-file import and known gaps.
 
-## Restaurant introductions (issue #13)
+## Platform name comparison (issue #19)
 
-From the home page, enter a name, website or Google place ID, or paste/upload a restaurant list. Select the desired platforms among Google Maps, Yelp and Tripadvisor, then choose **Collect Introduction**. The introduction page shows the source and a JSON download for each store. Single-store files are saved at `out/introductions/<restaurant-name>.json`. List runs save files in `out/introductions/batches/<timestamp> - Collect Introduction/`. Batch directory timestamps use UTC with milliseconds, for example `2026-11-11T12-08-59-802Z - Collect Introduction`. The [introduction contract](docs/API_CONTRACTS.md#restaurant-introductions-issue-13) describes the profile fields and limits.
+The offline name checker reads Collect Information files and compares each platform's restaurant name with the full Google Maps name. It identifies Chinese text, extracts the Chinese portion of the Google name and generates one record per restaurant/platform combination.
+
+With Node.js 24.14 or newer, run from the repository root.
+
+```sh
+node scripts/check/step1-names/generate.mjs --input "out/information/batches/2026-11-18T08-31-26-751Z - Collect Information"
+```
+
+Replace `--input` with the desired batch directory. Relative paths resolve from the repository root, and absolute paths are accepted. The script reads every JSON file directly inside that directory, supporting any positive number of restaurants. Each file must contain a platform-record array with a verified Google Maps name and a listing URL containing `query_place_id`.
+
+The result is saved to `samples/step1-names/names.json`. Each record includes `store`, `platform`, `name`, `has_chinese`, `google_chinese_name` and `same_as_google`. Comparison ignores case, Unicode punctuation and whitespace while retaining text inside parentheses and branch subtitles. Unavailable or unverified platform names use null name/comparison fields with a reason in `note`.
+
+Known Google place IDs use the identifiers configured in `scripts/check/step1-names/stores.json`, including 020, 001 and 004. New restaurants use their complete Google name as `store`; new same-name branches also include their Google place ID. Each restaurant receives every platform represented in the batch, with missing platform records labelled in `note`.
+
+Successful runs atomically replace the output and print the record, restaurant and comparison counts. Invalid input exits with code 1. Use `--help` for usage or run the focused checks below.
+
+```sh
+node --test scripts/check/step1-names/generate.test.mjs
+```
+
+See the [name checker instructions](scripts/check/step1-names/README.md) for field rules and input details.

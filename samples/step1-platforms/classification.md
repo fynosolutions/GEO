@@ -1,40 +1,323 @@
-# GEO 平台分类
+# GEO 平台分类与单店访问清单
 
-本表覆盖 Issue #16 指定的 **21 个平台**和调查补充来源。**粗体**为指定平台。**†** 为三份统计表累计返回 1–9 次的补充来源，仅列在此表备查。三份 JSON 共用 65 个平台，包括 21 个指定平台和累计返回至少 10 次的 44 个补充来源。
+2026-11-20 按会议纪要及用户本轮确认口径，进一步更新 Issue #16 分类结果。
 
-| 大类 | 子类 | 平台与来源 | 主要采集字段 |
+## 本次规则
+
+- 「品类专属」适用于独立品类网站，也适用于综合网站中的品类频道、专题指南或榜单。按门店分别判断：020 为火锅／AYCE，004 为面食／汤面／包子，001 为炸鸡／鸡翅／汉堡／快餐。保留大类属性，媒体专题使用「第三方／品类专属」，评价型来源沿用「口碑／品类专属」。
+- 同一域名在每店 JSON 中仍只保留一行。The Infatuation 和 Eater 在三店分别标为品类专属，表示该店的品类访问方向，不表示该域名全部内容都专属于该品类。cited_answers 仍为该店全部 600 题的平台引用题数，不改为专题页或品类子集的次数。
+- 每份 JSON 只收录该店 600 题统计表实际出现过的平台，按原表列顺序排列。无引用的平台省略，各店清单独立。
+- 本轮采用所有正引用记录，包括低于 10 题的来源，以呈现各店完整的访问情况。原 Issue 的固定 21 平台及补充来源门槛由本轮要求替代。达到 10 题的来源可用 cited_answers 筛选。
+- cited_answers 是该店引用该平台的题数，每题计一次。questions 从该店的正引用行提取最多 3 个原始英文问题。原表的单题数值为不同 URL 次数，原始 URL 累计数另列在下方统计表。
+- note 只使用空字符串或「新增」。原 Issue 21 平台中的来源填空，其余填「新增」。
+- 既有 store_listed 核查结果沿用。新补入的来源尚未逐店验证，填 null。已有 false 同时包含目录确认未收录和搜索未查到证据两种情况。订位统一登记，subclass 填 null。
+
+[会议纪要](https://notes.granola.ai/t/b075a026-0038-44ad-8546-383b8564d356-008umkv4) · [Issue #16](https://github.com/fynosolutions/GEO/issues/16)
+
+## 分类与子类
+
+以下为来源目录。每店最终纳入哪些来源，以该店 JSON 和后面的独立清单为准。
+
+| 大类 | 子类 | 来源 | 单店判定 |
 | --- | --- | --- | --- |
-| 口碑 | 综合门店评价 | **Yelp、Tripadvisor、Google 商家资料／地图** | 门店链接、顾客评分、评价数、评价正文和日期 |
-| 口碑 | 评分与评价聚合 | **Restaurantji、Restaurant Guru**、PageNearby、umchef、RestaurantJump† | 门店链接、原始评分、评价数、上游来源和摘要 |
-| 口碑 | 社区点评与口碑汇总 | **Corner**、Starved.io、taste† | 用户点评、门店排名或评分、外站提及及来源 |
-| 第三方 | 地方性网站与社区名录 | **Welcome to Chinatown**、Explore Chinatown、Think!Chinatown、WhereYouEat、BestInHood、Moodap | 门店条目、地址、街区、收录主题和推荐理由 |
-| 第三方 | 通用商家目录与餐厅资料 | The Real Yellow Pages、Maskay | 门店条目、地址、联系方式、类别和资料出处 |
-| 第三方 | 地点发现、地图清单与旅行规划 | **Atly、Roadtrippers、Wanderlog**、Pearl、EatOutMap | 地点卡片、清单名称、发布者、主题和推荐标签 |
-| 第三方 | 餐饮媒体与编辑推荐 | **Eater、The Infatuation、Time Out**、Grub Street、East Table、DiningOut、Serious Eats、Food & Wine、Bon Appétit、Condé Nast Traveler、Find. Eat. Drink.、Tasting Table†、Thrillist† | 文章标题、作者、发布日期、门店提及、推荐理由、编辑评分或名次 |
-| 第三方 | 专业评选与餐厅指南 | **The MICHELIN Guide** | 指南条目、评选年份、星级或必比登等荣誉、评审说明 |
-| 第三方 | 自助餐与不限量专题指南 | **AYCE Guide、ayce-directory**、All You Can Eat NYC、Buffet Locator | 用餐形式、适用餐段、人均价格、限时和规则 |
-| 第三方 | 菜单与价格聚合 | MenuWeb、Menulist、MenuPix、MenuPages、Allmenus、Zmenu、ResMenu†、MenuToEat†、VMbook† | 菜单链接、日期、菜名、规格和原始价格 |
-| 第三方 | 优惠、时段特价与消费奖励 | **Happy Hour NYC**、YaY NYC、MealDeals、Eat Around Town (Marriott)、Gofy† | 参与门店、优惠内容、适用时段、有效期和资格条件 |
-| 社交 | 论坛与社区讨论 | **Reddit** | 讨论串、社区、发布时间、门店提及、回复和互动数 |
-| 社交 | 社交主页、图文与视频 | **Instagram**、Lemon8†、YouTube† | 主页链接、账号、简介、粉丝数、内容中的门店提及和互动数据 |
-| 外卖 | 第三方外卖与自取 | **Grubhub、Uber Eats**、DoorDash、Seamless、Fantuan、Beyond Menu | 平台店铺、下单链接、履约方式、接单时间、菜单和价格 |
-| 外卖 | 商家直订与托管点餐 | Order.online、Toast / Toast Local、Chowbus、Menufy† | 商家点餐页、服务商、自取或配送方式、接单时段、菜单和价格 |
-| 订位 | — | OpenTable、Resy、It’s a Date、SnagRes、Waitlist Wizard、DinnerElite、SevenRooms†、SeatSwiper†、AutoReserve†、ReservationFinder† | 统一登记，按 Issue #16 暂缓核查 |
+| 口碑 | 综合门店评价 | **Yelp、Tripadvisor、Google 商家资料／地图** | 按各店正引用记录收录。 |
+| 口碑 | 评分与评价聚合 | **Restaurantji、Restaurant Guru**、PageNearby、umchef、RestaurantJump† | 按各店正引用记录收录。 |
+| 口碑 | 社区点评与口碑汇总 | **Corner**、Starved.io、taste† | 按各店正引用记录收录。 |
+| 第三方 | 地方性网站与社区名录 | **Welcome to Chinatown**、Explore Chinatown、Think!Chinatown、WhereYouEat、BestInHood、Moodap | 按各店正引用记录收录。 |
+| 第三方 | 通用商家目录与餐厅资料 | The Real Yellow Pages、Maskay | 按各店正引用记录收录。 |
+| 第三方 | 地点发现、地图清单与旅行规划 | **Atly、Roadtrippers、Wanderlog**、Pearl、EatOutMap | 按各店正引用记录收录。 |
+| 第三方 | 餐饮媒体与编辑推荐 | **Eater、The Infatuation、Time Out**、Grub Street、East Table、DiningOut、Serious Eats、Food & Wine、Bon Appétit、Condé Nast Traveler、Find. Eat. Drink.、Tasting Table†、Thrillist† | 按各店正引用记录收录。 |
+| 第三方 | 专业评选与餐厅指南 | **The MICHELIN Guide** | 按各店正引用记录收录。 |
+| 口碑 | 品类专属 | AYCE Guide、All You Can Eat NYC、Buffet Locator | Easy Joy 沿用三个品类来源；Bao 和 Frydom 的 Buffet Locator 仍是泛套餐／性价比参考，不进入其品类专属。 |
+| 第三方 | 品类专属 | The Infatuation、Eater 的门店对应品类频道、专题指南与榜单 | 三店分别登记火锅／AYCE、面食、炸鸡／快餐方向；优先于同一域名的通用媒体子类。具体页面和证据边界见下表。 |
+| 第三方 | 菜单与价格聚合 | MenuWeb、Menulist、MenuPix、MenuPages、Allmenus、Zmenu、ResMenu†、MenuToEat†、VMbook† | 按各店正引用记录收录。 |
+| 第三方 | 优惠、时段特价与消费奖励 | **Happy Hour NYC**、YaY NYC、MealDeals、Eat Around Town (Marriott)、Gofy† | 按各店正引用记录收录。 |
+| 社交 | 论坛与社区讨论 | **Reddit** | 按各店正引用记录收录。 |
+| 社交 | 社交主页、图文与视频 | **Instagram**、Lemon8†、YouTube† | 按各店正引用记录收录。 |
+| 外卖 | 第三方外卖与自取 | **Grubhub、Uber Eats**、DoorDash、Seamless、Fantuan、Beyond Menu | 按各店正引用记录收录。 |
+| 外卖 | 商家直订与托管点餐 | Order.online、Toast / Toast Local、Chowbus、Menufy† | 按各店正引用记录收录。 |
+| 订位 | — | OpenTable、Resy、It’s a Date、SnagRes、Waitlist Wizard、DinnerElite、SevenRooms†、SeatSwiper†、AutoReserve†、ReservationFinder† | 统一登记订位来源，暂缓核查。 |
 
-口碑以门店评分、顾客评价或按门店汇总的社区点评为主要依据。地方性网站共用一个子类。JSON 的 `subclass` 只填写口碑子类。Pearl 的域名暂按 Pearl 地点清单产品对应，原表只有平台列名。
 
-## 交付文件与读数
+## 三店结果
 
-| 门店 | JSON | 已确认收录 | `false` | 订位暂缓核查 |
-| --- | --- | ---: | ---: | ---: |
-| Easy Joy | [020.json](020.json) | 22 | 37 | 6 |
-| Bao Noodle House | [004.json](004.json) | 9 | 50 | 6 |
-| Frydom Express | [001.json](001.json) | 12 | 47 | 6 |
+| 店号 | 门店 | 实际访问平台数 | 新补入平台数 | 订位来源数 | 其他待核实收录状态 |
+| --- | --- | ---: | ---: | ---: | ---: |
+| 020 | Easy Joy | 77 | 15 | 10 | 11 |
+| 004 | Bao Noodle House | 70 | 14 | 10 | 10 |
+| 001 | Frydom Express | 53 | 4 | 6 | 3 |
 
-每份 JSON 依据对应门店的 600 题调查表生成。`cited_answers` 统计该店有引用记录的题数，同题多个平台链接只计一次，无引用记录填 `null`。`questions` 提供最多 3 条原始问题。指定平台的 `note` 为空，补充平台填「新增」。
+## 品类专属子类的实际结果
 
-`store_listed: true` 表示通过公开网页或既有匹配记录确认。134 条 `false` 中，9 条有公开目录核查依据，125 条按本次交付口径表示未找到可确认的门店证据。暂缓核查的订位平台填 `null`。
+「品类专属」不再要求整站只服务单一品类。独立品类站、综合媒体的品类频道，以及聚焦具体菜品的专题文章／榜单均可纳入；普通地区指南、菜单平台或外卖平台不因出现菜名就自动归入此子类。
 
-相较于 Issue 初始建议，Corner、Restaurantji 和 Restaurant Guru 按门店点评或评价汇总归入口碑。Reddit 按用户讨论归入社交。Welcome to Chinatown、AYCE Guide 和 ayce-directory 按地区名录或专题指南归入第三方。JSON 使用表中的口碑子类，其他大类的子类仅在本表展示。
+| 店号／门店 | 专属品类 | 独立品类网站 | 大网站内对应品类板块／专题 | JSON 分类 |
+| --- | --- | --- | --- | --- |
+| 020 · Easy Joy | 火锅／AYCE／自助 | AYCE Guide（allyoucaneatguide.com，49 题）、All You Can Eat NYC（allyoucaneat.nyc，13 题）、Buffet Locator（buffetlocator.com，6 题） | The Infatuation：[火锅专题](https://www.theinfatuation.com/new-york/guides/best-hot-pot-nyc)、[AYCE 专题](https://www.theinfatuation.com/new-york/guides/best-all-you-can-eat-new-york)；Eater：[纽约火锅榜单](https://ny.eater.com/maps/best-hot-pot-restaurants-nyc) | 独立来源沿用口碑／品类专属；两家媒体为第三方／品类专属。 |
+| 004 · Bao Noodle House | 面食／汤面／包子／饺子 | 当前固定平台统计中尚未识别独立面食专属站 | The Infatuation：[汤面专题](https://www.theinfatuation.com/new-york/guides/best-noodle-soup-nyc)、[饺子专题](https://www.theinfatuation.com/new-york/guides/the-dumpling-map)；Eater：[汤面专题文章](https://ny.eater.com/2023/1/24/23559677/nycs-best-noodle-soup) | 两家媒体均为第三方／品类专属。 |
+| 001 · Frydom Express | 炸鸡／鸡翅／汉堡／快餐 | 当前固定平台统计中尚未识别独立炸鸡／快餐专属站 | The Infatuation：[炸鸡频道](https://www.theinfatuation.com/new-york/cuisines/fried-chicken)、[炸鸡榜单](https://www.theinfatuation.com/new-york/guides/best-fried-chicken-nyc)；Eater：[炸鸡榜单](https://ny.eater.com/maps/nyc-fried-chicken-best)、[鸡翅榜单](https://ny.eater.com/maps/best-chicken-wings-nyc) | 两家媒体均为第三方／品类专属；现已核实的专题以炸鸡和鸡翅为主，不将汉堡方向写成已验证板块。 |
 
-[Issue #16](https://github.com/fynosolutions/GEO/issues/16)
+### 统计支持与页面证据边界
+
+以上链接在 2026-11-20 通过公开搜索确认存在，作为各门店的品类板块映射；并非从历史 AI 回答中恢复的引用链接，也不表示这些页面已收录目标门店。store_listed 沿用原先逐店核查结果，不因板块存在或分类改变而修改。
+
+原有 600 题已经包含菜品问题。以下仅统计问题正文明确出现目标菜品／品类的子集，004 先剔除店名 Bao Noodle House，避免把店名中的 Noodle 算作菜品问题；每题对每个平台计一次。
+
+| 门店 | 品类相关问题数 | The Infatuation 引用题数 | Eater 引用题数 | 判断 |
+| --- | ---: | ---: | ---: | --- |
+| 020 · Easy Joy | 166 | 106 | 121 | 包含 hot pot、all-you-can-eat、AYCE、buffet；另有独立 AYCE 来源。 |
+| 004 · Bao Noodle House | 110 | 78 | 110 | 包含 noodle(s)、soup、bao、bun(s)、dumpling(s)；已有面食品类访问证据。 |
+| 001 · Frydom Express | 224 | 32 | 151 | 包含 fried chicken、wing(s)、burger(s)、fast food／fast-food；已有炸鸡／快餐品类访问证据。 |
+
+三份原始统计表均为同一套 80 个平台列，仅保存问题及每平台返回 URL 的数量，没有原始回答、引用 URL 或页面路径。因此，本轮依据「该店品类问题中的平台引用＋公开存在的相关板块」执行用户确认的分类口径；尚不能逐题确认历史引用是否来自上列页面，亦不能将平台引用总数分配给各具体板块。三个 JSON 中的 questions 已选用该店对该平台有正引用的品类相关原始题目。
+
+### 品类问题举例
+
+- 020 / AYCE Guide
+  - Q035 Where can I get hot pot without leaving Chinatown, Manhattan?
+  - Q076 Which restaurants in Chinatown, Manhattan serve both hot pot and dim sum?
+  - Q103 Which all-you-can-eat restaurants in Chinatown, Manhattan are worth the price?
+- 004 / Buffet Locator
+  - Q127 Which Chinese restaurants in New York City offer the best value?
+  - Q130 Where can I get an affordable Chinese dinner in New York City?
+  - Q141 Which Chinese restaurants in New York City have reasonably priced family meals?
+- 001 / Buffet Locator
+  - Q120 Where can I get a set meal without a long wait in Sunset Park, Brooklyn?
+
+## 各店独立访问清单
+
+### 020 · Easy Joy
+
+来源工作簿为 EasyJoy_GEO_Statistics.xlsx，共 600 题。
+
+| 来源 | 域名 | 大类 | JSON 子类 | 引用题数 | 返回 URL 累计数 |
+| --- | --- | --- | --- | ---: | ---: |
+| The Infatuation | theinfatuation.com | 第三方 | 品类专属 | 421 | 869 |
+| Eater | ny.eater.com | 第三方 | 品类专属 | 539 | 1351 |
+| Reddit | reddit.com | 社交 | null | 390 | 1157 |
+| Corner | corner.inc | 口碑 | 社区点评与口碑汇总 | 247 | 423 |
+| Tripadvisor | tripadvisor.com | 口碑 | 综合门店评价 | 162 | 204 |
+| Restaurantji | restaurantji.com | 口碑 | 评分与评价聚合 | 22 | 24 |
+| Zmenu | zmenu.com | 第三方 | null | 7 | 7 |
+| WhereYouEat | whereyoueat.com | 第三方 | null | 4 | 7 |
+| Time Out | timeout.com | 第三方 | null | 220 | 263 |
+| Yelp | yelp.com | 口碑 | 综合门店评价 | 3 | 3 |
+| OpenTable | opentable.com | 订位 | null | 187 | 300 |
+| Resy | resy.com | 订位 | null | 85 | 96 |
+| The MICHELIN Guide | guide.michelin.com | 第三方 | null | 178 | 266 |
+| Tasting Table | tastingtable.com | 第三方 | null | 1 | 1 |
+| Restaurant Guru | restaurantguru.com | 口碑 | 评分与评价聚合 | 6 | 7 |
+| MenuPix | menupix.com | 第三方 | null | 6 | 7 |
+| Allmenus | allmenus.com | 第三方 | null | 1 | 1 |
+| Grubhub | grubhub.com | 外卖 | null | 5 | 5 |
+| Seamless | seamless.com | 外卖 | null | 4 | 4 |
+| Uber Eats | ubereats.com | 外卖 | null | 25 | 47 |
+| DoorDash | doordash.com | 外卖 | null | 7 | 15 |
+| Toast / Toast Local | toasttab.com | 外卖 | null | 10 | 10 |
+| Beyond Menu | beyondmenu.com | 外卖 | null | 3 | 3 |
+| Google Maps | google.com | 口碑 | 综合门店评价 | 1 | 1 |
+| YouTube | youtube.com | 社交 | null | 1 | 1 |
+| Lemon8 | lemon8-app.com | 社交 | null | 4 | 4 |
+| Thrillist | thrillist.com | 第三方 | null | 1 | 1 |
+| Happy Hour NYC | happy-hour.nyc | 第三方 | null | 236 | 273 |
+| PageNearby | pagenearby.com | 口碑 | 评分与评价聚合 | 35 | 37 |
+| Pearl | joinpearl.co | 第三方 | null | 38 | 45 |
+| East Table | easttable.com | 第三方 | null | 90 | 90 |
+| Atly | atly.com | 第三方 | null | 92 | 172 |
+| AutoReserve | autoreserve.com | 订位 | null | 4 | 4 |
+| EatOutMap | eatoutmap.com | 第三方 | null | 1 | 1 |
+| Wanderlog | wanderlog.com | 第三方 | null | 5 | 5 |
+| The Real Yellow Pages | yellowpages.com | 第三方 | null | 4 | 5 |
+| Grub Street | grubstreet.com | 第三方 | null | 116 | 119 |
+| Starved.io | starved.io | 口碑 | 社区点评与口碑汇总 | 40 | 45 |
+| Bon Appétit | bonappetit.com | 第三方 | null | 69 | 69 |
+| Food & Wine | foodandwine.com | 第三方 | null | 96 | 100 |
+| Serious Eats | seriouseats.com | 第三方 | null | 157 | 157 |
+| MenuWeb | menuweb.menu | 第三方 | null | 46 | 50 |
+| Order.online | order.online | 外卖 | null | 18 | 27 |
+| SevenRooms | sevenrooms.com | 订位 | null | 2 | 2 |
+| taste | tastetheapp.com | 口碑 | 社区点评与口碑汇总 | 2 | 2 |
+| Fantuan | fantuan.ca | 外卖 | null | 8 | 13 |
+| Maskay | maskay.com | 第三方 | null | 58 | 70 |
+| SnagRes | snagres.com | 订位 | null | 12 | 14 |
+| Waitlist Wizard | waitlistwizard.com | 订位 | null | 8 | 8 |
+| SeatSwiper | seatswiper.com | 订位 | null | 2 | 2 |
+| Eat Around Town (Marriott) | eataroundtown.marriott.com | 第三方 | null | 37 | 37 |
+| Chowbus | chowbus.com | 外卖 | null | 5 | 5 |
+| Menulist | menulist.menu | 第三方 | null | 8 | 8 |
+| MenuToEat | menutoeat.com | 第三方 | null | 1 | 2 |
+| VMbook | vmbook.com | 第三方 | null | 1 | 2 |
+| umchef | umchef.com | 口碑 | 评分与评价聚合 | 27 | 29 |
+| DiningOut | diningout.com | 第三方 | null | 6 | 6 |
+| Find. Eat. Drink. | findeatdrink.com | 第三方 | null | 39 | 39 |
+| Condé Nast Traveler | cntraveler.com | 第三方 | null | 60 | 65 |
+| Menufy | menufy.com | 外卖 | null | 1 | 1 |
+| MenuPages | menupages.com | 第三方 | null | 1 | 1 |
+| RestaurantJump | restaurantjump.com | 口碑 | 评分与评价聚合 | 1 | 1 |
+| ResMenu | resmenu.com | 第三方 | null | 7 | 7 |
+| BestInHood | bestinhood.com | 第三方 | null | 32 | 35 |
+| Moodap | moodap.com | 第三方 | null | 32 | 34 |
+| YaY NYC | yaynyc.com | 第三方 | null | 10 | 14 |
+| MealDeals | mealdeals.com | 第三方 | null | 4 | 4 |
+| Gofy | gofyapp.com | 第三方 | null | 2 | 2 |
+| ReservationFinder | reservationfinder.io | 订位 | null | 2 | 2 |
+| It's a Date | itsadate.nyc | 订位 | null | 17 | 19 |
+| DinnerElite | dinnerelite.com | 订位 | null | 6 | 6 |
+| Welcome to Chinatown | welcometochinatown.com | 第三方 | null | 136 | 146 |
+| Think!Chinatown | thinkchinatown.org | 第三方 | null | 71 | 105 |
+| Explore Chinatown | explorechinatown.com | 第三方 | null | 346 | 652 |
+| AYCE Guide | allyoucaneatguide.com | 口碑 | 品类专属 | 49 | 49 |
+| All You Can Eat NYC | allyoucaneat.nyc | 口碑 | 品类专属 | 13 | 13 |
+| Buffet Locator | buffetlocator.com | 口碑 | 品类专属 | 6 | 10 |
+
+### 004 · Bao Noodle House
+
+来源工作簿为 Bao_Noodle_House_Statistics.xlsx，共 600 题。
+
+| 来源 | 域名 | 大类 | JSON 子类 | 引用题数 | 返回 URL 累计数 |
+| --- | --- | --- | --- | ---: | ---: |
+| The Infatuation | theinfatuation.com | 第三方 | 品类专属 | 423 | 880 |
+| Eater | ny.eater.com | 第三方 | 品类专属 | 582 | 1423 |
+| Reddit | reddit.com | 社交 | null | 361 | 795 |
+| Corner | corner.inc | 口碑 | 社区点评与口碑汇总 | 180 | 275 |
+| Tripadvisor | tripadvisor.com | 口碑 | 综合门店评价 | 109 | 136 |
+| Restaurantji | restaurantji.com | 口碑 | 评分与评价聚合 | 10 | 10 |
+| WhereYouEat | whereyoueat.com | 第三方 | null | 9 | 15 |
+| Time Out | timeout.com | 第三方 | null | 224 | 278 |
+| Yelp | yelp.com | 口碑 | 综合门店评价 | 1 | 1 |
+| OpenTable | opentable.com | 订位 | null | 185 | 300 |
+| Resy | resy.com | 订位 | null | 115 | 130 |
+| The MICHELIN Guide | guide.michelin.com | 第三方 | null | 190 | 285 |
+| Tasting Table | tastingtable.com | 第三方 | null | 1 | 1 |
+| Restaurant Guru | restaurantguru.com | 口碑 | 评分与评价聚合 | 2 | 3 |
+| MenuPix | menupix.com | 第三方 | null | 3 | 4 |
+| Allmenus | allmenus.com | 第三方 | null | 1 | 1 |
+| Grubhub | grubhub.com | 外卖 | null | 5 | 6 |
+| Seamless | seamless.com | 外卖 | null | 8 | 10 |
+| Uber Eats | ubereats.com | 外卖 | null | 65 | 101 |
+| DoorDash | doordash.com | 外卖 | null | 46 | 83 |
+| Toast / Toast Local | toasttab.com | 外卖 | null | 23 | 47 |
+| Beyond Menu | beyondmenu.com | 外卖 | null | 4 | 4 |
+| Lemon8 | lemon8-app.com | 社交 | null | 1 | 1 |
+| Thrillist | thrillist.com | 第三方 | null | 1 | 1 |
+| Happy Hour NYC | happy-hour.nyc | 第三方 | null | 168 | 210 |
+| PageNearby | pagenearby.com | 口碑 | 评分与评价聚合 | 46 | 49 |
+| Pearl | joinpearl.co | 第三方 | null | 36 | 45 |
+| East Table | easttable.com | 第三方 | null | 114 | 114 |
+| Atly | atly.com | 第三方 | null | 97 | 181 |
+| AutoReserve | autoreserve.com | 订位 | null | 1 | 1 |
+| EatOutMap | eatoutmap.com | 第三方 | null | 3 | 3 |
+| Wanderlog | wanderlog.com | 第三方 | null | 3 | 3 |
+| The Real Yellow Pages | yellowpages.com | 第三方 | null | 3 | 4 |
+| Grub Street | grubstreet.com | 第三方 | null | 153 | 158 |
+| Starved.io | starved.io | 口碑 | 社区点评与口碑汇总 | 12 | 12 |
+| Bon Appétit | bonappetit.com | 第三方 | null | 75 | 75 |
+| Food & Wine | foodandwine.com | 第三方 | null | 150 | 156 |
+| Serious Eats | seriouseats.com | 第三方 | null | 173 | 175 |
+| MenuWeb | menuweb.menu | 第三方 | null | 57 | 63 |
+| Order.online | order.online | 外卖 | null | 36 | 59 |
+| SevenRooms | sevenrooms.com | 订位 | null | 5 | 7 |
+| taste | tastetheapp.com | 口碑 | 社区点评与口碑汇总 | 2 | 2 |
+| Fantuan | fantuan.ca | 外卖 | null | 10 | 21 |
+| SnagRes | snagres.com | 订位 | null | 14 | 20 |
+| Waitlist Wizard | waitlistwizard.com | 订位 | null | 13 | 13 |
+| SeatSwiper | seatswiper.com | 订位 | null | 2 | 2 |
+| Chowbus | chowbus.com | 外卖 | null | 12 | 12 |
+| Menulist | menulist.menu | 第三方 | null | 26 | 28 |
+| MenuToEat | menutoeat.com | 第三方 | null | 1 | 2 |
+| VMbook | vmbook.com | 第三方 | null | 1 | 1 |
+| umchef | umchef.com | 口碑 | 评分与评价聚合 | 42 | 46 |
+| DiningOut | diningout.com | 第三方 | null | 4 | 4 |
+| Find. Eat. Drink. | findeatdrink.com | 第三方 | null | 63 | 63 |
+| Condé Nast Traveler | cntraveler.com | 第三方 | null | 62 | 66 |
+| Menufy | menufy.com | 外卖 | null | 1 | 1 |
+| MenuPages | menupages.com | 第三方 | null | 4 | 4 |
+| RestaurantJump | restaurantjump.com | 口碑 | 评分与评价聚合 | 1 | 1 |
+| ResMenu | resmenu.com | 第三方 | null | 2 | 2 |
+| BestInHood | bestinhood.com | 第三方 | null | 9 | 9 |
+| Moodap | moodap.com | 第三方 | null | 19 | 21 |
+| YaY NYC | yaynyc.com | 第三方 | null | 9 | 13 |
+| MealDeals | mealdeals.com | 第三方 | null | 6 | 6 |
+| Gofy | gofyapp.com | 第三方 | null | 2 | 2 |
+| ReservationFinder | reservationfinder.io | 订位 | null | 2 | 2 |
+| It's a Date | itsadate.nyc | 订位 | null | 18 | 20 |
+| DinnerElite | dinnerelite.com | 订位 | null | 6 | 6 |
+| Welcome to Chinatown | welcometochinatown.com | 第三方 | null | 102 | 112 |
+| Think!Chinatown | thinkchinatown.org | 第三方 | null | 50 | 82 |
+| Explore Chinatown | explorechinatown.com | 第三方 | null | 358 | 737 |
+| Buffet Locator | buffetlocator.com | 第三方 | null | 4 | 5 |
+
+### 001 · Frydom Express
+
+来源工作簿为 Frydom_Express_GEO_Platform_Statistics.xlsx，共 600 题。
+
+| 来源 | 域名 | 大类 | JSON 子类 | 引用题数 | 返回 URL 累计数 |
+| --- | --- | --- | --- | ---: | ---: |
+| The Infatuation | theinfatuation.com | 第三方 | 品类专属 | 224 | 386 |
+| Eater | ny.eater.com | 第三方 | 品类专属 | 432 | 856 |
+| Reddit | reddit.com | 社交 | null | 320 | 662 |
+| Corner | corner.inc | 口碑 | 社区点评与口碑汇总 | 251 | 499 |
+| Tripadvisor | tripadvisor.com | 口碑 | 综合门店评价 | 151 | 223 |
+| Restaurantji | restaurantji.com | 口碑 | 评分与评价聚合 | 73 | 114 |
+| Zmenu | zmenu.com | 第三方 | null | 3 | 4 |
+| WhereYouEat | whereyoueat.com | 第三方 | null | 21 | 36 |
+| Time Out | timeout.com | 第三方 | null | 36 | 44 |
+| OpenTable | opentable.com | 订位 | null | 64 | 139 |
+| Resy | resy.com | 订位 | null | 10 | 11 |
+| The MICHELIN Guide | guide.michelin.com | 第三方 | null | 28 | 41 |
+| Tasting Table | tastingtable.com | 第三方 | null | 2 | 2 |
+| Restaurant Guru | restaurantguru.com | 口碑 | 评分与评价聚合 | 14 | 14 |
+| MenuPix | menupix.com | 第三方 | null | 35 | 44 |
+| Allmenus | allmenus.com | 第三方 | null | 10 | 14 |
+| Grubhub | grubhub.com | 外卖 | null | 19 | 23 |
+| Seamless | seamless.com | 外卖 | null | 28 | 28 |
+| Uber Eats | ubereats.com | 外卖 | null | 180 | 634 |
+| DoorDash | doordash.com | 外卖 | null | 42 | 68 |
+| Toast / Toast Local | toasttab.com | 外卖 | null | 34 | 46 |
+| Beyond Menu | beyondmenu.com | 外卖 | null | 3 | 3 |
+| YouTube | youtube.com | 社交 | null | 1 | 1 |
+| Happy Hour NYC | happy-hour.nyc | 第三方 | null | 66 | 89 |
+| PageNearby | pagenearby.com | 口碑 | 评分与评价聚合 | 88 | 134 |
+| Pearl | joinpearl.co | 第三方 | null | 4 | 4 |
+| Atly | atly.com | 第三方 | null | 180 | 445 |
+| EatOutMap | eatoutmap.com | 第三方 | null | 153 | 221 |
+| Wanderlog | wanderlog.com | 第三方 | null | 17 | 30 |
+| The Real Yellow Pages | yellowpages.com | 第三方 | null | 6 | 9 |
+| Grub Street | grubstreet.com | 第三方 | null | 232 | 279 |
+| Starved.io | starved.io | 口碑 | 社区点评与口碑汇总 | 11 | 11 |
+| Bon Appétit | bonappetit.com | 第三方 | null | 10 | 10 |
+| Food & Wine | foodandwine.com | 第三方 | null | 48 | 48 |
+| Serious Eats | seriouseats.com | 第三方 | null | 7 | 7 |
+| MenuWeb | menuweb.menu | 第三方 | null | 112 | 243 |
+| Order.online | order.online | 外卖 | null | 25 | 44 |
+| Fantuan | fantuan.ca | 外卖 | null | 5 | 7 |
+| Maskay | maskay.com | 第三方 | null | 1 | 1 |
+| SnagRes | snagres.com | 订位 | null | 7 | 8 |
+| Waitlist Wizard | waitlistwizard.com | 订位 | null | 2 | 2 |
+| SeatSwiper | seatswiper.com | 订位 | null | 2 | 2 |
+| Menulist | menulist.menu | 第三方 | null | 3 | 3 |
+| umchef | umchef.com | 口碑 | 评分与评价聚合 | 64 | 72 |
+| DiningOut | diningout.com | 第三方 | null | 12 | 12 |
+| Condé Nast Traveler | cntraveler.com | 第三方 | null | 29 | 29 |
+| Menufy | menufy.com | 外卖 | null | 1 | 2 |
+| MenuPages | menupages.com | 第三方 | null | 16 | 23 |
+| BestInHood | bestinhood.com | 第三方 | null | 1 | 1 |
+| YaY NYC | yaynyc.com | 第三方 | null | 1 | 1 |
+| MealDeals | mealdeals.com | 第三方 | null | 3 | 7 |
+| It's a Date | itsadate.nyc | 订位 | null | 2 | 2 |
+| Buffet Locator | buffetlocator.com | 第三方 | null | 1 | 1 |
+
+## 待验证的补充来源
+
+以下为本轮从各店统计表补入的来源，其 store_listed 尚待核查。
+
+- 020 tastingtable.com, youtube.com, lemon8-app.com, thrillist.com, autoreserve.com, sevenrooms.com, tastetheapp.com, seatswiper.com, menutoeat.com, vmbook.com, menufy.com, restaurantjump.com, resmenu.com, gofyapp.com, reservationfinder.io
+- 004 tastingtable.com, lemon8-app.com, thrillist.com, autoreserve.com, sevenrooms.com, tastetheapp.com, seatswiper.com, menutoeat.com, vmbook.com, menufy.com, restaurantjump.com, resmenu.com, gofyapp.com, reservationfinder.io
+- 001 tastingtable.com, youtube.com, seatswiper.com, menufy.com
+
+
+## 来源对应与边界
+
+平台统计列名到域名的对应沿用既有资料，新增低频列按公开产品对应。Pearl、ResMenu 等重名来源仍需用原始引用 URL 确认，当前域名对应为暂定。ReservationFinder 对应 reservationfinder.io。
+
+历史 names.json 中 Google 中文名包括 Easy Joy、Bao Noodle House 和小龙坎三家。会议中的两家说法与该批次数据有差异。平台分类以各自问题库为统计依据。

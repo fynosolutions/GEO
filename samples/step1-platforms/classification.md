@@ -10,7 +10,7 @@
 - 本轮采用所有正引用记录，包括低于 10 题的来源，以呈现各店完整的访问情况。原 Issue 的固定 21 平台及补充来源门槛由本轮要求替代。达到 10 题的来源可用 cited_answers 筛选。
 - cited_answers 是该店引用该平台的题数，每题计一次。questions 从该店的正引用行提取最多 3 个原始英文问题。原表的单题数值为不同 URL 次数，原始 URL 累计数另列在下方统计表。
 - note 只使用空字符串或「新增」。原 Issue 21 平台中的来源填空，其余填「新增」。
-- 既有 store_listed 核查结果沿用。新补入的来源尚未逐店验证，填 null。已有 false 同时包含目录确认未收录和搜索未查到证据两种情况。订位统一登记，subclass 填 null。
+- store_listed 已全部补齐为布尔值。本轮核查原先为 null 的 50 条记录，3 条确认收录填 true，47 条在多种公开渠道尝试后仍无法确认，按用户要求填 false；既有布尔记录沿用。false 同时包括未查到和访问失败，不能解释为平台已证明没有该店。订位保留且本轮也补齐收录状态，subclass 仍填 null；订位 false 不纳入门店资料缺失判断。
 
 [会议纪要](https://notes.granola.ai/t/b075a026-0038-44ad-8546-383b8564d356-008umkv4) · [Issue #16](https://github.com/fynosolutions/GEO/issues/16)
 
@@ -36,16 +36,16 @@
 | 社交 | 社交主页、图文与视频 | **Instagram**、Lemon8†、YouTube† | 按各店正引用记录收录。 |
 | 外卖 | 第三方外卖与自取 | **Grubhub、Uber Eats**、DoorDash、Seamless、Fantuan、Beyond Menu | 按各店正引用记录收录。 |
 | 外卖 | 商家直订与托管点餐 | Order.online、Toast / Toast Local、Chowbus、Menufy† | 按各店正引用记录收录。 |
-| 订位 | — | OpenTable、Resy、It’s a Date、SnagRes、Waitlist Wizard、DinnerElite、SevenRooms†、SeatSwiper†、AutoReserve†、ReservationFinder† | 统一登记订位来源，暂缓核查。 |
+| 订位 | — | OpenTable、Resy、It’s a Date、SnagRes、Waitlist Wizard、DinnerElite、SevenRooms†、SeatSwiper†、AutoReserve†、ReservationFinder† | 保留订位来源；按用户最新要求补齐 store_listed。subclass 为 null，false 不纳入门店资料缺失判断。 |
 
 
 ## 三店结果
 
-| 店号 | 门店 | 实际访问平台数 | 新补入平台数 | 订位来源数 | 其他待核实收录状态 |
+| 店号 | 门店 | 实际访问平台数 | 新补入平台数 | 订位来源数 | 未填 store_listed 记录 |
 | --- | --- | ---: | ---: | ---: | ---: |
-| 020 | Easy Joy | 77 | 15 | 10 | 11 |
-| 004 | Bao Noodle House | 70 | 14 | 10 | 10 |
-| 001 | Frydom Express | 53 | 4 | 6 | 3 |
+| 020 | Easy Joy | 77 | 15 | 10 | 0 |
+| 004 | Bao Noodle House | 70 | 14 | 10 | 0 |
+| 001 | Frydom Express | 53 | 4 | 6 | 0 |
 
 ## 品类专属子类的实际结果
 
@@ -59,7 +59,7 @@
 
 ### 统计支持与页面证据边界
 
-以上链接在 2026-11-20 通过公开搜索确认存在，作为各门店的品类板块映射；并非从历史 AI 回答中恢复的引用链接，也不表示这些页面已收录目标门店。store_listed 沿用原先逐店核查结果，不因板块存在或分类改变而修改。
+以上链接在 2026-11-20 通过公开搜索确认存在，作为各门店的品类板块映射；并非从历史 AI 回答中恢复的引用链接，也不表示这些页面已收录目标门店。store_listed 不因板块存在或分类改变而修改；本轮补充核查更新见后文。
 
 原有 600 题已经包含菜品问题。以下仅统计问题正文明确出现目标菜品／品类的子集，004 先剔除店名 Bao Noodle House，避免把店名中的 Noodle 算作菜品问题；每题对每个平台计一次。
 
@@ -307,14 +307,58 @@
 | It's a Date | itsadate.nyc | 订位 | null | 2 | 2 |
 | Buffet Locator | buffetlocator.com | 第三方 | null | 1 | 1 |
 
-## 待验证的补充来源
+## store_listed 补充核查（2026-11-20）
 
-以下为本轮从各店统计表补入的来源，其 store_listed 尚待核查。
+本轮只补齐此前为 null 的 50 条记录（020：21 条，004：20 条，001：9 条）。核查采用限定域名的英文店名搜索，并补充地址、中文别名或全网交叉检索；随后访问 21 个平台的公开首页检查可达性和公开检索入口。对可用渠道进一步检查已发现的店页／文章、Thrillist 站内搜索、Resy 公共目录、Menufy 城市目录和门店官网外链。并未声称每个平台都能完成原生站内搜索：部分平台只有动态界面、访问受限或无公开检索入口。
 
-- 020 tastingtable.com, youtube.com, lemon8-app.com, thrillist.com, autoreserve.com, sevenrooms.com, tastetheapp.com, seatswiper.com, menutoeat.com, vmbook.com, menufy.com, restaurantjump.com, resmenu.com, gofyapp.com, reservationfinder.io
-- 004 tastingtable.com, lemon8-app.com, thrillist.com, autoreserve.com, sevenrooms.com, tastetheapp.com, seatswiper.com, menutoeat.com, vmbook.com, menufy.com, restaurantjump.com, resmenu.com, gofyapp.com, reservationfinder.io
-- 001 tastingtable.com, youtube.com, seatswiper.com, menufy.com
+true 的判定沿用 Issue #16：口碑／外卖／社交需要目标门店的店页／商家主页；第三方需要文章或资料页实际写到该店。店家与页面以名称加地址（或电话）核对。探店视频、用户笔记以及平台被 AI 引用本身均不等于店家拥有社交主页。
 
+按用户最新指令，尝试后仍未取得可匹配证据的条目均填 false。该值是交付回退规则，不能区分「未收录」与「未能确认」。下面保留访问障碍和来源疑点，JSON 的 note 仍只使用空字符串或「新增」。原来已经是 true／false 的 150 条未在本轮全面重查。
+
+| 门店 | 本轮补齐 | 本轮新增 true | 本轮回退 false | 最终 true | 最终 false | 最终 null |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| 020 · Easy Joy | 21 | 2 | 19 | 21 | 56 | 0 |
+| 004 · Bao Noodle House | 20 | 1 | 19 | 7 | 63 | 0 |
+| 001 · Frydom Express | 9 | 0 | 9 | 8 | 45 | 0 |
+| 合计 | 50 | 3 | 47 | 36 | 164 | 0 |
+
+### 确认收录的新增证据
+
+| 门店 | 平台／结果 | 可复核页面 | 匹配依据 |
+| --- | --- | --- | --- |
+| 020 · Easy Joy | Tasting Table：true | [The Best Chinese All-You-Can-Eat Buffets In The US](https://www.tastingtable.com/2213852/best-all-you-can-eat-chinese-buffets/) 中的 Easy Joy 段落 | 名称、145 Mulberry St、(929) 243-6130 及门店官网链接一致。 |
+| 020 · Easy Joy | taste :)：true | [Easy Joy 店页](https://tastetheapp.com/place/easy-joy-dim-sum-ayce-hot-pot-yi-zhong-ren-dian-xin-he-zi-zhu-huo-guo/dd256055-8d3c-49ec-a51e-afd6b0a58aa8) | 店名与 145 Mulberry St 一致，页面链接到 easyjoybuffet.com。 |
+| 004 · Bao Noodle House | taste :)：true | [Bao Noodle House 包之面店页](https://tastetheapp.com/place/bao-noodle-house-bao-zhi-mian/8d14d1f0-0c42-4dbd-999f-0655941ec6e2) | 中英文店名与 110 Bowery 一致。 |
+
+### 50 条记录的逐平台核查结果
+
+下表横向覆盖三店原先为 null 的记录，— 表示该店此平台本轮不属于待补条目，不表示未收录。所有列为 false 的条目都完成了对应店名的限定域名检索；可访问首页不是未收录证据，只是补充核查渠道。页面级正证据以上表为准。
+
+| 域名 | 020 | 004 | 001 | 补充核查与限制 |
+| --- | --- | --- | --- | --- |
+| opentable.com | false | false | false | 店名限定域名检索无匹配；首页读取超时；原 Collect Information 记录也未找到匹配店页。 |
+| resy.com | false | false | false | 店名检索无匹配；公共目录与官网外链交叉核查未取得对应店页；公共目录含动态内容，不能证明不存在。 |
+| tastingtable.com | true | false | false | 020 取得正文、地址、电话正证据；004、001 店名／地址检索未找到对应文章。 |
+| youtube.com | false | — | false | 查询频道／商家账号并检查门店官网外链，未确认属于目标门店的主页；不以第三方探店代替。 |
+| lemon8-app.com | false | false | — | 店名、地址或餐饮限定查询未确认店家主页；同名无关内容排除。 |
+| thrillist.com | false | false | — | 店名及地址检索后，使用公开 GET /search?q= 站内搜索；未发现匹配文章链接。 |
+| autoreserve.com | false | false | — | 店名、街道地址查询未匹配；主页 HTTP 403；不绕过访问限制。 |
+| sevenrooms.com | false | false | — | 限定域名检索无匹配；主页是平台产品介绍，未取得对应订位店页。 |
+| tastetheapp.com | true | true | — | 两店均取得名称＋地址匹配店页；主页另一次请求 HTTP 429，不影响已确认页面。 |
+| snagres.com | false | false | false | 店名限定域名与平台名称交叉查询无匹配；主页可访问，未取得目标店页。 |
+| waitlistwizard.com | false | false | false | 店名限定域名与平台名称交叉查询无匹配；主页可访问，检索依赖动态界面。 |
+| seatswiper.com | false | false | false | 店名限定域名与平台名称交叉查询无匹配；主页可访问，未取得目标店页。 |
+| menutoeat.com | false | false | — | 店名及地址查询无匹配；首页可访问，未取得目标门店资料页。 |
+| vmbook.com | false | false | — | 店名及地址查询无匹配；当前首页为虚拟机管理产品，原统计列到该域名的对应关系仍有疑点。 |
+| menufy.com | false | false | false | 店名与地址查询无匹配；首页跳转商家产品介绍页，纽约／布鲁克林公开目录读取超时。 |
+| restaurantjump.com | false | false | — | 店名及地址查询只出现不相干门店；主页 HTTP 403；未将其他门店算作匹配。 |
+| resmenu.com | false | false | — | 店名／地址查询无匹配；直接访问证书校验失败，未关闭证书校验。 |
+| gofyapp.com | false | false | — | 店名或地址限定查询无匹配；当前首页为活动／治安地图，原统计列到此域名的对应仍待原引用核实。 |
+| reservationfinder.io | false | false | — | 店名或地址查询无匹配；主页可访问，相关结果为其他餐厅的订位提醒页。 |
+| itsadate.nyc | false | false | false | 限定域名及店名与平台名交叉查询无匹配；主页可访问，未取得目标店页。 |
+| dinnerelite.com | false | false | — | 店名限定域名查询无匹配；主页可访问，未取得目标店页。 |
+
+订位类本轮共补齐 26 条，仍遵守不抓取订位业务数据、不将其 false 计为资料缺失的边界。以上验证没有修改引用题数、问题示例、分类、域名或新增标记。
 
 ## 来源对应与边界
 

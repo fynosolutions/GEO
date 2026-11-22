@@ -1,0 +1,88 @@
+{
+  "manual_sources": 10,
+  "entries": 59,
+  "sources": [
+    {
+      "url": "https://www.corner.inc/place/pXfxs8NBaXA1",
+      "entries": 1,
+      "descriptions": 1,
+      "source_not_provided": 0,
+      "addresses": 1,
+      "count_verified": true
+    },
+    {
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/shabushabu-mayumon",
+      "entries": 1,
+      "descriptions": 1,
+      "source_not_provided": 0,
+      "addresses": 1,
+      "count_verified": true
+    },
+    {
+      "url": "https://www.corner.inc/place/pViBMQCWetMi",
+      "entries": 1,
+      "descriptions": 1,
+      "source_not_provided": 0,
+      "addresses": 1,
+      "count_verified": true
+    },
+    {
+      "url": "https://guide.michelin.com/en/new-york-state/new-york/restaurant/shabushabu-mayumon",
+      "entries": 1,
+      "descriptions": 1,
+      "source_not_provided": 0,
+      "addresses": 1,
+      "count_verified": true
+    },
+    {
+      "url": "https://www.corner.inc/place/puZejM3KNMGD",
+      "entries": 1,
+      "descriptions": 1,
+      "source_not_provided": 0,
+      "addresses": 1,
+      "count_verified": true
+    },
+    {
+      "url": "https://www.corner.inc/list/794a4486-3983-4661-ad25-496a5dd82dcd",
+      "entries": 41,
+      "descriptions": 0,
+      "source_not_provided": 41,
+      "addresses": 35,
+      "count_verified": true
+    },
+    {
+      "url": "https://www.corner.inc/guides/new-york-city/manhattan/bubbling-good-times-best-hotpot-restaurants-in-manhattan",
+      "entries": 10,
+      "descriptions": 10,
+      "source_not_provided": 0,
+      "addresses": 10,
+      "count_verified": true
+    },
+    {
+      "url": "https://www.corner.inc/place/pahWPjNKWq9w",
+      "entries": 1,
+      "descriptions": 1,
+      "source_not_provided": 0,
+      "addresses": 1,
+      "count_verified": true
+    },
+    {
+      "url": "https://www.corner.inc/place/pkjR4kv52Go5",
+      "entries": 1,
+      "descriptions": 1,
+      "source_not_provided": 0,
+      "addresses": 1,
+      "count_verified": true
+    },
+    {
+      "url": "https://www.corner.inc/place/pzm37JubPE4s",
+      "entries": 1,
+      "descriptions": 1,
+      "source_not_provided": 0,
+      "addresses": 1,
+      "count_verified": true
+    }
+  ],
+  "official_reddit_verified": false,
+  "ready_for_delivery": false
+}

@@ -27,7 +27,9 @@
     "verify:media": "node scripts/verify-media-samples.mjs",
     "collect:listing-quality": "node dist/backend/listing-quality/cli.js",
     "verify:listing-quality": "node scripts/verify-listing-quality.mjs",
-    "verify:reviews": "node scripts/verify-review-samples.mjs"
+    "verify:reviews": "node scripts/verify-review-samples.mjs",
+    "verify:media-current": "node scripts/verify-media-current.mjs",
+    "reddit:auth": "node scripts/reddit-auth.mjs"
   },
   "engines": {
     "node": ">=24.14.0"

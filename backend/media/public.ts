@@ -1,22 +1,14 @@
+import {readFileSync} from 'node:fs';
+import {resolve} from 'node:path';
 import {load} from 'cheerio';
 import {inspectCardDescription} from './descriptions.js';
 
-export type MediaSource={id:string;site:string;url:string;priority:number};
-export type MediaRestaurant={name:string;rank:number;address:string|null;blurb:string|null};
+export type MediaSource={id:string;site:string;url:string;priority:number;page_type?:import('./sources.js').MediaPageType};
+export type MediaRestaurant={name:string;rank:number;address:string|null;blurb:string|null;closed?:boolean;comment_url?:string};
 export type MediaArticle={url:string;site:string;title:string|null;published:string|null;updated:string|null;restaurants:MediaRestaurant[]};
 export type MediaDescriptionEvidence={rank:number;name:string;present:boolean|null;reason:'exported'|'not_selected'|'not_provided'|'parse_failed';selector:string;characters:number|null};
-export type MediaEvidence={source_id:string;fetched_at:string|null;status:'complete'|'partial'|'failed';expected_count:number|null;extracted_count:number;count_verified:boolean;issues:string[];source_kind?:'direct_html'|'browser_dom'|'user_saved_html'|'web_index';source_age?:string;descriptions?:MediaDescriptionEvidence[];count_conflict?:{introductory:number;displayed:number};mentions?:{rank:number;context:string}[];user_file_sha256?:string;comment_coverage?:{declared:number|null;saved:number;readable:number;deleted:number;unavailable:number;unique_ids:boolean;reviewed:boolean};supplied_texts?:{rank:number;sha256:string}[];dates:{field:string;value:string;source:string}[]};
-export const mediaSources:MediaSource[]=[
- {id:'infatuation-hot-pot',site:'The Infatuation',url:'https://www.theinfatuation.com/new-york/guides/best-hot-pot-nyc',priority:55},
- {id:'eater-hot-pot',site:'Eater NY',url:'https://ny.eater.com/maps/best-hot-pot-restaurants-nyc',priority:51},
- {id:'infatuation-hot-pot-directory',site:'The Infatuation',url:'https://www.theinfatuation.com/new-york/cuisines/hot-pot',priority:15},
- {id:'infatuation-dim-sum',site:'The Infatuation',url:'https://www.theinfatuation.com/new-york/guides/best-dim-sum-nyc',priority:11},
- {id:'infatuation-ayce',site:'The Infatuation',url:'https://www.theinfatuation.com/new-york/guides/best-all-you-can-eat-new-york',priority:9},
- {id:'eater-ayce',site:'Eater NY',url:'https://ny.eater.com/maps/best-all-you-can-eat-restaurants-nyc',priority:9},
- {id:'reddit-hot-pot',site:'Reddit',url:'https://www.reddit.com/r/FoodNYC/comments/1wmlr4l/best_all_you_can_eat_hot_pot_in_manhattan_or_lic/',priority:8},
- {id:'timeout-dim-sum',site:'Time Out New York',url:'https://www.timeout.com/newyork/restaurants/best-dim-sum-restaurants-in-new-york-city',priority:0},
- {id:'michelin-dim-sum',site:'MICHELIN Guide',url:'https://guide.michelin.com/en/best-of/best-dim-sum-nyc',priority:0},
-];
+export type MediaEvidence={source_id:string;fetched_at:string|null;status:'complete'|'partial'|'failed';expected_count:number|null;extracted_count:number;count_verified:boolean;issues:string[];source_kind?:'direct_html'|'browser_dom'|'user_saved_html'|'web_index'|'reddit_oauth'|'manual_html';source_age?:string;descriptions?:MediaDescriptionEvidence[];count_conflict?:{introductory:number;displayed:number};mentions?:{rank:number;context:string}[];user_file_sha256?:string;comment_coverage?:{declared:number|null;saved:number;readable:number;deleted:number;unavailable:number;unique_ids:boolean;reviewed:boolean};supplied_texts?:{rank:number;sha256:string}[];closure_markers?:{rank:number;name:string;marker:string;source:string}[];reddit?:{tree_complete:boolean;mentions_reviewed:boolean;unresolved:number;api_calls:number;capture_sha256:string;content_sha256:string};dates:{field:string;value:string;source:string}[]};
+export const mediaSources:MediaSource[]=JSON.parse(readFileSync(resolve('config/media-legacy-sources.json'),'utf8'));
 export function parseMediaArticle(html:string,source:MediaSource,fetchedAt:string,options:{includeDescriptions?:boolean}={}){
  const $=load(html),issues:string[]=[],dates:MediaEvidence['dates']=[];
  const schemas:any[]=[];
@@ -33,7 +25,7 @@ export function parseMediaArticle(html:string,source:MediaSource,fetchedAt:strin
  };
  const article:MediaArticle={url:source.url,site:source.site,title:null,published:date('published'),updated:date('updated'),restaurants:[]};
  let directory:any=null;
- if(source.id==='infatuation-hot-pot-directory'){try{const pp=JSON.parse($('#__NEXT_DATA__').text()).props.pageProps;directory=pp.initialQueryState.queries.flatMap((q:any)=>q.state?.data?.pages??[]).find((p:any)=>Array.isArray(p.items)&&typeof p.hasNextPage==='boolean');}catch{issues.push('Directory data could not be read.');}}
+ if(source.site==='The Infatuation'&&new URL(source.url).pathname.includes('/cuisines/')){try{const pp=JSON.parse($('#__NEXT_DATA__').text()).props.pageProps;directory=pp.initialQueryState.queries.flatMap((q:any)=>q.state?.data?.pages??[]).find((p:any)=>Array.isArray(p.items)&&typeof p.hasNextPage==='boolean');}catch{issues.push('Directory data could not be read.');}}
  // Remove non-visible CSS/SVG titles before extracting visible text.
  $('style,script,svg,noscript').remove();
  const text=(el:any)=>$(el).text().replace(/\s+/g,' ').trim();
@@ -48,7 +40,7 @@ export function parseMediaArticle(html:string,source:MediaSource,fetchedAt:strin
   descriptions.push({rank:article.restaurants.length+1,name,present:found.present,reason:found.text?(include?'exported':'not_selected'):found.present===false?'not_provided':'parse_failed',selector:found.selector,characters:found.text?.length??null});
   return include?found.text:null;
  };
- if(source.id==='infatuation-hot-pot-directory'){
+ if(source.site==='The Infatuation'&&new URL(source.url).pathname.includes('/cuisines/')){
   const reviews=directory?.items.filter((v:any)=>v.__typename==='PostReview')??[];
   referenceNames=reviews.map((v:any)=>v.documentTitleText.trim());expected=directory&&!directory.hasNextPage&&directory.totalCount===directory.items.length?reviews.length:null;
   $('[data-testid="detailedStory-storyElement"]').each((_,e)=>{
@@ -71,7 +63,7 @@ export function parseMediaArticle(html:string,source:MediaSource,fetchedAt:strin
   });
  }
  else if(source.site==='Time Out New York'){
-  const articleSchema=schemas.find(v=>type(v,'Article')),number=String(articleSchema?.headline??'').match(/\b(\d+)\b/);
+  const articleSchema=schemas.find(v=>type(v,'Article')),number=String(articleSchema?.headline??'').match(/\b(\d+)\b/)??String(articleSchema?.name??'').match(/\b(\d+)\b/);
   expected=number?Number(number[1]):null;referenceNames=[];
   $('article[data-testid="tile-zone-large-list_testID"]').each((_,e)=>{
    const heading=text($(e).find('h3[data-testid="tile-title_testID"]').first()),m=heading.match(/^(\d+)\.\s*(.+)$/);if(!m)return;

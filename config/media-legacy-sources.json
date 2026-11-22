@@ -1,0 +1,56 @@
+[
+  {
+    "id": "infatuation-hot-pot",
+    "site": "The Infatuation",
+    "url": "https://www.theinfatuation.com/new-york/guides/best-hot-pot-nyc",
+    "priority": 55
+  },
+  {
+    "id": "eater-hot-pot",
+    "site": "Eater NY",
+    "url": "https://ny.eater.com/maps/best-hot-pot-restaurants-nyc",
+    "priority": 51
+  },
+  {
+    "id": "infatuation-hot-pot-directory",
+    "site": "The Infatuation",
+    "url": "https://www.theinfatuation.com/new-york/cuisines/hot-pot",
+    "priority": 15
+  },
+  {
+    "id": "infatuation-dim-sum",
+    "site": "The Infatuation",
+    "url": "https://www.theinfatuation.com/new-york/guides/best-dim-sum-nyc",
+    "priority": 11
+  },
+  {
+    "id": "infatuation-ayce",
+    "site": "The Infatuation",
+    "url": "https://www.theinfatuation.com/new-york/guides/best-all-you-can-eat-new-york",
+    "priority": 9
+  },
+  {
+    "id": "eater-ayce",
+    "site": "Eater NY",
+    "url": "https://ny.eater.com/maps/best-all-you-can-eat-restaurants-nyc",
+    "priority": 9
+  },
+  {
+    "id": "reddit-hot-pot",
+    "site": "Reddit",
+    "url": "https://www.reddit.com/r/FoodNYC/comments/1wmlr4l/best_all_you_can_eat_hot_pot_in_manhattan_or_lic/",
+    "priority": 8
+  },
+  {
+    "id": "timeout-dim-sum",
+    "site": "Time Out New York",
+    "url": "https://www.timeout.com/newyork/restaurants/best-dim-sum-restaurants-in-new-york-city",
+    "priority": 0
+  },
+  {
+    "id": "michelin-dim-sum",
+    "site": "MICHELIN Guide",
+    "url": "https://guide.michelin.com/en/best-of/best-dim-sum-nyc",
+    "priority": 0
+  }
+]

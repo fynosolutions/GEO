@@ -1,0 +1,18 @@
+{
+  "candidate_only": true,
+  "official_api_requirement_met": false,
+  "ready_for_delivery": false,
+  "sources": 2,
+  "entries": 63,
+  "status": [
+    {
+      "url": "https://www.reddit.com/r/Flushing/comments/1wfu6sh/best_hot_pot_in_flushing",
+      "status": "SUCCEEDED"
+    },
+    {
+      "url": "https://www.reddit.com/r/FoodNYC/comments/1wmlr4l/best_all_you_can_eat_hot_pot_in_manhattan_or_lic",
+      "status": "SUCCEEDED"
+    }
+  ],
+  "comment_tree_verified": false
+}

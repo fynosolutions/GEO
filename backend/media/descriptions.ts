@@ -5,7 +5,7 @@ import type {MediaSource,MediaArticle,MediaEvidence} from './public.js';
 export function inspectCardDescription($:CheerioAPI,input:Cheerio<any>,source:MediaSource){
  const card=input.clone();
  card.find('script,style,svg,noscript,template,aside,figcaption,button,[hidden],[aria-hidden="true"]').remove();
- const selector=source.id==='infatuation-hot-pot-directory'?'p.css-501r93':source.site==='The Infatuation'?'[data-testid="venue-description"], div[city]':source.site==='Eater NY'?'p.duet--article--standard-paragraph':source.site==='Time Out New York'?'[data-testid="summary_testID"]':source.site==='MICHELIN Guide'?'.card__menu-content--desc':'';
+ const selector=source.site==='The Infatuation'&&new URL(source.url).pathname.includes('/cuisines/')?'p.css-501r93':source.site==='The Infatuation'?'[data-testid="venue-description"], div[city]':source.site==='Eater NY'?'p.duet--article--standard-paragraph':source.site==='Time Out New York'?'[data-testid="summary_testID"]':source.site==='MICHELIN Guide'?'.card__menu-content--desc':'';
  if(!selector)return {text:null,present:null,selector:'unsupported'};
  const containers=card.find(selector);
  if(!containers.length)return {text:null,present:null,selector};

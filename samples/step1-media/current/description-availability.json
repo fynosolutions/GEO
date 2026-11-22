@@ -1,0 +1,2449 @@
+{
+  "entries": 221,
+  "present": 167,
+  "confirmed_absent": 54,
+  "unknown": 0,
+  "counts": {
+    "exported": 167,
+    "not_selected": 0,
+    "not_provided": 54,
+    "parse_failed": 0,
+    "not_checked": 0
+  },
+  "entries_by_source": [
+    {
+      "source_id": "5fde5e09398002ea63de",
+      "entries": 18,
+      "present": 18,
+      "exported": 18
+    },
+    {
+      "source_id": "6023dcc7bfdaf82c2f2c",
+      "entries": 8,
+      "present": 8,
+      "exported": 8
+    },
+    {
+      "source_id": "8cec6d365a43fcecf56b",
+      "entries": 1,
+      "present": 1,
+      "exported": 1
+    },
+    {
+      "source_id": "a6631e158cf7e4d7eae2",
+      "entries": 10,
+      "present": 10,
+      "exported": 10
+    },
+    {
+      "source_id": "daa919fc6fb2c6c89b95",
+      "entries": 1,
+      "present": 1,
+      "exported": 1
+    },
+    {
+      "source_id": "d906a5b3a829d633ab51",
+      "entries": 1,
+      "present": 1,
+      "exported": 1
+    },
+    {
+      "source_id": "3a2d067ad135a39c2030",
+      "entries": 5,
+      "present": 5,
+      "exported": 5
+    },
+    {
+      "source_id": "6dcacdf5a7b8e31436c5",
+      "entries": 1,
+      "present": 1,
+      "exported": 1
+    },
+    {
+      "source_id": "4a6a2be00a95c2ac2399",
+      "entries": 12,
+      "present": 12,
+      "exported": 12
+    },
+    {
+      "source_id": "a3b1384484a6ae885db7",
+      "entries": 1,
+      "present": 1,
+      "exported": 1
+    },
+    {
+      "source_id": "c0654f5b36d92455a8c7",
+      "entries": 6,
+      "present": 6,
+      "exported": 6
+    },
+    {
+      "source_id": "dcf2defa854fa5eb104c",
+      "entries": 10,
+      "present": 10,
+      "exported": 10
+    },
+    {
+      "source_id": "5584639a4204c4ed4741",
+      "entries": 1,
+      "present": 1,
+      "exported": 1
+    },
+    {
+      "source_id": "d56d3a0232aaf58bb43a",
+      "entries": 1,
+      "present": 1,
+      "exported": 1
+    },
+    {
+      "source_id": "d1006f2856717e496de3",
+      "entries": 1,
+      "present": 1,
+      "exported": 1
+    },
+    {
+      "source_id": "8c64f5104d6961d8010b",
+      "entries": 41,
+      "present": 0,
+      "exported": 0
+    },
+    {
+      "source_id": "04e3e8ceab88a82a2beb",
+      "entries": 1,
+      "present": 1,
+      "exported": 1
+    },
+    {
+      "source_id": "bf51dde417f320637a40",
+      "entries": 10,
+      "present": 10,
+      "exported": 10
+    },
+    {
+      "source_id": "5e19f54fc5e5fd554577",
+      "entries": 1,
+      "present": 1,
+      "exported": 1
+    },
+    {
+      "source_id": "6cabcd099c434a56cc31",
+      "entries": 1,
+      "present": 1,
+      "exported": 1
+    },
+    {
+      "source_id": "9756d5af223605971741",
+      "entries": 1,
+      "present": 1,
+      "exported": 1
+    },
+    {
+      "source_id": "819760ab87a70da9de1d",
+      "entries": 11,
+      "present": 11,
+      "exported": 11
+    },
+    {
+      "source_id": "bb60997f97e624da6b80",
+      "entries": 1,
+      "present": 1,
+      "exported": 1
+    },
+    {
+      "source_id": "ddb70e34c09cc42eb521",
+      "entries": 1,
+      "present": 1,
+      "exported": 1
+    },
+    {
+      "source_id": "b41c036fa6a64c49e54c",
+      "entries": 1,
+      "present": 1,
+      "exported": 1
+    },
+    {
+      "source_id": "702fbd0a7dc01ff06cb8",
+      "entries": 10,
+      "present": 10,
+      "exported": 10
+    },
+    {
+      "source_id": "109f0d7e38b0624260f6",
+      "entries": 1,
+      "present": 1,
+      "exported": 1
+    },
+    {
+      "source_id": "faff2ffdc6541d291abe",
+      "entries": 1,
+      "present": 1,
+      "exported": 1
+    },
+    {
+      "source_id": "a11d15e90c03552b64ee",
+      "entries": 1,
+      "present": 1,
+      "exported": 1
+    },
+    {
+      "source_id": "23ce1d9854e125e51d56",
+      "entries": 0,
+      "present": 0,
+      "exported": 0
+    },
+    {
+      "source_id": "532a0b7911d91721d134",
+      "entries": 21,
+      "present": 21,
+      "exported": 21
+    },
+    {
+      "source_id": "f004ad1e1920c28c57b3",
+      "entries": 25,
+      "present": 25,
+      "exported": 25
+    },
+    {
+      "source_id": "f47d34650bc22aca0ccd",
+      "entries": 1,
+      "present": 1,
+      "exported": 1
+    },
+    {
+      "source_id": "5df56ced9c3e6c59f945",
+      "entries": 1,
+      "present": 1,
+      "exported": 1
+    },
+    {
+      "source_id": "7d8d75a5fb01d9d06c61",
+      "entries": 0,
+      "present": 0,
+      "exported": 0
+    },
+    {
+      "source_id": "646be88dd340b99ee385",
+      "entries": 1,
+      "present": 1,
+      "exported": 1
+    },
+    {
+      "source_id": "0afc063bc5a6085eee07",
+      "entries": 13,
+      "present": 0,
+      "exported": 0
+    }
+  ],
+  "rows": [
+    {
+      "source_id": "5fde5e09398002ea63de",
+      "url": "https://ny.eater.com/maps/best-hot-pot-restaurants-nyc",
+      "rank": 1,
+      "name": "99 Favor Taste",
+      "present": true,
+      "reason": "exported",
+      "characters": 722,
+      "selector": "p.duet--article--standard-paragraph"
+    },
+    {
+      "source_id": "5fde5e09398002ea63de",
+      "url": "https://ny.eater.com/maps/best-hot-pot-restaurants-nyc",
+      "rank": 2,
+      "name": "Hometown Hotpot & BBQ",
+      "present": true,
+      "reason": "exported",
+      "characters": 434,
+      "selector": "p.duet--article--standard-paragraph"
+    },
+    {
+      "source_id": "5fde5e09398002ea63de",
+      "url": "https://ny.eater.com/maps/best-hot-pot-restaurants-nyc",
+      "rank": 3,
+      "name": "Da Long Yi Hot Pot",
+      "present": true,
+      "reason": "exported",
+      "characters": 629,
+      "selector": "p.duet--article--standard-paragraph"
+    },
+    {
+      "source_id": "5fde5e09398002ea63de",
+      "url": "https://ny.eater.com/maps/best-hot-pot-restaurants-nyc",
+      "rank": 4,
+      "name": "Hou Yi Hot Pot",
+      "present": true,
+      "reason": "exported",
+      "characters": 229,
+      "selector": "p.duet--article--standard-paragraph"
+    },
+    {
+      "source_id": "5fde5e09398002ea63de",
+      "url": "https://ny.eater.com/maps/best-hot-pot-restaurants-nyc",
+      "rank": 5,
+      "name": "Shabushabu Mayumon",
+      "present": true,
+      "reason": "exported",
+      "characters": 550,
+      "selector": "p.duet--article--standard-paragraph"
+    },
+    {
+      "source_id": "5fde5e09398002ea63de",
+      "url": "https://ny.eater.com/maps/best-hot-pot-restaurants-nyc",
+      "rank": 6,
+      "name": "886",
+      "present": true,
+      "reason": "exported",
+      "characters": 384,
+      "selector": "p.duet--article--standard-paragraph"
+    },
+    {
+      "source_id": "5fde5e09398002ea63de",
+      "url": "https://ny.eater.com/maps/best-hot-pot-restaurants-nyc",
+      "rank": 7,
+      "name": "The Dolar Shop Manhattan",
+      "present": true,
+      "reason": "exported",
+      "characters": 615,
+      "selector": "p.duet--article--standard-paragraph"
+    },
+    {
+      "source_id": "5fde5e09398002ea63de",
+      "url": "https://ny.eater.com/maps/best-hot-pot-restaurants-nyc",
+      "rank": 8,
+      "name": "Kimura",
+      "present": true,
+      "reason": "exported",
+      "characters": 850,
+      "selector": "p.duet--article--standard-paragraph"
+    },
+    {
+      "source_id": "5fde5e09398002ea63de",
+      "url": "https://ny.eater.com/maps/best-hot-pot-restaurants-nyc",
+      "rank": 9,
+      "name": "Shabu-Tatsu",
+      "present": true,
+      "reason": "exported",
+      "characters": 497,
+      "selector": "p.duet--article--standard-paragraph"
+    },
+    {
+      "source_id": "5fde5e09398002ea63de",
+      "url": "https://ny.eater.com/maps/best-hot-pot-restaurants-nyc",
+      "rank": 10,
+      "name": "Sik Gaek",
+      "present": true,
+      "reason": "exported",
+      "characters": 662,
+      "selector": "p.duet--article--standard-paragraph"
+    },
+    {
+      "source_id": "5fde5e09398002ea63de",
+      "url": "https://ny.eater.com/maps/best-hot-pot-restaurants-nyc",
+      "rank": 11,
+      "name": "Jaew Hon",
+      "present": true,
+      "reason": "exported",
+      "characters": 877,
+      "selector": "p.duet--article--standard-paragraph"
+    },
+    {
+      "source_id": "5fde5e09398002ea63de",
+      "url": "https://ny.eater.com/maps/best-hot-pot-restaurants-nyc",
+      "rank": 12,
+      "name": "Lao Jie Food",
+      "present": true,
+      "reason": "exported",
+      "characters": 507,
+      "selector": "p.duet--article--standard-paragraph"
+    },
+    {
+      "source_id": "5fde5e09398002ea63de",
+      "url": "https://ny.eater.com/maps/best-hot-pot-restaurants-nyc",
+      "rank": 13,
+      "name": "Xiang Hotpot",
+      "present": true,
+      "reason": "exported",
+      "characters": 682,
+      "selector": "p.duet--article--standard-paragraph"
+    },
+    {
+      "source_id": "5fde5e09398002ea63de",
+      "url": "https://ny.eater.com/maps/best-hot-pot-restaurants-nyc",
+      "rank": 14,
+      "name": "Chong Qing Lao Zao",
+      "present": true,
+      "reason": "exported",
+      "characters": 385,
+      "selector": "p.duet--article--standard-paragraph"
+    },
+    {
+      "source_id": "5fde5e09398002ea63de",
+      "url": "https://ny.eater.com/maps/best-hot-pot-restaurants-nyc",
+      "rank": 15,
+      "name": "Little Sheep Mongolian Hot Pot, Flushing 小肥羊",
+      "present": true,
+      "reason": "exported",
+      "characters": 682,
+      "selector": "p.duet--article--standard-paragraph"
+    },
+    {
+      "source_id": "5fde5e09398002ea63de",
+      "url": "https://ny.eater.com/maps/best-hot-pot-restaurants-nyc",
+      "rank": 16,
+      "name": "Haidilao Hotpot",
+      "present": true,
+      "reason": "exported",
+      "characters": 741,
+      "selector": "p.duet--article--standard-paragraph"
+    },
+    {
+      "source_id": "5fde5e09398002ea63de",
+      "url": "https://ny.eater.com/maps/best-hot-pot-restaurants-nyc",
+      "rank": 17,
+      "name": "Liuyishou Hotpot (Flushing) 刘一手火锅",
+      "present": true,
+      "reason": "exported",
+      "characters": 374,
+      "selector": "p.duet--article--standard-paragraph"
+    },
+    {
+      "source_id": "5fde5e09398002ea63de",
+      "url": "https://ny.eater.com/maps/best-hot-pot-restaurants-nyc",
+      "rank": 18,
+      "name": "Lao Shen Hot Pot",
+      "present": true,
+      "reason": "exported",
+      "characters": 541,
+      "selector": "p.duet--article--standard-paragraph"
+    },
+    {
+      "source_id": "6023dcc7bfdaf82c2f2c",
+      "url": "https://happy-hour.nyc/deals/best-hot-pot-nyc",
+      "rank": 1,
+      "name": "The Dolar Shop",
+      "present": true,
+      "reason": "exported",
+      "characters": 539,
+      "selector": "article.card[data-count] h3/.blurb"
+    },
+    {
+      "source_id": "6023dcc7bfdaf82c2f2c",
+      "url": "https://happy-hour.nyc/deals/best-hot-pot-nyc",
+      "rank": 2,
+      "name": "LaoJie Hotpot",
+      "present": true,
+      "reason": "exported",
+      "characters": 475,
+      "selector": "article.card[data-count] h3/.blurb"
+    },
+    {
+      "source_id": "6023dcc7bfdaf82c2f2c",
+      "url": "https://happy-hour.nyc/deals/best-hot-pot-nyc",
+      "rank": 3,
+      "name": "99 Favor Taste",
+      "present": true,
+      "reason": "exported",
+      "characters": 482,
+      "selector": "article.card[data-count] h3/.blurb"
+    },
+    {
+      "source_id": "6023dcc7bfdaf82c2f2c",
+      "url": "https://happy-hour.nyc/deals/best-hot-pot-nyc",
+      "rank": 4,
+      "name": "MáLà Project",
+      "present": true,
+      "reason": "exported",
+      "characters": 548,
+      "selector": "article.card[data-count] h3/.blurb"
+    },
+    {
+      "source_id": "6023dcc7bfdaf82c2f2c",
+      "url": "https://happy-hour.nyc/deals/best-hot-pot-nyc",
+      "rank": 5,
+      "name": "Haidilao",
+      "present": true,
+      "reason": "exported",
+      "characters": 527,
+      "selector": "article.card[data-count] h3/.blurb"
+    },
+    {
+      "source_id": "6023dcc7bfdaf82c2f2c",
+      "url": "https://happy-hour.nyc/deals/best-hot-pot-nyc",
+      "rank": 6,
+      "name": "Happy Lamb Hot Pot",
+      "present": true,
+      "reason": "exported",
+      "characters": 478,
+      "selector": "article.card[data-count] h3/.blurb"
+    },
+    {
+      "source_id": "6023dcc7bfdaf82c2f2c",
+      "url": "https://happy-hour.nyc/deals/best-hot-pot-nyc",
+      "rank": 7,
+      "name": "Chong Qing Lao Zao",
+      "present": true,
+      "reason": "exported",
+      "characters": 473,
+      "selector": "article.card[data-count] h3/.blurb"
+    },
+    {
+      "source_id": "6023dcc7bfdaf82c2f2c",
+      "url": "https://happy-hour.nyc/deals/best-hot-pot-nyc",
+      "rank": 8,
+      "name": "Liuyishou Hotpot",
+      "present": true,
+      "reason": "exported",
+      "characters": 487,
+      "selector": "article.card[data-count] h3/.blurb"
+    },
+    {
+      "source_id": "8cec6d365a43fcecf56b",
+      "url": "https://www.corner.inc/place/pXfxs8NBaXA1",
+      "rank": 1,
+      "name": "LaoJie Hotpot",
+      "present": true,
+      "reason": "exported",
+      "characters": 326,
+      "selector": "Corner primary description paragraphs"
+    },
+    {
+      "source_id": "a6631e158cf7e4d7eae2",
+      "url": "https://www.theinfatuation.com/new-york/guides/best-hot-pot-nyc",
+      "rank": 1,
+      "name": "Chong Qing Lao Zao",
+      "present": true,
+      "reason": "exported",
+      "characters": 636,
+      "selector": "[data-testid=\"venue-description\"], div[city]"
+    },
+    {
+      "source_id": "a6631e158cf7e4d7eae2",
+      "url": "https://www.theinfatuation.com/new-york/guides/best-hot-pot-nyc",
+      "rank": 2,
+      "name": "Hometown Hotpot & BBQ",
+      "present": true,
+      "reason": "exported",
+      "characters": 456,
+      "selector": "[data-testid=\"venue-description\"], div[city]"
+    },
+    {
+      "source_id": "a6631e158cf7e4d7eae2",
+      "url": "https://www.theinfatuation.com/new-york/guides/best-hot-pot-nyc",
+      "rank": 3,
+      "name": "Hou Yi Hot Pot",
+      "present": true,
+      "reason": "exported",
+      "characters": 517,
+      "selector": "[data-testid=\"venue-description\"], div[city]"
+    },
+    {
+      "source_id": "a6631e158cf7e4d7eae2",
+      "url": "https://www.theinfatuation.com/new-york/guides/best-hot-pot-nyc",
+      "rank": 4,
+      "name": "The Dolar Shop",
+      "present": true,
+      "reason": "exported",
+      "characters": 577,
+      "selector": "[data-testid=\"venue-description\"], div[city]"
+    },
+    {
+      "source_id": "a6631e158cf7e4d7eae2",
+      "url": "https://www.theinfatuation.com/new-york/guides/best-hot-pot-nyc",
+      "rank": 5,
+      "name": "99 Favor Taste",
+      "present": true,
+      "reason": "exported",
+      "characters": 496,
+      "selector": "[data-testid=\"venue-description\"], div[city]"
+    },
+    {
+      "source_id": "a6631e158cf7e4d7eae2",
+      "url": "https://www.theinfatuation.com/new-york/guides/best-hot-pot-nyc",
+      "rank": 6,
+      "name": "Da Long Yi",
+      "present": true,
+      "reason": "exported",
+      "characters": 481,
+      "selector": "[data-testid=\"venue-description\"], div[city]"
+    },
+    {
+      "source_id": "a6631e158cf7e4d7eae2",
+      "url": "https://www.theinfatuation.com/new-york/guides/best-hot-pot-nyc",
+      "rank": 7,
+      "name": "Three Hot Pot",
+      "present": true,
+      "reason": "exported",
+      "characters": 566,
+      "selector": "[data-testid=\"venue-description\"], div[city]"
+    },
+    {
+      "source_id": "a6631e158cf7e4d7eae2",
+      "url": "https://www.theinfatuation.com/new-york/guides/best-hot-pot-nyc",
+      "rank": 8,
+      "name": "Shabu-Tatsu",
+      "present": true,
+      "reason": "exported",
+      "characters": 444,
+      "selector": "[data-testid=\"venue-description\"], div[city]"
+    },
+    {
+      "source_id": "a6631e158cf7e4d7eae2",
+      "url": "https://www.theinfatuation.com/new-york/guides/best-hot-pot-nyc",
+      "rank": 9,
+      "name": "Xi Yue Hui Seafood Hot Pot",
+      "present": true,
+      "reason": "exported",
+      "characters": 516,
+      "selector": "[data-testid=\"venue-description\"], div[city]"
+    },
+    {
+      "source_id": "a6631e158cf7e4d7eae2",
+      "url": "https://www.theinfatuation.com/new-york/guides/best-hot-pot-nyc",
+      "rank": 10,
+      "name": "LaoJie Hotpot",
+      "present": true,
+      "reason": "exported",
+      "characters": 510,
+      "selector": "[data-testid=\"venue-description\"], div[city]"
+    },
+    {
+      "source_id": "daa919fc6fb2c6c89b95",
+      "url": "https://www.theinfatuation.com/new-york/reviews/xi-yue-hui-seafood-hot-pot",
+      "rank": 1,
+      "name": "Xi Yue Hui Seafood Hot Pot",
+      "present": true,
+      "reason": "exported",
+      "characters": 67,
+      "selector": "main .flatplan_tags"
+    },
+    {
+      "source_id": "d906a5b3a829d633ab51",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/shabushabu-mayumon",
+      "rank": 1,
+      "name": "Shabushabu Mayumon",
+      "present": true,
+      "reason": "exported",
+      "characters": 752,
+      "selector": "Michelin restaurant description"
+    },
+    {
+      "source_id": "3a2d067ad135a39c2030",
+      "url": "https://welcometochinatown.com/guides/hotpot",
+      "rank": 1,
+      "name": "LaoJie Hotpot",
+      "present": true,
+      "reason": "exported",
+      "characters": 47,
+      "selector": ".image-title/.image-subtitle"
+    },
+    {
+      "source_id": "3a2d067ad135a39c2030",
+      "url": "https://welcometochinatown.com/guides/hotpot",
+      "rank": 2,
+      "name": "Hou Yi Hot Pot",
+      "present": true,
+      "reason": "exported",
+      "characters": 81,
+      "selector": ".image-title/.image-subtitle"
+    },
+    {
+      "source_id": "3a2d067ad135a39c2030",
+      "url": "https://welcometochinatown.com/guides/hotpot",
+      "rank": 3,
+      "name": "99 Favor Taste",
+      "present": true,
+      "reason": "exported",
+      "characters": 59,
+      "selector": ".image-title/.image-subtitle"
+    },
+    {
+      "source_id": "3a2d067ad135a39c2030",
+      "url": "https://welcometochinatown.com/guides/hotpot",
+      "rank": 4,
+      "name": "Hometown Hotpot & BBQ",
+      "present": true,
+      "reason": "exported",
+      "characters": 73,
+      "selector": ".image-title/.image-subtitle"
+    },
+    {
+      "source_id": "3a2d067ad135a39c2030",
+      "url": "https://welcometochinatown.com/guides/hotpot",
+      "rank": 5,
+      "name": "Da Long Yi Hot Pot",
+      "present": true,
+      "reason": "exported",
+      "characters": 99,
+      "selector": ".image-title/.image-subtitle"
+    },
+    {
+      "source_id": "6dcacdf5a7b8e31436c5",
+      "url": "https://www.corner.inc/place/pViBMQCWetMi",
+      "rank": 1,
+      "name": "99 Favor Taste",
+      "present": true,
+      "reason": "exported",
+      "characters": 342,
+      "selector": "Corner primary description paragraphs"
+    },
+    {
+      "source_id": "4a6a2be00a95c2ac2399",
+      "url": "https://www.theinfatuation.com/los-angeles/guides/best-hot-pot-los-angeles",
+      "rank": 1,
+      "name": "Mikiya Wagyu Shabu House",
+      "present": true,
+      "reason": "exported",
+      "characters": 575,
+      "selector": "[data-testid=\"venue-description\"], div[city]"
+    },
+    {
+      "source_id": "4a6a2be00a95c2ac2399",
+      "url": "https://www.theinfatuation.com/los-angeles/guides/best-hot-pot-los-angeles",
+      "rank": 2,
+      "name": "Tensho",
+      "present": true,
+      "reason": "exported",
+      "characters": 523,
+      "selector": "[data-testid=\"venue-description\"], div[city]"
+    },
+    {
+      "source_id": "4a6a2be00a95c2ac2399",
+      "url": "https://www.theinfatuation.com/los-angeles/guides/best-hot-pot-los-angeles",
+      "rank": 3,
+      "name": "Hai Di Lao Hot Pot",
+      "present": true,
+      "reason": "exported",
+      "characters": 546,
+      "selector": "[data-testid=\"venue-description\"], div[city]"
+    },
+    {
+      "source_id": "4a6a2be00a95c2ac2399",
+      "url": "https://www.theinfatuation.com/los-angeles/guides/best-hot-pot-los-angeles",
+      "rank": 4,
+      "name": "Yuan's Hot Pot",
+      "present": true,
+      "reason": "exported",
+      "characters": 680,
+      "selector": "[data-testid=\"venue-description\"], div[city]"
+    },
+    {
+      "source_id": "4a6a2be00a95c2ac2399",
+      "url": "https://www.theinfatuation.com/los-angeles/guides/best-hot-pot-los-angeles",
+      "rank": 5,
+      "name": "Bon Shabu",
+      "present": true,
+      "reason": "exported",
+      "characters": 716,
+      "selector": "[data-testid=\"venue-description\"], div[city]"
+    },
+    {
+      "source_id": "4a6a2be00a95c2ac2399",
+      "url": "https://www.theinfatuation.com/los-angeles/guides/best-hot-pot-los-angeles",
+      "rank": 6,
+      "name": "Xiao Long Kan Hot Pot",
+      "present": true,
+      "reason": "exported",
+      "characters": 591,
+      "selector": "[data-testid=\"venue-description\"], div[city]"
+    },
+    {
+      "source_id": "4a6a2be00a95c2ac2399",
+      "url": "https://www.theinfatuation.com/los-angeles/guides/best-hot-pot-los-angeles",
+      "rank": 7,
+      "name": "Shancheng Lameizi",
+      "present": true,
+      "reason": "exported",
+      "characters": 641,
+      "selector": "[data-testid=\"venue-description\"], div[city]"
+    },
+    {
+      "source_id": "4a6a2be00a95c2ac2399",
+      "url": "https://www.theinfatuation.com/los-angeles/guides/best-hot-pot-los-angeles",
+      "rank": 8,
+      "name": "Sorimmara",
+      "present": true,
+      "reason": "exported",
+      "characters": 566,
+      "selector": "[data-testid=\"venue-description\"], div[city]"
+    },
+    {
+      "source_id": "4a6a2be00a95c2ac2399",
+      "url": "https://www.theinfatuation.com/los-angeles/guides/best-hot-pot-los-angeles",
+      "rank": 9,
+      "name": "Chong Qing Yao Mei",
+      "present": true,
+      "reason": "exported",
+      "characters": 591,
+      "selector": "[data-testid=\"venue-description\"], div[city]"
+    },
+    {
+      "source_id": "4a6a2be00a95c2ac2399",
+      "url": "https://www.theinfatuation.com/los-angeles/guides/best-hot-pot-los-angeles",
+      "rank": 10,
+      "name": "Shabuya",
+      "present": true,
+      "reason": "exported",
+      "characters": 629,
+      "selector": "[data-testid=\"venue-description\"], div[city]"
+    },
+    {
+      "source_id": "4a6a2be00a95c2ac2399",
+      "url": "https://www.theinfatuation.com/los-angeles/guides/best-hot-pot-los-angeles",
+      "rank": 11,
+      "name": "Chun La Hao Chong Qing",
+      "present": true,
+      "reason": "exported",
+      "characters": 637,
+      "selector": "[data-testid=\"venue-description\"], div[city]"
+    },
+    {
+      "source_id": "4a6a2be00a95c2ac2399",
+      "url": "https://www.theinfatuation.com/los-angeles/guides/best-hot-pot-los-angeles",
+      "rank": 12,
+      "name": "Joon Shabu Shabu",
+      "present": true,
+      "reason": "exported",
+      "characters": 627,
+      "selector": "[data-testid=\"venue-description\"], div[city]"
+    },
+    {
+      "source_id": "a3b1384484a6ae885db7",
+      "url": "https://guide.michelin.com/en/new-york-state/new-york/restaurant/shabushabu-mayumon",
+      "rank": 1,
+      "name": "Shabushabu Mayumon",
+      "present": true,
+      "reason": "exported",
+      "characters": 752,
+      "selector": "Michelin restaurant description"
+    },
+    {
+      "source_id": "c0654f5b36d92455a8c7",
+      "url": "https://www.theinfatuation.com/new-york/cuisines/hot-pot",
+      "rank": 1,
+      "name": "YGF Malatang",
+      "present": true,
+      "reason": "exported",
+      "characters": 81,
+      "selector": "p.css-501r93"
+    },
+    {
+      "source_id": "c0654f5b36d92455a8c7",
+      "url": "https://www.theinfatuation.com/new-york/cuisines/hot-pot",
+      "rank": 2,
+      "name": "The Dolar Shop",
+      "present": true,
+      "reason": "exported",
+      "characters": 82,
+      "selector": "p.css-501r93"
+    },
+    {
+      "source_id": "c0654f5b36d92455a8c7",
+      "url": "https://www.theinfatuation.com/new-york/cuisines/hot-pot",
+      "rank": 3,
+      "name": "Three Hot Pot",
+      "present": true,
+      "reason": "exported",
+      "characters": 74,
+      "selector": "p.css-501r93"
+    },
+    {
+      "source_id": "c0654f5b36d92455a8c7",
+      "url": "https://www.theinfatuation.com/new-york/cuisines/hot-pot",
+      "rank": 4,
+      "name": "99 Favor Taste",
+      "present": true,
+      "reason": "exported",
+      "characters": 76,
+      "selector": "p.css-501r93"
+    },
+    {
+      "source_id": "c0654f5b36d92455a8c7",
+      "url": "https://www.theinfatuation.com/new-york/cuisines/hot-pot",
+      "rank": 5,
+      "name": "Da Long Yi",
+      "present": true,
+      "reason": "exported",
+      "characters": 93,
+      "selector": "p.css-501r93"
+    },
+    {
+      "source_id": "c0654f5b36d92455a8c7",
+      "url": "https://www.theinfatuation.com/new-york/cuisines/hot-pot",
+      "rank": 6,
+      "name": "Chong Qing Wharf",
+      "present": true,
+      "reason": "exported",
+      "characters": 98,
+      "selector": "p.css-501r93"
+    },
+    {
+      "source_id": "dcf2defa854fa5eb104c",
+      "url": "https://www.theinfatuation.com/new-york/guides/best-all-you-can-eat-new-york",
+      "rank": 1,
+      "name": "SourAji",
+      "present": true,
+      "reason": "exported",
+      "characters": 653,
+      "selector": "[data-testid=\"venue-description\"], div[city]"
+    },
+    {
+      "source_id": "dcf2defa854fa5eb104c",
+      "url": "https://www.theinfatuation.com/new-york/guides/best-all-you-can-eat-new-york",
+      "rank": 2,
+      "name": "Hometown Hotpot & BBQ",
+      "present": true,
+      "reason": "exported",
+      "characters": 609,
+      "selector": "[data-testid=\"venue-description\"], div[city]"
+    },
+    {
+      "source_id": "dcf2defa854fa5eb104c",
+      "url": "https://www.theinfatuation.com/new-york/guides/best-all-you-can-eat-new-york",
+      "rank": 3,
+      "name": "Lakruwana",
+      "present": true,
+      "reason": "exported",
+      "characters": 645,
+      "selector": "[data-testid=\"venue-description\"], div[city]"
+    },
+    {
+      "source_id": "dcf2defa854fa5eb104c",
+      "url": "https://www.theinfatuation.com/new-york/guides/best-all-you-can-eat-new-york",
+      "rank": 4,
+      "name": "Let’s Meat",
+      "present": true,
+      "reason": "exported",
+      "characters": 519,
+      "selector": "[data-testid=\"venue-description\"], div[city]"
+    },
+    {
+      "source_id": "dcf2defa854fa5eb104c",
+      "url": "https://www.theinfatuation.com/new-york/guides/best-all-you-can-eat-new-york",
+      "rank": 5,
+      "name": "Churrascaria Plataforma",
+      "present": true,
+      "reason": "exported",
+      "characters": 512,
+      "selector": "[data-testid=\"venue-description\"], div[city]"
+    },
+    {
+      "source_id": "dcf2defa854fa5eb104c",
+      "url": "https://www.theinfatuation.com/new-york/guides/best-all-you-can-eat-new-york",
+      "rank": 6,
+      "name": "Akino",
+      "present": true,
+      "reason": "exported",
+      "characters": 615,
+      "selector": "[data-testid=\"venue-description\"], div[city]"
+    },
+    {
+      "source_id": "dcf2defa854fa5eb104c",
+      "url": "https://www.theinfatuation.com/new-york/guides/best-all-you-can-eat-new-york",
+      "rank": 7,
+      "name": "Xi Yue Hui Seafood Hot Pot",
+      "present": true,
+      "reason": "exported",
+      "characters": 547,
+      "selector": "[data-testid=\"venue-description\"], div[city]"
+    },
+    {
+      "source_id": "dcf2defa854fa5eb104c",
+      "url": "https://www.theinfatuation.com/new-york/guides/best-all-you-can-eat-new-york",
+      "rank": 8,
+      "name": "Hou Yi Hot Pot",
+      "present": true,
+      "reason": "exported",
+      "characters": 511,
+      "selector": "[data-testid=\"venue-description\"], div[city]"
+    },
+    {
+      "source_id": "dcf2defa854fa5eb104c",
+      "url": "https://www.theinfatuation.com/new-york/guides/best-all-you-can-eat-new-york",
+      "rank": 9,
+      "name": "Chong Qing Wharf",
+      "present": true,
+      "reason": "exported",
+      "characters": 470,
+      "selector": "[data-testid=\"venue-description\"], div[city]"
+    },
+    {
+      "source_id": "dcf2defa854fa5eb104c",
+      "url": "https://www.theinfatuation.com/new-york/guides/best-all-you-can-eat-new-york",
+      "rank": 10,
+      "name": "Kikoo",
+      "present": true,
+      "reason": "exported",
+      "characters": 601,
+      "selector": "[data-testid=\"venue-description\"], div[city]"
+    },
+    {
+      "source_id": "5584639a4204c4ed4741",
+      "url": "https://ny.eater.com/2019/5/15/18624993/da-long-yi-chinatown-manhattan-open-canal-street",
+      "rank": 1,
+      "name": "Da Long Yi",
+      "present": true,
+      "reason": "exported",
+      "characters": 3050,
+      "selector": "article body paragraphs; primary opening reference"
+    },
+    {
+      "source_id": "d56d3a0232aaf58bb43a",
+      "url": "https://www.theinfatuation.com/new-york/reviews/the-dolar-shop-manhattan",
+      "rank": 1,
+      "name": "The Dolar Shop",
+      "present": true,
+      "reason": "exported",
+      "characters": 58,
+      "selector": "main .flatplan_tags"
+    },
+    {
+      "source_id": "d1006f2856717e496de3",
+      "url": "https://www.corner.inc/place/puZejM3KNMGD",
+      "rank": 1,
+      "name": "Zhang Liang Spicy Hot Pot",
+      "present": true,
+      "reason": "exported",
+      "characters": 329,
+      "selector": "Corner primary description paragraphs"
+    },
+    {
+      "source_id": "8c64f5104d6961d8010b",
+      "url": "https://www.corner.inc/list/794a4486-3983-4661-ad25-496a5dd82dcd",
+      "rank": 1,
+      "name": "MEILI 沉香",
+      "present": false,
+      "reason": "not_provided",
+      "characters": null,
+      "selector": "Corner list visible card"
+    },
+    {
+      "source_id": "8c64f5104d6961d8010b",
+      "url": "https://www.corner.inc/list/794a4486-3983-4661-ad25-496a5dd82dcd",
+      "rank": 2,
+      "name": "Santa Fe 부리또(스파이시부리또)",
+      "present": false,
+      "reason": "not_provided",
+      "characters": null,
+      "selector": "Corner list visible card"
+    },
+    {
+      "source_id": "8c64f5104d6961d8010b",
+      "url": "https://www.corner.inc/list/794a4486-3983-4661-ad25-496a5dd82dcd",
+      "rank": 3,
+      "name": "Café China",
+      "present": false,
+      "reason": "not_provided",
+      "characters": null,
+      "selector": "Corner list visible card"
+    },
+    {
+      "source_id": "8c64f5104d6961d8010b",
+      "url": "https://www.corner.inc/list/794a4486-3983-4661-ad25-496a5dd82dcd",
+      "rank": 4,
+      "name": "Easy Joy (Hot Pot, BBQ Skewers, Dim Sum) 意中人火锅烧烤点心",
+      "present": false,
+      "reason": "not_provided",
+      "characters": null,
+      "selector": "Corner list visible card"
+    },
+    {
+      "source_id": "8c64f5104d6961d8010b",
+      "url": "https://www.corner.inc/list/794a4486-3983-4661-ad25-496a5dd82dcd",
+      "rank": 5,
+      "name": "Planta Queen",
+      "present": false,
+      "reason": "not_provided",
+      "characters": null,
+      "selector": "Corner list visible card"
+    },
+    {
+      "source_id": "8c64f5104d6961d8010b",
+      "url": "https://www.corner.inc/list/794a4486-3983-4661-ad25-496a5dd82dcd",
+      "rank": 6,
+      "name": "Lin & Daughters - West Village",
+      "present": false,
+      "reason": "not_provided",
+      "characters": null,
+      "selector": "Corner list visible card"
+    },
+    {
+      "source_id": "8c64f5104d6961d8010b",
+      "url": "https://www.corner.inc/list/794a4486-3983-4661-ad25-496a5dd82dcd",
+      "rank": 7,
+      "name": "XI HU 西湖",
+      "present": false,
+      "reason": "not_provided",
+      "characters": null,
+      "selector": "Corner list visible card"
+    },
+    {
+      "source_id": "8c64f5104d6961d8010b",
+      "url": "https://www.corner.inc/list/794a4486-3983-4661-ad25-496a5dd82dcd",
+      "rank": 8,
+      "name": "Forsyth Fire Escape",
+      "present": false,
+      "reason": "not_provided",
+      "characters": null,
+      "selector": "Corner list visible card"
+    },
+    {
+      "source_id": "8c64f5104d6961d8010b",
+      "url": "https://www.corner.inc/list/794a4486-3983-4661-ad25-496a5dd82dcd",
+      "rank": 9,
+      "name": "Sam Ping’s Chinese BBQ",
+      "present": false,
+      "reason": "not_provided",
+      "characters": null,
+      "selector": "Corner list visible card"
+    },
+    {
+      "source_id": "8c64f5104d6961d8010b",
+      "url": "https://www.corner.inc/list/794a4486-3983-4661-ad25-496a5dd82dcd",
+      "rank": 10,
+      "name": "Xifu Food",
+      "present": false,
+      "reason": "not_provided",
+      "characters": null,
+      "selector": "Corner list visible card"
+    },
+    {
+      "source_id": "8c64f5104d6961d8010b",
+      "url": "https://www.corner.inc/list/794a4486-3983-4661-ad25-496a5dd82dcd",
+      "rank": 11,
+      "name": "Yuan Is Here",
+      "present": false,
+      "reason": "not_provided",
+      "characters": null,
+      "selector": "Corner list visible card"
+    },
+    {
+      "source_id": "8c64f5104d6961d8010b",
+      "url": "https://www.corner.inc/list/794a4486-3983-4661-ad25-496a5dd82dcd",
+      "rank": 12,
+      "name": "Yellow Pear Coffee",
+      "present": false,
+      "reason": "not_provided",
+      "characters": null,
+      "selector": "Corner list visible card"
+    },
+    {
+      "source_id": "8c64f5104d6961d8010b",
+      "url": "https://www.corner.inc/list/794a4486-3983-4661-ad25-496a5dd82dcd",
+      "rank": 13,
+      "name": "Jin Mei Dumpling",
+      "present": false,
+      "reason": "not_provided",
+      "characters": null,
+      "selector": "Corner list visible card"
+    },
+    {
+      "source_id": "8c64f5104d6961d8010b",
+      "url": "https://www.corner.inc/list/794a4486-3983-4661-ad25-496a5dd82dcd",
+      "rank": 14,
+      "name": "Sun Hing Lung",
+      "present": false,
+      "reason": "not_provided",
+      "characters": null,
+      "selector": "Corner list visible card"
+    },
+    {
+      "source_id": "8c64f5104d6961d8010b",
+      "url": "https://www.corner.inc/list/794a4486-3983-4661-ad25-496a5dd82dcd",
+      "rank": 15,
+      "name": "Pecking House Chinatown",
+      "present": false,
+      "reason": "not_provided",
+      "characters": null,
+      "selector": "Corner list visible card"
+    },
+    {
+      "source_id": "8c64f5104d6961d8010b",
+      "url": "https://www.corner.inc/list/794a4486-3983-4661-ad25-496a5dd82dcd",
+      "rank": 16,
+      "name": "Maya Congee Cafe - Fulton St",
+      "present": false,
+      "reason": "not_provided",
+      "characters": null,
+      "selector": "Corner list visible card"
+    },
+    {
+      "source_id": "8c64f5104d6961d8010b",
+      "url": "https://www.corner.inc/list/794a4486-3983-4661-ad25-496a5dd82dcd",
+      "rank": 17,
+      "name": "MáLà Project Bryant Park",
+      "present": false,
+      "reason": "not_provided",
+      "characters": null,
+      "selector": "Corner list visible card"
+    },
+    {
+      "source_id": "8c64f5104d6961d8010b",
+      "url": "https://www.corner.inc/list/794a4486-3983-4661-ad25-496a5dd82dcd",
+      "rank": 18,
+      "name": "Chinese Tuxedo",
+      "present": false,
+      "reason": "not_provided",
+      "characters": null,
+      "selector": "Corner list visible card"
+    },
+    {
+      "source_id": "8c64f5104d6961d8010b",
+      "url": "https://www.corner.inc/list/794a4486-3983-4661-ad25-496a5dd82dcd",
+      "rank": 19,
+      "name": "Opera House",
+      "present": false,
+      "reason": "not_provided",
+      "characters": null,
+      "selector": "Corner list visible card"
+    },
+    {
+      "source_id": "8c64f5104d6961d8010b",
+      "url": "https://www.corner.inc/list/794a4486-3983-4661-ad25-496a5dd82dcd",
+      "rank": 20,
+      "name": "Nom Wah Tea Parlor",
+      "present": false,
+      "reason": "not_provided",
+      "characters": null,
+      "selector": "Corner list visible card"
+    },
+    {
+      "source_id": "8c64f5104d6961d8010b",
+      "url": "https://www.corner.inc/list/794a4486-3983-4661-ad25-496a5dd82dcd",
+      "rank": 21,
+      "name": "Xiang Hotpot-Brooklyn",
+      "present": false,
+      "reason": "not_provided",
+      "characters": null,
+      "selector": "Corner list visible card"
+    },
+    {
+      "source_id": "8c64f5104d6961d8010b",
+      "url": "https://www.corner.inc/list/794a4486-3983-4661-ad25-496a5dd82dcd",
+      "rank": 22,
+      "name": "LaoJie Hotpot",
+      "present": false,
+      "reason": "not_provided",
+      "characters": null,
+      "selector": "Corner list visible card"
+    },
+    {
+      "source_id": "8c64f5104d6961d8010b",
+      "url": "https://www.corner.inc/list/794a4486-3983-4661-ad25-496a5dd82dcd",
+      "rank": 23,
+      "name": "MáLà Project",
+      "present": false,
+      "reason": "not_provided",
+      "characters": null,
+      "selector": "Corner list visible card"
+    },
+    {
+      "source_id": "8c64f5104d6961d8010b",
+      "url": "https://www.corner.inc/list/794a4486-3983-4661-ad25-496a5dd82dcd",
+      "rank": 24,
+      "name": "Chongqing Lao Zao",
+      "present": false,
+      "reason": "not_provided",
+      "characters": null,
+      "selector": "Corner list visible card"
+    },
+    {
+      "source_id": "8c64f5104d6961d8010b",
+      "url": "https://www.corner.inc/list/794a4486-3983-4661-ad25-496a5dd82dcd",
+      "rank": 25,
+      "name": "New World Mall",
+      "present": false,
+      "reason": "not_provided",
+      "characters": null,
+      "selector": "Corner list visible card"
+    },
+    {
+      "source_id": "8c64f5104d6961d8010b",
+      "url": "https://www.corner.inc/list/794a4486-3983-4661-ad25-496a5dd82dcd",
+      "rank": 26,
+      "name": "Henan Feng Wei",
+      "present": false,
+      "reason": "not_provided",
+      "characters": null,
+      "selector": "Corner list visible card"
+    },
+    {
+      "source_id": "8c64f5104d6961d8010b",
+      "url": "https://www.corner.inc/list/794a4486-3983-4661-ad25-496a5dd82dcd",
+      "rank": 27,
+      "name": "Zhongzhong Noodles - Brooklyn",
+      "present": false,
+      "reason": "not_provided",
+      "characters": null,
+      "selector": "Corner list visible card"
+    },
+    {
+      "source_id": "8c64f5104d6961d8010b",
+      "url": "https://www.corner.inc/list/794a4486-3983-4661-ad25-496a5dd82dcd",
+      "rank": 28,
+      "name": "1915 Lanzhou Hand Pulled Noodles & Dumplings",
+      "present": false,
+      "reason": "not_provided",
+      "characters": null,
+      "selector": "Corner list visible card"
+    },
+    {
+      "source_id": "8c64f5104d6961d8010b",
+      "url": "https://www.corner.inc/list/794a4486-3983-4661-ad25-496a5dd82dcd",
+      "rank": 29,
+      "name": "Din Soup Dumplings 鼎泰轩",
+      "present": false,
+      "reason": "not_provided",
+      "characters": null,
+      "selector": "Corner list visible card"
+    },
+    {
+      "source_id": "8c64f5104d6961d8010b",
+      "url": "https://www.corner.inc/list/794a4486-3983-4661-ad25-496a5dd82dcd",
+      "rank": 30,
+      "name": "Gai Kitchen",
+      "present": false,
+      "reason": "not_provided",
+      "characters": null,
+      "selector": "Corner list visible card"
+    },
+    {
+      "source_id": "8c64f5104d6961d8010b",
+      "url": "https://www.corner.inc/list/794a4486-3983-4661-ad25-496a5dd82dcd",
+      "rank": 31,
+      "name": "Lucky Rabbit Noodles",
+      "present": false,
+      "reason": "not_provided",
+      "characters": null,
+      "selector": "Corner list visible card"
+    },
+    {
+      "source_id": "8c64f5104d6961d8010b",
+      "url": "https://www.corner.inc/list/794a4486-3983-4661-ad25-496a5dd82dcd",
+      "rank": 32,
+      "name": "Decoy",
+      "present": false,
+      "reason": "not_provided",
+      "characters": null,
+      "selector": "Corner list visible card"
+    },
+    {
+      "source_id": "8c64f5104d6961d8010b",
+      "url": "https://www.corner.inc/list/794a4486-3983-4661-ad25-496a5dd82dcd",
+      "rank": 33,
+      "name": "Birds of a Feather",
+      "present": false,
+      "reason": "not_provided",
+      "characters": null,
+      "selector": "Corner list visible card"
+    },
+    {
+      "source_id": "8c64f5104d6961d8010b",
+      "url": "https://www.corner.inc/list/794a4486-3983-4661-ad25-496a5dd82dcd",
+      "rank": 34,
+      "name": "Uncle Lou",
+      "present": false,
+      "reason": "not_provided",
+      "characters": null,
+      "selector": "Corner list visible card"
+    },
+    {
+      "source_id": "8c64f5104d6961d8010b",
+      "url": "https://www.corner.inc/list/794a4486-3983-4661-ad25-496a5dd82dcd",
+      "rank": 35,
+      "name": "Peking Duck House",
+      "present": false,
+      "reason": "not_provided",
+      "characters": null,
+      "selector": "Corner list visible card"
+    },
+    {
+      "source_id": "8c64f5104d6961d8010b",
+      "url": "https://www.corner.inc/list/794a4486-3983-4661-ad25-496a5dd82dcd",
+      "rank": 36,
+      "name": "Fried Dumpling",
+      "present": false,
+      "reason": "not_provided",
+      "characters": null,
+      "selector": "Corner list visible card"
+    },
+    {
+      "source_id": "8c64f5104d6961d8010b",
+      "url": "https://www.corner.inc/list/794a4486-3983-4661-ad25-496a5dd82dcd",
+      "rank": 37,
+      "name": "Wonton Noodle Garden",
+      "present": false,
+      "reason": "not_provided",
+      "characters": null,
+      "selector": "Corner list visible card"
+    },
+    {
+      "source_id": "8c64f5104d6961d8010b",
+      "url": "https://www.corner.inc/list/794a4486-3983-4661-ad25-496a5dd82dcd",
+      "rank": 38,
+      "name": "Mei Lai Wah",
+      "present": false,
+      "reason": "not_provided",
+      "characters": null,
+      "selector": "Corner list visible card"
+    },
+    {
+      "source_id": "8c64f5104d6961d8010b",
+      "url": "https://www.corner.inc/list/794a4486-3983-4661-ad25-496a5dd82dcd",
+      "rank": 39,
+      "name": "Joys' Cafe",
+      "present": false,
+      "reason": "not_provided",
+      "characters": null,
+      "selector": "Corner list visible card"
+    },
+    {
+      "source_id": "8c64f5104d6961d8010b",
+      "url": "https://www.corner.inc/list/794a4486-3983-4661-ad25-496a5dd82dcd",
+      "rank": 40,
+      "name": "Shu Jiao Fu Zhou",
+      "present": false,
+      "reason": "not_provided",
+      "characters": null,
+      "selector": "Corner list visible card"
+    },
+    {
+      "source_id": "8c64f5104d6961d8010b",
+      "url": "https://www.corner.inc/list/794a4486-3983-4661-ad25-496a5dd82dcd",
+      "rank": 41,
+      "name": "Fu Zhou Wei Zhong Wei Jia Xiang Feng Wei",
+      "present": false,
+      "reason": "not_provided",
+      "characters": null,
+      "selector": "Corner list visible card"
+    },
+    {
+      "source_id": "04e3e8ceab88a82a2beb",
+      "url": "https://www.theinfatuation.com/los-angeles/reviews/mikiya-wagyu-shabu-house-la",
+      "rank": 1,
+      "name": "Mikiya Wagyu Shabu House",
+      "present": true,
+      "reason": "exported",
+      "characters": 143,
+      "selector": "main .flatplan_tags"
+    },
+    {
+      "source_id": "bf51dde417f320637a40",
+      "url": "https://www.corner.inc/guides/new-york-city/manhattan/bubbling-good-times-best-hotpot-restaurants-in-manhattan",
+      "rank": 1,
+      "name": "MáLà Project",
+      "present": true,
+      "reason": "exported",
+      "characters": 1263,
+      "selector": "Corner tracked guide card"
+    },
+    {
+      "source_id": "bf51dde417f320637a40",
+      "url": "https://www.corner.inc/guides/new-york-city/manhattan/bubbling-good-times-best-hotpot-restaurants-in-manhattan",
+      "rank": 2,
+      "name": "Kimura",
+      "present": true,
+      "reason": "exported",
+      "characters": 1058,
+      "selector": "Corner tracked guide card"
+    },
+    {
+      "source_id": "bf51dde417f320637a40",
+      "url": "https://www.corner.inc/guides/new-york-city/manhattan/bubbling-good-times-best-hotpot-restaurants-in-manhattan",
+      "rank": 3,
+      "name": "The Dolar Shop Hot Pot Manhattan",
+      "present": true,
+      "reason": "exported",
+      "characters": 965,
+      "selector": "Corner tracked guide card"
+    },
+    {
+      "source_id": "bf51dde417f320637a40",
+      "url": "https://www.corner.inc/guides/new-york-city/manhattan/bubbling-good-times-best-hotpot-restaurants-in-manhattan",
+      "rank": 4,
+      "name": "99 Favor Taste",
+      "present": true,
+      "reason": "exported",
+      "characters": 1147,
+      "selector": "Corner tracked guide card"
+    },
+    {
+      "source_id": "bf51dde417f320637a40",
+      "url": "https://www.corner.inc/guides/new-york-city/manhattan/bubbling-good-times-best-hotpot-restaurants-in-manhattan",
+      "rank": 5,
+      "name": "Hakata TonTon",
+      "present": true,
+      "reason": "exported",
+      "characters": 703,
+      "selector": "Corner tracked guide card"
+    },
+    {
+      "source_id": "bf51dde417f320637a40",
+      "url": "https://www.corner.inc/guides/new-york-city/manhattan/bubbling-good-times-best-hotpot-restaurants-in-manhattan",
+      "rank": 6,
+      "name": "Hometown Hotpot & BBQ",
+      "present": true,
+      "reason": "exported",
+      "characters": 790,
+      "selector": "Corner tracked guide card"
+    },
+    {
+      "source_id": "bf51dde417f320637a40",
+      "url": "https://www.corner.inc/guides/new-york-city/manhattan/bubbling-good-times-best-hotpot-restaurants-in-manhattan",
+      "rank": 7,
+      "name": "Hou Yi Hot Pot",
+      "present": true,
+      "reason": "exported",
+      "characters": 682,
+      "selector": "Corner tracked guide card"
+    },
+    {
+      "source_id": "bf51dde417f320637a40",
+      "url": "https://www.corner.inc/guides/new-york-city/manhattan/bubbling-good-times-best-hotpot-restaurants-in-manhattan",
+      "rank": 8,
+      "name": "Da Long Yi Hot Pot",
+      "present": true,
+      "reason": "exported",
+      "characters": 673,
+      "selector": "Corner tracked guide card"
+    },
+    {
+      "source_id": "bf51dde417f320637a40",
+      "url": "https://www.corner.inc/guides/new-york-city/manhattan/bubbling-good-times-best-hotpot-restaurants-in-manhattan",
+      "rank": 9,
+      "name": "ER HOT POT 贰火锅 - 36th St",
+      "present": true,
+      "reason": "exported",
+      "characters": 728,
+      "selector": "Corner tracked guide card"
+    },
+    {
+      "source_id": "bf51dde417f320637a40",
+      "url": "https://www.corner.inc/guides/new-york-city/manhattan/bubbling-good-times-best-hotpot-restaurants-in-manhattan",
+      "rank": 10,
+      "name": "Hou Hot Pot 厚火锅",
+      "present": true,
+      "reason": "exported",
+      "characters": 790,
+      "selector": "Corner tracked guide card"
+    },
+    {
+      "source_id": "5e19f54fc5e5fd554577",
+      "url": "https://www.theinfatuation.com/new-york/reviews/99-favor-taste-lower-east-side",
+      "rank": 1,
+      "name": "99 Favor Taste",
+      "present": true,
+      "reason": "exported",
+      "characters": 135,
+      "selector": "main .flatplan_tags"
+    },
+    {
+      "source_id": "6cabcd099c434a56cc31",
+      "url": "https://www.corner.inc/place/pahWPjNKWq9w",
+      "rank": 1,
+      "name": "Spring Shabu-Shabu",
+      "present": true,
+      "reason": "exported",
+      "characters": 302,
+      "selector": "Corner primary description paragraphs"
+    },
+    {
+      "source_id": "9756d5af223605971741",
+      "url": "https://www.theinfatuation.com/los-angeles/reviews/shabuya",
+      "rank": 1,
+      "name": "Shabuya",
+      "present": true,
+      "reason": "exported",
+      "characters": 125,
+      "selector": "main .flatplan_tags"
+    },
+    {
+      "source_id": "819760ab87a70da9de1d",
+      "url": "https://www.theinfatuation.com/los-angeles/cuisines/hot-pot",
+      "rank": 1,
+      "name": "Tensho",
+      "present": true,
+      "reason": "exported",
+      "characters": 113,
+      "selector": "p.css-501r93"
+    },
+    {
+      "source_id": "819760ab87a70da9de1d",
+      "url": "https://www.theinfatuation.com/los-angeles/cuisines/hot-pot",
+      "rank": 2,
+      "name": "Mikiya Wagyu Shabu House",
+      "present": true,
+      "reason": "exported",
+      "characters": 97,
+      "selector": "p.css-501r93"
+    },
+    {
+      "source_id": "819760ab87a70da9de1d",
+      "url": "https://www.theinfatuation.com/los-angeles/cuisines/hot-pot",
+      "rank": 3,
+      "name": "Chong Qing Yao Mei",
+      "present": true,
+      "reason": "exported",
+      "characters": 117,
+      "selector": "p.css-501r93"
+    },
+    {
+      "source_id": "819760ab87a70da9de1d",
+      "url": "https://www.theinfatuation.com/los-angeles/cuisines/hot-pot",
+      "rank": 4,
+      "name": "Xiao Long Kan",
+      "present": true,
+      "reason": "exported",
+      "characters": 100,
+      "selector": "p.css-501r93"
+    },
+    {
+      "source_id": "819760ab87a70da9de1d",
+      "url": "https://www.theinfatuation.com/los-angeles/cuisines/hot-pot",
+      "rank": 5,
+      "name": "Shancheng Lameizi",
+      "present": true,
+      "reason": "exported",
+      "characters": 92,
+      "selector": "p.css-501r93"
+    },
+    {
+      "source_id": "819760ab87a70da9de1d",
+      "url": "https://www.theinfatuation.com/los-angeles/cuisines/hot-pot",
+      "rank": 6,
+      "name": "Chun La Hao Chong Qing Hot Pot",
+      "present": true,
+      "reason": "exported",
+      "characters": 82,
+      "selector": "p.css-501r93"
+    },
+    {
+      "source_id": "819760ab87a70da9de1d",
+      "url": "https://www.theinfatuation.com/los-angeles/cuisines/hot-pot",
+      "rank": 7,
+      "name": "Shabuya",
+      "present": true,
+      "reason": "exported",
+      "characters": 94,
+      "selector": "p.css-501r93"
+    },
+    {
+      "source_id": "819760ab87a70da9de1d",
+      "url": "https://www.theinfatuation.com/los-angeles/cuisines/hot-pot",
+      "rank": 8,
+      "name": "Joon Shabu Shabu",
+      "present": true,
+      "reason": "exported",
+      "characters": 75,
+      "selector": "p.css-501r93"
+    },
+    {
+      "source_id": "819760ab87a70da9de1d",
+      "url": "https://www.theinfatuation.com/los-angeles/cuisines/hot-pot",
+      "rank": 9,
+      "name": "Bon Shabu",
+      "present": true,
+      "reason": "exported",
+      "characters": 98,
+      "selector": "p.css-501r93"
+    },
+    {
+      "source_id": "819760ab87a70da9de1d",
+      "url": "https://www.theinfatuation.com/los-angeles/cuisines/hot-pot",
+      "rank": 10,
+      "name": "Yuan's Hot Pot",
+      "present": true,
+      "reason": "exported",
+      "characters": 90,
+      "selector": "p.css-501r93"
+    },
+    {
+      "source_id": "819760ab87a70da9de1d",
+      "url": "https://www.theinfatuation.com/los-angeles/cuisines/hot-pot",
+      "rank": 11,
+      "name": "Tang Huo Kung Fu Spicy Hot Pot",
+      "present": true,
+      "reason": "exported",
+      "characters": 120,
+      "selector": "p.css-501r93"
+    },
+    {
+      "source_id": "bb60997f97e624da6b80",
+      "url": "https://www.allyoucaneatguide.com/new-york-city/easy-joy-dim-sum-ayce-hot-pot",
+      "rank": 1,
+      "name": "Easy Joy Dim Sum & AYCE Hot Pot",
+      "present": true,
+      "reason": "exported",
+      "characters": 237,
+      "selector": "About the Business .section-body"
+    },
+    {
+      "source_id": "ddb70e34c09cc42eb521",
+      "url": "https://www.theinfatuation.com/new-york/reviews/see-joy",
+      "rank": 1,
+      "name": "See Joy",
+      "present": true,
+      "reason": "exported",
+      "characters": 34,
+      "selector": "main .flatplan_tags"
+    },
+    {
+      "source_id": "b41c036fa6a64c49e54c",
+      "url": "https://www.corner.inc/place/pkjR4kv52Go5",
+      "rank": 1,
+      "name": "Happy Lamb Hot Pot, Flushing 快乐小羊",
+      "present": true,
+      "reason": "exported",
+      "characters": 274,
+      "selector": "Corner primary description paragraphs"
+    },
+    {
+      "source_id": "702fbd0a7dc01ff06cb8",
+      "url": "https://www.timeout.com/los-angeles/restaurants/best-hot-pot-restaurants-in-l-a",
+      "rank": 1,
+      "name": "Haodilao Hot Pot",
+      "present": true,
+      "reason": "exported",
+      "characters": 43,
+      "selector": "[data-testid=\"summary_testID\"]"
+    },
+    {
+      "source_id": "702fbd0a7dc01ff06cb8",
+      "url": "https://www.timeout.com/los-angeles/restaurants/best-hot-pot-restaurants-in-l-a",
+      "rank": 2,
+      "name": "Boiling Point",
+      "present": true,
+      "reason": "exported",
+      "characters": 62,
+      "selector": "[data-testid=\"summary_testID\"]"
+    },
+    {
+      "source_id": "702fbd0a7dc01ff06cb8",
+      "url": "https://www.timeout.com/los-angeles/restaurants/best-hot-pot-restaurants-in-l-a",
+      "rank": 3,
+      "name": "Shabuya",
+      "present": true,
+      "reason": "exported",
+      "characters": 587,
+      "selector": "[data-testid=\"summary_testID\"]"
+    },
+    {
+      "source_id": "702fbd0a7dc01ff06cb8",
+      "url": "https://www.timeout.com/los-angeles/restaurants/best-hot-pot-restaurants-in-l-a",
+      "rank": 4,
+      "name": "Chunju Han-il Kwan",
+      "present": true,
+      "reason": "exported",
+      "characters": 54,
+      "selector": "[data-testid=\"summary_testID\"]"
+    },
+    {
+      "source_id": "702fbd0a7dc01ff06cb8",
+      "url": "https://www.timeout.com/los-angeles/restaurants/best-hot-pot-restaurants-in-l-a",
+      "rank": 5,
+      "name": "Lucky Mizu at Level 8",
+      "present": true,
+      "reason": "exported",
+      "characters": 714,
+      "selector": "[data-testid=\"summary_testID\"]"
+    },
+    {
+      "source_id": "702fbd0a7dc01ff06cb8",
+      "url": "https://www.timeout.com/los-angeles/restaurants/best-hot-pot-restaurants-in-l-a",
+      "rank": 6,
+      "name": "Hot Pot, Hot Pot!",
+      "present": true,
+      "reason": "exported",
+      "characters": 53,
+      "selector": "[data-testid=\"summary_testID\"]"
+    },
+    {
+      "source_id": "702fbd0a7dc01ff06cb8",
+      "url": "https://www.timeout.com/los-angeles/restaurants/best-hot-pot-restaurants-in-l-a",
+      "rank": 7,
+      "name": "Bon Shabu",
+      "present": true,
+      "reason": "exported",
+      "characters": 420,
+      "selector": "[data-testid=\"summary_testID\"]"
+    },
+    {
+      "source_id": "702fbd0a7dc01ff06cb8",
+      "url": "https://www.timeout.com/los-angeles/restaurants/best-hot-pot-restaurants-in-l-a",
+      "rank": 8,
+      "name": "Joon Shabu Shabu",
+      "present": true,
+      "reason": "exported",
+      "characters": 38,
+      "selector": "[data-testid=\"summary_testID\"]"
+    },
+    {
+      "source_id": "702fbd0a7dc01ff06cb8",
+      "url": "https://www.timeout.com/los-angeles/restaurants/best-hot-pot-restaurants-in-l-a",
+      "rank": 9,
+      "name": "Momo Paradise",
+      "present": true,
+      "reason": "exported",
+      "characters": 54,
+      "selector": "[data-testid=\"summary_testID\"]"
+    },
+    {
+      "source_id": "702fbd0a7dc01ff06cb8",
+      "url": "https://www.timeout.com/los-angeles/restaurants/best-hot-pot-restaurants-in-l-a",
+      "rank": 10,
+      "name": "Hakata Izakaya Hero",
+      "present": true,
+      "reason": "exported",
+      "characters": 703,
+      "selector": "[data-testid=\"summary_testID\"]"
+    },
+    {
+      "source_id": "109f0d7e38b0624260f6",
+      "url": "https://www.timeout.com/newyork/restaurants/99-favor-taste",
+      "rank": 1,
+      "name": "99 Favor Taste",
+      "present": true,
+      "reason": "exported",
+      "characters": 709,
+      "selector": "main annotation_testID paragraphs"
+    },
+    {
+      "source_id": "faff2ffdc6541d291abe",
+      "url": "https://www.theinfatuation.com/new-york/reviews/hometown-hotpot-bbq",
+      "rank": 1,
+      "name": "Hometown Hotpot & BBQ",
+      "present": true,
+      "reason": "exported",
+      "characters": 140,
+      "selector": "main .flatplan_tags"
+    },
+    {
+      "source_id": "a11d15e90c03552b64ee",
+      "url": "https://ny.eater.com/2020/12/3/22023273/the-dolar-shop-hot-pot-nyc-restaurant-east-village-opening",
+      "rank": 1,
+      "name": "the Dolar Shop",
+      "present": true,
+      "reason": "exported",
+      "characters": 3154,
+      "selector": "article body paragraphs; primary opening reference"
+    },
+    {
+      "source_id": "532a0b7911d91721d134",
+      "url": "https://www.theinfatuation.com/new-york/guides/the-best-restaurants-in-flushing",
+      "rank": 1,
+      "name": "Handmade Dumpling",
+      "present": true,
+      "reason": "exported",
+      "characters": 397,
+      "selector": "[data-testid=\"venue-description\"], div[city]"
+    },
+    {
+      "source_id": "532a0b7911d91721d134",
+      "url": "https://www.theinfatuation.com/new-york/guides/the-best-restaurants-in-flushing",
+      "rank": 2,
+      "name": "Xie Bao",
+      "present": true,
+      "reason": "exported",
+      "characters": 445,
+      "selector": "[data-testid=\"venue-description\"], div[city]"
+    },
+    {
+      "source_id": "532a0b7911d91721d134",
+      "url": "https://www.theinfatuation.com/new-york/guides/the-best-restaurants-in-flushing",
+      "rank": 3,
+      "name": "Szechuan Mountain House",
+      "present": true,
+      "reason": "exported",
+      "characters": 496,
+      "selector": "[data-testid=\"venue-description\"], div[city]"
+    },
+    {
+      "source_id": "532a0b7911d91721d134",
+      "url": "https://www.theinfatuation.com/new-york/guides/the-best-restaurants-in-flushing",
+      "rank": 4,
+      "name": "White Bear",
+      "present": true,
+      "reason": "exported",
+      "characters": 454,
+      "selector": "[data-testid=\"venue-description\"], div[city]"
+    },
+    {
+      "source_id": "532a0b7911d91721d134",
+      "url": "https://www.theinfatuation.com/new-york/guides/the-best-restaurants-in-flushing",
+      "rank": 5,
+      "name": "Asian Jewels Seafood Restaurant",
+      "present": true,
+      "reason": "exported",
+      "characters": 465,
+      "selector": "[data-testid=\"venue-description\"], div[city]"
+    },
+    {
+      "source_id": "532a0b7911d91721d134",
+      "url": "https://www.theinfatuation.com/new-york/guides/the-best-restaurants-in-flushing",
+      "rank": 6,
+      "name": "Alley 41",
+      "present": true,
+      "reason": "exported",
+      "characters": 589,
+      "selector": "[data-testid=\"venue-description\"], div[city]"
+    },
+    {
+      "source_id": "532a0b7911d91721d134",
+      "url": "https://www.theinfatuation.com/new-york/guides/the-best-restaurants-in-flushing",
+      "rank": 7,
+      "name": "Chong Qing Lao Zao",
+      "present": true,
+      "reason": "exported",
+      "characters": 626,
+      "selector": "[data-testid=\"venue-description\"], div[city]"
+    },
+    {
+      "source_id": "532a0b7911d91721d134",
+      "url": "https://www.theinfatuation.com/new-york/guides/the-best-restaurants-in-flushing",
+      "rank": 8,
+      "name": "Golden Lake Pavilion",
+      "present": true,
+      "reason": "exported",
+      "characters": 417,
+      "selector": "[data-testid=\"venue-description\"], div[city]"
+    },
+    {
+      "source_id": "532a0b7911d91721d134",
+      "url": "https://www.theinfatuation.com/new-york/guides/the-best-restaurants-in-flushing",
+      "rank": 9,
+      "name": "Amore Pizzeria",
+      "present": true,
+      "reason": "exported",
+      "characters": 652,
+      "selector": "[data-testid=\"venue-description\"], div[city]"
+    },
+    {
+      "source_id": "532a0b7911d91721d134",
+      "url": "https://www.theinfatuation.com/new-york/guides/the-best-restaurants-in-flushing",
+      "rank": 10,
+      "name": "Maxi’s Noodle",
+      "present": true,
+      "reason": "exported",
+      "characters": 411,
+      "selector": "[data-testid=\"venue-description\"], div[city]"
+    },
+    {
+      "source_id": "532a0b7911d91721d134",
+      "url": "https://www.theinfatuation.com/new-york/guides/the-best-restaurants-in-flushing",
+      "rank": 11,
+      "name": "Shanghai You Garden",
+      "present": true,
+      "reason": "exported",
+      "characters": 581,
+      "selector": "[data-testid=\"venue-description\"], div[city]"
+    },
+    {
+      "source_id": "532a0b7911d91721d134",
+      "url": "https://www.theinfatuation.com/new-york/guides/the-best-restaurants-in-flushing",
+      "rank": 12,
+      "name": "Kong Sihk Tong",
+      "present": true,
+      "reason": "exported",
+      "characters": 491,
+      "selector": "[data-testid=\"venue-description\"], div[city]"
+    },
+    {
+      "source_id": "532a0b7911d91721d134",
+      "url": "https://www.theinfatuation.com/new-york/guides/the-best-restaurants-in-flushing",
+      "rank": 13,
+      "name": "Lucia Pizza",
+      "present": true,
+      "reason": "exported",
+      "characters": 406,
+      "selector": "[data-testid=\"venue-description\"], div[city]"
+    },
+    {
+      "source_id": "532a0b7911d91721d134",
+      "url": "https://www.theinfatuation.com/new-york/guides/the-best-restaurants-in-flushing",
+      "rank": 14,
+      "name": "Old Captain's Dumpling",
+      "present": true,
+      "reason": "exported",
+      "characters": 594,
+      "selector": "[data-testid=\"venue-description\"], div[city]"
+    },
+    {
+      "source_id": "532a0b7911d91721d134",
+      "url": "https://www.theinfatuation.com/new-york/guides/the-best-restaurants-in-flushing",
+      "rank": 15,
+      "name": "Izakaya Nana",
+      "present": true,
+      "reason": "exported",
+      "characters": 538,
+      "selector": "[data-testid=\"venue-description\"], div[city]"
+    },
+    {
+      "source_id": "532a0b7911d91721d134",
+      "url": "https://www.theinfatuation.com/new-york/guides/the-best-restaurants-in-flushing",
+      "rank": 16,
+      "name": "Eight Jane Foods",
+      "present": true,
+      "reason": "exported",
+      "characters": 513,
+      "selector": "[data-testid=\"venue-description\"], div[city]"
+    },
+    {
+      "source_id": "532a0b7911d91721d134",
+      "url": "https://www.theinfatuation.com/new-york/guides/the-best-restaurants-in-flushing",
+      "rank": 17,
+      "name": "Jiang Nan",
+      "present": true,
+      "reason": "exported",
+      "characters": 546,
+      "selector": "[data-testid=\"venue-description\"], div[city]"
+    },
+    {
+      "source_id": "532a0b7911d91721d134",
+      "url": "https://www.theinfatuation.com/new-york/guides/the-best-restaurants-in-flushing",
+      "rank": 18,
+      "name": "Nurlan Uyghur Restaurant",
+      "present": true,
+      "reason": "exported",
+      "characters": 511,
+      "selector": "[data-testid=\"venue-description\"], div[city]"
+    },
+    {
+      "source_id": "532a0b7911d91721d134",
+      "url": "https://www.theinfatuation.com/new-york/guides/the-best-restaurants-in-flushing",
+      "rank": 19,
+      "name": "Yeh's Bakery",
+      "present": true,
+      "reason": "exported",
+      "characters": 441,
+      "selector": "[data-testid=\"venue-description\"], div[city]"
+    },
+    {
+      "source_id": "532a0b7911d91721d134",
+      "url": "https://www.theinfatuation.com/new-york/guides/the-best-restaurants-in-flushing",
+      "rank": 20,
+      "name": "New World Mall Food Court",
+      "present": true,
+      "reason": "exported",
+      "characters": 528,
+      "selector": "[data-testid=\"venue-description\"], div[city]"
+    },
+    {
+      "source_id": "532a0b7911d91721d134",
+      "url": "https://www.theinfatuation.com/new-york/guides/the-best-restaurants-in-flushing",
+      "rank": 21,
+      "name": "Ganesh Temple Canteen",
+      "present": true,
+      "reason": "exported",
+      "characters": 542,
+      "selector": "[data-testid=\"venue-description\"], div[city]"
+    },
+    {
+      "source_id": "f004ad1e1920c28c57b3",
+      "url": "https://www.theinfatuation.com/new-york/guides/the-best-restaurants-for-affordable-group-dinners",
+      "rank": 1,
+      "name": "Burmese Bites",
+      "present": true,
+      "reason": "exported",
+      "characters": 501,
+      "selector": "[data-testid=\"venue-description\"], div[city]"
+    },
+    {
+      "source_id": "f004ad1e1920c28c57b3",
+      "url": "https://www.theinfatuation.com/new-york/guides/the-best-restaurants-for-affordable-group-dinners",
+      "rank": 2,
+      "name": "Taiwanese Gourmet",
+      "present": true,
+      "reason": "exported",
+      "characters": 418,
+      "selector": "[data-testid=\"venue-description\"], div[city]"
+    },
+    {
+      "source_id": "f004ad1e1920c28c57b3",
+      "url": "https://www.theinfatuation.com/new-york/guides/the-best-restaurants-for-affordable-group-dinners",
+      "rank": 3,
+      "name": "Mariscos El Submarino",
+      "present": true,
+      "reason": "exported",
+      "characters": 465,
+      "selector": "[data-testid=\"venue-description\"], div[city]"
+    },
+    {
+      "source_id": "f004ad1e1920c28c57b3",
+      "url": "https://www.theinfatuation.com/new-york/guides/the-best-restaurants-for-affordable-group-dinners",
+      "rank": 4,
+      "name": "The Fly",
+      "present": true,
+      "reason": "exported",
+      "characters": 528,
+      "selector": "[data-testid=\"venue-description\"], div[city]"
+    },
+    {
+      "source_id": "f004ad1e1920c28c57b3",
+      "url": "https://www.theinfatuation.com/new-york/guides/the-best-restaurants-for-affordable-group-dinners",
+      "rank": 5,
+      "name": "Ihawan",
+      "present": true,
+      "reason": "exported",
+      "characters": 490,
+      "selector": "[data-testid=\"venue-description\"], div[city]"
+    },
+    {
+      "source_id": "f004ad1e1920c28c57b3",
+      "url": "https://www.theinfatuation.com/new-york/guides/the-best-restaurants-for-affordable-group-dinners",
+      "rank": 6,
+      "name": "Ace’s Perfect Pizza",
+      "present": true,
+      "reason": "exported",
+      "characters": 542,
+      "selector": "[data-testid=\"venue-description\"], div[city]"
+    },
+    {
+      "source_id": "f004ad1e1920c28c57b3",
+      "url": "https://www.theinfatuation.com/new-york/guides/the-best-restaurants-for-affordable-group-dinners",
+      "rank": 7,
+      "name": "Wu's Wonton King",
+      "present": true,
+      "reason": "exported",
+      "characters": 489,
+      "selector": "[data-testid=\"venue-description\"], div[city]"
+    },
+    {
+      "source_id": "f004ad1e1920c28c57b3",
+      "url": "https://www.theinfatuation.com/new-york/guides/the-best-restaurants-for-affordable-group-dinners",
+      "rank": 8,
+      "name": "Al Badawi",
+      "present": true,
+      "reason": "exported",
+      "characters": 513,
+      "selector": "[data-testid=\"venue-description\"], div[city]"
+    },
+    {
+      "source_id": "f004ad1e1920c28c57b3",
+      "url": "https://www.theinfatuation.com/new-york/guides/the-best-restaurants-for-affordable-group-dinners",
+      "rank": 9,
+      "name": "Elias Corner",
+      "present": true,
+      "reason": "exported",
+      "characters": 379,
+      "selector": "[data-testid=\"venue-description\"], div[city]"
+    },
+    {
+      "source_id": "f004ad1e1920c28c57b3",
+      "url": "https://www.theinfatuation.com/new-york/guides/the-best-restaurants-for-affordable-group-dinners",
+      "rank": 10,
+      "name": "Peking Duck House",
+      "present": true,
+      "reason": "exported",
+      "characters": 435,
+      "selector": "[data-testid=\"venue-description\"], div[city]"
+    },
+    {
+      "source_id": "f004ad1e1920c28c57b3",
+      "url": "https://www.theinfatuation.com/new-york/guides/the-best-restaurants-for-affordable-group-dinners",
+      "rank": 11,
+      "name": "Let’s Meat",
+      "present": true,
+      "reason": "exported",
+      "characters": 461,
+      "selector": "[data-testid=\"venue-description\"], div[city]"
+    },
+    {
+      "source_id": "f004ad1e1920c28c57b3",
+      "url": "https://www.theinfatuation.com/new-york/guides/the-best-restaurants-for-affordable-group-dinners",
+      "rank": 12,
+      "name": "Joe's Restaurant",
+      "present": true,
+      "reason": "exported",
+      "characters": 376,
+      "selector": "[data-testid=\"venue-description\"], div[city]"
+    },
+    {
+      "source_id": "f004ad1e1920c28c57b3",
+      "url": "https://www.theinfatuation.com/new-york/guides/the-best-restaurants-for-affordable-group-dinners",
+      "rank": 13,
+      "name": "Izakaya MEW",
+      "present": true,
+      "reason": "exported",
+      "characters": 551,
+      "selector": "[data-testid=\"venue-description\"], div[city]"
+    },
+    {
+      "source_id": "f004ad1e1920c28c57b3",
+      "url": "https://www.theinfatuation.com/new-york/guides/the-best-restaurants-for-affordable-group-dinners",
+      "rank": 14,
+      "name": "J.G. Melon",
+      "present": true,
+      "reason": "exported",
+      "characters": 444,
+      "selector": "[data-testid=\"venue-description\"], div[city]"
+    },
+    {
+      "source_id": "f004ad1e1920c28c57b3",
+      "url": "https://www.theinfatuation.com/new-york/guides/the-best-restaurants-for-affordable-group-dinners",
+      "rank": 15,
+      "name": "SriPraPhai",
+      "present": true,
+      "reason": "exported",
+      "characters": 497,
+      "selector": "[data-testid=\"venue-description\"], div[city]"
+    },
+    {
+      "source_id": "f004ad1e1920c28c57b3",
+      "url": "https://www.theinfatuation.com/new-york/guides/the-best-restaurants-for-affordable-group-dinners",
+      "rank": 16,
+      "name": "Astoria Seafood",
+      "present": true,
+      "reason": "exported",
+      "characters": 588,
+      "selector": "[data-testid=\"venue-description\"], div[city]"
+    },
+    {
+      "source_id": "f004ad1e1920c28c57b3",
+      "url": "https://www.theinfatuation.com/new-york/guides/the-best-restaurants-for-affordable-group-dinners",
+      "rank": 17,
+      "name": "La Nacional",
+      "present": true,
+      "reason": "exported",
+      "characters": 439,
+      "selector": "[data-testid=\"venue-description\"], div[city]"
+    },
+    {
+      "source_id": "f004ad1e1920c28c57b3",
+      "url": "https://www.theinfatuation.com/new-york/guides/the-best-restaurants-for-affordable-group-dinners",
+      "rank": 18,
+      "name": "Leo",
+      "present": true,
+      "reason": "exported",
+      "characters": 331,
+      "selector": "[data-testid=\"venue-description\"], div[city]"
+    },
+    {
+      "source_id": "f004ad1e1920c28c57b3",
+      "url": "https://www.theinfatuation.com/new-york/guides/the-best-restaurants-for-affordable-group-dinners",
+      "rank": 19,
+      "name": "Cafe Lily",
+      "present": true,
+      "reason": "exported",
+      "characters": 661,
+      "selector": "[data-testid=\"venue-description\"], div[city]"
+    },
+    {
+      "source_id": "f004ad1e1920c28c57b3",
+      "url": "https://www.theinfatuation.com/new-york/guides/the-best-restaurants-for-affordable-group-dinners",
+      "rank": 20,
+      "name": "Red Rooster",
+      "present": true,
+      "reason": "exported",
+      "characters": 523,
+      "selector": "[data-testid=\"venue-description\"], div[city]"
+    },
+    {
+      "source_id": "f004ad1e1920c28c57b3",
+      "url": "https://www.theinfatuation.com/new-york/guides/the-best-restaurants-for-affordable-group-dinners",
+      "rank": 21,
+      "name": "Ayada Thai",
+      "present": true,
+      "reason": "exported",
+      "characters": 412,
+      "selector": "[data-testid=\"venue-description\"], div[city]"
+    },
+    {
+      "source_id": "f004ad1e1920c28c57b3",
+      "url": "https://www.theinfatuation.com/new-york/guides/the-best-restaurants-for-affordable-group-dinners",
+      "rank": 22,
+      "name": "Yemen Cafe",
+      "present": true,
+      "reason": "exported",
+      "characters": 508,
+      "selector": "[data-testid=\"venue-description\"], div[city]"
+    },
+    {
+      "source_id": "f004ad1e1920c28c57b3",
+      "url": "https://www.theinfatuation.com/new-york/guides/the-best-restaurants-for-affordable-group-dinners",
+      "rank": 23,
+      "name": "Favela Grill",
+      "present": true,
+      "reason": "exported",
+      "characters": 557,
+      "selector": "[data-testid=\"venue-description\"], div[city]"
+    },
+    {
+      "source_id": "f004ad1e1920c28c57b3",
+      "url": "https://www.theinfatuation.com/new-york/guides/the-best-restaurants-for-affordable-group-dinners",
+      "rank": 24,
+      "name": "L&B Spumoni Gardens",
+      "present": true,
+      "reason": "exported",
+      "characters": 430,
+      "selector": "[data-testid=\"venue-description\"], div[city]"
+    },
+    {
+      "source_id": "f004ad1e1920c28c57b3",
+      "url": "https://www.theinfatuation.com/new-york/guides/the-best-restaurants-for-affordable-group-dinners",
+      "rank": 25,
+      "name": "Bunna Cafe",
+      "present": true,
+      "reason": "exported",
+      "characters": 576,
+      "selector": "[data-testid=\"venue-description\"], div[city]"
+    },
+    {
+      "source_id": "f47d34650bc22aca0ccd",
+      "url": "https://www.theinfatuation.com/new-york/reviews/hou-yi-hot-pot",
+      "rank": 1,
+      "name": "Hou Yi Hot Pot",
+      "present": true,
+      "reason": "exported",
+      "characters": 113,
+      "selector": "main .flatplan_tags"
+    },
+    {
+      "source_id": "5df56ced9c3e6c59f945",
+      "url": "https://www.theinfatuation.com/new-york/reviews/oncheon",
+      "rank": 1,
+      "name": "Oncheon",
+      "present": true,
+      "reason": "exported",
+      "characters": 55,
+      "selector": "main .flatplan_tags"
+    },
+    {
+      "source_id": "646be88dd340b99ee385",
+      "url": "https://www.corner.inc/place/pzm37JubPE4s",
+      "rank": 1,
+      "name": "37 Xiang Seafood Hot Pot Restaurant",
+      "present": true,
+      "reason": "exported",
+      "characters": 317,
+      "selector": "Corner primary description paragraphs"
+    },
+    {
+      "source_id": "0afc063bc5a6085eee07",
+      "url": "https://www.allyoucaneatguide.com/new-york-city",
+      "rank": 1,
+      "name": "Chubby Cattle BBQ | New York",
+      "present": false,
+      "reason": "not_provided",
+      "characters": null,
+      "selector": "directory card (no description field)"
+    },
+    {
+      "source_id": "0afc063bc5a6085eee07",
+      "url": "https://www.allyoucaneatguide.com/new-york-city",
+      "rank": 2,
+      "name": "Churrascaria Plataforma Steakhouse",
+      "present": false,
+      "reason": "not_provided",
+      "characters": null,
+      "selector": "directory card (no description field)"
+    },
+    {
+      "source_id": "0afc063bc5a6085eee07",
+      "url": "https://www.allyoucaneatguide.com/new-york-city",
+      "rank": 3,
+      "name": "Crab House Brooklyn",
+      "present": false,
+      "reason": "not_provided",
+      "characters": null,
+      "selector": "directory card (no description field)"
+    },
+    {
+      "source_id": "0afc063bc5a6085eee07",
+      "url": "https://www.allyoucaneatguide.com/new-york-city",
+      "rank": 4,
+      "name": "Crab House Times Square",
+      "present": false,
+      "reason": "not_provided",
+      "characters": null,
+      "selector": "directory card (no description field)"
+    },
+    {
+      "source_id": "0afc063bc5a6085eee07",
+      "url": "https://www.allyoucaneatguide.com/new-york-city",
+      "rank": 5,
+      "name": "Easy Joy Dim Sum & AYCE Hot Pot",
+      "present": false,
+      "reason": "not_provided",
+      "characters": null,
+      "selector": "directory card (no description field)"
+    },
+    {
+      "source_id": "0afc063bc5a6085eee07",
+      "url": "https://www.allyoucaneatguide.com/new-york-city",
+      "rank": 6,
+      "name": "Golden Corral Buffet & Grill",
+      "present": false,
+      "reason": "not_provided",
+      "characters": null,
+      "selector": "directory card (no description field)"
+    },
+    {
+      "source_id": "0afc063bc5a6085eee07",
+      "url": "https://www.allyoucaneatguide.com/new-york-city",
+      "rank": 7,
+      "name": "Hometown Hotpot & BBQ",
+      "present": false,
+      "reason": "not_provided",
+      "characters": null,
+      "selector": "directory card (no description field)"
+    },
+    {
+      "source_id": "0afc063bc5a6085eee07",
+      "url": "https://www.allyoucaneatguide.com/new-york-city",
+      "rank": 8,
+      "name": "Jongro BBQ Market | AYCE Korean BBQ Midtown",
+      "present": false,
+      "reason": "not_provided",
+      "characters": null,
+      "selector": "directory card (no description field)"
+    },
+    {
+      "source_id": "0afc063bc5a6085eee07",
+      "url": "https://www.allyoucaneatguide.com/new-york-city",
+      "rank": 9,
+      "name": "Jongro BBQ Market | Best All You Can Eat Korean BBQ, Koreatown",
+      "present": false,
+      "reason": "not_provided",
+      "characters": null,
+      "selector": "directory card (no description field)"
+    },
+    {
+      "source_id": "0afc063bc5a6085eee07",
+      "url": "https://www.allyoucaneatguide.com/new-york-city",
+      "rank": 10,
+      "name": "Joypot",
+      "present": false,
+      "reason": "not_provided",
+      "characters": null,
+      "selector": "directory card (no description field)"
+    },
+    {
+      "source_id": "0afc063bc5a6085eee07",
+      "url": "https://www.allyoucaneatguide.com/new-york-city",
+      "rank": 11,
+      "name": "Spring Shabu-Shabu",
+      "present": false,
+      "reason": "not_provided",
+      "characters": null,
+      "selector": "directory card (no description field)"
+    },
+    {
+      "source_id": "0afc063bc5a6085eee07",
+      "url": "https://www.allyoucaneatguide.com/new-york-city",
+      "rank": 12,
+      "name": "Witch Topokki | All You Can Eat Korean Restaurant",
+      "present": false,
+      "reason": "not_provided",
+      "characters": null,
+      "selector": "directory card (no description field)"
+    },
+    {
+      "source_id": "0afc063bc5a6085eee07",
+      "url": "https://www.allyoucaneatguide.com/new-york-city",
+      "rank": 13,
+      "name": "XI YUE HUI HOT POT",
+      "present": false,
+      "reason": "not_provided",
+      "characters": null,
+      "selector": "directory card (no description field)"
+    }
+  ]
+}

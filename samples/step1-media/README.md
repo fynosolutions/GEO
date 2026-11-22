@@ -1,3 +1,28 @@
+Current script entry: `scripts/check/step1-media/generate.mjs`. Default output: `samples/step1-media/articles.json`; use `--out samples/step1-media/current` during development to retain the historical files below. See `manual/README.md` for the ten pending browser archives.
+
+Scripts are stored in `scripts/check/step1-media/`; see that directory’s README for the current media and optional Apify candidate commands. Outputs are saved in this sample directory’s `current/`, `candidate-apify/` and `candidate-all/` subdirectories during development. The historical #15 files below remain unchanged.
+
+# Issue #20 local phases 1–3
+
+`urls.json` contains the 37 URLs supplied in Issue #20, including the Los Angeles inputs and two Reddit posts. Add/remove supported-layout URLs here; article URLs are not maintained in code.
+
+```sh
+npm ci
+npm run build
+npm run collect:media
+# Reuse HTML; only official Reddit is refreshed (requires approved OAuth)
+npm run collect:media -- --offline-html
+npm run verify:media-current
+# Optional exact cached replay, without network
+npm run collect:media -- --offline
+```
+
+Fresh results are local in `.local/issue20/current/`; inspect `coverage.md`, `articles.json` and `access-checks.json`. HTTP outcomes, final URLs, original fetch times and content hashes are preserved. Exit 2 reports partial source coverage; outputs are still available. Current rows include source-specific `closed`; Reddit quote rows include `comment_url`. The official OAuth adapter is implemented, but live acceptance awaits approved access and local credentials. Missing keys never trigger anonymous requests or old saved-thread fallback. Manual exceptions and clean-machine final acceptance remain pending; this is not a full #20 handoff. See `docs/REDDIT_API_SETUP.md` for application steps and the local read-only authorization helper.
+
+The JSON/evidence files alongside this README remain the historical #15 delivery below. They are not the new 37-source result. `npm run verify:media` continues to validate those historical files; `verify:media-current` validates the new local output. No private cache is needed for the latter's schema check, but offline recollection needs the HTTP captures. Full implementation details and custom input/output flags are in `backend/media/README.md`.
+
+---
+
 # Issue #15 交付数据
 
 2026-11-12 已使用用户提供的九份 HTML 重新导出。共九个来源、105 个餐厅/目录/社区条目，105 条介绍或评论原文均已写入 blurb，缺失介绍为 0。JSON 和上榜表由同一程序生成。
@@ -43,7 +68,7 @@ npm run build
 npm run verify:media
 BROWSER_CHANNEL=chrome npm test
 # 需要本地私有输入；全新检出不含这些 HTML
-npm run collect:media -- --descriptions full --supplied-pages .local/issue15/user-supplied --out samples/step1-media
+npm run collect:media -- --legacy --descriptions full --supplied-pages .local/issue15/user-supplied --out samples/step1-media
 ```
 
 原始 HTML、资源文件和登录状态仅保留本地，不上传仓库。离线 verify:media 不联网、不调用付费服务。此次导入无 Apify 调用，Apify 费用 US$0，未启动商户采集或每周任务。本次修复交付至 main；具体提交及验收证据见 Issue #15 最新交付说明。

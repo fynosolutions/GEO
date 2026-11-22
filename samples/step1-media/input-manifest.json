@@ -1,0 +1,304 @@
+{
+  "urls_file": "samples/step1-media/urls.json",
+  "sha256": "72068769bcb408ef28431a7601aba76a8c9d287238538aa759358538a2b2103d",
+  "urls": [
+    "https://ny.eater.com/maps/best-hot-pot-restaurants-nyc",
+    "https://happy-hour.nyc/deals/best-hot-pot-nyc",
+    "https://www.corner.inc/place/pXfxs8NBaXA1",
+    "https://www.theinfatuation.com/new-york/guides/best-hot-pot-nyc",
+    "https://www.theinfatuation.com/new-york/reviews/xi-yue-hui-seafood-hot-pot",
+    "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/shabushabu-mayumon",
+    "https://welcometochinatown.com/guides/hotpot",
+    "https://www.corner.inc/place/pViBMQCWetMi",
+    "https://www.theinfatuation.com/los-angeles/guides/best-hot-pot-los-angeles",
+    "https://guide.michelin.com/en/new-york-state/new-york/restaurant/shabushabu-mayumon",
+    "https://www.theinfatuation.com/new-york/cuisines/hot-pot",
+    "https://www.theinfatuation.com/new-york/guides/best-all-you-can-eat-new-york",
+    "https://ny.eater.com/2019/5/15/18624993/da-long-yi-chinatown-manhattan-open-canal-street",
+    "https://www.theinfatuation.com/new-york/reviews/the-dolar-shop-manhattan",
+    "https://www.corner.inc/place/puZejM3KNMGD",
+    "https://www.corner.inc/list/794a4486-3983-4661-ad25-496a5dd82dcd",
+    "https://www.theinfatuation.com/los-angeles/reviews/mikiya-wagyu-shabu-house-la",
+    "https://www.corner.inc/guides/new-york-city/manhattan/bubbling-good-times-best-hotpot-restaurants-in-manhattan",
+    "https://www.theinfatuation.com/new-york/reviews/99-favor-taste-lower-east-side",
+    "https://www.corner.inc/place/pahWPjNKWq9w",
+    "https://www.theinfatuation.com/los-angeles/reviews/shabuya",
+    "https://www.theinfatuation.com/los-angeles/cuisines/hot-pot",
+    "https://www.allyoucaneatguide.com/new-york-city/easy-joy-dim-sum-ayce-hot-pot",
+    "https://www.theinfatuation.com/new-york/reviews/see-joy",
+    "https://www.corner.inc/place/pkjR4kv52Go5",
+    "https://www.timeout.com/los-angeles/restaurants/best-hot-pot-restaurants-in-l-a",
+    "https://www.timeout.com/newyork/restaurants/99-favor-taste",
+    "https://www.theinfatuation.com/new-york/reviews/hometown-hotpot-bbq",
+    "https://ny.eater.com/2020/12/3/22023273/the-dolar-shop-hot-pot-nyc-restaurant-east-village-opening",
+    "https://www.reddit.com/r/Flushing/comments/1wfu6sh/best_hot_pot_in_flushing",
+    "https://www.theinfatuation.com/new-york/guides/the-best-restaurants-in-flushing",
+    "https://www.theinfatuation.com/new-york/guides/the-best-restaurants-for-affordable-group-dinners",
+    "https://www.theinfatuation.com/new-york/reviews/hou-yi-hot-pot",
+    "https://www.theinfatuation.com/new-york/reviews/oncheon",
+    "https://www.reddit.com/r/FoodNYC/comments/1wmlr4l/best_all_you_can_eat_hot_pot_in_manhattan_or_lic",
+    "https://www.corner.inc/place/pzm37JubPE4s",
+    "https://www.allyoucaneatguide.com/new-york-city"
+  ],
+  "sources": [
+    {
+      "id": "5fde5e09398002ea63de",
+      "url": "https://ny.eater.com/maps/best-hot-pot-restaurants-nyc",
+      "site": "Eater NY",
+      "priority": 0,
+      "page_type": "list"
+    },
+    {
+      "id": "6023dcc7bfdaf82c2f2c",
+      "url": "https://happy-hour.nyc/deals/best-hot-pot-nyc",
+      "site": "Happy Hour NYC",
+      "priority": 0,
+      "page_type": "list"
+    },
+    {
+      "id": "8cec6d365a43fcecf56b",
+      "url": "https://www.corner.inc/place/pXfxs8NBaXA1",
+      "site": "Corner",
+      "priority": 0,
+      "page_type": "place"
+    },
+    {
+      "id": "a6631e158cf7e4d7eae2",
+      "url": "https://www.theinfatuation.com/new-york/guides/best-hot-pot-nyc",
+      "site": "The Infatuation",
+      "priority": 0,
+      "page_type": "list"
+    },
+    {
+      "id": "daa919fc6fb2c6c89b95",
+      "url": "https://www.theinfatuation.com/new-york/reviews/xi-yue-hui-seafood-hot-pot",
+      "site": "The Infatuation",
+      "priority": 0,
+      "page_type": "review"
+    },
+    {
+      "id": "d906a5b3a829d633ab51",
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/shabushabu-mayumon",
+      "site": "MICHELIN Guide",
+      "priority": 0,
+      "page_type": "review"
+    },
+    {
+      "id": "3a2d067ad135a39c2030",
+      "url": "https://welcometochinatown.com/guides/hotpot",
+      "site": "Welcome to Chinatown",
+      "priority": 0,
+      "page_type": "list"
+    },
+    {
+      "id": "6dcacdf5a7b8e31436c5",
+      "url": "https://www.corner.inc/place/pViBMQCWetMi",
+      "site": "Corner",
+      "priority": 0,
+      "page_type": "place"
+    },
+    {
+      "id": "4a6a2be00a95c2ac2399",
+      "url": "https://www.theinfatuation.com/los-angeles/guides/best-hot-pot-los-angeles",
+      "site": "The Infatuation",
+      "priority": 0,
+      "page_type": "list"
+    },
+    {
+      "id": "a3b1384484a6ae885db7",
+      "url": "https://guide.michelin.com/en/new-york-state/new-york/restaurant/shabushabu-mayumon",
+      "site": "MICHELIN Guide",
+      "priority": 0,
+      "page_type": "review"
+    },
+    {
+      "id": "c0654f5b36d92455a8c7",
+      "url": "https://www.theinfatuation.com/new-york/cuisines/hot-pot",
+      "site": "The Infatuation",
+      "priority": 0,
+      "page_type": "directory"
+    },
+    {
+      "id": "dcf2defa854fa5eb104c",
+      "url": "https://www.theinfatuation.com/new-york/guides/best-all-you-can-eat-new-york",
+      "site": "The Infatuation",
+      "priority": 0,
+      "page_type": "list"
+    },
+    {
+      "id": "5584639a4204c4ed4741",
+      "url": "https://ny.eater.com/2019/5/15/18624993/da-long-yi-chinatown-manhattan-open-canal-street",
+      "site": "Eater NY",
+      "priority": 0,
+      "page_type": "article"
+    },
+    {
+      "id": "d56d3a0232aaf58bb43a",
+      "url": "https://www.theinfatuation.com/new-york/reviews/the-dolar-shop-manhattan",
+      "site": "The Infatuation",
+      "priority": 0,
+      "page_type": "review"
+    },
+    {
+      "id": "d1006f2856717e496de3",
+      "url": "https://www.corner.inc/place/puZejM3KNMGD",
+      "site": "Corner",
+      "priority": 0,
+      "page_type": "place"
+    },
+    {
+      "id": "8c64f5104d6961d8010b",
+      "url": "https://www.corner.inc/list/794a4486-3983-4661-ad25-496a5dd82dcd",
+      "site": "Corner",
+      "priority": 0,
+      "page_type": "list"
+    },
+    {
+      "id": "04e3e8ceab88a82a2beb",
+      "url": "https://www.theinfatuation.com/los-angeles/reviews/mikiya-wagyu-shabu-house-la",
+      "site": "The Infatuation",
+      "priority": 0,
+      "page_type": "review"
+    },
+    {
+      "id": "bf51dde417f320637a40",
+      "url": "https://www.corner.inc/guides/new-york-city/manhattan/bubbling-good-times-best-hotpot-restaurants-in-manhattan",
+      "site": "Corner",
+      "priority": 0,
+      "page_type": "list"
+    },
+    {
+      "id": "5e19f54fc5e5fd554577",
+      "url": "https://www.theinfatuation.com/new-york/reviews/99-favor-taste-lower-east-side",
+      "site": "The Infatuation",
+      "priority": 0,
+      "page_type": "review"
+    },
+    {
+      "id": "6cabcd099c434a56cc31",
+      "url": "https://www.corner.inc/place/pahWPjNKWq9w",
+      "site": "Corner",
+      "priority": 0,
+      "page_type": "place"
+    },
+    {
+      "id": "9756d5af223605971741",
+      "url": "https://www.theinfatuation.com/los-angeles/reviews/shabuya",
+      "site": "The Infatuation",
+      "priority": 0,
+      "page_type": "review"
+    },
+    {
+      "id": "819760ab87a70da9de1d",
+      "url": "https://www.theinfatuation.com/los-angeles/cuisines/hot-pot",
+      "site": "The Infatuation",
+      "priority": 0,
+      "page_type": "directory"
+    },
+    {
+      "id": "bb60997f97e624da6b80",
+      "url": "https://www.allyoucaneatguide.com/new-york-city/easy-joy-dim-sum-ayce-hot-pot",
+      "site": "All You Can Eat Guide",
+      "priority": 0,
+      "page_type": "review"
+    },
+    {
+      "id": "ddb70e34c09cc42eb521",
+      "url": "https://www.theinfatuation.com/new-york/reviews/see-joy",
+      "site": "The Infatuation",
+      "priority": 0,
+      "page_type": "review"
+    },
+    {
+      "id": "b41c036fa6a64c49e54c",
+      "url": "https://www.corner.inc/place/pkjR4kv52Go5",
+      "site": "Corner",
+      "priority": 0,
+      "page_type": "place"
+    },
+    {
+      "id": "702fbd0a7dc01ff06cb8",
+      "url": "https://www.timeout.com/los-angeles/restaurants/best-hot-pot-restaurants-in-l-a",
+      "site": "Time Out",
+      "priority": 0,
+      "page_type": "list"
+    },
+    {
+      "id": "109f0d7e38b0624260f6",
+      "url": "https://www.timeout.com/newyork/restaurants/99-favor-taste",
+      "site": "Time Out",
+      "priority": 0,
+      "page_type": "review"
+    },
+    {
+      "id": "faff2ffdc6541d291abe",
+      "url": "https://www.theinfatuation.com/new-york/reviews/hometown-hotpot-bbq",
+      "site": "The Infatuation",
+      "priority": 0,
+      "page_type": "review"
+    },
+    {
+      "id": "a11d15e90c03552b64ee",
+      "url": "https://ny.eater.com/2020/12/3/22023273/the-dolar-shop-hot-pot-nyc-restaurant-east-village-opening",
+      "site": "Eater NY",
+      "priority": 0,
+      "page_type": "article"
+    },
+    {
+      "id": "23ce1d9854e125e51d56",
+      "url": "https://www.reddit.com/r/Flushing/comments/1wfu6sh/best_hot_pot_in_flushing",
+      "site": "Reddit",
+      "priority": 0,
+      "page_type": "community"
+    },
+    {
+      "id": "532a0b7911d91721d134",
+      "url": "https://www.theinfatuation.com/new-york/guides/the-best-restaurants-in-flushing",
+      "site": "The Infatuation",
+      "priority": 0,
+      "page_type": "list"
+    },
+    {
+      "id": "f004ad1e1920c28c57b3",
+      "url": "https://www.theinfatuation.com/new-york/guides/the-best-restaurants-for-affordable-group-dinners",
+      "site": "The Infatuation",
+      "priority": 0,
+      "page_type": "list"
+    },
+    {
+      "id": "f47d34650bc22aca0ccd",
+      "url": "https://www.theinfatuation.com/new-york/reviews/hou-yi-hot-pot",
+      "site": "The Infatuation",
+      "priority": 0,
+      "page_type": "review"
+    },
+    {
+      "id": "5df56ced9c3e6c59f945",
+      "url": "https://www.theinfatuation.com/new-york/reviews/oncheon",
+      "site": "The Infatuation",
+      "priority": 0,
+      "page_type": "review"
+    },
+    {
+      "id": "7d8d75a5fb01d9d06c61",
+      "url": "https://www.reddit.com/r/FoodNYC/comments/1wmlr4l/best_all_you_can_eat_hot_pot_in_manhattan_or_lic",
+      "site": "Reddit",
+      "priority": 0,
+      "page_type": "community"
+    },
+    {
+      "id": "646be88dd340b99ee385",
+      "url": "https://www.corner.inc/place/pzm37JubPE4s",
+      "site": "Corner",
+      "priority": 0,
+      "page_type": "place"
+    },
+    {
+      "id": "0afc063bc5a6085eee07",
+      "url": "https://www.allyoucaneatguide.com/new-york-city",
+      "site": "All You Can Eat Guide",
+      "priority": 0,
+      "page_type": "directory"
+    }
+  ]
+}

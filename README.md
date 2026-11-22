@@ -98,7 +98,7 @@ Collect the latest Google/Yelp reviews using an explicit six-store input: `npm r
 
 ## Media lists (issue #15)
 
-`npm run verify:media` validates the delivered nine-source JSON and six-branch membership table without network or private caches (run `npm run build` first). The samples have 105 entries, 22 descriptions and 83 explicitly null descriptions. User-saved Reddit coverage accounts for 47 comment nodes, including one deleted node. `collect:media` supports direct caches, labelled index fallbacks and user-saved HTML; strict full-data acceptance remains partial. See [media collection](backend/media/README.md) for reproduction, saved-file import and known gaps.
+`npm run collect:media` reads `samples/step1-media/urls.json` and freshly collects the Issue #20 sources into `.local/issue20/current`; `--offline` replays exact cached captures, and `npm run verify:media-current` checks their schema/evidence. Phases 1–3 are local: closure markers and the official Reddit OAuth adapter are implemented; live Reddit acceptance awaits approved credentials, and final delivery remains pending. `npm run verify:media` separately validates the historical nine-source #15 delivery (105 entries and 105 descriptions), while `collect:media -- --legacy ...` retains its old replay/import interface. See [media collection](backend/media/README.md) for outcomes, supported layouts and boundaries.
 
 ## Platform name comparison (issue #19)
 

@@ -1,0 +1,584 @@
+{
+  "candidate_only": true,
+  "ready_for_delivery": false,
+  "official_api_requirement_met": false,
+  "sources": 37,
+  "entries": 225,
+  "comment_tree_verified": false,
+  "base_acceptance": {
+    "complete": false,
+    "ready_for_delivery": false,
+    "scope": "all_required_sources",
+    "missing_sources": [],
+    "source_count": 37,
+    "restaurant_count": 162,
+    "descriptions_available": 149,
+    "descriptions_missing": 13,
+    "sources": [
+      {
+        "source_id": "5fde5e09398002ea63de",
+        "url": "https://ny.eater.com/maps/best-hot-pot-restaurants-nyc",
+        "status": "complete",
+        "complete": true,
+        "restaurants": 18,
+        "descriptions": 18,
+        "missing_descriptions": 0,
+        "blocking_reasons": [],
+        "warnings": [
+          "closed=false means this source has no matched closure marker; it is not a real-time opening-status assertion."
+        ]
+      },
+      {
+        "source_id": "6023dcc7bfdaf82c2f2c",
+        "url": "https://happy-hour.nyc/deals/best-hot-pot-nyc",
+        "status": "complete",
+        "complete": true,
+        "restaurants": 8,
+        "descriptions": 8,
+        "missing_descriptions": 0,
+        "blocking_reasons": [],
+        "warnings": [
+          "Some source addresses are unavailable.",
+          "closed=false means this source has no matched closure marker; it is not a real-time opening-status assertion."
+        ]
+      },
+      {
+        "source_id": "8cec6d365a43fcecf56b",
+        "url": "https://www.corner.inc/place/pXfxs8NBaXA1",
+        "status": "failed",
+        "complete": false,
+        "restaurants": 0,
+        "descriptions": 0,
+        "missing_descriptions": 0,
+        "blocking_reasons": [
+          "Article title unavailable.",
+          "No verified restaurant entries.",
+          "Restaurant count/order completeness is not verified."
+        ],
+        "warnings": [
+          "HTTP 429: blocked; no merchant facts inferred."
+        ]
+      },
+      {
+        "source_id": "a6631e158cf7e4d7eae2",
+        "url": "https://www.theinfatuation.com/new-york/guides/best-hot-pot-nyc",
+        "status": "complete",
+        "complete": true,
+        "restaurants": 10,
+        "descriptions": 10,
+        "missing_descriptions": 0,
+        "blocking_reasons": [],
+        "warnings": [
+          "Conflicting updated dates; no value selected.",
+          "closed=false means this source has no matched closure marker; it is not a real-time opening-status assertion."
+        ]
+      },
+      {
+        "source_id": "daa919fc6fb2c6c89b95",
+        "url": "https://www.theinfatuation.com/new-york/reviews/xi-yue-hui-seafood-hot-pot",
+        "status": "complete",
+        "complete": true,
+        "restaurants": 1,
+        "descriptions": 1,
+        "missing_descriptions": 0,
+        "blocking_reasons": [],
+        "warnings": [
+          "closed=false means this source has no matched closure marker; it is not a real-time opening-status assertion."
+        ]
+      },
+      {
+        "source_id": "d906a5b3a829d633ab51",
+        "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/shabushabu-mayumon",
+        "status": "failed",
+        "complete": false,
+        "restaurants": 0,
+        "descriptions": 0,
+        "missing_descriptions": 0,
+        "blocking_reasons": [
+          "Article title unavailable.",
+          "No verified restaurant entries.",
+          "Restaurant count/order completeness is not verified."
+        ],
+        "warnings": [
+          "HTTP 202: blocked; no merchant facts inferred."
+        ]
+      },
+      {
+        "source_id": "3a2d067ad135a39c2030",
+        "url": "https://welcometochinatown.com/guides/hotpot",
+        "status": "complete",
+        "complete": true,
+        "restaurants": 5,
+        "descriptions": 5,
+        "missing_descriptions": 0,
+        "blocking_reasons": [],
+        "warnings": [
+          "closed=false means this source has no matched closure marker; it is not a real-time opening-status assertion."
+        ]
+      },
+      {
+        "source_id": "6dcacdf5a7b8e31436c5",
+        "url": "https://www.corner.inc/place/pViBMQCWetMi",
+        "status": "failed",
+        "complete": false,
+        "restaurants": 0,
+        "descriptions": 0,
+        "missing_descriptions": 0,
+        "blocking_reasons": [
+          "Article title unavailable.",
+          "No verified restaurant entries.",
+          "Restaurant count/order completeness is not verified."
+        ],
+        "warnings": [
+          "HTTP 429: blocked; no merchant facts inferred."
+        ]
+      },
+      {
+        "source_id": "4a6a2be00a95c2ac2399",
+        "url": "https://www.theinfatuation.com/los-angeles/guides/best-hot-pot-los-angeles",
+        "status": "complete",
+        "complete": true,
+        "restaurants": 12,
+        "descriptions": 12,
+        "missing_descriptions": 0,
+        "blocking_reasons": [],
+        "warnings": [
+          "Conflicting updated dates; no value selected.",
+          "closed=false means this source has no matched closure marker; it is not a real-time opening-status assertion."
+        ]
+      },
+      {
+        "source_id": "a3b1384484a6ae885db7",
+        "url": "https://guide.michelin.com/en/new-york-state/new-york/restaurant/shabushabu-mayumon",
+        "status": "failed",
+        "complete": false,
+        "restaurants": 0,
+        "descriptions": 0,
+        "missing_descriptions": 0,
+        "blocking_reasons": [
+          "Article title unavailable.",
+          "No verified restaurant entries.",
+          "Restaurant count/order completeness is not verified."
+        ],
+        "warnings": [
+          "HTTP 202: blocked; no merchant facts inferred."
+        ]
+      },
+      {
+        "source_id": "c0654f5b36d92455a8c7",
+        "url": "https://www.theinfatuation.com/new-york/cuisines/hot-pot",
+        "status": "complete",
+        "complete": true,
+        "restaurants": 6,
+        "descriptions": 6,
+        "missing_descriptions": 0,
+        "blocking_reasons": [],
+        "warnings": [
+          "Cuisine directory, not an editorial ranking. Guide cards are excluded. Addresses use the page embedded restaurant fields.",
+          "closed=false means this source has no matched closure marker; it is not a real-time opening-status assertion."
+        ]
+      },
+      {
+        "source_id": "dcf2defa854fa5eb104c",
+        "url": "https://www.theinfatuation.com/new-york/guides/best-all-you-can-eat-new-york",
+        "status": "complete",
+        "complete": true,
+        "restaurants": 10,
+        "descriptions": 10,
+        "missing_descriptions": 0,
+        "blocking_reasons": [],
+        "warnings": [
+          "Conflicting updated dates; no value selected.",
+          "closed=false means this source has no matched closure marker; it is not a real-time opening-status assertion."
+        ]
+      },
+      {
+        "source_id": "5584639a4204c4ed4741",
+        "url": "https://ny.eater.com/2019/5/15/18624993/da-long-yi-chinatown-manhattan-open-canal-street",
+        "status": "complete",
+        "complete": true,
+        "restaurants": 1,
+        "descriptions": 1,
+        "missing_descriptions": 0,
+        "blocking_reasons": [],
+        "warnings": [
+          "Single restaurant story; body may mention background restaurants. This is not a ranked list.",
+          "Some source addresses are unavailable.",
+          "closed=false means this source has no matched closure marker; it is not a real-time opening-status assertion."
+        ]
+      },
+      {
+        "source_id": "d56d3a0232aaf58bb43a",
+        "url": "https://www.theinfatuation.com/new-york/reviews/the-dolar-shop-manhattan",
+        "status": "complete",
+        "complete": true,
+        "restaurants": 1,
+        "descriptions": 1,
+        "missing_descriptions": 0,
+        "blocking_reasons": [],
+        "warnings": [
+          "closed=false means this source has no matched closure marker; it is not a real-time opening-status assertion."
+        ]
+      },
+      {
+        "source_id": "d1006f2856717e496de3",
+        "url": "https://www.corner.inc/place/puZejM3KNMGD",
+        "status": "failed",
+        "complete": false,
+        "restaurants": 0,
+        "descriptions": 0,
+        "missing_descriptions": 0,
+        "blocking_reasons": [
+          "Article title unavailable.",
+          "No verified restaurant entries.",
+          "Restaurant count/order completeness is not verified."
+        ],
+        "warnings": [
+          "HTTP 429: blocked; no merchant facts inferred."
+        ]
+      },
+      {
+        "source_id": "8c64f5104d6961d8010b",
+        "url": "https://www.corner.inc/list/794a4486-3983-4661-ad25-496a5dd82dcd",
+        "status": "failed",
+        "complete": false,
+        "restaurants": 0,
+        "descriptions": 0,
+        "missing_descriptions": 0,
+        "blocking_reasons": [
+          "Article title unavailable.",
+          "No verified restaurant entries.",
+          "Restaurant count/order completeness is not verified."
+        ],
+        "warnings": [
+          "HTTP 429: blocked; no merchant facts inferred."
+        ]
+      },
+      {
+        "source_id": "04e3e8ceab88a82a2beb",
+        "url": "https://www.theinfatuation.com/los-angeles/reviews/mikiya-wagyu-shabu-house-la",
+        "status": "complete",
+        "complete": true,
+        "restaurants": 1,
+        "descriptions": 1,
+        "missing_descriptions": 0,
+        "blocking_reasons": [],
+        "warnings": [
+          "closed=false means this source has no matched closure marker; it is not a real-time opening-status assertion."
+        ]
+      },
+      {
+        "source_id": "bf51dde417f320637a40",
+        "url": "https://www.corner.inc/guides/new-york-city/manhattan/bubbling-good-times-best-hotpot-restaurants-in-manhattan",
+        "status": "failed",
+        "complete": false,
+        "restaurants": 0,
+        "descriptions": 0,
+        "missing_descriptions": 0,
+        "blocking_reasons": [
+          "Article title unavailable.",
+          "No verified restaurant entries.",
+          "Restaurant count/order completeness is not verified."
+        ],
+        "warnings": [
+          "HTTP 429: blocked; no merchant facts inferred."
+        ]
+      },
+      {
+        "source_id": "5e19f54fc5e5fd554577",
+        "url": "https://www.theinfatuation.com/new-york/reviews/99-favor-taste-lower-east-side",
+        "status": "complete",
+        "complete": true,
+        "restaurants": 1,
+        "descriptions": 1,
+        "missing_descriptions": 0,
+        "blocking_reasons": [],
+        "warnings": [
+          "closed=false means this source has no matched closure marker; it is not a real-time opening-status assertion."
+        ]
+      },
+      {
+        "source_id": "6cabcd099c434a56cc31",
+        "url": "https://www.corner.inc/place/pahWPjNKWq9w",
+        "status": "failed",
+        "complete": false,
+        "restaurants": 0,
+        "descriptions": 0,
+        "missing_descriptions": 0,
+        "blocking_reasons": [
+          "Article title unavailable.",
+          "No verified restaurant entries.",
+          "Restaurant count/order completeness is not verified."
+        ],
+        "warnings": [
+          "HTTP 429: blocked; no merchant facts inferred."
+        ]
+      },
+      {
+        "source_id": "9756d5af223605971741",
+        "url": "https://www.theinfatuation.com/los-angeles/reviews/shabuya",
+        "status": "complete",
+        "complete": true,
+        "restaurants": 1,
+        "descriptions": 1,
+        "missing_descriptions": 0,
+        "blocking_reasons": [],
+        "warnings": [
+          "closed=false means this source has no matched closure marker; it is not a real-time opening-status assertion."
+        ]
+      },
+      {
+        "source_id": "819760ab87a70da9de1d",
+        "url": "https://www.theinfatuation.com/los-angeles/cuisines/hot-pot",
+        "status": "complete",
+        "complete": true,
+        "restaurants": 11,
+        "descriptions": 11,
+        "missing_descriptions": 0,
+        "blocking_reasons": [],
+        "warnings": [
+          "Cuisine directory, not an editorial ranking. Guide cards are excluded. Addresses use the page embedded restaurant fields.",
+          "Some restaurant addresses are unavailable.",
+          "closed=false means this source has no matched closure marker; it is not a real-time opening-status assertion."
+        ]
+      },
+      {
+        "source_id": "bb60997f97e624da6b80",
+        "url": "https://www.allyoucaneatguide.com/new-york-city/easy-joy-dim-sum-ayce-hot-pot",
+        "status": "complete",
+        "complete": true,
+        "restaurants": 1,
+        "descriptions": 1,
+        "missing_descriptions": 0,
+        "blocking_reasons": [],
+        "warnings": [
+          "closed=false means this source has no matched closure marker; it is not a real-time opening-status assertion."
+        ]
+      },
+      {
+        "source_id": "ddb70e34c09cc42eb521",
+        "url": "https://www.theinfatuation.com/new-york/reviews/see-joy",
+        "status": "complete",
+        "complete": true,
+        "restaurants": 1,
+        "descriptions": 1,
+        "missing_descriptions": 0,
+        "blocking_reasons": [],
+        "warnings": [
+          "closed=false means this source has no matched closure marker; it is not a real-time opening-status assertion."
+        ]
+      },
+      {
+        "source_id": "b41c036fa6a64c49e54c",
+        "url": "https://www.corner.inc/place/pkjR4kv52Go5",
+        "status": "failed",
+        "complete": false,
+        "restaurants": 0,
+        "descriptions": 0,
+        "missing_descriptions": 0,
+        "blocking_reasons": [
+          "Article title unavailable.",
+          "No verified restaurant entries.",
+          "Restaurant count/order completeness is not verified."
+        ],
+        "warnings": [
+          "HTTP 429: blocked; no merchant facts inferred."
+        ]
+      },
+      {
+        "source_id": "702fbd0a7dc01ff06cb8",
+        "url": "https://www.timeout.com/los-angeles/restaurants/best-hot-pot-restaurants-in-l-a",
+        "status": "complete",
+        "complete": true,
+        "restaurants": 10,
+        "descriptions": 10,
+        "missing_descriptions": 0,
+        "blocking_reasons": [],
+        "warnings": [
+          "Count checked against the headline and consecutive visible item numbers. Addresses absent from this list remain null.",
+          "Some restaurant addresses are unavailable.",
+          "closed=false means this source has no matched closure marker; it is not a real-time opening-status assertion."
+        ]
+      },
+      {
+        "source_id": "109f0d7e38b0624260f6",
+        "url": "https://www.timeout.com/newyork/restaurants/99-favor-taste",
+        "status": "complete",
+        "complete": true,
+        "restaurants": 1,
+        "descriptions": 1,
+        "missing_descriptions": 0,
+        "blocking_reasons": [],
+        "warnings": [
+          "closed=false means this source has no matched closure marker; it is not a real-time opening-status assertion."
+        ]
+      },
+      {
+        "source_id": "faff2ffdc6541d291abe",
+        "url": "https://www.theinfatuation.com/new-york/reviews/hometown-hotpot-bbq",
+        "status": "complete",
+        "complete": true,
+        "restaurants": 1,
+        "descriptions": 1,
+        "missing_descriptions": 0,
+        "blocking_reasons": [],
+        "warnings": [
+          "closed=false means this source has no matched closure marker; it is not a real-time opening-status assertion."
+        ]
+      },
+      {
+        "source_id": "a11d15e90c03552b64ee",
+        "url": "https://ny.eater.com/2020/12/3/22023273/the-dolar-shop-hot-pot-nyc-restaurant-east-village-opening",
+        "status": "complete",
+        "complete": true,
+        "restaurants": 1,
+        "descriptions": 1,
+        "missing_descriptions": 0,
+        "blocking_reasons": [],
+        "warnings": [
+          "Single restaurant story; body may mention background restaurants. This is not a ranked list.",
+          "closed=false means this source has no matched closure marker; it is not a real-time opening-status assertion."
+        ]
+      },
+      {
+        "source_id": "23ce1d9854e125e51d56",
+        "url": "https://www.reddit.com/r/Flushing/comments/1wfu6sh/best_hot_pot_in_flushing",
+        "status": "failed",
+        "complete": false,
+        "restaurants": 0,
+        "descriptions": 0,
+        "missing_descriptions": 0,
+        "blocking_reasons": [
+          "Article title unavailable.",
+          "Capture time unavailable.",
+          "No verified restaurant entries.",
+          "Restaurant count/order completeness is not verified."
+        ],
+        "warnings": [
+          "Reddit official API credentials are missing. Configure the approved OAuth client, refresh token and User-Agent; no anonymous request was made."
+        ]
+      },
+      {
+        "source_id": "532a0b7911d91721d134",
+        "url": "https://www.theinfatuation.com/new-york/guides/the-best-restaurants-in-flushing",
+        "status": "complete",
+        "complete": true,
+        "restaurants": 21,
+        "descriptions": 21,
+        "missing_descriptions": 0,
+        "blocking_reasons": [],
+        "warnings": [
+          "Conflicting updated dates; no value selected.",
+          "Canonical guide embedded body verifies all 21 visible entries in order; JSON-LD ItemList contains 20. All visible source entries retained.",
+          "closed=false means this source has no matched closure marker; it is not a real-time opening-status assertion."
+        ]
+      },
+      {
+        "source_id": "f004ad1e1920c28c57b3",
+        "url": "https://www.theinfatuation.com/new-york/guides/the-best-restaurants-for-affordable-group-dinners",
+        "status": "complete",
+        "complete": true,
+        "restaurants": 25,
+        "descriptions": 25,
+        "missing_descriptions": 0,
+        "blocking_reasons": [],
+        "warnings": [
+          "Conflicting updated dates; no value selected.",
+          "Canonical guide embedded body verifies all 25 visible entries in order; JSON-LD ItemList contains 20. All visible source entries retained.",
+          "closed=false means this source has no matched closure marker; it is not a real-time opening-status assertion."
+        ]
+      },
+      {
+        "source_id": "f47d34650bc22aca0ccd",
+        "url": "https://www.theinfatuation.com/new-york/reviews/hou-yi-hot-pot",
+        "status": "complete",
+        "complete": true,
+        "restaurants": 1,
+        "descriptions": 1,
+        "missing_descriptions": 0,
+        "blocking_reasons": [],
+        "warnings": [
+          "closed=false means this source has no matched closure marker; it is not a real-time opening-status assertion."
+        ]
+      },
+      {
+        "source_id": "5df56ced9c3e6c59f945",
+        "url": "https://www.theinfatuation.com/new-york/reviews/oncheon",
+        "status": "complete",
+        "complete": true,
+        "restaurants": 1,
+        "descriptions": 1,
+        "missing_descriptions": 0,
+        "blocking_reasons": [],
+        "warnings": [
+          "closed=false means this source has no matched closure marker; it is not a real-time opening-status assertion."
+        ]
+      },
+      {
+        "source_id": "7d8d75a5fb01d9d06c61",
+        "url": "https://www.reddit.com/r/FoodNYC/comments/1wmlr4l/best_all_you_can_eat_hot_pot_in_manhattan_or_lic",
+        "status": "failed",
+        "complete": false,
+        "restaurants": 0,
+        "descriptions": 0,
+        "missing_descriptions": 0,
+        "blocking_reasons": [
+          "Article title unavailable.",
+          "Capture time unavailable.",
+          "No verified restaurant entries.",
+          "Restaurant count/order completeness is not verified."
+        ],
+        "warnings": [
+          "Reddit official API credentials are missing. Configure the approved OAuth client, refresh token and User-Agent; no anonymous request was made."
+        ]
+      },
+      {
+        "source_id": "646be88dd340b99ee385",
+        "url": "https://www.corner.inc/place/pzm37JubPE4s",
+        "status": "failed",
+        "complete": false,
+        "restaurants": 0,
+        "descriptions": 0,
+        "missing_descriptions": 0,
+        "blocking_reasons": [
+          "Article title unavailable.",
+          "No verified restaurant entries.",
+          "Restaurant count/order completeness is not verified."
+        ],
+        "warnings": [
+          "HTTP 429: blocked; no merchant facts inferred."
+        ]
+      },
+      {
+        "source_id": "0afc063bc5a6085eee07",
+        "url": "https://www.allyoucaneatguide.com/new-york-city",
+        "status": "partial",
+        "complete": false,
+        "restaurants": 13,
+        "descriptions": 0,
+        "missing_descriptions": 13,
+        "blocking_reasons": [
+          "13 original descriptions not exported."
+        ],
+        "warnings": [
+          "Directory cards supply names/addresses/tags but no dedicated description; original blurbs remain null.",
+          "closed=false means this source has no matched closure marker; it is not a real-time opening-status assertion."
+        ]
+      }
+    ],
+    "phase": 3,
+    "phase3_code_complete": true,
+    "phase3_complete": false,
+    "reddit_api_verified": false,
+    "access_counts": {
+      "parsed": 25,
+      "blocked": 10,
+      "credentials_missing": 2
+    },
+    "apify_runs": 0,
+    "reddit_api_calls": 0,
+    "reddit_oauth_calls": 0,
+    "reddit_cost_status": "no_requests",
+    "paid_calls": 0
+  }
+}

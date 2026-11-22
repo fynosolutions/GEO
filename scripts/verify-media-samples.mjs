@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 import {readFile} from 'node:fs/promises';
 import {resolve,join} from 'node:path';
 import {mediaSources,mediaMembershipReport,evaluateMediaAcceptance,descriptionAvailability} from '../dist/backend/media/public.js';
-const dir=resolve(process.argv[2]??'samples/step1-media');
+const dir=resolve(process.argv[2]??'samples/step1-media/legacy-issue15');
 const json=async name=>JSON.parse(await readFile(join(dir,name),'utf8'));
 const articles=await json('articles.json'),sources=(await json('evidence.json')).sources,acceptance=await json('acceptance.json');
 assert.equal(articles.length,mediaSources.length);assert.equal(sources.length,articles.length);

@@ -1,0 +1,9 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {mkdtemp,readFile,writeFile,rm,stat} from 'node:fs/promises';import {join} from 'node:path';import {tmpdir} from 'node:os';import {spawnSync} from 'node:child_process';import {redditAuthorizationURL,saveRefreshToken} from './reddit-auth.mjs';
+test('local authorization URL requests only read scope with permanent grant, state and exact registered callback',()=>{
+ const url=new URL(redditAuthorizationURL('fixture-client','http://127.0.0.1:8765/callback','random-state'));assert.equal(url.origin,'https://www.reddit.com');assert.equal(url.searchParams.get('scope'),'read');assert.equal(url.searchParams.get('duration'),'permanent');assert.equal(url.searchParams.get('state'),'random-state');assert.equal(url.searchParams.get('redirect_uri'),'http://127.0.0.1:8765/callback');
+});
+test('refresh token is saved privately and literally without overwriting unrelated settings or printing secrets',async()=>{
+ const root=await mkdtemp(join(tmpdir(),'geo-reddit-auth-'));try{const file=join(root,'.env');await writeFile(file,'APIFY_TOKEN=fixture-apify\nREDDIT_REFRESH_TOKEN=old\nPORT=3001\n');await saveRefreshToken('new-$&-token',file);const text=await readFile(file,'utf8');assert.match(text,/APIFY_TOKEN=fixture-apify/);assert.match(text,/PORT=3001/);assert.ok(text.includes('REDDIT_REFRESH_TOKEN="new-$&-token"'));assert.equal((await stat(file)).mode&0o777,0o600);await assert.rejects(()=>saveRefreshToken('bad\nvalue',file),/Invalid/);
+ const help=spawnSync(process.execPath,['scripts/reddit-auth.mjs'],{encoding:'utf8',env:{...process.env,REDDIT_CLIENT_SECRET:'do-not-print'}});assert.equal(help.status,0);assert.ok(!help.stdout.includes('do-not-print'));assert.match(help.stdout,/reddit:auth/);
+ }finally{await rm(root,{recursive:true,force:true});}
+});

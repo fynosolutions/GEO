@@ -1,0 +1,2849 @@
+{
+  "base": {
+    "phase": 3,
+    "sources": [
+      {
+        "source_id": "5fde5e09398002ea63de",
+        "fetched_at": "2026-11-18T09:35:19.295842+00:00",
+        "source_kind": "direct_html",
+        "status": "complete",
+        "expected_count": 18,
+        "extracted_count": 18,
+        "count_verified": true,
+        "issues": [
+          "closed=false means this source has no matched closure marker; it is not a real-time opening-status assertion."
+        ],
+        "dates": [
+          {
+            "field": "published",
+            "value": "2018-11-30T17:27:53+00:00",
+            "source": "article:published_time"
+          },
+          {
+            "field": "updated",
+            "value": "2022-02-28T22:16:19+00:00",
+            "source": "article:modified_time"
+          }
+        ],
+        "descriptions": [
+          {
+            "rank": 1,
+            "name": "99 Favor Taste",
+            "present": true,
+            "reason": "exported",
+            "selector": "p.duet--article--standard-paragraph",
+            "characters": 722
+          },
+          {
+            "rank": 2,
+            "name": "Hometown Hotpot & BBQ",
+            "present": true,
+            "reason": "exported",
+            "selector": "p.duet--article--standard-paragraph",
+            "characters": 434
+          },
+          {
+            "rank": 3,
+            "name": "Da Long Yi Hot Pot",
+            "present": true,
+            "reason": "exported",
+            "selector": "p.duet--article--standard-paragraph",
+            "characters": 629
+          },
+          {
+            "rank": 4,
+            "name": "Hou Yi Hot Pot",
+            "present": true,
+            "reason": "exported",
+            "selector": "p.duet--article--standard-paragraph",
+            "characters": 229
+          },
+          {
+            "rank": 5,
+            "name": "Shabushabu Mayumon",
+            "present": true,
+            "reason": "exported",
+            "selector": "p.duet--article--standard-paragraph",
+            "characters": 550
+          },
+          {
+            "rank": 6,
+            "name": "886",
+            "present": true,
+            "reason": "exported",
+            "selector": "p.duet--article--standard-paragraph",
+            "characters": 384
+          },
+          {
+            "rank": 7,
+            "name": "The Dolar Shop Manhattan",
+            "present": true,
+            "reason": "exported",
+            "selector": "p.duet--article--standard-paragraph",
+            "characters": 615
+          },
+          {
+            "rank": 8,
+            "name": "Kimura",
+            "present": true,
+            "reason": "exported",
+            "selector": "p.duet--article--standard-paragraph",
+            "characters": 850
+          },
+          {
+            "rank": 9,
+            "name": "Shabu-Tatsu",
+            "present": true,
+            "reason": "exported",
+            "selector": "p.duet--article--standard-paragraph",
+            "characters": 497
+          },
+          {
+            "rank": 10,
+            "name": "Sik Gaek",
+            "present": true,
+            "reason": "exported",
+            "selector": "p.duet--article--standard-paragraph",
+            "characters": 662
+          },
+          {
+            "rank": 11,
+            "name": "Jaew Hon",
+            "present": true,
+            "reason": "exported",
+            "selector": "p.duet--article--standard-paragraph",
+            "characters": 877
+          },
+          {
+            "rank": 12,
+            "name": "Lao Jie Food",
+            "present": true,
+            "reason": "exported",
+            "selector": "p.duet--article--standard-paragraph",
+            "characters": 507
+          },
+          {
+            "rank": 13,
+            "name": "Xiang Hotpot",
+            "present": true,
+            "reason": "exported",
+            "selector": "p.duet--article--standard-paragraph",
+            "characters": 682
+          },
+          {
+            "rank": 14,
+            "name": "Chong Qing Lao Zao",
+            "present": true,
+            "reason": "exported",
+            "selector": "p.duet--article--standard-paragraph",
+            "characters": 385
+          },
+          {
+            "rank": 15,
+            "name": "Little Sheep Mongolian Hot Pot, Flushing 小肥羊",
+            "present": true,
+            "reason": "exported",
+            "selector": "p.duet--article--standard-paragraph",
+            "characters": 682
+          },
+          {
+            "rank": 16,
+            "name": "Haidilao Hotpot",
+            "present": true,
+            "reason": "exported",
+            "selector": "p.duet--article--standard-paragraph",
+            "characters": 741
+          },
+          {
+            "rank": 17,
+            "name": "Liuyishou Hotpot (Flushing) 刘一手火锅",
+            "present": true,
+            "reason": "exported",
+            "selector": "p.duet--article--standard-paragraph",
+            "characters": 374
+          },
+          {
+            "rank": 18,
+            "name": "Lao Shen Hot Pot",
+            "present": true,
+            "reason": "exported",
+            "selector": "p.duet--article--standard-paragraph",
+            "characters": 541
+          }
+        ],
+        "closure_markers": []
+      },
+      {
+        "source_id": "6023dcc7bfdaf82c2f2c",
+        "fetched_at": "2026-11-19T06:03:18.446Z",
+        "status": "complete",
+        "expected_count": 8,
+        "extracted_count": 8,
+        "count_verified": true,
+        "source_kind": "direct_html",
+        "issues": [
+          "Some source addresses are unavailable.",
+          "closed=false means this source has no matched closure marker; it is not a real-time opening-status assertion."
+        ],
+        "dates": [],
+        "descriptions": [
+          {
+            "rank": 1,
+            "name": "The Dolar Shop",
+            "present": true,
+            "reason": "exported",
+            "selector": "article.card[data-count] h3/.blurb",
+            "characters": 539
+          },
+          {
+            "rank": 2,
+            "name": "LaoJie Hotpot",
+            "present": true,
+            "reason": "exported",
+            "selector": "article.card[data-count] h3/.blurb",
+            "characters": 475
+          },
+          {
+            "rank": 3,
+            "name": "99 Favor Taste",
+            "present": true,
+            "reason": "exported",
+            "selector": "article.card[data-count] h3/.blurb",
+            "characters": 482
+          },
+          {
+            "rank": 4,
+            "name": "MáLà Project",
+            "present": true,
+            "reason": "exported",
+            "selector": "article.card[data-count] h3/.blurb",
+            "characters": 548
+          },
+          {
+            "rank": 5,
+            "name": "Haidilao",
+            "present": true,
+            "reason": "exported",
+            "selector": "article.card[data-count] h3/.blurb",
+            "characters": 527
+          },
+          {
+            "rank": 6,
+            "name": "Happy Lamb Hot Pot",
+            "present": true,
+            "reason": "exported",
+            "selector": "article.card[data-count] h3/.blurb",
+            "characters": 478
+          },
+          {
+            "rank": 7,
+            "name": "Chong Qing Lao Zao",
+            "present": true,
+            "reason": "exported",
+            "selector": "article.card[data-count] h3/.blurb",
+            "characters": 473
+          },
+          {
+            "rank": 8,
+            "name": "Liuyishou Hotpot",
+            "present": true,
+            "reason": "exported",
+            "selector": "article.card[data-count] h3/.blurb",
+            "characters": 487
+          }
+        ],
+        "closure_markers": []
+      },
+      {
+        "source_id": "8cec6d365a43fcecf56b",
+        "fetched_at": "2026-11-18T09:35:19.296241+00:00",
+        "status": "failed",
+        "expected_count": null,
+        "extracted_count": 0,
+        "count_verified": false,
+        "issues": [
+          "HTTP 429: blocked; no merchant facts inferred."
+        ],
+        "dates": []
+      },
+      {
+        "source_id": "a6631e158cf7e4d7eae2",
+        "fetched_at": "2026-11-18T09:35:19.296323+00:00",
+        "source_kind": "direct_html",
+        "status": "complete",
+        "expected_count": 10,
+        "extracted_count": 10,
+        "count_verified": true,
+        "issues": [
+          "Conflicting updated dates; no value selected.",
+          "closed=false means this source has no matched closure marker; it is not a real-time opening-status assertion."
+        ],
+        "dates": [
+          {
+            "field": "published",
+            "value": "2022-01-21T02:01:12.245Z",
+            "source": "article:published_time"
+          },
+          {
+            "field": "published",
+            "value": "2022-01-21T02:01:12.245Z",
+            "source": "JSON-LD Article"
+          },
+          {
+            "field": "updated",
+            "value": "2024-10-04T15:00:00.000Z",
+            "source": "article:modified_time"
+          },
+          {
+            "field": "updated",
+            "value": "2026-06-12T21:16:50.393Z",
+            "source": "JSON-LD Article"
+          }
+        ],
+        "descriptions": [
+          {
+            "rank": 1,
+            "name": "Chong Qing Lao Zao",
+            "present": true,
+            "reason": "exported",
+            "selector": "[data-testid=\"venue-description\"], div[city]",
+            "characters": 636
+          },
+          {
+            "rank": 2,
+            "name": "Hometown Hotpot & BBQ",
+            "present": true,
+            "reason": "exported",
+            "selector": "[data-testid=\"venue-description\"], div[city]",
+            "characters": 456
+          },
+          {
+            "rank": 3,
+            "name": "Hou Yi Hot Pot",
+            "present": true,
+            "reason": "exported",
+            "selector": "[data-testid=\"venue-description\"], div[city]",
+            "characters": 517
+          },
+          {
+            "rank": 4,
+            "name": "The Dolar Shop",
+            "present": true,
+            "reason": "exported",
+            "selector": "[data-testid=\"venue-description\"], div[city]",
+            "characters": 577
+          },
+          {
+            "rank": 5,
+            "name": "99 Favor Taste",
+            "present": true,
+            "reason": "exported",
+            "selector": "[data-testid=\"venue-description\"], div[city]",
+            "characters": 496
+          },
+          {
+            "rank": 6,
+            "name": "Da Long Yi",
+            "present": true,
+            "reason": "exported",
+            "selector": "[data-testid=\"venue-description\"], div[city]",
+            "characters": 481
+          },
+          {
+            "rank": 7,
+            "name": "Three Hot Pot",
+            "present": true,
+            "reason": "exported",
+            "selector": "[data-testid=\"venue-description\"], div[city]",
+            "characters": 566
+          },
+          {
+            "rank": 8,
+            "name": "Shabu-Tatsu",
+            "present": true,
+            "reason": "exported",
+            "selector": "[data-testid=\"venue-description\"], div[city]",
+            "characters": 444
+          },
+          {
+            "rank": 9,
+            "name": "Xi Yue Hui Seafood Hot Pot",
+            "present": true,
+            "reason": "exported",
+            "selector": "[data-testid=\"venue-description\"], div[city]",
+            "characters": 516
+          },
+          {
+            "rank": 10,
+            "name": "LaoJie Hotpot",
+            "present": true,
+            "reason": "exported",
+            "selector": "[data-testid=\"venue-description\"], div[city]",
+            "characters": 510
+          }
+        ],
+        "closure_markers": [
+          {
+            "rank": 2,
+            "name": "Hometown Hotpot & BBQ",
+            "marker": "Permanently Closed",
+            "source": "canonical embedded venue.closedStatus"
+          }
+        ]
+      },
+      {
+        "source_id": "daa919fc6fb2c6c89b95",
+        "fetched_at": "2026-11-18T09:35:20.366648+00:00",
+        "status": "complete",
+        "expected_count": 1,
+        "extracted_count": 1,
+        "count_verified": true,
+        "source_kind": "direct_html",
+        "issues": [
+          "closed=false means this source has no matched closure marker; it is not a real-time opening-status assertion."
+        ],
+        "dates": [
+          {
+            "field": "published",
+            "value": "2024-03-08T16:20:26.610Z",
+            "source": "page metadata"
+          },
+          {
+            "field": "published",
+            "value": "2024-03-08T16:20:26.610Z",
+            "source": "page metadata"
+          },
+          {
+            "field": "updated",
+            "value": "2024-03-08T15:00:00.000Z",
+            "source": "page metadata"
+          },
+          {
+            "field": "updated",
+            "value": "2024-03-08T15:00:00.000Z",
+            "source": "page metadata"
+          }
+        ],
+        "descriptions": [
+          {
+            "rank": 1,
+            "name": "Xi Yue Hui Seafood Hot Pot",
+            "present": true,
+            "reason": "exported",
+            "selector": "main .flatplan_tags",
+            "characters": 67
+          }
+        ],
+        "closure_markers": []
+      },
+      {
+        "source_id": "d906a5b3a829d633ab51",
+        "fetched_at": "2026-11-18T09:35:22.337232+00:00",
+        "status": "failed",
+        "expected_count": null,
+        "extracted_count": 0,
+        "count_verified": false,
+        "issues": [
+          "HTTP 202: blocked; no merchant facts inferred."
+        ],
+        "dates": []
+      },
+      {
+        "source_id": "3a2d067ad135a39c2030",
+        "fetched_at": "2026-11-18T09:35:23.414448+00:00",
+        "status": "complete",
+        "expected_count": 5,
+        "extracted_count": 5,
+        "count_verified": true,
+        "source_kind": "direct_html",
+        "issues": [
+          "closed=false means this source has no matched closure marker; it is not a real-time opening-status assertion."
+        ],
+        "dates": [
+          {
+            "field": "published",
+            "value": "2024-04-18T13:39:59-0400",
+            "source": "page metadata"
+          },
+          {
+            "field": "updated",
+            "value": "2024-08-14T23:42:25-0400",
+            "source": "page metadata"
+          }
+        ],
+        "descriptions": [
+          {
+            "rank": 1,
+            "name": "LaoJie Hotpot",
+            "present": true,
+            "reason": "exported",
+            "selector": ".image-title/.image-subtitle",
+            "characters": 47
+          },
+          {
+            "rank": 2,
+            "name": "Hou Yi Hot Pot",
+            "present": true,
+            "reason": "exported",
+            "selector": ".image-title/.image-subtitle",
+            "characters": 81
+          },
+          {
+            "rank": 3,
+            "name": "99 Favor Taste",
+            "present": true,
+            "reason": "exported",
+            "selector": ".image-title/.image-subtitle",
+            "characters": 59
+          },
+          {
+            "rank": 4,
+            "name": "Hometown Hotpot & BBQ",
+            "present": true,
+            "reason": "exported",
+            "selector": ".image-title/.image-subtitle",
+            "characters": 73
+          },
+          {
+            "rank": 5,
+            "name": "Da Long Yi Hot Pot",
+            "present": true,
+            "reason": "exported",
+            "selector": ".image-title/.image-subtitle",
+            "characters": 99
+          }
+        ],
+        "closure_markers": []
+      },
+      {
+        "source_id": "6dcacdf5a7b8e31436c5",
+        "fetched_at": "2026-11-18T09:35:23.505468+00:00",
+        "status": "failed",
+        "expected_count": null,
+        "extracted_count": 0,
+        "count_verified": false,
+        "issues": [
+          "HTTP 429: blocked; no merchant facts inferred."
+        ],
+        "dates": []
+      },
+      {
+        "source_id": "4a6a2be00a95c2ac2399",
+        "fetched_at": "2026-11-18T09:35:24.168355+00:00",
+        "source_kind": "direct_html",
+        "status": "complete",
+        "expected_count": 12,
+        "extracted_count": 12,
+        "count_verified": true,
+        "issues": [
+          "Conflicting updated dates; no value selected.",
+          "closed=false means this source has no matched closure marker; it is not a real-time opening-status assertion."
+        ],
+        "dates": [
+          {
+            "field": "published",
+            "value": "2025-01-27T22:31:48.721Z",
+            "source": "article:published_time"
+          },
+          {
+            "field": "published",
+            "value": "2025-01-27T22:31:48.721Z",
+            "source": "JSON-LD Article"
+          },
+          {
+            "field": "updated",
+            "value": "2026-02-10T15:00:00.000Z",
+            "source": "article:modified_time"
+          },
+          {
+            "field": "updated",
+            "value": "2026-06-12T21:09:22.788Z",
+            "source": "JSON-LD Article"
+          }
+        ],
+        "descriptions": [
+          {
+            "rank": 1,
+            "name": "Mikiya Wagyu Shabu House",
+            "present": true,
+            "reason": "exported",
+            "selector": "[data-testid=\"venue-description\"], div[city]",
+            "characters": 575
+          },
+          {
+            "rank": 2,
+            "name": "Tensho",
+            "present": true,
+            "reason": "exported",
+            "selector": "[data-testid=\"venue-description\"], div[city]",
+            "characters": 523
+          },
+          {
+            "rank": 3,
+            "name": "Hai Di Lao Hot Pot",
+            "present": true,
+            "reason": "exported",
+            "selector": "[data-testid=\"venue-description\"], div[city]",
+            "characters": 546
+          },
+          {
+            "rank": 4,
+            "name": "Yuan's Hot Pot",
+            "present": true,
+            "reason": "exported",
+            "selector": "[data-testid=\"venue-description\"], div[city]",
+            "characters": 680
+          },
+          {
+            "rank": 5,
+            "name": "Bon Shabu",
+            "present": true,
+            "reason": "exported",
+            "selector": "[data-testid=\"venue-description\"], div[city]",
+            "characters": 716
+          },
+          {
+            "rank": 6,
+            "name": "Xiao Long Kan Hot Pot",
+            "present": true,
+            "reason": "exported",
+            "selector": "[data-testid=\"venue-description\"], div[city]",
+            "characters": 591
+          },
+          {
+            "rank": 7,
+            "name": "Shancheng Lameizi",
+            "present": true,
+            "reason": "exported",
+            "selector": "[data-testid=\"venue-description\"], div[city]",
+            "characters": 641
+          },
+          {
+            "rank": 8,
+            "name": "Sorimmara",
+            "present": true,
+            "reason": "exported",
+            "selector": "[data-testid=\"venue-description\"], div[city]",
+            "characters": 566
+          },
+          {
+            "rank": 9,
+            "name": "Chong Qing Yao Mei",
+            "present": true,
+            "reason": "exported",
+            "selector": "[data-testid=\"venue-description\"], div[city]",
+            "characters": 591
+          },
+          {
+            "rank": 10,
+            "name": "Shabuya",
+            "present": true,
+            "reason": "exported",
+            "selector": "[data-testid=\"venue-description\"], div[city]",
+            "characters": 629
+          },
+          {
+            "rank": 11,
+            "name": "Chun La Hao Chong Qing",
+            "present": true,
+            "reason": "exported",
+            "selector": "[data-testid=\"venue-description\"], div[city]",
+            "characters": 637
+          },
+          {
+            "rank": 12,
+            "name": "Joon Shabu Shabu",
+            "present": true,
+            "reason": "exported",
+            "selector": "[data-testid=\"venue-description\"], div[city]",
+            "characters": 627
+          }
+        ],
+        "closure_markers": []
+      },
+      {
+        "source_id": "a3b1384484a6ae885db7",
+        "fetched_at": "2026-11-18T09:35:27.210834+00:00",
+        "status": "failed",
+        "expected_count": null,
+        "extracted_count": 0,
+        "count_verified": false,
+        "issues": [
+          "HTTP 202: blocked; no merchant facts inferred."
+        ],
+        "dates": []
+      },
+      {
+        "source_id": "c0654f5b36d92455a8c7",
+        "fetched_at": "2026-11-18T09:35:28.362324+00:00",
+        "source_kind": "direct_html",
+        "status": "complete",
+        "expected_count": 6,
+        "extracted_count": 6,
+        "count_verified": true,
+        "issues": [
+          "Cuisine directory, not an editorial ranking. Guide cards are excluded. Addresses use the page embedded restaurant fields.",
+          "closed=false means this source has no matched closure marker; it is not a real-time opening-status assertion."
+        ],
+        "dates": [],
+        "descriptions": [
+          {
+            "rank": 1,
+            "name": "YGF Malatang",
+            "present": true,
+            "reason": "exported",
+            "selector": "p.css-501r93",
+            "characters": 81
+          },
+          {
+            "rank": 2,
+            "name": "The Dolar Shop",
+            "present": true,
+            "reason": "exported",
+            "selector": "p.css-501r93",
+            "characters": 82
+          },
+          {
+            "rank": 3,
+            "name": "Three Hot Pot",
+            "present": true,
+            "reason": "exported",
+            "selector": "p.css-501r93",
+            "characters": 74
+          },
+          {
+            "rank": 4,
+            "name": "99 Favor Taste",
+            "present": true,
+            "reason": "exported",
+            "selector": "p.css-501r93",
+            "characters": 76
+          },
+          {
+            "rank": 5,
+            "name": "Da Long Yi",
+            "present": true,
+            "reason": "exported",
+            "selector": "p.css-501r93",
+            "characters": 93
+          },
+          {
+            "rank": 6,
+            "name": "Chong Qing Wharf",
+            "present": true,
+            "reason": "exported",
+            "selector": "p.css-501r93",
+            "characters": 98
+          }
+        ],
+        "closure_markers": []
+      },
+      {
+        "source_id": "dcf2defa854fa5eb104c",
+        "fetched_at": "2026-11-18T09:35:29.591018+00:00",
+        "source_kind": "direct_html",
+        "status": "complete",
+        "expected_count": 10,
+        "extracted_count": 10,
+        "count_verified": true,
+        "issues": [
+          "Conflicting updated dates; no value selected.",
+          "closed=false means this source has no matched closure marker; it is not a real-time opening-status assertion."
+        ],
+        "dates": [
+          {
+            "field": "published",
+            "value": "2024-02-23T20:51:09.596Z",
+            "source": "article:published_time"
+          },
+          {
+            "field": "published",
+            "value": "2024-02-23T20:51:09.596Z",
+            "source": "JSON-LD Article"
+          },
+          {
+            "field": "updated",
+            "value": "2025-09-16T15:00:00.000Z",
+            "source": "article:modified_time"
+          },
+          {
+            "field": "updated",
+            "value": "2026-06-12T20:57:10.782Z",
+            "source": "JSON-LD Article"
+          }
+        ],
+        "descriptions": [
+          {
+            "rank": 1,
+            "name": "SourAji",
+            "present": true,
+            "reason": "exported",
+            "selector": "[data-testid=\"venue-description\"], div[city]",
+            "characters": 653
+          },
+          {
+            "rank": 2,
+            "name": "Hometown Hotpot & BBQ",
+            "present": true,
+            "reason": "exported",
+            "selector": "[data-testid=\"venue-description\"], div[city]",
+            "characters": 609
+          },
+          {
+            "rank": 3,
+            "name": "Lakruwana",
+            "present": true,
+            "reason": "exported",
+            "selector": "[data-testid=\"venue-description\"], div[city]",
+            "characters": 645
+          },
+          {
+            "rank": 4,
+            "name": "Let’s Meat",
+            "present": true,
+            "reason": "exported",
+            "selector": "[data-testid=\"venue-description\"], div[city]",
+            "characters": 519
+          },
+          {
+            "rank": 5,
+            "name": "Churrascaria Plataforma",
+            "present": true,
+            "reason": "exported",
+            "selector": "[data-testid=\"venue-description\"], div[city]",
+            "characters": 512
+          },
+          {
+            "rank": 6,
+            "name": "Akino",
+            "present": true,
+            "reason": "exported",
+            "selector": "[data-testid=\"venue-description\"], div[city]",
+            "characters": 615
+          },
+          {
+            "rank": 7,
+            "name": "Xi Yue Hui Seafood Hot Pot",
+            "present": true,
+            "reason": "exported",
+            "selector": "[data-testid=\"venue-description\"], div[city]",
+            "characters": 547
+          },
+          {
+            "rank": 8,
+            "name": "Hou Yi Hot Pot",
+            "present": true,
+            "reason": "exported",
+            "selector": "[data-testid=\"venue-description\"], div[city]",
+            "characters": 511
+          },
+          {
+            "rank": 9,
+            "name": "Chong Qing Wharf",
+            "present": true,
+            "reason": "exported",
+            "selector": "[data-testid=\"venue-description\"], div[city]",
+            "characters": 470
+          },
+          {
+            "rank": 10,
+            "name": "Kikoo",
+            "present": true,
+            "reason": "exported",
+            "selector": "[data-testid=\"venue-description\"], div[city]",
+            "characters": 601
+          }
+        ],
+        "closure_markers": [
+          {
+            "rank": 2,
+            "name": "Hometown Hotpot & BBQ",
+            "marker": "Permanently Closed",
+            "source": "canonical embedded venue.closedStatus"
+          }
+        ]
+      },
+      {
+        "source_id": "5584639a4204c4ed4741",
+        "fetched_at": "2026-11-18T09:35:30.577997+00:00",
+        "status": "complete",
+        "expected_count": 1,
+        "extracted_count": 1,
+        "count_verified": true,
+        "source_kind": "direct_html",
+        "issues": [
+          "Single restaurant story; body may mention background restaurants. This is not a ranked list.",
+          "Some source addresses are unavailable.",
+          "closed=false means this source has no matched closure marker; it is not a real-time opening-status assertion."
+        ],
+        "dates": [
+          {
+            "field": "published",
+            "value": "2019-05-15T17:41:50+00:00",
+            "source": "page metadata"
+          },
+          {
+            "field": "published",
+            "value": "2019-05-15T17:41:50+00:00",
+            "source": "page metadata"
+          },
+          {
+            "field": "updated",
+            "value": "2019-05-15T17:41:50+00:00",
+            "source": "page metadata"
+          },
+          {
+            "field": "updated",
+            "value": "2019-05-15T17:41:50+00:00",
+            "source": "page metadata"
+          }
+        ],
+        "descriptions": [
+          {
+            "rank": 1,
+            "name": "Da Long Yi",
+            "present": true,
+            "reason": "exported",
+            "selector": "article body paragraphs; primary opening reference",
+            "characters": 3050
+          }
+        ],
+        "closure_markers": []
+      },
+      {
+        "source_id": "d56d3a0232aaf58bb43a",
+        "fetched_at": "2026-11-18T09:35:32.565521+00:00",
+        "status": "complete",
+        "expected_count": 1,
+        "extracted_count": 1,
+        "count_verified": true,
+        "source_kind": "direct_html",
+        "issues": [
+          "closed=false means this source has no matched closure marker; it is not a real-time opening-status assertion."
+        ],
+        "dates": [
+          {
+            "field": "published",
+            "value": "2024-08-02T21:12:57.533Z",
+            "source": "page metadata"
+          },
+          {
+            "field": "published",
+            "value": "2024-08-02T21:12:57.533Z",
+            "source": "page metadata"
+          },
+          {
+            "field": "updated",
+            "value": "2024-08-02T15:00:00.000Z",
+            "source": "page metadata"
+          },
+          {
+            "field": "updated",
+            "value": "2024-08-02T15:00:00.000Z",
+            "source": "page metadata"
+          }
+        ],
+        "descriptions": [
+          {
+            "rank": 1,
+            "name": "The Dolar Shop",
+            "present": true,
+            "reason": "exported",
+            "selector": "main .flatplan_tags",
+            "characters": 58
+          }
+        ],
+        "closure_markers": []
+      },
+      {
+        "source_id": "d1006f2856717e496de3",
+        "fetched_at": "2026-11-18T09:35:33.150226+00:00",
+        "status": "failed",
+        "expected_count": null,
+        "extracted_count": 0,
+        "count_verified": false,
+        "issues": [
+          "HTTP 429: blocked; no merchant facts inferred."
+        ],
+        "dates": []
+      },
+      {
+        "source_id": "8c64f5104d6961d8010b",
+        "fetched_at": "2026-11-18T09:35:33.460095+00:00",
+        "status": "failed",
+        "expected_count": null,
+        "extracted_count": 0,
+        "count_verified": false,
+        "issues": [
+          "HTTP 429: blocked; no merchant facts inferred."
+        ],
+        "dates": []
+      },
+      {
+        "source_id": "04e3e8ceab88a82a2beb",
+        "fetched_at": "2026-11-18T09:35:33.814829+00:00",
+        "status": "complete",
+        "expected_count": 1,
+        "extracted_count": 1,
+        "count_verified": true,
+        "source_kind": "direct_html",
+        "issues": [
+          "closed=false means this source has no matched closure marker; it is not a real-time opening-status assertion."
+        ],
+        "dates": [
+          {
+            "field": "published",
+            "value": "2026-02-10T00:06:26.756Z",
+            "source": "page metadata"
+          },
+          {
+            "field": "published",
+            "value": "2026-02-10T00:06:26.756Z",
+            "source": "page metadata"
+          },
+          {
+            "field": "updated",
+            "value": "2026-02-09T15:00:00.000Z",
+            "source": "page metadata"
+          },
+          {
+            "field": "updated",
+            "value": "2026-02-09T15:00:00.000Z",
+            "source": "page metadata"
+          }
+        ],
+        "descriptions": [
+          {
+            "rank": 1,
+            "name": "Mikiya Wagyu Shabu House",
+            "present": true,
+            "reason": "exported",
+            "selector": "main .flatplan_tags",
+            "characters": 143
+          }
+        ],
+        "closure_markers": []
+      },
+      {
+        "source_id": "bf51dde417f320637a40",
+        "fetched_at": "2026-11-18T09:35:34.493723+00:00",
+        "status": "failed",
+        "expected_count": null,
+        "extracted_count": 0,
+        "count_verified": false,
+        "issues": [
+          "HTTP 429: blocked; no merchant facts inferred."
+        ],
+        "dates": []
+      },
+      {
+        "source_id": "5e19f54fc5e5fd554577",
+        "fetched_at": "2026-11-18T09:35:35.148242+00:00",
+        "status": "complete",
+        "expected_count": 1,
+        "extracted_count": 1,
+        "count_verified": true,
+        "source_kind": "direct_html",
+        "issues": [
+          "closed=false means this source has no matched closure marker; it is not a real-time opening-status assertion."
+        ],
+        "dates": [
+          {
+            "field": "published",
+            "value": "2022-01-21T05:10:18.499Z",
+            "source": "page metadata"
+          },
+          {
+            "field": "published",
+            "value": "2022-01-21T05:10:18.499Z",
+            "source": "page metadata"
+          },
+          {
+            "field": "updated",
+            "value": "2024-08-02T15:00:00.000Z",
+            "source": "page metadata"
+          },
+          {
+            "field": "updated",
+            "value": "2024-08-02T15:00:00.000Z",
+            "source": "page metadata"
+          }
+        ],
+        "descriptions": [
+          {
+            "rank": 1,
+            "name": "99 Favor Taste",
+            "present": true,
+            "reason": "exported",
+            "selector": "main .flatplan_tags",
+            "characters": 135
+          }
+        ],
+        "closure_markers": []
+      },
+      {
+        "source_id": "6cabcd099c434a56cc31",
+        "fetched_at": "2026-11-18T09:35:37.185675+00:00",
+        "status": "failed",
+        "expected_count": null,
+        "extracted_count": 0,
+        "count_verified": false,
+        "issues": [
+          "HTTP 429: blocked; no merchant facts inferred."
+        ],
+        "dates": []
+      },
+      {
+        "source_id": "9756d5af223605971741",
+        "fetched_at": "2026-11-18T09:35:37.936468+00:00",
+        "status": "complete",
+        "expected_count": 1,
+        "extracted_count": 1,
+        "count_verified": true,
+        "source_kind": "direct_html",
+        "issues": [
+          "closed=false means this source has no matched closure marker; it is not a real-time opening-status assertion."
+        ],
+        "dates": [
+          {
+            "field": "published",
+            "value": "2025-01-14T00:08:51.932Z",
+            "source": "page metadata"
+          },
+          {
+            "field": "published",
+            "value": "2025-01-14T00:08:51.932Z",
+            "source": "page metadata"
+          },
+          {
+            "field": "updated",
+            "value": "2025-01-13T15:00:00.000Z",
+            "source": "page metadata"
+          },
+          {
+            "field": "updated",
+            "value": "2025-01-13T15:00:00.000Z",
+            "source": "page metadata"
+          }
+        ],
+        "descriptions": [
+          {
+            "rank": 1,
+            "name": "Shabuya",
+            "present": true,
+            "reason": "exported",
+            "selector": "main .flatplan_tags",
+            "characters": 125
+          }
+        ],
+        "closure_markers": []
+      },
+      {
+        "source_id": "819760ab87a70da9de1d",
+        "fetched_at": "2026-11-18T09:35:41.037114+00:00",
+        "source_kind": "direct_html",
+        "status": "complete",
+        "expected_count": 11,
+        "extracted_count": 11,
+        "count_verified": true,
+        "issues": [
+          "Cuisine directory, not an editorial ranking. Guide cards are excluded. Addresses use the page embedded restaurant fields.",
+          "Some restaurant addresses are unavailable.",
+          "closed=false means this source has no matched closure marker; it is not a real-time opening-status assertion."
+        ],
+        "dates": [],
+        "descriptions": [
+          {
+            "rank": 1,
+            "name": "Tensho",
+            "present": true,
+            "reason": "exported",
+            "selector": "p.css-501r93",
+            "characters": 113
+          },
+          {
+            "rank": 2,
+            "name": "Mikiya Wagyu Shabu House",
+            "present": true,
+            "reason": "exported",
+            "selector": "p.css-501r93",
+            "characters": 97
+          },
+          {
+            "rank": 3,
+            "name": "Chong Qing Yao Mei",
+            "present": true,
+            "reason": "exported",
+            "selector": "p.css-501r93",
+            "characters": 117
+          },
+          {
+            "rank": 4,
+            "name": "Xiao Long Kan",
+            "present": true,
+            "reason": "exported",
+            "selector": "p.css-501r93",
+            "characters": 100
+          },
+          {
+            "rank": 5,
+            "name": "Shancheng Lameizi",
+            "present": true,
+            "reason": "exported",
+            "selector": "p.css-501r93",
+            "characters": 92
+          },
+          {
+            "rank": 6,
+            "name": "Chun La Hao Chong Qing Hot Pot",
+            "present": true,
+            "reason": "exported",
+            "selector": "p.css-501r93",
+            "characters": 82
+          },
+          {
+            "rank": 7,
+            "name": "Shabuya",
+            "present": true,
+            "reason": "exported",
+            "selector": "p.css-501r93",
+            "characters": 94
+          },
+          {
+            "rank": 8,
+            "name": "Joon Shabu Shabu",
+            "present": true,
+            "reason": "exported",
+            "selector": "p.css-501r93",
+            "characters": 75
+          },
+          {
+            "rank": 9,
+            "name": "Bon Shabu",
+            "present": true,
+            "reason": "exported",
+            "selector": "p.css-501r93",
+            "characters": 98
+          },
+          {
+            "rank": 10,
+            "name": "Yuan's Hot Pot",
+            "present": true,
+            "reason": "exported",
+            "selector": "p.css-501r93",
+            "characters": 90
+          },
+          {
+            "rank": 11,
+            "name": "Tang Huo Kung Fu Spicy Hot Pot",
+            "present": true,
+            "reason": "exported",
+            "selector": "p.css-501r93",
+            "characters": 120
+          }
+        ],
+        "closure_markers": []
+      },
+      {
+        "source_id": "bb60997f97e624da6b80",
+        "fetched_at": "2026-11-18T09:35:44.537127+00:00",
+        "status": "complete",
+        "expected_count": 1,
+        "extracted_count": 1,
+        "count_verified": true,
+        "source_kind": "direct_html",
+        "issues": [
+          "closed=false means this source has no matched closure marker; it is not a real-time opening-status assertion."
+        ],
+        "dates": [],
+        "descriptions": [
+          {
+            "rank": 1,
+            "name": "Easy Joy Dim Sum & AYCE Hot Pot",
+            "present": true,
+            "reason": "exported",
+            "selector": "About the Business .section-body",
+            "characters": 237
+          }
+        ],
+        "closure_markers": []
+      },
+      {
+        "source_id": "ddb70e34c09cc42eb521",
+        "fetched_at": "2026-11-18T09:35:47.494540+00:00",
+        "status": "complete",
+        "expected_count": 1,
+        "extracted_count": 1,
+        "count_verified": true,
+        "source_kind": "direct_html",
+        "issues": [
+          "closed=false means this source has no matched closure marker; it is not a real-time opening-status assertion."
+        ],
+        "dates": [
+          {
+            "field": "published",
+            "value": "2026-10-22T19:31:12.407Z",
+            "source": "page metadata"
+          },
+          {
+            "field": "published",
+            "value": "2026-10-22T19:31:12.407Z",
+            "source": "page metadata"
+          },
+          {
+            "field": "updated",
+            "value": "2026-10-22T19:00:00.000Z",
+            "source": "page metadata"
+          },
+          {
+            "field": "updated",
+            "value": "2026-10-22T19:00:00.000Z",
+            "source": "page metadata"
+          }
+        ],
+        "descriptions": [
+          {
+            "rank": 1,
+            "name": "See Joy",
+            "present": true,
+            "reason": "exported",
+            "selector": "main .flatplan_tags",
+            "characters": 34
+          }
+        ],
+        "closure_markers": []
+      },
+      {
+        "source_id": "b41c036fa6a64c49e54c",
+        "fetched_at": "2026-11-18T09:35:47.777779+00:00",
+        "status": "failed",
+        "expected_count": null,
+        "extracted_count": 0,
+        "count_verified": false,
+        "issues": [
+          "HTTP 429: blocked; no merchant facts inferred."
+        ],
+        "dates": []
+      },
+      {
+        "source_id": "702fbd0a7dc01ff06cb8",
+        "fetched_at": "2026-11-18T09:35:48.434547+00:00",
+        "source_kind": "direct_html",
+        "status": "complete",
+        "expected_count": 10,
+        "extracted_count": 10,
+        "count_verified": true,
+        "issues": [
+          "Count checked against the headline and consecutive visible item numbers. Addresses absent from this list remain null.",
+          "Some restaurant addresses are unavailable.",
+          "closed=false means this source has no matched closure marker; it is not a real-time opening-status assertion."
+        ],
+        "dates": [
+          {
+            "field": "published",
+            "value": "2024-07-02T07:00:00Z",
+            "source": "JSON-LD Article"
+          },
+          {
+            "field": "updated",
+            "value": "2024-07-02T21:41:59Z",
+            "source": "JSON-LD Article"
+          }
+        ],
+        "descriptions": [
+          {
+            "rank": 1,
+            "name": "Haodilao Hot Pot",
+            "present": true,
+            "reason": "exported",
+            "selector": "[data-testid=\"summary_testID\"]",
+            "characters": 43
+          },
+          {
+            "rank": 2,
+            "name": "Boiling Point",
+            "present": true,
+            "reason": "exported",
+            "selector": "[data-testid=\"summary_testID\"]",
+            "characters": 62
+          },
+          {
+            "rank": 3,
+            "name": "Shabuya",
+            "present": true,
+            "reason": "exported",
+            "selector": "[data-testid=\"summary_testID\"]",
+            "characters": 587
+          },
+          {
+            "rank": 4,
+            "name": "Chunju Han-il Kwan",
+            "present": true,
+            "reason": "exported",
+            "selector": "[data-testid=\"summary_testID\"]",
+            "characters": 54
+          },
+          {
+            "rank": 5,
+            "name": "Lucky Mizu at Level 8",
+            "present": true,
+            "reason": "exported",
+            "selector": "[data-testid=\"summary_testID\"]",
+            "characters": 714
+          },
+          {
+            "rank": 6,
+            "name": "Hot Pot, Hot Pot!",
+            "present": true,
+            "reason": "exported",
+            "selector": "[data-testid=\"summary_testID\"]",
+            "characters": 53
+          },
+          {
+            "rank": 7,
+            "name": "Bon Shabu",
+            "present": true,
+            "reason": "exported",
+            "selector": "[data-testid=\"summary_testID\"]",
+            "characters": 420
+          },
+          {
+            "rank": 8,
+            "name": "Joon Shabu Shabu",
+            "present": true,
+            "reason": "exported",
+            "selector": "[data-testid=\"summary_testID\"]",
+            "characters": 38
+          },
+          {
+            "rank": 9,
+            "name": "Momo Paradise",
+            "present": true,
+            "reason": "exported",
+            "selector": "[data-testid=\"summary_testID\"]",
+            "characters": 54
+          },
+          {
+            "rank": 10,
+            "name": "Hakata Izakaya Hero",
+            "present": true,
+            "reason": "exported",
+            "selector": "[data-testid=\"summary_testID\"]",
+            "characters": 703
+          }
+        ],
+        "closure_markers": []
+      },
+      {
+        "source_id": "109f0d7e38b0624260f6",
+        "fetched_at": "2026-11-18T09:35:50.721183+00:00",
+        "status": "complete",
+        "expected_count": 1,
+        "extracted_count": 1,
+        "count_verified": true,
+        "source_kind": "direct_html",
+        "issues": [
+          "closed=false means this source has no matched closure marker; it is not a real-time opening-status assertion."
+        ],
+        "dates": [
+          {
+            "field": "published",
+            "value": "2014-03-05T05:00:00Z",
+            "source": "page metadata"
+          },
+          {
+            "field": "updated",
+            "value": "2023-11-17T20:47:45Z",
+            "source": "page metadata"
+          }
+        ],
+        "descriptions": [
+          {
+            "rank": 1,
+            "name": "99 Favor Taste",
+            "present": true,
+            "reason": "exported",
+            "selector": "main annotation_testID paragraphs",
+            "characters": 709
+          }
+        ],
+        "closure_markers": []
+      },
+      {
+        "source_id": "faff2ffdc6541d291abe",
+        "fetched_at": "2026-11-18T09:35:50.937071+00:00",
+        "status": "complete",
+        "expected_count": 1,
+        "extracted_count": 1,
+        "count_verified": true,
+        "source_kind": "direct_html",
+        "issues": [
+          "closed=false means this source has no matched closure marker; it is not a real-time opening-status assertion."
+        ],
+        "dates": [
+          {
+            "field": "published",
+            "value": "2022-01-21T05:52:44.375Z",
+            "source": "page metadata"
+          },
+          {
+            "field": "published",
+            "value": "2022-01-21T05:52:44.375Z",
+            "source": "page metadata"
+          },
+          {
+            "field": "updated",
+            "value": "2024-08-02T15:00:00.000Z",
+            "source": "page metadata"
+          },
+          {
+            "field": "updated",
+            "value": "2024-08-02T15:00:00.000Z",
+            "source": "page metadata"
+          }
+        ],
+        "descriptions": [
+          {
+            "rank": 1,
+            "name": "Hometown Hotpot & BBQ",
+            "present": true,
+            "reason": "exported",
+            "selector": "main .flatplan_tags",
+            "characters": 140
+          }
+        ],
+        "closure_markers": [
+          {
+            "rank": 1,
+            "name": "Hometown Hotpot & BBQ",
+            "marker": "Permanently Closed",
+            "source": "canonical embedded venue.closedStatus"
+          }
+        ]
+      },
+      {
+        "source_id": "a11d15e90c03552b64ee",
+        "fetched_at": "2026-11-18T09:35:52.802970+00:00",
+        "status": "complete",
+        "expected_count": 1,
+        "extracted_count": 1,
+        "count_verified": true,
+        "source_kind": "direct_html",
+        "issues": [
+          "Single restaurant story; body may mention background restaurants. This is not a ranked list.",
+          "closed=false means this source has no matched closure marker; it is not a real-time opening-status assertion."
+        ],
+        "dates": [
+          {
+            "field": "published",
+            "value": "2020-12-03T19:32:53+00:00",
+            "source": "page metadata"
+          },
+          {
+            "field": "published",
+            "value": "2020-12-03T19:32:53+00:00",
+            "source": "page metadata"
+          },
+          {
+            "field": "updated",
+            "value": "2020-12-03T19:32:53+00:00",
+            "source": "page metadata"
+          },
+          {
+            "field": "updated",
+            "value": "2020-12-03T19:32:53+00:00",
+            "source": "page metadata"
+          }
+        ],
+        "descriptions": [
+          {
+            "rank": 1,
+            "name": "the Dolar Shop",
+            "present": true,
+            "reason": "exported",
+            "selector": "article body paragraphs; primary opening reference",
+            "characters": 3154
+          }
+        ],
+        "closure_markers": []
+      },
+      {
+        "source_id": "23ce1d9854e125e51d56",
+        "fetched_at": null,
+        "status": "failed",
+        "expected_count": null,
+        "extracted_count": 0,
+        "count_verified": false,
+        "issues": [
+          "Reddit official API credentials are missing. Configure the approved OAuth client, refresh token and User-Agent; no anonymous request was made."
+        ],
+        "dates": []
+      },
+      {
+        "source_id": "532a0b7911d91721d134",
+        "fetched_at": "2026-11-18T09:35:53.744923+00:00",
+        "source_kind": "direct_html",
+        "status": "complete",
+        "expected_count": 21,
+        "extracted_count": 21,
+        "count_verified": true,
+        "issues": [
+          "Conflicting updated dates; no value selected.",
+          "Canonical guide embedded body verifies all 21 visible entries in order; JSON-LD ItemList contains 20. All visible source entries retained.",
+          "closed=false means this source has no matched closure marker; it is not a real-time opening-status assertion."
+        ],
+        "dates": [
+          {
+            "field": "published",
+            "value": "2023-07-20T18:44:29.578Z",
+            "source": "article:published_time"
+          },
+          {
+            "field": "published",
+            "value": "2023-07-20T18:44:29.578Z",
+            "source": "JSON-LD Article"
+          },
+          {
+            "field": "updated",
+            "value": "2026-05-20T15:00:00.000Z",
+            "source": "article:modified_time"
+          },
+          {
+            "field": "updated",
+            "value": "2026-06-12T21:15:41.425Z",
+            "source": "JSON-LD Article"
+          }
+        ],
+        "descriptions": [
+          {
+            "rank": 1,
+            "name": "Handmade Dumpling",
+            "present": true,
+            "reason": "exported",
+            "selector": "[data-testid=\"venue-description\"], div[city]",
+            "characters": 397
+          },
+          {
+            "rank": 2,
+            "name": "Xie Bao",
+            "present": true,
+            "reason": "exported",
+            "selector": "[data-testid=\"venue-description\"], div[city]",
+            "characters": 445
+          },
+          {
+            "rank": 3,
+            "name": "Szechuan Mountain House",
+            "present": true,
+            "reason": "exported",
+            "selector": "[data-testid=\"venue-description\"], div[city]",
+            "characters": 496
+          },
+          {
+            "rank": 4,
+            "name": "White Bear",
+            "present": true,
+            "reason": "exported",
+            "selector": "[data-testid=\"venue-description\"], div[city]",
+            "characters": 454
+          },
+          {
+            "rank": 5,
+            "name": "Asian Jewels Seafood Restaurant",
+            "present": true,
+            "reason": "exported",
+            "selector": "[data-testid=\"venue-description\"], div[city]",
+            "characters": 465
+          },
+          {
+            "rank": 6,
+            "name": "Alley 41",
+            "present": true,
+            "reason": "exported",
+            "selector": "[data-testid=\"venue-description\"], div[city]",
+            "characters": 589
+          },
+          {
+            "rank": 7,
+            "name": "Chong Qing Lao Zao",
+            "present": true,
+            "reason": "exported",
+            "selector": "[data-testid=\"venue-description\"], div[city]",
+            "characters": 626
+          },
+          {
+            "rank": 8,
+            "name": "Golden Lake Pavilion",
+            "present": true,
+            "reason": "exported",
+            "selector": "[data-testid=\"venue-description\"], div[city]",
+            "characters": 417
+          },
+          {
+            "rank": 9,
+            "name": "Amore Pizzeria",
+            "present": true,
+            "reason": "exported",
+            "selector": "[data-testid=\"venue-description\"], div[city]",
+            "characters": 652
+          },
+          {
+            "rank": 10,
+            "name": "Maxi’s Noodle",
+            "present": true,
+            "reason": "exported",
+            "selector": "[data-testid=\"venue-description\"], div[city]",
+            "characters": 411
+          },
+          {
+            "rank": 11,
+            "name": "Shanghai You Garden",
+            "present": true,
+            "reason": "exported",
+            "selector": "[data-testid=\"venue-description\"], div[city]",
+            "characters": 581
+          },
+          {
+            "rank": 12,
+            "name": "Kong Sihk Tong",
+            "present": true,
+            "reason": "exported",
+            "selector": "[data-testid=\"venue-description\"], div[city]",
+            "characters": 491
+          },
+          {
+            "rank": 13,
+            "name": "Lucia Pizza",
+            "present": true,
+            "reason": "exported",
+            "selector": "[data-testid=\"venue-description\"], div[city]",
+            "characters": 406
+          },
+          {
+            "rank": 14,
+            "name": "Old Captain's Dumpling",
+            "present": true,
+            "reason": "exported",
+            "selector": "[data-testid=\"venue-description\"], div[city]",
+            "characters": 594
+          },
+          {
+            "rank": 15,
+            "name": "Izakaya Nana",
+            "present": true,
+            "reason": "exported",
+            "selector": "[data-testid=\"venue-description\"], div[city]",
+            "characters": 538
+          },
+          {
+            "rank": 16,
+            "name": "Eight Jane Foods",
+            "present": true,
+            "reason": "exported",
+            "selector": "[data-testid=\"venue-description\"], div[city]",
+            "characters": 513
+          },
+          {
+            "rank": 17,
+            "name": "Jiang Nan",
+            "present": true,
+            "reason": "exported",
+            "selector": "[data-testid=\"venue-description\"], div[city]",
+            "characters": 546
+          },
+          {
+            "rank": 18,
+            "name": "Nurlan Uyghur Restaurant",
+            "present": true,
+            "reason": "exported",
+            "selector": "[data-testid=\"venue-description\"], div[city]",
+            "characters": 511
+          },
+          {
+            "rank": 19,
+            "name": "Yeh's Bakery",
+            "present": true,
+            "reason": "exported",
+            "selector": "[data-testid=\"venue-description\"], div[city]",
+            "characters": 441
+          },
+          {
+            "rank": 20,
+            "name": "New World Mall Food Court",
+            "present": true,
+            "reason": "exported",
+            "selector": "[data-testid=\"venue-description\"], div[city]",
+            "characters": 528
+          },
+          {
+            "rank": 21,
+            "name": "Ganesh Temple Canteen",
+            "present": true,
+            "reason": "exported",
+            "selector": "[data-testid=\"venue-description\"], div[city]",
+            "characters": 542
+          }
+        ],
+        "closure_markers": []
+      },
+      {
+        "source_id": "f004ad1e1920c28c57b3",
+        "fetched_at": "2026-11-18T09:35:55.025812+00:00",
+        "source_kind": "direct_html",
+        "status": "complete",
+        "expected_count": 25,
+        "extracted_count": 25,
+        "count_verified": true,
+        "issues": [
+          "Conflicting updated dates; no value selected.",
+          "Canonical guide embedded body verifies all 25 visible entries in order; JSON-LD ItemList contains 20. All visible source entries retained.",
+          "closed=false means this source has no matched closure marker; it is not a real-time opening-status assertion."
+        ],
+        "dates": [
+          {
+            "field": "published",
+            "value": "2022-01-21T00:26:47.502Z",
+            "source": "article:published_time"
+          },
+          {
+            "field": "published",
+            "value": "2022-01-21T00:26:47.502Z",
+            "source": "JSON-LD Article"
+          },
+          {
+            "field": "updated",
+            "value": "2026-09-16T15:00:00.000Z",
+            "source": "article:modified_time"
+          },
+          {
+            "field": "updated",
+            "value": "2026-10-15T15:11:36.308Z",
+            "source": "JSON-LD Article"
+          }
+        ],
+        "descriptions": [
+          {
+            "rank": 1,
+            "name": "Burmese Bites",
+            "present": true,
+            "reason": "exported",
+            "selector": "[data-testid=\"venue-description\"], div[city]",
+            "characters": 501
+          },
+          {
+            "rank": 2,
+            "name": "Taiwanese Gourmet",
+            "present": true,
+            "reason": "exported",
+            "selector": "[data-testid=\"venue-description\"], div[city]",
+            "characters": 418
+          },
+          {
+            "rank": 3,
+            "name": "Mariscos El Submarino",
+            "present": true,
+            "reason": "exported",
+            "selector": "[data-testid=\"venue-description\"], div[city]",
+            "characters": 465
+          },
+          {
+            "rank": 4,
+            "name": "The Fly",
+            "present": true,
+            "reason": "exported",
+            "selector": "[data-testid=\"venue-description\"], div[city]",
+            "characters": 528
+          },
+          {
+            "rank": 5,
+            "name": "Ihawan",
+            "present": true,
+            "reason": "exported",
+            "selector": "[data-testid=\"venue-description\"], div[city]",
+            "characters": 490
+          },
+          {
+            "rank": 6,
+            "name": "Ace’s Perfect Pizza",
+            "present": true,
+            "reason": "exported",
+            "selector": "[data-testid=\"venue-description\"], div[city]",
+            "characters": 542
+          },
+          {
+            "rank": 7,
+            "name": "Wu's Wonton King",
+            "present": true,
+            "reason": "exported",
+            "selector": "[data-testid=\"venue-description\"], div[city]",
+            "characters": 489
+          },
+          {
+            "rank": 8,
+            "name": "Al Badawi",
+            "present": true,
+            "reason": "exported",
+            "selector": "[data-testid=\"venue-description\"], div[city]",
+            "characters": 513
+          },
+          {
+            "rank": 9,
+            "name": "Elias Corner",
+            "present": true,
+            "reason": "exported",
+            "selector": "[data-testid=\"venue-description\"], div[city]",
+            "characters": 379
+          },
+          {
+            "rank": 10,
+            "name": "Peking Duck House",
+            "present": true,
+            "reason": "exported",
+            "selector": "[data-testid=\"venue-description\"], div[city]",
+            "characters": 435
+          },
+          {
+            "rank": 11,
+            "name": "Let’s Meat",
+            "present": true,
+            "reason": "exported",
+            "selector": "[data-testid=\"venue-description\"], div[city]",
+            "characters": 461
+          },
+          {
+            "rank": 12,
+            "name": "Joe's Restaurant",
+            "present": true,
+            "reason": "exported",
+            "selector": "[data-testid=\"venue-description\"], div[city]",
+            "characters": 376
+          },
+          {
+            "rank": 13,
+            "name": "Izakaya MEW",
+            "present": true,
+            "reason": "exported",
+            "selector": "[data-testid=\"venue-description\"], div[city]",
+            "characters": 551
+          },
+          {
+            "rank": 14,
+            "name": "J.G. Melon",
+            "present": true,
+            "reason": "exported",
+            "selector": "[data-testid=\"venue-description\"], div[city]",
+            "characters": 444
+          },
+          {
+            "rank": 15,
+            "name": "SriPraPhai",
+            "present": true,
+            "reason": "exported",
+            "selector": "[data-testid=\"venue-description\"], div[city]",
+            "characters": 497
+          },
+          {
+            "rank": 16,
+            "name": "Astoria Seafood",
+            "present": true,
+            "reason": "exported",
+            "selector": "[data-testid=\"venue-description\"], div[city]",
+            "characters": 588
+          },
+          {
+            "rank": 17,
+            "name": "La Nacional",
+            "present": true,
+            "reason": "exported",
+            "selector": "[data-testid=\"venue-description\"], div[city]",
+            "characters": 439
+          },
+          {
+            "rank": 18,
+            "name": "Leo",
+            "present": true,
+            "reason": "exported",
+            "selector": "[data-testid=\"venue-description\"], div[city]",
+            "characters": 331
+          },
+          {
+            "rank": 19,
+            "name": "Cafe Lily",
+            "present": true,
+            "reason": "exported",
+            "selector": "[data-testid=\"venue-description\"], div[city]",
+            "characters": 661
+          },
+          {
+            "rank": 20,
+            "name": "Red Rooster",
+            "present": true,
+            "reason": "exported",
+            "selector": "[data-testid=\"venue-description\"], div[city]",
+            "characters": 523
+          },
+          {
+            "rank": 21,
+            "name": "Ayada Thai",
+            "present": true,
+            "reason": "exported",
+            "selector": "[data-testid=\"venue-description\"], div[city]",
+            "characters": 412
+          },
+          {
+            "rank": 22,
+            "name": "Yemen Cafe",
+            "present": true,
+            "reason": "exported",
+            "selector": "[data-testid=\"venue-description\"], div[city]",
+            "characters": 508
+          },
+          {
+            "rank": 23,
+            "name": "Favela Grill",
+            "present": true,
+            "reason": "exported",
+            "selector": "[data-testid=\"venue-description\"], div[city]",
+            "characters": 557
+          },
+          {
+            "rank": 24,
+            "name": "L&B Spumoni Gardens",
+            "present": true,
+            "reason": "exported",
+            "selector": "[data-testid=\"venue-description\"], div[city]",
+            "characters": 430
+          },
+          {
+            "rank": 25,
+            "name": "Bunna Cafe",
+            "present": true,
+            "reason": "exported",
+            "selector": "[data-testid=\"venue-description\"], div[city]",
+            "characters": 576
+          }
+        ],
+        "closure_markers": []
+      },
+      {
+        "source_id": "f47d34650bc22aca0ccd",
+        "fetched_at": "2026-11-18T09:35:58.139473+00:00",
+        "status": "complete",
+        "expected_count": 1,
+        "extracted_count": 1,
+        "count_verified": true,
+        "source_kind": "direct_html",
+        "issues": [
+          "closed=false means this source has no matched closure marker; it is not a real-time opening-status assertion."
+        ],
+        "dates": [
+          {
+            "field": "published",
+            "value": "2022-01-21T05:28:16.287Z",
+            "source": "page metadata"
+          },
+          {
+            "field": "published",
+            "value": "2022-01-21T05:28:16.287Z",
+            "source": "page metadata"
+          },
+          {
+            "field": "updated",
+            "value": "2024-08-02T15:00:00.000Z",
+            "source": "page metadata"
+          },
+          {
+            "field": "updated",
+            "value": "2024-08-02T15:00:00.000Z",
+            "source": "page metadata"
+          }
+        ],
+        "descriptions": [
+          {
+            "rank": 1,
+            "name": "Hou Yi Hot Pot",
+            "present": true,
+            "reason": "exported",
+            "selector": "main .flatplan_tags",
+            "characters": 113
+          }
+        ],
+        "closure_markers": []
+      },
+      {
+        "source_id": "5df56ced9c3e6c59f945",
+        "fetched_at": "2026-11-18T09:36:01.420923+00:00",
+        "status": "complete",
+        "expected_count": 1,
+        "extracted_count": 1,
+        "count_verified": true,
+        "source_kind": "direct_html",
+        "issues": [
+          "closed=false means this source has no matched closure marker; it is not a real-time opening-status assertion."
+        ],
+        "dates": [
+          {
+            "field": "published",
+            "value": "2024-11-14T21:04:05.242Z",
+            "source": "page metadata"
+          },
+          {
+            "field": "published",
+            "value": "2024-11-14T21:04:05.242Z",
+            "source": "page metadata"
+          },
+          {
+            "field": "updated",
+            "value": "2025-01-27T15:00:00.000Z",
+            "source": "page metadata"
+          },
+          {
+            "field": "updated",
+            "value": "2025-01-27T15:00:00.000Z",
+            "source": "page metadata"
+          }
+        ],
+        "descriptions": [
+          {
+            "rank": 1,
+            "name": "Oncheon",
+            "present": true,
+            "reason": "exported",
+            "selector": "main .flatplan_tags",
+            "characters": 55
+          }
+        ],
+        "closure_markers": []
+      },
+      {
+        "source_id": "7d8d75a5fb01d9d06c61",
+        "fetched_at": null,
+        "status": "failed",
+        "expected_count": null,
+        "extracted_count": 0,
+        "count_verified": false,
+        "issues": [
+          "Reddit official API credentials are missing. Configure the approved OAuth client, refresh token and User-Agent; no anonymous request was made."
+        ],
+        "dates": []
+      },
+      {
+        "source_id": "646be88dd340b99ee385",
+        "fetched_at": "2026-11-18T09:36:06.140031+00:00",
+        "status": "failed",
+        "expected_count": null,
+        "extracted_count": 0,
+        "count_verified": false,
+        "issues": [
+          "HTTP 429: blocked; no merchant facts inferred."
+        ],
+        "dates": []
+      },
+      {
+        "source_id": "0afc063bc5a6085eee07",
+        "fetched_at": "2026-11-18T09:36:06.809589+00:00",
+        "status": "partial",
+        "expected_count": 13,
+        "extracted_count": 13,
+        "count_verified": true,
+        "source_kind": "direct_html",
+        "issues": [
+          "Directory cards supply names/addresses/tags but no dedicated description; original blurbs remain null.",
+          "closed=false means this source has no matched closure marker; it is not a real-time opening-status assertion."
+        ],
+        "dates": [],
+        "descriptions": [
+          {
+            "rank": 1,
+            "name": "Chubby Cattle BBQ | New York",
+            "present": false,
+            "reason": "not_provided",
+            "selector": "directory card (no description field)",
+            "characters": null
+          },
+          {
+            "rank": 2,
+            "name": "Churrascaria Plataforma Steakhouse",
+            "present": false,
+            "reason": "not_provided",
+            "selector": "directory card (no description field)",
+            "characters": null
+          },
+          {
+            "rank": 3,
+            "name": "Crab House Brooklyn",
+            "present": false,
+            "reason": "not_provided",
+            "selector": "directory card (no description field)",
+            "characters": null
+          },
+          {
+            "rank": 4,
+            "name": "Crab House Times Square",
+            "present": false,
+            "reason": "not_provided",
+            "selector": "directory card (no description field)",
+            "characters": null
+          },
+          {
+            "rank": 5,
+            "name": "Easy Joy Dim Sum & AYCE Hot Pot",
+            "present": false,
+            "reason": "not_provided",
+            "selector": "directory card (no description field)",
+            "characters": null
+          },
+          {
+            "rank": 6,
+            "name": "Golden Corral Buffet & Grill",
+            "present": false,
+            "reason": "not_provided",
+            "selector": "directory card (no description field)",
+            "characters": null
+          },
+          {
+            "rank": 7,
+            "name": "Hometown Hotpot & BBQ",
+            "present": false,
+            "reason": "not_provided",
+            "selector": "directory card (no description field)",
+            "characters": null
+          },
+          {
+            "rank": 8,
+            "name": "Jongro BBQ Market | AYCE Korean BBQ Midtown",
+            "present": false,
+            "reason": "not_provided",
+            "selector": "directory card (no description field)",
+            "characters": null
+          },
+          {
+            "rank": 9,
+            "name": "Jongro BBQ Market | Best All You Can Eat Korean BBQ, Koreatown",
+            "present": false,
+            "reason": "not_provided",
+            "selector": "directory card (no description field)",
+            "characters": null
+          },
+          {
+            "rank": 10,
+            "name": "Joypot",
+            "present": false,
+            "reason": "not_provided",
+            "selector": "directory card (no description field)",
+            "characters": null
+          },
+          {
+            "rank": 11,
+            "name": "Spring Shabu-Shabu",
+            "present": false,
+            "reason": "not_provided",
+            "selector": "directory card (no description field)",
+            "characters": null
+          },
+          {
+            "rank": 12,
+            "name": "Witch Topokki | All You Can Eat Korean Restaurant",
+            "present": false,
+            "reason": "not_provided",
+            "selector": "directory card (no description field)",
+            "characters": null
+          },
+          {
+            "rank": 13,
+            "name": "XI YUE HUI HOT POT",
+            "present": false,
+            "reason": "not_provided",
+            "selector": "directory card (no description field)",
+            "characters": null
+          }
+        ],
+        "closure_markers": []
+      }
+    ]
+  },
+  "candidate": [
+    {
+      "source_id": "23ce1d9854e125e51d56",
+      "fetched_at": "2026-11-19T05:42:35.625Z",
+      "status": "partial",
+      "expected_count": null,
+      "extracted_count": 48,
+      "count_verified": false,
+      "source_kind": "apify_candidate",
+      "issues": [
+        "Alternative Apify HTML collection; does not satisfy the official Reddit API requirement.",
+        "Apify HTML candidate; full folded-reply coverage is not verified.",
+        "Community rank is deterministic chronological parent-tree traversal order, not an editorial ranking. Separate comments keep separate original quotes and comment URLs."
+      ],
+      "dates": [],
+      "descriptions": [
+        {
+          "rank": 1,
+          "name": "spring shabu shabu",
+          "present": true,
+          "reason": "exported",
+          "selector": "Apify candidate comment body p9pa5q1",
+          "characters": 18
+        },
+        {
+          "rank": 2,
+          "name": "Happy lamb",
+          "present": true,
+          "reason": "exported",
+          "selector": "Apify candidate comment body p9pe97a",
+          "characters": 487
+        },
+        {
+          "rank": 3,
+          "name": "Spring shabu shabu",
+          "present": true,
+          "reason": "exported",
+          "selector": "Apify candidate comment body p9pe97a",
+          "characters": 487
+        },
+        {
+          "rank": 4,
+          "name": "happy lamb",
+          "present": true,
+          "reason": "exported",
+          "selector": "Apify candidate comment body p9pfklj",
+          "characters": 108
+        },
+        {
+          "rank": 5,
+          "name": "hai di Lao",
+          "present": true,
+          "reason": "exported",
+          "selector": "Apify candidate comment body p9pfklj",
+          "characters": 108
+        },
+        {
+          "rank": 6,
+          "name": "Beijing Hot Pot",
+          "present": true,
+          "reason": "exported",
+          "selector": "Apify candidate comment body p9pumqz",
+          "characters": 208
+        },
+        {
+          "rank": 7,
+          "name": "Haidilao",
+          "present": true,
+          "reason": "exported",
+          "selector": "Apify candidate comment body p9pumqz",
+          "characters": 208
+        },
+        {
+          "rank": 8,
+          "name": "Nanshan Hot Pot",
+          "present": true,
+          "reason": "exported",
+          "selector": "Apify candidate comment body p9pumqz",
+          "characters": 208
+        },
+        {
+          "rank": 9,
+          "name": "Haidilao",
+          "present": true,
+          "reason": "exported",
+          "selector": "Apify candidate comment body p9ql8bl",
+          "characters": 251
+        },
+        {
+          "rank": 10,
+          "name": "Beijing hot pot",
+          "present": true,
+          "reason": "exported",
+          "selector": "Apify candidate comment body p9ql8bl",
+          "characters": 251
+        },
+        {
+          "rank": 11,
+          "name": "Happy lamb",
+          "present": true,
+          "reason": "exported",
+          "selector": "Apify candidate comment body p9ql8bl",
+          "characters": 251
+        },
+        {
+          "rank": 12,
+          "name": "Happy Lamb",
+          "present": true,
+          "reason": "exported",
+          "selector": "Apify candidate comment body p9r3o9p",
+          "characters": 373
+        },
+        {
+          "rank": 13,
+          "name": "Spring Shabu Shabu",
+          "present": true,
+          "reason": "exported",
+          "selector": "Apify candidate comment body p9r3o9p",
+          "characters": 373
+        },
+        {
+          "rank": 14,
+          "name": "Shoo Loong Kan",
+          "present": true,
+          "reason": "exported",
+          "selector": "Apify candidate comment body p9rkbeu",
+          "characters": 45
+        },
+        {
+          "rank": 15,
+          "name": "Beijing hotpot",
+          "present": true,
+          "reason": "exported",
+          "selector": "Apify candidate comment body p9ryf5z",
+          "characters": 299
+        },
+        {
+          "rank": 16,
+          "name": "Haidilao",
+          "present": true,
+          "reason": "exported",
+          "selector": "Apify candidate comment body p9ryf5z",
+          "characters": 299
+        },
+        {
+          "rank": 17,
+          "name": "chongqing",
+          "present": true,
+          "reason": "exported",
+          "selector": "Apify candidate comment body p9ryf5z",
+          "characters": 299
+        },
+        {
+          "rank": 18,
+          "name": "Mikiya",
+          "present": true,
+          "reason": "exported",
+          "selector": "Apify candidate comment body p9sfxpa",
+          "characters": 169
+        },
+        {
+          "rank": 19,
+          "name": "happy lamb",
+          "present": true,
+          "reason": "exported",
+          "selector": "Apify candidate comment body p9sfxpa",
+          "characters": 169
+        },
+        {
+          "rank": 20,
+          "name": "chongqings",
+          "present": true,
+          "reason": "exported",
+          "selector": "Apify candidate comment body p9soc5s",
+          "characters": 50
+        },
+        {
+          "rank": 21,
+          "name": "Nanshan",
+          "present": true,
+          "reason": "exported",
+          "selector": "Apify candidate comment body p9t997m",
+          "characters": 20
+        },
+        {
+          "rank": 22,
+          "name": "chongqing lao zhao",
+          "present": true,
+          "reason": "exported",
+          "selector": "Apify candidate comment body p9u5tlt",
+          "characters": 300
+        },
+        {
+          "rank": 23,
+          "name": "happy lamb",
+          "present": true,
+          "reason": "exported",
+          "selector": "Apify candidate comment body p9u5tlt",
+          "characters": 300
+        },
+        {
+          "rank": 24,
+          "name": "little sheep",
+          "present": true,
+          "reason": "exported",
+          "selector": "Apify candidate comment body p9u5tlt",
+          "characters": 300
+        },
+        {
+          "rank": 25,
+          "name": "haidilao",
+          "present": true,
+          "reason": "exported",
+          "selector": "Apify candidate comment body p9u5tlt",
+          "characters": 300
+        },
+        {
+          "rank": 26,
+          "name": "spring shabu",
+          "present": true,
+          "reason": "exported",
+          "selector": "Apify candidate comment body p9u5tlt",
+          "characters": 300
+        },
+        {
+          "rank": 27,
+          "name": "Chongqing Lao Zao",
+          "present": true,
+          "reason": "exported",
+          "selector": "Apify candidate comment body p9vkwug",
+          "characters": 29
+        },
+        {
+          "rank": 28,
+          "name": "Nanshan",
+          "present": true,
+          "reason": "exported",
+          "selector": "Apify candidate comment body p9vlffo",
+          "characters": 247
+        },
+        {
+          "rank": 29,
+          "name": "Chongqing laozao",
+          "present": true,
+          "reason": "exported",
+          "selector": "Apify candidate comment body p9vlffo",
+          "characters": 247
+        },
+        {
+          "rank": 30,
+          "name": "chongqing laozao",
+          "present": true,
+          "reason": "exported",
+          "selector": "Apify candidate comment body p9w8gil",
+          "characters": 120
+        },
+        {
+          "rank": 31,
+          "name": "shoo loong kan",
+          "present": true,
+          "reason": "exported",
+          "selector": "Apify candidate comment body p9w8gil",
+          "characters": 120
+        },
+        {
+          "rank": 32,
+          "name": "mikiya",
+          "present": true,
+          "reason": "exported",
+          "selector": "Apify candidate comment body p9w8gil",
+          "characters": 120
+        },
+        {
+          "rank": 33,
+          "name": "Nanshan",
+          "present": true,
+          "reason": "exported",
+          "selector": "Apify candidate comment body p9z0kro",
+          "characters": 8
+        },
+        {
+          "rank": 34,
+          "name": "Beijing",
+          "present": true,
+          "reason": "exported",
+          "selector": "Apify candidate comment body pacixk3",
+          "characters": 60
+        },
+        {
+          "rank": 35,
+          "name": "Liu Yi Shou",
+          "present": true,
+          "reason": "exported",
+          "selector": "Apify candidate comment body pajsjrv",
+          "characters": 970
+        },
+        {
+          "rank": 36,
+          "name": "happy lamb",
+          "present": true,
+          "reason": "exported",
+          "selector": "Apify candidate comment body pajsjrv",
+          "characters": 970
+        },
+        {
+          "rank": 37,
+          "name": "Haidilao",
+          "present": true,
+          "reason": "exported",
+          "selector": "Apify candidate comment body pajsjrv",
+          "characters": 970
+        },
+        {
+          "rank": 38,
+          "name": "Chongqing Laozao",
+          "present": true,
+          "reason": "exported",
+          "selector": "Apify candidate comment body pajsjrv",
+          "characters": 970
+        },
+        {
+          "rank": 39,
+          "name": "Mikiya",
+          "present": true,
+          "reason": "exported",
+          "selector": "Apify candidate comment body pajsjrv",
+          "characters": 970
+        },
+        {
+          "rank": 40,
+          "name": "Shoo Long Kan",
+          "present": true,
+          "reason": "exported",
+          "selector": "Apify candidate comment body pajsjrv",
+          "characters": 970
+        },
+        {
+          "rank": 41,
+          "name": "Spring Shabu",
+          "present": true,
+          "reason": "exported",
+          "selector": "Apify candidate comment body pajsjrv",
+          "characters": 970
+        },
+        {
+          "rank": 42,
+          "name": "Liu Yi Shou",
+          "present": true,
+          "reason": "exported",
+          "selector": "Apify candidate comment body pajska6",
+          "characters": 1127
+        },
+        {
+          "rank": 43,
+          "name": "happy lamb",
+          "present": true,
+          "reason": "exported",
+          "selector": "Apify candidate comment body pajska6",
+          "characters": 1127
+        },
+        {
+          "rank": 44,
+          "name": "Haidilao",
+          "present": true,
+          "reason": "exported",
+          "selector": "Apify candidate comment body pajska6",
+          "characters": 1127
+        },
+        {
+          "rank": 45,
+          "name": "Chongqing Laozao",
+          "present": true,
+          "reason": "exported",
+          "selector": "Apify candidate comment body pajska6",
+          "characters": 1127
+        },
+        {
+          "rank": 46,
+          "name": "Mikiya",
+          "present": true,
+          "reason": "exported",
+          "selector": "Apify candidate comment body pajska6",
+          "characters": 1127
+        },
+        {
+          "rank": 47,
+          "name": "Shoo Long Kan",
+          "present": true,
+          "reason": "exported",
+          "selector": "Apify candidate comment body pajska6",
+          "characters": 1127
+        },
+        {
+          "rank": 48,
+          "name": "Spring Shabu",
+          "present": true,
+          "reason": "exported",
+          "selector": "Apify candidate comment body pajska6",
+          "characters": 1127
+        }
+      ],
+      "closure_markers": [],
+      "comment_coverage": {
+        "declared": 27,
+        "saved": 25,
+        "readable": 25,
+        "deleted": 0,
+        "unavailable": 0,
+        "unique_ids": true,
+        "reviewed": true
+      },
+      "reddit": {
+        "tree_complete": false,
+        "mentions_reviewed": true,
+        "unresolved": 0,
+        "api_calls": 0,
+        "capture_sha256": "7d484437fd5766a9e66b60c4c59e4b280e35a52036949ea6722462aac9629777",
+        "content_sha256": "09839807b12c35e9aa2d491d9088e44094313ba0fb7dbf81bb4ad954c9a520a7"
+      },
+      "actor_status": "SUCCEEDED",
+      "rejected_rows": 0,
+      "comments_saved": 25,
+      "unknown_parent_comments": 18
+    },
+    {
+      "source_id": "7d8d75a5fb01d9d06c61",
+      "fetched_at": "2026-11-19T05:42:21.259Z",
+      "status": "partial",
+      "expected_count": null,
+      "extracted_count": 15,
+      "count_verified": false,
+      "source_kind": "apify_candidate",
+      "issues": [
+        "Alternative Apify HTML collection; does not satisfy the official Reddit API requirement.",
+        "Apify HTML candidate; full folded-reply coverage is not verified.",
+        "Community rank is deterministic chronological parent-tree traversal order, not an editorial ranking. Separate comments keep separate original quotes and comment URLs."
+      ],
+      "dates": [],
+      "descriptions": [
+        {
+          "rank": 1,
+          "name": "lao jie",
+          "present": true,
+          "reason": "exported",
+          "selector": "Apify candidate comment body pb7yc1t",
+          "characters": 36
+        },
+        {
+          "rank": 2,
+          "name": "99 favor taste",
+          "present": true,
+          "reason": "exported",
+          "selector": "Apify candidate comment body pb7yf99",
+          "characters": 27
+        },
+        {
+          "rank": 3,
+          "name": "Funny BBQ",
+          "present": true,
+          "reason": "exported",
+          "selector": "Apify candidate comment body pb81x7w",
+          "characters": 53
+        },
+        {
+          "rank": 4,
+          "name": "Easy Joy",
+          "present": true,
+          "reason": "exported",
+          "selector": "Apify candidate comment body pb83dq7",
+          "characters": 62
+        },
+        {
+          "rank": 5,
+          "name": "Zao Men Qian",
+          "present": true,
+          "reason": "exported",
+          "selector": "Apify candidate comment body pb83ony",
+          "characters": 35
+        },
+        {
+          "rank": 6,
+          "name": "Easy Joy",
+          "present": true,
+          "reason": "exported",
+          "selector": "Apify candidate comment body pb8617b",
+          "characters": 345
+        },
+        {
+          "rank": 7,
+          "name": "K-pot",
+          "present": true,
+          "reason": "exported",
+          "selector": "Apify candidate comment body pb93mxc",
+          "characters": 91
+        },
+        {
+          "rank": 8,
+          "name": "laojie",
+          "present": true,
+          "reason": "exported",
+          "selector": "Apify candidate comment body pb9hlvd",
+          "characters": 7
+        },
+        {
+          "rank": 9,
+          "name": "99 favor taste",
+          "present": true,
+          "reason": "exported",
+          "selector": "Apify candidate comment body pb9hnlw",
+          "characters": 107
+        },
+        {
+          "rank": 10,
+          "name": "Mikiya",
+          "present": true,
+          "reason": "exported",
+          "selector": "Apify candidate comment body pbawrye",
+          "characters": 24
+        },
+        {
+          "rank": 11,
+          "name": "Xiang Hot Pot",
+          "present": true,
+          "reason": "exported",
+          "selector": "Apify candidate comment body pbbg0vp",
+          "characters": 23
+        },
+        {
+          "rank": 12,
+          "name": "Dolar Shop",
+          "present": true,
+          "reason": "exported",
+          "selector": "Apify candidate comment body pbhlswz",
+          "characters": 23
+        },
+        {
+          "rank": 13,
+          "name": "hou yi",
+          "present": true,
+          "reason": "exported",
+          "selector": "Apify candidate comment body pbi943l",
+          "characters": 13
+        },
+        {
+          "rank": 14,
+          "name": "Chonqing Lao zao",
+          "present": true,
+          "reason": "exported",
+          "selector": "Apify candidate comment body pbmgjh5",
+          "characters": 75
+        },
+        {
+          "rank": 15,
+          "name": "Hometown",
+          "present": true,
+          "reason": "exported",
+          "selector": "Apify candidate comment body pbp7mga",
+          "characters": 17
+        }
+      ],
+      "closure_markers": [],
+      "comment_coverage": {
+        "declared": 47,
+        "saved": 25,
+        "readable": 25,
+        "deleted": 0,
+        "unavailable": 0,
+        "unique_ids": true,
+        "reviewed": true
+      },
+      "reddit": {
+        "tree_complete": false,
+        "mentions_reviewed": true,
+        "unresolved": 0,
+        "api_calls": 0,
+        "capture_sha256": "d37284e46536c41f1ebbb7f9282595116a4898bf04f43ba319503ecaa8b88bc0",
+        "content_sha256": "314fc54a340538c658b2d304388d087ad31f09d93b2d39a0866e4ee5d3c6540f"
+      },
+      "actor_status": "SUCCEEDED",
+      "rejected_rows": 0,
+      "comments_saved": 25,
+      "unknown_parent_comments": 14
+    }
+  ]
+}

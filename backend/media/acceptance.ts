@@ -9,7 +9,7 @@ export function evaluateMediaAcceptance(articles:MediaArticle[],sources:MediaEvi
   const missing=article.restaurants.filter(r=>typeof r.blurb!=='string'||!r.blurb.trim());
   if(!article.title)reasons.push('Article title unavailable.');
   if(!source.fetched_at||!Number.isFinite(Date.parse(source.fetched_at)))reasons.push('Capture time unavailable.');
-  if(!article.restaurants.length)reasons.push('No verified restaurant entries.');
+  if(!article.restaurants.length&&!(source.source_kind==='reddit_oauth'&&source.count_verified&&source.reddit?.mentions_reviewed))reasons.push('No verified restaurant entries.');
   if(!source.count_verified)reasons.push('Restaurant count/order completeness is not verified.');
   if(source.extracted_count!==article.restaurants.length)reasons.push('Evidence count does not match output.');
   if(source.source_kind==='web_index')reasons.push('Only a search-index snapshot is available; live-page completeness is unverified.');

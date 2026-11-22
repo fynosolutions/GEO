@@ -69,7 +69,7 @@ test('membership counts distinct verified pages and keeps other branches and com
 });
 test('CLI offline replay produces fixed schema, source errors and six-row table without network',()=>{
  const dir=mkdtempSync(join(tmpdir(),'geo-media-')),cache=join(dir,'cache'),out=join(dir,'out');
- try{const result=spawnSync(process.execPath,['dist/backend/media/cli.js','--cache',cache,'--out',out],{encoding:'utf8'});assert.equal(result.status,2,result.stderr);
+ try{const result=spawnSync(process.execPath,['dist/backend/media/cli.js','--legacy','--cache',cache,'--out',out],{encoding:'utf8'});assert.equal(result.status,2,result.stderr);
   const articles=JSON.parse(readFileSync(join(out,'articles.json'))),evidence=JSON.parse(readFileSync(join(out,'evidence.json')));assert.equal(articles.length,9);assert.equal(evidence.apify_cost_usd,0);assert.ok(evidence.sources.every(s=>s.status==='failed'&&s.fetched_at===null));assert.ok(articles.every(a=>Object.keys(a).join(',')==='url,site,title,published,updated,restaurants'));assert.match(readFileSync(join(out,'上榜表.md'),'utf8'),/KPOT/);
  }finally{rmSync(dir,{recursive:true,force:true});}
 });
@@ -100,7 +100,7 @@ test('CLI imports supplied text and rejects invalid input without replacing prev
  try{
   writeFileSync(join(cache,'infatuation-hot-pot.html'),fixture());writeFileSync(join(cache,'infatuation-hot-pot.json'),JSON.stringify({url:source.url,status:200,fetched_at:'2026-11-11T00:00:00Z'}));
   writeFileSync(input,JSON.stringify([{url:source.url,restaurants:[{rank:1,name:'Test Kitchen',blurb:'Fictional paragraph.\nOriginal second line.'}]}]));
-  const args=['dist/backend/media/cli.js','--source','infatuation-hot-pot','--cache',cache,'--out',out,'--supplied-texts',input];
+  const args=['dist/backend/media/cli.js','--legacy','--source','infatuation-hot-pot','--cache',cache,'--out',out,'--supplied-texts',input];
   const valid=spawnSync(process.execPath,args,{encoding:'utf8'});assert.equal(valid.status,0,valid.stderr);const previous=readFileSync(join(out,'articles.json'),'utf8');assert.equal(JSON.parse(previous)[0].restaurants[0].blurb,'Fictional paragraph.\nOriginal second line.');
   writeFileSync(input,'null');const invalid=spawnSync(process.execPath,args,{encoding:'utf8'});assert.equal(invalid.status,1);assert.match(invalid.stderr,/non-empty article array/);assert.equal(readFileSync(join(out,'articles.json'),'utf8'),previous);
  }finally{rmSync(root,{recursive:true,force:true});}
@@ -132,7 +132,7 @@ test('CLI rendered-page cache takes priority over stale index without claiming a
  try{
   const source=mediaSources[8];writeFileSync(join(cache,source.id+'.html'),michelinFixture);writeFileSync(join(cache,source.id+'.json'),JSON.stringify({url:source.url,fetched_at:'2026-11-11T00:00:00Z',status:null,retrieval:'browser_dom',rendered:true}));
   writeFileSync(join(cache,source.id+'.web.txt'),'Malformed old index must not be selected');
-  const result=spawnSync(process.execPath,['dist/backend/media/cli.js','--cache',cache,'--out',out,'--source',source.id],{encoding:'utf8'});assert.equal(result.status,2,result.stderr);
+  const result=spawnSync(process.execPath,['dist/backend/media/cli.js','--legacy','--cache',cache,'--out',out,'--source',source.id],{encoding:'utf8'});assert.equal(result.status,2,result.stderr);
   const evidence=JSON.parse(readFileSync(join(out,'evidence.json'),'utf8')).sources[0];assert.equal(evidence.source_kind,'browser_dom');assert.equal(evidence.count_verified,true);
   const acceptance=JSON.parse(readFileSync(join(out,'acceptance.json'),'utf8'));assert.equal(acceptance.descriptions_missing,3);assert.equal(acceptance.missing_sources.length,8);
   assert.ok(JSON.parse(readFileSync(join(out,'cache-manifest.json'),'utf8')).every(e=>/^[a-f0-9]{64}$/.test(e.sha256)));
@@ -163,7 +163,7 @@ test('CLI imports saved-page manifest and requires reviewed hash before acceptin
  const root=mkdtempSync(join(tmpdir(),'geo-media-pages-')),pages=join(root,'pages'),out=join(root,'out');mkdirSync(pages);
  try{
   const html=redditSavedFixture();writeFileSync(join(pages,'reddit.html'),html);writeFileSync(join(pages,'manifest.json'),JSON.stringify([{source_id:mediaSources[6].id,file:'reddit.html',reviewed:true,reviewed_sha256:'wrong'}]));
-  const args=['dist/backend/media/cli.js','--source',mediaSources[6].id,'--supplied-pages',pages,'--cache',join(root,'cache'),'--out',out];
+  const args=['dist/backend/media/cli.js','--legacy','--source',mediaSources[6].id,'--supplied-pages',pages,'--cache',join(root,'cache'),'--out',out];
   const bad=spawnSync(process.execPath,args,{encoding:'utf8'});assert.equal(bad.status,2);assert.match(readFileSync(join(out,'evidence.json'),'utf8'),/hash does not match/);
   const hash=createHash('sha256').update(html).digest('hex');writeFileSync(join(pages,'manifest.json'),JSON.stringify([{source_id:mediaSources[6].id,file:'reddit.html',reviewed:true,reviewed_sha256:hash}]));
   const good=spawnSync(process.execPath,args,{encoding:'utf8'});assert.equal(good.status,0,good.stderr);const a=JSON.parse(readFileSync(join(out,'acceptance.json'),'utf8'));assert.equal(a.complete,true);assert.equal(a.ready_for_delivery,false);
@@ -203,7 +203,7 @@ test('CLI full mode exports fixture descriptions by default; supplied-only repor
  const root=mkdtempSync(join(tmpdir(),'geo-media-policy-')),cache=join(root,'cache'),out=join(root,'out');mkdirSync(cache);
  try{
   const html=fixture().replace('<p>A fictional restaurant paragraph for this test.</p>','<div city="new-york"><p>Fictional original cafe description.</p></div>');writeFileSync(join(cache,source.id+'.html'),html);writeFileSync(join(cache,source.id+'.json'),JSON.stringify({url:source.url,status:200,fetched_at:'2026-11-12T00:00:00Z'}));
-  const args=['dist/backend/media/cli.js','--source',source.id,'--cache',cache,'--out',out];
+  const args=['dist/backend/media/cli.js','--legacy','--source',source.id,'--cache',cache,'--out',out];
   assert.equal(spawnSync(process.execPath,args,{encoding:'utf8'}).status,0);assert.equal(JSON.parse(readFileSync(join(out,'articles.json'),'utf8'))[0].restaurants[0].blurb,'Fictional original cafe description.');
   assert.equal(spawnSync(process.execPath,[...args,'--descriptions','supplied-only'],{encoding:'utf8'}).status,2);const report=JSON.parse(readFileSync(join(out,'description-availability.json'),'utf8'));assert.equal(report.present,1);assert.equal(report.counts.not_selected,1);assert.equal(report.confirmed_absent,0);
   assert.equal(spawnSync(process.execPath,[...args,'--descriptions','unknown'],{encoding:'utf8'}).status,1);

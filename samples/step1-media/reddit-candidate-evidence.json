@@ -1,0 +1,584 @@
+[
+  {
+    "source_id": "23ce1d9854e125e51d56",
+    "fetched_at": "2026-11-19T05:42:35.625Z",
+    "status": "partial",
+    "expected_count": null,
+    "extracted_count": 48,
+    "count_verified": false,
+    "source_kind": "apify_candidate",
+    "issues": [
+      "Alternative Apify HTML collection; does not satisfy the official Reddit API requirement.",
+      "Apify HTML candidate; full folded-reply coverage is not verified.",
+      "Community rank is deterministic chronological parent-tree traversal order, not an editorial ranking. Separate comments keep separate original quotes and comment URLs."
+    ],
+    "dates": [],
+    "descriptions": [
+      {
+        "rank": 1,
+        "name": "spring shabu shabu",
+        "present": true,
+        "reason": "exported",
+        "selector": "Apify candidate comment body p9pa5q1",
+        "characters": 18
+      },
+      {
+        "rank": 2,
+        "name": "Happy lamb",
+        "present": true,
+        "reason": "exported",
+        "selector": "Apify candidate comment body p9pe97a",
+        "characters": 487
+      },
+      {
+        "rank": 3,
+        "name": "Spring shabu shabu",
+        "present": true,
+        "reason": "exported",
+        "selector": "Apify candidate comment body p9pe97a",
+        "characters": 487
+      },
+      {
+        "rank": 4,
+        "name": "happy lamb",
+        "present": true,
+        "reason": "exported",
+        "selector": "Apify candidate comment body p9pfklj",
+        "characters": 108
+      },
+      {
+        "rank": 5,
+        "name": "hai di Lao",
+        "present": true,
+        "reason": "exported",
+        "selector": "Apify candidate comment body p9pfklj",
+        "characters": 108
+      },
+      {
+        "rank": 6,
+        "name": "Beijing Hot Pot",
+        "present": true,
+        "reason": "exported",
+        "selector": "Apify candidate comment body p9pumqz",
+        "characters": 208
+      },
+      {
+        "rank": 7,
+        "name": "Haidilao",
+        "present": true,
+        "reason": "exported",
+        "selector": "Apify candidate comment body p9pumqz",
+        "characters": 208
+      },
+      {
+        "rank": 8,
+        "name": "Nanshan Hot Pot",
+        "present": true,
+        "reason": "exported",
+        "selector": "Apify candidate comment body p9pumqz",
+        "characters": 208
+      },
+      {
+        "rank": 9,
+        "name": "Haidilao",
+        "present": true,
+        "reason": "exported",
+        "selector": "Apify candidate comment body p9ql8bl",
+        "characters": 251
+      },
+      {
+        "rank": 10,
+        "name": "Beijing hot pot",
+        "present": true,
+        "reason": "exported",
+        "selector": "Apify candidate comment body p9ql8bl",
+        "characters": 251
+      },
+      {
+        "rank": 11,
+        "name": "Happy lamb",
+        "present": true,
+        "reason": "exported",
+        "selector": "Apify candidate comment body p9ql8bl",
+        "characters": 251
+      },
+      {
+        "rank": 12,
+        "name": "Happy Lamb",
+        "present": true,
+        "reason": "exported",
+        "selector": "Apify candidate comment body p9r3o9p",
+        "characters": 373
+      },
+      {
+        "rank": 13,
+        "name": "Spring Shabu Shabu",
+        "present": true,
+        "reason": "exported",
+        "selector": "Apify candidate comment body p9r3o9p",
+        "characters": 373
+      },
+      {
+        "rank": 14,
+        "name": "Shoo Loong Kan",
+        "present": true,
+        "reason": "exported",
+        "selector": "Apify candidate comment body p9rkbeu",
+        "characters": 45
+      },
+      {
+        "rank": 15,
+        "name": "Beijing hotpot",
+        "present": true,
+        "reason": "exported",
+        "selector": "Apify candidate comment body p9ryf5z",
+        "characters": 299
+      },
+      {
+        "rank": 16,
+        "name": "Haidilao",
+        "present": true,
+        "reason": "exported",
+        "selector": "Apify candidate comment body p9ryf5z",
+        "characters": 299
+      },
+      {
+        "rank": 17,
+        "name": "chongqing",
+        "present": true,
+        "reason": "exported",
+        "selector": "Apify candidate comment body p9ryf5z",
+        "characters": 299
+      },
+      {
+        "rank": 18,
+        "name": "Mikiya",
+        "present": true,
+        "reason": "exported",
+        "selector": "Apify candidate comment body p9sfxpa",
+        "characters": 169
+      },
+      {
+        "rank": 19,
+        "name": "happy lamb",
+        "present": true,
+        "reason": "exported",
+        "selector": "Apify candidate comment body p9sfxpa",
+        "characters": 169
+      },
+      {
+        "rank": 20,
+        "name": "chongqings",
+        "present": true,
+        "reason": "exported",
+        "selector": "Apify candidate comment body p9soc5s",
+        "characters": 50
+      },
+      {
+        "rank": 21,
+        "name": "Nanshan",
+        "present": true,
+        "reason": "exported",
+        "selector": "Apify candidate comment body p9t997m",
+        "characters": 20
+      },
+      {
+        "rank": 22,
+        "name": "chongqing lao zhao",
+        "present": true,
+        "reason": "exported",
+        "selector": "Apify candidate comment body p9u5tlt",
+        "characters": 300
+      },
+      {
+        "rank": 23,
+        "name": "happy lamb",
+        "present": true,
+        "reason": "exported",
+        "selector": "Apify candidate comment body p9u5tlt",
+        "characters": 300
+      },
+      {
+        "rank": 24,
+        "name": "little sheep",
+        "present": true,
+        "reason": "exported",
+        "selector": "Apify candidate comment body p9u5tlt",
+        "characters": 300
+      },
+      {
+        "rank": 25,
+        "name": "haidilao",
+        "present": true,
+        "reason": "exported",
+        "selector": "Apify candidate comment body p9u5tlt",
+        "characters": 300
+      },
+      {
+        "rank": 26,
+        "name": "spring shabu",
+        "present": true,
+        "reason": "exported",
+        "selector": "Apify candidate comment body p9u5tlt",
+        "characters": 300
+      },
+      {
+        "rank": 27,
+        "name": "Chongqing Lao Zao",
+        "present": true,
+        "reason": "exported",
+        "selector": "Apify candidate comment body p9vkwug",
+        "characters": 29
+      },
+      {
+        "rank": 28,
+        "name": "Nanshan",
+        "present": true,
+        "reason": "exported",
+        "selector": "Apify candidate comment body p9vlffo",
+        "characters": 247
+      },
+      {
+        "rank": 29,
+        "name": "Chongqing laozao",
+        "present": true,
+        "reason": "exported",
+        "selector": "Apify candidate comment body p9vlffo",
+        "characters": 247
+      },
+      {
+        "rank": 30,
+        "name": "chongqing laozao",
+        "present": true,
+        "reason": "exported",
+        "selector": "Apify candidate comment body p9w8gil",
+        "characters": 120
+      },
+      {
+        "rank": 31,
+        "name": "shoo loong kan",
+        "present": true,
+        "reason": "exported",
+        "selector": "Apify candidate comment body p9w8gil",
+        "characters": 120
+      },
+      {
+        "rank": 32,
+        "name": "mikiya",
+        "present": true,
+        "reason": "exported",
+        "selector": "Apify candidate comment body p9w8gil",
+        "characters": 120
+      },
+      {
+        "rank": 33,
+        "name": "Nanshan",
+        "present": true,
+        "reason": "exported",
+        "selector": "Apify candidate comment body p9z0kro",
+        "characters": 8
+      },
+      {
+        "rank": 34,
+        "name": "Beijing",
+        "present": true,
+        "reason": "exported",
+        "selector": "Apify candidate comment body pacixk3",
+        "characters": 60
+      },
+      {
+        "rank": 35,
+        "name": "Liu Yi Shou",
+        "present": true,
+        "reason": "exported",
+        "selector": "Apify candidate comment body pajsjrv",
+        "characters": 970
+      },
+      {
+        "rank": 36,
+        "name": "happy lamb",
+        "present": true,
+        "reason": "exported",
+        "selector": "Apify candidate comment body pajsjrv",
+        "characters": 970
+      },
+      {
+        "rank": 37,
+        "name": "Haidilao",
+        "present": true,
+        "reason": "exported",
+        "selector": "Apify candidate comment body pajsjrv",
+        "characters": 970
+      },
+      {
+        "rank": 38,
+        "name": "Chongqing Laozao",
+        "present": true,
+        "reason": "exported",
+        "selector": "Apify candidate comment body pajsjrv",
+        "characters": 970
+      },
+      {
+        "rank": 39,
+        "name": "Mikiya",
+        "present": true,
+        "reason": "exported",
+        "selector": "Apify candidate comment body pajsjrv",
+        "characters": 970
+      },
+      {
+        "rank": 40,
+        "name": "Shoo Long Kan",
+        "present": true,
+        "reason": "exported",
+        "selector": "Apify candidate comment body pajsjrv",
+        "characters": 970
+      },
+      {
+        "rank": 41,
+        "name": "Spring Shabu",
+        "present": true,
+        "reason": "exported",
+        "selector": "Apify candidate comment body pajsjrv",
+        "characters": 970
+      },
+      {
+        "rank": 42,
+        "name": "Liu Yi Shou",
+        "present": true,
+        "reason": "exported",
+        "selector": "Apify candidate comment body pajska6",
+        "characters": 1127
+      },
+      {
+        "rank": 43,
+        "name": "happy lamb",
+        "present": true,
+        "reason": "exported",
+        "selector": "Apify candidate comment body pajska6",
+        "characters": 1127
+      },
+      {
+        "rank": 44,
+        "name": "Haidilao",
+        "present": true,
+        "reason": "exported",
+        "selector": "Apify candidate comment body pajska6",
+        "characters": 1127
+      },
+      {
+        "rank": 45,
+        "name": "Chongqing Laozao",
+        "present": true,
+        "reason": "exported",
+        "selector": "Apify candidate comment body pajska6",
+        "characters": 1127
+      },
+      {
+        "rank": 46,
+        "name": "Mikiya",
+        "present": true,
+        "reason": "exported",
+        "selector": "Apify candidate comment body pajska6",
+        "characters": 1127
+      },
+      {
+        "rank": 47,
+        "name": "Shoo Long Kan",
+        "present": true,
+        "reason": "exported",
+        "selector": "Apify candidate comment body pajska6",
+        "characters": 1127
+      },
+      {
+        "rank": 48,
+        "name": "Spring Shabu",
+        "present": true,
+        "reason": "exported",
+        "selector": "Apify candidate comment body pajska6",
+        "characters": 1127
+      }
+    ],
+    "closure_markers": [],
+    "comment_coverage": {
+      "declared": 27,
+      "saved": 25,
+      "readable": 25,
+      "deleted": 0,
+      "unavailable": 0,
+      "unique_ids": true,
+      "reviewed": true
+    },
+    "reddit": {
+      "tree_complete": false,
+      "mentions_reviewed": true,
+      "unresolved": 0,
+      "api_calls": 0,
+      "capture_sha256": "7d484437fd5766a9e66b60c4c59e4b280e35a52036949ea6722462aac9629777",
+      "content_sha256": "09839807b12c35e9aa2d491d9088e44094313ba0fb7dbf81bb4ad954c9a520a7"
+    },
+    "actor_status": "SUCCEEDED",
+    "rejected_rows": 0,
+    "comments_saved": 25,
+    "unknown_parent_comments": 18
+  },
+  {
+    "source_id": "7d8d75a5fb01d9d06c61",
+    "fetched_at": "2026-11-19T05:42:21.259Z",
+    "status": "partial",
+    "expected_count": null,
+    "extracted_count": 15,
+    "count_verified": false,
+    "source_kind": "apify_candidate",
+    "issues": [
+      "Alternative Apify HTML collection; does not satisfy the official Reddit API requirement.",
+      "Apify HTML candidate; full folded-reply coverage is not verified.",
+      "Community rank is deterministic chronological parent-tree traversal order, not an editorial ranking. Separate comments keep separate original quotes and comment URLs."
+    ],
+    "dates": [],
+    "descriptions": [
+      {
+        "rank": 1,
+        "name": "lao jie",
+        "present": true,
+        "reason": "exported",
+        "selector": "Apify candidate comment body pb7yc1t",
+        "characters": 36
+      },
+      {
+        "rank": 2,
+        "name": "99 favor taste",
+        "present": true,
+        "reason": "exported",
+        "selector": "Apify candidate comment body pb7yf99",
+        "characters": 27
+      },
+      {
+        "rank": 3,
+        "name": "Funny BBQ",
+        "present": true,
+        "reason": "exported",
+        "selector": "Apify candidate comment body pb81x7w",
+        "characters": 53
+      },
+      {
+        "rank": 4,
+        "name": "Easy Joy",
+        "present": true,
+        "reason": "exported",
+        "selector": "Apify candidate comment body pb83dq7",
+        "characters": 62
+      },
+      {
+        "rank": 5,
+        "name": "Zao Men Qian",
+        "present": true,
+        "reason": "exported",
+        "selector": "Apify candidate comment body pb83ony",
+        "characters": 35
+      },
+      {
+        "rank": 6,
+        "name": "Easy Joy",
+        "present": true,
+        "reason": "exported",
+        "selector": "Apify candidate comment body pb8617b",
+        "characters": 345
+      },
+      {
+        "rank": 7,
+        "name": "K-pot",
+        "present": true,
+        "reason": "exported",
+        "selector": "Apify candidate comment body pb93mxc",
+        "characters": 91
+      },
+      {
+        "rank": 8,
+        "name": "laojie",
+        "present": true,
+        "reason": "exported",
+        "selector": "Apify candidate comment body pb9hlvd",
+        "characters": 7
+      },
+      {
+        "rank": 9,
+        "name": "99 favor taste",
+        "present": true,
+        "reason": "exported",
+        "selector": "Apify candidate comment body pb9hnlw",
+        "characters": 107
+      },
+      {
+        "rank": 10,
+        "name": "Mikiya",
+        "present": true,
+        "reason": "exported",
+        "selector": "Apify candidate comment body pbawrye",
+        "characters": 24
+      },
+      {
+        "rank": 11,
+        "name": "Xiang Hot Pot",
+        "present": true,
+        "reason": "exported",
+        "selector": "Apify candidate comment body pbbg0vp",
+        "characters": 23
+      },
+      {
+        "rank": 12,
+        "name": "Dolar Shop",
+        "present": true,
+        "reason": "exported",
+        "selector": "Apify candidate comment body pbhlswz",
+        "characters": 23
+      },
+      {
+        "rank": 13,
+        "name": "hou yi",
+        "present": true,
+        "reason": "exported",
+        "selector": "Apify candidate comment body pbi943l",
+        "characters": 13
+      },
+      {
+        "rank": 14,
+        "name": "Chonqing Lao zao",
+        "present": true,
+        "reason": "exported",
+        "selector": "Apify candidate comment body pbmgjh5",
+        "characters": 75
+      },
+      {
+        "rank": 15,
+        "name": "Hometown",
+        "present": true,
+        "reason": "exported",
+        "selector": "Apify candidate comment body pbp7mga",
+        "characters": 17
+      }
+    ],
+    "closure_markers": [],
+    "comment_coverage": {
+      "declared": 47,
+      "saved": 25,
+      "readable": 25,
+      "deleted": 0,
+      "unavailable": 0,
+      "unique_ids": true,
+      "reviewed": true
+    },
+    "reddit": {
+      "tree_complete": false,
+      "mentions_reviewed": true,
+      "unresolved": 0,
+      "api_calls": 0,
+      "capture_sha256": "d37284e46536c41f1ebbb7f9282595116a4898bf04f43ba319503ecaa8b88bc0",
+      "content_sha256": "314fc54a340538c658b2d304388d087ad31f09d93b2d39a0866e4ee5d3c6540f"
+    },
+    "actor_status": "SUCCEEDED",
+    "rejected_rows": 0,
+    "comments_saved": 25,
+    "unknown_parent_comments": 14
+  }
+]

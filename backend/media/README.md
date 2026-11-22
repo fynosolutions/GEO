@@ -1,4 +1,39 @@
-# Media list collector — Issue #15
+# Media collectors — Issue #20 current and Issue #15 history
+
+## Current URL-driven collection — Issue #20 phases 1–3
+
+The default CLI reads `samples/step1-media/urls.json` (37 official inputs). URLs are data, not code constants. `sources.ts` validates the list and derives stable IDs and page types; `live.ts` records bounded HTTP captures, exact status/final URL/time/hash; `layouts.ts` routes by site/layout; `current.ts` isolates each failure and writes evidence. The historical manifest is only `config/media-legacy-sources.json`.
+
+```sh
+npm ci
+npm run build
+npm run collect:media
+npm run collect:media -- --offline
+npm run collect:media -- --offline-html
+npm run collect:media -- --urls /path/to/urls.json --out .local/issue20/custom
+npm run verify:media-current
+```
+
+Default requests are fresh HTTP, sequential with a per-host interval. Offline mode makes no requests and verifies cached content hashes. Failed fresh requests never fall back to older success/index/manual data. Exact copies of each requested URL remain in the output in input order; redirects are separate evidence. `--cache` defaults to `.local/issue20/pages`, `--out` to `.local/issue20/current`. One-page lists use the same schema and need no code changes. Invalid configuration fails before collection or replacing results.
+
+Outputs: `articles.json` retains the six #15 article keys; current restaurant rows add `closed`, and Reddit quote rows add `comment_url`; `evidence.json`, `access-checks.json`, `acceptance.json`, `description-availability.json`, `input-manifest.json` and `coverage.md` describe access and quality. Page type distinguishes lists, directories, standalone reviews/stories and community threads. `rank` is source order and is not an assertion of editorial ranking on directories or single stories.
+
+Access outcomes separate parsed data, partial/unverified counts, readable parser gaps, HTTP rejection, network failures, storage/cache errors and deferred sources. An HTTP 200 is not by itself a successful extraction. A page without an original directory description retains `blurb:null` with `not_provided`; tags/prices are not fabricated descriptions.
+
+Phase 3 adds `closure.ts` (source-specific closure markers), `reddit.ts` (approved OAuth reads, full accessible reply-tree traversal and 24-hour official snapshots) and `reddit-mentions.ts` (exact original mention spans and quote URLs). `closed=false` means the source did not mark that entry closed, not that the business is open now. Explicit permanently-closed text wins over contradictory embedded booleans; daily opening status and unrelated restaurants are excluded.
+
+Reddit requires approved credentials; missing configuration yields `credentials_missing` with zero anonymous requests. `--offline-html` reuses verified HTML and attempts official Reddit reads; `--offline` makes no requests. The client requests only comments and morechildren, limits each expansion batch to 100 IDs, preserves available partial results and strips deleted/removed bodies and author/account fields. Newly deleted threads remove older snapshots. Expired official snapshots are removed on read and never replaced by old saved HTML.
+
+The mention catalog comes from all current media entries and configured target aliases, not the old fixed thread names. Automatic literal matches may miss unknown names, so tree coverage and semantic mention review are separate. `reddit-review-template.json` lists exact body spans for checking; `--reddit-review FILE` accepts reviewed native comment IDs/spans bound to the current content SHA-256. Unchanged content can reuse review on future fetches; edits/deletions invalidate it. Separate comments retain separate source quotes and permalinks. API Markdown bodies are retained as returned.
+
+See [Reddit setup](../../docs/REDDIT_API_SETUP.md) for the application draft and `npm run reddit:auth -- --start` after approval. The loopback helper saves the refresh token to local `.env` without printing it. It was not started during this implementation, and no application was submitted by the agent.
+
+Current official Reddit live acceptance is pending approval/configuration. `phase3_code_complete` describes implementation; `phase3_complete` additionally needs verified comment-tree and mention coverage. `ready_for_delivery` remains false pending manual exceptions and final clean-machine acceptance. New API request counts are separate from cached capture counts; pricing is marked unknown when requests occur without billing evidence. Historical #15 files are unchanged.
+
+
+## Historical #15 collector
+
+The following sections and commands apply only to `--legacy` and its nine-source historical evidence.
 
 `public.ts` exposes the nine-source manifest, article/evidence types, DOM/index parsers and six-branch membership table. `indexed.ts` is a labelled fallback, `saved.ts` handles user-provided saved pages, `texts.ts` imports supplied paragraphs, and `acceptance.ts` checks data completeness, and `descriptions.ts` extracts scoped source paragraphs and records per-entry availability. No Apify, merchant database, UI or weekly workflow is added.
 
@@ -18,10 +53,10 @@ BROWSER_CHANNEL=chrome npm test
 ## Collection and reproduction
 
 ```sh
-npm run collect:media -- --out .local/issue15/replay
-npm run collect:media -- --fetch-missing --out .local/issue15/fresh
-npm run collect:media -- --source eater-hot-pot --refresh --out .local/issue15/refreshed
-npm run collect:media -- --descriptions full --supplied-pages .local/issue15/user-supplied --out samples/step1-media
+npm run collect:media -- --legacy --out .local/issue15/replay
+npm run collect:media -- --legacy --fetch-missing --out .local/issue15/fresh
+npm run collect:media -- --legacy --source eater-hot-pot --refresh --out .local/issue15/refreshed
+npm run collect:media -- --legacy --descriptions full --supplied-pages .local/issue15/user-supplied --out samples/step1-media
 ```
 
 Default cache: `.local/issue15/pages`; default output: `.local/issue15/parsed`. A fresh checkout has no original caches; offline replay records missing sources as failed and exits 2. Exact replay of the delivered text requires the original local captures and user-supplied files, identified by SHA-256 in `cache-manifest.json`. New HTTP captures may reflect later website content. `--cache DIR`, `--out DIR`, `--source ID` and `--targets FILE` override inputs/output; six unique target IDs are required.

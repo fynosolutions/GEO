@@ -1,0 +1,124 @@
+{
+  "entries": [
+    {
+      "url": "https://www.corner.inc/place/pXfxs8NBaXA1",
+      "status": "provided",
+      "reason": "HTTP 429; direct request limited.",
+      "observed_at": "2026-11-19T06:03:19.417Z",
+      "http_status": 429,
+      "response_file": "access-evidence/8cec6d365a43fcecf56b.html",
+      "response_sha256": "595b6fd2b805abd0e15a31eb2db14f57a96b979755adab8ccefc7b4ac6a30259",
+      "file": "pages/8cec6d365a43fcecf56b.html",
+      "saved_at": "2026-11-19T13:41:10.836Z",
+      "sha256": "d28ee81c38ea8f9ab1d47eede597a1ddddf869fa892a7d9b34c8165ec02b0783"
+    },
+    {
+      "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/shabushabu-mayumon",
+      "status": "provided",
+      "reason": "HTTP 202 verification response; restaurant body unavailable.",
+      "observed_at": "2026-11-19T06:03:20.257Z",
+      "http_status": 202,
+      "response_file": "access-evidence/d906a5b3a829d633ab51.html",
+      "response_sha256": "190245affefd3b2622949333d4b2dd81490234f1df8ebf13256e2eae4a4a675c",
+      "file": "pages/d906a5b3a829d633ab51.html",
+      "saved_at": "2026-11-19T13:41:54.709Z",
+      "sha256": "6db7f14956e931d1bbe9031b62a372aa16fc4f74c91978a66101d64ac844fc7a"
+    },
+    {
+      "url": "https://www.corner.inc/place/pViBMQCWetMi",
+      "status": "provided",
+      "reason": "HTTP 429; direct request limited.",
+      "observed_at": "2026-11-19T06:03:21.037Z",
+      "http_status": 429,
+      "response_file": "access-evidence/6dcacdf5a7b8e31436c5.html",
+      "response_sha256": "4be52e8ca4c63a06ec52ae5204b8b83e2d6f934d9b41b2c086586b21e94bb6f5",
+      "file": "pages/6dcacdf5a7b8e31436c5.html",
+      "saved_at": "2026-11-19T13:42:35.793Z",
+      "sha256": "c5579875af0ebbea0449a6dce20463ad3cf46f80777087fd310c3031ba19dbab"
+    },
+    {
+      "url": "https://guide.michelin.com/en/new-york-state/new-york/restaurant/shabushabu-mayumon",
+      "status": "provided",
+      "reason": "HTTP 202 verification response; restaurant body unavailable.",
+      "observed_at": "2026-11-19T06:03:21.126Z",
+      "http_status": 202,
+      "response_file": "access-evidence/a3b1384484a6ae885db7.html",
+      "response_sha256": "5b8b170328bce112f83198eb8e4e3baf3a29a3aeb06847d08b69c5509a01433f",
+      "file": "pages/a3b1384484a6ae885db7.html",
+      "saved_at": "2026-11-19T13:48:11.561Z",
+      "sha256": "c11a99c86227c73146c7530659cad5796664a50ad375823d9b6b149d83c6488a"
+    },
+    {
+      "url": "https://www.corner.inc/place/puZejM3KNMGD",
+      "status": "provided",
+      "reason": "HTTP 429; direct request limited.",
+      "observed_at": "2026-11-19T06:03:21.381Z",
+      "http_status": 429,
+      "response_file": "access-evidence/d1006f2856717e496de3.html",
+      "response_sha256": "c91c35b058e9fb5ecf2d122e58cb33842137379b330de35b6d8993d6010f1143",
+      "file": "pages/d1006f2856717e496de3.html",
+      "saved_at": "2026-11-19T13:43:40.133Z",
+      "sha256": "46519ac2fa43262bd42737b48762a494e8bf4ec98b8718c51a57bcc2976b6987"
+    },
+    {
+      "url": "https://www.corner.inc/list/794a4486-3983-4661-ad25-496a5dd82dcd",
+      "status": "provided",
+      "reason": "HTTP 429; direct request limited.",
+      "observed_at": "2026-11-19T06:03:21.469Z",
+      "http_status": 429,
+      "response_file": "access-evidence/8c64f5104d6961d8010b.html",
+      "response_sha256": "66ce7669e3a7aab0380275aaa6cf8b55e4b0a2ccb78bf5e717a35a1ad4b886f1",
+      "file": "pages/8c64f5104d6961d8010b.html",
+      "saved_at": "2026-11-19T13:43:57.916Z",
+      "sha256": "8e2d245b5a4a62df017fe004b48700aa85e7889db43b021b6a42ed199db054dd"
+    },
+    {
+      "url": "https://www.corner.inc/guides/new-york-city/manhattan/bubbling-good-times-best-hotpot-restaurants-in-manhattan",
+      "status": "provided",
+      "reason": "HTTP 429; direct request limited.",
+      "observed_at": "2026-11-19T06:03:21.555Z",
+      "http_status": 429,
+      "response_file": "access-evidence/bf51dde417f320637a40.html",
+      "response_sha256": "c7c6a18c196967458810bfd49eed5867fa1c803e6545b30ed9ffedaf2c73368e",
+      "file": "pages/bf51dde417f320637a40.html",
+      "saved_at": "2026-11-19T13:44:31.985Z",
+      "sha256": "1e218c8ffe47cc5dbb35b4d31de6dd0a9abf90afa378e946cec2db448b09332b"
+    },
+    {
+      "url": "https://www.corner.inc/place/pahWPjNKWq9w",
+      "status": "provided",
+      "reason": "HTTP 429; direct request limited.",
+      "observed_at": "2026-11-19T06:03:21.642Z",
+      "http_status": 429,
+      "response_file": "access-evidence/6cabcd099c434a56cc31.html",
+      "response_sha256": "7f153df5b24236e835faa9be7bb9d89bba6544a3e14f79e73a1a9dbf8d59a8c5",
+      "file": "pages/6cabcd099c434a56cc31.html",
+      "saved_at": "2026-11-19T13:44:38.006Z",
+      "sha256": "f00f21df06df24b7b200b44d3fb4fabd61af67cd0160fe37d6f7fbc59d0eed0c"
+    },
+    {
+      "url": "https://www.corner.inc/place/pkjR4kv52Go5",
+      "status": "provided",
+      "reason": "HTTP 429; direct request limited.",
+      "observed_at": "2026-11-19T06:03:21.742Z",
+      "http_status": 429,
+      "response_file": "access-evidence/b41c036fa6a64c49e54c.html",
+      "response_sha256": "dc67d27d94abcd65e95121c03dda5e5650598f9d15e09f7d243e175c3bed3067",
+      "file": "pages/b41c036fa6a64c49e54c.html",
+      "saved_at": "2026-11-19T13:44:50.780Z",
+      "sha256": "172aec89636e538fcc7ba2fa53b60fd40c73b3a6c94f7961064ee51ef5923050"
+    },
+    {
+      "url": "https://www.corner.inc/place/pzm37JubPE4s",
+      "status": "provided",
+      "reason": "HTTP 429; direct request limited.",
+      "observed_at": "2026-11-19T06:03:21.838Z",
+      "http_status": 429,
+      "response_file": "access-evidence/646be88dd340b99ee385.html",
+      "response_sha256": "78cf2d49c67227aac5403a0836f7fe491f91f2d5e08b25c0b9eb55fc7ed72173",
+      "file": "pages/646be88dd340b99ee385.html",
+      "saved_at": "2026-11-19T13:45:05.048Z",
+      "sha256": "1b9a1a08bb4f1b78450f1b47ba2d3b614d9a982af399a43fd5b7aa7c68d41b4a"
+    }
+  ]
+}

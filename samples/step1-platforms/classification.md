@@ -1,6 +1,6 @@
 # GEO 平台分类与单店访问清单
 
-2026-11-20 按会议纪要及用户本轮确认口径，进一步更新 Issue #16 分类结果。
+2026-11-20 按会议纪要及用户本轮确认口径，进一步更新 Issue #16 分类结果。2026-11-23 补充各店媒体来源的具体板块名称与路径标注。
 
 ## 本次规则
 
@@ -86,14 +86,16 @@
 
 ## 各店独立访问清单
 
+媒体来源采用「平台名 — 对应品类板块」标注，域名栏同时列出板块／专题路径，以区分同一网站在三家门店中的品类方向。域名用于平台归并，路径用于说明品类映射；下列路径是已核实存在的对应内容，并非已恢复的历史引用 URL。引用题数及返回 URL 累计数仍为整个平台口径，不是所列板块的单独次数。JSON 的 domain 保持纯域名，不把路径拼入域名或拆成重复的平台记录。
+
 ### 020 · Easy Joy
 
 来源工作簿为 EasyJoy_GEO_Statistics.xlsx，共 600 题。
 
-| 来源 | 域名 | 大类 | JSON 子类 | 引用题数 | 返回 URL 累计数 |
+| 来源／对应品类板块 | 域名／对应板块路径 | 大类 | JSON 子类 | 平台引用题数 | 平台返回 URL 累计数 |
 | --- | --- | --- | --- | ---: | ---: |
-| The Infatuation | theinfatuation.com | 第三方 | 品类专属 | 421 | 869 |
-| Eater | ny.eater.com | 第三方 | 品类专属 | 539 | 1351 |
+| The Infatuation — 火锅／AYCE 专题 | theinfatuation.com<br>火锅：[/new-york/guides/best-hot-pot-nyc](https://www.theinfatuation.com/new-york/guides/best-hot-pot-nyc)<br>AYCE：[/new-york/guides/best-all-you-can-eat-new-york](https://www.theinfatuation.com/new-york/guides/best-all-you-can-eat-new-york) | 第三方 | 品类专属 | 421 | 869 |
+| Eater — 纽约火锅榜单 | ny.eater.com<br>火锅：[/maps/best-hot-pot-restaurants-nyc](https://ny.eater.com/maps/best-hot-pot-restaurants-nyc) | 第三方 | 品类专属 | 539 | 1351 |
 | Reddit | reddit.com | 社交 | null | 390 | 1157 |
 | Corner | corner.inc | 口碑 | 社区点评与口碑汇总 | 247 | 423 |
 | Tripadvisor | tripadvisor.com | 口碑 | 综合门店评价 | 162 | 204 |
@@ -174,10 +176,10 @@
 
 来源工作簿为 Bao_Noodle_House_Statistics.xlsx，共 600 题。
 
-| 来源 | 域名 | 大类 | JSON 子类 | 引用题数 | 返回 URL 累计数 |
+| 来源／对应品类板块 | 域名／对应板块路径 | 大类 | JSON 子类 | 平台引用题数 | 平台返回 URL 累计数 |
 | --- | --- | --- | --- | ---: | ---: |
-| The Infatuation | theinfatuation.com | 第三方 | 品类专属 | 423 | 880 |
-| Eater | ny.eater.com | 第三方 | 品类专属 | 582 | 1423 |
+| The Infatuation — 汤面／饺子专题 | theinfatuation.com<br>汤面：[/new-york/guides/best-noodle-soup-nyc](https://www.theinfatuation.com/new-york/guides/best-noodle-soup-nyc)<br>饺子：[/new-york/guides/the-dumpling-map](https://www.theinfatuation.com/new-york/guides/the-dumpling-map) | 第三方 | 品类专属 | 423 | 880 |
+| Eater — 纽约汤面专题文章 | ny.eater.com<br>汤面：[/2023/1/24/23559677/nycs-best-noodle-soup](https://ny.eater.com/2023/1/24/23559677/nycs-best-noodle-soup) | 第三方 | 品类专属 | 582 | 1423 |
 | Reddit | reddit.com | 社交 | null | 361 | 795 |
 | Corner | corner.inc | 口碑 | 社区点评与口碑汇总 | 180 | 275 |
 | Tripadvisor | tripadvisor.com | 口碑 | 综合门店评价 | 109 | 136 |
@@ -251,10 +253,10 @@
 
 来源工作簿为 Frydom_Express_GEO_Platform_Statistics.xlsx，共 600 题。
 
-| 来源 | 域名 | 大类 | JSON 子类 | 引用题数 | 返回 URL 累计数 |
+| 来源／对应品类板块 | 域名／对应板块路径 | 大类 | JSON 子类 | 平台引用题数 | 平台返回 URL 累计数 |
 | --- | --- | --- | --- | ---: | ---: |
-| The Infatuation | theinfatuation.com | 第三方 | 品类专属 | 224 | 386 |
-| Eater | ny.eater.com | 第三方 | 品类专属 | 432 | 856 |
+| The Infatuation — 炸鸡频道／榜单 | theinfatuation.com<br>炸鸡频道：[/new-york/cuisines/fried-chicken](https://www.theinfatuation.com/new-york/cuisines/fried-chicken)<br>炸鸡榜单：[/new-york/guides/best-fried-chicken-nyc](https://www.theinfatuation.com/new-york/guides/best-fried-chicken-nyc) | 第三方 | 品类专属 | 224 | 386 |
+| Eater — 纽约炸鸡／鸡翅榜单 | ny.eater.com<br>炸鸡：[/maps/nyc-fried-chicken-best](https://ny.eater.com/maps/nyc-fried-chicken-best)<br>鸡翅：[/maps/best-chicken-wings-nyc](https://ny.eater.com/maps/best-chicken-wings-nyc) | 第三方 | 品类专属 | 432 | 856 |
 | Reddit | reddit.com | 社交 | null | 320 | 662 |
 | Corner | corner.inc | 口碑 | 社区点评与口碑汇总 | 251 | 499 |
 | Tripadvisor | tripadvisor.com | 口碑 | 综合门店评价 | 151 | 223 |
